@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Recopie les modules de l'application dans le dépôt, puis les envoie sur GitHub.
+# Un module absent de l'application est retiré du dépôt.
 # Le message du commit est la date et l'heure.
 
 set -euo pipefail
@@ -13,19 +14,36 @@ LIST="${ROOT}/etc/modules.list"
 [[ -f "${LIST}" ]] || { echo "Liste introuvable : ${LIST}" >&2; exit 1; }
 command -v gh >/dev/null 2>&1 || { echo "La commande gh est absente." >&2; exit 1; }
 
-copied=()
+declare -A keep=()
+kept_list=""
 while IFS= read -r name || [[ -n "${name}" ]]; do
   [[ -z "${name}" || "${name}" == \#* ]] && continue
-  [[ -d "${SRC}/${name}" ]] || { echo "Module absent de l'application : ${name}" >&2; exit 1; }
+  if [[ ! -d "${SRC}/${name}" ]]; then
+    echo "Module supprimé à la source : ${name}"
+    rm -rf "${DEST}/${name}"
+    continue
+  fi
+  keep["${name}"]=1
+  kept_list+="${name}"$'\n'
   rm -rf "${DEST}/${name}"
   cp -a "${SRC}/${name}" "${DEST}/${name}"
   find "${DEST}/${name}" -type d -name '__pycache__' -print0 | xargs -0 -r rm -rf
   find "${DEST}/${name}" -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.broken' \) -delete
-  copied+=("application/weblgx/addons/${name}")
 done < "${LIST}"
 
+for path in "${DEST}"/*; do
+  [[ -d "${path}" ]] || continue
+  name="$(basename "${path}")"
+  if [[ -z "${keep[${name}]:-}" ]]; then
+    echo "Module retiré du dépôt : ${name}"
+    rm -rf "${path}"
+  fi
+done
+
+printf '%s' "${kept_list}" > "${LIST}"
+
 cd "${ROOT}"
-git add -- "${copied[@]}"
+git add -A -- application/weblgx/addons etc/modules.list
 
 if git diff --cached --quiet; then
   echo "Aucun changement à envoyer."
