@@ -1,16 +1,16 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * analytic
 #
 # Translators:
 # Jolien De Paepe, 2023
 # Manon Rondou, 2025
-# Wil Odoo, 2025
+# Wil Weblgx, 2025
 #
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-29 18:35+0000\n"
 "PO-Revision-Date: 2026-02-24 14:03+0000\n"
@@ -559,12 +559,12 @@ msgstr "Si coché, certains messages ont une erreur de livraison."
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action
 #: model_terms:ir.actions.act_window,help:analytic.account_analytic_line_action_entries
 msgid ""
-"In Odoo, sales orders and projects are implemented using\n"
+"In Weblgx, sales orders and projects are implemented using\n"
 "                analytic accounts. You can track costs and revenues to "
 "analyse\n"
 "                your margins easily."
 msgstr ""
-"Dans Odoo, les commandes clients et les projets sont implémentés en "
+"Dans Weblgx, les commandes clients et les projets sont implémentés en "
 "utilisant les\n"
 "                comptes analytiques. Vous pouvez suivre les coûts et les "
 "revenus pour analyser\n"

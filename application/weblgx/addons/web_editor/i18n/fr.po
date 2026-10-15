@@ -1,18 +1,18 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * web_editor
 #
 # Translators:
 # Jolien De Paepe, 2024
 # Asia Ba, 2024
-# Wil Odoo, 2025
+# Wil Weblgx, 2025
 # Manon Rondou, 2025
 #
 # "Manon Rondou (ronm)" <ronm@odoo.com>, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2026-03-14 08:11+0000\n"
@@ -2225,8 +2225,8 @@ msgstr "Liste numérotée"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.tests
-msgid "Odoo Editor Tests"
-msgstr "Essais d'Odoo Editor"
+msgid "Weblgx Editor Tests"
+msgstr "Essais de Weblgx Editor"
 
 #. module: web_editor
 #. odoo-python
@@ -3207,11 +3207,11 @@ msgstr "Cette image est une image externe"
 #, python-format
 msgid ""
 "This type of image is not supported for cropping.<br/>If you want to crop "
-"it, please first download it from the original source and upload it in Odoo."
+"it, please first download it from the original source and upload it in Weblgx."
 msgstr ""
 "Ce type d'image n'est pas pris en charge pour le recadrage. <br/>Si vous "
 "souhaitez le recadrer, veuillez d'abord le télécharger à partir de la source "
-"d'origine et le télécharger dans Odoo."
+"d'origine et le télécharger dans Weblgx."
 
 #. module: web_editor
 #. odoo-javascript

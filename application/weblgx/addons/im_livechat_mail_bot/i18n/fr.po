@@ -1,14 +1,14 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # 	* im_livechat_mail_bot
 #
 # Translators:
-# Wil Odoo, 2023
+# Wil Weblgx, 2023
 # Manon Rondou, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
@@ -29,13 +29,13 @@ msgid ""
 "Good, you can customize canned responses in the live chat application.<br/"
 "><br/><b>It's the end of this overview</b>, you can now <b>close this "
 "conversation</b> or start the tour again with typing <span "
-"class=\"o_odoobot_command\">start the tour</span>. Enjoy discovering Odoo!"
+"class=\"o_odoobot_command\">start the tour</span>. Enjoy discovering Weblgx!"
 msgstr ""
 "Bien, vous pouvez personnaliser les réponses enregistrées dans l'application "
 "Live Chat.<br/><br/><b>Nous sommes arrivés à la fin de cet aperçu.</b>Vous "
 "pouvez maintenant <b>fermer cette discussion</b> ou reprendre depuis le "
 "début en écrivant <span class=\"o_odoobot_command\">lancer la visite</span>. "
-"Profitez bien de cette découverte d'Odoo !"
+"Profitez bien de cette découverte de Weblgx !"
 
 #. module: im_livechat_mail_bot
 #: model:ir.model,name:im_livechat_mail_bot.model_mail_bot
@@ -55,8 +55,8 @@ msgstr ""
 
 #. module: im_livechat_mail_bot
 #: model:ir.model.fields,field_description:im_livechat_mail_bot.field_res_users__odoobot_state
-msgid "OdooBot Status"
-msgstr "Statut OdooBot"
+msgid "WeblgxBot Status"
+msgstr "Statut WeblgxBot"
 
 #. module: im_livechat_mail_bot
 #: model:ir.model.fields.selection,name:im_livechat_mail_bot.selection__res_users__odoobot_state__onboarding_canned

@@ -27,7 +27,7 @@ registry.category("web_tour.tours").add('survey_tour', {
 }, {
     trigger: 'button[type=submit]',
     extra_trigger: '.js_question-wrapper span:contains("How frequently")',
-    content: _t("Whenever you pick an answer, Odoo saves it for you."),
+    content: _t("Whenever you pick an answer, Weblgx saves it for you."),
     position: 'bottom',
 }, {
     trigger: 'button[type=submit]',

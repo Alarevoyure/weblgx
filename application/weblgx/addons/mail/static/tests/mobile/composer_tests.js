@@ -16,7 +16,7 @@ QUnit.test(
         pyEnv["discuss.channel"].create({ name: "General" });
         // patching navigator to fake a mobile device
         patchWithCleanup(browser.navigator, {
-            userAgent: "Chrome/0.0.0 Android (OdooMobile; Linux; Android 13; Odoo TestSuite)",
+            userAgent: "Chrome/0.0.0 Android (OdooMobile; Linux; Android 13; Weblgx TestSuite)",
         });
         const { openDiscuss } = await start();
         openDiscuss();

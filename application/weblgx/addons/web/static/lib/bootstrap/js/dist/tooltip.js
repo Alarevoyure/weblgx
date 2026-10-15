@@ -570,11 +570,11 @@
       const tip = this.getTipElement();
 
       const complete = () => {
-        // Odoo patch
+        // Weblgx patch
         if (!this._element || !this._config) {
           return;
         }
-        // End Odoo patch
+        // End Weblgx patch
         if (this._isWithActiveTrigger()) {
           return;
         }

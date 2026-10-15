@@ -11,7 +11,7 @@ Deux niveaux d'administration, avec les mêmes menus et les mêmes droits techni
 
 **SuperAdmin** (`lgx_saas_admin.group_superadmin`)
 
-- Comptes Administrator et OdooBot
+- Comptes Administrator et WeblgxBot
 - Voit et administre toutes les sociétés
 - Création et suppression de sociétés
 - Membre de toutes les sociétés (sélecteur inclus)
@@ -35,7 +35,7 @@ sudo -u weblgx weblgx -d weblgx -u lgx_saas_admin \
 systemctl restart weblgx
 ```
 
-Au premier passage, les SuperAdmin autres qu'Administrator et OdooBot
+Au premier passage, les SuperAdmin autres qu'Administrator et WeblgxBot
 deviennent Admin et conservent leurs sociétés autorisées.
 
 ## Licence

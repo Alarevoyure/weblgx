@@ -273,7 +273,7 @@ class WikiPage(models.Model):
                 )
 
     def _wiki_is_reviewer(self):
-        """Validateur wiki (approuver / publier / refuser) ou administrateur Odoo."""
+        """Validateur wiki (approuver / publier / refuser) ou administrateur Weblgx."""
         u = self.env.user
         return (
             u.has_group("wiki_knowledge.group_wiki_reviewer")

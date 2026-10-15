@@ -1,15 +1,15 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * iap_mail
 #
 # Translators:
-# Wil Odoo, 2023
+# Wil Weblgx, 2023
 # Manon Rondou, 2024
 #
 # Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-12 18:36+0000\n"
 "PO-Revision-Date: 2026-03-14 08:10+0000\n"

@@ -824,7 +824,7 @@ QUnit.module("WebEditor.HtmlField", ({ beforeEach }) => {
         assert.containsOnce(target, ".odoo-editor-editable p:contains('second')");
     });
 
-    QUnit.module('Odoo fields synchronisation');
+    QUnit.module('Weblgx fields synchronisation');
 
     QUnit.test("Synchronise fields when editing.", async (assert) => {
         serverData.models.partner.records = [{

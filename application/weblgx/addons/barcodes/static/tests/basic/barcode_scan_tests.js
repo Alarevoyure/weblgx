@@ -27,6 +27,6 @@ QUnit.test("Display notification for media device permission on barcode scanning
     await mount(BarcodeScan, target, { env });
 
     await document.querySelector('.o_mobile_barcode').click();
-    await contains(".o_notification", { text: "Could not start scanning. Odoo needs your authorization first." });
+    await contains(".o_notification", { text: "Could not start scanning. Weblgx needs your authorization first." });
 
 })

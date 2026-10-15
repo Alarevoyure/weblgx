@@ -6,7 +6,7 @@
     'author': 'LOEGAUX - Propriété de Ferme 201 SARL',
     'category': 'Hidden',
     'description': """
-Odoo Web Editor widget.
+Weblgx Web Editor widget.
 ==========================
 
 """,

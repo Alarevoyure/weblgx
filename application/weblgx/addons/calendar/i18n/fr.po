@@ -1,16 +1,16 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * calendar
 #
 # Translators:
 # Jolien De Paepe, 2024
-# Wil Odoo, 2024
+# Wil Weblgx, 2024
 # Manon Rondou, 2025
 #
 # "Manon Rondou (ronm)" <ronm@odoo.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-20 18:35+0000\n"
 "PO-Revision-Date: 2025-10-15 11:55+0000\n"
@@ -214,7 +214,7 @@ msgid ""
 "                    <li>\n"
 "                        How to Join:\n"
 "                        <t t-if=\"object.get_base_url() in "
-"object.event_id.videocall_location\"> Join with Odoo Discuss</t>\n"
+"object.event_id.videocall_location\"> Join with Weblgx Discuss</t>\n"
 "                        <t t-else=\"\"> Join at</t><br>\n"
 "                        <a t-att-href=\"object.event_id.videocall_location\" "
 "target=\"_blank\" t-out=\"object.event_id.videocall_location or "
@@ -397,7 +397,7 @@ msgstr ""
 "                    <li>\n"
 "                        Comment rejoindre :\n"
 "                        <t t-if=\"object.get_base_url() in "
-"object.event_id.videocall_location\"> Rejoindre avec Odoo Discussion</t>\n"
+"object.event_id.videocall_location\"> Rejoindre avec Weblgx Discussion</t>\n"
 "                        <t t-else=\"\"> Rejoindre via</t><br>\n"
 "                        <a t-att-href=\"object.event_id.videocall_location\" "
 "target=\"_blank\" t-out=\"object.event_id.videocall_location or "
@@ -547,7 +547,7 @@ msgid ""
 "                    <li>\n"
 "                        How to Join:\n"
 "                        <t t-if=\"object.get_base_url() in "
-"object.event_id.videocall_location\"> Join with Odoo Discuss</t>\n"
+"object.event_id.videocall_location\"> Join with Weblgx Discuss</t>\n"
 "                        <t t-else=\"\"> Join at</t><br>\n"
 "                        <a t-att-href=\"object.event_id.videocall_location\" "
 "target=\"_blank\" t-out=\"object.event_id.videocall_location or "
@@ -702,7 +702,7 @@ msgstr ""
 "                    <li>\n"
 "                        Comment rejoindre :\n"
 "                        <t t-if=\"object.get_base_url() in "
-"object.event_id.videocall_location\"> Rejoindre avec Odoo Discussion</t>\n"
+"object.event_id.videocall_location\"> Rejoindre avec Weblgx Discussion</t>\n"
 "                        <t t-else=\"\"> Rejoindre via</t><br>\n"
 "                        <a t-att-href=\"object.event_id.videocall_location\" "
 "target=\"_blank\" t-out=\"object.event_id.videocall_location or "
@@ -803,7 +803,7 @@ msgid ""
 "                            <li>\n"
 "                                How to Join:\n"
 "                                <t t-if=\"object.get_base_url() in "
-"object.videocall_location\"> Join with Odoo Discuss</t>\n"
+"object.videocall_location\"> Join with Weblgx Discuss</t>\n"
 "                                <t t-else=\"\"> Join at</t><br>\n"
 "                                <a t-att-href=\"object.videocall_location\" "
 "target=\"_blank\" t-out=\"object.videocall_location or "
@@ -919,7 +919,7 @@ msgstr ""
 "                            <li>\n"
 "                                Comment rejoindre :\n"
 "                                <t t-if=\"object.get_base_url() in "
-"object.videocall_location\"> Rejoindre avec Odoo Discussion</t>\n"
+"object.videocall_location\"> Rejoindre avec Weblgx Discussion</t>\n"
 "                                <t t-else=\"\"> Rejoindre via</t><br>\n"
 "                                <a t-att-href=\"object.videocall_location\" "
 "target=\"_blank\" t-out=\"object.videocall_location or "
@@ -1071,7 +1071,7 @@ msgid ""
 "                    <li>\n"
 "                        How to Join:\n"
 "                        <t t-if=\"object.get_base_url() in "
-"object.event_id.videocall_location\"> Join with Odoo Discuss</t>\n"
+"object.event_id.videocall_location\"> Join with Weblgx Discuss</t>\n"
 "                        <t t-else=\"\"> Join at</t><br>\n"
 "                        <a t-att-href=\"object.event_id.videocall_location\" "
 "target=\"_blank\" t-out=\"object.event_id.videocall_location or "
@@ -1213,7 +1213,7 @@ msgstr ""
 "                    <li>\n"
 "                        Comment rejoindre :\n"
 "                        <t t-if=\"object.get_base_url() in "
-"object.event_id.videocall_location\"> Rejoindre avec Odoo Discussion</t>\n"
+"object.event_id.videocall_location\"> Rejoindre avec Weblgx Discussion</t>\n"
 "                        <t t-else=\"\"> Rejoindre via</t><br>\n"
 "                        <a t-att-href=\"object.event_id.videocall_location\" "
 "target=\"_blank\" t-out=\"object.event_id.videocall_location or "
@@ -1250,13 +1250,13 @@ msgstr ""
 
 #. module: calendar
 #: model_terms:ir.ui.view,arch_db:calendar.view_calendar_event_form_quick_create
-msgid "<span class=\"fa fa-plus\"/> <span>Odoo meeting</span>"
-msgstr "<span class=\"fa fa-plus\"/> <span>réunion Odoo</span>"
+msgid "<span class=\"fa fa-plus\"/> <span>Weblgx meeting</span>"
+msgstr "<span class=\"fa fa-plus\"/> <span>réunion Weblgx</span>"
 
 #. module: calendar
 #: model_terms:ir.ui.view,arch_db:calendar.view_calendar_event_form
-msgid "<span class=\"fa fa-plus\"/><span> Odoo meeting</span>"
-msgstr "<span class=\"fa fa-plus\"/><span>réunion Odoo</span>"
+msgid "<span class=\"fa fa-plus\"/><span> Weblgx meeting</span>"
+msgstr "<span class=\"fa fa-plus\"/><span>réunion Weblgx</span>"
 
 #. module: calendar
 #: model_terms:ir.ui.view,arch_db:calendar.view_calendar_event_form

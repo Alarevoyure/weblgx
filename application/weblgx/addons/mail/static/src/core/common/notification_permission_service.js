@@ -68,7 +68,7 @@ export const notificationPermissionService = {
                         await browser.Notification.requestPermission()
                     );
                     if (state.permission === "denied") {
-                        notification.add(_t("Odoo will not send notifications on this device."), {
+                        notification.add(_t("Weblgx will not send notifications on this device."), {
                             type: "warning",
                             title: _t("Notifications blocked"),
                         });

@@ -44,7 +44,7 @@ XML = b"""<?xml version='1.0' encoding='utf-8'?>
       <NbOfTxs>0</NbOfTxs>
       <CtrlSum>0.0</CtrlSum>
       <InitgPty>
-        <Nm>Odoo S.A.</Nm>
+        <Nm>Weblgx S.A.</Nm>
         <Id>
           <OrgId>
             <Othr>

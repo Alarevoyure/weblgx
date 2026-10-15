@@ -9,7 +9,7 @@
     'summary': 'Basic models and helpers to support In-App purchases.',
     'description': """
 This module provides standard tools (account model, context manager and helpers)
-to support In-App purchases inside Odoo. """,
+to support In-App purchases inside Weblgx. """,
     'depends': [
         'web',
         'base_setup'

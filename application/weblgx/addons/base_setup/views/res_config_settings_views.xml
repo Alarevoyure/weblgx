@@ -104,7 +104,7 @@
                         <div id="contacts_settings" groups="base.group_no_one" invisible="1">
                             <block title="Contacts" name="contacts_setting_container">
                                 <setting id="sms" string="Send SMS" documentation="/applications/marketing/sms_marketing/pricing/pricing_and_faq.html" help="Send texts to your contacts" />
-                                <setting help="Automatically enrich your contact base with company data" title="When populating your address book, Odoo provides a list of matching companies. When selecting one item, the company data and logo are auto-filled." id="partner_autocomplete">
+                                <setting help="Automatically enrich your contact base with company data" title="When populating your address book, Weblgx provides a list of matching companies. When selecting one item, the company data and logo are auto-filled." id="partner_autocomplete">
                                     <field name="module_partner_autocomplete"/>
                                 </setting>
                         </block>
@@ -129,7 +129,7 @@
 
                     <block title="Progressive Web App" id="pwa_settings" groups="base.group_no_one">
                         <setting help="This name will be used for the application when Web@LGX is installed through the browser.">
-                            <field name="web_app_name" placeholder="Odoo"/>
+                            <field name="web_app_name" placeholder="Weblgx"/>
                         </setting>
                     </block>
 

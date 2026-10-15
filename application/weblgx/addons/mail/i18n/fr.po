@@ -1,16 +1,16 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * mail
 #
 # Translators:
 # Fabien Pinckaers <fp@openerp.com>, 2023
 # Jolien De Paepe, 2024
-# Wil Odoo, 2024
+# Wil Weblgx, 2024
 # Manon Rondou, 2025
 # "Manon Rondou (ronm)" <ronm@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2026-03-14 08:10+0000\n"
@@ -34,13 +34,13 @@ msgid ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                Add addresses to the Allowed List\n"
 "            </p><p>\n"
-"                To protect you from spam and reply loops, Odoo automatically "
+"                To protect you from spam and reply loops, Weblgx automatically "
 "blocks emails\n"
 "                coming to your gateway past a threshold of <b>%(threshold)i</"
 "b> emails every <b>%(minutes)i</b>\n"
 "                minutes. If there are some addresses from which you need to "
 "receive very frequent\n"
-"                updates, you can however add them below and Odoo will let "
+"                updates, you can however add them below and Weblgx will let "
 "them go through.\n"
 "            </p>"
 msgstr ""
@@ -48,13 +48,13 @@ msgstr ""
 "            <p class=\"o_view_nocontent_smiling_face\">\n"
 "                Ajouter des adresses à la liste des adresses autorisées\n"
 "            </p><p>\n"
-"                Pour vous protéger des spams et des boucles de réponse, Odoo "
+"                Pour vous protéger des spams et des boucles de réponse, Weblgx "
 "bloque automatiquement des e-mails\n"
 "                venant de votre passerelle au-delà d'un seuil de "
 "<b>%(threshold)i</b> e-mails toutes les <b>%(minutes)i</b>\n"
 "                minutes. S'il y a toutefois certaines adresses qui vous "
 "envoient très fréquemment des\n"
-"                mises à jour, vous pouvez les ajouter ci-dessous et Odoo les "
+"                mises à jour, vous pouvez les ajouter ci-dessous et Weblgx les "
 "laissera passer.\n"
 "            </p>"
 
@@ -2185,8 +2185,8 @@ msgstr "Recueillir des réponses pour une adresse e-mail spécifique"
 #. odoo-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #, python-format
-msgid "Come here often? Install Odoo on your device!"
-msgstr "Vous venez souvent par ici ? Installez Odoo sur votre appareil !"
+msgid "Come here often? Install Weblgx on your device!"
+msgstr "Vous venez souvent par ici ? Installez Weblgx sur votre appareil !"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_template_form
@@ -4700,11 +4700,11 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__alias_domain_id
 msgid ""
-"If you have setup a catch-all email domain redirected to the Odoo server, "
+"If you have setup a catch-all email domain redirected to the Weblgx server, "
 "enter the domain name here."
 msgstr ""
 "Si vous avez configuré un domain d'e-mail \"catch-all\" redirigé vers le "
-"serveur d'Odoo, entrez le nom du domaine ici."
+"serveur de Weblgx, entrez le nom du domaine ici."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__use_twilio_rtc_servers
@@ -5182,7 +5182,7 @@ msgid ""
 "browser will \n"
 "          keep the private key secret and use it for decrypting the payload\n"
 "- auth: The auth value should be treated as a secret and not shared outside "
-"of Odoo"
+"of Weblgx"
 msgstr ""
 "il s'agit des clés du navigateur utilisées par la notification : \n"
 "- p256dh : Il s'agit de la clé publique d'abonnement générée par le "
@@ -5190,7 +5190,7 @@ msgstr ""
 "          la clé privée secrète et l'utilisera pour déchiffrer la charge "
 "utile\n"
 "- auth : La valeur auth doit être traitée comme un secret et ne doit pas "
-"être partagée en dehors d'Odoo."
+"être partagée en dehors de Weblgx."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_tracking_duration_mixin__duration_tracking
@@ -6810,15 +6810,15 @@ msgstr "Nombre de messages avec des erreurs d'envoi"
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_layout
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_light
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Weblgx"
+msgstr "Weblgx"
 
 #. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
 #, python-format
-msgid "Odoo will not send notifications on this device."
-msgstr "Odoo n'enverra pas de notifications à ce périphérique."
+msgid "Weblgx will not send notifications on this device."
+msgstr "Weblgx n'enverra pas de notifications à ce périphérique."
 
 #. module: mail
 #. odoo-javascript
@@ -9477,11 +9477,11 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_alias__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"The model (Weblgx Document Kind) to which this alias corresponds. Any incoming "
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Le modèle (type de document Odoo) auquel correspond cet alias. Chaque e-mail "
+"Le modèle (type de document Weblgx) auquel correspond cet alias. Chaque e-mail "
 "entrant ne correspondant pas à un enregistrement existant entraînera la "
 "création d'un nouvel enregistrement de ce modèle (par ex. une tâche d'un "
 "projet)"
@@ -9672,11 +9672,11 @@ msgstr "Cette mise en page ne semble plus exister."
 msgid ""
 "This option permanently removes any track of email after it's been sent, "
 "including from the Technical menu in the Settings, in order to preserve "
-"storage space of your Odoo database."
+"storage space of your Weblgx database."
 msgstr ""
 "Cette option supprime définitivement quelconque trace de l'e-mail après son "
 "envoi, y compris du Menu technique dans les Paramètres, afin de préserver de "
-"l'espace de stockage dans votre base de données Odoo."
+"l'espace de stockage dans votre base de données Weblgx."
 
 #. module: mail
 #. odoo-javascript

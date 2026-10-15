@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * theme_common
 # 
@@ -17,7 +17,7 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Weblgx Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-24 09:00+0000\n"
 "PO-Revision-Date: 2019-04-24 11:21+0000\n"
@@ -637,7 +637,7 @@ msgstr ""
 
 #. module: theme_common
 #: model_terms:theme.ir.ui.view,arch:theme_common.s_profile
-msgid "<strong>COMPANY: </strong> Odoo"
+msgid "<strong>COMPANY: </strong> Weblgx"
 msgstr ""
 
 #. module: theme_common
@@ -705,7 +705,7 @@ msgstr ""
 
 #. module: theme_common
 #: model_terms:theme.ir.ui.view,arch:theme_common.s_big_image_parallax
-msgid "A Business Theme For Odoo CMS"
+msgid "A Business Theme For Weblgx CMS"
 msgstr ""
 
 #. module: theme_common

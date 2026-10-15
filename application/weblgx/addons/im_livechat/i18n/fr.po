@@ -1,15 +1,15 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # 	* im_livechat
 #
 # Translators:
 # Jolien De Paepe, 2024
-# Wil Odoo, 2024
+# Wil Weblgx, 2024
 # Manon Rondou, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-06 18:37+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
@@ -793,11 +793,11 @@ msgstr "Abonnés (Partenaires)"
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.im_livechat_channel_view_form
 msgid ""
-"For websites built with the Odoo CMS, go to Website &gt; Configuration &gt; "
+"For websites built with the Weblgx CMS, go to Website &gt; Configuration &gt; "
 "Settings and select the Website Live Chat Channel you want to add to your "
 "website."
 msgstr ""
-"Pour les sites web créés avec le CMS Odoo, accédez au Site Web &gt; "
+"Pour les sites web créés avec le CMS Weblgx, accédez au Site Web &gt; "
 "Configuration &gt; Paramètres et sélectionnez le canal de Live Chat du site "
 "web que vous souhaitez ajouter."
 
@@ -1319,8 +1319,8 @@ msgstr "Nombre de messages avec des erreurs d'envoi"
 
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.livechat_email_template
-msgid "Odoo"
-msgstr "Odoo"
+msgid "Weblgx"
+msgstr "Weblgx"
 
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.res_users_form_view
@@ -1373,11 +1373,11 @@ msgstr "Opérateurs"
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.im_livechat_channel_view_form
 msgid ""
-"Operators that do not show any activity In Odoo for more than 30 minutes "
+"Operators that do not show any activity In Weblgx for more than 30 minutes "
 "will be considered as disconnected."
 msgstr ""
 "Les opérateurs qui ne montrent pas d'activité pendant plus de 30 minutes sur "
-"Odoo seront considérés comme déconnectés. "
+"Weblgx seront considérés comme déconnectés. "
 
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.chatbot_script_answer_view_tree

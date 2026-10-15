@@ -1,16 +1,16 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * website_profile
 #
 # Translators:
-# Wil Odoo, 2023
+# Wil Weblgx, 2023
 # Jolien De Paepe, 2023
 # Manon Rondou, 2025
 #
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2025-12-13 17:00+0000\n"
@@ -310,7 +310,7 @@ msgid ""
 "padding: 8px; border-collapse:separate;\">\n"
 "        <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 "            Powered by <a target=\"_blank\" href=\"https://www.odoo.com?"
-"utm_source=db&amp;utm_medium=forum\" style=\"color: #875A7B;\">Odoo</a>\n"
+"utm_source=db&amp;utm_medium=forum\" style=\"color: #875A7B;\">Weblgx</a>\n"
 "        </td></tr>\n"
 "    </table>\n"
 "</td></tr>\n"
@@ -434,7 +434,7 @@ msgstr ""
 "padding: 8px; border-collapse:separate;\">\n"
 "        <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 "            Généré par <a target=\"_blank\" href=\"https://www.odoo.com?"
-"utm_source=db&amp;utm_medium=forum\" style=\"color: #875A7B;\">Odoo</a>\n"
+"utm_source=db&amp;utm_medium=forum\" style=\"color: #875A7B;\">Weblgx</a>\n"
 "        </td></tr>\n"
 "    </table>\n"
 "</td></tr>\n"

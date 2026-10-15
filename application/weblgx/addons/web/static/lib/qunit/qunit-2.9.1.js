@@ -3148,7 +3148,7 @@
   			this.pushFailure("Expected at least one assertion, but none were run - call " + "expect(0) to accept zero assertions.", this.stack);
   		}
 
-  		// Odoo customization
+  		// Weblgx customization
   		// wait for the task queue to be fully consummed, s.t. if there has been rejected promises
   		// during the test, the unhandledrejection handlers have been called before the cleanups
   		// have been executed, for the errors to be properly preventDefaulted if necessary (see
@@ -5347,7 +5347,7 @@
   		assertLi.innerHTML = message;
   		assertList.appendChild(assertLi);
 
-      // Odoo Customisation!!!
+      // Weblgx Customisation!!!
       // Crappy hack to display full tracebacks (with sourcemaps if debug=assets)
       if (lastError && QUnit.annotateTraceback) {
           const pre = assertLi.querySelector("pre");

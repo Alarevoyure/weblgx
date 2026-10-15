@@ -17,7 +17,7 @@ class MailBot(models.AbstractModel):
             elif odoobot_state == "onboarding_canned" and self.env.context.get("canned_response_ids"):
                 self.env.user.odoobot_failed = False
                 self.env.user.odoobot_state = "idle"
-                return Markup(_("Good, you can customize canned responses in the live chat application.<br/><br/><b>It's the end of this overview</b>, you can now <b>close this conversation</b> or start the tour again with typing <span class=\"o_odoobot_command\">start the tour</span>. Enjoy discovering Odoo!"))
+                return Markup(_("Good, you can customize canned responses in the live chat application.<br/><br/><b>It's the end of this overview</b>, you can now <b>close this conversation</b> or start the tour again with typing <span class=\"o_odoobot_command\">start the tour</span>. Enjoy discovering Weblgx!"))
             # repeat question if needed
             elif odoobot_state == 'onboarding_canned' and not self._is_help_requested(body):
                 self.env.user.odoobot_failed = True

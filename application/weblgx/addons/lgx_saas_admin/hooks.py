@@ -94,7 +94,7 @@ def _rename_admin_group(env):
 
 
 def _demote_extra_superadmins(env):
-    """One shot: SuperAdmin except Administrator / OdooBot becomes Admin.
+    """One shot: SuperAdmin except Administrator / WeblgxBot becomes Admin.
 
     Those accounts keep Settings (Admin) and their allowed companies.
     A later manual promotion to SuperAdmin is left untouched.

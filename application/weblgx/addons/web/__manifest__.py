@@ -7,10 +7,10 @@
     'category': 'Hidden',
     'version': '1.0',
     'description': """
-Odoo Web core module.
+Weblgx Web core module.
 ========================
 
-This module provides the core of the Odoo Web Client.
+This module provides the core of the Weblgx Web Client.
 """,
     'depends': ['base'],
     'auto_install': True,

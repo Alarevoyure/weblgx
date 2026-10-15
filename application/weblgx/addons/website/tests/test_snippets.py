@@ -55,8 +55,8 @@ class TestSnippets(HttpCase):
 
     def test_05_social_media(self):
         self.env.ref('website.default_website').write({
-            'social_facebook': "https://www.facebook.com/Odoo",
-            'social_twitter': 'https://twitter.com/Odoo',
+            'social_facebook': "https://www.facebook.com/Weblgx",
+            'social_twitter': 'https://twitter.com/Weblgx',
             'social_linkedin': 'https://www.linkedin.com/company/odoo',
             'social_youtube': 'https://www.youtube.com/user/OpenERPonline',
             'social_github': 'https://github.com/odoo',

@@ -6,7 +6,7 @@
     'author': 'LOEGAUX - Propriété de Ferme 201 SARL',
     'summary': "Manage your mailing lists",
     'description': """
-Manage your mailing lists from Odoo.
+Manage your mailing lists from Weblgx.
     """,
     'version': '1.1',
     'depends': [

@@ -27,9 +27,9 @@ class TestCalendar(SavepointCaseWithUserDemo):
             'privacy': 'private',
             'start': '2011-04-30 16:00:00',
             'stop': '2011-04-30 18:30:00',
-            'description': 'The Technical Presentation will cover following topics:\n* Creating Odoo class\n* Views\n* Wizards\n* Workflows',
+            'description': 'The Technical Presentation will cover following topics:\n* Creating Weblgx class\n* Views\n* Wizards\n* Workflows',
             'duration': 2.5,
-            'location': 'Odoo S.A.',
+            'location': 'Weblgx S.A.',
             'name': 'Technical Presentation'
         })
 
@@ -604,7 +604,7 @@ class TestCalendarTours(HttpCaseWithUserDemo):
             'start': start.strftime("%Y-%m-%d %H:%M:%S"),
             'stop': stop.strftime("%Y-%m-%d %H:%M:%S"),
             'duration': 3,
-            'location': 'Odoo S.A.',
+            'location': 'Weblgx S.A.',
             'privacy': 'public',
             'show_as': 'busy',
         })
@@ -628,7 +628,7 @@ class TestCalendarTours(HttpCaseWithUserDemo):
             'start': start.strftime("%Y-%m-%d %H:%M:%S"),
             'stop': stop.strftime("%Y-%m-%d %H:%M:%S"),
             'duration': 3,
-            'location': 'Odoo S.A.',
+            'location': 'Weblgx S.A.',
             'privacy': 'public',
             'show_as': 'busy',
         })
@@ -653,7 +653,7 @@ class TestCalendarTours(HttpCaseWithUserDemo):
             'start': start.strftime("%Y-%m-%d %H:%M:%S"),
             'stop': stop.strftime("%Y-%m-%d %H:%M:%S"),
             'duration': 3,
-            'location': 'Odoo S.A.',
+            'location': 'Weblgx S.A.',
             'privacy': 'public',
             'show_as': 'busy',
         })

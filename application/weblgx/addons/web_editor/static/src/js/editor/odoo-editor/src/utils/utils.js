@@ -1722,7 +1722,7 @@ export function containsUnbreakable(node) {
     }
     return isUnbreakable(node) || containsUnbreakable(node.firstChild);
 }
-// TODO rename this function in master: it also handles Odoo icons, not only
+// TODO rename this function in master: it also handles Weblgx icons, not only
 // font awesome ones. Also maybe just use the ICON_SELECTOR and `matches`?
 const iconTags = ['I', 'SPAN'];
 const iconClasses = ['fa', 'fab', 'fad', 'far', 'oi'];

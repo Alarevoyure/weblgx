@@ -107,7 +107,7 @@ def ensure_db(redirect='/web/database/selector', db=None):
 
 
 def fix_view_modes(action):
-    """ For historical reasons, Odoo has weird dealings in relation to
+    """ For historical reasons, Weblgx has weird dealings in relation to
     view_mode and the view_type attribute (on window actions):
 
     * one of the view modes is ``tree``, which stands for both list views

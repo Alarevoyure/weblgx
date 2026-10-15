@@ -1,4 +1,4 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * website
 #
@@ -6,7 +6,7 @@
 # Jolien De Paepe, 2024
 # Martin Trigaux, 2024
 # Asia Ba, 2024
-# Wil Odoo, 2025
+# Wil Weblgx, 2025
 # Larissa Manderfeld, 2025
 # Manon Rondou, 2025
 #
@@ -14,7 +14,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:36+0000\n"
 "PO-Revision-Date: 2026-03-14 08:12+0000\n"
@@ -506,9 +506,9 @@ msgstr "50%"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.template_footer_call_to_action
-msgid "50,000+ companies run Odoo to grow their businesses."
+msgid "50,000+ companies run Weblgx to grow their businesses."
 msgstr ""
-"Plus de 50.000 entreprises utilisent Odoo pour développer leurs activités. "
+"Plus de 50.000 entreprises utilisent Weblgx pour développer leurs activités. "
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_hr_options
@@ -530,9 +530,9 @@ msgstr "80% développement"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_call_to_action
-msgid "<b>50,000+ companies</b> run Odoo to grow their businesses."
+msgid "<b>50,000+ companies</b> run Weblgx to grow their businesses."
 msgstr ""
-"<b>Plus de 50.000 sociétés</b> utilisent Odoo pour faire croître leur "
+"<b>Plus de 50.000 sociétés</b> utilisent Weblgx pour faire croître leur "
 "business."
 
 #. module: website
@@ -3090,10 +3090,10 @@ msgstr "Modifier les icônes"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_table_of_content
 msgid ""
-"Change theme in a few clicks, and browse through Odoo's catalog of\n"
+"Change theme in a few clicks, and browse through Weblgx's catalog of\n"
 "                            ready-to-use themes available in our app store."
 msgstr ""
-"Changez de thème en quelques clics, et parcourez le catalogue Odoo de\n"
+"Changez de thème en quelques clics, et parcourez le catalogue Weblgx de\n"
 "thèmes prêts à l'emploi disponibles dans notre boutique d'applications."
 
 #. module: website
@@ -4738,10 +4738,10 @@ msgstr "Par exemple : https://www.mydomain.com"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_table_of_content
 msgid ""
-"Easily design your own Odoo templates thanks to clean HTML\n"
+"Easily design your own Weblgx templates thanks to clean HTML\n"
 "                            structure and bootstrap CSS."
 msgstr ""
-"Créez facilement vos propres modèles Odoo grâce à un HTML propre\n"
+"Créez facilement vos propres modèles Weblgx grâce à un HTML propre\n"
 "structure et bootstrap CSS."
 
 #. module: website
@@ -5855,8 +5855,8 @@ msgstr "Aller à l'onglet Thème"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.layout
-msgid "Go to your Odoo Apps"
-msgstr "Aller à vos applications Odoo"
+msgid "Go to your Weblgx Apps"
+msgstr "Aller à vos applications Weblgx"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_carousel
@@ -6059,8 +6059,8 @@ msgstr "Happy Hour"
 #. odoo-javascript
 #: code:addons/website/static/src/snippets/s_countdown/options.xml:0
 #, python-format
-msgid "Happy Odoo Anniversary!"
-msgstr "Joyeux anniversaire Odoo !"
+msgid "Happy Weblgx Anniversary!"
+msgstr "Joyeux anniversaire Weblgx !"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_website__has_social_default_image
@@ -7052,13 +7052,13 @@ msgstr "Est défini"
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid ""
 "It appears your website is still using the old color system of\n"
-"            Odoo 13.0 in some places. We made sure it is still working but\n"
+"            Weblgx 13.0 in some places. We made sure it is still working but\n"
 "            we recommend you to try to use the new color system, which is\n"
 "            still customizable."
 msgstr ""
 "Il semble que votre site web utilise toujours l'ancien système de couleurs "
 "de\n"
-"Odoo 13.0 à certains endroits. Nous nous sommes assurés qu'il fonctionne "
+"Weblgx 13.0 à certains endroits. Nous nous sommes assurés qu'il fonctionne "
 "toujours, mais\n"
 "nous vous recommandons d'essayer d'utiliser le nouveau système de couleurs, "
 "qui est\n"
@@ -8148,13 +8148,13 @@ msgstr "Surveiller les données des résultats de la recherche Google"
 #. module: website
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_0
 msgid ""
-"Monitor your visitors while they are browsing your website with the Odoo "
+"Monitor your visitors while they are browsing your website with the Weblgx "
 "Social app. Engage with them in just a click using a live chat request or a "
 "push notification. If they have completed one of your forms, you can send "
 "them an SMS, or call them right away while they are browsing your website."
 msgstr ""
 "Surveillez vos visiteurs lorsqu'ils naviguent sur votre site web avec "
-"l'application Odoo Social. Interagissez avec eux en un seul clic en "
+"l'application Weblgx Social. Interagissez avec eux en un seul clic en "
 "utilisant une demande de live chat ou une notification push. S'ils ont "
 "rempli l'un de vos formulaires, vous pouvez leur envoyer un SMS ou les "
 "appeler tout de suite pendant qu'ils naviguent sur votre site web."
@@ -8603,18 +8603,18 @@ msgstr "OU"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
-msgid "Odoo Information"
-msgstr "Odoo Information"
+msgid "Weblgx Information"
+msgstr "Weblgx Information"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
-msgid "Odoo Menu"
-msgstr "Menu Odoo"
+msgid "Weblgx Menu"
+msgstr "Menu Weblgx"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
-msgid "Odoo Version"
-msgstr "Version Odoo"
+msgid "Weblgx Version"
+msgstr "Version Weblgx"
 
 #. module: website
 #. odoo-javascript
@@ -10325,12 +10325,12 @@ msgstr "Recherche visiteur"
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_1
 msgid ""
 "Search in the media dialogue when you need photos to illustrate your "
-"website. Odoo's integration with Unsplash, featuring millions of royalty "
+"website. Weblgx's integration with Unsplash, featuring millions of royalty "
 "free and high quality photos, makes it possible for you to get the perfect "
 "picture, in just a few clicks."
 msgstr ""
 "Recherchez dans la boîte de dialogue multimédia lorsque vous avez besoin de "
-"photos pour illustrer votre site web. L'intégration d'Odoo à Unsplash, avec "
+"photos pour illustrer votre site web. L'intégration de Weblgx à Unsplash, avec "
 "des millions de photos libres de droits et de haute qualité, vous permet "
 "d'obtenir l'image parfaite, en quelques clics."
 
@@ -10790,11 +10790,11 @@ msgstr "Plan du site"
 msgid ""
 "Sitemap.xml: Help search engine crawlers to find out what pages are present "
 "and which have recently changed, and to crawl your site accordingly. This "
-"file is automatically generated by Odoo."
+"file is automatically generated by Weblgx."
 msgstr ""
 "Sitemap.xml : aider les robots des moteurs de recherche à identifier les "
 "pages présentes et celles qui ont été récemment modifiées, et à explorer "
-"votre site en conséquence. Ce fichier est généré automatiquement par Odoo."
+"votre site en conséquence. Ce fichier est généré automatiquement par Weblgx."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_alert_options
@@ -12107,13 +12107,13 @@ msgstr "Pour avoir du succès, votre contenu doit être utile à vos lecteurs."
 #: model_terms:digest.tip,tip_description:website.digest_tip_website_2
 msgid ""
 "To get more visitors, you should target keywords that are often searched in "
-"Google. With the built-in SEO tool, once you define a few keywords, Odoo "
+"Google. With the built-in SEO tool, once you define a few keywords, Weblgx "
 "will recommend you the best keywords to target. Then adapt your title and "
 "description accordingly to boost your traffic."
 msgstr ""
 "Pour attirer plus de visiteurs, vous devez cibler des mots-clés qui sont "
 "souvent recherchés dans Google. Avec l'outil SEO intégré, une fois que vous "
-"avez défini quelques mots-clés, Odoo vous recommandera les meilleurs et donc "
+"avez défini quelques mots-clés, Weblgx vous recommandera les meilleurs et donc "
 "ceux à cibler. Adaptez ensuite votre titre et votre description en "
 "conséquence pour booster votre trafic."
 
@@ -13826,9 +13826,9 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/website/static/src/components/resource_editor/resource_editor_warning.xml:0
 #, python-format
-msgid "Your changes might be lost during future Odoo upgrade."
+msgid "Your changes might be lost during future Weblgx upgrade."
 msgstr ""
-"Vos changements pourraient se perdre lors d'une future mise à niveau d'Odoo."
+"Vos changements pourraient se perdre lors d'une future mise à niveau de Weblgx."
 
 #. module: website
 #. odoo-javascript
@@ -13856,10 +13856,10 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_instagram_page_options
 msgid ""
-"Your instagram page must be public to be integrated into an Odoo website."
+"Your instagram page must be public to be integrated into an Weblgx website."
 msgstr ""
 "Votre page Instagram doit être publique pour qu'elle puisse être intégrée à "
-"un site web Odoo."
+"un site web Weblgx."
 
 #. module: website
 #. odoo-javascript
@@ -14181,8 +14181,8 @@ msgstr "à partir d'un logo"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
-msgid "frontend_lang (Odoo)"
-msgstr "frontend_lang (Odoo)"
+msgid "frontend_lang (Weblgx)"
+msgstr "frontend_lang (Weblgx)"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -14237,15 +14237,15 @@ msgstr "iPhone"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
 msgid ""
-"im_livechat_previous_operator_pid (Odoo)<br/>\n"
-"                                            utm_campaign (Odoo)<br/>\n"
-"                                            utm_source (Odoo)<br/>\n"
-"                                            utm_medium (Odoo)"
+"im_livechat_previous_operator_pid (Weblgx)<br/>\n"
+"                                            utm_campaign (Weblgx)<br/>\n"
+"                                            utm_source (Weblgx)<br/>\n"
+"                                            utm_medium (Weblgx)"
 msgstr ""
-"im_livechat_previous_operator_pid (Odoo)<br/>\n"
-"                                            utm_campaign (Odoo)<br/>\n"
-"                                            utm_source (Odoo)<br/>\n"
-"                                            utm_medium (Odoo)"
+"im_livechat_previous_operator_pid (Weblgx)<br/>\n"
+"                                            utm_campaign (Weblgx)<br/>\n"
+"                                            utm_source (Weblgx)<br/>\n"
+"                                            utm_medium (Weblgx)"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -14286,8 +14286,8 @@ msgstr "informer les clients"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.show_website_info
-msgid "instance of Odoo, the"
-msgstr "instance d'Odoo, le"
+msgid "instance of Weblgx, the"
+msgstr "instance de Weblgx, le"
 
 #. module: website
 #: model:ir.model.fields.selection,name:website.selection__theme_ir_ui_view__inherit_id__ir_ui_view
@@ -14432,8 +14432,8 @@ msgstr "séparateur, diviseur"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.cookie_policy
-msgid "session_id (Odoo)<br/>"
-msgstr "session_id (Odoo)<br/>"
+msgid "session_id (Weblgx)<br/>"
+msgstr "session_id (Weblgx)<br/>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets

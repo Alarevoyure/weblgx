@@ -22,7 +22,7 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
         # Creating a link tracker with url having the scheme
         link_tracker = self.env['link.tracker'].create({
             'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'title': 'Weblgx',
         })
         # Validate the absolute url
         self.assertEqual(link_tracker.absolute_url, link_tracker.url)
@@ -36,13 +36,13 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
         link_trackers = self.env['link.tracker'].create([
             {
                 'url': 'odoo.com',
-                'title': 'Odoo',
+                'title': 'Weblgx',
             }, {
                 'url': 'example.com',
-                'title': 'Odoo',
+                'title': 'Weblgx',
             }, {
                 'url': 'http://test.example.com',
-                'title': 'Odoo',
+                'title': 'Weblgx',
             },
         ])
 
@@ -56,19 +56,19 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
     def test_search_or_create(self):
         link_tracker_1 = self.env['link.tracker'].create({
             'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'title': 'Weblgx',
         })
 
         link_tracker_2 = self.env['link.tracker'].search_or_create({
             'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'title': 'Weblgx',
         })
 
         self.assertEqual(link_tracker_1, link_tracker_2)
 
         link_tracker_3 = self.env['link.tracker'].search_or_create({
             'url': 'https://odoo.be',
-            'title': 'Odoo',
+            'title': 'Weblgx',
         })
 
         self.assertNotEqual(link_tracker_1, link_tracker_3)
@@ -78,31 +78,31 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
 
         self.env['link.tracker'].create({
             'url': 'https://odoo.com',
-            'title': 'Odoo',
+            'title': 'Weblgx',
         })
 
         link_1 = self.env['link.tracker'].create({
             'url': '2nd url',
-            'title': 'Odoo',
+            'title': 'Weblgx',
             'campaign_id': campaign_id.id,
         })
 
         with self.assertRaises(UserError):
             self.env['link.tracker'].create({
                 'url': 'https://odoo.com',
-                'title': 'Odoo',
+                'title': 'Weblgx',
             })
 
         with self.assertRaises(UserError):
             self.env['link.tracker'].create({
                 'url': '2nd url',
-                'title': 'Odoo',
+                'title': 'Weblgx',
                 'campaign_id': campaign_id.id,
             })
 
         link_2 = self.env['link.tracker'].create({
                 'url': '2nd url',
-                'title': 'Odoo',
+                'title': 'Weblgx',
                 'campaign_id': campaign_id.id,
                 'medium_id': self.env['utm.medium'].search([], limit=1).id
             })
@@ -188,7 +188,7 @@ class TestLinkTracker(common.TransactionCase, MockLinkTracker):
         medium = self.env['utm.medium'].create({'name': 'medium'})
         link = self.env['link.tracker'].create({
             'url': 'http://example.com',
-            'title': 'Odoo',
+            'title': 'Weblgx',
             'campaign_id': campaign.id,
             'source_id': source.id,
             'medium_id': medium.id,

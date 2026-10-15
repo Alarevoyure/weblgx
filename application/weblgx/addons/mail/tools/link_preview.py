@@ -23,7 +23,7 @@ def get_link_preview_from_url(url, request_session=None):
     # Some websites are blocking non browser user agent.
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; rv:91.0) Gecko/20100101 Firefox/91.0',
-        'Odoo-Link-Preview': 'True',  # Used to identify coming from the link previewer
+        'Weblgx-Link-Preview': 'True',  # Used to identify coming from the link previewer
     }
     try:
         if request_session:

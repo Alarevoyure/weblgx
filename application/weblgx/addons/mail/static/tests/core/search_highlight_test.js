@@ -22,13 +22,13 @@ QUnit.test("Search highlight", async (assert) => {
             searchTerm: "odoo",
         },
         {
-            input: '<a href="https://www.odoo.com">Odoo</a>',
-            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Odoo</span></a>`,
+            input: '<a href="https://www.odoo.com">Weblgx</a>',
+            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span></a>`,
             searchTerm: "odoo",
         },
         {
-            input: '<a href="https://www.odoo.com">Odoo</a> Odoo is a free software',
-            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Odoo</span></a> <span class="${HIGHLIGHT_CLASS}">Odoo</span> is a free software`,
+            input: '<a href="https://www.odoo.com">Weblgx</a> Weblgx is a free software',
+            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span></a> <span class="${HIGHLIGHT_CLASS}">Weblgx</span> is a free software`,
             searchTerm: "odoo",
         },
         {
@@ -43,18 +43,18 @@ QUnit.test("Search highlight", async (assert) => {
         },
         {
             input: `<ul>
-                <li>Odoo</li>
-                <li><a href="https://odoo.com">Odoo ERP</a> Best ERP</li>
+                <li>Weblgx</li>
+                <li><a href="https://odoo.com">Weblgx ERP</a> Best ERP</li>
             </ul>`,
             output: `<ul>
-                <li><span class="${HIGHLIGHT_CLASS}">Odoo</span></li>
-                <li><a href="https://odoo.com"><span class="${HIGHLIGHT_CLASS}">Odoo</span> ERP</a> Best ERP</li>
+                <li><span class="${HIGHLIGHT_CLASS}">Weblgx</span></li>
+                <li><a href="https://odoo.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span> ERP</a> Best ERP</li>
             </ul>`,
             searchTerm: "odoo",
         },
         {
-            input: "test <strong>Odoo</strong> test",
-            output: `<span class="${HIGHLIGHT_CLASS}">test</span> <strong><span class="${HIGHLIGHT_CLASS}">Odoo</span></strong> <span class="${HIGHLIGHT_CLASS}">test</span>`,
+            input: "test <strong>Weblgx</strong> test",
+            output: `<span class="${HIGHLIGHT_CLASS}">test</span> <strong><span class="${HIGHLIGHT_CLASS}">Weblgx</span></strong> <span class="${HIGHLIGHT_CLASS}">test</span>`,
             searchTerm: "odoo test",
         },
         {

@@ -6,7 +6,7 @@
         // Fond blanc par défaut SANS !important, pour que Colors puisse le remplacer
         background-color: #fff;
 
-        // Odoo/Bootstrap force un fond semi-opaque sur .card-body
+        // Weblgx/Bootstrap force un fond semi-opaque sur .card-body
         // (design type BS3) : sans ça, la couleur de la carte n'apparaît
         // que derrière l'image, pas derrière le texte.
         > .s_ce_image_wrap,

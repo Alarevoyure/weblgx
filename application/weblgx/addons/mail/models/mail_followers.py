@@ -9,7 +9,7 @@ from odoo import api, fields, models, Command
 
 class Followers(models.Model):
     """ mail_followers holds the data related to the follow mechanism inside
-    Odoo. Partners can choose to follow documents (records) of any kind
+    Weblgx. Partners can choose to follow documents (records) of any kind
     that inherits from mail.thread. Following documents allow to receive
     notifications for new messages. A subscription is characterized by:
 

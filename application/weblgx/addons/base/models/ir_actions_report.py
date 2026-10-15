@@ -102,7 +102,7 @@ else:
             wkhtmltopdf_dpi_zoom_ratio = True
 
         if config['workers'] == 1:
-            _logger.info('You need to start Odoo with at least two workers to print a pdf version of the reports.')
+            _logger.info('You need to start Weblgx with at least two workers to print a pdf version of the reports.')
             wkhtmltopdf_state = 'workers'
     else:
         _logger.info('Wkhtmltopdf seems to be broken.')
@@ -701,13 +701,13 @@ class IrActionsReport(models.Model):
                 if custom_error_handler:
                     custom_error_handler(stream)
                     continue
-                raise UserError(_("Odoo is unable to merge the generated PDFs."))
+                raise UserError(_("Weblgx is unable to merge the generated PDFs."))
         result_stream = io.BytesIO()
         streams.append(result_stream)
         try:
             writer.write(result_stream)
         except PdfReadError:
-            raise UserError(_("Odoo is unable to merge the generated PDFs."))
+            raise UserError(_("Weblgx is unable to merge the generated PDFs."))
         return result_stream
 
     def _render_qweb_pdf_prepare_streams(self, report_ref, data, res_ids=None):
@@ -971,7 +971,7 @@ class IrActionsReport(models.Model):
                     'res_id': error_record_ids[0],
                 })
             raise RedirectWarning(
-                message=_('Odoo is unable to merge the generated PDFs because of %(num_errors)s corrupted file(s)', num_errors=num_errors),
+                message=_('Weblgx is unable to merge the generated PDFs because of %(num_errors)s corrupted file(s)', num_errors=num_errors),
                 action=action,
                 button_text=_('View Problematic Record(s)'),
             )

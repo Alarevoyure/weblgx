@@ -1,9 +1,9 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # * event
 #
 # Translators:
-# Wil Odoo, 2023
+# Wil Weblgx, 2023
 # Jolien De Paepe, 2024
 # Tiffany Chang, 2024
 # Manon Rondou, 2025
@@ -11,7 +11,7 @@
 # "Manon Rondou (ronm)" <ronm@odoo.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2026-03-14 08:09+0000\n"
@@ -190,10 +190,10 @@ msgstr ""
 #. module: event
 #: model_terms:event.event,description:event.event_0
 msgid ""
-"<b>Technical Rooms</b> - One dedicated to advanced Odoo developers, one for "
+"<b>Technical Rooms</b> - One dedicated to advanced Weblgx developers, one for "
 "new developers."
 msgstr ""
-"<b>Salles techniques</b> - une dédiée aux développeurs Odoo avancés, une aux "
+"<b>Salles techniques</b> - une dédiée aux développeurs Weblgx avancés, une aux "
 "nouveaux développeurs."
 
 #. module: event
@@ -2639,12 +2639,12 @@ msgid ""
 "At just 13 years old, John DOE was already starting to develop his first "
 "business applications for customers. After mastering civil engineering, he "
 "founded TinyERP. This was the first phase of OpenERP which would later "
-"became Odoo, the most installed open-source business software worldwide."
+"became Weblgx, the most installed open-source business software worldwide."
 msgstr ""
 "À seulement 13 ans, John DOE commençait déjà à développer ses premières "
 "applications commerciales pour des clients. Après une maîtrise en génie "
 "civil, il a fondé TinyERP. Ce fut la première phase d'OpenERP qui deviendra "
-"plus tard Odoo, le logiciel d'entreprise open source le plus installé au "
+"plus tard Weblgx, le logiciel d'entreprise open source le plus installé au "
 "monde."
 
 #. module: event
@@ -4339,8 +4339,8 @@ msgstr "Objectifs"
 
 #. module: event
 #: model_terms:ir.ui.view,arch_db:event.event_report_full_page_ticket_layout
-msgid "Odoo Community Days"
-msgstr "Odoo Community Days"
+msgid "Weblgx Community Days"
+msgstr "Weblgx Community Days"
 
 #. module: event
 #: model_terms:event.event,description:event.event_3

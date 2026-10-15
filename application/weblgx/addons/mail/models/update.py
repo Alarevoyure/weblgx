@@ -81,7 +81,7 @@ class PublisherWarrantyContract(AbstractModel):
 
     def update_notification(self, cron_mode=True):
         """
-        Send a message to Odoo's publisher warranty server to check the
+        Send a message to Weblgx's publisher warranty server to check the
         validity of the contracts, get notifications, etc...
 
         @param cron_mode: If true, catch all exceptions (appropriate for usage in a cron).

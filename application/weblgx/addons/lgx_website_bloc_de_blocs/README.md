@@ -7,7 +7,7 @@ Module : `lgx_website_bloc_de_blocs`
 Bloc **Colonnes** (1 à 6) dont chaque colonne est une zone `oe_structure` :
 on peut y **déposer d’autres blocs** du site (texte, image, vidéo, Colonnes HTML…).
 
-Même principe que les onglets (Tabs) d’Odoo.
+Même principe que les onglets (Tabs) de Weblgx.
 
 ## Installation
 

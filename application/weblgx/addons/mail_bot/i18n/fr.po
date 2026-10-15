@@ -1,14 +1,14 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # 	* mail_bot
 #
 # Translators:
-# Wil Odoo, 2023
+# Wil Weblgx, 2023
 # Manon Rondou, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
@@ -171,8 +171,8 @@ msgstr "Statut WeblgxBot"
 
 #. module: mail_bot
 #: model:ir.model.fields,field_description:mail_bot.field_res_users__odoobot_failed
-msgid "Odoobot Failed"
-msgstr "Échec de l'Odoobot"
+msgid "Weblgxbot Failed"
+msgstr "Échec de Weblgxbot"
 
 #. module: mail_bot
 #: model:ir.model.fields.selection,name:mail_bot.selection__res_users__odoobot_state__onboarding_attachement

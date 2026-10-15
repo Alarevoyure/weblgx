@@ -48,7 +48,7 @@ class TestUser(MailCommon):
 
     @mute_logger('odoo.sql_db')
     def test_notification_type_constraint(self):
-        with self.assertRaises(IntegrityError, msg='Portal user can not receive notification in Odoo'):
+        with self.assertRaises(IntegrityError, msg='Portal user can not receive notification in Weblgx'):
             mail_new_test_user(
                 self.env,
                 login='user_test_constraint_2',

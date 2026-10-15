@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "LGX — marque bleu nuit (global)",
-    "summary": "Couleur primaire Odoo (backend, boutons, menus) + Bootstrap frontend en bleu nuit #16213e",
+    "summary": "Couleur primaire Weblgx (backend, boutons, menus) + Bootstrap frontend en bleu nuit #16213e",
     "version": "17.0.1.0.0",
     "category": "Customizations",
     "depends": ["web"],

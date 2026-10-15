@@ -1,14 +1,14 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # 	* website_links
 #
 # Translators:
-# Wil Odoo, 2023
+# Wil Weblgx, 2023
 # Manon Rondou, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
@@ -246,10 +246,10 @@ msgstr "Ce code est déjà pris"
 #: model_terms:ir.ui.view,arch_db:website_links.create_shorten_url
 msgid ""
 "Those trackers can be used in Google Analytics to track clicks and visitors, "
-"or in Odoo reports to track opportunities and related revenues."
+"or in Weblgx reports to track opportunities and related revenues."
 msgstr ""
 "Ces trackers peuvent être utilisés dans Google Analytics afin de surveiller "
-"les clics et les visiteurs, ou dans les rapports Odoo afin de surveiller les "
+"les clics et les visiteurs, ou dans les rapports Weblgx afin de surveiller les "
 "opportunités et revenus liés."
 
 #. module: website_links

@@ -493,7 +493,7 @@ class MailRenderMixin(models.AbstractModel):
         :param str model: model name of records on which we want to perform
           rendering (aka 'crm.lead');
         :param list res_ids: list of ids of records. All should belong to the
-          Odoo model given by model;
+          Weblgx model given by model;
         :param string engine: inline_template, qweb or qweb_view;
 
         :param dict add_context: additional context to give to renderer. It
@@ -552,7 +552,7 @@ class MailRenderMixin(models.AbstractModel):
         computed by performing a rendering on res_ids, based on self.render_model.
 
         :param list res_ids: list of ids of records. All should belong to the
-          Odoo model given by model;
+          Weblgx model given by model;
         :param string engine: inline_template or qweb_view;
 
         :return dict: {res_id: lang code (i.e. en_US)}

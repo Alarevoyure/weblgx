@@ -173,10 +173,10 @@ export const CLIPBOARD_WHITELISTS = {
         'table-bordered',
         /^padding-/,
         /^shadow/,
-        // Odoo colors
+        // Weblgx colors
         /^text-o-/,
         /^bg-o-/,
-        // Odoo lists
+        // Weblgx lists
         'o_checked',
         'o_checklist',
         'oe-nested',

@@ -6,7 +6,7 @@
     'author': 'LOEGAUX - Propriété de Ferme 201 SARL',
     'category': 'Hidden',
     'description': """
-Odoo Web tours.
+Weblgx Web tours.
 ========================
 
 """,

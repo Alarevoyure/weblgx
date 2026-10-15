@@ -15,11 +15,11 @@ _INVITATION_INTRO_FR = (
 )
 _OBSOLETE_INTRO_SNIPPETS = (
     "After signing in, explore your workspace to discover the available features.",
-    "Never heard of Odoo? It's an all-in-one business software loved by 7+ million users. "
+    "Never heard of Weblgx? It's an all-in-one business software loved by 7+ million users. "
     "It will considerably improve your experience at work and increase your productivity.",
     "Never heard of Web@LGX? It's an all-in-one business software loved by 7+ million users. "
     "It will considerably improve your experience at work and increase your productivity.",
-    "Vous n'avez jamais entendu parler d'Odoo ? C'est un logiciel professionnel tout-en-un "
+    "Vous n'avez jamais entendu parler de Weblgx ? C'est un logiciel professionnel tout-en-un "
     "apprécié par plus de 7 millions d'utilisateurs. Il améliorera considérablement votre "
     "expérience au travail et augmentera votre productivité.",
     "Vous n'avez jamais entendu parler d'Web@LGX ? C'est un logiciel professionnel tout-en-un "
@@ -45,12 +45,12 @@ def _replace_intro(text, new_intro):
 
 _OBSOLETE_CLOSING_SNIPPETS = {
     "en_US": (
-        "Enjoy Odoo!<br>",
-        "Enjoy Odoo!<br />",
+        "Enjoy Weblgx!<br>",
+        "Enjoy Weblgx!<br />",
     ),
     "fr_FR": (
-        "Profitez d'Odoo !<br>",
-        "Profitez d'Odoo !<br />",
+        "Profitez de Weblgx !<br>",
+        "Profitez de Weblgx !<br />",
         "Profitez d'Web@LGX !<br>",
         "Profitez d'Web@LGX !<br />",
     ),
@@ -93,7 +93,7 @@ def patch_invitation_email_intro(env):
 
 
 def patch_signup_email_button_colors(env):
-    """Remplace le violet Odoo par le bleu Web@LGX sur les boutons des e-mails."""
+    """Remplace le violet Weblgx par le bleu Web@LGX sur les boutons des e-mails."""
     xmlids = (
         "auth_signup.set_password_email",
         "auth_signup.mail_template_user_signup_account_created",

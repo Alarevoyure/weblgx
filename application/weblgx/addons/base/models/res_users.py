@@ -773,7 +773,7 @@ class Users(models.Model):
         default_user_template = self.env.ref('base.default_user', False)
         public_user = self.env.ref('base.public_user', False)
         if SUPERUSER_ID in self.ids:
-            raise UserError(_('You can not remove the admin user as it is used internally for resources created by Odoo (updates, module installation, ...)'))
+            raise UserError(_('You can not remove the admin user as it is used internally for resources created by Weblgx (updates, module installation, ...)'))
         user_admin = self.env.ref('base.user_admin', raise_if_not_found=False)
         if user_admin and user_admin in self:
             raise UserError(_('You cannot delete the admin user because it is utilized in various places (such as security configurations,...). Instead, archive it.'))
@@ -1016,7 +1016,7 @@ class Users(models.Model):
 
         This is used to give the opportunity to portal users to de-activate their accounts.
         Indeed, as the portal users can easily create accounts, they will sometimes wish
-        it removed because they don't use this Odoo portal anymore.
+        it removed because they don't use this Weblgx portal anymore.
 
         Before this feature, they would have to contact the website or the support to get
         their account removed, which could be tedious.
@@ -1280,9 +1280,9 @@ class Users(models.Model):
             if ipaddress.ip_address(source).is_private:
                 _logger.warning(
                     "The rate-limited IP address %s is classified as private "
-                    "and *might* be a proxy. If your Odoo is behind a proxy, "
+                    "and *might* be a proxy. If your Weblgx is behind a proxy, "
                     "it may be mis-configured. Check that you are running "
-                    "Odoo in Proxy Mode and that the proxy is properly configured, see "
+                    "Weblgx in Proxy Mode and that the proxy is properly configured, see "
                     "https://wiki.loegaux.fr/wiki?page_id=19 for details.",
                     source
                 )

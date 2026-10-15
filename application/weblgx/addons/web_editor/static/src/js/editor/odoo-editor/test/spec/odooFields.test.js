@@ -2,7 +2,7 @@
 
 import { BasicEditor, testEditor, unformat } from '../utils.js';
 
-describe('Odoo fields', () => {
+describe('Weblgx fields', () => {
     describe('monetary field', () => {
         it('should make a span inside a monetary field be unremovable', async () => {
             const content = unformat(`

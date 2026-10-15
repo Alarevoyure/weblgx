@@ -19,7 +19,7 @@ $-seen-urls: ();
 
 $real-body-bg: $body-bg;
 :root {
-    // The color behind the boxed layout is forced by Odoo. The box background
+    // The color behind the boxed layout is forced by Weblgx. The box background
     // color uses the `$body-bg` variable.
     // grep: BOXED_BODY_BG_ODOO
     @if o-website-value('layout') != 'full' {
@@ -64,7 +64,7 @@ $real-body-bg: $body-bg;
         }
     }
 
-    // 4) The Odoo values map, $o-website-values, must be printed.
+    // 4) The Weblgx values map, $o-website-values, must be printed.
     @each $key, $value in $o-website-values {
         @include print-variable($key, $value);
     }
@@ -208,7 +208,7 @@ body {
 
     @if o-website-value('layout') != 'full' {
         > main {
-            // The color behind the boxed layout is forced by Odoo. The box
+            // The color behind the boxed layout is forced by Weblgx. The box
             // background color uses the `$body-bg` variable.
             // grep: BOXED_BODY_BG_ODOO
             background-color: $body-bg;
@@ -329,7 +329,7 @@ body {
 }
 
 .navbar-light {
-    // Style only navbar-light which Odoo is only supposed to use in standard
+    // Style only navbar-light which Weblgx is only supposed to use in standard
     // anyway. Automatically mimic navbar-dark if the user's menu color is dark.
     // Note: this only works because navbar-light is defined before navbar-dark,
     // we may want to use a safest way when possible.
@@ -2570,7 +2570,7 @@ input[value*="data-oe-translation-initial-sha"] {
     animation-delay: 2500ms;
 }
 
-// Odoo dropdown menu
+// Weblgx dropdown menu
 .o_dropdown_menu {
     @extend .dropdown-menu;
 }

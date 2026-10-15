@@ -396,7 +396,7 @@ class BaseModel(models.AbstractModel):
         if not self:
             return headers
         self.ensure_one()
-        headers['X-Odoo-Objects'] = f"{self._name}-{self.id}"
+        headers['X-Weblgx-Objects'] = f"{self._name}-{self.id}"
         if 'Return-Path' not in headers:
             company = self._mail_get_companies(default=self.env.company)[self.id]
             if company.bounce_email:

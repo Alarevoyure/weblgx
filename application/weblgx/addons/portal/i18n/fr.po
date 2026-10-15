@@ -1,16 +1,16 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # 	* portal
 #
 # Translators:
-# Wil Odoo, 2023
+# Wil Weblgx, 2023
 # Jolien De Paepe, 2024
 # Camille Dantinne <cmd@odoo.com>, 2024
 # Manon Rondou, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
@@ -280,7 +280,7 @@ msgid ""
 "padding: 8px; border-collapse:separate;\">\n"
 "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 "        Powered by <a target=\"_blank\" href=\"https://www.odoo.com?"
-"utm_source=db&amp;utm_medium=portalinvite\" style=\"color: #875A7B;\">Odoo</"
+"utm_source=db&amp;utm_medium=portalinvite\" style=\"color: #875A7B;\">Weblgx</"
 "a>\n"
 "      </td></tr>\n"
 "    </table>\n"
@@ -398,7 +398,7 @@ msgstr ""
 "padding: 8px; border-collapse:separate;\">\n"
 "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 "        Généré par <a target=\"_blank\" href=\"https://www.odoo.com?"
-"utm_source=db&amp;utm_medium=portalinvite\" style=\"color: #875A7B;\">Odoo</"
+"utm_source=db&amp;utm_medium=portalinvite\" style=\"color: #875A7B;\">Weblgx</"
 "a>\n"
 "      </td></tr>\n"
 "    </table>\n"
@@ -1032,8 +1032,8 @@ msgstr "Note"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "Odoo Logo"
-msgstr "Logo Odoo"
+msgid "Weblgx Logo"
+msgstr "Logo Weblgx"
 
 #. module: portal
 #. odoo-python

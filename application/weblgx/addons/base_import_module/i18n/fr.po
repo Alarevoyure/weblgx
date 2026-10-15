@@ -1,15 +1,15 @@
-# Translation of Odoo Server.
+# Translation of Weblgx Server.
 # This file contains the translation of the following modules:
 # 	* base_import_module
 #
 # Translators:
 # Jolien De Paepe, 2024
-# Wil Odoo, 2024
+# Wil Weblgx, 2024
 # Manon Rondou, 2024
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
@@ -291,7 +291,7 @@ msgstr "Statut"
 #. odoo-python
 #: code:addons/base_import_module/models/ir_module.py:0
 #, python-format
-msgid "Studio customizations require the Odoo Studio app."
+msgid "Studio customizations require the Weblgx Studio app."
 msgstr "Les personnalisations Studio nécessitent l'application Studio."
 
 #. module: base_import_module
