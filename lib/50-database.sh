@@ -24,15 +24,16 @@ website_state="$(sudo -u postgres psql -d "${WEBLGX_DB_NAME}" -tAc "SELECT state
 website_state="${website_state//[[:space:]]/}"
 if [[ "${db_exists}" == "1" && "${website_state}" == "installed" ]]; then
   modules_csv="$(IFS=,; echo "${WEBLGX_MODULES[*]}")"
-  log "La base ${WEBLGX_DB_NAME} existe déjà. Mise à jour des modules installés."
+  log "La base ${WEBLGX_DB_NAME} existe déjà. Installation des modules manquants et mise à jour des autres."
   sudo -u "${WEBLGX_SYSTEM_USER}" /usr/bin/weblgx \
     --config "${WEBLGX_CONFIG}" \
     --logfile=False \
     -d "${WEBLGX_DB_NAME}" \
+    -i "${modules_csv}" \
     -u "${modules_csv}" \
     --stop-after-init \
     --no-http 2>&1 | tee -a "${WEBLGX_LOG_FILE}"
-  log "Modules mis à jour."
+  log "Modules à jour."
 else
   if [[ "${db_exists}" == "1" ]]; then
     log "La base ${WEBLGX_DB_NAME} est incomplète. Elle est supprimée puis recréée."
