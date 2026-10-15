@@ -1,65 +1,42 @@
 # Web@LGX — Administration multi-société
 
 Module : `lgx_saas_admin`  
-Version : 17.0.1.0.0
+Version : 17.0.1.1.0
 
 ## Objectif
 
-Corriger le multi-société trop permissif : un admin local ne doit plus pouvoir
-gérer les utilisateurs / sociétés hors de son périmètre.
-
-L’Admin société obtient aussi **Création de contact** (requis pour créer des
-utilisateurs et modifier les coordonnées de sa société).
+Deux niveaux d'administration, avec les mêmes menus et les mêmes droits techniques.
 
 ## Rôles
 
 **SuperAdmin** (`lgx_saas_admin.group_superadmin`)
 
-- Compte Administrator (`base.user_admin`)
-- Toutes les sociétés, tous les users
-- Création / suppression de sociétés
-- Apps et Paramètres (implique Settings)
+- Comptes Administrator et OdooBot
+- Voit et administre toutes les sociétés
+- Création et suppression de sociétés
+- Membre de toutes les sociétés (sélecteur inclus)
 
-**Admin société** (`base.group_erp_manager` — Droits d'accès)
+**Admin** (`base.group_system`, libellé Admin)
 
-- Users partageant au moins une de ses sociétés
-- Édition de ses sociétés
-- Pas de création de société
-- Pas Apps / Paramètres globaux
+- Mêmes droits d'administration (Paramètres, utilisateurs, site, wiki)
+- Uniquement les sociétés autorisées (`company_ids` de l'utilisateur)
+- Pas de création ni de suppression de société
+- Ne peut pas attribuer SuperAdmin ni modifier un compte SuperAdmin
 
-## Comportement
+**Droits d'accès** (`base.group_erp_manager`)
 
-- Un Admin société ne voit que les sociétés de son `company_ids`
-- Il ne voit / n’édite que les utilisateurs rattachés à ces sociétés
-- Calendrier : « Calendriers de tout le monde » ne montre que les collègues de ses sociétés
-- Il ne peut pas assigner une société hors périmètre
-- Il ne peut pas attribuer SuperAdmin / Paramètres (Settings)
-- Il ne peut pas modifier le compte SuperAdmin
-- Seul le SuperAdmin crée ou supprime des sociétés
+- Gestion des utilisateurs de ses sociétés, sans le niveau Admin
 
-## Installation
+## Installation / mise à jour
 
 ```bash
-sudo -u weblgx weblgx -d weblgx -i lgx_saas_admin \
+sudo -u weblgx weblgx -d weblgx -u lgx_saas_admin \
   --config /etc/weblgx/weblgx.conf --stop-after-init --no-http
 systemctl restart weblgx
 ```
 
-### Migration automatique (`post_init_hook`)
-
-1. Assigne SuperAdmin à Administrator et user_root
-2. Ajoute toutes les sociétés existantes aux `company_ids` d’Administrator
-3. Retire Settings (`group_system`) des autres utilisateurs (ils gardent
-   Droits d’accès = Admin société)
-4. Lie Création de contact à Droits d’accès
-
-## Vérifications manuelles
-
-1. Se connecter comme admin d’une société (ex. Centre Social…)
-2. Paramètres → Utilisateurs : ne doit pas voir les users des autres sociétés
-3. Tentative d’ajout d’une société étrangère → refus
-4. Tentative de créer une société → refus
-5. Se connecter en Administrator : voit tout, peut créer une société
+Au premier passage, les SuperAdmin autres qu'Administrator et OdooBot
+deviennent Admin et conservent leurs sociétés autorisées.
 
 ## Licence
 
