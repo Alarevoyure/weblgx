@@ -19,12 +19,11 @@ from os.path import join as opj
 from odoo.http import request, Response
 from odoo import http, tools, _, SUPERUSER_ID, release
 from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.web_editor.tools import get_video_url_data
+from odoo.addons.web_editor.tools import get_video_url_data, jsonrpc
 from odoo.exceptions import UserError, MissingError, AccessError
 from odoo.tools.misc import file_open
 from odoo.tools.mimetypes import guess_mimetype
 from odoo.tools.image import image_data_uri, binary_to_image, get_webp_size
-from odoo.addons.iap.tools import iap_tools
 from odoo.addons.base.models.assetsbundle import AssetsBundle
 
 from ..models.ir_attachment import SUPPORTED_IMAGE_MIMETYPES
@@ -866,7 +865,7 @@ class Web_Editor(http.Controller):
             IrConfigParameter = request.env['ir.config_parameter'].sudo()
             olg_api_endpoint = IrConfigParameter.get_param('web_editor.olg_api_endpoint', DEFAULT_OLG_ENDPOINT)
             database_id = IrConfigParameter.get_param('database.uuid')
-            response = iap_tools.iap_jsonrpc(olg_api_endpoint + "/api/olg/1/chat", params={
+            response = jsonrpc(olg_api_endpoint + "/api/olg/1/chat", params={
                 'prompt': prompt,
                 'conversation_history': conversation_history or [],
                 'database_id': database_id,

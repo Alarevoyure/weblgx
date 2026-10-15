@@ -10,6 +10,6 @@
     'website': 'https://www.loegaux.fr/app/discuss',
     'depends': ['mail_bot', 'im_livechat'],
     'installable': True,
-    'auto_install': True,
+    'auto_install': False,
     'license': 'LGPL-3',
 }

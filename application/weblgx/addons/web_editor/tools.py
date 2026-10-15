@@ -6,17 +6,52 @@ import contextlib
 import logging
 import re
 import requests
+import uuid
 
 from markupsafe import Markup
 from urllib.parse import parse_qs
 from werkzeug.urls import url_encode
 
 from odoo import _
-from odoo.exceptions import ValidationError
+from odoo.exceptions import AccessError, ValidationError
 from odoo.http import request
 from odoo.tools import image_process
 
 logger = logging.getLogger(__name__)
+
+
+def jsonrpc(url, method='call', params=None, timeout=15):
+    """POST a JSON-RPC 2.0 call and return the unwrapped result."""
+    payload = {
+        'jsonrpc': '2.0',
+        'method': method,
+        'params': params,
+        'id': uuid.uuid4().hex,
+    }
+    logger.info('jsonrpc %s', url)
+    try:
+        req = requests.post(url, json=payload, timeout=timeout)
+        req.raise_for_status()
+        response = req.json()
+        if 'error' in response:
+            raise AccessError(_(
+                "The url that this service requested returned an error. The url it tried to contact was %s",
+                url,
+            ))
+        return response.get('result')
+    except requests.exceptions.Timeout:
+        logger.warning("jsonrpc %s timed out", url)
+        raise AccessError(_(
+            "The request to the service timed out. The URL it tried to contact was %s",
+            url,
+        ))
+    except requests.exceptions.RequestException as error:
+        logger.warning("jsonrpc %s failed: %s", url, error)
+        raise AccessError(_(
+            "The url that this service requested returned an error. The url it tried to contact was %s",
+            url,
+        ))
+
 
 # To detect if we have a valid URL or not
 valid_url_regex = r'^(http://|https://|//)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(/.*)?$'

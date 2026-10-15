@@ -9,7 +9,7 @@
     'summary': 'Add WeblgxBot in discussions',
     'website': 'https://www.loegaux.fr/app/discuss',
     'depends': ['mail'],
-    'auto_install': True,
+    'auto_install': False,
     'installable': True,
     'data': [
         'views/res_users_views.xml',

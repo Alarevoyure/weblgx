@@ -25,8 +25,8 @@ from odoo import api, fields, models, tools, http, release, registry
 from odoo.addons.http_routing.models.ir_http import RequestUID, slugify, url_for
 from odoo.addons.website.models.ir_http import sitemap_qs2dom
 from odoo.addons.website.tools import similarity_score, text_from_html, get_base_domain
+from odoo.addons.web_editor.tools import jsonrpc
 from odoo.addons.portal.controllers.portal import pager
-from odoo.addons.iap.tools import iap_tools
 from odoo.exceptions import AccessError, MissingError, UserError, ValidationError
 from odoo.http import request
 from odoo.modules.module import get_manifest
@@ -355,7 +355,7 @@ class Website(models.Model):
         params['version'] = release.version
         IrConfigParameter = self.env['ir.config_parameter'].sudo()
         api_endpoint = IrConfigParameter.get_param(endpoint_param_name, default_endpoint)
-        return iap_tools.iap_jsonrpc(api_endpoint + route, params=params, **kwargs)
+        return jsonrpc(api_endpoint + route, params=params, **kwargs)
 
     def _website_api_rpc(self, route, params):
         # For industries, theme suggestions, ...
