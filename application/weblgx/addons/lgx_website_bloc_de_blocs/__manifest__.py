@@ -2,6 +2,7 @@
 {
     "name": "Web@LGX - Bloc de blocs",
     "summary": "Colonnes (1–6) dans lesquelles on peut déposer d'autres blocs du site.",
+    "description": "Colonnes dans lesquelles on peut deposer d'autres blocs du site.",
     "version": "17.0.1.0.0",
     "category": "Website/Website",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",

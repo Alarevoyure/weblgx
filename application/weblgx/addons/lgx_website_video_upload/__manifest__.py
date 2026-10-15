@@ -2,6 +2,7 @@
 {
     "name": "Web@LGX - Upload vidéo",
     "summary": "Téléverser des fichiers vidéo (mp4, webm…) dans le sélecteur de médias, comme les images.",
+    "description": "Televerser des fichiers video dans le selecteur de medias du site.",
     "version": "17.0.1.0.0",
     "category": "Website/Website",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",

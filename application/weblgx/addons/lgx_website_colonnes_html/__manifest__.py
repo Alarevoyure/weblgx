@@ -2,6 +2,7 @@
 {
     "name": "Web@LGX - Colonnes HTML",
     "summary": "Bloc éditeur web : 1 à 6 colonnes de code HTML côte à côte, éditables via Ace.",
+    "description": "Bloc de 1 a 6 colonnes de code HTML, editables dans l'editeur du site.",
     "version": "17.0.1.1.0",
     "category": "Website/Website",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",

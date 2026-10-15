@@ -2,6 +2,7 @@
 {
     "name": "Web@LGX - Frise chronologique",
     "summary": "Bloc éditeur : frise verticale icône | ligne | date + texte, style maquette.",
+    "description": "Frise chronologique verticale : icone, ligne et texte, sur la page du site.",
     "version": "17.0.1.0.0",
     "category": "Website/Website",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",

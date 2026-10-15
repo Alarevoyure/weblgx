@@ -1,5 +1,5 @@
 Weblgx Website Builder
---------------------
+----------------------
 
 Get an awesome and <a href="https://www.loegaux.fr/app/website">free website</a>,
 easily customizable with the Weblgx <a href="https://www.loegaux.fr/app/website">website builder</a>.
@@ -95,7 +95,7 @@ Test new color scheme easily; you can change your theme at any time in just a
 click.
 
 Integrated With Weblgx Apps
--------------------------
+---------------------------
 
 ### e-Commerce
 

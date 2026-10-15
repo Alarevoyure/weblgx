@@ -2,6 +2,7 @@
 {
     "name": "Web@LGX - Bloc Partenaires",
     "summary": "Bloc éditeur web : carrousel de logos partenaires (1 à 20, 6 visibles).",
+    "description": "Carrousel de logos partenaires sur la page du site.",
     "version": "17.0.1.1.0",
     "category": "Website/Website",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",

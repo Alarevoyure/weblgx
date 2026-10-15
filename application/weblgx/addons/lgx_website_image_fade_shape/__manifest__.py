@@ -2,6 +2,7 @@
 {
     "name": "Web@LGX - Forme image fondu",
     "summary": "Ajoute des formes d'image « fondu progressif » (fade) dans le sélecteur de formes.",
+    "description": "Formes d'image en fondu progressif dans le selecteur de formes du site.",
     "version": "17.0.1.1.0",
     "category": "Website/Website",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",

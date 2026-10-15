@@ -5,6 +5,7 @@
         "SuperAdmin (toutes les sociétés) et Admin "
         "(mêmes droits, limité aux sociétés autorisées)."
     ),
+    "description": "SuperAdmin voit toutes les societes. Admin a les memes droits sur les societes qui lui sont autorisees.",
     "version": "17.0.1.1.0",
     "category": "Administration",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",
