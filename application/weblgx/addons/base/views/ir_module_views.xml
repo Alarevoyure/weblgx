@@ -223,7 +223,7 @@
 
         <record model='ir.actions.act_url' id='action_theme_store'>
             <field name='name'>Theme Store</field>
-            <field name='url'>https://www.loegaux.fr/apps/themes</field>
+            <field name='url'>https://www.loegaux.fr/weblgx</field>
         </record>
         <menuitem id="menu_theme_store" parent="menu_apps" name="Theme Store" sequence="10" action="action_theme_store"/>
 
