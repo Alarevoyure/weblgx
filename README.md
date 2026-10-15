@@ -32,6 +32,4 @@ Connexion : compte `admin`. Le mot de passe est dans le fichier de secrets, ains
 
 ## Contenu publié
 
-Ce répertoire est le kit public. Il contient les scripts et l'application Web@LGX (`application/`).
-
-Ne sont jamais versionnés : le fichier de secrets, la configuration générée (`weblgx.conf`), la base PostgreSQL, les fichiers du site et les journaux. Les mots de passe sont créés sur la machine au moment de `install_weblgx`. Le modèle `etc/weblgx.conf.template` ne contient que des emplacements vides.
+Ce répertoire est le kit public. 
