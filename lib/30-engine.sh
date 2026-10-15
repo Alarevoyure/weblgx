@@ -100,7 +100,11 @@ ensure_pypdf
 
 app="${ROOT}/application/weblgx"
 [[ -d "${app}/addons" && -f "${ROOT}/application/bin/weblgx" ]] \
-  || die "L'application Web@LGX est absente du kit. Sur la machine de référence : ./refresh_application.sh"
+  || die "L'application Web@LGX est absente du kit."
+
+# shellcheck disable=SC1091
+source "${ROOT}/lib/uninstall-removed.sh"
+uninstall_removed_modules
 
 log "Copie de l'application Web@LGX."
 rm -rf /usr/lib/python3/dist-packages/weblgx
