@@ -23,16 +23,43 @@ db_exists="$(sudo -u postgres psql -tAc "SELECT 1 FROM pg_database WHERE datname
 website_state="$(sudo -u postgres psql -d "${WEBLGX_DB_NAME}" -tAc "SELECT state FROM ir_module_module WHERE name='website'" 2>/dev/null || true)"
 website_state="${website_state//[[:space:]]/}"
 if [[ "${db_exists}" == "1" && "${website_state}" == "installed" ]]; then
-  modules_csv="$(IFS=,; echo "${WEBLGX_MODULES[*]}")"
-  log "La base ${WEBLGX_DB_NAME} existe déjà. Installation des modules manquants et mise à jour des autres."
-  sudo -u "${WEBLGX_SYSTEM_USER}" /usr/bin/weblgx \
-    --config "${WEBLGX_CONFIG}" \
-    --logfile=False \
-    -d "${WEBLGX_DB_NAME}" \
-    -i "${modules_csv}" \
-    -u "${modules_csv}" \
-    --stop-after-init \
-    --no-http 2>&1 | tee -a "${WEBLGX_LOG_FILE}"
+  # Un module déjà installé ne doit pas être passé à -i.
+  # Odoo le charge alors en mode init et réécrit les données noupdate,
+  # dont le mot de passe du compte admin.
+  declare -A installed_set=()
+  in_list=""
+  for name in "${WEBLGX_MODULES[@]}"; do
+    [[ "${name}" =~ ^[a-zA-Z0-9_]+$ ]] || die "Nom de module invalide : ${name}"
+    in_list+="'${name}',"
+  done
+  in_list="${in_list%,}"
+  installed_raw="$(sudo -u postgres psql -d "${WEBLGX_DB_NAME}" -tA -c \
+    "SELECT name FROM ir_module_module WHERE state IN ('installed','to upgrade') AND name IN (${in_list})")"
+  while IFS= read -r name; do
+    [[ -n "${name}" ]] && installed_set["${name}"]=1
+  done <<< "${installed_raw}"
+  to_install=()
+  to_update=()
+  for name in "${WEBLGX_MODULES[@]}"; do
+    if [[ -n "${installed_set[${name}]:-}" ]]; then
+      to_update+=("${name}")
+    else
+      to_install+=("${name}")
+    fi
+  done
+  cmd=(/usr/bin/weblgx --config "${WEBLGX_CONFIG}" --logfile=False -d "${WEBLGX_DB_NAME}" --stop-after-init --no-http)
+  if ((${#to_install[@]})); then
+    install_csv="$(IFS=,; echo "${to_install[*]}")"
+    log "Modules à installer : ${install_csv}"
+    cmd+=(-i "${install_csv}")
+  fi
+  if ((${#to_update[@]})); then
+    update_csv="$(IFS=,; echo "${to_update[*]}")"
+    log "Mise à jour de ${#to_update[@]} modules déjà installés."
+    cmd+=(-u "${update_csv}")
+  fi
+  log "La base ${WEBLGX_DB_NAME} existe déjà. Le mot de passe administrateur n'est pas modifié."
+  sudo -u "${WEBLGX_SYSTEM_USER}" "${cmd[@]}" 2>&1 | tee -a "${WEBLGX_LOG_FILE}"
   log "Modules à jour."
 else
   if [[ "${db_exists}" == "1" ]]; then
