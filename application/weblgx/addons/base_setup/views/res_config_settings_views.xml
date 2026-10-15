@@ -119,9 +119,6 @@
                                 </div>
                             </div>
                         </setting>
-                        <setting string="Import &amp; Export" help="Allow users to import data from CSV/XLS/XLSX/ODS files" documentation="/applications/general/export_import_data.html" groups="base.group_no_one" id="allow_import">
-                            <field name="module_base_import" />
-                        </setting>
                         <setting id="feedback_motivate_setting" help="Add fun feedback and motivate your employees" groups="base.group_no_one">
                             <field name="show_effect"/>
                         </setting>

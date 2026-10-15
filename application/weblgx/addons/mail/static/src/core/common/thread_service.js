@@ -609,12 +609,23 @@ export class ThreadService {
     }
 
     async leaveChannel(channel) {
-        await this.orm.call("discuss.channel", "action_unfollow", [channel.id]);
-        channel.delete();
-        this.setDiscussThread(
-            this.store.discuss.channels.threads[0]
-                ? this.store.discuss.channels.threads[0]
-                : this.store.discuss.inbox
+        const channelId = channel.id;
+        const channelModel = channel.model;
+        if (channel.eq(this.store.discuss.thread)) {
+            this.setDiscussThread(this._nextThreadAfterLeave(channel));
+        }
+        await this.orm.call("discuss.channel", "action_unfollow", [channelId]);
+        const alive = this.store.Thread.get({ model: channelModel, id: channelId });
+        alive?.delete();
+    }
+
+    /**
+     * @param {import("models").Thread} channel
+     */
+    _nextThreadAfterLeave(channel) {
+        return (
+            this.store.discuss.channels.threads.find((thread) => thread.notEq(channel)) ||
+            this.store.discuss.inbox
         );
     }
 

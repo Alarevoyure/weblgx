@@ -425,6 +425,9 @@ export class Thread extends Component {
         if (msg.parentMessage) {
             return false;
         }
+        if (!msg.datetime?.isValid || !prevMsg.datetime?.isValid) {
+            return false;
+        }
         return msg.datetime.ts - prevMsg.datetime.ts < 60 * 1000;
     }
 }

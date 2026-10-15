@@ -193,18 +193,40 @@ export class Message extends Record {
     }
 
     get dateDay() {
-        let dateDay = this.datetime.toLocaleString(DateTime.DATE_FULL);
+        const datetime = this.datetime;
+        if (!datetime?.isValid) {
+            return "";
+        }
+        let dateDay = datetime.toLocaleString(DateTime.DATE_FULL);
         if (dateDay === DateTime.now().toLocaleString(DateTime.DATE_FULL)) {
             dateDay = _t("Today");
         }
         return dateDay;
     }
 
-    datetime = Record.attr(undefined, {
-        compute() {
-            return toRaw(this.date ? deserializeDateTime(this.date) : this.now);
-        },
-    });
+    /**
+     * Plain getter on purpose. The previous stored compute was wiped to
+     * `undefined` when the thread record was deleted on leave, while the
+     * message list was still rendering, which crashed `toLocaleString`.
+     */
+    get datetime() {
+        const date = toRaw(this.date);
+        if (DateTime.isDateTime(date)) {
+            if (date.isValid) {
+                return date;
+            }
+        } else if (date) {
+            const parsed = deserializeDateTime(date);
+            if (parsed?.isValid) {
+                return parsed;
+            }
+        }
+        const now = toRaw(this.now);
+        if (DateTime.isDateTime(now) && now.isValid) {
+            return now;
+        }
+        return DateTime.now();
+    }
 
     get scheduledDate() {
         return toRaw(
@@ -213,7 +235,11 @@ export class Message extends Record {
     }
 
     get datetimeShort() {
-        return this.datetime.toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
+        const datetime = this.datetime;
+        if (!datetime?.isValid) {
+            return "";
+        }
+        return datetime.toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
     }
 
     get isSelfMentioned() {

@@ -67,9 +67,16 @@ export class DiscussCoreCommon {
                     ...payload,
                     model: "discuss.channel",
                 });
-                this.notificationService.add(_t("You unsubscribed from %s.", thread.displayName), {
+                const threadName = thread.displayName;
+                if (thread.eq(this.store.discuss.thread)) {
+                    this.threadService.setDiscussThread(
+                        this.threadService._nextThreadAfterLeave(thread)
+                    );
+                }
+                this.notificationService.add(_t("You unsubscribed from %s.", threadName), {
                     type: "info",
                 });
+                this.threadService.closeChatWindow?.(thread);
                 thread.delete();
             });
             this.busService.subscribe("discuss.channel/delete", (payload) => {
