@@ -1,0 +1,63 @@
+.s_colonnes_editables {
+    --ce-accent: #16213e;
+
+    .s_ce_column {
+        overflow: hidden;
+        // Fond blanc par défaut SANS !important, pour que Colors puisse le remplacer
+        background-color: #fff;
+
+        // Odoo/Bootstrap force un fond semi-opaque sur .card-body
+        // (design type BS3) : sans ça, la couleur de la carte n'apparaît
+        // que derrière l'image, pas derrière le texte.
+        > .s_ce_image_wrap,
+        > .s_ce_body.card-body,
+        > .card-body {
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+    }
+
+    .s_ce_image_wrap {
+        .s_ce_main_image {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+    }
+
+    .s_ce_text_media_row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        --s-ce-text-width: 70%;
+        --s-ce-media-width: 30%;
+    }
+
+    .s_ce_text {
+        flex: 0 0 var(--s-ce-text-width);
+        width: var(--s-ce-text-width);
+        max-width: var(--s-ce-text-width);
+        min-width: 0;
+    }
+
+    .s_ce_side_media {
+        flex: 0 0 var(--s-ce-media-width);
+        width: var(--s-ce-media-width);
+        max-width: var(--s-ce-media-width);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        img,
+        .s_ce_side_icon {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .s_ce_side_icon {
+            color: var(--ce-accent);
+        }
+    }
+}

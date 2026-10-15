@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_mail_server_form_company" model="ir.ui.view">
+        <field name="name">ir.mail_server.form.company</field>
+        <field name="model">ir.mail_server</field>
+        <field name="inherit_id" ref="base.ir_mail_server_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="company_id"
+                    options="{'no_create': True}"
+                    required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ir_mail_server_list_company" model="ir.ui.view">
+        <field name="name">ir.mail_server.list.company</field>
+        <field name="model">ir.mail_server</field>
+        <field name="inherit_id" ref="base.ir_mail_server_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="company_id" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_ir_mail_server_search_company" model="ir.ui.view">
+        <field name="name">ir.mail_server.search.company</field>
+        <field name="model">ir.mail_server</field>
+        <field name="inherit_id" ref="base.view_ir_mail_server_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='from_filter']" position="after">
+                <field name="company_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='inactive']" position="before">
+                <filter string="Mon entreprise" name="my_company"
+                    domain="[('company_id', '=', company_id)]"/>
+                <separator/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Migration : serveurs existants → société 1 -->
+    <function model="ir.mail_server" name="_lgx_assign_default_company"/>
+</odoo>

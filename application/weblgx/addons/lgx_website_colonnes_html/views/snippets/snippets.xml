@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="colonnes_html_snippets" inherit_id="website.snippets" name="Colonnes HTML Snippets">
+    <xpath expr="//t[@t-snippet='website.s_embed_code']" position="after">
+        <t t-snippet="lgx_website_colonnes_html.s_colonnes_html"
+           string="Colonnes HTML"
+           t-thumbnail="/lgx_website_colonnes_html/static/src/img/snippets_thumbs/s_colonnes_html.svg"
+           t-forbid-sanitize="true">
+            <keywords>html, code, colonnes, columns, embed, ace, éditeur</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

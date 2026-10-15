@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="partenaires_snippets" inherit_id="website.snippets" name="Partenaires Snippets">
+    <xpath expr="//div[@id='snippet_feature']/div[hasclass('o_panel_body')]" position="inside">
+        <t t-snippet="lgx_website_partenaires.s_partenaires"
+           string="Partenaires"
+           t-thumbnail="/lgx_website_partenaires/static/src/img/snippets_thumbs/s_partenaires.svg">
+            <keywords>partenaires, partners, logos, clients, carousel, carrousel</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

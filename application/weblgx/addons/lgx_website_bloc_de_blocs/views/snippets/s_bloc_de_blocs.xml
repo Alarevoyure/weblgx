@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_bloc_de_blocs" name="Bloc de blocs">
+    <section class="s_bloc_de_blocs pt32 pb32 o_colored_level"
+             data-snippet="s_bloc_de_blocs"
+             data-name="Bloc de blocs">
+        <div class="container">
+            <div class="row s_bloc_de_blocs_row g-3 align-items-stretch">
+                <div class="col-12 col-lg-6 s_bloc_de_blocs_col pt8 pb8" data-name="Colonne">
+                    <div class="oe_structure oe_empty s_bloc_de_blocs_dropzone">
+                        <section class="s_text_block">
+                            <div class="container">
+                                <p>Déposez ici des blocs (texte, image, vidéo, HTML…).</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 s_bloc_de_blocs_col pt8 pb8" data-name="Colonne">
+                    <div class="oe_structure oe_empty s_bloc_de_blocs_dropzone">
+                        <section class="s_text_block">
+                            <div class="container">
+                                <p>Déposez ici des blocs (texte, image, vidéo, HTML…).</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_bloc_de_blocs_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+
+        <!-- Nombre de colonnes 1–6 -->
+        <div data-js="BlocDeBlocs"
+             data-selector=".s_bloc_de_blocs">
+            <we-select string="Colonnes" data-no-preview="true" data-name="bloc_de_blocs_count_opt">
+                <we-button data-select-count="1">1</we-button>
+                <we-button data-select-count="2">2</we-button>
+                <we-button data-select-count="3">3</we-button>
+                <we-button data-select-count="4">4</we-button>
+                <we-button data-select-count="5">5</we-button>
+                <we-button data-select-count="6">6</we-button>
+            </we-select>
+            <we-button-group string="Alignement vertical">
+                <we-button title="Haut"
+                           data-select-class="align-items-start"
+                           data-apply-to=".s_bloc_de_blocs_row"
+                           data-img="/website/static/src/img/snippets_options/align_top.svg"/>
+                <we-button title="Milieu"
+                           data-select-class="align-items-center"
+                           data-apply-to=".s_bloc_de_blocs_row"
+                           data-img="/website/static/src/img/snippets_options/align_middle.svg"/>
+                <we-button title="Bas"
+                           data-select-class="align-items-end"
+                           data-apply-to=".s_bloc_de_blocs_row"
+                           data-img="/website/static/src/img/snippets_options/align_bottom.svg"/>
+                <we-button title="Étirer"
+                           data-select-class="align-items-stretch"
+                           data-apply-to=".s_bloc_de_blocs_row"
+                           data-img="/website/static/src/img/snippets_options/align_stretch.svg"/>
+            </we-button-group>
+        </div>
+
+    </xpath>
+
+    <!-- Exclure ce bloc du selecteur layout_column générique (sinon conflit) -->
+    <xpath expr="//div[@data-js='layout_column'][@data-selector='section, section.s_carousel_wrapper .carousel-item']"
+           position="attributes">
+        <attribute name="data-exclude" add=".s_bloc_de_blocs" separator=", "/>
+    </xpath>
+</template>
+
+</odoo>

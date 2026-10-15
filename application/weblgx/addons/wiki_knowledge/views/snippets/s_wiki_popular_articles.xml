@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_wiki_popular_articles" name="Articles les plus vus">
+    <section class="s_wiki_popular_articles pt48 pb48"
+             data-snippet="s_wiki_popular_articles"
+             data-name="Articles les plus vus"
+             data-limit="4">
+        <div class="container">
+            <h2 class="s_wiki_popular_articles_title">Articles les plus vus</h2>
+            <div class="s_wiki_popular_list o_not_editable" data-wiki-popular-list="1">
+                <p class="text-muted mb-0 s_wiki_popular_empty">Chargement…</p>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_wiki_popular_articles_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+        <div data-js="WikiPopularArticles" data-selector=".s_wiki_popular_articles">
+            <we-select string="Nombre d'articles"
+                       data-attribute-name="limit"
+                       data-no-preview="true">
+                <we-button data-select-data-attribute="2">2</we-button>
+                <we-button data-select-data-attribute="3">3</we-button>
+                <we-button data-select-data-attribute="4">4</we-button>
+                <we-button data-select-data-attribute="5">5</we-button>
+                <we-button data-select-data-attribute="6">6</we-button>
+            </we-select>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

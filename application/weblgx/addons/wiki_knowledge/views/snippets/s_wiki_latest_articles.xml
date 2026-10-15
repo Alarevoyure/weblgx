@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_wiki_latest_articles" name="Derniers articles Wiki">
+    <section class="s_wiki_latest_articles pt48 pb48"
+             data-snippet="s_wiki_latest_articles"
+             data-name="Derniers articles Wiki"
+             data-limit="5"
+             data-default-image="/wiki_knowledge/static/src/img/wiki_logo.png">
+        <div class="container">
+            <h2 class="s_wiki_latest_articles_title">Derniers articles</h2>
+            <div class="s_wiki_latest_articles_list o_not_editable" data-wiki-latest-list="1">
+                <p class="text-muted mb-0 s_wiki_latest_articles_empty">Chargement…</p>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_wiki_latest_articles_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+        <div data-js="WikiLatestArticles" data-selector=".s_wiki_latest_articles">
+            <we-select string="Nombre d'articles"
+                       data-attribute-name="limit"
+                       data-no-preview="true">
+                <we-button data-select-data-attribute="3">3</we-button>
+                <we-button data-select-data-attribute="5">5</we-button>
+                <we-button data-select-data-attribute="8">8</we-button>
+                <we-button data-select-data-attribute="10">10</we-button>
+            </we-select>
+            <we-button string="Image par défaut"
+                       data-set-default-image=""
+                       data-no-preview="true"/>
+            <we-button string="Réinitialiser l'image"
+                       data-reset-default-image=""
+                       data-no-preview="true"/>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_wiki_gallery" name="Bibliothèque Wiki">
+    <section class="s_wiki_gallery pt48 pb48"
+             data-snippet="s_wiki_gallery"
+             data-name="Bibliothèque Wiki"
+             data-gallery-id=""
+             style="--wiki-gallery-accent: #16213e;">
+        <div class="container">
+            <h2 class="s_wiki_gallery_title text-center">Bibliothèque d'images</h2>
+            <p class="s_wiki_gallery_intro text-center text-muted">
+                Découvrez les contributions validées, et proposez la vôtre.
+            </p>
+
+            <div class="s_wiki_gallery_contribute o_not_editable">
+                <button type="button"
+                        class="btn btn-primary s_wiki_gallery_toggle"
+                        aria-expanded="false"
+                        aria-controls="s_wiki_gallery_form_panel">
+                    Proposer une contribution
+                </button>
+                <div class="s_wiki_gallery_form_wrap" id="s_wiki_gallery_form_panel" hidden="hidden">
+                <p class="text-muted">
+                    Déposez une photo et un texte. Vous pouvez aussi joindre une vidéo ou une piste audio. Un valideur Wiki vérifiera avant publication.
+                </p>
+                <form class="s_wiki_gallery_form" novalidate="novalidate">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="s_wiki_gallery_name">Titre *</label>
+                            <input type="text" class="form-control" id="s_wiki_gallery_name"
+                                   name="name" maxlength="120" required="required"
+                                   placeholder="Titre de votre article"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="s_wiki_gallery_contributor">Votre nom (optionnel)</label>
+                            <input type="text" class="form-control" id="s_wiki_gallery_contributor"
+                                   name="contributor_name" maxlength="120" autocomplete="name"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="s_wiki_gallery_email">Email *</label>
+                            <input type="email" class="form-control" id="s_wiki_gallery_email"
+                                   name="contributor_email" maxlength="120" required="required"
+                                   autocomplete="email" placeholder="vous@example.com"/>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="s_wiki_gallery_text">Texte *</label>
+                            <textarea class="form-control o_wysiwyg_loader" id="s_wiki_gallery_text" name="text"
+                                      rows="6" required="required"
+                                      placeholder="Rédigez votre article : titres, listes, liens, mise en forme…"></textarea>
+                            <div class="form-text">.</div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="s_wiki_gallery_image">Photo *</label>
+                            <input type="file" class="form-control" id="s_wiki_gallery_image"
+                                   name="image" accept="image/jpeg,image/png,image/gif,image/webp" required="required"/>
+                            <div class="form-text">JPEG, PNG, GIF ou WEBP — 5 Mo max.</div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" for="s_wiki_gallery_media">Vidéo ou audio (optionnel)</label>
+                            <input type="file" class="form-control" id="s_wiki_gallery_media"
+                                   name="media" accept="video/mp4,audio/mpeg,audio/mp4,.mp4,.mp3,.m4a"/>
+                            <div class="form-text">MP4 — 50 Mo max. MP3 ou M4A — 20 Mo max.</div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary s_wiki_gallery_submit">
+                                Envoyer pour validation
+                            </button>
+                        </div>
+                    </div>
+                    <div class="s_wiki_gallery_feedback mt-3" hidden="hidden" role="status"></div>
+                </form>
+                </div>
+            </div>
+
+            <div class="s_wiki_gallery_list o_not_editable" data-wiki-gallery-list="1">
+                <p class="text-muted mb-0 s_wiki_gallery_empty">Chargement…</p>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_wiki_gallery_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+        <div data-js="WikiGallery" data-selector=".s_wiki_gallery">
+            <we-select string="Bibliothèque"
+                       data-name="gallery_opt"
+                       data-attribute-name="galleryId"
+                       data-no-preview="true">
+                <we-button data-select-data-attribute="">Choisir…</we-button>
+            </we-select>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

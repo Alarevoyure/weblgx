@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_tree_ldap_reload" model="ir.ui.view">
+        <field name="name">res.users.tree.ldap.reload</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button name="action_lgx_reload_ldap_users"
+                            type="object"
+                            string="Recharger depuis LDAP"
+                            groups="base.group_erp_manager"
+                            display="always"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

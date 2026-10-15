@@ -1,0 +1,9 @@
+/var/log/weblgx/*.log {
+    weekly
+    rotate 8
+    copytruncate
+    compress
+    missingok
+    notifempty
+    su __SYSTEM_USER__ __SYSTEM_USER__
+}

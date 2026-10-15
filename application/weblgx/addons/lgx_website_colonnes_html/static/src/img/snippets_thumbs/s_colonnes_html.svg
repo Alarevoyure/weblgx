@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="82" height="60" viewBox="0 0 82 60">
+  <g fill="none" fill-rule="evenodd" class="snippets_thumbs">
+    <g class="s_colonnes_html">
+      <rect width="82" height="60" class="bg"/>
+      <rect x="6" y="12" width="22" height="36" rx="2" fill="#FFF" fill-opacity=".92"/>
+      <rect x="30" y="12" width="22" height="36" rx="2" fill="#FFF" fill-opacity=".78"/>
+      <rect x="54" y="12" width="22" height="36" rx="2" fill="#FFF" fill-opacity=".92"/>
+      <rect x="10" y="18" width="14" height="2" rx="1" fill="#16213e" fill-opacity=".75"/>
+      <rect x="10" y="24" width="14" height="2" rx="1" fill="#16213e" fill-opacity=".45"/>
+      <rect x="10" y="30" width="10" height="2" rx="1" fill="#16213e" fill-opacity=".45"/>
+      <rect x="34" y="18" width="14" height="2" rx="1" fill="#16213e" fill-opacity=".75"/>
+      <rect x="34" y="24" width="14" height="2" rx="1" fill="#16213e" fill-opacity=".45"/>
+      <rect x="34" y="30" width="10" height="2" rx="1" fill="#16213e" fill-opacity=".45"/>
+      <rect x="58" y="18" width="14" height="2" rx="1" fill="#16213e" fill-opacity=".75"/>
+      <rect x="58" y="24" width="14" height="2" rx="1" fill="#16213e" fill-opacity=".45"/>
+      <rect x="58" y="30" width="10" height="2" rx="1" fill="#16213e" fill-opacity=".45"/>
+    </g>
+  </g>
+</svg>

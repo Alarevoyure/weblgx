@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_partenaires" name="Partenaires">
+    <section class="s_partenaires pt48 pb32"
+             data-snippet="s_partenaires"
+             data-name="Partenaires"
+             data-interval="3000"
+             style="--partenaires-accent: #16213e;">
+        <div class="container">
+            <h2 style="text-align: center;">Nos partenaires</h2>
+            <p style="text-align: center;">Ils nous font confiance.</p>
+            <div class="s_partenaires_carousel">
+                <button type="button"
+                        class="s_partenaires_control s_partenaires_prev o_not_editable"
+                        aria-label="Précédent"
+                        title="Précédent">
+                    <span class="fa fa-chevron-left"/>
+                </button>
+                <div class="s_partenaires_viewport">
+                    <div class="s_partenaires_track">
+                        <div class="s_partenaires_item" data-name="Logo">
+                            <img src="/web/image/website.s_reference_demo_image_1"
+                                 class="img img-fluid mx-auto s_partenaires_logo" alt=""/>
+                        </div>
+                        <div class="s_partenaires_item" data-name="Logo">
+                            <img src="/web/image/website.s_reference_demo_image_2"
+                                 class="img img-fluid mx-auto s_partenaires_logo" alt=""/>
+                        </div>
+                        <div class="s_partenaires_item" data-name="Logo">
+                            <img src="/web/image/website.s_reference_demo_image_3"
+                                 class="img img-fluid mx-auto s_partenaires_logo" alt=""/>
+                        </div>
+                        <div class="s_partenaires_item" data-name="Logo">
+                            <img src="/web/image/website.s_reference_demo_image_4"
+                                 class="img img-fluid mx-auto s_partenaires_logo" alt=""/>
+                        </div>
+                        <div class="s_partenaires_item" data-name="Logo">
+                            <img src="/web/image/website.s_reference_demo_image_5"
+                                 class="img img-fluid mx-auto s_partenaires_logo" alt=""/>
+                        </div>
+                        <div class="s_partenaires_item" data-name="Logo">
+                            <img src="/web/image/website.s_reference_default_image_6"
+                                 class="img img-fluid mx-auto s_partenaires_logo" alt=""/>
+                        </div>
+                    </div>
+                </div>
+                <button type="button"
+                        class="s_partenaires_control s_partenaires_next o_not_editable"
+                        aria-label="Suivant"
+                        title="Suivant">
+                    <span class="fa fa-chevron-right"/>
+                </button>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_partenaires_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+        <div data-js="Partenaires"
+             data-selector=".s_partenaires">
+            <we-row string="Logo">
+                <we-button data-add-item=""
+                           data-item=".s_partenaires_item:last"
+                           data-select-item=""
+                           data-no-preview="true"
+                           data-name="add_logo_opt"
+                           class="o_we_bg_brand_primary">
+                    Ajouter un logo
+                </we-button>
+                <we-button data-remove-item=""
+                           data-item=".s_partenaires_item:last"
+                           data-no-preview="true"
+                           data-name="remove_logo_opt"
+                           class="o_we_bg_danger">
+                    Supprimer
+                </we-button>
+            </we-row>
+            <we-input string="Vitesse"
+                      data-select-data-attribute="3s"
+                      data-attribute-name="interval"
+                      data-unit="s"
+                      data-save-unit="ms"
+                      data-step="0.5"/>
+        </div>
+        <div data-selector=".s_partenaires_item"
+             data-drop-near=".s_partenaires_item"/>
+    </xpath>
+</template>
+
+</odoo>

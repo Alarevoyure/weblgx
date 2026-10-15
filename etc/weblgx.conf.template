@@ -1,0 +1,14 @@
+[options]
+admin_passwd = __MASTER_PASSWORD__
+db_host = 127.0.0.1
+db_port = 5432
+db_user = __DB_USER__
+db_password = __DB_PASSWORD__
+db_name = __DB_NAME__
+addons_path = __ADDONS_PATH__
+data_dir = __DATA_DIR__
+logfile = __LOG_FILE__
+http_port = __HTTP_PORT__
+list_db = False
+proxy_mode = False
+without_demo = all

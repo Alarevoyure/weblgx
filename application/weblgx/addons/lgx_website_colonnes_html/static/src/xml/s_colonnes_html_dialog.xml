@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="lgx_website_colonnes_html.s_colonnes_html_dialog">
+        <Dialog title="props.title" size="'xl'">
+            <p class="h5 mb-3">Ne collez que du code HTML que vous comprenez.</p>
+            <CodeEditor mode="props.mode"
+                        class="'o_website_code_editor_field'"
+                        theme="'monokai'"
+                        onChange.bind="onCodeChange"
+                        value="this.state.value"/>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-on-click="onConfirm">Enregistrer</button>
+                <button class="btn" t-on-click="this.props.close">Annuler</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

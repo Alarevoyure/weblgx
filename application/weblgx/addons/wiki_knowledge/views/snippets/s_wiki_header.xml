@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Header Wiki : options de fond + éléments (Logo / Recherche / Inscription). -->
+<template id="s_wiki_header_options" inherit_id="website.snippet_options" name="Header Wiki Options">
+    <xpath expr="//t[@t-set='both_bg_color_image_selector']" position="replace">
+        <t t-set="both_bg_color_image_selector" t-value="'#o_wiki_header, #o_wiki_footer, section, .carousel-item, .s_masonry_block .row &gt; div, .s_color_blocks_2 .row &gt; div, .parallax, .s_text_cover .row &gt; .o_not_editable'"/>
+    </xpath>
+
+    <!-- Case à cocher sur le Header du site -->
+    <xpath expr="//div[@data-js='HeaderElements']" position="after">
+        <div data-js="WikiShowSiteHeader"
+             data-selector="#wrapwrap > header"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-checkbox string="Afficher sur le Wiki"
+                         data-wiki-show-site-header="true"
+                         data-no-preview="true"
+                         data-reload="/"/>
+        </div>
+    </xpath>
+
+    <!-- Options du Header Wiki -->
+    <xpath expr="." position="inside">
+        <div data-js="WikiShowSiteHeader"
+             data-selector="#o_wiki_header"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-checkbox string="Afficher le header du site sur le Wiki"
+                         data-wiki-show-site-header="true"
+                         data-no-preview="true"
+                         data-reload="/wiki"/>
+        </div>
+
+        <div data-js="WikiHeaderElements"
+             data-selector="#o_wiki_header"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-row string="Éléments" class="o_we_full_row align-items-start">
+                <we-button title="Menu"
+                           class="fa fa-bars d-flex justify-content-center flex-grow-1"
+                           data-name="wiki_header_menu_opt"
+                           data-wiki-header-show-menu="true"
+                           data-no-preview="true"
+                           data-reload="/wiki"/>
+                <we-button title="Recherche"
+                           class="fa fa-search d-flex justify-content-center flex-grow-1"
+                           data-name="wiki_header_search_opt"
+                           data-wiki-header-show-search="true"
+                           data-no-preview="true"
+                           data-reload="/wiki"/>
+                <we-button title="Inscription"
+                           class="fa fa-sign-in d-flex justify-content-center flex-grow-1"
+                           data-name="wiki_header_signin_opt"
+                           data-wiki-header-show-signin="true"
+                           data-no-preview="true"
+                           data-reload="/wiki"/>
+                <we-button title="Logo"
+                           class="d-flex justify-content-center flex-grow-1 fw-bold"
+                           data-name="wiki_header_logo_opt"
+                           data-wiki-header-show-logo="true"
+                           data-img="/website/static/src/img/snippets_options/header_extra_element_logo.svg"
+                           data-no-preview="true"
+                           data-reload="/wiki"/>
+            </we-row>
+        </div>
+
+        <!-- Effet de défilement Header Wiki -->
+        <div data-js="WikiHeaderScrollEffect"
+             data-selector="#o_wiki_header"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-select string="Scroll Effect" class="o_scroll_effects_selector">
+                <t t-set="wiki_header_effect_standard_label">Standard</t>
+                <t t-set="wiki_header_effect_scroll_label">Scroll</t>
+                <t t-set="wiki_header_effect_fixed_label">Fixed</t>
+                <t t-set="wiki_header_effect_disappears_label">Disappears</t>
+                <t t-set="wiki_header_effect_fadeout_label">Fade Out</t>
+                <we-button t-att-data-select-label="wiki_header_effect_standard_label"
+                           class="o_we_img_animate"
+                           data-name="wiki_scroll_effect_standard_opt"
+                           data-wiki-header-scroll-effect="standard"
+                           data-no-preview="true"
+                           data-reload="/wiki"
+                           data-img="/website/static/src/img/snippets_options/header_effect_standard.png">
+                    <span t-esc="wiki_header_effect_standard_label"/>
+                </we-button>
+                <we-button t-att-data-select-label="wiki_header_effect_scroll_label"
+                           class="o_we_img_animate"
+                           data-name="wiki_scroll_effect_scroll_opt"
+                           data-wiki-header-scroll-effect="scroll"
+                           data-no-preview="true"
+                           data-reload="/wiki"
+                           data-img="/website/static/src/img/snippets_options/header_effect_scroll.png">
+                    <span t-esc="wiki_header_effect_scroll_label"/>
+                </we-button>
+                <we-button t-att-data-select-label="wiki_header_effect_fixed_label"
+                           class="o_we_img_animate"
+                           data-name="wiki_scroll_effect_fixed_opt"
+                           data-wiki-header-scroll-effect="fixed"
+                           data-no-preview="true"
+                           data-reload="/wiki"
+                           data-img="/website/static/src/img/snippets_options/header_effect_fixed.png">
+                    <span t-esc="wiki_header_effect_fixed_label"/>
+                </we-button>
+                <we-button t-att-data-select-label="wiki_header_effect_disappears_label"
+                           class="o_we_img_animate"
+                           data-name="wiki_scroll_effect_disappears_opt"
+                           data-wiki-header-scroll-effect="disappears"
+                           data-no-preview="true"
+                           data-reload="/wiki"
+                           data-img="/website/static/src/img/snippets_options/header_effect_disappears.png">
+                    <span t-esc="wiki_header_effect_disappears_label"/>
+                </we-button>
+                <we-button t-att-data-select-label="wiki_header_effect_fadeout_label"
+                           class="o_we_img_animate"
+                           data-name="wiki_scroll_effect_fade_out_opt"
+                           data-wiki-header-scroll-effect="fade-out"
+                           data-no-preview="true"
+                           data-reload="/wiki"
+                           data-img="/website/static/src/img/snippets_options/header_effect_fade_out.png">
+                    <span t-esc="wiki_header_effect_fadeout_label"/>
+                </we-button>
+            </we-select>
+        </div>
+
+        <!-- Options Logo Wiki (comme Navbar Logo du Header site) -->
+        <div data-js="WikiHeaderLogo"
+             data-selector="#o_wiki_header .o_wiki_header_logo"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-select string="Logo" data-reload="/wiki">
+                <we-button data-name="wiki_brand_none"
+                           data-wiki-header-brand="none">None</we-button>
+                <we-button data-name="wiki_brand_text"
+                           data-wiki-header-brand="text">Text</we-button>
+                <we-button data-name="wiki_brand_image"
+                           data-wiki-header-brand="image">Image</we-button>
+            </we-select>
+            <we-input string="Height"
+                      class="o_we_sublevel_1"
+                      data-dependencies="!wiki_brand_none"
+                      data-wiki-logo-height=""
+                      data-unit="px"
+                      data-save-unit="px"/>
+            <we-input string="Height (Scrolled)"
+                      class="o_we_sublevel_1"
+                      data-name="wiki_logo_height_scrolled_opt"
+                      data-dependencies="!wiki_scroll_effect_scroll_opt"
+                      data-wiki-logo-height-scrolled=""
+                      data-unit="px"
+                      data-save-unit="px"/>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

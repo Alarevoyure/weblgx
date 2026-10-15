@@ -1,0 +1,32 @@
+# Translation of Web@LGX Server.
+# french branding for inbox notification label (user preferences)
+#. module: lgx_notification_branding
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#. module: lgx_notification_branding
+#: model:ir.model.fields,field_description:lgx_notification_branding.field_res_users__notification_type
+msgid "Notification"
+msgstr "Notifications"
+
+#. module: lgx_notification_branding
+#: model:ir.model.fields.selection,name:lgx_notification_branding.selection__res_users__notification_type__email
+msgid "Handle by Emails"
+msgstr "Recevoir par e-mail"
+
+#. module: lgx_notification_branding
+#: model:ir.model.fields.selection,name:lgx_notification_branding.selection__res_users__notification_type__inbox
+msgid "Receive in Web@LGX"
+msgstr "Recevoir dans Web@LGX"
+
+#. module: lgx_notification_branding
+#: model:ir.model.fields,help:lgx_notification_branding.field_res_users__notification_type
+msgid ""
+"Policy on how to handle Chatter notifications:\n"
+"- Handle by Emails: notifications are sent to your email address\n"
+"- Receive in Web@LGX: notifications appear in your Web@LGX inbox"
+msgstr ""
+"Politique de gestion des notifications :\n"
+"- Recevoir par e-mail : les notifications sont envoyées à votre adresse e-mail\n"
+"- Recevoir dans Web@LGX : les notifications sont affichées dans votre messagerie Web@LGX"

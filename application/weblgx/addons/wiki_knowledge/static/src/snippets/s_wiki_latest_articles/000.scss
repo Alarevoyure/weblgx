@@ -1,0 +1,99 @@
+.s_wiki_latest_articles {
+    --wiki-latest-accent: #16213e;
+    --wiki-latest-muted: #6c757d;
+    --wiki-latest-divider: rgba(22, 33, 62, 0.12);
+    --wiki-latest-thumb: 88px;
+
+    .s_wiki_latest_articles_title {
+        color: var(--wiki-latest-accent);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        font-size: 1.35rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .s_wiki_latest_articles_list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .s_wiki_latest_articles_item {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.1rem 0;
+        text-decoration: none;
+        color: inherit;
+        border-bottom: 1px solid var(--wiki-latest-divider);
+
+        &:first-child {
+            border-top: 1px solid var(--wiki-latest-divider);
+        }
+
+        &:hover {
+            .s_wiki_latest_articles_item_title {
+                color: var(--wiki-latest-accent);
+            }
+
+            .s_wiki_latest_articles_thumb img {
+                transform: scale(1.03);
+            }
+        }
+    }
+
+    .s_wiki_latest_articles_thumb {
+        flex: 0 0 var(--wiki-latest-thumb);
+        width: var(--wiki-latest-thumb);
+        height: var(--wiki-latest-thumb);
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(22, 33, 62, 0.06);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.25s ease;
+        }
+    }
+
+    .s_wiki_latest_articles_body {
+        min-width: 0;
+        flex: 1 1 auto;
+    }
+
+    .s_wiki_latest_articles_item_title {
+        margin: 0 0 0.35rem;
+        color: #111;
+        font-weight: 700;
+        font-size: 1.05rem;
+        line-height: 1.3;
+        transition: color 0.2s ease;
+    }
+
+    .s_wiki_latest_articles_item_meta {
+        margin: 0 0 0.2rem;
+        color: var(--wiki-latest-accent);
+        font-size: 0.8rem;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .s_wiki_latest_articles_item_date {
+        margin: 0;
+        color: var(--wiki-latest-muted);
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    @media (max-width: 575.98px) {
+        --wiki-latest-thumb: 72px;
+
+        .s_wiki_latest_articles_item {
+            gap: 0.9rem;
+            padding: 0.95rem 0;
+        }
+    }
+}

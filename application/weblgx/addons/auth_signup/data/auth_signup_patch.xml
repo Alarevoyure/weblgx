@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <function model="res.users" name="_lgx_patch_invitation_email_intro"/>
+    </data>
+</odoo>

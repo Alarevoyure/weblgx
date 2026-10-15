@@ -1,0 +1,8 @@
+/* Zones Prompt / Contenu publié : pleine largeur et hauteur confortable */
+.o_form_view .o_astuce_wide_text textarea,
+.o_form_view textarea.o_astuce_wide_text {
+    width: 100% !important;
+    min-height: 10rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}

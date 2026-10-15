@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_website_astuce_designer,access_website_astuce_designer,model_website_astuce,website.group_website_designer,1,1,1,1
+access_website_astuce_editor,access_website_astuce_editor,model_website_astuce,website.group_website_restricted_editor,1,1,0,0
+access_website_astuce_system,access_website_astuce_system,model_website_astuce,base.group_system,1,1,1,1

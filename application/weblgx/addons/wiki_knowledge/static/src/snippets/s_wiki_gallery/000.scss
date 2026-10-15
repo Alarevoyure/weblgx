@@ -1,0 +1,386 @@
+.s_wiki_gallery {
+  --wiki-gallery-accent: #16213e;
+
+  .s_wiki_gallery_title {
+    color: var(--wiki-gallery-accent, #16213e);
+    margin-bottom: 0.5rem;
+  }
+
+  .s_wiki_gallery_intro {
+    margin-bottom: 1.5rem;
+  }
+
+  .s_wiki_gallery_contribute {
+    margin-bottom: 2rem;
+  }
+
+  .s_wiki_gallery_toggle.btn-primary,
+  .s_wiki_gallery_submit.btn-primary,
+  .s_wiki_gallery_verify_confirm.btn-primary {
+    background-color: var(--wiki-gallery-accent, #16213e);
+    border-color: var(--wiki-gallery-accent, #16213e);
+    color: #fff;
+  }
+
+  .s_wiki_gallery_toggle.btn-primary {
+    font-weight: 600;
+    padding: 0.7rem 1.35rem;
+  }
+
+  .s_wiki_gallery_toggle.btn-primary,
+  .s_wiki_gallery_submit.btn-primary,
+  .s_wiki_gallery_verify_confirm.btn-primary {
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus-visible {
+      background-color: #0f1830;
+      border-color: #0f1830;
+      color: #fff;
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // Grille de tuiles (4 colonnes)
+  // -------------------------------------------------------------------------
+
+  .s_wiki_gallery_grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.75rem 1.5rem;
+  }
+
+  .s_wiki_gallery_tile {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(22, 33, 62, 0.12);
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--wiki-gallery-accent, #16213e);
+    }
+  }
+
+  .s_wiki_gallery_tile_media {
+    width: 100%;
+    height: 0;
+    padding-bottom: 62.5%; // 16:10
+    position: relative;
+    overflow: hidden;
+    background: #e8eaee;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .s_wiki_gallery_tile_badge {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    z-index: 1;
+    padding: 0.15rem 0.5rem;
+    background: #16213e;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .s_wiki_gallery_tile_body {
+    padding: 0.85rem 0.15rem 0.25rem;
+    min-width: 0;
+  }
+
+  .s_wiki_gallery_tile_title {
+    color: var(--wiki-gallery-accent, #16213e);
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 0.25rem;
+  }
+
+  .s_wiki_gallery_tile_category {
+    margin: 0 0 0.45rem;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    color: rgba(22, 33, 62, 0.55);
+  }
+
+  .s_wiki_gallery_tile_summary {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: rgba(22, 33, 62, 0.85);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  // -------------------------------------------------------------------------
+  // Formulaire de dépôt
+  // -------------------------------------------------------------------------
+
+  .s_wiki_gallery_form {
+    .o_wysiwyg_textarea_wrapper {
+      // Pas de min-height : sinon vide sous la poignée de redimensionnement.
+      border: 1px solid rgba(22, 33, 62, 0.2);
+      background: #fff;
+      overflow: hidden;
+    }
+
+    // Marge native (~hauteur du resizer) : crée un trou dans notre cadre bordé.
+    .o_wysiwyg_wrapper {
+      margin-bottom: 0;
+    }
+
+    .note-editable {
+      min-height: 240px;
+      padding: 0.75rem 1rem;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .o_wysiwyg_resizer {
+      border-left: 0;
+      border-right: 0;
+      border-bottom: 0;
+      border-top: 1px solid rgba(22, 33, 62, 0.12);
+    }
+  }
+
+  .s_wiki_gallery_form_wrap {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-left: 4px solid var(--wiki-gallery-accent, #16213e);
+    background: linear-gradient(
+      135deg,
+      rgba(22, 33, 62, 0.05) 0%,
+      rgba(255, 255, 255, 0.95) 50%
+    );
+
+    &[hidden] {
+      display: none !important;
+    }
+  }
+
+  .s_wiki_gallery_form_title {
+    color: var(--wiki-gallery-accent, #16213e);
+    margin-bottom: 0.35rem;
+  }
+
+  .s_wiki_gallery_verify {
+    padding: 1rem 0 0;
+    border-top: 1px solid rgba(22, 33, 62, 0.12);
+  }
+
+  .s_wiki_gallery_verify_code {
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+
+  @media (max-width: 991.98px) {
+    .s_wiki_gallery_grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .s_wiki_gallery_grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+  }
+}
+
+// -------------------------------------------------------------------------
+// Modale article complet (hors section : body)
+// -------------------------------------------------------------------------
+
+body.s_wiki_gallery_modal_open {
+  overflow: hidden;
+}
+
+.s_wiki_gallery_modal {
+  --wiki-gallery-accent: #16213e;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1055;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.s_wiki_gallery_modal_backdrop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(22, 33, 62, 0.55);
+}
+
+.s_wiki_gallery_modal_dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  max-height: 90vh;
+  overflow: auto;
+  background: #fff;
+  box-shadow: 0 16px 48px rgba(22, 33, 62, 0.28);
+}
+
+.s_wiki_gallery_modal_close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.65rem;
+  z-index: 2;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--wiki-gallery-accent, #16213e);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(22, 33, 62, 0.18);
+
+  &:hover {
+    background: #fff;
+  }
+}
+
+.s_wiki_gallery_modal_media {
+  width: 100%;
+  max-height: 320px;
+  overflow: hidden;
+  background: #e8eaee;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 320px;
+    object-fit: cover;
+  }
+}
+
+.s_wiki_gallery_modal_content {
+  padding: 1.35rem 1.5rem 1.75rem;
+}
+
+.s_wiki_gallery_modal_title {
+  color: var(--wiki-gallery-accent, #16213e);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.35rem;
+}
+
+.s_wiki_gallery_modal_category {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: rgba(22, 33, 62, 0.55);
+}
+
+.s_wiki_gallery_modal_text {
+  line-height: 1.65;
+  color: rgba(22, 33, 62, 0.92);
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 0.85rem;
+  }
+
+  h2,
+  h3,
+  h4 {
+    color: var(--wiki-gallery-accent, #16213e);
+    margin: 1.1rem 0 0.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 0.85rem;
+    padding-left: 1.35rem;
+  }
+
+  ul {
+    list-style: disc outside;
+  }
+
+  ol {
+    list-style: decimal outside;
+  }
+
+  li {
+    display: list-item;
+    margin-bottom: 0.25rem;
+  }
+
+  a {
+    color: var(--wiki-gallery-accent, #16213e);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  blockquote {
+    margin: 0.85rem 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+    border-left: 3px solid var(--wiki-gallery-accent, #16213e);
+    color: rgba(22, 33, 62, 0.75);
+    font-style: italic;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+}
+
+.s_wiki_gallery_modal_by {
+  margin: 1.25rem 0 0;
+  font-size: 0.9rem;
+  color: rgba(22, 33, 62, 0.55);
+}

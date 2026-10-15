@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="image_fade_shapes" inherit_id="website.snippet_options" name="Image Fade Shapes">
+    <xpath expr="//div[hasclass('o_scroll_shapes_decorative')]/we-title[1]" position="before">
+        <we-title>Fondu</we-title>
+        <we-select-page string="Fondu">
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_left"
+                       data-select-label="Fondu gauche"
+                       data-no-transform="true"/>
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_right"
+                       data-select-label="Fondu droite"
+                       data-no-transform="true"/>
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_top"
+                       data-select-label="Fondu haut"
+                       data-no-transform="true"/>
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_bottom"
+                       data-select-label="Fondu bas"
+                       data-no-transform="true"/>
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_sides"
+                       data-select-label="Fondu latéral"
+                       data-no-transform="true"/>
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_left_bottom"
+                       data-select-label="Fondu gauche + bas"
+                       data-no-transform="true"/>
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_top_right"
+                       data-select-label="Fondu haut + droite"
+                       data-no-transform="true"/>
+            <we-button data-set-img-shape="lgx_website_image_fade_shape/fade/fade_around"
+                       data-select-label="Fondu tout le tour"
+                       data-no-transform="true"/>
+        </we-select-page>
+    </xpath>
+</template>
+
+</odoo>

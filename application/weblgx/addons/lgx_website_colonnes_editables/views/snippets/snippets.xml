@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="colonnes_editables_snippets" inherit_id="website.snippets" name="Colonnes Editables Snippets">
+    <xpath expr="//t[@t-snippet='website.s_three_columns']" position="after">
+        <t t-snippet="lgx_website_colonnes_editables.s_colonnes_editables"
+           string="Colonnes Editables"
+           t-thumbnail="/lgx_website_colonnes_editables/static/src/img/snippets_thumbs/s_colonnes_editables.svg">
+            <keywords>colonnes, columns, editables, image, texte, icone, media</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="frise_chronologique_snippets" inherit_id="website.snippets" name="Frise Chronologique Snippets">
+    <xpath expr="//t[@t-snippet='website.s_timeline']" position="after">
+        <t t-snippet="lgx_website_frise_chronologique.s_frise_chronologique"
+           string="Frise Chronologique"
+           t-thumbnail="/lgx_website_frise_chronologique/static/src/img/snippets_thumbs/s_frise_chronologique.svg">
+            <keywords>frise, chronologique, timeline, histoire, dates, icones</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

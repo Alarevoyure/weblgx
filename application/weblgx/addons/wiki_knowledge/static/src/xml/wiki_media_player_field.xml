@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="wiki_knowledge.WikiMediaPlayerField">
+        <div class="o_wiki_gallery_media_player" t-if="src">
+            <video t-if="kind === 'video'"
+                   t-att-src="src"
+                   controls="controls"
+                   playsinline="playsinline"
+                   preload="metadata"/>
+            <audio t-else=""
+                   t-att-src="src"
+                   controls="controls"
+                   preload="metadata"/>
+        </div>
+    </t>
+</templates>

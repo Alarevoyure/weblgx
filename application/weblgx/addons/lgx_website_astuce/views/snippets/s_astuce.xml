@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_astuce" name="Astuce du jour">
+    <section class="s_astuce pt32 pb32"
+             data-snippet="s_astuce"
+             data-name="Astuce du jour"
+             data-astuce-id=""
+             style="--astuce-accent: #16213e;">
+        <div class="container">
+            <div class="s_astuce_card o_not_editable">
+                <div class="s_astuce_label">Astuce du jour</div>
+                <div class="s_astuce_body" data-astuce-content="1">
+                    <p class="s_astuce_placeholder text-muted mb-0">
+                        L’astuce s’affichera ici après configuration DeepSeek.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_astuce_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+        <div data-js="Astuce" data-selector=".s_astuce">
+            <we-select string="Source"
+                       data-name="astuce_opt"
+                       data-attribute-name="astuceId"
+                       data-no-preview="true">
+                <we-button data-select-data-attribute="">Automatique (1re active)</we-button>
+            </we-select>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

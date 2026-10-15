@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_colonnes_editables" name="Colonnes Editables">
+    <section class="s_colonnes_editables o_cc o_cc2 pt32 pb32 o_colored_level"
+             data-snippet="s_colonnes_editables"
+             data-name="Colonnes Editables"
+             style="--ce-accent: #16213e;">
+        <div class="container">
+            <div class="row d-flex align-items-stretch">
+                <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                    <div class="card h-100 s_ce_column">
+                        <div class="s_ce_image_wrap text-center">
+                            <img class="card-img-top s_ce_main_image img-fluid"
+                                 src="/web/image/website.s_three_columns_default_image_1"
+                                 alt=""
+                                 style="width: 100%;"/>
+                        </div>
+                        <div class="card-body s_ce_body">
+                            <div class="s_ce_text_media_row" style="--s-ce-text-width: 70%; --s-ce-media-width: 30%;">
+                                <div class="s_ce_text">
+                                    <h3 class="card-title">Fonctionnalité Un</h3>
+                                    <p class="card-text">Adaptez ces trois colonnes à vos besoins. La zone texte est scindée : texte à gauche, image ou icône à droite.</p>
+                                </div>
+                                <div class="s_ce_side_media">
+                                    <span class="fa fa-star fa-2x s_ce_side_icon" style="color: #16213e;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                    <div class="card h-100 s_ce_column">
+                        <div class="s_ce_image_wrap text-center">
+                            <img class="card-img-top s_ce_main_image img-fluid"
+                                 src="/web/image/website.s_three_columns_default_image_2"
+                                 alt=""
+                                 style="width: 100%;"/>
+                        </div>
+                        <div class="card-body s_ce_body">
+                            <div class="s_ce_text_media_row" style="--s-ce-text-width: 70%; --s-ce-media-width: 30%;">
+                                <div class="s_ce_text">
+                                    <h3 class="card-title">Fonctionnalité Deux</h3>
+                                    <p class="card-text">Réglez la taille de l'image (25 à 100 %), la largeur et la hauteur de chaque colonne, ainsi que la largeur des zones texte et média.</p>
+                                </div>
+                                <div class="s_ce_side_media">
+                                    <span class="fa fa-cog fa-2x s_ce_side_icon" style="color: #16213e;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 s_col_no_bgcolor pt16 pb16">
+                    <div class="card h-100 s_ce_column">
+                        <div class="s_ce_image_wrap text-center">
+                            <img class="card-img-top s_ce_main_image img-fluid"
+                                 src="/web/image/website.s_three_columns_default_image_3"
+                                 alt=""
+                                 style="width: 100%;"/>
+                        </div>
+                        <div class="card-body s_ce_body">
+                            <div class="s_ce_text_media_row" style="--s-ce-text-width: 70%; --s-ce-media-width: 30%;">
+                                <div class="s_ce_text">
+                                    <h3 class="card-title">Fonctionnalité Trois</h3>
+                                    <p class="card-text">Remplacez l'icône de droite par une image, ou changez l'icône via le sélecteur de médias.</p>
+                                </div>
+                                <div class="s_ce_side_media">
+                                    <span class="fa fa-heart fa-2x s_ce_side_icon" style="color: #16213e;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_colonnes_editables_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+
+        <!-- Couleur / bordure / ombre : retire text-bg-* qui force le blanc -->
+        <div data-js="ColonnesEditablesBox"
+             data-selector=".s_colonnes_editables .row > div"
+             data-target=".s_ce_column">
+            <we-colorpicker string="Colors"
+                data-select-style="true"
+                data-css-property="background-color"
+                data-color-prefix="bg-"/>
+            <t t-call="website.snippet_options_border_widgets">
+                <t t-set="so_rounded_no_dependencies" t-value="True"/>
+            </t>
+            <t t-call="website.snippet_options_shadow_widgets"/>
+        </div>
+
+        <!-- Dimensions de la colonne (carte) -->
+        <div data-js="ColonnesEditablesColumn"
+             data-selector=".s_colonnes_editables .row > div"
+             data-target=".s_ce_column">
+            <we-input string="Largeur colonne"
+                      data-select-style=""
+                      data-css-property="width"
+                      data-unit="px"
+                      data-name="ce_column_width_opt"/>
+            <we-input string="Hauteur colonne"
+                      data-select-style=""
+                      data-css-property="height"
+                      data-unit="px"
+                      data-name="ce_column_height_opt"/>
+        </div>
+
+        <!-- Taille de l'image principale (curseur 25–100 %) -->
+        <div data-js="ColonnesEditablesImage"
+             data-selector=".s_colonnes_editables .s_ce_main_image">
+            <we-range string="Taille image"
+                      data-select-style="100%"
+                      data-css-property="width"
+                      data-unit="%"
+                      data-min="25"
+                      data-max="100"
+                      data-step="5"
+                      data-display-range-value="true"
+                      data-name="ce_image_size_opt"/>
+        </div>
+
+        <!-- Largeurs des zones texte | média (sélection colonne, un seul panneau) -->
+        <div data-js="ColonnesEditablesTextMedia"
+             data-selector=".s_colonnes_editables .row > div"
+             data-target=".s_ce_text_media_row"
+             data-name="Zones texte / média">
+            <we-range string="Largeur zone texte"
+                      data-select-style="70%"
+                      data-css-property="--s-ce-text-width"
+                      data-unit="%"
+                      data-min="40"
+                      data-max="90"
+                      data-step="5"
+                      data-display-range-value="true"
+                      data-name="ce_text_width_opt"/>
+            <we-range string="Largeur zone média"
+                      data-select-style="30%"
+                      data-css-property="--s-ce-media-width"
+                      data-unit="%"
+                      data-min="10"
+                      data-max="60"
+                      data-step="5"
+                      data-display-range-value="true"
+                      data-name="ce_media_width_opt"/>
+        </div>
+
+        <!-- Alignement vertical (comme Colonnes) -->
+        <div data-selector=".s_colonnes_editables" data-target=".row">
+            <we-button-group class="o_we_sublevel_1" string="Vert. Alignment" title="Vertical Alignment" data-dependencies="normal_mode">
+                <we-button title="Align Top"
+                           data-select-class="align-items-start"
+                           data-img="/website/static/src/img/snippets_options/align_top.svg"/>
+                <we-button title="Align Middle"
+                           data-select-class="align-items-center"
+                           data-img="/website/static/src/img/snippets_options/align_middle.svg"/>
+                <we-button title="Align Bottom"
+                           data-select-class="align-items-end"
+                           data-img="/website/static/src/img/snippets_options/align_bottom.svg"/>
+                <we-button title="Stretch to Equal Height"
+                           data-select-class="align-items-stretch"
+                           data-img="/website/static/src/img/snippets_options/align_stretch.svg"/>
+            </we-button-group>
+        </div>
+
+    </xpath>
+</template>
+
+</odoo>

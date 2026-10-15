@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Installe Web@LGX sur un Debian 12 ou 13 amd64 vide.
+# Usage : sudo ./install_weblgx
+
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+export WEBLGX_INSTALL_RUNNING=1
+
+# shellcheck disable=SC1091
+source "${ROOT}/lib/common.sh"
+# shellcheck disable=SC1091
+source "${ROOT}/etc/defaults.env"
+if [[ -f /etc/weblgx/install.env ]]; then
+  # shellcheck disable=SC1091
+  source /etc/weblgx/install.env
+fi
+
+require_root
+require_debian
+require_names
+load_or_create_secrets
+
+on_error() {
+  local code=$?
+  printf '\n[weblgx] ERREUR: installation arrêtée (code %s).\n' "${code}" >&2
+  report_failure
+  exit "${code}"
+}
+trap on_error ERR
+
+# shellcheck disable=SC1091
+source "${ROOT}/lib/10-system.sh"
+# shellcheck disable=SC1091
+source "${ROOT}/lib/20-postgresql.sh"
+# shellcheck disable=SC1091
+source "${ROOT}/lib/30-engine.sh"
+# shellcheck disable=SC1091
+source "${ROOT}/lib/40-modules.sh"
+# shellcheck disable=SC1091
+source "${ROOT}/lib/50-database.sh"
+# shellcheck disable=SC1091
+source "${ROOT}/lib/60-service.sh"
+
+trap - ERR
+cat <<EOF
+
+Web@LGX est installé.
+  Configuration : ${WEBLGX_CONFIG}
+  Service       : systemctl status weblgx
+EOF
+print_access

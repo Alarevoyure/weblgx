@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="60" viewBox="0 0 82 60">
+  <defs>
+    <filter id="filter-shadow" width="102%" height="108%" x="-1%" y="-2%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.15 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" class="snippets_thumbs">
+    <g class="s_editable_table">
+      <rect width="82" height="60" class="bg"/>
+      <g transform="translate(14 10)">
+        <!-- Table border -->
+        <rect x="0" y="0" width="54" height="40" rx="1" stroke="#FFF" stroke-opacity="0.55" stroke-width="1" fill="none"/>
+        <!-- Header row background -->
+        <rect x="1" y="1" width="52" height="11" fill="#FFF" fill-opacity="0.45"/>
+        <!-- Header vertical dividers -->
+        <line x1="18.3" y1="1" x2="18.3" y2="12" stroke="#FFF" stroke-opacity="0.35" stroke-width="1"/>
+        <line x1="36.7" y1="1" x2="36.7" y2="12" stroke="#FFF" stroke-opacity="0.35" stroke-width="1"/>
+        <!-- Header row separator -->
+        <line x1="1" y1="12" x2="53" y2="12" stroke="#FFF" stroke-opacity="0.55" stroke-width="1"/>
+        <!-- Body horizontal dividers -->
+        <line x1="1" y1="22" x2="53" y2="22" stroke="#FFF" stroke-opacity="0.35" stroke-width="1"/>
+        <line x1="1" y1="32" x2="53" y2="32" stroke="#FFF" stroke-opacity="0.35" stroke-width="1"/>
+        <!-- Body vertical dividers -->
+        <line x1="18.3" y1="12" x2="18.3" y2="39" stroke="#FFF" stroke-opacity="0.35" stroke-width="1"/>
+        <line x1="36.7" y1="12" x2="36.7" y2="39" stroke="#FFF" stroke-opacity="0.35" stroke-width="1"/>
+        <!-- Header cell placeholders -->
+        <rect x="4" y="5" width="10" height="2" fill="#FFF" fill-opacity="0.78" filter="url(#filter-shadow)"/>
+        <rect x="22" y="5" width="10" height="2" fill="#FFF" fill-opacity="0.78" filter="url(#filter-shadow)"/>
+        <rect x="40" y="5" width="10" height="2" fill="#FFF" fill-opacity="0.78" filter="url(#filter-shadow)"/>
+        <!-- Body cell placeholders -->
+        <rect x="4" y="15" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="22" y="15" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="40" y="15" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="4" y="25" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="22" y="25" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="40" y="25" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="4" y="35" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="22" y="35" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+        <rect x="40" y="35" width="10" height="2" fill="#FFF" fill-opacity="0.35" filter="url(#filter-shadow)"/>
+      </g>
+    </g>
+  </g>
+</svg>

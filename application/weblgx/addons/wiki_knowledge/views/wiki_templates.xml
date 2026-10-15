@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="wiki_portal_main" name="Wiki Portal">
+            <t t-call="website.layout">
+                <t t-set="page_name">wiki</t>
+                <!-- Masquer le header du site si l'option « Afficher sur le Wiki » est décochée -->
+                <t t-if="not website.wiki_show_site_header">
+                    <t t-set="no_header" t-value="True"/>
+                </t>
+                <link rel="stylesheet" href="/wiki_knowledge/static/src/css/wiki_portal.css"/>
+
+                <!--
+                    Header Wiki : bandeau pleine largeur sous le header du site.
+                    Éléments optionnels (Logo / Recherche / Inscription) + zone de blocs.
+                -->
+                <t t-set="wiki_header_has_mobile_menu"
+                   t-value="website.wiki_header_show_search or website.wiki_header_show_signin or (website.wiki_header_show_menu and wiki_toc_html)"/>
+                <header id="o_wiki_header"
+                        t-attf-class="o_wiki_header o_colored_level o_wiki_header_effect_{{website.wiki_header_scroll_effect or 'standard'}}"
+                        data-name="Header Wiki"
+                        data-snippet="o_wiki_header"
+                        t-att-data-wiki-scroll-effect="website.wiki_header_scroll_effect or 'standard'"
+                        t-attf-style="--wiki-logo-height: {{website.wiki_logo_height or 40}}px; --wiki-logo-height-scrolled: {{website.wiki_logo_height_scrolled or website.wiki_logo_height or 40}}px;">
+                    <nav class="navbar navbar-expand-lg o_wiki_header_navbar navbar-light">
+                        <div class="container o_wiki_header_inner d-flex align-items-center gap-2 gap-lg-3">
+                            <!-- Logo Wiki (toujours visible, y compris mobile) -->
+                            <a t-if="website.wiki_header_show_logo and website.wiki_header_brand_type == 'image'"
+                               href="/wiki"
+                               class="navbar-brand logo o_wiki_header_logo me-0"
+                               data-name="Logo Wiki">
+                                <span t-field="website.wiki_logo"
+                                      t-options="{'widget': 'image', 'width': 95, 'height': 40}"
+                                      role="img"
+                                      t-att-aria-label="'Wiki logo of %s' % website.name"
+                                      t-att-title="website.name"/>
+                            </a>
+                            <a t-if="website.wiki_header_show_logo and website.wiki_header_brand_type == 'text'"
+                               href="/wiki"
+                               class="navbar-brand o_wiki_header_logo me-0"
+                               data-name="Logo Wiki">
+                                <span t-field="website.wiki_header_brand_name"/>
+                            </a>
+
+                            <!-- Contenu éditable — desktop uniquement -->
+                            <t t-set="oe_structure_wiki_header_description">
+                                Header Wiki — glissez des blocs ici (commun à toutes les pages Wiki de ce site)
+                            </t>
+                            <div t-field="website.wiki_header"
+                                 class="oe_structure o_wiki_header_content flex-grow-1 d-none d-lg-block"
+                                 t-attf-id="oe_structure_wiki_header_#{website.id}"
+                                 data-editor-message="Glissez des blocs pour composer le Header Wiki"
+                                 t-att-data-editor-sub-message="oe_structure_wiki_header_description"/>
+
+                            <!-- Menu pages Wiki — un bouton « Menu » (évite de surcharger le header) -->
+                            <div t-if="website.wiki_header_show_menu and wiki_header_nav_items"
+                                 class="dropdown o_wiki_header_menu o_not_editable d-none d-lg-block flex-shrink-0">
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-secondary dropdown-toggle o_wiki_header_menu_btn"
+                                        data-bs-toggle="dropdown"
+                                        data-bs-auto-close="true"
+                                        aria-expanded="false"
+                                        aria-haspopup="true"
+                                        aria-label="Menu des pages Wiki">
+                                    <i class="fa fa-bars me-1" aria-hidden="true"/>Menu
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end o_wiki_header_menu_dropdown" role="menu">
+                                    <t t-foreach="wiki_header_nav_items" t-as="item">
+                                        <li role="none">
+                                            <a t-att-href="item['url']"
+                                               t-attf-class="dropdown-item o_wiki_header_menu_root #{'active' if item['selected'] and (not current or current.id == item['page'].id or not item['children']) else ''}"
+                                               role="menuitem"
+                                               t-esc="item['page'].name"/>
+                                        </li>
+                                        <t t-foreach="item['children']" t-as="child">
+                                            <li role="none">
+                                                <a t-attf-href="/wiki?page_id=#{child.id}"
+                                                   t-attf-class="dropdown-item o_wiki_header_menu_child #{'active' if current and current.id == child.id else ''}"
+                                                   role="menuitem"
+                                                   t-esc="child.name"/>
+                                            </li>
+                                        </t>
+                                    </t>
+                                </ul>
+                            </div>
+
+                            <!-- Actions desktop : recherche + inscription -->
+                            <ul t-if="website.wiki_header_show_search or website.wiki_header_show_signin"
+                                class="navbar-nav align-items-center gap-2 flex-shrink-0 justify-content-end o_wiki_header_actions o_not_editable mb-0 d-none d-lg-flex">
+                                <li t-if="website.wiki_header_show_search" class="nav-item o_wiki_header_search_item">
+                                    <form class="o_wiki_header_search o_wiki_search d-flex flex-nowrap align-items-center gap-1 mb-0"
+                                          method="get"
+                                          action="/wiki"
+                                          role="search">
+                                        <label class="visually-hidden" for="o_wiki_header_search_q">Rechercher dans le wiki</label>
+                                        <input id="o_wiki_header_search_q"
+                                               type="search"
+                                               name="q"
+                                               class="form-control form-control-sm o_wiki_search_input"
+                                               placeholder="Rechercher…"
+                                               autocomplete="off"
+                                               t-att-value="wiki_search_query or ''"/>
+                                        <button type="submit" class="btn btn-sm btn-primary flex-shrink-0 text-nowrap">Rechercher</button>
+                                        <a t-if="wiki_search_query"
+                                           href="/wiki"
+                                           class="btn btn-sm btn-link flex-shrink-0 text-nowrap">Effacer</a>
+                                    </form>
+                                </li>
+                                <t t-if="website.wiki_header_show_signin">
+                                    <t t-call="portal.placeholder_user_sign_in">
+                                        <t t-set="_link_class" t-valuef="btn btn-outline-secondary"/>
+                                    </t>
+                                    <t t-call="portal.user_dropdown">
+                                        <t t-set="_user_name" t-value="True"/>
+                                        <t t-set="_item_class" t-valuef="dropdown"/>
+                                        <t t-set="_link_class" t-valuef="btn-outline-secondary border-0 fw-bold"/>
+                                        <t t-set="_user_name_class" t-valuef="small"/>
+                                        <t t-set="_dropdown_menu_class" t-valuef="dropdown-menu-end"/>
+                                    </t>
+                                </t>
+                            </ul>
+
+                            <!-- Bouton sandwich mobile -->
+                            <button t-if="wiki_header_has_mobile_menu"
+                                    type="button"
+                                    class="navbar-toggler o_wiki_header_toggler o_not_editable ms-auto d-lg-none"
+                                    aria-controls="o_wiki_header_offcanvas"
+                                    aria-label="Ouvrir le menu Wiki">
+                                <span class="navbar-toggler-icon"/>
+                            </button>
+                        </div>
+                    </nav>
+                </header>
+
+                <!--
+                    Offcanvas hors du Header Wiki : si le header est affixed/transformé,
+                    un offcanvas enfant serait clippé à la hauteur du bandeau réduit.
+                -->
+                <div t-if="wiki_header_has_mobile_menu"
+                     class="offcanvas offcanvas-end o_wiki_header_offcanvas o_not_editable d-lg-none"
+                     tabindex="-1"
+                     id="o_wiki_header_offcanvas"
+                     aria-labelledby="o_wiki_header_offcanvas_label">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title mb-0" id="o_wiki_header_offcanvas_label">Wiki</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"/>
+                    </div>
+                    <div class="offcanvas-body d-flex flex-column gap-3">
+                        <t t-if="website.wiki_header_show_search">
+                            <form class="o_wiki_header_search o_wiki_search d-flex flex-column gap-2 mb-0"
+                                  method="get"
+                                  action="/wiki"
+                                  role="search">
+                                <label class="visually-hidden" for="o_wiki_header_search_q_mobile">Rechercher dans le wiki</label>
+                                <input id="o_wiki_header_search_q_mobile"
+                                       type="search"
+                                       name="q"
+                                       class="form-control o_wiki_search_input"
+                                       placeholder="Rechercher…"
+                                       autocomplete="off"
+                                       t-att-value="wiki_search_query or ''"/>
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-primary flex-grow-1">Rechercher</button>
+                                    <a t-if="wiki_search_query"
+                                       href="/wiki"
+                                       class="btn btn-link">Effacer</a>
+                                </div>
+                            </form>
+                        </t>
+
+                        <t t-if="website.wiki_header_show_menu and wiki_toc_html">
+                            <nav class="o_wiki_header_mobile_nav" aria-label="Pages du Wiki">
+                                <div class="o_wiki_header_mobile_nav_title">Pages</div>
+                                <div class="o_wiki_toc_tree o_wiki_header_mobile_toc" id="o_wiki_header_mobile_toc">
+                                    <t t-raw="wiki_toc_html"/>
+                                </div>
+                            </nav>
+                        </t>
+
+                        <ul t-if="website.wiki_header_show_signin"
+                            class="navbar-nav gap-2 mt-auto w-100 mb-0">
+                            <t t-call="portal.placeholder_user_sign_in">
+                                <t t-set="_link_class" t-valuef="btn btn-outline-secondary w-100"/>
+                            </t>
+                            <t t-call="portal.user_dropdown">
+                                <t t-set="_icon" t-value="true"/>
+                                <t t-set="_user_name" t-value="true"/>
+                                <t t-set="_user_name_class" t-valuef="me-auto small"/>
+                                <t t-set="_link_class" t-valuef="btn-outline-secondary d-flex align-items-center border-0 px-2 w-100"/>
+                                <t t-set="_icon_class" t-valuef="me-2"/>
+                                <t t-set="_item_class" t-valuef="dropdown dropup"/>
+                                <t t-set="_dropdown_menu_class" t-valuef="w-100 dropdown-menu-end"/>
+                            </t>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="o_wiki_root"
+                     t-attf-class="o_wiki_layout container-fluid #{'o_wiki_no_toc' if not wiki_show_toc else ''} #{'o_wiki_article_page' if wiki_article else ''}"
+                     t-attf-style="--wiki-border-color: {{wiki_border_color}};"
+                     t-att-data-can-front-edit="'1' if wiki_can_front_edit else '0'"
+                     t-att-data-page-state="current.state if current else ''"
+                     t-att-data-show-page-nav="'1' if wiki_show_page_nav else '0'">
+                    <t t-if="wiki_show_toc">
+                    <aside class="o_wiki_toc" id="o_wiki_toc_panel" role="navigation" aria-label="Sommaire">
+                        <div class="o_wiki_toc_header">
+                            <span>Sommaire</span>
+                            <button type="button" class="o_wiki_toc_close btn btn-sm btn-link text-reset p-0 d-lg-none"
+                                    aria-label="Fermer le sommaire">
+                                <span class="fa fa-times" aria-hidden="true"/>
+                            </button>
+                        </div>
+                        <div class="o_wiki_toc_tree" id="o_wiki_toc_tree">
+                            <t t-raw="wiki_toc_html"/>
+                        </div>
+                    </aside>
+
+                    <div class="o_wiki_toc_backdrop" aria-hidden="true"/>
+                    </t>
+
+                    <input type="hidden" id="o_wiki_current_page_id" t-att-value="current.id if current else ''"/>
+
+                    <main class="o_wiki_editor">
+                        <div class="o_wiki_editor_header">
+                            <div class="o_wiki_editor_title_row d-flex align-items-center gap-2 flex-grow-1 flex-wrap">
+                                <!-- Sommaire mobile : menu sandwich du Header Wiki -->
+                                <div class="flex-grow-1 min-w-0">
+                                    <h3 id="o_wiki_current_title" class="mb-0 o_wiki_current_page_title">
+                                        <t t-if="wiki_search_active">Recherche</t>
+                                        <t t-elif="wiki_article"><t t-esc="wiki_article['name']"/></t>
+                                        <t t-else=""><t t-esc="current.name if current else ''"/></t>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="o_wiki_editor_actions" t-if="wiki_can_front_edit and current and current.has_page and current.state != 'to_review' and not editable">
+                                <button type="button" class="btn btn-sm btn-primary" id="o_wiki_btn_edit_content">Editer</button>
+                                <button type="button" class="btn btn-sm btn-success d-none" id="o_wiki_btn_save_content">Enregistrer</button>
+                                <button type="button" class="btn btn-sm btn-secondary d-none" id="o_wiki_btn_cancel_content">Annuler</button>
+                            </div>
+                        </div>
+
+                        <div class="o_wiki_editor_body">
+                            <div class="o_wiki_editor_main">
+                                <t t-if="wiki_search_active">
+                                    <div class="o_wiki_search_results flex-grow-1 overflow-auto px-3 py-3">
+                                        <t t-if="wiki_search_too_short">
+                                            <p class="text-muted mb-0">Saisissez au moins 2 caractères pour lancer une recherche.</p>
+                                        </t>
+                                        <t t-elif="wiki_search_rows">
+                                            <p class="mb-3">
+                                                <span t-esc="len(wiki_search_rows)"/> résultat(s) pour « <strong t-esc="wiki_search_query"/> »
+                                            </p>
+                                            <ul class="list-unstyled o_wiki_search_list mb-0">
+                                                <t t-foreach="wiki_search_rows" t-as="row">
+                                                    <li class="o_wiki_search_hit mb-3 pb-3 border-bottom">
+                                                        <a class="fw-semibold" t-att-href="row['url']" t-esc="row['title']"/>
+                                                        <div t-if="row.get('meta')" class="small o_wiki_search_kind mt-1" t-esc="row['meta']"/>
+                                                        <div class="small text-muted mt-1 text-break" t-esc="row['snippet']"/>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                        </t>
+                                        <t t-else="">
+                                            <p class="text-muted mb-0">Aucun résultat pour « <t t-esc="wiki_search_query"/> ».</p>
+                                        </t>
+                                    </div>
+                                </t>
+                                <t t-elif="wiki_article">
+                                    <article class="o_wiki_article flex-grow-1 overflow-auto px-3 py-3">
+                                        <p t-if="wiki_article.get('meta')" class="o_wiki_article_meta small mb-3" t-esc="wiki_article['meta']"/>
+                                        <div class="o_wiki_article_media mb-3">
+                                            <img t-att-src="wiki_article['image_url']"
+                                                 t-att-alt="wiki_article['name']"
+                                                 loading="lazy"/>
+                                        </div>
+                                        <div class="o_wiki_article_text" t-out="wiki_article['text']"/>
+                                        <p t-if="wiki_article.get('contributor_name')" class="o_wiki_article_by text-muted mt-3 mb-0">
+                                            — <t t-esc="wiki_article['contributor_name']"/>
+                                        </p>
+                                    </article>
+                                </t>
+                                <t t-else="">
+                                <t t-if="current and current.has_page">
+                                    <t t-if="editable">
+                                        <!-- Même principe que website_blog : champ Html seul (sans oe_structure) pour le drag & drop des blocs. -->
+                                        <div id="o_wiki_editor_area"
+                                             data-editor-message="Écrivez ici ou glissez des blocs de construction"
+                                             t-attf-class="o_wiki_editor_area #{(not current.content) and 'o_wiki_content_empty' or ''}"
+                                             t-field="current.content"/>
+                                    </t>
+                                    <t t-else="">
+                                        <div id="o_wiki_editor_area" class="o_wiki_editor_area">
+                                            <t t-raw="current_content"/>
+                                        </div>
+                                        <div id="o_wiki_wysiwyg_wrap" class="o_wysiwyg_textarea_wrapper d-none">
+                                            <!--
+                                              Laisser vide : le contenu est injecté en JS à l'édition
+                                              (innerHTML de #o_wiki_editor_area). Y coller le HTML
+                                              de la page (Markup) faisait fermer le textarea trop tôt
+                                              dès qu'un &lt;textarea&gt; existait dans le contenu
+                                              (formulaire Bibliothèque Wiki) → photo/bouton en double.
+                                            -->
+                                            <textarea id="o_wiki_content_textarea" class="o_wysiwyg_loader"></textarea>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-elif="current">
+                                    <div class="o_wiki_editor_area o_wiki_no_content p-3 text-muted">
+                                        Ce noeud du sommaire n'a pas de page de contenu editable.
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div class="o_wiki_editor_area o_wiki_no_content p-3 text-muted">
+                                        Aucune page wiki.
+                                    </div>
+                                </t>
+                                </t>
+                            </div>
+                            <aside t-if="wiki_show_page_nav"
+                                   class="o_wiki_page_nav d-none d-lg-block"
+                                   role="navigation"
+                                   aria-label="Navigation dans la page">
+                                <div class="o_wiki_page_nav_header">
+                                    <span>Sur cette page</span>
+                                </div>
+                                <nav id="o_wiki_page_nav_list" class="o_wiki_page_nav_list">
+                                    <!-- Rempli côté JavaScript à partir des titres H1/H2/H3. -->
+                                </nav>
+                            </aside>
+                        </div>
+                    </main>
+                </div>
+            </t>
+        </template>
+
+        <!--
+            Héritage séparé : s'applique aussi aux copies du portail déjà
+            enregistrées par site (COW), sans écraser leur contenu.
+        -->
+        <template id="wiki_article_reading" name="Wiki article reading" inherit_id="wiki_knowledge.wiki_portal_main">
+            <xpath expr="//div[@id='o_wiki_root']" position="attributes">
+                <attribute name="t-attf-class">o_wiki_layout container-fluid #{'o_wiki_no_toc' if not wiki_show_toc else ''} #{'o_wiki_article_page' if wiki_article else ''}</attribute>
+            </xpath>
+            <xpath expr="//article[hasclass('o_wiki_article')]" position="replace">
+                <div class="o_wiki_article_wrap flex-grow-1 overflow-auto">
+                    <article class="o_wiki_article px-3 py-4">
+                        <p class="o_wiki_article_back mb-3">
+                            <a t-att-href="wiki_article['back_url']" t-esc="wiki_article['back_label']"/>
+                        </p>
+                        <p t-if="wiki_article.get('meta')" class="o_wiki_article_meta mb-2" t-esc="wiki_article['meta']"/>
+                        <h1 class="o_wiki_article_title" t-esc="wiki_article['name']"/>
+                        <button type="button" class="o_wiki_article_zoom" aria-label="Agrandir la photo">
+                            <img t-att-src="wiki_article['image_url']"
+                                 t-att-alt="wiki_article['name']"/>
+                            <span class="o_wiki_article_zoom_hint">Cliquer pour agrandir</span>
+                        </button>
+                        <div t-if="wiki_article.get('media_url')" class="o_wiki_article_player">
+                            <p class="o_wiki_article_player_label">
+                                <t t-if="wiki_article.get('media_kind') == 'video'">Vidéo</t>
+                                <t t-else="">Piste audio</t>
+                            </p>
+                            <video t-if="wiki_article.get('media_kind') == 'video'"
+                                   controls="controls"
+                                   playsinline="playsinline"
+                                   preload="metadata"
+                                   t-att-src="wiki_article['media_url']">
+                                Votre navigateur ne lit pas cette vidéo.
+                            </video>
+                            <audio t-else=""
+                                   controls="controls"
+                                   preload="metadata"
+                                   t-att-src="wiki_article['media_url']">
+                                Votre navigateur ne lit pas cette piste audio.
+                            </audio>
+                        </div>
+                        <div class="o_wiki_article_text" t-out="wiki_article['text']"/>
+                        <p t-if="wiki_article.get('contributor_name')" class="o_wiki_article_by mt-4 mb-0">
+                            — <t t-esc="wiki_article['contributor_name']"/>
+                        </p>
+                        <p class="o_wiki_article_views">
+                            <t t-esc="wiki_article.get('view_count', 0)"/>
+                            <t t-if="wiki_article.get('view_count', 0) == 1"> vue</t>
+                            <t t-else=""> vues</t>
+                        </p>
+                    </article>
+                    <div class="o_wiki_article_lightbox" hidden="hidden" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+                        <button type="button" class="o_wiki_article_lightbox_close" aria-label="Fermer">×</button>
+                        <img t-att-src="wiki_article['image_url']" t-att-alt="wiki_article['name']"/>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="wiki_portal_footer" name="Wiki Portal Footer" inherit_id="wiki_knowledge.wiki_portal_main">
+            <xpath expr="//t[@t-set='no_header']/parent::t" position="after">
+                <t t-if="not website.wiki_show_site_footer">
+                    <t t-set="no_footer" t-value="True"/>
+                </t>
+            </xpath>
+            <xpath expr="//div[@id='o_wiki_root']" position="after">
+                <footer id="o_wiki_footer"
+                        t-attf-class="o_wiki_footer o_colored_level #{'' if website.wiki_show_footer else 'd-none o_snippet_invisible'}"
+                        data-name="Footer Wiki"
+                        data-snippet="o_wiki_footer"
+                        t-att-data-invisible="None if website.wiki_show_footer else '1'">
+                    <t t-set="oe_structure_wiki_footer_description">
+                        Footer Wiki — glissez des blocs ici (liens propres au Wiki, communs à toutes les pages de ce site)
+                    </t>
+                    <div t-field="website.wiki_footer"
+                         class="oe_structure o_wiki_footer_content"
+                         t-attf-id="oe_structure_wiki_footer_#{website.id}"
+                         data-editor-message="Glissez des blocs pour composer le Footer Wiki"
+                         t-att-data-editor-sub-message="oe_structure_wiki_footer_description"/>
+                </footer>
+            </xpath>
+        </template>
+    </data>
+</odoo>

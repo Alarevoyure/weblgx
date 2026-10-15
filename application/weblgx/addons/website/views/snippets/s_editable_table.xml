@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_editable_table" name="Editable Table">
+    <section class="s_editable_table pt24 pb24"
+             data-header-bg="#191970"
+             data-body-bg="#F8F9FA"
+             data-border-color="#dee2e6"
+             style="--etable-header-bg: #191970; --etable-body-bg: #F8F9FA; --etable-border-color: #dee2e6;">
+        <div class="container">
+            <div class="table-responsive o_not_editable s_editable_table_wrapper w-75 mx-auto" contenteditable="false">
+                <table class="table mb-0 s_editable_table_table">
+                    <thead>
+                        <tr>
+                            <th contenteditable="true">Colonne 1</th>
+                            <th contenteditable="true">Colonne 2</th>
+                            <th contenteditable="true">Colonne 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td contenteditable="true">Contenu</td>
+                            <td contenteditable="true">Contenu</td>
+                            <td contenteditable="true">Contenu</td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true">Contenu</td>
+                            <td contenteditable="true">Contenu</td>
+                            <td contenteditable="true">Contenu</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_editable_table_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+        <div data-js="EditableTable" string="Tableau" data-selector=".s_editable_table">
+            <we-row string="Lignes">
+                <we-button class="fa fa-fw fa-plus o_we_bg_success" data-add-row="" data-no-preview="true" title="Insérer une ligne sous la cellule active"/>
+                <we-button class="fa fa-fw fa-minus o_we_bg_danger" data-remove-row="" data-no-preview="true" data-name="remove_row_opt" title="Supprimer la ligne active"/>
+            </we-row>
+            <we-row string="Colonnes">
+                <we-button class="fa fa-fw fa-plus o_we_bg_success" data-add-column="" data-no-preview="true" title="Insérer une colonne à droite de la cellule active"/>
+                <we-button class="fa fa-fw fa-minus o_we_bg_danger" data-remove-column="" data-no-preview="true" data-name="remove_col_opt" title="Supprimer la colonne active"/>
+            </we-row>
+            <we-select string="Largeur">
+                <we-button data-select-class="w-25" data-apply-to=".s_editable_table_wrapper">25%</we-button>
+                <we-button data-select-class="w-50" data-apply-to=".s_editable_table_wrapper">50%</we-button>
+                <we-button data-select-class="w-75" data-apply-to=".s_editable_table_wrapper">75%</we-button>
+                <we-button data-select-class="w-100" data-apply-to=".s_editable_table_wrapper" data-name="etable_width_100">100%</we-button>
+            </we-select>
+            <we-button-group string="Alignement" data-dependencies="!etable_width_100">
+                <we-button class="fa fa-fw fa-align-left" title="Gauche" data-select-class="me-auto ms-0" data-apply-to=".s_editable_table_wrapper"/>
+                <we-button class="fa fa-fw fa-align-center" title="Centré" data-select-class="mx-auto" data-apply-to=".s_editable_table_wrapper"/>
+                <we-button class="fa fa-fw fa-align-right" title="Droite" data-select-class="ms-auto me-0" data-apply-to=".s_editable_table_wrapper"/>
+            </we-button-group>
+            <we-colorpicker string="Fond en-tête" data-set-header-bg="" data-no-preview="true"/>
+            <we-colorpicker string="Fond lignes" data-set-body-bg="" data-no-preview="true"/>
+            <we-colorpicker string="Couleur lignes" data-set-border-color="" data-no-preview="true"/>
+        </div>
+    </xpath>
+</template>
+
+<asset id="website.s_editable_table_000_scss" name="Editable Table 000 SCSS">
+    <bundle>web.assets_frontend</bundle>
+    <path>website/static/src/snippets/s_editable_table/000.scss</path>
+</asset>
+
+</odoo>

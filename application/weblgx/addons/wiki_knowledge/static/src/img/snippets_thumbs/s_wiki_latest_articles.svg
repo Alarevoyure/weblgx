@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="82" height="60" viewBox="0 0 82 60">
+  <g fill="none" fill-rule="evenodd" class="snippets_thumbs">
+    <g class="s_wiki_latest_articles">
+      <rect width="82" height="60" class="bg" fill="#16213e" fill-opacity=".08"/>
+      <rect x="8" y="10" width="14" height="14" rx="3" fill="#16213e" fill-opacity=".85"/>
+      <rect x="28" y="12" width="40" height="3" fill="#16213e" fill-opacity=".7"/>
+      <rect x="28" y="18" width="28" height="2" fill="#16213e" fill-opacity=".3"/>
+      <line x1="8" y1="30" x2="74" y2="30" stroke="#16213e" stroke-opacity=".15" stroke-width="1"/>
+      <rect x="8" y="36" width="14" height="14" rx="3" fill="#16213e" fill-opacity=".7"/>
+      <rect x="28" y="38" width="36" height="3" fill="#16213e" fill-opacity=".6"/>
+      <rect x="28" y="44" width="24" height="2" fill="#16213e" fill-opacity=".28"/>
+    </g>
+  </g>
+</svg>

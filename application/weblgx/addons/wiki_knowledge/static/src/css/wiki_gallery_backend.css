@@ -1,0 +1,78 @@
+/* Éditeur HTML (validation backend) */
+.o_form_view .o_wiki_gallery_text .o_field_html,
+.o_form_view .o_field_html.o_wiki_gallery_text {
+    width: 100% !important;
+    min-height: 12rem;
+}
+
+.o_form_view .o_wiki_gallery_text .odoo-editor-editable,
+.o_form_view .o_wiki_gallery_text .note-editable {
+    min-height: 12rem;
+    padding: 0.75rem 1rem;
+}
+
+.o_form_view .o_wiki_gallery_media_player {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 1rem;
+}
+
+.o_form_view .o_wiki_gallery_media_player video,
+.o_form_view .o_wiki_gallery_media_player audio {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+}
+
+.o_form_view .o_wiki_gallery_media_player video {
+    background: #16213e;
+}
+
+.o_form_view .o_wiki_gallery_preview_wrap {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.o_form_view .o_wiki_gallery_preview_image,
+.o_form_view .o_wiki_gallery_preview_image img,
+.o_form_view .o_field_image.o_wiki_gallery_preview_image img {
+    width: 100% !important;
+    max-width: 720px !important;
+    height: auto !important;
+    max-height: 480px !important;
+    object-fit: contain;
+    border: 1px solid rgba(22, 33, 62, 0.2);
+}
+
+/* Kanban validation */
+.o_wiki_gallery_kanban_card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.o_wiki_gallery_kanban_preview {
+    background: #f4f5f7;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.o_wiki_gallery_kanban_preview img,
+.o_wiki_gallery_kanban_img img {
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
+}
+
+.o_wiki_gallery_kanban_text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: pre-wrap;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}

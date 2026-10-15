@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Compatibilité : les pages existantes référencent encore wiki_knowledge.s_editable_table -->
+<template id="s_editable_table" inherit_id="website.s_editable_table" name="Editable Table"/>
+
+</odoo>

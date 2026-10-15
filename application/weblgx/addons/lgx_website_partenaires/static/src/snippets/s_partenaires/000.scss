@@ -1,0 +1,135 @@
+.s_partenaires {
+    --partenaires-accent: #16213e;
+    --partenaires-visible: 6;
+    --partenaires-logo-height: 80px;
+    --partenaires-gap: 1.5rem;
+
+    .s_partenaires_carousel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .s_partenaires_viewport {
+        flex: 1 1 auto;
+        overflow: hidden;
+        min-width: 0;
+    }
+
+    .s_partenaires_track {
+        display: flex;
+        align-items: center;
+        transition: transform 0.45s ease;
+        will-change: transform;
+
+        &.s_partenaires_no_transition {
+            transition: none !important;
+        }
+    }
+
+    .s_partenaires_item {
+        // Width is set in JS from the viewport so clones do not shrink logos.
+        flex: 0 0 calc(100% / var(--partenaires-visible));
+        max-width: calc(100% / var(--partenaires-visible));
+        padding: 0.75rem calc(var(--partenaires-gap) / 2);
+        box-sizing: border-box;
+        text-align: center;
+
+        a[href] {
+            display: inline-block;
+            max-width: 100%;
+            line-height: 0;
+            cursor: pointer;
+        }
+
+        a[href]:focus-visible {
+            outline: 2px solid var(--partenaires-accent, #16213e);
+            outline-offset: 3px;
+        }
+
+        // Les copies du défilement infini restent cliquables sur leur lien.
+        &.s_partenaires_clone {
+            pointer-events: none;
+
+            a[href] {
+                pointer-events: auto;
+            }
+        }
+    }
+
+    .s_partenaires_logo {
+        display: block;
+        width: 100%;
+        max-width: 160px;
+        height: var(--partenaires-logo-height);
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
+        object-position: center;
+        filter: grayscale(0%);
+        opacity: 0.9;
+        transition: opacity 0.2s ease, filter 0.2s ease;
+    }
+
+    .s_partenaires_logo:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+    }
+
+    .s_partenaires_control {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0;
+        border: 1px solid var(--partenaires-accent, #16213e);
+        border-radius: 50%;
+        background: transparent;
+        color: var(--partenaires-accent, #16213e);
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+        z-index: 1;
+
+        &:hover {
+            background-color: var(--partenaires-accent, #16213e);
+            color: #fff;
+        }
+
+        &:disabled,
+        &.o_hidden {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .fa {
+            font-size: 0.85rem;
+            line-height: 1;
+        }
+    }
+
+    &.s_partenaires_no_scroll {
+        .s_partenaires_control {
+            display: none;
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        --partenaires-visible: 4;
+        --partenaires-logo-height: 72px;
+    }
+
+    @include media-breakpoint-down(md) {
+        --partenaires-visible: 3;
+        --partenaires-logo-height: 64px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        --partenaires-visible: 2;
+        --partenaires-logo-height: 56px;
+    }
+}

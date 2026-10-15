@@ -1,0 +1,6 @@
+// Chargé AVANT web/static/src/scss/primary_variables.scss
+// Les valeurs !default ici « gagnent » : le core ne remplace pas une variable déjà définie.
+// Couleur de marque : bleu nuit (remplace communauté + entreprise / violet).
+
+$o-community-color: #16213e !default;
+$o-enterprise-color: #16213e !default;

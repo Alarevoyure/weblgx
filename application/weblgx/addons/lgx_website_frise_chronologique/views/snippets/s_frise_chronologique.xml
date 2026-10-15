@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_frise_chronologique" name="Frise Chronologique">
+    <section class="s_frise_chronologique pt48 pb48 o_cc o_cc1"
+             data-snippet="s_frise_chronologique"
+             data-name="Frise Chronologique"
+             style="--fc-accent: #16213e;">
+        <div class="container">
+            <h2 class="s_frise_chrono_title">FRISE CHRONOLOGIQUE</h2>
+            <div class="s_frise_chrono_list">
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-university fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">19ème siècle</h3>
+                        <p class="s_frise_chrono_desc">Les premières traces de notre territoire.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-home fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">1900</h3>
+                        <p class="s_frise_chrono_desc">Le village au début du XXe siècle.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-bicycle fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">1920</h3>
+                        <p class="s_frise_chrono_desc">La vie quotidienne autrefois.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-shield fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">1940</h3>
+                        <p class="s_frise_chrono_desc">Pendant la Seconde Guerre mondiale.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-car fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">1960</h3>
+                        <p class="s_frise_chrono_desc">Le village en évolution.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-building fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">1980</h3>
+                        <p class="s_frise_chrono_desc">Nouvelles constructions, nouveaux visages.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-tree fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">2000</h3>
+                        <p class="s_frise_chrono_desc">Au tournant du millénaire.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-users fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">2020</h3>
+                        <p class="s_frise_chrono_desc">Aujourd'hui.</p>
+                    </div>
+                </div>
+
+                <div class="s_frise_chrono_item" data-name="Événement">
+                    <div class="s_frise_chrono_icon">
+                        <span class="fa fa-leaf fa-2x" role="img" aria-label="Icône"/>
+                    </div>
+                    <div class="s_frise_chrono_axis o_not_editable" contenteditable="false">
+                        <span class="s_frise_chrono_dot"/>
+                    </div>
+                    <div class="s_frise_chrono_body">
+                        <h3 class="s_frise_chrono_date">2026</h3>
+                        <p class="s_frise_chrono_desc">Et demain ?</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_frise_chronologique_options" inherit_id="website.snippet_options">
+    <xpath expr="//t[@t-call='website.snippet_options_background_options']" position="before">
+        <div data-js="MultipleItems" data-selector=".s_frise_chronologique">
+            <we-row string="Événement">
+                <we-button data-add-item=""
+                           data-item=".s_frise_chrono_item:last"
+                           data-select-item=""
+                           data-no-preview="true"
+                           class="o_we_bg_brand_primary">
+                    Ajouter
+                </we-button>
+                <we-button data-remove-item=""
+                           data-item=".s_frise_chrono_item:last"
+                           data-no-preview="true"
+                           class="o_we_bg_danger">
+                    Supprimer
+                </we-button>
+            </we-row>
+        </div>
+    </xpath>
+    <xpath expr="." position="inside">
+        <div data-selector=".s_frise_chrono_item" data-drop-near=".s_frise_chrono_item"/>
+        <div data-js="FriseChronologique" data-selector=".s_frise_chronologique">
+            <we-colorpicker string="Couleur frise"
+                            data-select-style="true"
+                            data-css-property="--fc-accent"
+                            data-color-prefix=""/>
+        </div>
+    </xpath>
+    <xpath expr="//div[@data-js='SnippetMove'][contains(@data-selector,'section')]" position="attributes">
+        <attribute name="data-selector" add=".s_frise_chrono_item" separator=","/>
+    </xpath>
+</template>
+
+</odoo>

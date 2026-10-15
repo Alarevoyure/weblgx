@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Footer Wiki : visibilité du footer du site et du Footer Wiki. -->
+<template id="s_wiki_footer_options" inherit_id="website.snippet_options" name="Footer Wiki Options">
+    <!-- Cases à cocher sur le footer du site -->
+    <xpath expr="//div[@data-js='HideFooter']" position="after">
+        <div data-js="WikiShowSiteFooter"
+             data-selector="#wrapwrap > footer"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-checkbox string="Afficher sur le Wiki"
+                         data-wiki-show-site-footer="true"
+                         data-no-preview="true"
+                         data-reload="/"/>
+        </div>
+        <div data-js="WikiShowFooter"
+             data-selector="#wrapwrap > footer"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-checkbox string="Afficher le Footer Wiki"
+                         data-wiki-show-footer="true"
+                         data-no-preview="true"
+                         data-reload="/"/>
+        </div>
+    </xpath>
+
+    <!-- Options du Footer Wiki -->
+    <xpath expr="." position="inside">
+        <div data-js="WikiShowSiteFooter"
+             data-selector="#o_wiki_footer"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-checkbox string="Afficher le footer du site sur le Wiki"
+                         data-wiki-show-site-footer="true"
+                         data-no-preview="true"
+                         data-reload="/wiki"/>
+        </div>
+        <div data-js="WikiShowFooter"
+             data-selector="#o_wiki_footer"
+             data-no-check="true"
+             groups="website.group_website_designer">
+            <we-checkbox string="Afficher le Footer Wiki"
+                         data-wiki-show-footer="true"
+                         data-no-preview="true"
+                         data-reload="/wiki"/>
+        </div>
+    </xpath>
+</template>
+
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="bloc_de_blocs_snippets" inherit_id="website.snippets" name="Bloc de blocs Snippets">
+    <xpath expr="//t[@t-snippet='website.s_three_columns']" position="after">
+        <t t-snippet="lgx_website_bloc_de_blocs.s_bloc_de_blocs"
+           string="Bloc de blocs"
+           t-thumbnail="/lgx_website_bloc_de_blocs/static/src/img/snippets_thumbs/s_bloc_de_blocs.svg">
+            <keywords>colonnes, columns, blocs, nested, structure, dropzone, oe_structure</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

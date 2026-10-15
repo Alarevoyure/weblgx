@@ -1,0 +1,17 @@
+[Unit]
+Description=Web@LGX
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=__SYSTEM_USER__
+Group=__SYSTEM_USER__
+Environment=ODOO_RC=__CONFIG__
+ExecStart=/usr/bin/weblgx --config __CONFIG__
+KillMode=mixed
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

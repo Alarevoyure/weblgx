@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vue dédiée : évite la page blanche quand l'onglet wiki_knowledge
+         est absent du formulaire global (droits / contexte module). -->
+    <record id="res_config_settings_view_form_wiki_only" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.wiki.only</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <form string="Paramètres Wiki" class="oe_form_configuration" js_class="base_settings">
+                <app data-string="Wiki" string="Wiki" name="wiki_knowledge"
+                     logo="/wiki_knowledge/static/description/icon.png">
+                    <setting type="header" string="Site web">
+                        <field name="website_id" options="{'no_open': True, 'no_create': True}"/>
+                    </setting>
+                    <block title="Affichage" id="wiki_display_settings">
+                        <setting string="Sommaire"
+                                 help="Affiche ou masque le panneau Sommaire sur la page Wiki.">
+                            <field name="wiki_show_toc"/>
+                        </setting>
+                        <setting string="Couleur des séparateurs"
+                                 help="Couleur des bordures entre le sommaire et le contenu.">
+                            <field name="wiki_border_color" widget="color"/>
+                        </setting>
+                        <setting string="Navigation dans la page (bureau)"
+                                 help="Affiche, sur les écrans larges uniquement, un bloc de navigation dans la page (liste des titres) à droite du contenu.">
+                            <field name="wiki_show_page_nav"/>
+                        </setting>
+                        <setting string="Header du site sur le Wiki"
+                                 help="Si décoché, le header du site (logo + menu) est masqué sur /wiki. Seul le Header Wiki reste visible.">
+                            <field name="wiki_show_site_header"/>
+                        </setting>
+                        <setting string="Header Wiki"
+                                 help="Le Header Wiki se configure sur la page /wiki : bouton « Modifier » du site, puis cliquez sur le bandeau sous le menu (blocs, fond, image…).">
+                            <div class="text-muted">
+                                Ouvrez /wiki → Modifier → éditez le bandeau « Header Wiki ».
+                            </div>
+                        </setting>
+                        <setting string="Footer du site sur le Wiki"
+                                 help="Si décoché, le footer du site est masqué sur /wiki. Le Footer Wiki peut rester visible.">
+                            <field name="wiki_show_site_footer"/>
+                        </setting>
+                        <setting string="Footer Wiki"
+                                 help="Si décoché, le Footer Wiki est masqué. Il se configure sur /wiki : bouton « Modifier », puis le bandeau sous le contenu (liens propres au Wiki).">
+                            <field name="wiki_show_footer"/>
+                        </setting>
+                    </block>
+                    <block title="Bibliothèque Wiki" id="wiki_gallery_settings">
+                        <setting string="Email de validation des articles"
+                                 help="Adresse prévenue dès qu'un article de la Bibliothèque Wiki est déposé pour validation. Propre au site sélectionné.">
+                            <field name="wiki_review_email" widget="email" placeholder="validation@example.com"/>
+                        </setting>
+                    </block>
+                </app>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wiki_configuration" model="ir.actions.act_window">
+        <field name="name">Paramètres Wiki</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_config_settings_view_form_wiki_only"/>
+        <field name="target">inline</field>
+        <field name="context">{'module': 'wiki_knowledge', 'bin_size': False}</field>
+    </record>
+
+    <!-- Onglet Wiki dans Paramètres généraux (administration complète). -->
+    <record id="res_config_settings_view_form_wiki" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.wiki</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Wiki" string="Wiki" name="wiki_knowledge"
+                     logo="/wiki_knowledge/static/description/icon.png">
+                    <setting type="header" string="Site web">
+                        <field name="website_id" options="{'no_open': True, 'no_create': True}"/>
+                    </setting>
+                    <block title="Affichage" id="wiki_display_settings_global">
+                        <setting string="Sommaire"
+                                 help="Affiche ou masque le panneau Sommaire sur la page Wiki.">
+                            <field name="wiki_show_toc"/>
+                        </setting>
+                        <setting string="Couleur des séparateurs"
+                                 help="Couleur des bordures entre le sommaire et le contenu.">
+                            <field name="wiki_border_color" widget="color"/>
+                        </setting>
+                        <setting string="Navigation dans la page (bureau)"
+                                 help="Affiche, sur les écrans larges uniquement, un bloc de navigation dans la page (liste des titres) à droite du contenu.">
+                            <field name="wiki_show_page_nav"/>
+                        </setting>
+                        <setting string="Header du site sur le Wiki"
+                                 help="Si décoché, le header du site (logo + menu) est masqué sur /wiki. Seul le Header Wiki reste visible.">
+                            <field name="wiki_show_site_header"/>
+                        </setting>
+                        <setting string="Header Wiki"
+                                 help="Le Header Wiki se configure sur /wiki via le bouton « Modifier » du site (bandeau sous le menu).">
+                            <div class="text-muted">
+                                Ouvrez /wiki → Modifier → éditez le bandeau « Header Wiki ».
+                            </div>
+                        </setting>
+                        <setting string="Footer du site sur le Wiki"
+                                 help="Si décoché, le footer du site est masqué sur /wiki. Le Footer Wiki peut rester visible.">
+                            <field name="wiki_show_site_footer"/>
+                        </setting>
+                        <setting string="Footer Wiki"
+                                 help="Si décoché, le Footer Wiki est masqué. Il se configure sur /wiki via le bouton « Modifier » (bandeau sous le contenu).">
+                            <field name="wiki_show_footer"/>
+                        </setting>
+                    </block>
+                    <block title="Bibliothèque Wiki" id="wiki_gallery_settings_global">
+                        <setting string="Email de validation des articles"
+                                 help="Adresse prévenue dès qu'un article de la Bibliothèque Wiki est déposé pour validation. Propre au site sélectionné.">
+                            <field name="wiki_review_email" widget="email" placeholder="validation@example.com"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

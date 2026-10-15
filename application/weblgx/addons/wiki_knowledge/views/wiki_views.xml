@@ -1,0 +1,97 @@
+<odoo>
+    <record id="view_wiki_page_tree" model="ir.ui.view">
+        <field name="name">wiki.page.tree</field>
+        <field name="model">wiki.page</field>
+        <field name="arch" type="xml">
+            <tree string="Wiki Pages" default_order="sequence, id">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="level"/>
+                <field name="parent_id"/>
+                <field name="has_page"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_wiki_page_form" model="ir.ui.view">
+        <field name="name">wiki.page.form</field>
+        <field name="model">wiki.page</field>
+        <field name="arch" type="xml">
+            <form string="Wiki Page">
+                <header>
+                    <button name="action_submit_review" type="object" string="Submit for Review" class="btn-primary"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn-secondary"
+                            groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
+                    <button name="action_publish" type="object" string="Publish" class="btn-success"
+                            groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
+                    <button name="action_refuse" type="object" string="Refuse" class="btn-danger"
+                            invisible="state != 'to_review'"
+                            groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
+                    <button name="action_back_to_draft" type="object" string="Back to Draft" class="btn-warning"
+                            invisible="state not in ('published', 'approved')"
+                            groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,to_review,approved,published"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="website_id" invisible="1"/>
+                            <field name="company_id" readonly="1"/>
+                            <field name="parent_id" domain="[('website_id', '=', website_id)]"/>
+                            <field name="level"/>
+                            <field name="has_page"/>
+                            <field name="sequence" readonly="1"/>
+                        </group>
+                        <group string="Affichage">
+                            <field name="is_published" readonly="1"/>
+                            <field name="show_toc"/>
+                            <field name="show_page_nav"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Content">
+                            <field name="content" widget="html"/>
+                        </page>
+                        <page string="Published version">
+                            <field name="last_published_content" widget="html" readonly="1"/>
+                        </page>
+                        <page string="Chatter">
+                            <field name="message_follower_ids"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_wiki_page_search" model="ir.ui.view">
+        <field name="name">wiki.page.search</field>
+        <field name="model">wiki.page</field>
+        <field name="arch" type="xml">
+            <search string="Wiki Pages">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="state"/>
+                <filter name="current_website" string="Site courant"
+                        domain="['|',
+                                 ('website_id', '=', context.get('website_id')),
+                                 '&amp;', ('website_id', '!=', False), ('company_id', 'in', context.get('allowed_company_ids', []))]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_state" string="State" domain="[]" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_wiki_pages" model="ir.actions.act_window">
+        <field name="name">Wiki Pages</field>
+        <field name="res_model">wiki.page</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_wiki_page_search"/>
+        <field name="context">{'search_default_current_website': 1}</field>
+    </record>
+</odoo>

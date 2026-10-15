@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="wiki_snippets" inherit_id="website.snippets" name="Wiki Snippets">
+    <!-- Ancré sur le panneau (stable) : blog_posts_hook disparaît dès que website_blog est installé. -->
+    <xpath expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]" position="inside">
+        <t t-snippet="wiki_knowledge.s_wiki_toc"
+           string="Wiki Sommaire"
+           t-thumbnail="/wiki_knowledge/static/src/img/snippets_thumbs/s_wiki_toc.svg">
+            <keywords>wiki, sommaire, table of contents, toc, knowledge</keywords>
+        </t>
+        <t t-snippet="wiki_knowledge.s_wiki_gallery"
+           string="Bibliothèque Wiki"
+           t-thumbnail="/wiki_knowledge/static/src/img/snippets_thumbs/s_wiki_gallery.svg">
+            <keywords>wiki, galerie, bibliothèque, photo, image, vidéo, audio, contribution</keywords>
+        </t>
+        <t t-snippet="wiki_knowledge.s_wiki_latest_articles"
+           string="Derniers articles Wiki"
+           t-thumbnail="/wiki_knowledge/static/src/img/snippets_thumbs/s_wiki_latest_articles.svg">
+            <keywords>wiki, articles, derniers, liste, actualités, news</keywords>
+        </t>
+        <t t-snippet="wiki_knowledge.s_wiki_popular_articles"
+           string="Articles les plus vus"
+           t-thumbnail="/wiki_knowledge/static/src/img/snippets_thumbs/s_wiki_popular_articles.svg">
+            <keywords>wiki, articles, vues, populaires, bibliothèque, photo</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

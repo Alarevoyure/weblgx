@@ -1,0 +1,8 @@
+/**
+ * Sécurité : variables Bootstrap 5 côté site si le compilateur SCSS ou le thème
+ * laissent du bleu par défaut. Chargé tard dans web.assets_frontend.
+ */
+:root {
+  --bs-primary: #16213e;
+  --bs-primary-rgb: 22, 33, 62;
+}

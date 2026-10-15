@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Remove legacy rule using website.id in domain_force: in the backend
+        editor, website.id evaluates to False so site-specific uploads become
+        unreadable for website designers (upload works, list reload fails).
+    -->
+    <data noupdate="0">
+        <delete model="ir.rule" search="[('name', '=', 'Attachments: scoped to current website')]"/>
+    </data>
+
+    <data noupdate="1">
+        <record id="ir_attachment_rule_website_system" model="ir.rule">
+            <field name="name">Attachments: all websites (administrators)</field>
+            <field name="model_id" ref="base.model_ir_attachment"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+    </data>
+
+</odoo>

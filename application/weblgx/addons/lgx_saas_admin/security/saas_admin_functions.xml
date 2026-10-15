@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <function model="res.groups" name="_lgx_saas_admin_ensure_partner_manager"/>
+    </data>
+</odoo>

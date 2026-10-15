@@ -1,0 +1,60 @@
+.s_editable_table {
+    --etable-header-bg: #191970;
+    --etable-body-bg: #F8F9FA;
+    --etable-border-color: #dee2e6;
+    --etable-border-width: 1px;
+
+    .s_editable_table_wrapper {
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .s_editable_table_table {
+        width: 100%;
+        margin-bottom: 0;
+        border-collapse: collapse;
+
+        thead th {
+            background-color: var(--etable-header-bg);
+            color: #fff;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        tbody td {
+            background-color: var(--etable-body-bg);
+            vertical-align: middle;
+        }
+
+        th,
+        td {
+            min-width: 80px;
+            word-break: break-word;
+            border: var(--etable-border-width) solid var(--etable-border-color) !important;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .s_editable_table_wrapper {
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .s_editable_table_table {
+            th,
+            td {
+                min-width: 60px;
+                padding: 0.4rem;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+.editor_enable .s_editable_table {
+    .o_editable_table_cell_selected {
+        outline: 2px solid #777eb9;
+        outline-offset: -2px;
+    }
+}

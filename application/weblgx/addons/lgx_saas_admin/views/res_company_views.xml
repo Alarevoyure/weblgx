@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Create/Delete buttons are disabled in get_views() for non-SuperAdmin.
+             Help text clarified for company Admins. -->
+        <record id="base.action_res_company_form" model="ir.actions.act_window">
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Aucune société visible
+              </p><p>
+                Les administrateurs de société peuvent modifier leurs sociétés.
+                Seul un SuperAdmin peut créer une nouvelle société.
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_website_astuce_tree" model="ir.ui.view">
+        <field name="name">website.astuce.tree</field>
+        <field name="model">website.astuce</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="website_id"/>
+                <field name="frequency"/>
+                <field name="generation_hour"/>
+                <field name="last_generated"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_website_astuce_form" model="ir.ui.view">
+        <field name="name">website.astuce.form</field>
+        <field name="model">website.astuce</field>
+        <field name="arch" type="xml">
+            <form string="Astuce du jour">
+                <header>
+                    <button name="action_refresh_now" type="object" string="Générer maintenant"
+                            class="btn-primary"
+                            groups="base.group_system,website.group_website_designer"/>
+                    <field name="active" invisible="1"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Astuce du jour"/></h1>
+                    </div>
+                    <group>
+                        <group string="Configuration">
+                            <field name="website_id" options="{'no_create': True}"/>
+                            <field name="company_id" readonly="1"/>
+                            <field name="frequency"/>
+                            <field name="generation_hour"/>
+                            <field name="sequence"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Suivi">
+                            <field name="next_generation_label"/>
+                            <field name="last_generated"/>
+                            <field name="last_error" readonly="1"/>
+                        </group>
+                    </group>
+                    <separator string="Prompt DeepSeek"/>
+                    <field name="prompt"
+                             nolabel="1"
+                             class="o_astuce_wide_text"
+                             placeholder="Ex. : Peux-tu me fournir une anecdote sur la ville d'Hondschoote"/>
+                    <separator string="Contenu publié"/>
+                    <field name="content"
+                             nolabel="1"
+                             readonly="1"
+                             class="o_astuce_wide_text"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_website_astuce_search" model="ir.ui.view">
+        <field name="name">website.astuce.search</field>
+        <field name="model">website.astuce</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="website_id"/>
+                <filter name="active" string="Actives" domain="[('active', '=', True)]"/>
+                <filter name="inactive" string="Archivées" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_website" string="Site web" context="{'group_by': 'website_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_website_astuce" model="ir.actions.act_window">
+        <field name="name">Astuces du jour</field>
+        <field name="res_model">website.astuce</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez une astuce générée automatiquement via DeepSeek.
+            </p>
+            <p>
+                Configurez d'abord la clé API DeepSeek dans Paramètres → Site web → Astuce du jour,
+                puis définissez le prompt, la fréquence et l'heure de renouvellement.
+            </p>
+        </field>
+    </record>
+</odoo>

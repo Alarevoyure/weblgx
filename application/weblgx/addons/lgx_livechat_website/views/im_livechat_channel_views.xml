@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="im_livechat_channel_view_form" model="ir.ui.view">
+        <field name="name">im_livechat.channel.form.inherit.lgx.livechat.website</field>
+        <field name="model">im_livechat.channel</field>
+        <field name="inherit_id" ref="im_livechat.im_livechat_channel_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <group>
+                    <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>
+                    <field name="company_id" invisible="1"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='user_ids']" position="attributes">
+                <attribute name="domain">[('share', '=', False), ('groups_id', 'not in', [%(base.group_portal)d]), ('company_ids', 'in', company_id and [company_id] or [])]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="im_livechat_channel_view_kanban" model="ir.ui.view">
+        <field name="name">im_livechat.channel.kanban.inherit.lgx.livechat.website</field>
+        <field name="model">im_livechat.channel</field>
+        <field name="inherit_id" ref="im_livechat.im_livechat_channel_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="website_id" groups="website.group_multi_website"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_website_astuce_root"
+        name="Astuce du jour"
+        parent="website.menu_site"
+        sequence="65"
+        groups="base.group_system,website.group_website_designer"
+    />
+    <menuitem
+        id="menu_website_astuce_list"
+        name="Astuces"
+        parent="menu_website_astuce_root"
+        action="action_website_astuce"
+        sequence="10"
+        groups="base.group_system,website.group_website_designer"
+    />
+</odoo>

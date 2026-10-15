@@ -1,0 +1,37 @@
+.s_astuce {
+    --astuce-accent: #16213e;
+
+    .s_astuce_card {
+        position: relative;
+        padding: 1.5rem 1.75rem 1.5rem 1.5rem;
+        border-left: 4px solid var(--astuce-accent, #16213e);
+        background:
+            linear-gradient(
+                135deg,
+                rgba(22, 33, 62, 0.06) 0%,
+                rgba(255, 255, 255, 0.95) 45%,
+                rgba(22, 33, 62, 0.04) 100%
+            );
+        box-shadow: none;
+    }
+
+    .s_astuce_label {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: var(--astuce-accent, #16213e);
+        margin-bottom: 0.75rem;
+    }
+
+    .s_astuce_text {
+        font-size: 1.05rem;
+        line-height: 1.55;
+        color: #1a1a1a;
+        margin: 0;
+    }
+
+    .s_astuce_placeholder {
+        font-style: italic;
+    }
+}

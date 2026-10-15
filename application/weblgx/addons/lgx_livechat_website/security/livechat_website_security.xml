@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="im_livechat_channel_rule_company" model="ir.rule">
+        <field name="name">Livechat channels: restricted to user companies</field>
+        <field name="model_id" ref="im_livechat.model_im_livechat_channel"/>
+        <field name="domain_force">[('website_id', '!=', False), ('website_id.company_id', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[
+            (4, ref('im_livechat.im_livechat_group_user')),
+            (4, ref('im_livechat.im_livechat_group_manager')),
+            (4, ref('base.group_user')),
+        ]"/>
+    </record>
+
+    <record id="im_livechat_channel_rule_system" model="ir.rule">
+        <field name="name">Livechat channels: all companies (administrators)</field>
+        <field name="model_id" ref="im_livechat.model_im_livechat_channel"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+
+    <record id="discuss_channel_livechat_rule_company" model="ir.rule">
+        <field name="name">Livechat sessions: restricted to user companies</field>
+        <field name="model_id" ref="mail.model_discuss_channel"/>
+        <field name="domain_force">['|', ('channel_type', '!=', 'livechat'), '|', ('livechat_channel_id', '=', False), ('livechat_channel_id.website_id.company_id', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[
+            (4, ref('im_livechat.im_livechat_group_user')),
+            (4, ref('im_livechat.im_livechat_group_manager')),
+        ]"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="res_users_livechat_operator_rule" model="ir.rule">
+        <field name="name">Livechat operators: restricted to user companies</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="domain_force">[('company_ids', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[
+            (4, ref('im_livechat.im_livechat_group_user')),
+            (4, ref('im_livechat.im_livechat_group_manager')),
+        ]"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+</odoo>

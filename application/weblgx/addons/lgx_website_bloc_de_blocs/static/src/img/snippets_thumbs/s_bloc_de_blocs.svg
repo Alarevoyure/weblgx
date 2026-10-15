@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="82" height="60" viewBox="0 0 82 60">
+  <g fill="none" fill-rule="evenodd" class="snippets_thumbs">
+    <g class="s_bloc_de_blocs">
+      <rect width="82" height="60" class="bg"/>
+      <rect x="6" y="10" width="33" height="40" rx="2" fill="#FFF" fill-opacity=".92"/>
+      <rect x="43" y="10" width="33" height="40" rx="2" fill="#FFF" fill-opacity=".78"/>
+      <rect x="11" y="16" width="23" height="6" rx="1" fill="#16213e" fill-opacity=".55"/>
+      <rect x="11" y="26" width="23" height="6" rx="1" fill="#16213e" fill-opacity=".35"/>
+      <rect x="11" y="36" width="15" height="6" rx="1" fill="#16213e" fill-opacity=".25"/>
+      <rect x="48" y="16" width="23" height="6" rx="1" fill="#16213e" fill-opacity=".55"/>
+      <rect x="48" y="26" width="23" height="6" rx="1" fill="#16213e" fill-opacity=".35"/>
+      <rect x="48" y="36" width="15" height="6" rx="1" fill="#16213e" fill-opacity=".25"/>
+    </g>
+  </g>
+</svg>

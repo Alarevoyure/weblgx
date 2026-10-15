@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_colonnes_html" name="Colonnes HTML">
+    <section class="s_colonnes_html pt32 pb32 o_colored_level"
+             data-snippet="s_colonnes_html"
+             data-name="Colonnes HTML">
+        <div class="container">
+            <div class="row s_colonnes_html_row g-3 align-items-stretch">
+                <div class="col-12 col-lg s_colonnes_html_col" data-name="Colonne HTML">
+                    <template class="s_colonnes_html_saved"><div class="s_colonnes_html_placeholder font-monospace p-3">&#10;Colonne 1 — cliquez sur « Modifier le code » pour coller votre HTML.&#10;</div></template>
+                    <div class="s_colonnes_html_embedded o_not_editable" contenteditable="false" data-oe-protected="true">
+                        <div class="s_colonnes_html_placeholder font-monospace p-3">&#10;Colonne 1 — cliquez sur « Modifier le code » pour coller votre HTML.&#10;</div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg s_colonnes_html_col" data-name="Colonne HTML">
+                    <template class="s_colonnes_html_saved"><div class="s_colonnes_html_placeholder font-monospace p-3">&#10;Colonne 2 — cliquez sur « Modifier le code » pour coller votre HTML.&#10;</div></template>
+                    <div class="s_colonnes_html_embedded o_not_editable" contenteditable="false" data-oe-protected="true">
+                        <div class="s_colonnes_html_placeholder font-monospace p-3">&#10;Colonne 2 — cliquez sur « Modifier le code » pour coller votre HTML.&#10;</div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg s_colonnes_html_col" data-name="Colonne HTML">
+                    <template class="s_colonnes_html_saved"><div class="s_colonnes_html_placeholder font-monospace p-3">&#10;Colonne 3 — cliquez sur « Modifier le code » pour coller votre HTML.&#10;</div></template>
+                    <div class="s_colonnes_html_embedded o_not_editable" contenteditable="false" data-oe-protected="true">
+                        <div class="s_colonnes_html_placeholder font-monospace p-3">&#10;Colonne 3 — cliquez sur « Modifier le code » pour coller votre HTML.&#10;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template id="s_colonnes_html_options" inherit_id="website.snippet_options">
+    <xpath expr="." position="inside">
+
+        <div data-js="ColonnesHtml"
+             data-selector=".s_colonnes_html">
+            <we-select string="Colonnes" data-no-preview="true" data-name="colonnes_html_count_opt">
+                <we-button data-select-count="1">1</we-button>
+                <we-button data-select-count="2">2</we-button>
+                <we-button data-select-count="3">3</we-button>
+                <we-button data-select-count="4">4</we-button>
+                <we-button data-select-count="5">5</we-button>
+                <we-button data-select-count="6">6</we-button>
+            </we-select>
+            <we-button-group string="Alignement vertical">
+                <we-button title="Haut"
+                           data-select-class="align-items-start"
+                           data-apply-to=".s_colonnes_html_row"
+                           data-img="/website/static/src/img/snippets_options/align_top.svg"/>
+                <we-button title="Milieu"
+                           data-select-class="align-items-center"
+                           data-apply-to=".s_colonnes_html_row"
+                           data-img="/website/static/src/img/snippets_options/align_middle.svg"/>
+                <we-button title="Bas"
+                           data-select-class="align-items-end"
+                           data-apply-to=".s_colonnes_html_row"
+                           data-img="/website/static/src/img/snippets_options/align_bottom.svg"/>
+                <we-button title="Étirer"
+                           data-select-class="align-items-stretch"
+                           data-apply-to=".s_colonnes_html_row"
+                           data-img="/website/static/src/img/snippets_options/align_stretch.svg"/>
+            </we-button-group>
+        </div>
+
+        <div data-js="ColonnesHtmlColumn"
+             data-selector=".s_colonnes_html_col">
+            <we-row string="Code HTML">
+                <we-button data-edit-code="" data-no-preview="true"
+                           class="o_we_edit_code o_we_no_toggle o_we_bg_success active"
+                           title="Modifier le code HTML de cette colonne">Modifier le code</we-button>
+            </we-row>
+        </div>
+
+    </xpath>
+</template>
+
+</odoo>

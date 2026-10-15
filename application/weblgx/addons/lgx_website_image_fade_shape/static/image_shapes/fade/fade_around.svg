@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="600">
+  <!-- Fondu progressif sur tout le tour (vignette). -->
+  <defs>
+    <radialGradient id="fadeGrad" gradientUnits="objectBoundingBox" cx="0.5" cy="0.5" r="0.72">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#FFFFFF"/>
+      <stop offset="0.78" stop-color="#888888"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <path id="filterPath" d="M0,0 H1 V1 H0 Z"/>
+    <mask id="fadeMask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox">
+      <rect width="1" height="1" fill="url(#fadeGrad)"/>
+    </mask>
+  </defs>
+  <svg viewBox="0 0 1 1" id="preview" preserveAspectRatio="none">
+    <rect width="1" height="1" fill="url(#fadeGrad)"/>
+  </svg>
+  <image xlink:href="" width="100%" height="100%" preserveAspectRatio="none" mask="url(#fadeMask)"/>
+</svg>

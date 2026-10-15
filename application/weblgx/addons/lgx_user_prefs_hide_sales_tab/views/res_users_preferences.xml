@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- L'action ouverte depuis Profil utilisateur doit transmettre une clé de contexte. -->
+<!-- L'onglet sales_purchases vient du formulaire res.partner (délégation res.users/partner_id). -->
+<odoo>
+    <record id="base.action_res_users_my" model="ir.actions.act_window">
+        <field name="context">{'lgx_hide_partner_sales_tab': True}</field>
+    </record>
+
+    <record id="view_partner_form_hide_sales_in_user_prefs_context" model="ir.ui.view">
+        <field name="name">res.partner.form.hide.sales.tab.pref.context</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                <attribute name="invisible">context.get('lgx_hide_partner_sales_tab')</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

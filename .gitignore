@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+*.pyo
+*.broken
+var/
+
+# Généré sur chaque serveur, jamais versionné
+weblgx.conf
+odoo.conf
+install.env
+weblgx-credentials.txt
+**/*credentials*
+*.log
+
+# Données d'une installation
+filestore/
+sessions/
+*.dump
+*.sql.gz
+*.sql.bz2

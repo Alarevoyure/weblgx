@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="astuce_snippets" inherit_id="website.snippets" name="Astuce Snippets">
+    <xpath expr="//div[@id='snippet_feature']/div[hasclass('o_panel_body')]" position="inside">
+        <t t-snippet="lgx_website_astuce.s_astuce"
+           string="Astuce du jour"
+           t-thumbnail="/lgx_website_astuce/static/src/img/snippets_thumbs/s_astuce.svg">
+            <keywords>astuce, tip, deepseek, anecdote, ia, ai</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

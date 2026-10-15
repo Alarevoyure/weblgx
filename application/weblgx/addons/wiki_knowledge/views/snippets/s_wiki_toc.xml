@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="s_wiki_toc" name="Wiki Sommaire">
+    <section class="s_wiki_toc pt32 pb32"
+             data-snippet="s_wiki_toc"
+             data-name="Wiki Sommaire"
+             style="--wiki-border-color: #16213e;">
+        <div class="container-fluid">
+            <aside class="o_wiki_toc o_wiki_toc_snippet o_not_editable w-100"
+                   role="navigation" aria-label="Sommaire Wiki">
+                <div class="o_wiki_toc_header">
+                    <span>Sommaire</span>
+                </div>
+                <div class="o_wiki_toc_tree w-100" data-wiki-toc-target="1">
+                    <p class="text-muted mb-0 o_wiki_toc_placeholder">Chargement du sommaire…</p>
+                </div>
+            </aside>
+        </div>
+    </section>
+</template>
+
+</odoo>
