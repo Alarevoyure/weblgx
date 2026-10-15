@@ -2,12 +2,6 @@
 
 Installe Web@LGX sur une machine **Debian 12 ou 13 amd64** vide : PostgreSQL, les dépendances, l'application déjà présente dans ce kit, la base, les mots de passe, puis le service.
 
-Le kit ne télécharge pas Odoo. Il copie l'application Web@LGX de la machine de référence, y compris les modules déjà modifiés. Après une modification sur cette machine :
-
-```bash
-./refresh_application.sh
-```
-
 Sur Debian 13, le paquet `python3-pypdf2` n'existe plus. Le script installe un paquet de transition vers `python3-pypdf`. Le binaire wkhtmltopdf est celui construit pour Debian 12 ; il fonctionne aussi sur Debian 13.
 
 À lancer en root, depuis ce répertoire :
