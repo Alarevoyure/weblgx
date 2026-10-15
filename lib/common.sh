@@ -11,7 +11,7 @@ print_access() {
   cat <<EOF
 
 Connexion Web@LGX
-  Adresse      : http://${address}:${WEBLGX_HTTP_PORT:-8069}
+  Adresse      : http://${address}:${WEBLGX_HTTP_PORT:-7069}
   Compte       : admin
   Mot de passe : ${ADMIN_PASSWORD:-voir le fichier ci-dessous}
   Secrets      : ${WEBLGX_CREDENTIALS:-/root/weblgx-credentials.txt}

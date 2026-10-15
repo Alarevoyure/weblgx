@@ -66,7 +66,7 @@ class Deploy(Command):
             description=self.__doc__
         )
         parser.add_argument('path', help="Path of the module to deploy")
-        parser.add_argument('url', nargs='?', help='Url of the server (default=http://localhost:8069)', default="http://localhost:8069")
+        parser.add_argument('url', nargs='?', help='Url of the server (default=http://localhost:7069)', default="http://localhost:7069")
         parser.add_argument('--db', dest='db', help='Database to use if server does not use db-filter.')
         parser.add_argument('--login', dest='login', default="admin", help='Login (default=admin)')
         parser.add_argument('--password', dest='password', default="admin", help='Password (default=admin)')

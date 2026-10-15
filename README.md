@@ -27,7 +27,7 @@ cd weblgx
 sudo ./install_weblgx
 ```
 
-À la fin, l'écran affiche l'adresse (`http://<adresse-du-serveur>:8069`), le compte `admin` et son mot de passe. Les mêmes informations sont enregistrées dans `/root/weblgx-credentials.txt`, lisible seulement par root. Ce fichier n'est pas dans le dépôt : les mots de passe sont créés sur la machine pendant l'installation.
+À la fin, l'écran affiche l'adresse (`http://<adresse-du-serveur>:7069`), le compte `admin` et son mot de passe. Les mêmes informations sont enregistrées dans `/root/weblgx-credentials.txt`, lisible seulement par root. Ce fichier n'est pas dans le dépôt : les mots de passe sont créés sur la machine pendant l'installation.
 
 Un second lancement conserve ces mots de passe. Il ne recrée pas la base si le site est déjà installé.
 
@@ -35,7 +35,7 @@ Un second lancement conserve ces mots de passe. Il ne recrée pas la base si le 
 
 | Élément | Emplacement |
 | --- | --- |
-| Adresse | `http://<adresse-du-serveur>:8069` |
+| Adresse | `http://<adresse-du-serveur>:7069` |
 | Compte | `admin` |
 | Mots de passe | `/root/weblgx-credentials.txt` |
 | Configuration | `/etc/weblgx/weblgx.conf` |
