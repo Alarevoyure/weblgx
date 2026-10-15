@@ -7,13 +7,6 @@
             <field name="cover_properties">{"background-image": "url('/website_blog/static/src/img/cover_5.jpg')", "resize_class": "o_record_has_cover o_half_screen_height", "opacity": "0.4"}</field>
         </record>
 
-        <record id="menu_blog" model="website.menu">
-            <field name="name">Blog</field>
-            <field name="url">/blog</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">40</field>
-        </record>
-
         <!-- Blog-related subtypes for messaging / Chatter -->
         <record id="mt_blog_blog_published" model="mail.message.subtype">
             <field name="name">Published Post</field>

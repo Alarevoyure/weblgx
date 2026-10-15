@@ -9,6 +9,7 @@
         "security/wiki_security.xml",
         "security/ir.model.access.csv",
         "data/wiki_page_demo.xml",
+        "data/wiki_default_menu.xml",
         "views/wiki_views.xml",
         "views/wiki_gallery_views.xml",
         "views/res_config_settings_views.xml",

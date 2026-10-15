@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <function model="website.menu" name="_weblgx_ensure_default_wiki_menu"/>
+</odoo>
