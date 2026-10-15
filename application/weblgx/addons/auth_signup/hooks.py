@@ -1,5 +1,3 @@
-from odoo import SUPERUSER_ID, api
-
 _LGX_BRAND_BLUE = "#16213e"
 _OBSOLETE_BUTTON_BG = "background-color: #875A7B"
 _BUTTON_BG = f"background-color: {_LGX_BRAND_BLUE}"
@@ -111,7 +109,6 @@ def patch_signup_email_button_colors(env):
                 template.with_context(lang=lang).sudo().write({"body_html": new_body_html})
 
 
-def post_init_hook(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
+def post_init_hook(env):
     patch_invitation_email_intro(env)
     patch_signup_email_button_colors(env)

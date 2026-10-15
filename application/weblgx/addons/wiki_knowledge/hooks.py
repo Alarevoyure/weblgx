@@ -1,5 +1,3 @@
-from weblgx import SUPERUSER_ID, api
-
 _OBSOLETE_WIKI_PUBLIC_RULE_XMLIDS = (
     "wiki_knowledge.wiki_page_rule_public_published_only",
     "wiki_knowledge.wiki_page_rule_public_keep_last_published",
@@ -42,8 +40,7 @@ def deactivate_orphan_module_views(env):
         env["ir.ui.view"].browse(view_ids).write({"active": False})
 
 
-def post_init_hook(cr, registry):
-    env = api.Environment(cr, SUPERUSER_ID, {})
+def post_init_hook(env):
     unlink_obsolete_wiki_public_ir_rules(env)
     patch_website_company_security_rules(env)
     deactivate_orphan_module_views(env)
