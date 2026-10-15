@@ -19,7 +19,9 @@ class ResCompany(models.Model):
             raise AccessError(_(
                 "Seul un SuperAdmin peut créer une société."
             ))
-        return super().create(vals_list)
+        companies = super().create(vals_list)
+        self.env["res.users"]._lgx_sync_superadmin_companies()
+        return companies
 
     def unlink(self):
         if not self._lgx_is_superadmin():

@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="0">
-        <!-- Highest Administration privilege: implies Settings (+ Access Rights). -->
+        <!-- Admin = Settings, renamed. Same administration rights, company-scoped by record rules. -->
+        <record id="base.group_system" model="res.groups">
+            <field name="name">Admin</field>
+            <field name="comment">
+                Mêmes droits d'administration que SuperAdmin, limités aux
+                sociétés autorisées de l'utilisateur.
+            </field>
+        </record>
+
+        <!-- Highest Administration privilege: implies Admin (+ Access Rights). -->
         <record id="group_superadmin" model="res.groups">
             <field name="name">SuperAdmin</field>
             <field name="comment">
                 Accès multi-société global : toutes les sociétés, tous les
-                utilisateurs, création de sociétés, Apps et Paramètres.
+                utilisateurs, création et suppression de sociétés.
             </field>
             <field name="category_id" ref="base.module_category_administration_administration"/>
             <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>

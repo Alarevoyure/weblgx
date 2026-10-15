@@ -50,11 +50,11 @@
         <field name="perm_create" eval="False"/>
         <field name="perm_unlink" eval="False"/>
     </record>
-    <record id="website_group_system_edit_all_views" model="ir.rule">
-        <field name="name">Administration Settings: Manage all views</field>
-        <field name="model_id" ref="base.model_ir_ui_view"/>
-        <field name="domain_force">[(1, '=', 1)]</field>
-        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        <record id="website_group_system_edit_all_views" model="ir.rule">
+            <field name="name">Administration Settings: Manage all views</field>
+            <field name="model_id" ref="base.model_ir_ui_view"/>
+            <field name="domain_force">['|', ('type', '!=', 'qweb'), '&amp;', ('type', '=', 'qweb'), '|', ('website_id', '=', False), ('website_id.company_id', 'in', user.company_ids.ids)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_create" eval="True"/>
@@ -91,12 +91,12 @@
     </data>
 
     <data>
-        <!-- Websites: everyone can READ all sites (public web), but only
-             members of the owning company can write/create/delete. -->
+        <!-- Websites: read and write stay inside the user's allowed companies.
+             Public users are not in these groups. SuperAdmin bypasses via lgx_saas_admin. -->
         <record id="website_rule_company_users" model="ir.rule">
-            <field name="name">Website: read all, write own companies</field>
+            <field name="name">Website: read own companies</field>
             <field name="model_id" ref="website.model_website"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', user.company_ids.ids)]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
@@ -122,17 +122,17 @@
             ]"/>
         </record>
         <record id="website_rule_company_system" model="ir.rule">
-            <field name="name">Website: all companies (administrators)</field>
+            <field name="name">Website: allowed companies (administrators)</field>
             <field name="model_id" ref="website.model_website"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', user.company_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
 
-        <!-- Website pages: read all (public web), write restricted to own companies. -->
+        <!-- Website pages: editors read and write only their allowed companies. -->
         <record id="website_page_rule_company_editors" model="ir.rule">
-            <field name="name">Website pages: read all</field>
+            <field name="name">Website pages: read own companies</field>
             <field name="model_id" ref="website.model_website_page"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('website_id', '=', False), ('website_id.company_id', 'in', user.company_ids.ids)]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
@@ -156,17 +156,17 @@
             ]"/>
         </record>
         <record id="website_page_rule_company_system" model="ir.rule">
-            <field name="name">Website pages: all companies (administrators)</field>
+            <field name="name">Website pages: allowed companies (administrators)</field>
             <field name="model_id" ref="website.model_website_page"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('website_id', '=', False), ('website_id.company_id', 'in', user.company_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
 
-        <!-- Website menus: read all, write restricted to own companies. -->
+        <!-- Website menus: editors read and write only their allowed companies. -->
         <record id="website_menu_rule_company_editors" model="ir.rule">
-            <field name="name">Website menus: read all</field>
+            <field name="name">Website menus: read own companies</field>
             <field name="model_id" ref="model_website_menu"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('website_id', '=', False), ('website_id.company_id', 'in', user.company_ids.ids)]</field>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
@@ -190,9 +190,9 @@
             ]"/>
         </record>
         <record id="website_menu_rule_company_system" model="ir.rule">
-            <field name="name">Website menus: all companies (administrators)</field>
+            <field name="name">Website menus: allowed companies (administrators)</field>
             <field name="model_id" ref="model_website_menu"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('website_id', '=', False), ('website_id.company_id', 'in', user.company_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
     </data>

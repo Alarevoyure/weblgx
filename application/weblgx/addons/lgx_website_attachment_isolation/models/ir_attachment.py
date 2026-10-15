@@ -11,7 +11,7 @@ class IrAttachment(models.Model):
     def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
         domain = list(domain)
         website_id = self.env.context.get("website_id")
-        if website_id and not self.env.su and not self.env.user.has_group("base.group_system"):
+        if website_id and not self.env.su and not self.env.user.has_group("lgx_saas_admin.group_superadmin"):
             domain = expression.AND([
                 domain,
                 ["|", ("website_id", "=", False), ("website_id", "=", website_id)],

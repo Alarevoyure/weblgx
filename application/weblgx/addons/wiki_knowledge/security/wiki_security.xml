@@ -48,9 +48,9 @@
         </record>
 
         <record id="wiki_page_rule_company_system" model="ir.rule">
-            <field name="name">Wiki pages: all companies (administrators)</field>
+            <field name="name">Wiki pages: allowed companies (administrators)</field>
             <field name="model_id" ref="model_wiki_page"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', user.company_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
 
@@ -86,9 +86,9 @@
             ]"/>
         </record>
         <record id="wiki_gallery_rule_system" model="ir.rule">
-            <field name="name">Wiki gallery: all companies (administrators)</field>
+            <field name="name">Wiki gallery: allowed companies (administrators)</field>
             <field name="model_id" ref="model_wiki_gallery_item"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', user.company_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
 
@@ -114,9 +114,9 @@
             ]"/>
         </record>
         <record id="wiki_gallery_lib_rule_system" model="ir.rule">
-            <field name="name">Wiki gallery lib: all companies (administrators)</field>
+            <field name="name">Wiki gallery lib: allowed companies (administrators)</field>
             <field name="model_id" ref="model_wiki_gallery"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', user.company_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
 
@@ -127,9 +127,9 @@
             <field name="groups" eval="[(4, ref('wiki_knowledge.group_wiki_manager'))]"/>
         </record>
         <record id="wiki_gallery_verified_email_rule_system" model="ir.rule">
-            <field name="name">Wiki verified email: all companies (administrators)</field>
+            <field name="name">Wiki verified email: allowed companies (administrators)</field>
             <field name="model_id" ref="model_wiki_gallery_verified_email"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', user.company_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
     </data>

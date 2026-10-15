@@ -13,7 +13,7 @@ class IrRule(models.Model):
         if (
             model_name != "ir.attachment"
             or self.env.su
-            or self.env.user.has_group("base.group_system")
+            or self.env.user.has_group("lgx_saas_admin.group_superadmin")
         ):
             return domain
         website_id = self.env.context.get("website_id")

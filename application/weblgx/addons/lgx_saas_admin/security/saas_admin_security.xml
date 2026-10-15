@@ -4,7 +4,7 @@
 
         <!-- Company Admin (Access Rights): only their companies — no global view. -->
         <record id="base.res_company_rule_erp_manager" model="ir.rule">
-            <field name="domain_force">[('id', 'in', company_ids)]</field>
+            <field name="domain_force">[('id', 'in', user.company_ids.ids)]</field>
         </record>
 
         <!-- SuperAdmin: all companies. -->
@@ -50,6 +50,74 @@
         <record id="calendar_event_rule_superadmin" model="ir.rule">
             <field name="name">calendar event rule superadmin</field>
             <field name="model_id" ref="calendar.model_calendar_event"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+
+        <!-- SuperAdmin bypass: Admin (Settings) stays on the company-scoped rules. -->
+        <record id="website_rule_superadmin" model="ir.rule">
+            <field name="name">Website: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="website.model_website"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="website_page_rule_superadmin" model="ir.rule">
+            <field name="name">Website pages: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="website.model_website_page"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="website_menu_rule_superadmin" model="ir.rule">
+            <field name="name">Website menus: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="website.model_website_menu"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="ir_ui_view_rule_superadmin" model="ir.rule">
+            <field name="name">Views: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="base.model_ir_ui_view"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="wiki_page_rule_superadmin" model="ir.rule">
+            <field name="name">Wiki pages: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="wiki_knowledge.model_wiki_page"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="wiki_gallery_item_rule_superadmin" model="ir.rule">
+            <field name="name">Wiki gallery: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="wiki_knowledge.model_wiki_gallery_item"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="wiki_gallery_rule_superadmin" model="ir.rule">
+            <field name="name">Wiki gallery lib: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="wiki_knowledge.model_wiki_gallery"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="wiki_verified_email_rule_superadmin" model="ir.rule">
+            <field name="name">Wiki verified email: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="wiki_knowledge.model_wiki_gallery_verified_email"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="website_astuce_rule_superadmin" model="ir.rule">
+            <field name="name">Astuce du jour: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="lgx_website_astuce.model_website_astuce"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="livechat_channel_rule_superadmin" model="ir.rule">
+            <field name="name">Livechat channels: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="im_livechat.model_im_livechat_channel"/>
+            <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+        <record id="ir_attachment_rule_superadmin" model="ir.rule">
+            <field name="name">Attachments: all companies (SuperAdmin)</field>
+            <field name="model_id" ref="base.model_ir_attachment"/>
             <field name="groups" eval="[Command.set([ref('lgx_saas_admin.group_superadmin')])]"/>
             <field name="domain_force">[(1, '=', 1)]</field>
         </record>

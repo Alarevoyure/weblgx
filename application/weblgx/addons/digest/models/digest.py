@@ -307,24 +307,40 @@ class Digest(models.Model):
         return [kpi for kpi in kpis if kpi['kpi_name'] not in invalid_fields]
 
     def _compute_tips(self, company, user, tips_count=1, consumed=True):
+        """Render digest tips for this user.
+
+        A tip whose QWeb references a model that is no longer installed
+        (for example ``project.project``) must not abort the whole digest.
+        Broken tips are skipped and the next eligible tip is used instead.
+        """
         tips = self.env['digest.tip'].search([
             ('user_ids', '!=', user.id),
             '|', ('group_id', 'in', user.groups_id.ids), ('group_id', '=', False)
-        ], limit=tips_count)
-        tip_descriptions = [
-            tools.html_sanitize(
-                self.env['mail.render.mixin'].sudo()._render_template(
+        ])
+        tip_descriptions = []
+        consumed_tips = self.env['digest.tip']
+        for tip in tips:
+            try:
+                rendered = self.env['mail.render.mixin'].sudo()._render_template(
                     tip.tip_description,
                     'digest.tip',
                     tip.ids,
                     engine="qweb",
                     options={'post_process': True},
                 )[tip.id]
-            )
-            for tip in tips
-        ]
-        if consumed:
-            tips.user_ids += user
+            except Exception:
+                _logger.warning(
+                    "Digest tip %s (%s) skipped: template render failed",
+                    tip.id, tip.name, exc_info=True,
+                )
+                consumed_tips += tip
+                continue
+            tip_descriptions.append(tools.html_sanitize(rendered))
+            consumed_tips += tip
+            if len(tip_descriptions) >= tips_count:
+                break
+        if consumed and consumed_tips:
+            consumed_tips.user_ids += user
         return tip_descriptions
 
     def _compute_kpis_actions(self, company, user):

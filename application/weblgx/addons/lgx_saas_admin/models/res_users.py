@@ -15,9 +15,9 @@ class ResUsers(models.Model):
         return user.has_group("lgx_saas_admin.group_superadmin")
 
     def _lgx_privileged_group_xmlids(self):
+        # Admin (Settings) may grant Admin. Only SuperAdmin is reserved.
         return (
             "lgx_saas_admin.group_superadmin",
-            "base.group_system",
         )
 
     def _lgx_get_privileged_groups(self):
@@ -30,6 +30,24 @@ class ResUsers(models.Model):
 
     def _lgx_allowed_company_ids(self):
         return self.env.user.company_ids.ids
+
+    @api.model
+    def _lgx_sync_superadmin_companies(self):
+        """SuperAdmin is a member of every company, so the switcher and rules match."""
+        if self.env.context.get("lgx_skip_superadmin_company_sync"):
+            return
+        group = self.env.ref("lgx_saas_admin.group_superadmin", raise_if_not_found=False)
+        if not group:
+            return
+        companies = self.env["res.company"].sudo().search([])
+        supers = group.with_context(active_test=False).users
+        for user in supers:
+            missing = companies - user.company_ids
+            if not missing:
+                continue
+            user.with_context(lgx_skip_superadmin_company_sync=True).sudo().write({
+                "company_ids": [(4, cid) for cid in missing.ids],
+            })
 
     @api.model
     def _lgx_company_domain(self):
@@ -114,8 +132,7 @@ class ResUsers(models.Model):
         added = set(new_group_ids) - previous
         if added & set(privileged.ids):
             raise AccessError(_(
-                "Vous n'êtes pas autorisé à attribuer les droits "
-                "SuperAdmin ou Paramètres (Settings)."
+                "Vous n'êtes pas autorisé à attribuer les droits SuperAdmin."
             ))
 
     def _lgx_check_cannot_edit_superadmin(self):
@@ -171,6 +188,8 @@ class ResUsers(models.Model):
                 )
                 self._lgx_check_no_privilege_escalation(group_ids, existing=user)
         result = super().write(vals)
+        if "groups_id" in vals and not self.env.context.get("lgx_skip_superadmin_company_sync"):
+            self._lgx_sync_superadmin_companies()
         # Propagate company_id change to the linked partner.
         if "company_id" in vals:
             for user in self:

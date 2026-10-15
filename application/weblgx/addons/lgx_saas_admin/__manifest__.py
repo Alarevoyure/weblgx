@@ -2,13 +2,22 @@
 {
     "name": "Web@LGX - Administration multi-société",
     "summary": (
-        "SuperAdmin (vision globale) et Admin société "
-        "(limité aux sociétés dont il est membre)."
+        "SuperAdmin (toutes les sociétés) et Admin "
+        "(mêmes droits, limité aux sociétés autorisées)."
     ),
-    "version": "17.0.1.0.2",
+    "version": "17.0.1.1.0",
     "category": "Administration",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",
-    "depends": ["base", "base_setup", "calendar"],
+    "depends": [
+        "base",
+        "base_setup",
+        "calendar",
+        "website",
+        "wiki_knowledge",
+        "lgx_website_astuce",
+        "lgx_livechat_website",
+        "lgx_website_attachment_isolation",
+    ],
     "data": [
         "security/saas_admin_groups.xml",
         "security/saas_admin_security.xml",
