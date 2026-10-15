@@ -22,7 +22,7 @@ Un second lancement conserve les mots de passe déjà générés et ne recrée p
 | Service | `weblgx.service` |
 | Commande | `/usr/bin/weblgx` |
 
-La configuration est `/etc/weblgx/weblgx.conf`. Le fichier `odoo.conf` n'est pas créé.
+La configuration est `/etc/weblgx/weblgx.conf`. 
 
 Connexion : compte `admin`. Le mot de passe est dans le fichier de secrets, ainsi que le mot de passe PostgreSQL du rôle `weblgx` et le mot de passe maître (`admin_passwd`).
 
