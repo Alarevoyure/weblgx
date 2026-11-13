@@ -5,7 +5,7 @@
     'name': 'Website profile',
     'author': 'LOEGAUX - Propriété de Ferme 201 SARL',
     'category': 'Hidden',
-    'version': '1.0',
+    'version': '1.1',
     'summary': 'Access the website profile of the users',
     'description': "Allows to access the website profile of the users and see their statistics (karma, badges, etc..)",
     'depends': [

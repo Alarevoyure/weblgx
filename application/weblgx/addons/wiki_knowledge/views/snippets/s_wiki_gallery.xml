@@ -44,7 +44,7 @@
                                    autocomplete="email" placeholder="vous@example.com"/>
                         </div>
                         <div class="col-12">
-                            <label class="form-label" for="s_wiki_gallery_text">Texte *</label>
+                            <label class="form-label" for="s_wiki_gallery_text">Texte * - Dans cette zone, vous pouvez écrire du texte, mais également coller du texte ou des images - Tapez '/' dans la zone de texte pour avoir des commandes supplémentaires</label>
                             <textarea class="form-control o_wysiwyg_loader" id="s_wiki_gallery_text" name="text"
                                       rows="6" required="required"
                                       placeholder="Rédigez votre article : titres, listes, liens, mise en forme…"></textarea>

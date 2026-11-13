@@ -88,7 +88,8 @@ according to the enabled options.
                 <h2 t-if="search" t-esc="no_results_str % search" class="fw-bold"/>
                 <h2 t-else="">No blog post yet.</h2>
                 <div class="alert alert-info" groups="website.group_website_designer">
-                    Click on "<b>New</b>" in the top-right corner to write your first blog post.
+                    <p class="mb-2">Write the first article with the button below.</p>
+                    <t t-call="website_blog.blog_post_new_button"/>
                 </div>
             </div>
 

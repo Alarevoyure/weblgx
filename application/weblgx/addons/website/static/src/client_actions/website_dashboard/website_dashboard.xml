@@ -2,54 +2,158 @@
 <templates id="template" xml:space="preserve">
 
 <t t-name="website.WebsiteDashboardMain">
-    <div class="o_dashboards" t-att-class="{'has_plausible': state.dashboards.plausible_share_url}">
+    <div class="o_dashboards o_lgx_analytics_root">
         <Layout display="display">
             <t t-set-slot="control-panel-navigation-additional">
-                <div class="btn-group d-none d-md-inline-block float-end" style="margin-right: 20px;">
-                    <t t-foreach="state.websites" t-as="website" t-key="website.id">
-                        <button class="btn btn-secondary js_website" t-att-class="{'active': website.selected}"
-                                t-on-click="() => this.state.website = website.id">
-                            <t t-esc="website.name"/>
+                <div class="btn-group o_lgx_period">
+                    <t t-foreach="periods" t-as="period" t-key="period.days">
+                        <button type="button" class="btn btn-secondary"
+                                t-att-class="{'active': state.period === period.days}"
+                                t-on-click="() => this.setPeriod(period.days)">
+                            <t t-esc="period.label"/>
                         </button>
                     </t>
                 </div>
             </t>
-            <t t-set-slot="control-panel-create-button">
-                <a role="button" href="/" class="btn btn-primary" title="Go to Website">
-                    Go to Website
-                </a>
-            </t>
-            <div class="container-fluid o_website_dashboard">
-                <div class="o_website_dashboard_content">
-                    <t t-call="website.plausible_content"/>
-                </div>
+            <div class="o_lgx_analytics">
+                <t t-if="state.loading and !state.stats">
+                    <p class="text-muted p-4">Chargement des statistiques…</p>
+                </t>
+                <t t-elif="state.stats and !state.stats.website_name">
+                    <p class="text-muted p-4">Aucun site n'est rattaché à la société active.</p>
+                </t>
+                <t t-elif="state.stats">
+                    <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-3">
+                        <div>
+                            <h2 class="mb-0" t-esc="state.stats.website_name"/>
+                            <p class="text-muted small mb-0">Domaine exact configuré sur le site. Comptes connectés exclus.</p>
+                        </div>
+                        <span class="o_lgx_online" t-if="state.stats.online">
+                            <t t-esc="state.stats.online"/> en ligne
+                        </span>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <t t-foreach="kpis" t-as="kpi" t-key="kpi.label">
+                            <div class="col-6 col-lg">
+                                <div class="o_lgx_kpi">
+                                    <div class="o_lgx_kpi_value" t-esc="kpi.value"/>
+                                    <div class="o_lgx_kpi_label" t-esc="kpi.label"/>
+                                    <div class="o_lgx_kpi_delta">
+                                        Précédent : <t t-esc="kpi.before"/>
+                                        <t t-if="kpi.deltaText"> · <t t-esc="kpi.deltaText"/></t>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-lg-8">
+                            <div class="o_lgx_panel">
+                                <h3>Visites par jour</h3>
+                                <div class="o_lgx_chart">
+                                    <canvas t-ref="line"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="o_lgx_panel h-100">
+                                <h3>Public</h3>
+                                <ul class="o_lgx_facts">
+                                    <li>
+                                        <span>Nouveaux</span>
+                                        <strong t-esc="state.stats.new_visitors"/>
+                                    </li>
+                                    <li>
+                                        <span>Déjà venus</span>
+                                        <strong t-esc="state.stats.returning_visitors"/>
+                                    </li>
+                                    <li>
+                                        <span>Une seule page</span>
+                                        <strong><t t-esc="state.stats.single_page_rate"/> %</strong>
+                                    </li>
+                                </ul>
+                                <p class="o_lgx_note">
+                                    Une visite regroupe les pages d'un visiteur espacées de moins de 30 minutes.
+                                    La durée moyenne mesure le temps entre la première et la dernière page des visites qui en comptent plusieurs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="o_lgx_panel mb-3">
+                        <h3>Visiteurs de plusieurs pages</h3>
+                        <p class="text-muted small">Visites comptant au moins deux pages. Les compteurs ci-dessous ne portent que sur ces visites.</p>
+                        <div class="row g-3 mb-3">
+                            <t t-foreach="multiKpis" t-as="kpi" t-key="kpi.label">
+                                <div class="col-6 col-lg">
+                                    <div class="o_lgx_kpi">
+                                        <div class="o_lgx_kpi_value" t-esc="kpi.value"/>
+                                        <div class="o_lgx_kpi_label" t-esc="kpi.label"/>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="o_lgx_chart">
+                            <canvas t-ref="multi"/>
+                        </div>
+                    </div>
+                    <div class="o_lgx_panel mb-3">
+                        <h3>Heures d'arrivée</h3>
+                        <p class="text-muted small">Heure de la première page des visites qui en comptent plusieurs.</p>
+                        <div class="o_lgx_chart">
+                            <canvas t-ref="hours"/>
+                        </div>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-lg-6">
+                            <div class="o_lgx_panel">
+                                <h3>Pages d'arrivée</h3>
+                                <p class="text-muted small">Première page de ces visites.</p>
+                                <div class="o_lgx_chart" t-if="state.stats.landings.length">
+                                    <canvas t-ref="landings"/>
+                                </div>
+                                <p t-else="" class="text-muted mb-0">Aucune visite de plusieurs pages sur cette période.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="o_lgx_panel">
+                                <h3>Enchaînements</h3>
+                                <p class="text-muted small">Page suivante la plus fréquente au cours de ces visites.</p>
+                                <ul class="o_lgx_legend mb-2" t-if="state.stats.flows.length">
+                                    <li><i class="o_lgx_legend_dot" style="background:#10B981"></i>Vers /contactus</li>
+                                    <li><i class="o_lgx_legend_dot" style="background:#2563EB"></i>Navigation standard</li>
+                                    <li><i class="o_lgx_legend_dot" style="background:#64748B"></i>Retour</li>
+                                    <li><i class="o_lgx_legend_dot" style="background:#94a3b8"></i>Autre</li>
+                                </ul>
+                                <div class="o_lgx_chart" t-if="state.stats.flows.length">
+                                    <canvas t-ref="flows"/>
+                                </div>
+                                <p t-else="" class="text-muted mb-0">Aucun enchaînement sur cette période.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-6">
+                            <div class="o_lgx_panel">
+                                <h3>Pages les plus vues</h3>
+                                <div class="o_lgx_chart" t-if="state.stats.pages.length">
+                                    <canvas t-ref="pages"/>
+                                </div>
+                                <p t-else="" class="text-muted mb-0">Aucune page vue sur cette période.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="o_lgx_panel">
+                                <h3>Pays des visiteurs</h3>
+                                <div class="o_lgx_chart" t-if="state.stats.countries.length">
+                                    <canvas t-ref="countries"/>
+                                </div>
+                                <p t-else="" class="text-muted mb-0">Le pays n'est pas enregistré pour ces visites.</p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
             </div>
         </Layout>
-    </div>
-</t>
-
-<t t-name="website.plausible_content">
-    <div class="row o_dashboard_visits" t-if="state.groups.website_designer">
-        <div t-if="state.dashboards.plausible_share_url" class="col-12">
-            <div class="container">
-                <div class="ratio ratio-1x1">
-                    <iframe t-att-src="state.dashboards.plausible_share_url" class="embed-responsive-item" frameborder="0" loading="lazy"/>
-                </div>
-            </div>
-        </div>
-        <div t-else="" class="col-lg-12 o_box">
-            <div class="o_demo_background">
-                <div class="o_layer">
-                </div>
-                <div class="o_buttons text-center">
-                    <h3>Easily track your visitor with Plausible</h3>
-                    <a class="btn btn-primary" target="_blank"
-                        href="https://wiki.loegaux.fr/wiki?page_id=19">
-                        Connect Plausible
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 </t>
 

@@ -29,7 +29,10 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
      */
     async start() {
         this._itemsById = {};
+        this._privacyPolicyUrl = "";
+        this._writingHelpUrl = "";
         this._onModalKeydown = this._onModalKeydown.bind(this);
+        this._onConsentKeydown = this._onConsentKeydown.bind(this);
         this._onCanonicalize = this._onCanonicalize.bind(this);
         document.addEventListener("wiki-gallery-canonicalize", this._onCanonicalize);
         this._ensureRequiredFields();
@@ -45,6 +48,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
     destroy() {
         document.removeEventListener("wiki-gallery-canonicalize", this._onCanonicalize);
         this._closeArticle();
+        this._closeContributeConsent();
         if (this._galleryWysiwyg) {
             this._galleryWysiwyg.destroy();
             this._galleryWysiwyg = null;
@@ -121,6 +125,21 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         const emailLabel = this.el.querySelector("label[for='s_wiki_gallery_email']");
         if (emailLabel) {
             emailLabel.textContent = "Email *";
+        }
+
+        const textLabel = form.querySelector("label[for='s_wiki_gallery_text']");
+        if (textLabel) {
+            const current = textLabel.textContent || "";
+            const pasteHint =
+                " - Dans cette zone, vous pouvez écrire du texte, mais également coller du texte ou des images";
+            const slashHint =
+                " - Tapez '/' dans la zone de texte pour avoir des commandes supplémentaires";
+            if (!current.includes(pasteHint.trim())) {
+                textLabel.appendChild(document.createTextNode(pasteHint));
+            }
+            if (!current.includes("Tapez '/'")) {
+                textLabel.appendChild(document.createTextNode(slashHint));
+            }
         }
 
         if (!form.querySelector('input[name="media"]')) {
@@ -235,8 +254,179 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
      */
     _onToggleContribution(ev) {
         ev.preventDefault();
+        if (this.editableMode) {
+            const expanded = ev.currentTarget.getAttribute("aria-expanded") === "true";
+            this._setContributionOpen(!expanded);
+            return;
+        }
         const expanded = ev.currentTarget.getAttribute("aria-expanded") === "true";
-        this._setContributionOpen(!expanded);
+        if (expanded) {
+            this._setContributionOpen(false);
+            return;
+        }
+        this._openContributeConsent();
+    },
+
+    /**
+     * Modale rappelant le cycle de validation + consentement politique de données.
+     *
+     * @private
+     */
+    async _openContributeConsent() {
+        this._closeContributeConsent();
+        this._closeArticle();
+
+        let privacyUrl = this._privacyPolicyUrl || "";
+        let helpUrl = this._writingHelpUrl || "";
+        try {
+            const info = await jsonrpc("/wiki/gallery/contribute_info", {});
+            privacyUrl = (info && info.privacy_policy_url) || "";
+            helpUrl = (info && info.writing_help_url) || "";
+            this._privacyPolicyUrl = privacyUrl;
+            this._writingHelpUrl = helpUrl;
+        } catch {
+            // Conserve les URL déjà connues via /wiki/gallery/list si l'appel échoue.
+        }
+
+        const modal = document.createElement("div");
+        modal.className = "s_wiki_gallery_consent_modal";
+        modal.setAttribute("role", "dialog");
+        modal.setAttribute("aria-modal", "true");
+        modal.setAttribute("aria-labelledby", "s_wiki_gallery_consent_title");
+
+        const backdrop = document.createElement("div");
+        backdrop.className = "s_wiki_gallery_consent_backdrop";
+        backdrop.addEventListener("click", () => this._closeContributeConsent());
+
+        const dialog = document.createElement("div");
+        dialog.className = "s_wiki_gallery_consent_dialog";
+
+        const closeBtn = document.createElement("button");
+        closeBtn.type = "button";
+        closeBtn.className = "s_wiki_gallery_consent_close";
+        closeBtn.setAttribute("aria-label", "Fermer");
+        closeBtn.innerHTML = "&times;";
+        closeBtn.addEventListener("click", () => this._closeContributeConsent());
+
+        const title = document.createElement("h2");
+        title.id = "s_wiki_gallery_consent_title";
+        title.className = "s_wiki_gallery_consent_title";
+        title.textContent = "Proposer une contribution";
+
+        const body = document.createElement("div");
+        body.className = "s_wiki_gallery_consent_body";
+        body.innerHTML =
+            "<p>Avant d'ouvrir le formulaire, voici comment fonctionne le dépôt " +
+            "dans la bibliothèque Wiki&nbsp;:</p>" +
+            "<ol>" +
+            "<li><strong>Rédaction</strong> — Vous saisissez le titre, le texte, " +
+            "une photo (et éventuellement une vidéo ou un audio), ainsi que votre email.</li>" +
+            "<li><strong>Confirmation par email</strong> — Un code vous est envoyé " +
+            "pour confirmer votre adresse.</li>" +
+            "<li><strong>Relecture</strong> — Un valideur Wiki examine votre proposition " +
+            "avant publication.</li>" +
+            "<li><strong>Décision</strong> — Une fois acceptée, votre contribution " +
+            "apparaît dans la bibliothèque. Vous êtes informé·e de la décision par email.</li>" +
+            "</ol>";
+
+        const consent = document.createElement("label");
+        consent.className = "s_wiki_gallery_consent_check";
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "s_wiki_gallery_consent_checkbox";
+        const consentText = document.createElement("span");
+        if (privacyUrl) {
+            consentText.appendChild(document.createTextNode("J'ai lu la "));
+            const link = document.createElement("a");
+            link.href = privacyUrl;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "Politique de protection des données";
+            consentText.appendChild(link);
+            consentText.appendChild(document.createTextNode("."));
+        } else {
+            consentText.textContent =
+                "J'ai lu la Politique de protection des données.";
+        }
+        consent.appendChild(checkbox);
+        consent.appendChild(consentText);
+
+        let helpLink = null;
+        if (helpUrl) {
+            helpLink = document.createElement("a");
+            helpLink.className = "s_wiki_gallery_consent_help";
+            helpLink.href = helpUrl;
+            helpLink.target = "_blank";
+            helpLink.rel = "noopener noreferrer";
+            helpLink.textContent = "J'ai besoin d'aide pour rédiger mon article";
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "s_wiki_gallery_consent_actions";
+
+        const cancelBtn = document.createElement("button");
+        cancelBtn.type = "button";
+        cancelBtn.className = "btn btn-outline-secondary s_wiki_gallery_consent_cancel";
+        cancelBtn.textContent = "Annuler";
+        cancelBtn.addEventListener("click", () => this._closeContributeConsent());
+
+        const continueBtn = document.createElement("button");
+        continueBtn.type = "button";
+        continueBtn.className = "btn btn-primary s_wiki_gallery_consent_continue";
+        continueBtn.textContent = "Continuer";
+        continueBtn.disabled = true;
+        continueBtn.addEventListener("click", () => {
+            if (!checkbox.checked) {
+                return;
+            }
+            this._closeContributeConsent();
+            this._setContributionOpen(true);
+        });
+
+        checkbox.addEventListener("change", () => {
+            continueBtn.disabled = !checkbox.checked;
+        });
+
+        actions.appendChild(cancelBtn);
+        actions.appendChild(continueBtn);
+
+        dialog.appendChild(closeBtn);
+        dialog.appendChild(title);
+        dialog.appendChild(body);
+        dialog.appendChild(consent);
+        if (helpLink) {
+            dialog.appendChild(helpLink);
+        }
+        dialog.appendChild(actions);
+        modal.appendChild(backdrop);
+        modal.appendChild(dialog);
+        document.body.appendChild(modal);
+        document.body.classList.add("s_wiki_gallery_consent_open");
+        document.addEventListener("keydown", this._onConsentKeydown);
+        this._consentModalEl = modal;
+        checkbox.focus();
+    },
+
+    /**
+     * @private
+     */
+    _closeContributeConsent() {
+        if (this._consentModalEl) {
+            this._consentModalEl.remove();
+            this._consentModalEl = null;
+        }
+        document.body.classList.remove("s_wiki_gallery_consent_open");
+        document.removeEventListener("keydown", this._onConsentKeydown);
+    },
+
+    /**
+     * @private
+     * @param {KeyboardEvent} ev
+     */
+    _onConsentKeydown(ev) {
+        if (ev.key === "Escape") {
+            this._closeContributeConsent();
+        }
     },
 
     /**
@@ -296,6 +486,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         if (!form) {
             return null;
         }
+        form.querySelectorAll(".s_wiki_gallery_toolbar").forEach((node) => node.remove());
         const textareas = [
             ...form.querySelectorAll("textarea[name='text'], textarea#s_wiki_gallery_text"),
         ];
@@ -386,8 +577,14 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
                 height: 280,
                 userGeneratedContent: true,
                 styleInline: true,
+                autohideToolbar: false,
                 allowCommandImage: false,
                 allowCommandVideo: false,
+                // Pas de remplacement d'image au double-clic (évite le dialogue média).
+                onDblClickEditableMedia: (ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                },
                 toolbarOptions: {
                     showColors: false,
                     showFontSize: true,
@@ -397,18 +594,35 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
                     showHeading3: true,
                     showLink: true,
                     showImageEdit: false,
-                    showImageWidth: false,
+                    showImageWidth: true,
                 },
                 recordInfo: {
                     res_model: "wiki.gallery.item",
                     res_id: 0,
                 },
             });
+            this._pinGalleryToolbar();
         } catch {
             this._galleryWysiwyg = null;
         } finally {
             this._galleryWysiwygLoading = false;
         }
+    },
+
+    /**
+     * Garde la barre de mise en forme au-dessus de la zone de texte.
+     *
+     * @private
+     */
+    _pinGalleryToolbar() {
+        const toolbar = this._galleryWysiwyg?.toolbarEl;
+        const wrapper = this.el.querySelector(".s_wiki_gallery_form .o_wysiwyg_textarea_wrapper");
+        if (!toolbar || !wrapper) {
+            return;
+        }
+        toolbar.classList.add("s_wiki_gallery_toolbar");
+        toolbar.style.visibility = "visible";
+        wrapper.before(toolbar);
     },
 
     /**
@@ -447,6 +661,56 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         }
     },
 
+    /**
+     * Après un envoi réussi : retire l'éditeur et ne laisse que l'alerte.
+     *
+     * @private
+     * @param {string} [message]
+     */
+    _closeContributionForm(message) {
+        const contribute = this.el.querySelector(".s_wiki_gallery_contribute");
+        if (contribute) {
+            contribute.classList.add("is-sent");
+        }
+        const wrap = this.el.querySelector(".s_wiki_gallery_form_wrap");
+        if (wrap) {
+            wrap.hidden = false;
+        }
+        const form = this.el.querySelector(".s_wiki_gallery_form");
+        if (form) {
+            form.hidden = false;
+            form.reset();
+        }
+        const verify = this.el.querySelector(".s_wiki_gallery_verify");
+        if (verify) {
+            verify.hidden = true;
+        }
+        this._pendingToken = null;
+        this._dismissEditor();
+        this._showFeedback(
+            message ||
+                "Merci ! Votre contribution a bien été envoyée. Elle sera visible après validation.",
+            "success"
+        );
+        this.el.querySelector(".s_wiki_gallery_feedback")?.scrollIntoView({block: "nearest"});
+    },
+
+    /**
+     * @private
+     */
+    _dismissEditor() {
+        const wysiwyg = this._galleryWysiwyg;
+        this._galleryWysiwyg = null;
+        if (!wysiwyg) {
+            return;
+        }
+        try {
+            wysiwyg.destroy();
+        } catch {
+            wysiwyg.toolbarEl?.remove();
+        }
+    },
+
     async _loadGallery() {
         const listEl = this.el.querySelector("[data-wiki-gallery-list]");
         if (!listEl) {
@@ -465,6 +729,12 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         }
         try {
             const res = await jsonrpc("/wiki/gallery/list", {gallery_id: galleryId});
+            if (res && typeof res.privacy_policy_url === "string") {
+                this._privacyPolicyUrl = res.privacy_policy_url;
+            }
+            if (res && typeof res.writing_help_url === "string") {
+                this._writingHelpUrl = res.writing_help_url;
+            }
             const items = (res && res.items) || [];
             this.options.wysiwyg?.odooEditor?.observerUnactive?.();
             if (!items.length) {
@@ -784,9 +1054,6 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
             btn.disabled = true;
         }
         try {
-            if (this._galleryWysiwyg?.savePendingImages) {
-                await this._galleryWysiwyg.savePendingImages();
-            }
             const body = new FormData();
             body.append("csrf_token", odoo.csrf_token || "");
             body.append("text", this._getEditorHtml());
@@ -817,9 +1084,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
                 if (res.needs_verification) {
                     this._showVerificationStep(res.token, res.email, res.message);
                 } else {
-                    this._showFeedback(res.message || "Contribution envoyée.", "success");
-                    form.reset();
-                    this._resetEditor();
+                    this._closeContributionForm(res.message);
                 }
             } else {
                 this._showFeedback(
@@ -940,13 +1205,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
                 code,
             });
             if (res && res.ok) {
-                this._hideVerificationStep();
-                const form = this.el.querySelector(".s_wiki_gallery_form");
-                if (form) {
-                    form.reset();
-                }
-                this._resetEditor();
-                this._showFeedback(res.message || "Contribution envoyée.", "success");
+                this._closeContributionForm(res.message);
             } else {
                 this._showFeedback(
                     (res && res.message) || "Code incorrect.",

@@ -1,3 +1,105 @@
+.o_lgx_analytics {
+    padding: 8px 12px 28px;
+
+    h2, h3 {
+        color: #16213e;
+        font-weight: 600;
+    }
+    h3 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    .o_lgx_kpi {
+        background: #fff;
+        border: 1px solid #e4e7ee;
+        border-top: 3px solid #16213e;
+        border-radius: 8px;
+        padding: 14px 16px;
+        height: 100%;
+    }
+    .o_lgx_kpi_value {
+        color: #16213e;
+        font-size: 1.55rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .o_lgx_kpi_label {
+        color: #5c6578;
+        font-size: 0.85rem;
+        margin-top: 2px;
+    }
+    .o_lgx_kpi_delta {
+        color: #5c6578;
+        font-size: 0.75rem;
+        margin-top: 6px;
+    }
+    .o_lgx_panel {
+        background: #fff;
+        border: 1px solid #e4e7ee;
+        border-radius: 8px;
+        padding: 16px;
+    }
+    .o_lgx_chart {
+        position: relative;
+        height: 280px;
+    }
+    .o_lgx_online {
+        background: #16213e;
+        color: #fff;
+        border-radius: 999px;
+        padding: 4px 12px;
+        font-size: 0.85rem;
+    }
+    .o_lgx_facts {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eef0f4;
+            color: #3c4456;
+        }
+        strong {
+            color: #16213e;
+        }
+    }
+    .o_lgx_note {
+        color: #5c6578;
+        font-size: 0.8rem;
+        margin: 16px 0 0;
+    }
+    .o_lgx_legend {
+        list-style: none;
+        margin: 0 0 12px;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        color: #5c6578;
+        font-size: 0.8rem;
+        li {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+    }
+    .o_lgx_legend_dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+    }
+}
+
+.o_lgx_period .btn.active {
+    background-color: #16213e;
+    border-color: #16213e;
+    color: #fff;
+}
+
 .o_dashboards {
     background-color: $o-view-background-color;
     height: 100%;

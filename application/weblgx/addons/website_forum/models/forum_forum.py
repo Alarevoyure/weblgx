@@ -9,7 +9,43 @@ from markupsafe import Markup
 
 from odoo import _, api, fields, models
 from odoo.addons.http_routing.models.ir_http import slug
+from odoo.osv import expression
 from odoo.tools.translate import html_translate
+
+
+def forum_selected_site_domain(records):
+    """Limite les listes backend au site de la société active.
+
+    Un forum sans ``website_id`` est partagé par tous les sites : il est exclu.
+    ``sudo()`` (compteurs, migrations) n'est pas restreint. Sur le site public,
+    la société du contexte est déjà celle du site servi.
+    """
+    if records.env.su or records.env.context.get("forum_skip_website_isolation"):
+        return []
+    company = records.env.company
+    if not company:
+        return []
+    if records._name == "forum.tag":
+        return [("forum_id.website_id.company_id", "=", company.id)]
+    return [("website_id.company_id", "=", company.id)]
+
+
+def forum_default_website_id(env):
+    """Site de la société active, ou le site explicitement demandé."""
+    Website = env["website"]
+    for key in ("default_website_id", "website_id"):
+        wid = env.context.get(key)
+        if not wid:
+            continue
+        website = Website.browse(int(wid)).exists()
+        if website and (env.su or not website.company_id or website.company_id == env.company):
+            return website.id
+    website = Website.search(
+        [("company_id", "=", env.company.id)],
+        limit=1,
+        order="sequence, id",
+    )
+    return website.id or False
 
 MOST_USED_TAGS_COUNT = 5  # Number of tags to track as "most used" to display on frontend
 
@@ -88,6 +124,20 @@ class Forum(models.Model):
                                  help='After posting the user will be proposed to share its question '
                                       'or answer on social networks, enabling social network propagation '
                                       'of the forum content.')
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = forum_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
+
     # posts statistics
     post_ids = fields.One2many('forum.post', 'forum_id', string='Posts')
     last_post_id = fields.Many2one('forum.post', compute='_compute_last_post_id')
@@ -252,6 +302,11 @@ class Forum(models.Model):
 
     @api.model_create_multi
     def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get("website_id"):
+                website_id = forum_default_website_id(self.env)
+                if website_id:
+                    vals["website_id"] = website_id
         forums = super(
             Forum,
             self.with_context(mail_create_nolog=True, mail_create_nosubscribe=True)

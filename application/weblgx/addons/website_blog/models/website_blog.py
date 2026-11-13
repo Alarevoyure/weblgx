@@ -7,8 +7,80 @@ import random
 from odoo import api, models, fields, _
 from odoo.addons.http_routing.models.ir_http import slug, unslug
 from odoo.addons.website.tools import text_from_html
+from odoo.exceptions import UserError, ValidationError
+from odoo.http import request
+from odoo.osv import expression
 from odoo.tools.json import scriptsafe as json_scriptsafe
 from odoo.tools.translate import html_translate
+
+
+def blog_selected_site_domain(records):
+    """Limite les listes backend au site de la société active.
+
+    En SaaS, le site sélectionné est la société courante (une société = un site).
+    ``sudo()`` (site public en élévation, PlexiPost) n'est pas restreint.
+    Sur le site public, la société du contexte est déjà celle du site servi.
+    """
+    if records.env.su or records.env.context.get("blog_skip_website_isolation"):
+        return []
+    company = records.env.company
+    if not company:
+        return []
+    return [("website_id.company_id", "=", company.id)]
+
+
+def _has_request():
+    try:
+        return bool(request)
+    except RuntimeError:
+        return False
+
+
+def blog_default_website_id(env):
+    """Current website, or the first website of the user's companies.
+
+    A blog record is never shared across websites. An empty ``website_id``
+    would be published on every site by ``website.website_domain()``.
+    """
+    Website = env["website"]
+    user = env.user
+    superuser = env.su or user._is_superuser()
+    current = Website.browse(env.context.get("website_id")) if env.context.get("website_id") else Website
+    if not current and _has_request():
+        current = Website.get_current_website(fallback=False)
+    if current and (superuser or not current.company_id or current.company_id in user.company_ids):
+        return current.id
+    domain = [] if superuser else [("company_id", "in", user.company_ids.ids)]
+    website = Website.sudo().search(domain, order="id", limit=1)
+    if website:
+        return website.id
+    default = env.ref("website.default_website", raise_if_not_found=False)
+    return default.id if default else False
+
+
+def blog_default_blog_id(self):
+    website_id = blog_default_website_id(self.env)
+    domain = [("website_id", "=", website_id)] if website_id else []
+    return self.env["blog.blog"].search(domain, limit=1)
+
+
+def _sync_company_from_website(model):
+    """Fill stored company_id from the website. Table name is one of ours."""
+    table = {
+        "blog.blog": "blog_blog",
+        "blog.post": "blog_post",
+        "blog.tag": "blog_tag",
+        "blog.tag.category": "blog_tag_category",
+    }[model._name]
+    model.env.cr.execute(
+        f"""
+        UPDATE {table} AS row
+           SET company_id = website.company_id
+          FROM website
+         WHERE row.website_id = website.id
+           AND row.company_id IS DISTINCT FROM website.company_id
+        """
+    )
 
 
 class Blog(models.Model):
@@ -26,14 +98,91 @@ class Blog(models.Model):
     name = fields.Char('Blog Name', required=True, translate=True)
     subtitle = fields.Char('Blog Subtitle', translate=True)
     active = fields.Boolean('Active', default=True)
+    website_id = fields.Many2one(
+        "website",
+        string="Website",
+        required=True,
+        ondelete="cascade",
+        index=True,
+        default=lambda self: blog_default_website_id(self.env),
+        help="Restrict this blog to a single website.",
+    )
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        related="website_id.company_id",
+        store=True,
+        readonly=True,
+        index=True,
+    )
     content = fields.Html('Content', translate=html_translate, sanitize=False)
     blog_post_ids = fields.One2many('blog.post', 'blog_id', 'Blog Posts')
     blog_post_count = fields.Integer("Posts", compute='_compute_blog_post_count')
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = blog_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
 
     @api.depends('blog_post_ids')
     def _compute_blog_post_count(self):
         for record in self:
             record.blog_post_count = len(record.blog_post_ids)
+
+    def _init_column(self, column_name):
+        if column_name == "website_id":
+            website_id = blog_default_website_id(self.env)
+            if website_id:
+                self.env.cr.execute(
+                    "UPDATE blog_blog SET website_id = %s WHERE website_id IS NULL",
+                    (website_id,),
+                )
+                return
+        return super()._init_column(column_name)
+
+    def init(self):
+        _sync_company_from_website(self)
+        self._blog_prepare_rule_update()
+
+    def _blog_prepare_rule_update(self):
+        """Allow the security XML to refresh rules shipped with noupdate."""
+        for xmlid in ("website_blog_public", "website_blog_post_public"):
+            data = self.env["ir.model.data"].sudo().search([
+                ("module", "=", "website_blog"),
+                ("name", "=", xmlid),
+                ("model", "=", "ir.rule"),
+            ], limit=1)
+            if data and data.noupdate:
+                data.noupdate = False
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get("website_id"):
+                website_id = blog_default_website_id(self.env)
+                if not website_id:
+                    raise UserError(_("A website is required to create a blog."))
+                vals["website_id"] = website_id
+        return super().create(vals_list)
+
+    @api.constrains("website_id")
+    def _check_tags_match_website(self):
+        for blog in self:
+            posts = blog.with_context(active_test=False).blog_post_ids
+            mismatched = posts.tag_ids.filtered(lambda tag: tag.website_id != blog.website_id)
+            if mismatched:
+                raise ValidationError(_(
+                    "Tags must belong to the same website as the blog (%s).",
+                    blog.website_id.display_name,
+                ))
 
     def write(self, vals):
         res = super(Blog, self).write(vals)
@@ -107,7 +256,7 @@ class Blog(models.Model):
             mapping['description'] = {'name': 'subtitle', 'type': 'text', 'match': True}
         return {
             'model': 'blog.blog',
-            'base_domain': [website.website_domain()],
+            'base_domain': [[('website_id', '=', website.id)]],
             'search_fields': search_fields,
             'fetch_fields': fetch_fields,
             'mapping': mapping,
@@ -127,11 +276,61 @@ class BlogTagCategory(models.Model):
     _order = 'name'
 
     name = fields.Char('Name', required=True, translate=True)
+    website_id = fields.Many2one(
+        "website",
+        string="Website",
+        required=True,
+        ondelete="cascade",
+        index=True,
+        default=lambda self: blog_default_website_id(self.env),
+    )
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        related="website_id.company_id",
+        store=True,
+        readonly=True,
+        index=True,
+    )
     tag_ids = fields.One2many('blog.tag', 'category_id', string='Tags')
 
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = blog_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
+
     _sql_constraints = [
-        ('name_uniq', 'unique (name)', "Tag category already exists!"),
+        ('name_uniq', 'unique (name, website_id)', "Tag category already exists for this website."),
     ]
+
+    def _init_column(self, column_name):
+        if column_name == "website_id":
+            website_id = blog_default_website_id(self.env)
+            if website_id:
+                self.env.cr.execute(
+                    "UPDATE blog_tag_category SET website_id = %s WHERE website_id IS NULL",
+                    (website_id,),
+                )
+                return
+        return super()._init_column(column_name)
+
+    def init(self):
+        _sync_company_from_website(self)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get("website_id"):
+                vals["website_id"] = blog_default_website_id(self.env)
+        return super().create(vals_list)
 
 
 class BlogTag(models.Model):
@@ -141,12 +340,68 @@ class BlogTag(models.Model):
     _order = 'name'
 
     name = fields.Char('Name', required=True, translate=True)
+    website_id = fields.Many2one(
+        "website",
+        string="Website",
+        required=True,
+        ondelete="cascade",
+        index=True,
+        default=lambda self: blog_default_website_id(self.env),
+    )
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        related="website_id.company_id",
+        store=True,
+        readonly=True,
+        index=True,
+    )
     category_id = fields.Many2one('blog.tag.category', 'Category', index=True)
     post_ids = fields.Many2many('blog.post', string='Posts')
 
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = blog_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
+
     _sql_constraints = [
-        ('name_uniq', 'unique (name)', "Tag name already exists!"),
+        ('name_uniq', 'unique (name, website_id)', "Tag name already exists for this website."),
     ]
+
+    def _init_column(self, column_name):
+        if column_name == "website_id":
+            website_id = blog_default_website_id(self.env)
+            if website_id:
+                self.env.cr.execute(
+                    "UPDATE blog_tag SET website_id = %s WHERE website_id IS NULL",
+                    (website_id,),
+                )
+                return
+        return super()._init_column(column_name)
+
+    def init(self):
+        _sync_company_from_website(self)
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if not vals.get("website_id"):
+                vals["website_id"] = blog_default_website_id(self.env)
+        return super().create(vals_list)
+
+    @api.constrains("category_id", "website_id")
+    def _check_category_website(self):
+        for tag in self:
+            if tag.category_id and tag.category_id.website_id != tag.website_id:
+                raise ValidationError(_("The tag category must belong to the same website as the tag."))
 
 
 class BlogPost(models.Model):
@@ -172,13 +427,25 @@ class BlogPost(models.Model):
     author_avatar = fields.Binary(related='author_id.image_128', string="Avatar", readonly=False)
     author_name = fields.Char(related='author_id.display_name', string="Author Name", readonly=False, store=True)
     active = fields.Boolean('Active', default=True)
-    blog_id = fields.Many2one('blog.blog', 'Blog', required=True, ondelete='cascade', default=lambda self: self.env['blog.blog'].search([], limit=1))
+    blog_id = fields.Many2one('blog.blog', 'Blog', required=True, ondelete='cascade', default=blog_default_blog_id)
     tag_ids = fields.Many2many('blog.tag', string='Tags')
+    company_id = fields.Many2one(
+        "res.company",
+        string="Company",
+        related="blog_id.company_id",
+        store=True,
+        readonly=True,
+        index=True,
+    )
     content = fields.Html('Content', default=_default_content, translate=html_translate, sanitize=False)
     teaser = fields.Text('Teaser', compute='_compute_teaser', inverse='_set_teaser')
     teaser_manual = fields.Text(string='Teaser Content')
 
-    website_message_ids = fields.One2many(domain=lambda self: [('model', '=', self._name), ('message_type', '=', 'comment')])
+    website_message_ids = fields.One2many(domain=lambda self: [
+        ('model', '=', self._name),
+        ('message_type', '=', 'comment'),
+        '|', ('blog_comment_state', '=', False), ('blog_comment_state', '=', 'approved'),
+    ])
 
     # creation / update stuff
     create_date = fields.Datetime('Created on', readonly=True)
@@ -190,6 +457,63 @@ class BlogPost(models.Model):
     write_uid = fields.Many2one('res.users', 'Last Contributor', readonly=True)
     visits = fields.Integer('No of Views', copy=False, default=0, readonly=True)
     website_id = fields.Many2one(related='blog_id.website_id', readonly=True, store=True)
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = blog_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
+    plexipost_external_id = fields.Char(
+        string="PlexiPost identifier",
+        copy=False,
+        index=True,
+        help="Identifier sent by PlexiPost. A later push with the same value updates this article.",
+    )
+
+    _sql_constraints = [
+        (
+            "plexipost_external_id_uniq",
+            "unique(website_id, plexipost_external_id)",
+            "This PlexiPost identifier is already used on this website.",
+        ),
+    ]
+
+    def init(self):
+        self.env.cr.execute(
+            """
+            UPDATE blog_post AS post
+               SET website_id = blog.website_id,
+                   company_id = website.company_id
+              FROM blog_blog AS blog
+              JOIN website ON website.id = blog.website_id
+             WHERE post.blog_id = blog.id
+               AND (post.website_id IS DISTINCT FROM blog.website_id
+                    OR post.company_id IS DISTINCT FROM website.company_id)
+            """
+        )
+
+    @api.onchange("blog_id")
+    def _onchange_blog_id_clear_foreign_tags(self):
+        if self.blog_id:
+            self.tag_ids = self.tag_ids.filtered(lambda tag: tag.website_id == self.blog_id.website_id)
+
+    @api.constrains("blog_id", "tag_ids")
+    def _check_tag_website(self):
+        for post in self:
+            website = post.blog_id.website_id
+            mismatched = post.tag_ids.filtered(lambda tag: tag.website_id != website)
+            if mismatched:
+                raise ValidationError(_(
+                    "Tags must belong to the same website as the blog (%s).",
+                    website.display_name,
+                ))
 
     @api.depends('content', 'teaser_manual')
     def _compute_teaser(self):
@@ -289,6 +613,45 @@ class BlogPost(models.Model):
 
         return groups
 
+    def _user_can_moderate_comments(self):
+        """A blog administrator is a website designer of the blog company."""
+        self.ensure_one()
+        user = self.env.user
+        if not user or user._is_public() or user.share:
+            return False
+        if not user.has_group("website.group_website_designer"):
+            return False
+        return self.company_id.id in user.company_ids.ids
+
+    def _pending_blog_comments(self):
+        self.ensure_one()
+        return self.env["mail.message"].sudo().search([
+            ("model", "=", "blog.post"),
+            ("res_id", "=", self.id),
+            ("message_type", "=", "comment"),
+            ("blog_comment_state", "=", "pending"),
+        ], order="date asc, id asc")
+
+    def _get_message_create_valid_field_names(self):
+        return super()._get_message_create_valid_field_names() | {"blog_comment_state"}
+
+    def message_post(self, **kwargs):
+        if (
+            self.env.context.get("blog_comment_from_portal")
+            and kwargs.get("message_type", "notification") == "comment"
+            and kwargs.get("subtype_xmlid", "mail.mt_comment") == "mail.mt_comment"
+            and "blog_comment_state" not in kwargs
+        ):
+            kwargs["blog_comment_state"] = (
+                "approved" if self._user_can_moderate_comments() else "pending"
+            )
+        return super().message_post(**kwargs)
+
+    def _notify_thread(self, message, msg_vals=False, **kwargs):
+        if message.blog_comment_state == "pending":
+            return
+        return super()._notify_thread(message, msg_vals=msg_vals, **kwargs)
+
     def _notify_thread_by_inbox(self, message, recipients_data, msg_vals=False, **kwargs):
         """ Override to avoid keeping all notified recipients of a comment.
         We avoid tracking needaction on post comments. Only emails should be
@@ -321,7 +684,7 @@ class BlogPost(models.Model):
         date_begin = options.get('date_begin')
         date_end = options.get('date_end')
         state = options.get('state')
-        domain = [website.website_domain()]
+        domain = [[('website_id', '=', website.id)]]
         if blog:
             domain.append([('blog_id', '=', unslug(blog)[1])])
         if tags:
@@ -339,7 +702,8 @@ class BlogPost(models.Model):
             domain.append([("post_date", "<=", fields.Datetime.now())])
         search_fields = ['name', 'author_name']
         def search_in_tags(env, search_term):
-            tags_like_search = env['blog.tag'].search([('name', 'ilike', search_term)])
+            tag_domain = [('name', 'ilike', search_term), ('website_id', '=', website.id)]
+            tags_like_search = env['blog.tag'].search(tag_domain)
             return [('tag_ids', 'in', tags_like_search.ids)]
         fetch_fields = ['name', 'website_url']
         mapping = {

@@ -10,11 +10,29 @@ import threading
 
 from odoo import fields, models, api, _
 from odoo.addons.base.models.res_partner import _tz_get
+from odoo.addons.website.tools import get_base_domain
 from odoo.exceptions import UserError
 from odoo.tools import split_every
 from odoo.tools.misc import _format_time_ago
 from odoo.http import request
 from odoo.osv import expression
+
+
+def visitor_selected_site_domain(records):
+    """Limite Analyse → Visiteurs au site de la société active.
+
+    Un visiteur sans ``website_id`` est exclu. ``sudo()`` (suivi des pages,
+    cron) n'est pas restreint. Sur le site public, la société du contexte
+    est déjà celle du site servi.
+    """
+    if records.env.su or records.env.context.get("visitor_skip_website_isolation"):
+        return []
+    company = records.env.company
+    if not company:
+        return []
+    if records._name == "website.track":
+        return [("visitor_id.website_id.company_id", "=", company.id)]
+    return [("website_id.company_id", "=", company.id)]
 
 
 class WebsiteTrack(models.Model):
@@ -27,6 +45,19 @@ class WebsiteTrack(models.Model):
     page_id = fields.Many2one('website.page', index=True, ondelete='cascade', readonly=True)
     url = fields.Text('Url', index=True)
     visit_datetime = fields.Datetime('Visit Date', default=fields.Datetime.now, required=True, readonly=True)
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = visitor_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
 
 
 class WebsiteVisitor(models.Model):
@@ -82,6 +113,19 @@ class WebsiteVisitor(models.Model):
     _sql_constraints = [
         ('access_token_unique', 'unique(access_token)', 'Access token should be unique.'),
     ]
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = visitor_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
 
     @api.depends('partner_id')
     def _compute_display_name(self):
@@ -208,7 +252,7 @@ class WebsiteVisitor(models.Model):
             'lang_id': request.lang.id,
             # Note that it's possible for the GEOIP database to return a country
             # code which is unknown in Odoo
-            'country_code': request.geoip.get('country_code'),
+            'country_code': request.geoip.country_code,
             'website_id': request.website.id,
             'timezone': self._get_visitor_timezone() or None,
             'write_uid': self.env.uid,
@@ -232,6 +276,7 @@ class WebsiteVisitor(models.Model):
             ON CONFLICT (access_token)
             DO UPDATE SET
                 last_connection_datetime=excluded.last_connection_datetime,
+                country_id = COALESCE(website_visitor.country_id, excluded.country_id),
                 visit_count = CASE WHEN website_visitor.last_connection_datetime < NOW() AT TIME ZONE 'UTC' - INTERVAL '8 hours'
                                     THEN website_visitor.visit_count + 1
                                     ELSE website_visitor.visit_count
@@ -395,3 +440,571 @@ class WebsiteVisitor(models.Model):
             return self.env.user.tz
         else:
             return None
+
+    @api.model
+    def get_site_analytics(self, days=30):
+        """Statistiques de visite du site de la société active.
+
+        Une visite regroupe les pages vues d'un même visiteur séparées de
+        moins de 30 minutes. La durée est le temps entre la première et la
+        dernière page d'une visite qui en compte plusieurs.
+
+        Les comptes connectés (administrateur, utilisateur interne ou portail)
+        ont un contact. Leurs visites sont écartées. Seules les adresses du
+        domaine configuré du site sont comptées, avec ou sans ``www``.
+        """
+        self.check_access_rights('read')
+        try:
+            days = int(days)
+        except (TypeError, ValueError):
+            days = 30
+        if days not in (7, 30, 90):
+            days = 30
+
+        website = self.env['website'].search(
+            [('company_id', '=', self.env.company.id)],
+            limit=1,
+            order='sequence, id',
+        )
+        empty = {
+            'website_name': website.name or False,
+            'days': days,
+            'online': 0,
+            'visitors': 0,
+            'page_views': 0,
+            'sessions': 0,
+            'pages_per_session': 0,
+            'avg_duration': '—',
+            'single_page_rate': 0,
+            'new_visitors': 0,
+            'returning_visitors': 0,
+            'series': {
+                'labels': [],
+                'visitors': [],
+                'page_views': [],
+                'multi_visitors': [],
+                'multi_page_views': [],
+            },
+            'pages': [],
+            'countries': [],
+            'hours': [0] * 24,
+            'landings': [],
+            'flows': [],
+            'multi': self._empty_multi(),
+            'previous': self._empty_previous_period(),
+        }
+        if not website:
+            return empty
+
+        tzname = self.env.user.tz or 'Europe/Paris'
+        if tzname not in pytz.all_timezones:
+            tzname = 'Europe/Paris'
+        tz = pytz.timezone(tzname)
+        now = datetime.now(tz)
+        start_day = (now - timedelta(days=days - 1)).date()
+        start_dt = tz.localize(datetime.combine(start_day, datetime.min.time())).astimezone(pytz.UTC).replace(tzinfo=None)
+
+        cr = self.env.cr
+        # partner_id is set only when the visitor was logged in.
+        public_visitor = "v.partner_id IS NULL"
+        # Exact host of the website URL. Scheme and port are ignored.
+        # www.loegaux.fr does not include loegaux.fr, nor an IP address.
+        raw_host = get_base_domain(website.domain or '', strip_www=False).split(':')[0].lower()
+        try:
+            site_host = raw_host.encode('idna').decode('ascii')
+        except UnicodeError:
+            site_host = raw_host
+        on_site = """
+            lower(split_part(substring(t.url from '://([^/?#]+)'), ':', 1)) = %s
+        """
+        cr.execute("""
+            SELECT (t.visit_datetime AT TIME ZONE 'UTC' AT TIME ZONE %s)::date AS day,
+                   COUNT(*) AS page_views,
+                   COUNT(DISTINCT t.visitor_id) AS visitors
+              FROM website_track t
+              JOIN website_visitor v ON v.id = t.visitor_id
+             WHERE v.website_id = %s
+               AND t.visit_datetime >= %s
+               AND """ + public_visitor + """
+               AND """ + on_site + """
+          GROUP BY 1
+        """, (tzname, website.id, start_dt, site_host))
+        by_day = {row['day']: row for row in cr.dictfetchall()}
+
+        labels, visitors_series, views_series = [], [], []
+        for offset in range(days):
+            day = start_day + timedelta(days=offset)
+            row = by_day.get(day)
+            labels.append(day.strftime('%d/%m'))
+            visitors_series.append(row['visitors'] if row else 0)
+            views_series.append(row['page_views'] if row else 0)
+
+        cr.execute("""
+            WITH several AS (
+                SELECT t.visitor_id
+                  FROM website_track t
+                  JOIN website_visitor v ON v.id = t.visitor_id
+                 WHERE v.website_id = %s
+                   AND t.visit_datetime >= %s
+                   AND """ + public_visitor + """
+                   AND """ + on_site + """
+              GROUP BY t.visitor_id
+                HAVING COUNT(*) > 1
+            )
+            SELECT (t.visit_datetime AT TIME ZONE 'UTC' AT TIME ZONE %s)::date AS day,
+                   COUNT(DISTINCT t.visitor_id) AS visitors,
+                   COUNT(*) AS page_views
+              FROM website_track t
+              JOIN website_visitor v ON v.id = t.visitor_id
+              JOIN several s ON s.visitor_id = t.visitor_id
+             WHERE v.website_id = %s
+               AND t.visit_datetime >= %s
+               AND """ + public_visitor + """
+               AND """ + on_site + """
+          GROUP BY 1
+        """, (website.id, start_dt, site_host, tzname, website.id, start_dt, site_host))
+        several_by_day = {row['day']: row for row in cr.dictfetchall()}
+        multi_visitors, multi_views = [], []
+        for offset in range(days):
+            row = several_by_day.get(start_day + timedelta(days=offset))
+            multi_visitors.append(row['visitors'] if row else 0)
+            multi_views.append(row['page_views'] if row else 0)
+
+        cr.execute("""
+            WITH ordered AS (
+                SELECT t.visitor_id,
+                       t.id,
+                       t.visit_datetime,
+                       LAG(t.visit_datetime) OVER (
+                           PARTITION BY t.visitor_id ORDER BY t.visit_datetime, t.id
+                       ) AS prev
+                  FROM website_track t
+                  JOIN website_visitor v ON v.id = t.visitor_id
+                 WHERE v.website_id = %s
+                   AND t.visit_datetime >= %s
+                   AND """ + public_visitor + """
+                   AND """ + on_site + """
+            ), marked AS (
+                SELECT visitor_id,
+                       visit_datetime,
+                       SUM(CASE
+                           WHEN prev IS NULL OR visit_datetime - prev > INTERVAL '30 minutes'
+                           THEN 1 ELSE 0 END) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+                       ) AS session_n
+                  FROM ordered
+            ), sessions AS (
+                SELECT visitor_id,
+                       session_n,
+                       MIN(visit_datetime) AS started,
+                       MAX(visit_datetime) AS ended,
+                       COUNT(*) AS pages
+                  FROM marked
+              GROUP BY visitor_id, session_n
+            )
+            SELECT COUNT(*) AS sessions,
+                   COUNT(*) FILTER (WHERE pages = 1) AS single_page,
+                   AVG(EXTRACT(EPOCH FROM (ended - started))) FILTER (WHERE pages > 1) AS avg_seconds,
+                   COALESCE(SUM(pages), 0) AS page_views,
+                   COUNT(*) FILTER (WHERE pages > 1) AS multi_sessions,
+                   COUNT(DISTINCT visitor_id) FILTER (WHERE pages > 1) AS multi_visitors,
+                   COALESCE(SUM(pages) FILTER (WHERE pages > 1), 0) AS multi_page_views
+              FROM sessions
+        """, (website.id, start_dt, site_host))
+        sessions = cr.dictfetchone()
+
+        cr.execute("""
+            SELECT COUNT(*) FILTER (WHERE v.create_date >= %s) AS new_visitors,
+                   COUNT(*) FILTER (WHERE v.create_date < %s) AS returning_visitors
+              FROM website_visitor v
+             WHERE v.website_id = %s
+               AND """ + public_visitor + """
+               AND EXISTS (
+                    SELECT 1 FROM website_track t
+                     WHERE t.visitor_id = v.id
+                       AND t.visit_datetime >= %s
+                       AND """ + on_site + """
+               )
+        """, (start_dt, start_dt, website.id, start_dt, site_host))
+        cohort = cr.dictfetchone()
+
+        cr.execute("""
+            SELECT COALESCE(NULLIF(page.url, ''), NULLIF(path.path, ''), '/') AS label,
+                   COUNT(*) AS views,
+                   COUNT(DISTINCT t.visitor_id) AS visitors
+              FROM website_track t
+              JOIN website_visitor v ON v.id = t.visitor_id
+              LEFT JOIN website_page page ON page.id = t.page_id
+              CROSS JOIN LATERAL (
+                    SELECT regexp_replace(split_part(t.url, '?', 1), '^https?://[^/]+', '') AS path
+              ) path
+             WHERE v.website_id = %s
+               AND t.visit_datetime >= %s
+               AND t.url IS NOT NULL
+               AND """ + public_visitor + """
+               AND """ + on_site + """
+          GROUP BY 1
+          ORDER BY views DESC, visitors DESC
+             LIMIT 8
+        """, (website.id, start_dt, site_host))
+        pages = cr.dictfetchall()
+
+        cr.execute("""
+            SELECT COALESCE(c.name->>'fr_FR', c.name->>'en_US', 'Non renseigné') AS label,
+                   COUNT(DISTINCT v.id) AS visitors
+              FROM website_visitor v
+              JOIN website_track t ON t.visitor_id = v.id AND t.visit_datetime >= %s
+              LEFT JOIN res_country c ON c.id = v.country_id
+             WHERE v.website_id = %s
+               AND """ + public_visitor + """
+               AND """ + on_site + """
+          GROUP BY 1
+          ORDER BY visitors DESC
+             LIMIT 6
+        """, (start_dt, website.id, site_host))
+        countries = [
+            row for row in cr.dictfetchall()
+            if row['label'] != 'Non renseigné'
+        ]
+
+        cr.execute("""
+            SELECT COUNT(DISTINCT v.id)
+              FROM website_visitor v
+              JOIN website_track t ON t.visitor_id = v.id
+             WHERE v.website_id = %s
+               AND t.visit_datetime >= (NOW() AT TIME ZONE 'UTC') - INTERVAL '5 minutes'
+               AND """ + public_visitor + """
+               AND """ + on_site + """
+        """, (website.id, site_host))
+        online = cr.fetchone()[0]
+
+        now_utc = datetime.now(pytz.UTC).replace(tzinfo=None)
+        elapsed = now_utc - start_dt
+        if elapsed.total_seconds() < 60:
+            elapsed = timedelta(days=days)
+        prev_start = start_dt - elapsed
+        cr.execute("""
+            SELECT COUNT(DISTINCT v.id)
+              FROM website_visitor v
+             WHERE v.website_id = %s
+               AND """ + public_visitor + """
+               AND EXISTS (
+                    SELECT 1 FROM website_track t
+                     WHERE t.visitor_id = v.id
+                       AND t.visit_datetime >= %s
+                       AND t.visit_datetime < %s
+                       AND """ + on_site + """
+               )
+        """, (website.id, prev_start, start_dt, site_host))
+        previous_visitors = cr.fetchone()[0]
+        cr.execute("""
+            WITH ordered AS (
+                SELECT t.visitor_id,
+                       t.id,
+                       t.visit_datetime,
+                       LAG(t.visit_datetime) OVER (
+                           PARTITION BY t.visitor_id ORDER BY t.visit_datetime, t.id
+                       ) AS prev
+                  FROM website_track t
+                  JOIN website_visitor v ON v.id = t.visitor_id
+                 WHERE v.website_id = %s
+                   AND t.visit_datetime >= %s
+                   AND t.visit_datetime < %s
+                   AND """ + public_visitor + """
+                   AND """ + on_site + """
+            ), marked AS (
+                SELECT visitor_id,
+                       visit_datetime,
+                       SUM(CASE
+                           WHEN prev IS NULL OR visit_datetime - prev > INTERVAL '30 minutes'
+                           THEN 1 ELSE 0 END) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+                       ) AS session_n
+                  FROM ordered
+            ), grouped AS (
+                SELECT visitor_id,
+                       session_n,
+                       MIN(visit_datetime) AS started,
+                       MAX(visit_datetime) AS ended,
+                       COUNT(*) AS pages
+                  FROM marked
+              GROUP BY visitor_id, session_n
+            )
+            SELECT COUNT(*) AS sessions,
+                   AVG(EXTRACT(EPOCH FROM (ended - started))) FILTER (WHERE pages > 1) AS avg_seconds,
+                   COALESCE(SUM(pages), 0) AS page_views
+              FROM grouped
+        """, (website.id, prev_start, start_dt, site_host))
+        previous_sessions = cr.dictfetchone()
+
+        cr.execute("""
+            WITH base AS (
+                SELECT t.visitor_id,
+                       t.id,
+                       t.visit_datetime,
+                       COALESCE(NULLIF(page.url, ''), NULLIF(path.path, ''), '/') AS label
+                  FROM website_track t
+                  JOIN website_visitor v ON v.id = t.visitor_id
+                  LEFT JOIN website_page page ON page.id = t.page_id
+                  CROSS JOIN LATERAL (
+                        SELECT regexp_replace(split_part(t.url, '?', 1), '^https?://[^/]+', '') AS path
+                  ) path
+                 WHERE v.website_id = %s
+                   AND t.visit_datetime >= %s
+                   AND t.url IS NOT NULL
+                   AND """ + public_visitor + """
+                   AND """ + on_site + """
+            ), ordered AS (
+                SELECT base.*,
+                       LAG(visit_datetime) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                       ) AS prev
+                  FROM base
+            ), marked AS (
+                SELECT ordered.*,
+                       SUM(CASE
+                           WHEN prev IS NULL OR visit_datetime - prev > INTERVAL '30 minutes'
+                           THEN 1 ELSE 0 END) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+                       ) AS session_n
+                  FROM ordered
+            ), multi AS (
+                SELECT visitor_id, session_n
+                  FROM marked
+              GROUP BY visitor_id, session_n
+                HAVING COUNT(*) > 1
+            ), arrivals AS (
+                SELECT m.visitor_id,
+                       m.session_n,
+                       MIN(m.visit_datetime) AS started,
+                       (ARRAY_AGG(m.label ORDER BY m.visit_datetime, m.id))[1] AS landing
+                  FROM marked m
+                  JOIN multi u
+                    ON u.visitor_id = m.visitor_id
+                   AND u.session_n = m.session_n
+              GROUP BY m.visitor_id, m.session_n
+            )
+            SELECT EXTRACT(HOUR FROM (started AT TIME ZONE 'UTC' AT TIME ZONE %s))::int AS hour,
+                   COUNT(*) AS visits
+              FROM arrivals
+          GROUP BY 1
+        """, (website.id, start_dt, site_host, tzname))
+        hours = [0] * 24
+        for row in cr.dictfetchall():
+            hours[int(row['hour'])] = row['visits']
+
+        cr.execute("""
+            WITH base AS (
+                SELECT t.visitor_id,
+                       t.id,
+                       t.visit_datetime,
+                       COALESCE(NULLIF(page.url, ''), NULLIF(path.path, ''), '/') AS label
+                  FROM website_track t
+                  JOIN website_visitor v ON v.id = t.visitor_id
+                  LEFT JOIN website_page page ON page.id = t.page_id
+                  CROSS JOIN LATERAL (
+                        SELECT regexp_replace(split_part(t.url, '?', 1), '^https?://[^/]+', '') AS path
+                  ) path
+                 WHERE v.website_id = %s
+                   AND t.visit_datetime >= %s
+                   AND t.url IS NOT NULL
+                   AND """ + public_visitor + """
+                   AND """ + on_site + """
+            ), ordered AS (
+                SELECT base.*,
+                       LAG(visit_datetime) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                       ) AS prev
+                  FROM base
+            ), marked AS (
+                SELECT ordered.*,
+                       SUM(CASE
+                           WHEN prev IS NULL OR visit_datetime - prev > INTERVAL '30 minutes'
+                           THEN 1 ELSE 0 END) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+                       ) AS session_n
+                  FROM ordered
+            ), multi AS (
+                SELECT visitor_id, session_n
+                  FROM marked
+              GROUP BY visitor_id, session_n
+                HAVING COUNT(*) > 1
+            )
+            SELECT landing.label,
+                   COUNT(*) AS visits
+              FROM (
+                    SELECT (ARRAY_AGG(m.label ORDER BY m.visit_datetime, m.id))[1] AS label
+                      FROM marked m
+                      JOIN multi u
+                        ON u.visitor_id = m.visitor_id
+                       AND u.session_n = m.session_n
+                  GROUP BY m.visitor_id, m.session_n
+              ) landing
+          GROUP BY landing.label
+          ORDER BY visits DESC, landing.label
+             LIMIT 8
+        """, (website.id, start_dt, site_host))
+        landings = cr.dictfetchall()
+
+        cr.execute("""
+            WITH base AS (
+                SELECT t.visitor_id,
+                       t.id,
+                       t.visit_datetime,
+                       COALESCE(NULLIF(page.url, ''), NULLIF(path.path, ''), '/') AS label
+                  FROM website_track t
+                  JOIN website_visitor v ON v.id = t.visitor_id
+                  LEFT JOIN website_page page ON page.id = t.page_id
+                  CROSS JOIN LATERAL (
+                        SELECT regexp_replace(split_part(t.url, '?', 1), '^https?://[^/]+', '') AS path
+                  ) path
+                 WHERE v.website_id = %s
+                   AND t.visit_datetime >= %s
+                   AND t.url IS NOT NULL
+                   AND """ + public_visitor + """
+                   AND """ + on_site + """
+            ), ordered AS (
+                SELECT base.*,
+                       LAG(visit_datetime) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                       ) AS prev
+                  FROM base
+            ), marked AS (
+                SELECT ordered.*,
+                       SUM(CASE
+                           WHEN prev IS NULL OR visit_datetime - prev > INTERVAL '30 minutes'
+                           THEN 1 ELSE 0 END) OVER (
+                           PARTITION BY visitor_id ORDER BY visit_datetime, id
+                           ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+                       ) AS session_n
+                  FROM ordered
+            ), multi AS (
+                SELECT visitor_id, session_n
+                  FROM marked
+              GROUP BY visitor_id, session_n
+                HAVING COUNT(*) > 1
+            ), steps AS (
+                SELECT m.label,
+                       LAG(m.label) OVER (
+                           PARTITION BY m.visitor_id, m.session_n
+                           ORDER BY m.visit_datetime, m.id
+                       ) AS previous_label
+                  FROM marked m
+                  JOIN multi u
+                    ON u.visitor_id = m.visitor_id
+                   AND u.session_n = m.session_n
+            )
+            SELECT previous_label || ' → ' || label AS label,
+                   COUNT(*) AS visits
+              FROM steps
+             WHERE previous_label IS NOT NULL
+               AND previous_label <> label
+          GROUP BY previous_label, label
+          ORDER BY visits DESC, label
+             LIMIT 8
+        """, (website.id, start_dt, site_host))
+        flows = cr.dictfetchall()
+
+        session_count = sessions['sessions'] or 0
+        page_views = int(sessions['page_views'] or 0)
+        single = sessions['single_page'] or 0
+        visitors = cohort['new_visitors'] + cohort['returning_visitors']
+        pages_per_session = round(page_views / session_count, 1) if session_count else 0
+        multi_session_count = sessions['multi_sessions'] or 0
+        multi_page_views = int(sessions['multi_page_views'] or 0)
+        multi_pages_per_session = round(multi_page_views / multi_session_count, 1) if multi_session_count else 0
+        prev_session_count = previous_sessions['sessions'] or 0
+        prev_page_views = int(previous_sessions['page_views'] or 0)
+        prev_pages_per_session = round(prev_page_views / prev_session_count, 1) if prev_session_count else 0
+        return {
+            'website_name': website.name,
+            'days': days,
+            'online': online,
+            'visitors': visitors,
+            'page_views': page_views,
+            'sessions': session_count,
+            'pages_per_session': pages_per_session,
+            'avg_duration': self._format_visit_duration(sessions['avg_seconds']),
+            'single_page_rate': round(100 * single / session_count) if session_count else 0,
+            'new_visitors': cohort['new_visitors'],
+            'returning_visitors': cohort['returning_visitors'],
+            'series': {
+                'labels': labels,
+                'visitors': visitors_series,
+                'page_views': views_series,
+                'multi_visitors': multi_visitors,
+                'multi_page_views': multi_views,
+            },
+            'pages': pages,
+            'countries': countries,
+            'hours': hours,
+            'landings': landings,
+            'flows': flows,
+            'multi': {
+                'visitors': int(sessions['multi_visitors'] or 0),
+                'page_views': multi_page_views,
+                'sessions': multi_session_count,
+                'avg_duration': self._format_visit_duration(sessions['avg_seconds']),
+                'pages_per_session': multi_pages_per_session,
+            },
+            'previous': {
+                'visitors': previous_visitors,
+                'visitors_delta': self._analytics_change(visitors, previous_visitors),
+                'page_views': prev_page_views,
+                'page_views_delta': self._analytics_change(page_views, prev_page_views),
+                'sessions': prev_session_count,
+                'sessions_delta': self._analytics_change(session_count, prev_session_count),
+                'pages_per_session': prev_pages_per_session,
+                'pages_per_session_delta': self._analytics_change(pages_per_session, prev_pages_per_session),
+                'avg_duration': self._format_visit_duration(previous_sessions['avg_seconds']),
+                'avg_duration_delta': self._analytics_change(sessions['avg_seconds'], previous_sessions['avg_seconds']),
+            },
+        }
+
+    @api.model
+    def _empty_multi(self):
+        return {
+            'visitors': 0,
+            'page_views': 0,
+            'sessions': 0,
+            'avg_duration': '—',
+            'pages_per_session': 0,
+        }
+
+    @api.model
+    def _empty_previous_period(self):
+        return {
+            'visitors': 0,
+            'visitors_delta': None,
+            'page_views': 0,
+            'page_views_delta': None,
+            'sessions': 0,
+            'sessions_delta': None,
+            'pages_per_session': 0,
+            'pages_per_session_delta': None,
+            'avg_duration': '—',
+            'avg_duration_delta': None,
+        }
+
+    @api.model
+    def _analytics_change(self, current, previous):
+        if current is None or not previous:
+            return None
+        return int(round(100.0 * (float(current) - float(previous)) / float(previous)))
+
+    @api.model
+    def _format_visit_duration(self, seconds):
+        if not seconds:
+            return '—'
+        seconds = int(round(seconds))
+        minutes, sec = divmod(seconds, 60)
+        hours, minutes = divmod(minutes, 60)
+        if hours:
+            return '%d h %02d' % (hours, minutes)
+        if minutes:
+            return '%d min %02d s' % (minutes, sec)
+        return '%d s' % sec

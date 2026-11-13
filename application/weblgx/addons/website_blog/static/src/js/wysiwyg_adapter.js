@@ -43,9 +43,13 @@ patch(WysiwygAdapterComponent.prototype, {
      */
     async _saveBlogTags() {
         for (const [key, tags] of Object.entries(this.blogTagsPerBlogPost)) {
+            const postId = parseInt(key);
+            const [post] = await this.orm.read("blog.post", [postId], ["website_id"]);
+            const websiteId = post && post.website_id && post.website_id[0];
             const proms = tags.filter(tag => typeof tag.id === 'string').map(tag => {
                 return this.orm.create("blog.tag", [{
                         'name': tag.name,
+                        'website_id': websiteId,
                     }]);
             });
             const createdIDs = (await Promise.all(proms)).flat();

@@ -211,7 +211,18 @@
                     'analytics_storage': 'denied',
                 });
                 gtag('js', new Date());
-                gtag('config', '<t t-esc="website.google_analytics_key"/>');
+                gtag('config', '<t t-esc="website.google_analytics_key"/>', { 'send_page_view': false });
+                function lgxSendAnalyticsPageView() {
+                    if (window.lgxAnalyticsPageSent) {
+                        return;
+                    }
+                    window.lgxAnalyticsPageSent = true;
+                    gtag('event', 'page_view', {
+                        'page_title': document.title,
+                        'page_location': window.location.href,
+                        'page_referrer': document.referrer,
+                    });
+                }
                 function allConsentsGranted() {
                     gtag('consent', 'update', {
                         'ad_storage': 'granted',
@@ -219,6 +230,7 @@
                         'ad_personalization': 'granted',
                         'analytics_storage': 'granted',
                     });
+                    lgxSendAnalyticsPageView();
                 }
                 <t t-if="website._allConsentsGranted()">
                     allConsentsGranted();

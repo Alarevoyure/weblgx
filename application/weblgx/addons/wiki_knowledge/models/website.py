@@ -2,6 +2,7 @@ import re
 
 from weblgx import _, api, fields, models
 from weblgx.exceptions import AccessError, UserError
+from weblgx.http import request
 from weblgx.tools.misc import html_escape
 
 # Champs Wiki modifiables par les Wiki Managers (sans être designer site).
@@ -9,6 +10,7 @@ _WIKI_SETTINGS_FIELDS = frozenset({
     "wiki_border_color",
     "wiki_show_toc",
     "wiki_show_page_nav",
+    "wiki_show_view_count",
     "wiki_header",
     "wiki_logo",
     "wiki_logo_height",
@@ -20,7 +22,13 @@ _WIKI_SETTINGS_FIELDS = frozenset({
     "wiki_show_site_footer",
     "wiki_show_footer",
     "wiki_review_email",
+    "wiki_privacy_policy_url",
+    "wiki_writing_help_url",
     "wiki_footer",
+    "wiki_meta_title",
+    "wiki_meta_description",
+    "wiki_meta_keywords",
+    "wiki_meta_og_img",
     "wiki_header_show_logo",
     "wiki_header_show_search",
     "wiki_header_show_signin",
@@ -49,6 +57,11 @@ class Website(models.Model):
             "sur la droite du contenu, uniquement sur les écrans larges."
         ),
     )
+    wiki_show_view_count = fields.Boolean(
+        string="Show article view count",
+        default=True,
+        help="Afficher le nombre de vues en bas des articles de la bibliothèque Wiki.",
+    )
     wiki_show_site_header = fields.Boolean(
         string="Show site header on Wiki",
         default=True,
@@ -70,6 +83,22 @@ class Website(models.Model):
         help=(
             "Adresse prévenue lorsqu'un article de la Bibliothèque Wiki "
             "est déposé pour validation. Propre à chaque site."
+        ),
+    )
+    wiki_privacy_policy_url = fields.Char(
+        string="URL Politique de protection des données",
+        help=(
+            "Lien vers la page « Politique de protection des données » "
+            "affiché avant le dépôt d'une contribution (bibliothèque Wiki). "
+            "Propre à chaque site. Exemple : /privacy ou https://…"
+        ),
+    )
+    wiki_writing_help_url = fields.Char(
+        string="URL Aide à la rédaction",
+        help=(
+            "Lien vers la page d'aide à la rédaction, proposé avant le dépôt "
+            "d'une contribution (bibliothèque Wiki). "
+            "Propre à chaque site. Exemple : /wiki/aide ou https://…"
         ),
     )
     wiki_show_footer = fields.Boolean(
@@ -169,6 +198,87 @@ class Website(models.Model):
         ),
     )
 
+    # --- SEO du Wiki ---------------------------------------------------------
+    # Métadonnées SEO uniformes appliquées à toutes les pages du Wiki du site
+    # (mêmes informations pour toutes les pages, par site).
+    wiki_meta_title = fields.Char(
+        string="Meta title",
+        translate=True,
+        help=(
+            "Titre SEO appliqué à toutes les pages du Wiki (balise <title> et "
+            "Open Graph). Laissez vide pour conserver le titre par défaut : "
+            "nom de la page ou de l'article, suivi du nom du site."
+        ),
+    )
+    wiki_meta_description = fields.Text(
+        string="Meta description",
+        translate=True,
+        help=(
+            "Description SEO appliquée à toutes les pages du Wiki (balise "
+            "description et Open Graph)."
+        ),
+    )
+    wiki_meta_keywords = fields.Char(
+        string="Meta keywords",
+        translate=True,
+        help=(
+            "Mots-clés séparés par des virgules, appliqués à toutes les pages "
+            "du Wiki."
+        ),
+    )
+    wiki_meta_og_img = fields.Binary(
+        string="Image de partage social",
+        attachment=True,
+        help=(
+            "Image Open Graph utilisée pour le partage des pages du Wiki. "
+            "Si vide, l'image de partage (ou le logo) du site est utilisée."
+        ),
+    )
+
+    def get_website_meta(self):
+        """Métadonnées SEO des pages Wiki (même rendu que website.seo.metadata).
+
+        Le modèle ``website`` n'hérite pas du mixin ``website.seo.metadata`` ;
+        on fournit ici les balises OpenGraph / Twitter et la description lues
+        dans les réglages « SEO du Wiki », appliquées uniformément à toutes
+        les pages Wiki du site.
+        """
+        self.ensure_one()
+        title = (self.wiki_meta_title or "").strip()
+        description = (self.wiki_meta_description or "").strip()
+        if self.wiki_meta_og_img:
+            og_image = self.image_url(self, "wiki_meta_og_img")
+        else:
+            og_image = self.image_url(
+                self,
+                "social_default_image" if self.has_social_default_image else "logo",
+            )
+        root_url = (self.get_base_url() or "").rstrip("/")
+        path = request.httprequest.path if request else ""
+        if root_url and not og_image.startswith(("http://", "https://")):
+            og_image = f"{root_url}{og_image}"
+        opengraph_meta = {
+            "og:type": "website",
+            "og:site_name": self.name,
+            "og:url": f"{root_url}{path}",
+            "og:image": og_image,
+        }
+        twitter_meta = {
+            "twitter:card": "summary_large_image",
+            "twitter:image": og_image,
+        }
+        if title:
+            opengraph_meta["og:title"] = title
+            twitter_meta["twitter:title"] = title
+        if description:
+            opengraph_meta["og:description"] = description
+            twitter_meta["twitter:description"] = description
+        return {
+            "opengraph_meta": opengraph_meta,
+            "twitter_meta": twitter_meta,
+            "meta_description": description or False,
+        }
+
     def write(self, vals):
         """Wiki Managers may update wiki display settings only (not full website)."""
         if vals and "wiki_review_email" in vals:
@@ -177,6 +287,27 @@ class Website(models.Model):
             if email and not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
                 raise UserError(_("L'email de validation des articles n'est pas valide."))
             vals["wiki_review_email"] = email or False
+        url_fields = {
+            "wiki_privacy_policy_url": _(
+                "L'URL de la Politique de protection des données "
+                "n'est pas valide (chemin /… ou URL http(s))."
+            ),
+            "wiki_writing_help_url": _(
+                "L'URL d'aide à la rédaction n'est pas valide "
+                "(chemin /… ou URL http(s))."
+            ),
+        }
+        for field_name, error_msg in url_fields.items():
+            if vals and field_name in vals:
+                vals = dict(vals)
+                url = (vals.get(field_name) or "").strip()
+                if url and not re.match(
+                    r"^(https?://|/|#)[^\s]*$",
+                    url,
+                    re.IGNORECASE,
+                ):
+                    raise UserError(error_msg)
+                vals[field_name] = url or False
         if (
             not self.env.su
             and vals
@@ -188,8 +319,8 @@ class Website(models.Model):
             if forbidden:
                 raise AccessError(
                     _(
-                        "Wiki Managers can only change Wiki display settings "
-                        "(table of contents, borders, in-page navigation, header, footer)."
+                        "Wiki Managers can only change Wiki settings "
+                        "(display, gallery and SEO)."
                     )
                 )
         return super().write(vals)

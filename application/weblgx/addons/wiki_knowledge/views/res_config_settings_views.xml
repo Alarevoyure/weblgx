@@ -26,6 +26,10 @@
                                  help="Affiche, sur les écrans larges uniquement, un bloc de navigation dans la page (liste des titres) à droite du contenu.">
                             <field name="wiki_show_page_nav"/>
                         </setting>
+                        <setting string="Nombre de vues des articles"
+                                 help="Affiche ou masque le compteur de vues en bas des articles de la bibliothèque Wiki. Le comptage continue même si l'affichage est masqué.">
+                            <field name="wiki_show_view_count"/>
+                        </setting>
                         <setting string="Header du site sur le Wiki"
                                  help="Si décoché, le header du site (logo + menu) est masqué sur /wiki. Seul le Header Wiki reste visible.">
                             <field name="wiki_show_site_header"/>
@@ -49,6 +53,40 @@
                         <setting string="Email de validation des articles"
                                  help="Adresse prévenue dès qu'un article de la Bibliothèque Wiki est déposé pour validation. Propre au site sélectionné.">
                             <field name="wiki_review_email" widget="email" placeholder="validation@example.com"/>
+                        </setting>
+                        <setting string="Politique de protection des données"
+                                 help="URL de la page rappelée avant le dépôt d'une contribution (case à cocher obligatoire). Chemin relatif (/privacy) ou URL absolue. Propre au site sélectionné.">
+                            <field name="wiki_privacy_policy_url" placeholder="/privacy"/>
+                        </setting>
+                        <setting string="Aide à la rédaction"
+                                 help="URL de la page d'aide proposée sous la case à cocher avant le dépôt (« J'ai besoin d'aide pour rédiger mon article »). Chemin relatif ou URL absolue. Propre au site sélectionné.">
+                            <field name="wiki_writing_help_url" placeholder="/wiki/aide"/>
+                        </setting>
+                    </block>
+                    <block title="SEO du Wiki" id="wiki_seo_settings">
+                        <setting help="Métadonnées SEO appliquées à toutes les pages du Wiki (mêmes informations pour toutes les pages).">
+                            <div class="content-group">
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Meta title" for="wiki_meta_title"
+                                           title="Titre SEO appliqué à toutes les pages du Wiki (balise title et Open Graph). Laissez vide pour conserver le titre par défaut : nom de la page ou de l'article, suivi du nom du site."/>
+                                    <field name="wiki_meta_title" placeholder="Vide pour utiliser le titre par défaut"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Meta description" for="wiki_meta_description"
+                                           title="Description SEO appliquée à toutes les pages du Wiki (balise description et Open Graph)."/>
+                                    <field name="wiki_meta_description"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Meta keywords" for="wiki_meta_keywords"
+                                           title="Mots-clés séparés par des virgules, appliqués à toutes les pages du Wiki."/>
+                                    <field name="wiki_meta_keywords"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Image de partage social" for="wiki_meta_og_img"
+                                           title="Image Open Graph utilisée pour le partage des pages du Wiki. Si vide, l'image de partage (ou le logo) du site est utilisée."/>
+                                    <field name="wiki_meta_og_img" widget="image" class="w-25 mt-2"/>
+                                </div>
+                            </div>
                         </setting>
                     </block>
                 </app>
@@ -90,6 +128,10 @@
                                  help="Affiche, sur les écrans larges uniquement, un bloc de navigation dans la page (liste des titres) à droite du contenu.">
                             <field name="wiki_show_page_nav"/>
                         </setting>
+                        <setting string="Nombre de vues des articles"
+                                 help="Affiche ou masque le compteur de vues en bas des articles de la bibliothèque Wiki. Le comptage continue même si l'affichage est masqué.">
+                            <field name="wiki_show_view_count"/>
+                        </setting>
                         <setting string="Header du site sur le Wiki"
                                  help="Si décoché, le header du site (logo + menu) est masqué sur /wiki. Seul le Header Wiki reste visible.">
                             <field name="wiki_show_site_header"/>
@@ -113,6 +155,40 @@
                         <setting string="Email de validation des articles"
                                  help="Adresse prévenue dès qu'un article de la Bibliothèque Wiki est déposé pour validation. Propre au site sélectionné.">
                             <field name="wiki_review_email" widget="email" placeholder="validation@example.com"/>
+                        </setting>
+                        <setting string="Politique de protection des données"
+                                 help="URL de la page rappelée avant le dépôt d'une contribution (case à cocher obligatoire). Chemin relatif (/privacy) ou URL absolue. Propre au site sélectionné.">
+                            <field name="wiki_privacy_policy_url" placeholder="/privacy"/>
+                        </setting>
+                        <setting string="Aide à la rédaction"
+                                 help="URL de la page d'aide proposée sous la case à cocher avant le dépôt (« J'ai besoin d'aide pour rédiger mon article »). Chemin relatif ou URL absolue. Propre au site sélectionné.">
+                            <field name="wiki_writing_help_url" placeholder="/wiki/aide"/>
+                        </setting>
+                    </block>
+                    <block title="SEO du Wiki" id="wiki_seo_settings_global">
+                        <setting help="Métadonnées SEO appliquées à toutes les pages du Wiki (mêmes informations pour toutes les pages).">
+                            <div class="content-group">
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Meta title" for="wiki_meta_title"
+                                           title="Titre SEO appliqué à toutes les pages du Wiki (balise title et Open Graph). Laissez vide pour conserver le titre par défaut : nom de la page ou de l'article, suivi du nom du site."/>
+                                    <field name="wiki_meta_title" placeholder="Vide pour utiliser le titre par défaut"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Meta description" for="wiki_meta_description"
+                                           title="Description SEO appliquée à toutes les pages du Wiki (balise description et Open Graph)."/>
+                                    <field name="wiki_meta_description"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Meta keywords" for="wiki_meta_keywords"
+                                           title="Mots-clés séparés par des virgules, appliqués à toutes les pages du Wiki."/>
+                                    <field name="wiki_meta_keywords"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label class="col-lg-3 o_light_label" string="Image de partage social" for="wiki_meta_og_img"
+                                           title="Image Open Graph utilisée pour le partage des pages du Wiki. Si vide, l'image de partage (ou le logo) du site est utilisée."/>
+                                    <field name="wiki_meta_og_img" widget="image" class="w-25 mt-2"/>
+                                </div>
+                            </div>
                         </setting>
                     </block>
                 </app>

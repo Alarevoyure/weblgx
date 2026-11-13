@@ -1,7 +1,7 @@
 {
     "name": "Wiki Knowledge",
     "author": "LOEGAUX - Propriété de Ferme 201 SARL",
-    "version": "17.0.2.37.0",
+    "version": "17.0.2.45.0",
     "category": "Website/Website",
     "summary": "Wiki with frontend editing and backend workflow",
     "depends": ["base", "mail", "web", "website", "web_editor"],
@@ -27,6 +27,7 @@
     "assets": {
         "web.assets_frontend": [
             "wiki_knowledge/static/src/js/wiki_portal.js",
+            "wiki_knowledge/static/src/js/wiki_article_edit.js",
             "wiki_knowledge/static/src/js/wiki_header_scroll.js",
             "wiki_knowledge/static/src/js/wiki_header_mobile.js",
             "wiki_knowledge/static/src/css/wiki_portal.css",

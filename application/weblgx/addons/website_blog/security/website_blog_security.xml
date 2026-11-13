@@ -1,18 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
+<odoo>
 
-    <record model="ir.rule" id="website_blog_post_public">
-        <field name="name">Blog Post: public: published only</field>
-        <field name="model_id" ref="model_blog_post"/>
-        <field name="domain_force">[('website_published', '=', True)]</field>
+    <record id="mail_message_blog_comment_public" model="ir.rule">
+        <field name="name">Blog comment: visitors read validated comments</field>
+        <field name="model_id" ref="mail.model_mail_message"/>
+        <field name="domain_force">['|', ('model', '!=', 'blog.post'), '|', ('blog_comment_state', '=', False), ('blog_comment_state', '=', 'approved')]</field>
+        <field name="groups" eval="[(4, ref('base.group_public')), (4, ref('base.group_portal'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Visitors only see the website currently being served. -->
+    <record model="ir.rule" id="website_blog_public">
+        <field name="name">Blog: public: active on current website</field>
+        <field name="model_id" ref="model_blog_blog"/>
+        <field name="domain_force">['&amp;', ('active', '=', True), ('website_id', '=', website.id)]</field>
         <field name="groups" eval="[(4, ref('base.group_public')), (4, ref('base.group_portal'))]"/>
     </record>
 
-    <record model="ir.rule" id="website_blog_public">
-        <field name="name">Blog: active only</field>
-        <field name="model_id" ref="model_blog_blog"/>
-        <field name="domain_force">[('active', '=', True)]</field>
+    <record model="ir.rule" id="website_blog_post_public">
+        <field name="name">Blog Post: public: published on current website</field>
+        <field name="model_id" ref="model_blog_post"/>
+        <field name="domain_force">['&amp;', ('is_published', '=', True), ('website_id', '=', website.id)]</field>
         <field name="groups" eval="[(4, ref('base.group_public')), (4, ref('base.group_portal'))]"/>
+    </record>
+
+    <record model="ir.rule" id="website_blog_tag_public">
+        <field name="name">Blog Tag: public: current website</field>
+        <field name="model_id" ref="model_blog_tag"/>
+        <field name="domain_force">[('website_id', '=', website.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_public')), (4, ref('base.group_portal'))]"/>
+    </record>
+
+    <record model="ir.rule" id="website_blog_tag_category_public">
+        <field name="name">Blog Tag Category: public: current website</field>
+        <field name="model_id" ref="model_blog_tag_category"/>
+        <field name="domain_force">[('website_id', '=', website.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_public')), (4, ref('base.group_portal'))]"/>
+    </record>
+
+    <!-- Internal users only see blogs of the companies they belong to. -->
+    <record model="ir.rule" id="website_blog_company">
+        <field name="name">Blog: user companies</field>
+        <field name="model_id" ref="model_blog_blog"/>
+        <field name="domain_force">[('company_id', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[
+            (4, ref('base.group_user')),
+            (4, ref('base.group_system')),
+            (4, ref('website.group_website_designer')),
+            (4, ref('website.group_website_restricted_editor')),
+        ]"/>
+    </record>
+
+    <record model="ir.rule" id="website_blog_post_company">
+        <field name="name">Blog Post: user companies</field>
+        <field name="model_id" ref="model_blog_post"/>
+        <field name="domain_force">[('company_id', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[
+            (4, ref('base.group_user')),
+            (4, ref('base.group_system')),
+            (4, ref('website.group_website_designer')),
+            (4, ref('website.group_website_restricted_editor')),
+        ]"/>
+    </record>
+
+    <record model="ir.rule" id="website_blog_tag_company">
+        <field name="name">Blog Tag: user companies</field>
+        <field name="model_id" ref="model_blog_tag"/>
+        <field name="domain_force">[('company_id', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[
+            (4, ref('base.group_user')),
+            (4, ref('base.group_system')),
+            (4, ref('website.group_website_designer')),
+            (4, ref('website.group_website_restricted_editor')),
+        ]"/>
+    </record>
+
+    <record model="ir.rule" id="website_blog_tag_category_company">
+        <field name="name">Blog Tag Category: user companies</field>
+        <field name="model_id" ref="model_blog_tag_category"/>
+        <field name="domain_force">[('company_id', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[
+            (4, ref('base.group_user')),
+            (4, ref('base.group_system')),
+            (4, ref('website.group_website_designer')),
+            (4, ref('website.group_website_restricted_editor')),
+        ]"/>
     </record>
 
 </odoo>

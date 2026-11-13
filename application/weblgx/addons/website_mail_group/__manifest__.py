@@ -5,7 +5,7 @@
     'name': "Website Mail Group",
     'author': 'LOEGAUX - Propriété de Ferme 201 SARL',
     'summary': "Add a website snippet for the mail groups.",
-    'version': '1.0',
+    'version': '1.2',
     'depends': ['mail_group', 'website'],
     'auto_install': True,
     'data': [

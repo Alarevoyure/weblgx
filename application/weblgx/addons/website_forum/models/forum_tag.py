@@ -4,6 +4,9 @@
 from odoo import api, fields, models, _
 from odoo.addons.http_routing.models.ir_http import slug, unslug
 from odoo.exceptions import AccessError
+from odoo.osv import expression
+
+from .forum_forum import forum_selected_site_domain
 
 
 class Tags(models.Model):
@@ -22,6 +25,20 @@ class Tags(models.Model):
         string='Posts', domain=[('state', '=', 'active')])
     posts_count = fields.Integer('Number of Posts', compute='_compute_posts_count', store=True)
     website_url = fields.Char("Link to questions with the tag", compute='_compute_website_url')
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = forum_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
+
     _sql_constraints = [
         ('name_uniq', 'unique (name, forum_id)', "Tag name already exists!"),
     ]

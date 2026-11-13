@@ -4,6 +4,18 @@
         <template id="wiki_portal_main" name="Wiki Portal">
             <t t-call="website.layout">
                 <t t-set="page_name">wiki</t>
+                <!-- SEO du Wiki : métadonnées uniformes du site, appliquées à
+                     toutes les pages Wiki (title / description / keywords / OG). -->
+                <t t-set="seo_object" t-value="website"/>
+                <t t-if="not title and (website.wiki_meta_title or '').strip()">
+                    <t t-set="title" t-value="website.wiki_meta_title"/>
+                    <t t-set="default_title" t-value="website.wiki_meta_title"/>
+                </t>
+                <t t-if="wiki_article and wiki_article.get('name') and not (website.wiki_meta_title or '').strip()">
+                    <t t-set="additional_title" t-value="wiki_article['name']"/>
+                </t>
+                <t t-set="website_meta_description" t-value="(website.wiki_meta_description or '').strip()"/>
+                <t t-set="website_meta_keywords" t-value="(website.wiki_meta_keywords or '').strip()"/>
                 <!-- Masquer le header du site si l'option « Afficher sur le Wiki » est décochée -->
                 <t t-if="not website.wiki_show_site_header">
                     <t t-set="no_header" t-value="True"/>
@@ -227,6 +239,7 @@
                                 <div class="flex-grow-1 min-w-0">
                                     <h3 id="o_wiki_current_title" class="mb-0 o_wiki_current_page_title">
                                         <t t-if="wiki_search_active">Recherche</t>
+                                        <t t-elif="wiki_article_edit">Modifier l'article</t>
                                         <t t-elif="wiki_article"><t t-esc="wiki_article['name']"/></t>
                                         <t t-else=""><t t-esc="current.name if current else ''"/></t>
                                     </h3>
@@ -265,6 +278,9 @@
                                         </t>
                                     </div>
                                 </t>
+                                <t t-elif="wiki_article_edit">
+                                    <!-- Formulaire injecté via wiki_article_edit_form -->
+                                </t>
                                 <t t-elif="wiki_article">
                                     <article class="o_wiki_article flex-grow-1 overflow-auto px-3 py-3">
                                         <p t-if="wiki_article.get('meta')" class="o_wiki_article_meta small mb-3" t-esc="wiki_article['meta']"/>
@@ -274,9 +290,6 @@
                                                  loading="lazy"/>
                                         </div>
                                         <div class="o_wiki_article_text" t-out="wiki_article['text']"/>
-                                        <p t-if="wiki_article.get('contributor_name')" class="o_wiki_article_by text-muted mt-3 mb-0">
-                                            — <t t-esc="wiki_article['contributor_name']"/>
-                                        </p>
                                     </article>
                                 </t>
                                 <t t-else="">
@@ -339,7 +352,7 @@
         -->
         <template id="wiki_article_reading" name="Wiki article reading" inherit_id="wiki_knowledge.wiki_portal_main">
             <xpath expr="//div[@id='o_wiki_root']" position="attributes">
-                <attribute name="t-attf-class">o_wiki_layout container-fluid #{'o_wiki_no_toc' if not wiki_show_toc else ''} #{'o_wiki_article_page' if wiki_article else ''}</attribute>
+                <attribute name="t-attf-class">o_wiki_layout container-fluid #{'o_wiki_no_toc' if not wiki_show_toc else ''} #{'o_wiki_article_page' if wiki_article or wiki_article_edit else ''}</attribute>
             </xpath>
             <xpath expr="//article[hasclass('o_wiki_article')]" position="replace">
                 <div class="o_wiki_article_wrap flex-grow-1 overflow-auto">
@@ -348,7 +361,14 @@
                             <a t-att-href="wiki_article['back_url']" t-esc="wiki_article['back_label']"/>
                         </p>
                         <p t-if="wiki_article.get('meta')" class="o_wiki_article_meta mb-2" t-esc="wiki_article['meta']"/>
-                        <h1 class="o_wiki_article_title" t-esc="wiki_article['name']"/>
+                        <div class="o_wiki_article_title_row">
+                            <h1 class="o_wiki_article_title" t-esc="wiki_article['name']"/>
+                            <a t-if="wiki_article.get('can_edit')"
+                               class="btn btn-sm btn-outline-primary o_wiki_article_edit_btn"
+                               t-att-href="wiki_article['edit_url']">
+                                Modifier
+                            </a>
+                        </div>
                         <button type="button" class="o_wiki_article_zoom" aria-label="Agrandir la photo">
                             <img t-att-src="wiki_article['image_url']"
                                  t-att-alt="wiki_article['name']"/>
@@ -374,10 +394,7 @@
                             </audio>
                         </div>
                         <div class="o_wiki_article_text" t-out="wiki_article['text']"/>
-                        <p t-if="wiki_article.get('contributor_name')" class="o_wiki_article_by mt-4 mb-0">
-                            — <t t-esc="wiki_article['contributor_name']"/>
-                        </p>
-                        <p class="o_wiki_article_views">
+                        <p t-if="website.wiki_show_view_count" class="o_wiki_article_views">
                             <t t-esc="wiki_article.get('view_count', 0)"/>
                             <t t-if="wiki_article.get('view_count', 0) == 1"> vue</t>
                             <t t-else=""> vues</t>
@@ -388,6 +405,104 @@
                         <img t-att-src="wiki_article['image_url']" t-att-alt="wiki_article['name']"/>
                     </div>
                 </div>
+            </xpath>
+        </template>
+
+        <template id="wiki_article_edit_form" name="Wiki article edit" inherit_id="wiki_knowledge.wiki_portal_main">
+            <xpath expr="//div[@id='o_wiki_root']" position="attributes">
+                <attribute name="t-attf-class">o_wiki_layout container-fluid #{'o_wiki_no_toc' if not wiki_show_toc else ''} #{'o_wiki_article_page' if wiki_article or wiki_article_edit else ''}</attribute>
+            </xpath>
+            <xpath expr="//div[hasclass('o_wiki_editor_main')]" position="inside">
+                <t t-if="wiki_article_edit">
+                    <div class="o_wiki_article_edit flex-grow-1 overflow-auto px-3 py-4"
+                         t-att-data-submit-url="wiki_article_edit['submit_url']"
+                         t-att-data-article-url="'/wiki/article/%s' % wiki_article_edit['id']">
+                        <p class="o_wiki_article_back mb-3">
+                            <a t-att-href="wiki_article_edit['back_url']" t-esc="wiki_article_edit['back_label']"/>
+                            ·
+                            <a t-att-href="'/wiki/article/%s' % wiki_article_edit['id']">Voir l'article</a>
+                        </p>
+                        <p t-if="wiki_article_edit.get('meta')" class="o_wiki_article_meta mb-2" t-esc="wiki_article_edit['meta']"/>
+                        <h1 class="o_wiki_article_title mb-3">Proposer une modification</h1>
+                        <p class="text-muted mb-4">
+                            Modifiez le contenu, indiquez votre nom et votre email.
+                            Si votre adresse n'est pas encore connue, un code de confirmation vous sera envoyé.
+                            Les changements seront visibles après validation.
+                        </p>
+                        <form class="o_wiki_article_edit_form" novalidate="novalidate">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="o_wiki_edit_name">Titre *</label>
+                                    <input type="text" class="form-control" id="o_wiki_edit_name"
+                                           name="name" maxlength="120" required="required"
+                                           t-att-value="wiki_article_edit['name']"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="o_wiki_edit_contributor">Votre nom (éditeur)</label>
+                                    <input type="text" class="form-control" id="o_wiki_edit_contributor"
+                                           name="contributor_name" maxlength="120" autocomplete="name"
+                                           placeholder="Prénom Nom"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="o_wiki_edit_email">Email *</label>
+                                    <input type="email" class="form-control" id="o_wiki_edit_email"
+                                           name="contributor_email" maxlength="120" required="required"
+                                           autocomplete="email" placeholder="vous@example.com"/>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="o_wiki_edit_text">Texte *</label>
+                                    <textarea class="form-control o_wysiwyg_loader" id="o_wiki_edit_text" name="text"
+                                              rows="8" required="required"><t t-esc="wiki_article_edit.get('text_raw') or ''"/></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="o_wiki_edit_image">Nouvelle photo (optionnel)</label>
+                                    <div class="o_wiki_edit_current_image mb-2">
+                                        <img t-att-src="wiki_article_edit['image_url']"
+                                             t-att-alt="wiki_article_edit['name']"
+                                             class="o_wiki_edit_preview_img"/>
+                                        <div class="form-text">Photo actuelle. Laissez vide pour la conserver.</div>
+                                    </div>
+                                    <input type="file" class="form-control" id="o_wiki_edit_image"
+                                           name="image" accept="image/jpeg,image/png,image/gif,image/webp"/>
+                                    <div class="form-text">JPEG, PNG, GIF ou WEBP — 5 Mo max.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="o_wiki_edit_media">Vidéo ou audio (optionnel)</label>
+                                    <input type="file" class="form-control" id="o_wiki_edit_media"
+                                           name="media" accept="video/mp4,audio/mpeg,audio/mp4,.mp4,.mp3,.m4a"/>
+                                    <div class="form-text">MP4 — 50 Mo max. MP3 ou M4A — 20 Mo max.</div>
+                                    <div t-if="wiki_article_edit.get('has_media')" class="form-check mt-2">
+                                        <input class="form-check-input" type="checkbox" value="1"
+                                               id="o_wiki_edit_clear_media" name="clear_media"/>
+                                        <label class="form-check-label" for="o_wiki_edit_clear_media">
+                                            Supprimer le média actuel
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 d-flex flex-wrap gap-2">
+                                    <button type="submit" class="btn btn-primary o_wiki_edit_submit">
+                                        Envoyer les modifications
+                                    </button>
+                                    <a class="btn btn-secondary"
+                                       t-att-href="'/wiki/article/%s' % wiki_article_edit['id']">
+                                        Annuler
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="o_wiki_edit_feedback mt-3" hidden="hidden" role="status"></div>
+                            <div class="o_wiki_edit_verify mt-3" hidden="hidden">
+                                <label class="form-label" for="o_wiki_edit_code">Code de confirmation</label>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <input type="text" class="form-control" id="o_wiki_edit_code"
+                                           inputmode="numeric" maxlength="6" autocomplete="one-time-code"
+                                           placeholder="000000" style="max-width: 10rem;"/>
+                                    <button type="button" class="btn btn-primary o_wiki_edit_verify_btn">Confirmer</button>
+                                    <button type="button" class="btn btn-link o_wiki_edit_verify_cancel">Annuler</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </t>
             </xpath>
         </template>
 

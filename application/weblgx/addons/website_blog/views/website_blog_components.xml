@@ -92,8 +92,17 @@
                 <input type="hidden" name="date_begin" t-att-value="date_begin"/>
                 <input type="hidden" name="date_end" t-att-value="date_end"/>
             </t>
+            <t t-call="website_blog.blog_post_new_button"/>
         </div>
     </nav>
+</template>
+
+<template id="blog_post_new_button" name="New blog post button">
+    <form groups="website.group_website_designer" method="post" action="/blog/add" class="o_wblog_new_post css_editable_mode_hidden flex-shrink-0 ms-2">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+        <input t-if="blog" type="hidden" name="blog_id" t-att-value="blog.id"/>
+        <button type="submit" class="btn">New</button>
+    </form>
 </template>
 
 <!-- ======   Template: List Tags in inline list    ============================

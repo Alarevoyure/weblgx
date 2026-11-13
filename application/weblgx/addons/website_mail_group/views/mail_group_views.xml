@@ -12,6 +12,25 @@
                     </div>
                 </button>
             </xpath>
+            <field name="alias_domain_id" position="attributes">
+                <attribute name="domain">[('company_ids', 'in', company_id or allowed_company_ids[0])]</attribute>
+            </field>
+            <field name="description" position="after">
+                <field name="website_id" options="{'no_create': True}"
+                       domain="[('company_id', '=', allowed_company_ids[0])]"/>
+                <field name="company_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="mail_group_view_list_website" model="ir.ui.view">
+        <field name="name">mail.group.view.list.website</field>
+        <field name="model">mail.group</field>
+        <field name="inherit_id" ref="mail_group.mail_group_view_list"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="website_id"/>
+            </field>
         </field>
     </record>
 </odoo>

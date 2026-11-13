@@ -670,10 +670,20 @@ msgid "Click here to add new content to your website."
 msgstr ""
 
 #. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_new_button
+msgid "New"
+msgstr ""
+
+#. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.posts_loop
-msgid ""
-"Click on \"<b>New</b>\" in the top-right corner to write your first blog "
-"post."
+msgid "Write the first article with the button below."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/controllers/main.py:0
+#, python-format
+msgid "New article"
 msgstr ""
 
 #. module: website_blog
@@ -2379,4 +2389,293 @@ msgstr ""
 #. module: website_blog
 #: model_terms:ir.ui.view,arch_db:website_blog.opt_blog_post_regular_cover
 msgid "| No comments yet"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.view_website_form_plexipost
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "PlexiPost"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_website__plexipost_receiver_url
+msgid "Receiver URL"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_website__plexipost_receiver_url
+msgid "Address to enter in PlexiPost for this website."
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_website__plexipost_client_id
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Client ID"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_website__plexipost_client_secret
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Secret"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,help:website_blog.field_website__plexipost_blog_id
+msgid "Articles pushed by PlexiPost are created in this blog."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.view_website_form_plexipost
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Generate credentials"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.view_website_form_plexipost
+msgid "In PlexiPost, set this receiver URL, the Client ID and the Secret. Each push is an HTTP POST with the headers X-Client-Id and X-Client-Secret."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Article receiver"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Address to enter in PlexiPost. Posts are created on this website only."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Same value as in PlexiPost."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Same value as in PlexiPost. It is checked on every push."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Blog that receives the pushed articles."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/res_config_settings.py:0
+#, python-format
+msgid "Select a website first."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.view_website_form_plexipost
+#: model_terms:ir.ui.view,arch_db:website_blog.res_config_settings_view_form_plexipost
+msgid "Copy the secret"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields,field_description:website_blog.field_mail_message__blog_comment_state
+msgid "Blog comment status"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields.selection,name:website_blog.selection__mail_message__blog_comment_state__pending
+msgid "Pending validation"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields.selection,name:website_blog.selection__mail_message__blog_comment_state__approved
+msgid "Approved"
+msgstr ""
+
+#. module: website_blog
+#: model:ir.model.fields.selection,name:website_blog.selection__mail_message__blog_comment_state__rejected
+msgid "Rejected"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Your comment will appear once a blog administrator has validated it."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Comments awaiting validation"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Validate the comment"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Reject the comment"
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/mail_message.py:0
+#, python-format
+msgid "Only a blog administrator can validate a comment."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Leave a comment"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Enter your email address and your message. A 6-digit code will be sent to you to confirm it."
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Email address"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Message"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Send"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Validation code"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Confirm"
+msgstr ""
+
+#. module: website_blog
+#: model_terms:ir.ui.view,arch_db:website_blog.blog_post_comment_moderation_box
+msgid "Cancel"
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "The email address is required."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "Please enter a valid email address."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "The message is required."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "The message is too long."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#: code:addons/website_blog/controllers/comments.py:0
+#, python-format
+msgid "This article cannot receive a comment."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "Too many confirmation requests. Please try again later."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "This website has no outgoing email address. Set the company email or the alias domain."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "<p>Hello,</p><p>You left a comment on <strong>%(title)s</strong>.</p><p>Your confirmation code is:</p><p style=\"font-size:28px;font-weight:700;letter-spacing:4px;\">%(code)s</p><p>This code is valid for %(minutes)s minutes.</p><p>If you did not write this comment, you can ignore this email.</p>"
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "Blog — Confirmation code"
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "The confirmation email could not be sent. Check the address or try again later."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "The code has expired. Please send your comment again."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "Too many incorrect attempts. The comment was cancelled."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "Incorrect code. %(n)s attempt(s) left."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/models/blog_comment_pending.py:0
+#, python-format
+msgid "Thank you. Your comment will appear once a blog administrator has validated it."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/controllers/comments.py:0
+#, python-format
+msgid "A confirmation code was sent to %(email)s. Enter it below to send your comment."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/controllers/comments.py:0
+#, python-format
+msgid "This request has expired. Please send your comment again."
+msgstr ""
+
+#. module: website_blog
+#. odoo-python
+#: code:addons/website_blog/controllers/comments.py:0
+#, python-format
+msgid "This confirmation does not match this website."
 msgstr ""

@@ -10,28 +10,29 @@ from odoo.http import request
 class WebsiteBackend(http.Controller):
 
     @http.route('/website/fetch_dashboard_data', type="json", auth='user')
-    def fetch_dashboard_data(self, website_id):
-        Website = request.env['website']
+    def fetch_dashboard_data(self, website_id=None, days=30, context=None):
+        # The company switcher lives in the client context. This route does
+        # not go through call_kw, so the active company must be applied here.
+        # env.company rejects a company the user does not belong to.
+        company_ids = (context or {}).get('allowed_company_ids')
+        if (
+            isinstance(company_ids, list)
+            and company_ids
+            and all(isinstance(company_id, int) for company_id in company_ids)
+        ):
+            request.update_context(allowed_company_ids=company_ids)
         has_group_system = request.env.user.has_group('base.group_system')
         has_group_designer = request.env.user.has_group('website.group_website_designer')
         dashboard_data = {
             'groups': {
                 'system': has_group_system,
-                'website_designer': has_group_designer
+                'website_designer': has_group_designer,
             },
-            'dashboards': {}
+            'dashboards': {},
+            'analytics': {},
         }
-
-        current_website = website_id and Website.browse(website_id) or Website.get_current_website()
-        multi_website = request.env.user.has_group('website.group_multi_website')
-        websites = multi_website and request.env['website'].search([]) or current_website
-        dashboard_data['websites'] = websites.read(['id', 'name'])
-        for website in dashboard_data['websites']:
-            if website['id'] == current_website.id:
-                website['selected'] = True
-
-        if has_group_designer:
-            dashboard_data['dashboards']['plausible_share_url'] = current_website._get_plausible_share_url()
+        if has_group_designer or has_group_system:
+            dashboard_data['analytics'] = request.env['website.visitor'].get_site_analytics(days)
         return dashboard_data
 
     @http.route('/website/iframefallback', type="http", auth='user', website=True)

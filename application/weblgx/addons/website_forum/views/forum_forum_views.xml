@@ -60,7 +60,8 @@
                         <group>
                             <group>
                                 <field name="mode" widget="radio" required="True"/>
-                                <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>
+                                <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"
+                                       domain="[('company_id', '=', allowed_company_ids[0])]"/>
                             </group>
                         </group>
                         <notebook>

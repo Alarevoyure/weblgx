@@ -56,19 +56,19 @@
 
         <!-- Bibliothèque d'images Wiki -->
         <record id="wiki_gallery_rule_public_published" model="ir.rule">
-            <field name="name">Wiki gallery public: published only</field>
+            <field name="name">Wiki gallery public: published or modified</field>
             <field name="model_id" ref="model_wiki_gallery_item"/>
             <field name="domain_force">
-                ['&amp;', ('state', '=', 'published'),
+                ['&amp;', ('state', 'in', ['published', 'modified']),
                  '|', ('company_id', '=', False), ('company_id', '=', company_id)]
             </field>
             <field name="groups" eval="[(4, ref('base.group_public'))]"/>
         </record>
         <record id="wiki_gallery_rule_portal_published" model="ir.rule">
-            <field name="name">Wiki gallery portal: published only</field>
+            <field name="name">Wiki gallery portal: published or modified</field>
             <field name="model_id" ref="model_wiki_gallery_item"/>
             <field name="domain_force">
-                ['&amp;', ('state', '=', 'published'),
+                ['&amp;', ('state', 'in', ['published', 'modified']),
                  '|', ('company_id', '=', False), ('company_id', '=', company_id)]
             </field>
             <field name="groups" eval="[(4, ref('base.group_portal'))]"/>

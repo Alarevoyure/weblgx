@@ -1,12 +1,70 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, _
+import hmac
+import secrets
+
+from odoo import _, api, fields, models
 from odoo.addons.http_routing.models.ir_http import url_for
 
 
 class Website(models.Model):
     _inherit = "website"
+
+    plexipost_client_id = fields.Char(
+        string="Client ID",
+        copy=False,
+        groups="website.group_website_designer",
+    )
+    plexipost_client_secret = fields.Char(
+        string="Secret",
+        copy=False,
+        groups="website.group_website_designer",
+    )
+    plexipost_blog_id = fields.Many2one(
+        "blog.blog",
+        string="Blog",
+        copy=False,
+        domain="[('website_id', '=', id)]",
+        groups="website.group_website_designer",
+        help="Articles pushed by PlexiPost are created in this blog.",
+    )
+    plexipost_receiver_url = fields.Char(
+        string="Receiver URL",
+        compute="_compute_plexipost_receiver_url",
+        groups="website.group_website_designer",
+        help="Address to enter in PlexiPost for this website.",
+    )
+
+    _sql_constraints = [
+        (
+            "plexipost_client_id_uniq",
+            "unique(plexipost_client_id)",
+            "This PlexiPost Client ID is already used by another website.",
+        ),
+    ]
+
+    @api.depends("domain")
+    def _compute_plexipost_receiver_url(self):
+        for website in self:
+            base = (website.domain or website.get_base_url() or "").rstrip("/")
+            website.plexipost_receiver_url = "%s/blog/plexipost/receive" % base
+
+    def action_plexipost_generate_credentials(self):
+        for website in self:
+            website.write({
+                "plexipost_client_id": "lgx_%s" % secrets.token_hex(12),
+                "plexipost_client_secret": secrets.token_urlsafe(32),
+            })
+        return True
+
+    def _plexipost_secret_matches(self, secret):
+        self.ensure_one()
+        stored = self.sudo().plexipost_client_secret or ""
+        candidate = secret or ""
+        if not stored or not candidate:
+            return False
+        return hmac.compare_digest(stored, candidate)
 
     def get_suggested_controllers(self):
         suggested_controllers = super(Website, self).get_suggested_controllers()

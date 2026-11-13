@@ -110,3 +110,27 @@ Write news, attract new visitors, build customer loyalty.
 ### Online Events
 
 Schedule, organize, promote or sell events online; conferences, trainings, webinars, etc.
+
+Multi-site
+----------
+
+Analyse → Visiteurs n'affiche que les visiteurs du site de la société active.
+Les pages vues suivent le visiteur. Le suivi des visites sur le site public
+n'est pas filtré.
+
+Analyse → Analytique trace les visites anonymes du domaine exact
+configuré sur le site de la société choisie dans le sélecteur
+(première société active) : visiteurs, pages vues, visites, durée et
+pays. `www.loegaux.fr` ne compte pas `loegaux.fr`, ni une adresse IP.
+Un second graphique isole les visiteurs qui ont ouvert au moins
+deux pages. Pour ces visites, la page montre aussi l'heure d'arrivée,
+la page d'entrée et la page suivante. Les cinq indicateurs sont
+comparés à la période précédente, de même durée. Les autres noms
+d'hôte et les comptes connectés sont écartés.
+Le pays vient de GeoLite2 Country (MaxMind) à partir de l'adresse IP,
+pour les visites enregistrées après son installation.
+
+Google Analytics n'envoie la page consultée qu'après l'accord de mesure
+(cookies optionnels, ou absence de bannière).
+
+Licence : LGPL-3 — LOEGAUX / Ferme 201 SARL

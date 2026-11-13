@@ -406,12 +406,50 @@ section.s_wiki_toc .o_wiki_toc_tree {
   text-decoration: underline;
 }
 
+.o_wiki_article_title_row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin: 0 0 1rem;
+}
+
 .o_wiki_article_title {
   color: #16213e;
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
-  margin: 0 0 1rem;
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.o_wiki_article_edit_btn {
+  flex: 0 0 auto;
+  margin-top: 0.35rem;
+  border-color: #16213e;
+  color: #16213e;
+}
+
+.o_wiki_article_edit_btn:hover,
+.o_wiki_article_edit_btn:focus {
+  background: #16213e;
+  border-color: #16213e;
+  color: #fff;
+}
+
+.o_wiki_edit_preview_img {
+  display: block;
+  max-width: 220px;
+  max-height: 160px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #eef1f6;
+}
+
+.o_wiki_article_edit .note-editor {
+  background: #fff;
 }
 
 .o_wiki_article_views {

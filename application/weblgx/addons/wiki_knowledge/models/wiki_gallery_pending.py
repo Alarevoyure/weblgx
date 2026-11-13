@@ -22,12 +22,20 @@ class WikiGalleryPending(models.Model):
     code = fields.Char(required=True, copy=False)
     name = fields.Char(string="Titre", required=True)
     text = fields.Html(string="Texte", required=True, sanitize=True)
-    image = fields.Binary(string="Photo", required=True, attachment=False)
+    image = fields.Binary(string="Photo", attachment=False)
     media = fields.Binary(string="Vidéo ou audio", attachment=True)
     media_filename = fields.Char(string="Nom du fichier média")
     media_mimetype = fields.Char(string="Type du média")
+    clear_media = fields.Boolean(string="Supprimer le média", default=False)
     contributor_name = fields.Char(string="Nom du contributeur")
     contributor_email = fields.Char(string="Email", required=True)
+    item_id = fields.Many2one(
+        "wiki.gallery.item",
+        string="Article à modifier",
+        ondelete="cascade",
+        index=True,
+        help="Si renseigné, le dépôt confirme une modification d'article publié.",
+    )
     gallery_id = fields.Many2one(
         "wiki.gallery",
         string="Bibliothèque",
@@ -126,20 +134,36 @@ class WikiGalleryPending(models.Model):
 
         title = html_escape(self.name or "")
         code = html_escape(self.code or "")
-        body = _(
-            "<p>Bonjour,</p>"
-            "<p>Vous avez proposé l'article <strong>%(title)s</strong> "
-            "dans la bibliothèque Wiki.</p>"
-            "<p>Votre code de confirmation est :</p>"
-            "<p style=\"font-size:28px;font-weight:700;letter-spacing:4px;\">%(code)s</p>"
-            "<p>Ce code est valable %(minutes)s minutes.</p>"
-            "<p>Si vous n'êtes pas à l'origine de cette demande, ignorez cet email.</p>"
-        ) % {
-            "title": title,
-            "code": code,
-            "minutes": _CODE_TTL_MINUTES,
-        }
-        subject = _("Wiki — Code de confirmation : %s") % (self.code or "")
+        if self.item_id:
+            body = _(
+                "<p>Bonjour,</p>"
+                "<p>Vous avez proposé une <strong>modification</strong> de l'article "
+                "<strong>%(title)s</strong> dans la bibliothèque Wiki.</p>"
+                "<p>Votre code de confirmation est :</p>"
+                "<p style=\"font-size:28px;font-weight:700;letter-spacing:4px;\">%(code)s</p>"
+                "<p>Ce code est valable %(minutes)s minutes.</p>"
+                "<p>Si vous n'êtes pas à l'origine de cette demande, ignorez cet email.</p>"
+            ) % {
+                "title": title,
+                "code": code,
+                "minutes": _CODE_TTL_MINUTES,
+            }
+            subject = _("Wiki — Code de confirmation (modification) : %s") % (self.code or "")
+        else:
+            body = _(
+                "<p>Bonjour,</p>"
+                "<p>Vous avez proposé l'article <strong>%(title)s</strong> "
+                "dans la bibliothèque Wiki.</p>"
+                "<p>Votre code de confirmation est :</p>"
+                "<p style=\"font-size:28px;font-weight:700;letter-spacing:4px;\">%(code)s</p>"
+                "<p>Ce code est valable %(minutes)s minutes.</p>"
+                "<p>Si vous n'êtes pas à l'origine de cette demande, ignorez cet email.</p>"
+            ) % {
+                "title": title,
+                "code": code,
+                "minutes": _CODE_TTL_MINUTES,
+            }
+            subject = _("Wiki — Code de confirmation : %s") % (self.code or "")
 
         # with_company : default_from / bounce du bon domaine (multi-site SaaS).
         Mail = self.env["mail.mail"].sudo().with_company(company)
@@ -241,16 +265,72 @@ class WikiGalleryPending(models.Model):
                 % {"n": remaining},
             }
 
+        stored = self.with_context(bin_size=False)
+        self.env["wiki.gallery.verified.email"].sudo().remember(
+            self.contributor_email,
+            self.website_id,
+        )
+
+        if self.item_id:
+            item = self.item_id.sudo()
+            if not item.exists() or item.state != "published":
+                self.unlink()
+                return {
+                    "ok": False,
+                    "error": "not_editable",
+                    "message": _(
+                        "Une modification est déjà en attente de validation. "
+                        "Cet article ne peut plus être modifié."
+                    ),
+                    "deleted": True,
+                }
+            edit_vals = {
+                "name": self.name,
+                "text": self.text,
+                "contributor_name": self.contributor_name or False,
+                "contributor_email": self.contributor_email,
+            }
+            if stored.image:
+                edit_vals["image"] = stored.image
+            if stored.media_mimetype and stored.media:
+                edit_vals.update(
+                    {
+                        "media": stored.media,
+                        "media_filename": stored.media_filename,
+                        "media_mimetype": stored.media_mimetype,
+                    }
+                )
+            elif self.clear_media:
+                edit_vals["clear_media"] = True
+            item.action_apply_pending_edit(edit_vals)
+            self.unlink()
+            return {
+                "ok": True,
+                "id": item.id,
+                "edit": True,
+                "message": _(
+                    "Merci ! Vos modifications ont bien été envoyées. "
+                    "Elles seront visibles après validation."
+                ),
+            }
+
+        if not stored.image:
+            self.unlink()
+            return {
+                "ok": False,
+                "error": "empty_image",
+                "message": _("La photo est obligatoire."),
+                "deleted": True,
+            }
         vals = {
             "gallery_id": self.gallery_id.id,
             "text": self.text,
-            "image": self.image,
+            "image": stored.image,
             "state": "submitted",
             "contributor_name": self.contributor_name or False,
             "contributor_email": self.contributor_email,
             "name": self.name,
         }
-        stored = self.with_context(bin_size=False)
         if stored.media_mimetype and stored.media:
             vals.update(
                 {
@@ -260,10 +340,6 @@ class WikiGalleryPending(models.Model):
                 }
             )
         item = self.env["wiki.gallery.item"].sudo().create(vals)
-        self.env["wiki.gallery.verified.email"].sudo().remember(
-            self.contributor_email,
-            self.website_id,
-        )
         self.unlink()
         return {
             "ok": True,

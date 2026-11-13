@@ -30,7 +30,10 @@ export const cookie = {
         if (value !== undefined) {
             fullCookie.push(`${key}=${value}`);
         }
-        fullCookie = fullCookie.concat(["path=/", `max-age=${Math.floor(ttl)}`]);
+        fullCookie = fullCookie.concat(["path=/", `max-age=${Math.floor(ttl)}`, "SameSite=Lax"]);
+        if (window.isSecureContext || location.protocol === "https:") {
+            fullCookie.push("Secure");
+        }
         this._cookieMonster = fullCookie.join("; ");
     },
     delete(key) {

@@ -26,6 +26,15 @@ def _is_mp3(raw):
     return len(raw) >= 2 and raw[0] == 0xFF and (raw[1] & 0xE0) == 0xE0
 
 
+def _is_adts_aac(raw):
+    """AAC brut (ADTS) : syncword 0xFFF et couche 00. Fréquent dans les .m4a
+    produits par certains enregistreurs ou convertisseurs, sans conteneur MP4."""
+    if len(raw) < 2 or raw[0] != 0xFF:
+        return False
+    # Couche (bits 1-2) à 00 distingue l'AAC du MP3 (couche I/II/III).
+    return (raw[1] & 0xF6) == 0xF0
+
+
 def _ftyp_brand(raw):
     if len(raw) >= 12 and raw[4:8] == b"ftyp":
         return raw[8:12]
@@ -50,9 +59,17 @@ def _classify_media(raw, filename):
     if ext == "mp3" and _is_mp3(raw):
         kind, mime, limit = "audio", "audio/mpeg", _MAX_AUDIO_BYTES
         label = _("La piste audio est trop volumineuse (max. 20 Mo).")
-    elif ext == "m4a" and _ftyp_brand(raw) and _ftyp_brand(raw) != b"qt  ":
-        kind, mime, limit = "audio", "audio/mp4", _MAX_AUDIO_BYTES
-        label = _("La piste audio est trop volumineuse (max. 20 Mo).")
+    elif ext == "m4a":
+        brand = _ftyp_brand(raw)
+        # Conteneur MP4 (ftyp) hors QuickTime .mov, ou AAC brut (ADTS).
+        if (brand and brand != b"qt  ") or _is_adts_aac(raw):
+            kind, mime, limit = "audio", "audio/mp4", _MAX_AUDIO_BYTES
+            label = _("La piste audio est trop volumineuse (max. 20 Mo).")
+        else:
+            return {
+                "error": "bad_media_type",
+                "message": _("Formats acceptés : MP4 (vidéo), MP3 ou M4A (audio)."),
+            }, {}
     elif ext == "mp4" and _ftyp_brand(raw) and _ftyp_brand(raw) != b"qt  ":
         kind, mime, limit = "video", "video/mp4", _MAX_VIDEO_BYTES
         label = _("La vidéo est trop volumineuse (max. 50 Mo).")
@@ -169,7 +186,9 @@ class WikiGalleryController(http.Controller):
             }, None, None
 
         Item = request.env["wiki.gallery.item"]
-        text = Item._sanitize_contribution_html(text or "")
+        text, img_err = Item._prepare_contribution_html(text or "")
+        if img_err:
+            return img_err, None, None
         plain = tools.html2plaintext(text or "").strip()
         if not plain:
             return {"error": "empty_text", "message": _("Le texte est obligatoire.")}, None, None
@@ -241,6 +260,25 @@ class WikiGalleryController(http.Controller):
         return request.env["wiki.gallery.item"].get_published_payload(
             gallery_id=gid, website=website
         )
+
+    @http.route(
+        "/wiki/gallery/contribute_info",
+        type="json",
+        auth="public",
+        website=True,
+        methods=["POST"],
+    )
+    def gallery_contribute_info(self, **kw):
+        """Infos affichées avant l'ouverture du formulaire de contribution."""
+        website = self._current_website()
+        return {
+            "privacy_policy_url": (
+                (website.wiki_privacy_policy_url or "").strip() if website else ""
+            ),
+            "writing_help_url": (
+                (website.wiki_writing_help_url or "").strip() if website else ""
+            ),
+        }
 
     @http.route(
         "/wiki/gallery/libraries",
@@ -423,3 +461,170 @@ class WikiGalleryController(http.Controller):
                 "message": _("Contribution annulée."),
             }
         return pending.cancel_pending()
+
+    def _parse_edit_payload(self, item, **post):
+        """Valide une proposition de modification (photo optionnelle)."""
+        website = self._current_website()
+        if not website or not item or not item.exists():
+            return {"error": "not_found", "message": _("Article introuvable.")}, None
+        if item.website_id and item.website_id.id != website.id:
+            return {"error": "wrong_website", "message": _("Article introuvable sur ce site.")}, None
+        if item.state != "published":
+            return {
+                "error": "not_editable",
+                "message": _(
+                    "Une modification est déjà en attente de validation. "
+                    "Cet article ne peut pas être modifié pour le moment."
+                ),
+            }, None
+
+        title = (post.get("name") or "").strip()[:120]
+        if not title:
+            return {"error": "empty_title", "message": _("Le titre est obligatoire.")}, None
+
+        email = (post.get("contributor_email") or post.get("email") or "").strip()[:120]
+        if not email:
+            return {"error": "empty_email", "message": _("L'email est obligatoire.")}, None
+        if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+            return {
+                "error": "bad_email",
+                "message": _("Veuillez saisir une adresse email valide."),
+            }, None
+
+        Item = request.env["wiki.gallery.item"]
+        text, img_err = Item._prepare_contribution_html(post.get("text") or "")
+        if img_err:
+            return img_err, None
+        plain = tools.html2plaintext(text or "").strip()
+        if not plain:
+            return {"error": "empty_text", "message": _("Le texte est obligatoire.")}, None
+        if len(plain) > _MAX_TEXT_LEN or len(text) > _MAX_HTML_LEN:
+            return {
+                "error": "text_too_long",
+                "message": _("Le texte est trop long (max. %s caractères).")
+                % _MAX_TEXT_LEN,
+            }, None
+
+        vals = {
+            "gallery_id": item.gallery_id.id,
+            "item_id": item.id,
+            "text": text,
+            "contributor_name": (post.get("contributor_name") or "").strip()[:120] or False,
+            "contributor_email": email,
+            "name": title,
+            "clear_media": False,
+        }
+
+        image_raw, _image_name = self._read_upload("image")
+        if image_raw:
+            if len(image_raw) > _MAX_IMAGE_BYTES:
+                return {
+                    "error": "image_too_large",
+                    "message": _("L'image est trop volumineuse (max. 5 Mo)."),
+                }, None
+            is_jpeg = image_raw.startswith(b"\xff\xd8\xff")
+            is_png = image_raw.startswith(b"\x89PNG\r\n\x1a\n")
+            is_gif = image_raw.startswith(b"GIF87a") or image_raw.startswith(b"GIF89a")
+            is_webp = (
+                len(image_raw) >= 12
+                and image_raw.startswith(b"RIFF")
+                and image_raw[8:12] == b"WEBP"
+            )
+            if not (is_jpeg or is_png or is_gif or is_webp):
+                return {
+                    "error": "bad_image_type",
+                    "message": _("Formats acceptés : JPEG, PNG, GIF, WEBP."),
+                }, None
+            vals["image"] = base64.b64encode(image_raw)
+
+        media_raw, media_filename = self._read_upload("media")
+        if media_raw:
+            media_err, media_vals = _classify_media(media_raw, media_filename)
+            if media_err:
+                return media_err, None
+            media_vals.pop("media_kind", None)
+            vals.update(media_vals)
+        elif (post.get("clear_media") or "").strip() in ("1", "true", "on", "yes"):
+            vals["clear_media"] = True
+
+        return None, vals
+
+    @http.route(
+        "/wiki/article/<int:article_id>/edit/submit",
+        type="http",
+        auth="public",
+        website=True,
+        methods=["POST"],
+        csrf=True,
+        max_content_length=60 * 1024 * 1024,
+    )
+    def article_edit_submit(self, article_id, **post):
+        """Propose une modification d'article publié (avec vérif. email si besoin)."""
+        website = self._current_website()
+        item = (
+            request.env["wiki.gallery.item"]
+            .sudo()
+            .search(
+                [
+                    ("id", "=", int(article_id)),
+                    ("website_id", "=", website.id if website else False),
+                    ("state", "=", "published"),
+                ],
+                limit=1,
+            )
+        )
+        err, vals = self._parse_edit_payload(item, **post)
+        if err:
+            return request.make_json_response(err)
+
+        already_verified = request.env["wiki.gallery.verified.email"].sudo().is_verified(
+            vals.get("contributor_email"),
+            item.website_id,
+        )
+        if self._wiki_can_skip_email_verification() or already_verified:
+            item.action_apply_pending_edit(vals)
+            return request.make_json_response(
+                {
+                    "ok": True,
+                    "id": item.id,
+                    "verified": True,
+                    "edit": True,
+                    "redirect": f"/wiki/article/{item.id}",
+                    "message": _(
+                        "Merci ! Vos modifications ont bien été envoyées. "
+                        "Elles seront visibles après validation."
+                    ),
+                }
+            )
+
+        try:
+            pending = request.env["wiki.gallery.pending"].sudo().create_pending(vals)
+        except UserError as exc:
+            return request.make_json_response(
+                {"error": "mail_failed", "message": str(exc)}
+            )
+        except Exception:
+            return request.make_json_response(
+                {
+                    "error": "mail_failed",
+                    "message": _(
+                        "Impossible d'envoyer l'email de confirmation. "
+                        "Vérifiez l'adresse ou réessayez plus tard."
+                    ),
+                }
+            )
+
+        return request.make_json_response(
+            {
+                "ok": True,
+                "needs_verification": True,
+                "token": pending.token,
+                "email": pending.contributor_email,
+                "edit": True,
+                "message": _(
+                    "Un code de confirmation a été envoyé à %(email)s. "
+                    "Saisissez-le ci-dessous pour finaliser l'envoi."
+                )
+                % {"email": pending.contributor_email},
+            }
+        )

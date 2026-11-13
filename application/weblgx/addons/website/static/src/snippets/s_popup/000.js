@@ -469,6 +469,14 @@ publicWidget.registry.cookies_bar = PopupWidget.extend({
                         "ad_personalization": consentState,
                         "analytics_storage": consentState,
                     });
+                    if (consentState === "granted" && !window.lgxAnalyticsPageSent) {
+                        window.lgxAnalyticsPageSent = true;
+                        gtag("event", "page_view", {
+                            "page_title": document.title,
+                            "page_location": window.location.href,
+                            "page_referrer": document.referrer,
+                        });
+                    }
                 }
 
                 // Run our handler first and block the original script's handler

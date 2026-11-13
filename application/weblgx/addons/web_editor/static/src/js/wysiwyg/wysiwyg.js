@@ -2353,7 +2353,7 @@ export class Wysiwyg extends Component {
                 for (const button of this.toolbarEl.querySelectorAll('#image-width div')) {
                     button.classList.toggle('active', e.target.style.width === button.id);
                 }
-                this.toolbarEl.querySelector('#image-transform').classList.toggle('active', e.target.matches('[style*="transform"]'));
+                this.toolbarEl.querySelector('#image-transform')?.classList.toggle('active', e.target.matches('[style*="transform"]'));
                 this._updateMediaJustifyButton();
                 this._updateFaResizeButtons();
             }

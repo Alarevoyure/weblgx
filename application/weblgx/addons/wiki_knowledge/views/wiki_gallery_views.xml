@@ -77,6 +77,7 @@
         <field name="model">wiki.gallery.item</field>
         <field name="arch" type="xml">
             <tree decoration-info="state == 'submitted'"
+                  decoration-warning="state == 'modified'"
                   decoration-success="state == 'published'"
                   decoration-muted="state == 'refused'">
                 <field name="sequence" widget="handle"/>
@@ -85,9 +86,11 @@
                 <field name="gallery_id"/>
                 <field name="contributor_name"/>
                 <field name="contributor_email"/>
+                <field name="pending_editor_name" optional="show" string="Éditeur (modif.)"/>
                 <field name="media_filename" optional="hide"/>
                 <field name="website_id"/>
                 <field name="submitted_date"/>
+                <field name="pending_edit_date" optional="hide"/>
                 <field name="view_count"/>
                 <field name="state"/>
             </tree>
@@ -145,17 +148,26 @@
                 <header>
                     <button name="action_publish" type="object" string="Publier"
                             class="btn-success"
-                            invisible="state == 'published'"
+                            invisible="state in ('published', 'modified')"
+                            groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
+                    <button name="action_publish_modifications" type="object" string="Publier les modifications"
+                            class="btn-success"
+                            invisible="state != 'modified'"
                             groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
                     <button name="action_refuse" type="object" string="Refuser"
                             class="btn-danger"
-                            invisible="state == 'refused'"
+                            invisible="state in ('refused', 'modified')"
+                            groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
+                    <button name="action_refuse_modifications" type="object" string="Refuser les modifications"
+                            class="btn-danger"
+                            invisible="state != 'modified'"
+                            confirm="Refuser les modifications ? L'article public restera inchangé."
                             groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
                     <button name="action_reset_to_submitted" type="object" string="Remettre à valider"
                             class="btn-secondary"
                             invisible="state == 'submitted'"
                             groups="wiki_knowledge.group_wiki_reviewer,wiki_knowledge.group_wiki_manager,base.group_system"/>
-                    <field name="state" widget="statusbar" statusbar_visible="submitted,published,refused"/>
+                    <field name="state" widget="statusbar" statusbar_visible="submitted,published,modified,refused"/>
                 </header>
                 <sheet>
                     <group>
@@ -173,6 +185,7 @@
                     </group>
                     <field name="media_mimetype" invisible="1"/>
                     <field name="media_filename" invisible="1"/>
+                    <field name="pending_clear_media" invisible="1"/>
                     <separator string="Vidéo ou audio" invisible="not media_filename"/>
                     <field name="media_filename" widget="wiki_media_player" nolabel="1"
                            invisible="not media_filename"/>
@@ -186,6 +199,31 @@
                     <separator string="Texte"/>
                     <field name="text" widget="html" nolabel="1" class="o_wiki_gallery_text"
                              options="{'style-inline': true, 'codeview': true}"/>
+                    <group string="Modifications proposées" invisible="state != 'modified'">
+                        <group>
+                            <field name="pending_edit_date" readonly="1"/>
+                            <field name="pending_editor_name" readonly="1"/>
+                            <field name="pending_editor_email" widget="email" readonly="1"/>
+                            <field name="pending_name" readonly="1"/>
+                        </group>
+                    </group>
+                    <separator string="Photo proposée" invisible="state != 'modified' or not pending_image"/>
+                    <div class="o_wiki_gallery_preview_wrap" invisible="state != 'modified' or not pending_image">
+                        <field name="pending_image" widget="image" class="o_wiki_gallery_preview_image" nolabel="1"
+                                 options="{'size': [0, 0], 'zoom': true}" readonly="1"/>
+                    </div>
+                    <separator string="Texte proposé" invisible="state != 'modified'"/>
+                    <field name="pending_text" widget="html" nolabel="1" class="o_wiki_gallery_text"
+                             invisible="state != 'modified'" readonly="1"
+                             options="{'style-inline': true}"/>
+                    <separator string="Média proposé" invisible="state != 'modified' or (not pending_media_filename and not pending_clear_media)"/>
+                    <div invisible="state != 'modified'">
+                        <p invisible="not pending_clear_media" class="text-muted">Le média actuel sera supprimé.</p>
+                        <field name="pending_media_filename" invisible="1"/>
+                        <field name="pending_media_mimetype" invisible="1"/>
+                        <field name="pending_media" filename="pending_media_filename" widget="binary"
+                               invisible="not pending_media_filename" readonly="1"/>
+                    </div>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids"/>
@@ -206,7 +244,8 @@
                 <field name="text"/>
                 <field name="gallery_id"/>
                 <field name="website_id"/>
-                <filter name="to_validate" string="À valider" domain="[('state', '=', 'submitted')]"/>
+                <filter name="to_validate" string="À valider" domain="[('state', 'in', ['submitted', 'modified'])]"/>
+                <filter name="modified" string="Modifiées" domain="[('state', '=', 'modified')]"/>
                 <filter name="published" string="Publiées" domain="[('state', '=', 'published')]"/>
                 <filter name="refused" string="Refusées" domain="[('state', '=', 'refused')]"/>
                 <filter name="orphans" string="Sans bibliothèque" domain="[('gallery_id', '=', False)]"/>

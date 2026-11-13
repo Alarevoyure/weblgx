@@ -40,9 +40,31 @@ def deactivate_orphan_module_views(env):
         env["ir.ui.view"].browse(view_ids).write({"active": False})
 
 
+_GALLERY_PUBLIC_DOMAIN = (
+    "['&', ('state', 'in', ['published', 'modified']), "
+    "'|', ('company_id', '=', False), ('company_id', '=', company_id)]"
+)
+
+
+def patch_gallery_public_access_rules(env):
+    """Autorise le public à lire les articles « Modifié » (tuile + /web/image).
+
+    Les ir.rule sont en noupdate : sans ce patch, l'upgrade XML ne met pas
+    à jour le domaine et l'image disparaît dès qu'une modification est proposée.
+    """
+    for xid in (
+        "wiki_knowledge.wiki_gallery_rule_public_published",
+        "wiki_knowledge.wiki_gallery_rule_portal_published",
+    ):
+        rule = env.ref(xid, raise_if_not_found=False)
+        if rule and rule.exists() and rule.domain_force != _GALLERY_PUBLIC_DOMAIN:
+            rule.sudo().write({"domain_force": _GALLERY_PUBLIC_DOMAIN})
+
+
 def post_init_hook(env):
     unlink_obsolete_wiki_public_ir_rules(env)
     patch_website_company_security_rules(env)
+    patch_gallery_public_access_rules(env)
     deactivate_orphan_module_views(env)
     website_model = env["website"].sudo()
     wiki_model = env["wiki.page"].sudo()

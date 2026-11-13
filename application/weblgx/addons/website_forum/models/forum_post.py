@@ -12,6 +12,8 @@ from odoo.exceptions import UserError, ValidationError, AccessError
 from odoo.osv import expression
 from odoo.tools import sql
 
+from .forum_forum import forum_selected_site_domain
+
 _logger = logging.getLogger(__name__)
 
 
@@ -43,6 +45,19 @@ class Post(models.Model):
     website_message_ids = fields.One2many(domain=lambda self: [('model', '=', self._name), ('message_type', 'in', ['email', 'comment', 'email_outgoing'])])
     website_url = fields.Char('Website URL', compute='_compute_website_url')
     website_id = fields.Many2one(related='forum_id.website_id', readonly=True)
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = forum_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
 
     # history
     create_date = fields.Datetime('Asked on', index=True, readonly=True)

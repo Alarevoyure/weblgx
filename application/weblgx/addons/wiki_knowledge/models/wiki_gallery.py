@@ -1,5 +1,20 @@
 # -*- coding: utf-8 -*-
 from weblgx import api, fields, models
+from weblgx.osv import expression
+
+
+def wiki_selected_site_domain(records):
+    """Limite les listes backend au site de la société active.
+
+    En SaaS, le site sélectionné est la société courante (une société = un site).
+    ``sudo()`` (site public, migrations) n'est pas restreint.
+    """
+    if records.env.su or records.env.context.get("wiki_skip_website_isolation"):
+        return []
+    company = records.env.company
+    if not company:
+        return []
+    return [("website_id.company_id", "=", company.id)]
 
 
 class WikiGallery(models.Model):
@@ -43,12 +58,27 @@ class WikiGallery(models.Model):
         compute="_compute_item_count",
     )
 
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = wiki_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
+
     @api.depends("item_ids", "item_ids.state")
     def _compute_item_count(self):
         for gallery in self:
             items = gallery.item_ids
             gallery.item_count = len(items)
-            gallery.pending_count = len(items.filtered(lambda i: i.state == "submitted"))
+            gallery.pending_count = len(
+                items.filtered(lambda i: i.state in ("submitted", "modified"))
+            )
 
     def action_open_items(self):
         self.ensure_one()

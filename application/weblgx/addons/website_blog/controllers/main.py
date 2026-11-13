@@ -7,7 +7,7 @@ import pytz
 import babel.dates
 from collections import defaultdict
 
-from odoo import http, fields, tools, models
+from odoo import _, http, fields, tools, models
 from odoo.addons.http_routing.models.ir_http import slug, unslug
 from odoo.addons.website.controllers.main import QueryURL
 from odoo.http import request
@@ -71,8 +71,8 @@ class WebsiteBlog(http.Controller):
         BlogPost = request.env['blog.post']
         BlogTag = request.env['blog.tag']
 
-        # prepare domain
-        domain = request.website.website_domain()
+        # Current website only: website.website_domain() also matches an empty website_id.
+        domain = [("website_id", "=", request.website.id)]
 
         if blog:
             domain += [('blog_id', '=', blog.id)]
@@ -82,7 +82,9 @@ class WebsiteBlog(http.Controller):
         active_tag_ids = tags and [unslug(tag)[1] for tag in tags.split(',')] or []
         active_tags = BlogTag
         if active_tag_ids:
-            active_tags = BlogTag.browse(active_tag_ids).exists()
+            active_tags = BlogTag.browse(active_tag_ids).exists().filtered(
+                lambda tag: tag.website_id == request.website
+            )
             fixed_tag_slug = ",".join(slug(t) for t in active_tags)
             if fixed_tag_slug != tags:
                 path = request.httprequest.full_path
@@ -176,6 +178,31 @@ class WebsiteBlog(http.Controller):
             'original_search': fuzzy_search_term and search,
         }
 
+    @http.route('/blog/add', type='http', auth='user', website=True, methods=['POST'], sitemap=False)
+    def blog_post_add(self, blog_id=None, **post):
+        """Crée un brouillon sur le blog du site en cours et ouvre l'éditeur."""
+        if not request.env.user.has_group('website.group_website_designer'):
+            raise werkzeug.exceptions.Forbidden()
+
+        Blog = request.env['blog.blog']
+        try:
+            blog_id = int(blog_id)
+        except (TypeError, ValueError):
+            blog_id = False
+        blog = Blog.browse(blog_id).exists() if blog_id else Blog
+        if not blog or blog.website_id != request.website:
+            blog = Blog.search([('website_id', '=', request.website.id)], limit=1)
+        if not blog:
+            blog = Blog.create({
+                'name': request.website.name or _("Blog"),
+                'website_id': request.website.id,
+            })
+        blog_post = request.env['blog.post'].create({
+            'blog_id': blog.id,
+            'name': _("New article"),
+        })
+        return request.redirect('%s?enable_editor=1' % blog_post.website_url)
+
     @http.route([
         '/blog',
         '/blog/page/<int:page>',
@@ -188,7 +215,10 @@ class WebsiteBlog(http.Controller):
     ], type='http', auth="public", website=True, sitemap=True)
     def blog(self, blog=None, tag=None, page=1, search=None, **opt):
         Blog = request.env['blog.blog']
-        blogs = tools.lazy(lambda: Blog.search(request.website.website_domain(), order="create_date asc, id asc"))
+        blogs = tools.lazy(lambda: Blog.search(
+            [("website_id", "=", request.website.id)],
+            order="create_date asc, id asc",
+        ))
 
         if not blog and len(blogs) == 1:
             url = QueryURL('/blog/%s' % slug(blogs[0]), search=search, **opt)()
@@ -252,18 +282,19 @@ class WebsiteBlog(http.Controller):
         BlogPost = request.env['blog.post']
         date_begin, date_end = post.get('date_begin'), post.get('date_end')
 
-        domain = request.website.website_domain()
-        blogs = blog.search(domain, order="create_date, id asc")
+        blogs = blog.search([("website_id", "=", request.website.id)], order="create_date, id asc")
 
         tag = None
         if tag_id:
-            tag = request.env['blog.tag'].browse(int(tag_id))
+            tag = request.env['blog.tag'].browse(int(tag_id)).exists()
+            if tag.website_id != request.website:
+                tag = request.env['blog.tag']
         blog_url = QueryURL('', ['blog', 'tag'], blog=blog_post.blog_id, tag=tag, date_begin=date_begin, date_end=date_end)
 
         if not blog_post.blog_id.id == blog.id:
             return request.redirect("/blog/%s/%s" % (slug(blog_post.blog_id), slug(blog_post)), code=301)
 
-        tags = request.env['blog.tag'].search([])
+        tags = request.env['blog.tag'].search([("website_id", "=", request.website.id)])
 
         # Find next Post
         blog_post_domain = [('blog_id', '=', blog.id)]

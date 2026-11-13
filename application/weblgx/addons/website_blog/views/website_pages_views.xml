@@ -16,8 +16,11 @@
                     <field name="active" invisible="1"/>
                     <field name="name" placeholder="Blog Post Title"/>
                     <field name="subtitle" placeholder="Blog Subtitle"/>
-                    <field name="tag_ids" widget="many2many_tags"/>
-                    <field name="website_id" groups="website.group_multi_website"/>
+                    <field name="website_id"/>
+                    <field name="company_id"/>
+                    <field name="tag_ids" widget="many2many_tags"
+                           domain="[('website_id', '=', website_id)]"
+                           context="{'default_website_id': website_id}"/>
                 </group>
                 <group name="publishing_details" string="Publishing Options">
                     <field name="author_id"/>
@@ -61,7 +64,7 @@
                         <div class="row mb-auto">
                             <strong class="col-8">
                                 <span class="o_text_overflow" t-esc="record.name.value"/>
-                                <div class="text-muted" t-if="record.website_id.value" groups="website.group_multi_website">
+                                <div class="text-muted" t-if="record.website_id.value">
                                     <i class="fa fa-globe me-1" title="Website"/>
                                     <field name="website_id"/>
                                 </div>
@@ -101,8 +104,11 @@
             <field name="name" string="Content" filter_domain="['|', ('name','ilike',self), ('content','ilike',self)]"/>
             <field name="write_uid"/>
             <field name="blog_id"/>
+            <field name="website_id"/>
             <group expand="0" string="Group By">
                 <filter string="Blog" name="group_by_blog" domain="[]" context="{'group_by': 'blog_id'}"/>
+                <filter string="Website" name="group_by_website" domain="[]" context="{'group_by': 'website_id'}"/>
+                <filter string="Company" name="group_by_company" domain="[]" context="{'group_by': 'company_id'}"/>
                 <filter string="Author" name="group_by_author" domain="[]" context="{'group_by': 'create_uid'}"/>
                 <filter string="Last Contributor" name="last_contributor" domain="[]" context="{'group_by': 'write_uid'}"/>
             </group>
@@ -129,7 +135,8 @@
             <field name="is_seo_optimized"/>
             <field name="is_published"/>
 
-            <field name="website_id" groups="website.group_multi_website"/>
+            <field name="website_id"/>
+            <field name="company_id" optional="hide"/>
         </tree>
     </field>
 </record>

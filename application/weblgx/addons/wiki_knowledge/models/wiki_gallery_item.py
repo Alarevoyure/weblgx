@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
+import base64
 import logging
 import re
 
 from weblgx import _, api, fields, models, tools
 from weblgx.exceptions import UserError
+from weblgx.osv import expression
 from weblgx.tools.misc import html_escape
+
+from .wiki_gallery import wiki_selected_site_domain
 
 _logger = logging.getLogger(__name__)
 
@@ -12,6 +16,12 @@ _HTML_TAG_RE = re.compile(
     r"<(p|div|br|/p|ul|ol|li|h[1-6]|strong|em|b|i|a|span|blockquote)\b",
     re.IGNORECASE,
 )
+_INLINE_IMG_SRC_RE = re.compile(
+    r"(<img\b[^>]*?\bsrc\s*=\s*)([\"'])data:image/(png|jpe?g|gif|webp);base64,([^\"']+)\2",
+    re.IGNORECASE,
+)
+_MAX_INLINE_IMAGES = 8
+_MAX_INLINE_IMAGE_BYTES = 5 * 1024 * 1024
 _BRAND = "#16213e"
 _BRAND_SOFT = "#eef1f6"
 
@@ -33,8 +43,8 @@ class WikiGalleryItem(models.Model):
         required=True,
         sanitize=True,
         sanitize_attributes=True,
-        strip_style=True,
-        tracking=True,
+        sanitize_style=True,
+        strip_style=False,
     )
     text_preview = fields.Text(
         string="Aperçu texte",
@@ -91,6 +101,7 @@ class WikiGalleryItem(models.Model):
         [
             ("submitted", "À valider"),
             ("published", "Publié"),
+            ("modified", "Modifié"),
             ("refused", "Refusé"),
         ],
         string="Statut",
@@ -114,6 +125,46 @@ class WikiGalleryItem(models.Model):
         default=fields.Datetime.now,
         readonly=True,
     )
+    # Broullon de modification (visible côté public = contenu publié tant que non validé)
+    pending_name = fields.Char(string="Titre proposé", copy=False)
+    pending_text = fields.Html(
+        string="Texte proposé",
+        sanitize=True,
+        sanitize_attributes=True,
+        sanitize_style=True,
+        strip_style=False,
+        copy=False,
+    )
+    pending_image = fields.Image(
+        string="Photo proposée",
+        max_width=1920,
+        max_height=1920,
+        copy=False,
+    )
+    pending_media = fields.Binary(string="Média proposé", attachment=True, copy=False)
+    pending_media_filename = fields.Char(string="Nom du média proposé", copy=False)
+    pending_media_mimetype = fields.Char(string="Type du média proposé", copy=False)
+    pending_clear_media = fields.Boolean(
+        string="Supprimer le média à la validation",
+        default=False,
+        copy=False,
+    )
+    pending_editor_name = fields.Char(string="Nom de l'éditeur", copy=False)
+    pending_editor_email = fields.Char(string="Email de l'éditeur", copy=False)
+    pending_edit_date = fields.Datetime(string="Date de modification", copy=False, readonly=True)
+
+    @api.model
+    def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
+        extra = wiki_selected_site_domain(self)
+        if extra:
+            domain = expression.AND([domain, extra])
+        return super()._search(
+            domain,
+            offset=offset,
+            limit=limit,
+            order=order,
+            access_rights_uid=access_rights_uid,
+        )
 
     @api.depends("text")
     def _compute_text_preview(self):
@@ -127,9 +178,90 @@ class WikiGalleryItem(models.Model):
         return tools.html_sanitize(
             raw or "",
             sanitize_attributes=True,
-            strip_style=True,
+            sanitize_style=True,
+            strip_style=False,
             strip_classes=True,
         )
+
+    @api.model
+    def _prepare_contribution_html(self, raw):
+        """Extrait les images collées, puis nettoie le HTML.
+
+        Le base64 d'une image ne doit pas compter comme du texte.
+        Retourne ``(html, error)``.
+        """
+        html, error = self._store_pasted_images(raw or "")
+        if error:
+            return "", error
+        return self._sanitize_contribution_html(html), None
+
+    @api.model
+    def _image_magic_ok(self, raw):
+        if raw.startswith(b"\xff\xd8\xff"):
+            return True
+        if raw.startswith(b"\x89PNG\r\n\x1a\n"):
+            return True
+        if raw.startswith(b"GIF87a") or raw.startswith(b"GIF89a"):
+            return True
+        return len(raw) >= 12 and raw.startswith(b"RIFF") and raw[8:12] == b"WEBP"
+
+    @api.model
+    def _store_pasted_images(self, html):
+        """Remplace les images data-URL par des pièces jointes publiques."""
+        matches = list(_INLINE_IMG_SRC_RE.finditer(html or ""))
+        if not matches:
+            return html or "", None
+        if len(matches) > _MAX_INLINE_IMAGES:
+            return html, {
+                "error": "too_many_images",
+                "message": _("Trop d'images dans le texte (max. %s).") % _MAX_INLINE_IMAGES,
+            }
+
+        decoded = []
+        for match in matches:
+            kind = match.group(3).lower()
+            if kind == "jpg":
+                kind = "jpeg"
+            ext = "jpg" if kind == "jpeg" else kind
+            payload = re.sub(r"\s+", "", match.group(4))
+            try:
+                raw = base64.b64decode(payload, validate=False)
+            except Exception:
+                raw = b""
+            if raw and len(raw) > _MAX_INLINE_IMAGE_BYTES:
+                return html, {
+                    "error": "inline_image_too_large",
+                    "message": _(
+                        "Une image collée est trop volumineuse (max. 5 Mo)."
+                    ),
+                }
+            if not raw or not self._image_magic_ok(raw):
+                return html, {
+                    "error": "bad_inline_image",
+                    "message": _(
+                        "Formats d'image acceptés dans le texte : JPEG, PNG, GIF, WEBP."
+                    ),
+                }
+            decoded.append((match, kind, ext, raw))
+
+        pieces = []
+        last = 0
+        Attachment = self.env["ir.attachment"].sudo()
+        for match, kind, ext, raw in decoded:
+            attachment = Attachment.create({
+                "name": "wiki-texte.%s" % ext,
+                "datas": base64.b64encode(raw),
+                "mimetype": "image/%s" % kind,
+                "public": True,
+            })
+            quote = match.group(2)
+            pieces.append(html[last:match.start()])
+            pieces.append(
+                "%s%s/web/image/%s%s" % (match.group(1), quote, attachment.id, quote)
+            )
+            last = match.end()
+        pieces.append(html[last:])
+        return "".join(pieces), None
 
     def _text_as_html(self):
         """HTML prêt à afficher (convertit l'ancien texte brut si besoin)."""
@@ -241,29 +373,185 @@ class WikiGalleryItem(models.Model):
             or u.has_group("base.group_system")
         )
 
+    def _pending_edit_clear_vals(self):
+        return {
+            "pending_name": False,
+            "pending_text": False,
+            "pending_image": False,
+            "pending_media": False,
+            "pending_media_filename": False,
+            "pending_media_mimetype": False,
+            "pending_clear_media": False,
+            "pending_editor_name": False,
+            "pending_editor_email": False,
+            "pending_edit_date": False,
+        }
+
+    def _append_editor_name(self, existing, editor):
+        existing = (existing or "").strip()
+        editor = (editor or "").strip()
+        if not editor:
+            return existing or False
+        if not existing:
+            return editor
+        parts = [p.strip() for p in existing.split(",") if p.strip()]
+        if any(p.lower() == editor.lower() for p in parts):
+            return existing
+        return f"{existing}, {editor}"
+
+    def action_apply_pending_edit(self, vals):
+        """Enregistre une proposition de modification (après validation email)."""
+        self.ensure_one()
+        if self.state != "published":
+            raise UserError(_(
+                "Une modification est déjà en attente de validation. "
+                "Seuls les articles publiés sans modification en cours peuvent être modifiés."
+            ))
+        write_vals = {
+            "pending_name": (vals.get("name") or "").strip()[:120] or False,
+            "pending_text": self._sanitize_contribution_html(vals.get("text") or ""),
+            "pending_editor_name": (vals.get("contributor_name") or "").strip()[:120] or False,
+            "pending_editor_email": (vals.get("contributor_email") or "").strip()[:120] or False,
+            "pending_edit_date": fields.Datetime.now(),
+            "state": "modified",
+            "pending_clear_media": False,
+        }
+        if vals.get("image"):
+            write_vals["pending_image"] = vals["image"]
+        if vals.get("media"):
+            write_vals.update(
+                {
+                    "pending_media": vals["media"],
+                    "pending_media_filename": vals.get("media_filename") or False,
+                    "pending_media_mimetype": vals.get("media_mimetype") or False,
+                }
+            )
+        elif vals.get("clear_media"):
+            write_vals.update(
+                {
+                    "pending_media": False,
+                    "pending_media_filename": False,
+                    "pending_media_mimetype": False,
+                    "pending_clear_media": True,
+                }
+            )
+        self.sudo().write(write_vals)
+        self._notify_reviewer_modification()
+        return self
+
     def action_publish(self):
         if not self._wiki_is_reviewer():
             raise UserError(_("Seuls les valideurs Wiki peuvent publier une contribution."))
-        for rec in self:
-            if not (rec.name or "").strip():
-                raise UserError(_("Le titre est obligatoire pour publier."))
-            if not rec.image or not rec._plain_text():
-                raise UserError(_("Photo et texte sont obligatoires pour publier."))
-        targets = self.filtered(lambda r: r.state != "published")
-        self.write({"state": "published"})
-        return targets._notify_contributor_decision("published")
+        modified = self.filtered(lambda r: r.state == "modified")
+        others = self - modified
+        result = False
+        if modified:
+            result = modified.action_publish_modifications()
+        if others:
+            for rec in others:
+                if not (rec.name or "").strip():
+                    raise UserError(_("Le titre est obligatoire pour publier."))
+                if not rec.image or not rec._plain_text():
+                    raise UserError(_("Photo et texte sont obligatoires pour publier."))
+            targets = others.filtered(lambda r: r.state != "published")
+            targets.write({"state": "published"})
+            result = targets._notify_contributor_decision("published")
+        return result
 
     def action_refuse(self):
         if not self._wiki_is_reviewer():
             raise UserError(_("Seuls les valideurs Wiki peuvent refuser une contribution."))
-        targets = self.filtered(lambda r: r.state != "refused")
-        self.write({"state": "refused"})
-        return targets._notify_contributor_decision("refused")
+        modified = self.filtered(lambda r: r.state == "modified")
+        others = self - modified
+        result = False
+        if modified:
+            result = modified.action_refuse_modifications()
+        if others:
+            targets = others.filtered(lambda r: r.state != "refused")
+            targets.write({"state": "refused"})
+            result = targets._notify_contributor_decision("refused")
+        return result
+
+    def action_publish_modifications(self):
+        """Applique le brouillon de modification et republie l'article."""
+        if not self._wiki_is_reviewer():
+            raise UserError(_("Seuls les valideurs Wiki peuvent publier les modifications."))
+        for rec in self:
+            if rec.state != "modified":
+                raise UserError(_("Seuls les articles « Modifié » peuvent être validés."))
+            # bin_size=True (vues back-office) renvoie « 2.14 Mb » au lieu du binaire.
+            stored = rec.with_context(bin_size=False)
+            name = (stored.pending_name or stored.name or "").strip()
+            text = stored.pending_text or stored.text
+            image = stored.pending_image or stored.image
+            if not name:
+                raise UserError(_("Le titre proposé est obligatoire."))
+            if not image or not tools.html2plaintext(text or "").strip():
+                raise UserError(_("Photo et texte sont obligatoires pour publier."))
+            vals = {
+                "name": name,
+                "text": text,
+                "contributor_name": rec._append_editor_name(
+                    stored.contributor_name, stored.pending_editor_name
+                ),
+                "state": "published",
+                **rec._pending_edit_clear_vals(),
+            }
+            if stored.pending_image:
+                vals["image"] = stored.pending_image
+            if stored.pending_media:
+                vals.update(
+                    {
+                        "media": stored.pending_media,
+                        "media_filename": stored.pending_media_filename,
+                        "media_mimetype": stored.pending_media_mimetype,
+                    }
+                )
+            elif stored.pending_clear_media:
+                vals.update(
+                    {
+                        "media": False,
+                        "media_filename": False,
+                        "media_mimetype": False,
+                    }
+                )
+            rec.write(vals)
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "title": _("Modifications publiées"),
+                "message": _("Les modifications ont été appliquées et l'article est publié."),
+                "type": "success",
+                "sticky": False,
+                "next": {"type": "ir.actions.act_window_close"},
+            },
+        }
+
+    def action_refuse_modifications(self):
+        """Ignore le brouillon : l'article public reste inchangé."""
+        if not self._wiki_is_reviewer():
+            raise UserError(_("Seuls les valideurs Wiki peuvent refuser les modifications."))
+        for rec in self:
+            if rec.state != "modified":
+                raise UserError(_("Seuls les articles « Modifié » peuvent être refusés."))
+        self.write({"state": "published", **self._pending_edit_clear_vals()})
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "title": _("Modifications refusées"),
+                "message": _("L'article public est resté inchangé."),
+                "type": "warning",
+                "sticky": False,
+                "next": {"type": "ir.actions.act_window_close"},
+            },
+        }
 
     def action_reset_to_submitted(self):
         if not self._wiki_is_reviewer():
             raise UserError(_("Seuls les valideurs Wiki peuvent rouvrir une contribution."))
-        self.write({"state": "submitted"})
+        self.write({"state": "submitted", **self._pending_edit_clear_vals()})
 
     def _decision_company(self):
         self.ensure_one()
@@ -501,14 +789,24 @@ class WikiGalleryItem(models.Model):
         """Prévient l'adresse du site. Un échec d'envoi ne bloque pas le dépôt."""
         for rec in self:
             try:
-                rec._notify_reviewer_submission_one()
+                rec._notify_reviewer_submission_one(kind="submission")
             except Exception:
                 _logger.exception(
                     "Échec de l'email de validation Wiki (item %s)",
                     rec.id,
                 )
 
-    def _notify_reviewer_submission_one(self):
+    def _notify_reviewer_modification(self):
+        for rec in self:
+            try:
+                rec._notify_reviewer_submission_one(kind="modification")
+            except Exception:
+                _logger.exception(
+                    "Échec de l'email de modification Wiki (item %s)",
+                    rec.id,
+                )
+
+    def _notify_reviewer_submission_one(self, kind="submission"):
         self.ensure_one()
         website = self.website_id
         email_to = ((website.wiki_review_email or "").strip() if website else "")
@@ -526,17 +824,37 @@ class WikiGalleryItem(models.Model):
             )
             return
 
-        title = (self.name or "").strip() or _("Sans titre")
+        is_mod = kind == "modification"
+        title = (
+            (self.pending_name if is_mod else self.name) or self.name or ""
+        ).strip() or _("Sans titre")
         gallery = html_escape(self.gallery_id.name or _("Bibliothèque Wiki"))
         site = html_escape((website.name if website else "") or "")
-        contributor = html_escape((self.contributor_name or "").strip())
-        contributor_email = html_escape((self.contributor_email or "").strip())
+        if is_mod:
+            contributor = html_escape((self.pending_editor_name or "").strip())
+            contributor_email = html_escape((self.pending_editor_email or "").strip())
+            headline = _("Modifications à valider")
+            intro = _(
+                "Des modifications ont été proposées pour un article de "
+                "<strong>%s</strong>."
+            ) % gallery
+            subject = _("Wiki — Modifications à valider : %s") % title
+            summary_src = tools.html2plaintext(self.pending_text or self.text or "")
+        else:
+            contributor = html_escape((self.contributor_name or "").strip())
+            contributor_email = html_escape((self.contributor_email or "").strip())
+            headline = _("Article à valider")
+            intro = _("Un article est arrivé dans <strong>%s</strong>.") % gallery
+            subject = _("Wiki — Article à valider : %s") % title
+            summary_src = self._summary(240)
         who = contributor
         if contributor and contributor_email:
             who = f"{contributor} ({contributor_email})"
         elif contributor_email:
             who = contributor_email
-        summary = html_escape(self._summary(240))
+        summary = html_escape(
+            re.sub(r"\s+", " ", (summary_src or "").strip())[:240]
+        )
         base = (
             self.env["ir.config_parameter"].sudo().get_param("web.base.url") or ""
         ).rstrip("/")
@@ -556,7 +874,7 @@ class WikiGalleryItem(models.Model):
         who_html = (
             f'<p style="margin:0 0 12px;font-size:15px;line-height:1.55;'
             f'font-family:Arial,Helvetica,sans-serif;color:#243047;">'
-            f"Déposé par {who}.</p>"
+            f"{'Proposé par' if is_mod else 'Déposé par'} {who}.</p>"
             if who
             else ""
         )
@@ -579,13 +897,13 @@ class WikiGalleryItem(models.Model):
         <tr>
           <td style="background:{_BRAND};color:#ffffff;padding:28px 32px;">
             <p style="margin:0 0 6px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.85;font-family:Arial,Helvetica,sans-serif;">Wiki</p>
-            <h1 style="margin:0;font-size:24px;line-height:1.25;font-weight:700;">Article à valider</h1>
+            <h1 style="margin:0;font-size:24px;line-height:1.25;font-weight:700;">{html_escape(headline)}</h1>
           </td>
         </tr>
         <tr>
           <td style="padding:28px 32px;color:{_BRAND};">
             <p style="margin:0 0 14px;font-size:16px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;color:#243047;">
-              Un article est arrivé dans <strong>{gallery}</strong>.
+              {intro}
             </p>
             <h2 style="margin:0 0 14px;font-size:22px;line-height:1.3;">{html_escape(title)}</h2>
             {who_html}
@@ -607,7 +925,7 @@ class WikiGalleryItem(models.Model):
 </table>
 """.strip()
         mail_vals = {
-            "subject": _("Wiki — Article à valider : %s") % title,
+            "subject": subject,
             "email_from": email_from,
             "email_to": email_to,
             "body_html": body,
@@ -618,7 +936,8 @@ class WikiGalleryItem(models.Model):
         mail = self.env["mail.mail"].sudo().with_company(company).create(mail_vals)
         mail.send(raise_exception=True)
         _logger.info(
-            "Email de validation Wiki envoyé à %s (item %s, site %s)",
+            "Email de validation Wiki (%s) envoyé à %s (item %s, site %s)",
+            kind,
             email_to,
             self.id,
             website.id if website else None,
@@ -630,13 +949,18 @@ class WikiGalleryItem(models.Model):
         website = website or self.env["website"].get_current_website()
         domain = [
             ("website_id", "=", website.id),
-            ("state", "=", "published"),
+            ("state", "in", ["published", "modified"]),
         ]
         if gallery_id:
             domain.append(("gallery_id", "=", int(gallery_id)))
         else:
             # Sans bibliothèque sélectionnée : ne rien exposer (évite le mélange entre pages).
-            return {"items": [], "gallery_id": False}
+            return {
+                "items": [],
+                "gallery_id": False,
+                "privacy_policy_url": (website.wiki_privacy_policy_url or "").strip(),
+                "writing_help_url": (website.wiki_writing_help_url or "").strip(),
+            }
         items = self.sudo().search(domain, order="sequence, id")
         rows = []
         for item in items:
@@ -652,4 +976,9 @@ class WikiGalleryItem(models.Model):
                     "media_kind": item._media_kind(),
                 }
             )
-        return {"items": rows, "gallery_id": int(gallery_id)}
+        return {
+            "items": rows,
+            "gallery_id": int(gallery_id),
+            "privacy_policy_url": (website.wiki_privacy_policy_url or "").strip(),
+            "writing_help_url": (website.wiki_writing_help_url or "").strip(),
+        }

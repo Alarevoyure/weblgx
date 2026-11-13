@@ -53,7 +53,8 @@
             odoo.__session_info__ = weblgx_session_info;
             if (!/(^|;\s)tz=/.test(document.cookie)) {
                 const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                document.cookie = `tz=${userTZ}; path=/`;
+                const secure = (window.isSecureContext || location.protocol === 'https:') ? '; Secure' : '';
+                document.cookie = `tz=${userTZ}; path=/; SameSite=Lax${secure}`;
             }
         </script>
         <t t-call-assets="web.assets_frontend_minimal" t-css="false" defer_load="True"/>

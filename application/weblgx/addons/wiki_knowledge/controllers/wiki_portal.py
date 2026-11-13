@@ -148,7 +148,7 @@ class WikiPortal(http.Controller):
                 [("website_id", "=", website.id)],
                 self._wiki_company_domain(),
                 [
-                    ("state", "=", "published"),
+                    ("state", "in", ["published", "modified"]),
                     ("gallery_id", "!=", False),
                     ("gallery_id.active", "=", True),
                 ],
@@ -265,6 +265,7 @@ class WikiPortal(http.Controller):
         back_url = hosts.get(item.gallery_id.id) or "/wiki"
         media_kind, media_url = self._wiki_article_media(item)
         return {
+            "id": item.id,
             "name": (item.name or "").strip() or "Sans titre",
             "meta": gallery_name,
             "text": Markup(item._text_as_html() or ""),
@@ -273,6 +274,8 @@ class WikiPortal(http.Controller):
             "media_url": media_url,
             "contributor_name": (item.contributor_name or "").strip(),
             "view_count": int(item.view_count or 0),
+            "edit_url": f"/wiki/article/{int(item.id)}/edit",
+            "can_edit": item.state == "published",
             "back_url": back_url,
             "back_label": "Retour à la bibliothèque" if back_url != "/wiki" else "Retour au wiki",
         }
@@ -491,6 +494,7 @@ class WikiPortal(http.Controller):
             "wiki_search_too_short": wiki_search_too_short,
             "wiki_search_active": wiki_search_active,
             "wiki_article": wiki_article,
+            "wiki_article_edit": False,
             "main_object": main_object,
             # False : permet l'éditeur frontend du site (zone de titre / blocs).
             # Le contenu des pages wiki reste géré via le bouton « Editer » du portail.
@@ -524,6 +528,47 @@ class WikiPortal(http.Controller):
             "wiki_article": {
                 **self._wiki_article_payload(item),
                 "view_count": view_count,
+            },
+            "wiki_article_edit": False,
+            "main_object": request.website,
+            "edit_in_backend": False,
+            **layout,
+        }
+        return request.render("wiki_knowledge.wiki_portal_main", values)
+
+    @http.route(
+        "/wiki/article/<int:article_id>/edit",
+        type="http",
+        auth="public",
+        website=True,
+    )
+    def wiki_article_edit(self, article_id, **kw):
+        """Formulaire public de modification d'un article publié."""
+        item = self._wiki_visible_article(article_id)
+        if not item or item.state != "published":
+            return request.not_found()
+        pages = request.env["wiki.page"].search(self._wiki_pages_domain(), order="sequence, id")
+        layout = self._wiki_layout_settings()
+        layout["wiki_show_toc"] = False
+        layout["wiki_show_page_nav"] = False
+        payload = self._wiki_article_payload(item)
+        values = {
+            "pages": pages,
+            "current": False,
+            "current_content": "",
+            "wiki_toc_html": self._wiki_toc_html(pages, False),
+            "wiki_header_nav_items": self._wiki_header_nav_items(pages, False),
+            "wiki_can_front_edit": False,
+            "wiki_search_query": "",
+            "wiki_search_rows": [],
+            "wiki_search_too_short": False,
+            "wiki_search_active": False,
+            "wiki_article": False,
+            "wiki_article_edit": {
+                **payload,
+                "text_raw": item._text_as_html() or "",
+                "has_media": bool(item.media_filename),
+                "submit_url": f"/wiki/article/{int(item.id)}/edit/submit",
             },
             "main_object": request.website,
             "edit_in_backend": False,

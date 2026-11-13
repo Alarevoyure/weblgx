@@ -2,6 +2,9 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from . import ir_qweb_fields
+from . import blog_comment_pending
+from . import mail_message
 from . import website
 from . import website_blog
 from . import website_snippet_filter
+from . import res_config_settings

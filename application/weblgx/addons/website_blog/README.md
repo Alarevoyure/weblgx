@@ -1,91 +1,25 @@
-Weblgx Blog
------------
+# Blog
 
-Write, Design, Promote and Engage with <a href="https://www.loegaux.fr/app/blog">Weblgx Blog</a>.
+Articles de site web, isolés par site et par société (mode SaaS).
 
-Express yourself with the Weblgx enterprise grade blogging platform. Write
-beautiful blog posts, engage with visitors, translate content and moderate
-social streams.
+Chaque blog, article, étiquette et catégorie d'étiquettes appartient à un seul `website_id`. La société est celle du site. Un visiteur ne voit que le site en cours. En backend, Configuration → Blog n'affiche que le site de la société active.
 
-Get your blog posts efficiently referenced in Google and translated in mutiple
-languages in just a few clicks.
+Les pages du blog reprennent le thème du site. La couleur de marque est le bleu nuit `#16213e`, défini dans `lgx_brand_midnight`. Le bouton « Nouveau » des concepteurs reprend cette couleur.
 
-Write Beautiful Blog Posts
---------------------------
+Un concepteur du site voit ce bouton sur la page du blog. Il crée un brouillon sur le blog du site en cours et ouvre l'éditeur.
 
-Drag & Drop well designed *'Building Blocks'* to create beautifull blog posts
-that perfectly integrates images, videos, call-to-actions, quotes, banners,
-etc.
+## Commentaires
 
-With our unique *'edit inline'* approach, you don't need to be a designer to
-create awsome, good-looking, content. Each blog post will look like it's
-designed by a professional designer.
+Un visiteur non connecté laisse un commentaire avec son adresse email et son message. Un code à 6 chiffres lui est envoyé par email. Après confirmation du code, le commentaire reste masqué tant qu'un concepteur du site, membre de la société du blog, ne l'a pas validé. Sous l'article, cet administrateur voit les commentaires en attente et peut les valider ou les refuser.
 
-Automated Translation by Professionals
---------------------------------------
+## PlexiPost
 
-Get your blog posts translated in multiple languages with no effort. Our
-translation "on demand" feature allows you to benefit from professional
-translators to translate all your changes automatically. (\$0.05 per word)
-Translated versions are updated automatically once translated by professionals
-(around 32 hours).
+Chaque site a son propre Client ID, son Secret et son blog de destination. Le réglage est dans Site Web → Configuration → Paramètres, bloc PlexiPost. L'adresse du récepteur est aussi affichée sur la fiche du site.
 
-Engage With Your Visitors
--------------------------
+PlexiPost envoie un POST JSON sur https://www.exemple.fr/blog/plexipost/receive
 
-The integrated website live chat feature allows you to start chatting in real time with
-your visitors to get feedback on your recent posts or get ideas to write new
-posts.
+En-têtes : Content-Type application/json, X-Client-Id, X-Client-Secret. Un en-tête Authorization Basic avec client_id:secret est accepté à la place.
 
-Engaging with your visitors is also a great way to convert visitors into
-customers.
+Corps JSON : post_id, title, body_html, body_text, image_base64, image_mime, image_filename. title est le titre de l'article. Le texte vient de body_html, sinon de body_text. Le titre n'est pas répété dans le texte. L'image, si elle est jointe et fait moins de 4 Mo, est placée sous le texte et sert aussi de fond au titre, assombri pour garder le titre lisible. Sans published, l'article reste un brouillon. Le même post_id met à jour l'article. La réponse JSON contient id, url, published et created.
 
-Build Visitor Loyalty
----------------------
-
-The one click *follow* button will allow visitors to receive your blog posts by
-email with no effort, without having to register. Social media icons allow
-visitors to share your best blog posts easily.
-
-Google Analytics Integration
-----------------------------
-
-Get a clear visibility of your sales funnel. Weblgx's Google Analytics trackers
-are configured by default to track all kinds of events related to shopping
-carts, call-to-actions, etc.
-
-As Weblgx marketing tools (mass mailing, campaigns, etc) are also linked with
-Google Analytics, you get a 360° view of your business.
-
-SEO Optimized Blog Posts
-------------------------
-
-SEO tools are ready to use, with no configuration required. Weblgx suggests
-keywords for your titles according to Google's most searched terms, Google
-Analytics tracks interests of your visitors, sitemaps are created automatically
-for quick Google indexing, etc.
-
-The system even creates structured content automatically to promote your
-products and events effectively in Google.
-
-Designer-Friendly Themes
-------------------------
-
-Themes are awesome and easy to design. You don't need to develop to create new
-pages, themes or building blocks. We use a clean HTML structure, a
-[bootstrap](http://getbootstrap.com/) CSS and our modularity allows you to
-distribute your themes easily.
-
-The building block approach allows the website to remain clean after end-users
-start creating new contents.
-
-Easy Access Rights
-------------------
-
-Not everyone requires the same access to your website. Designers manage the
-layout of the site, editors approve content and authors write that content.
-This lets you organize your publishing process according to your needs.
-
-Other access rights are related to business objects (products, people, events,
-etc) and directly following Weblgx's standard access rights management, so you do
-not have to configure things twice.
+Licence : LGPL-3 — LOEGAUX / Ferme 201 SARL

@@ -375,6 +375,82 @@ list of filtered posts (by date or tag).
     </xpath>
 </template>
 
+<template id="blog_post_comment_moderation" inherit_id="website_blog.opt_blog_post_comment" name="Blog comment moderation">
+    <xpath expr="//div[@id='o_wblog_post_comments']/t[@t-call='portal.message_thread']" position="before">
+        <t t-call="website_blog.blog_post_comment_moderation_box"/>
+    </xpath>
+</template>
+
+<template id="blog_post_comment_anonymous" inherit_id="website_blog.opt_blog_post_comment" name="Anonymous blog comments" priority="20">
+    <xpath expr="//div[@id='o_wblog_post_comments']/div[@groups='base.group_public']" position="replace"/>
+    <xpath expr="//t[@t-call='portal.message_thread']" position="inside">
+        <t t-set="disable_composer" t-value="request.env.user._is_public()"/>
+    </xpath>
+</template>
+
+<template id="blog_post_comment_moderation_box" name="Blog comment moderation box">
+    <div groups="base.group_public" class="o_wblog_comment_public mb-4" t-att-data-post-id="blog_post.id">
+        <h5 class="mb-2">Leave a comment</h5>
+        <p class="small text-muted">
+            Enter your email address and your message. A 6-digit code will be sent to you to confirm it.
+        </p>
+        <form class="o_wblog_comment_form" novalidate="novalidate">
+            <div class="mb-3">
+                <label class="form-label" for="o_wblog_comment_email">Email address</label>
+                <input type="email" class="form-control" id="o_wblog_comment_email" name="email"
+                       maxlength="120" required="required" autocomplete="email" placeholder="you@example.com"/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="o_wblog_comment_message">Message</label>
+                <textarea class="form-control" id="o_wblog_comment_message" name="message"
+                          rows="4" maxlength="4000" required="required"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary o_wblog_comment_submit">Send</button>
+        </form>
+        <div class="o_wblog_comment_feedback mt-3" hidden="hidden" role="status"></div>
+        <div class="o_wblog_comment_verify mt-3" hidden="hidden">
+            <label class="form-label" for="o_wblog_comment_code">Validation code</label>
+            <div class="d-flex flex-wrap gap-2">
+                <input type="text" class="form-control o_wblog_comment_code" id="o_wblog_comment_code"
+                       inputmode="numeric" maxlength="6" autocomplete="one-time-code"
+                       placeholder="000000" style="max-width: 10rem;"/>
+                <button type="button" class="btn btn-primary o_wblog_comment_verify_btn">Confirm</button>
+                <button type="button" class="btn btn-link o_wblog_comment_cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <p t-if="not request.env.user._is_public() and not blog_post._user_can_moderate_comments()" class="small text-muted mb-3">
+        Your comment will appear once a blog administrator has validated it.
+    </p>
+    <div t-if="blog_post._user_can_moderate_comments() and blog_post._pending_blog_comments()" class="o_wblog_comment_moderate mb-4">
+        <h5 class="mb-3">Comments awaiting validation</h5>
+        <div t-foreach="blog_post._pending_blog_comments()" t-as="comment" class="border rounded p-3 mb-3">
+            <div class="d-flex justify-content-between align-items-start gap-3">
+                <div>
+                    <strong t-field="comment.author_id"/>
+                    <span class="text-muted small ms-2" t-if="comment.email_from" t-esc="comment.email_from"/>
+                    <span class="text-muted small ms-2" t-field="comment.date"/>
+                    <div class="mt-2" t-field="comment.body"/>
+                </div>
+                <div class="d-flex flex-shrink-0 gap-2">
+                    <form action="/blog/comment/moderate" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="message_id" t-att-value="comment.id"/>
+                        <input type="hidden" name="decision" value="approved"/>
+                        <button type="submit" class="btn btn-sm btn-primary">Validate the comment</button>
+                    </form>
+                    <form action="/blog/comment/moderate" method="post">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" name="message_id" t-att-value="comment.id"/>
+                        <input type="hidden" name="decision" value="rejected"/>
+                        <button type="submit" class="btn btn-sm btn-outline-secondary">Reject the comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
 <!-- (Option) Post: Comments: Select text to Comment
     Allow to select text to comment it
 -->

@@ -17,6 +17,10 @@ class ResConfigSettings(models.TransientModel):
         related="website_id.wiki_show_page_nav",
         readonly=False,
     )
+    wiki_show_view_count = fields.Boolean(
+        related="website_id.wiki_show_view_count",
+        readonly=False,
+    )
     wiki_show_site_header = fields.Boolean(
         related="website_id.wiki_show_site_header",
         readonly=False,
@@ -32,6 +36,36 @@ class ResConfigSettings(models.TransientModel):
     wiki_review_email = fields.Char(
         string="Email de validation des articles",
         related="website_id.wiki_review_email",
+        readonly=False,
+    )
+    wiki_privacy_policy_url = fields.Char(
+        string="URL Politique de protection des données",
+        related="website_id.wiki_privacy_policy_url",
+        readonly=False,
+    )
+    wiki_writing_help_url = fields.Char(
+        string="URL Aide à la rédaction",
+        related="website_id.wiki_writing_help_url",
+        readonly=False,
+    )
+    wiki_meta_title = fields.Char(
+        string="Meta title",
+        related="website_id.wiki_meta_title",
+        readonly=False,
+    )
+    wiki_meta_description = fields.Text(
+        string="Meta description",
+        related="website_id.wiki_meta_description",
+        readonly=False,
+    )
+    wiki_meta_keywords = fields.Char(
+        string="Meta keywords",
+        related="website_id.wiki_meta_keywords",
+        readonly=False,
+    )
+    wiki_meta_og_img = fields.Binary(
+        string="Image de partage social",
+        related="website_id.wiki_meta_og_img",
         readonly=False,
     )
 
@@ -73,10 +107,25 @@ class ResConfigSettings(models.TransientModel):
             "wiki_border_color": self.wiki_border_color,
             "wiki_show_toc": self.wiki_show_toc,
             "wiki_show_page_nav": self.wiki_show_page_nav,
+            "wiki_show_view_count": self.wiki_show_view_count,
             "wiki_show_site_header": self.wiki_show_site_header,
             "wiki_show_site_footer": self.wiki_show_site_footer,
             "wiki_show_footer": self.wiki_show_footer,
             "wiki_review_email": (self.wiki_review_email or "").strip() or False,
+            "wiki_privacy_policy_url": (
+                (self.wiki_privacy_policy_url or "").strip() or False
+            ),
+            "wiki_writing_help_url": (
+                (self.wiki_writing_help_url or "").strip() or False
+            ),
+            "wiki_meta_title": (self.wiki_meta_title or "").strip() or False,
+            "wiki_meta_description": (
+                (self.wiki_meta_description or "").strip() or False
+            ),
+            "wiki_meta_keywords": (
+                (self.wiki_meta_keywords or "").strip() or False
+            ),
+            "wiki_meta_og_img": self.wiki_meta_og_img or False,
         })
         return {
             "type": "ir.actions.client",

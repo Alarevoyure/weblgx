@@ -72,9 +72,17 @@ options.registry.BlogPostTagSelection = options.Class.extend({
 
         this.blogPostID = parseInt(this.$target[0].dataset.blogId);
         this.isEditingTags = false;
+        let tagDomain = [];
+        if (this.blogPostID) {
+            const [post] = await this.orm.read("blog.post", [this.blogPostID], ["website_id"]);
+            const websiteId = post && post.website_id && post.website_id[0];
+            if (websiteId) {
+                tagDomain = [["website_id", "=", websiteId]];
+            }
+        }
         const tags = await this.orm.searchRead(
             "blog.tag",
-            [],
+            tagDomain,
             ["id", "name", "display_name", "post_ids"]
         );
         this.allTagsByID = {};

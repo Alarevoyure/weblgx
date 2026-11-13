@@ -15,3 +15,4 @@ blog_tag_category_public,blog.tag.category,model_blog_tag_category,base.group_pu
 blog_tag_category_portal,blog.tag.category,model_blog_tag_category,base.group_portal,1,0,0,0
 blog_tag_category_employee,blog.tag.category,model_blog_tag_category,base.group_user,1,0,0,0
 blog_tag_category,blog.tag.category,model_blog_tag_category,website.group_website_designer,1,1,1,1
+blog_comment_pending_system,blog.comment.pending,model_blog_comment_pending,base.group_system,1,1,1,1
