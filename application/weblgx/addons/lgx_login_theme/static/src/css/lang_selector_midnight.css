@@ -1,0 +1,88 @@
+/**
+ * Sélecteur de langue (portal.language_selector).
+ * Force le bleu nuit au-dessus du thème Website / BS (gradients, --bs-* hérités).
+ */
+
+/* Variables du menu (BS 5) */
+#wrapwrap .js_language_selector .dropdown-menu,
+#wrapwrap li.o_header_language_selector .js_language_selector .dropdown-menu {
+  --bs-dropdown-link-color: #16213e;
+  --bs-dropdown-link-hover-color: #f8fafc;
+  --bs-dropdown-link-hover-bg: #16213e;
+  --bs-dropdown-link-active-color: #f8fafc;
+  --bs-dropdown-link-active-bg: #1b294a;
+}
+
+/* Bouton toggle */
+#wrapwrap .js_language_selector > button.dropdown-toggle,
+#wrapwrap .js_language_selector > .dropdown-toggle.btn {
+  --bs-btn-color: #16213e;
+  --bs-btn-border-color: #16213e;
+  --bs-btn-bg: transparent;
+  --bs-btn-hover-color: #f8fafc;
+  --bs-btn-hover-bg: #16213e;
+  --bs-btn-hover-border-color: #16213e;
+  --bs-btn-active-color: #f8fafc;
+  --bs-btn-active-bg: #1b294a;
+  --bs-btn-active-border-color: #1b294a;
+  color: #16213e !important;
+  border-color: #16213e !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+#wrapwrap .js_language_selector > button.dropdown-toggle:hover,
+#wrapwrap .js_language_selector > button.dropdown-toggle:focus,
+#wrapwrap .js_language_selector > .dropdown-toggle.btn:hover,
+#wrapwrap .js_language_selector > .dropdown-toggle.btn:focus {
+  color: #f8fafc !important;
+  background-color: #16213e !important;
+  background-image: none !important;
+  border-color: #16213e !important;
+}
+
+/* Entrées du menu — active/hover du thème utilise souvent gradient + forte spécificité */
+#wrapwrap .js_language_selector .dropdown-item.js_change_lang {
+  color: #16213e !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+#wrapwrap .js_language_selector .dropdown-item.js_change_lang:hover,
+#wrapwrap .js_language_selector .dropdown-item.js_change_lang:focus {
+  color: #f8fafc !important;
+  background-color: #16213e !important;
+  background-image: none !important;
+}
+
+#wrapwrap .js_language_selector .dropdown-item.js_change_lang.active,
+#wrapwrap .js_language_selector .dropdown-item.js_change_lang:active {
+  color: #f8fafc !important;
+  background-color: #1b294a !important;
+  background-image: none !important;
+}
+
+/* Variante inline */
+#wrapwrap .js_language_selector a.js_change_lang.list-inline-item {
+  padding: 0.2rem 0.45rem;
+}
+
+#wrapwrap .js_language_selector a.js_change_lang.list-inline-item:not(.active) {
+  color: #16213e !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+#wrapwrap .js_language_selector a.js_change_lang.list-inline-item:hover,
+#wrapwrap .js_language_selector a.js_change_lang.list-inline-item:focus {
+  color: #f8fafc !important;
+  background-color: #16213e !important;
+  background-image: none !important;
+}
+
+#wrapwrap .js_language_selector a.js_change_lang.list-inline-item.active,
+#wrapwrap .js_language_selector a.js_change_lang.list-inline-item:active {
+  color: #f8fafc !important;
+  background-color: #1b294a !important;
+  background-image: none !important;
+}

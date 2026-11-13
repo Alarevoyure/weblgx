@@ -25,9 +25,11 @@ lgx_auth_ldap
 lgx_auth_ldap_sync
 lgx_brand_midnight
 lgx_livechat_website
+lgx_login_theme
 lgx_notification_branding
 lgx_saas_admin
 lgx_user_prefs_hide_sales_tab
+lgx_weblgx_helpers
 lgx_website_astuce
 lgx_website_attachment_isolation
 lgx_website_bloc_de_blocs
@@ -59,10 +61,9 @@ utm
 web
 web_editor
 web_hierarchy
-web_tour
-web_unsplash
 website
 website_blog
+website_cf_turnstile
 website_event
 website_forum
 website_google_map
@@ -72,4 +73,6 @@ website_mail
 website_mail_group
 website_partner
 website_profile
+web_tour
+web_unsplash
 wiki_knowledge
