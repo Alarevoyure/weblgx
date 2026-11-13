@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <weblgx>
     <data>
-        <template id="wiki_portal_main" name="Wiki Portal">
+        <template id="wiki_portal_main" name="Wiki Portal" track="1">
             <t t-call="website.layout">
                 <t t-set="page_name">wiki</t>
                 <!-- SEO du Wiki : métadonnées uniformes du site, appliquées à
