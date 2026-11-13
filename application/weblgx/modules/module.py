@@ -393,11 +393,6 @@ def load_openerp_module(module_name):
 
     try:
         __import__(qualname)
-        weblgx.alias_module_name(qualname)
-        prefix = qualname + '.'
-        for name in list(sys.modules):
-            if name.startswith(prefix):
-                weblgx.alias_module_name(name)
 
         # Call the module's post-load hook. This can done before any model or
         # data has been initialized. This is ok as the post-load hook is for

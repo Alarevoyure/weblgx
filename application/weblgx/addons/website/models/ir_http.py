@@ -393,7 +393,7 @@ class Http(models.AbstractModel):
                     )
                     values['view'] = values['view'] and values['view'][0]
         # Needed to show reset template on translated pages (`_prepare_environment` will set it for main lang)
-        values['editable'] = request.uid and not self._is_foreign_website() and request.env.user.has_group('website.group_website_designer')
+        values['editable'] = request.uid and not request.env['ir.http']._is_foreign_website() and request.env.user.has_group('website.group_website_designer')
         return values
 
     @classmethod

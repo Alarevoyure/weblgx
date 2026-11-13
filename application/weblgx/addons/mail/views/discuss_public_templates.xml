@@ -15,7 +15,6 @@
                         debug: "<t t-out="debug"/>",
                         discuss_data: <t t-out="json.dumps(data)"/>
                     };
-                    window.weblgx = window.weblgx;
                     {
                         const { user_context,  cache_hashes } = weblgx_session_info;
                         fetch(`/web/webclient/translations/${cache_hashes.translations}?lang=${user_context.lang}`);

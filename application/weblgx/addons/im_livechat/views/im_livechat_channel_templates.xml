@@ -95,15 +95,7 @@
         <!-- the js code to initialize the LiveSupport object -->
         <template id="loader" name="Livechat : Javascript appending the livechat button">
             <t t-translation="off">
-                if (!window.weblgx) {
-                    window.weblgx = window.weblgx || {};
-                }
-                if (!window.weblgx) {
-                    window.weblgx = window.weblgx;
-                } else if (window.weblgx !== window.weblgx) {
-                    Object.assign(window.weblgx, window.weblgx);
-                    window.weblgx = window.weblgx;
-                }
+                window.weblgx = window.weblgx || {};
                 window.weblgx_session_info = Object.assign(
                     window.weblgx_session_info || window.weblgx.__session_info__ || {},
                     {
@@ -114,7 +106,6 @@
                         },
                     }
                 );
-                weblgx.__session_info__ = window.weblgx_session_info;
                 weblgx.__session_info__ = window.weblgx_session_info;
             </t>
         </template>
