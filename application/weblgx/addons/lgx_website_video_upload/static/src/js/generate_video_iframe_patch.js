@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * Prevent website's generateVideoIframe() from wiping uploaded native <video>

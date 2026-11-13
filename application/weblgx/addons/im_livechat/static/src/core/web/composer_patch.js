@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Composer } from "@mail/core/common/composer";
 

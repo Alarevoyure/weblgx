@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { getPickerCell, zoomOut } from "@web/../tests/core/datetime/datetime_test_helpers";
 import {

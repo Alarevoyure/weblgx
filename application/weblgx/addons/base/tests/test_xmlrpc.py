@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import collections
 import time
 from xmlrpc.client import Binary
 
-from odoo.exceptions import AccessDenied, AccessError
-from odoo.http import _request_stack
+from weblgx.exceptions import AccessDenied, AccessError
+from weblgx.http import _request_stack
 
-import odoo
-import odoo.tools
-from odoo.tests import common
-from odoo.service import common as auth, model
-from odoo.tools import DotDict
+import weblgx
+import weblgx.tools
+from weblgx.tests import common
+from weblgx.service import common as auth, model
+from weblgx.tools import DotDict
 
 
 @common.tagged('post_install', '-at_install')
@@ -81,7 +81,7 @@ class TestXMLRPC(common.HttpCase):
         works properly over XMLRPC
         """
         self.patch(self.registry['res.users'], 'context_get',
-                   odoo.api.model(lambda *_: collections.defaultdict(int)))
+                   weblgx.api.model(lambda *_: collections.defaultdict(int)))
         self.assertEqual(self.xmlrpc('res.users', 'context_get'), {})
 
     def test_xmlrpc_remove_control_characters(self):
@@ -108,7 +108,7 @@ class TestXMLRPC(common.HttpCase):
         )
 
     def _json_call(self, *args):
-        self.opener.post("http://%s:%s/jsonrpc" % (common.HOST, odoo.tools.config['http_port']), json={
+        self.opener.post("http://%s:%s/jsonrpc" % (common.HOST, weblgx.tools.config['http_port']), json={
             'jsonrpc': '2.0',
             'id': None,
             'method': 'call',

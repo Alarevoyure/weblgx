@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { parseXML } from "@web/core/utils/xml";
 
 QUnit.module("utils", () => {

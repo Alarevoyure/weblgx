@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { registry } from "@web/core/registry";
 
@@ -8,7 +8,7 @@ export class GifPickerService {
     hasGifPickerFeature = false;
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -25,7 +25,7 @@ export class GifPickerService {
 export const gifPickerService = {
     dependencies: ["mail.messaging"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 import random
 
-from odoo import api, models, fields, _
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.website.tools import text_from_html
-from odoo.exceptions import UserError, ValidationError
-from odoo.http import request
-from odoo.osv import expression
-from odoo.tools.json import scriptsafe as json_scriptsafe
-from odoo.tools.translate import html_translate
+from weblgx import api, models, fields, _
+from weblgx.addons.http_routing.models.ir_http import slug, unslug
+from weblgx.addons.website.tools import text_from_html
+from weblgx.exceptions import UserError, ValidationError
+from weblgx.http import request
+from weblgx.osv import expression
+from weblgx.tools.json import scriptsafe as json_scriptsafe
+from weblgx.tools.translate import html_translate
 
 
 def blog_selected_site_domain(records):

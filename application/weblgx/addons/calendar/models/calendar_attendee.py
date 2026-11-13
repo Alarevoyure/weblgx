@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import uuid
 import base64
 import logging
 
 from collections import defaultdict
-from odoo import api, fields, models, _
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.exceptions import UserError
-from odoo.tools.misc import clean_context
-from odoo.tools import split_every
+from weblgx import api, fields, models, _
+from weblgx.addons.base.models.res_partner import _tz_get
+from weblgx.exceptions import UserError
+from weblgx.tools.misc import clean_context
+from weblgx.tools import split_every
 
 _logger = logging.getLogger(__name__)
 

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Domain } from "@web/core/domain";
 import { DataPoint } from "./datapoint";

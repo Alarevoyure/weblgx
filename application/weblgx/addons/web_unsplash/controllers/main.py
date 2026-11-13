@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 import mimetypes
@@ -7,11 +7,11 @@ import requests
 import werkzeug.utils
 from werkzeug.urls import url_encode
 
-from odoo import http, tools, _
-from odoo.http import request
-from odoo.tools.mimetypes import guess_mimetype
+from weblgx import http, tools, _
+from weblgx.http import request
+from weblgx.tools.mimetypes import guess_mimetype
 
-from odoo.addons.web_editor.controllers.main import Web_Editor
+from weblgx.addons.web_editor.controllers.main import Web_Editor
 
 logger = logging.getLogger(__name__)
 

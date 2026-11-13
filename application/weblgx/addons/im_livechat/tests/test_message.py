@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from markupsafe import Markup
 
-from odoo import Command
-from odoo.exceptions import AccessError
-from odoo.tests.common import users, tagged
-from odoo.addons.im_livechat.tests.chatbot_common import ChatbotCase
+from weblgx import Command
+from weblgx.exceptions import AccessError
+from weblgx.tests.common import users, tagged
+from weblgx.addons.im_livechat.tests.chatbot_common import ChatbotCase
 
 
 @tagged('post_install', '-at_install')
@@ -22,7 +22,7 @@ class TestImLivechatMessage(ChatbotCase):
                 'password': self.password,
                 'name': 'Ernest Employee',
                 'notification_type': 'inbox',
-                'odoobot_state': 'disabled',
+                'weblgxbot_state': 'disabled',
                 'signature': '--\nErnest',
             },
             {'name': 'test1', 'login': 'test1', 'password': self.password, 'email': 'test1@example.com', 'livechat_username': 'chuck'},

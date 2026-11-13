@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { sortBy } from "@web/core/utils/arrays";
@@ -9,7 +9,7 @@ import { CheckboxItem } from "@web/core/dropdown/checkbox_item";
 import { getIntervalOptions } from "@web/search/utils/dates";
 import { FACET_ICONS, GROUPABLE_TYPES } from "@web/search/utils/misc";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class PivotGroupByMenu extends Component {
     setup() {

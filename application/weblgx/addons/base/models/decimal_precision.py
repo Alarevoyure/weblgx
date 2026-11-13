@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, tools, _
-import odoo.addons
+from weblgx import api, fields, models, tools, _
+import weblgx.addons
 
 import logging
 import sys
@@ -67,7 +67,7 @@ class DecimalPrecision(models.Model):
             }
 
 # compatibility for decimal_precision.get_precision(): expose the module in addons namespace
-dp = sys.modules['odoo.addons.base.models.decimal_precision']
-odoo.addons.decimal_precision = dp
-sys.modules['odoo.addons.decimal_precision'] = dp
+dp = sys.modules['weblgx.addons.base.models.decimal_precision']
+weblgx.addons.decimal_precision = dp
+sys.modules['weblgx.addons.decimal_precision'] = dp
 sys.modules['openerp.addons.decimal_precision'] = dp

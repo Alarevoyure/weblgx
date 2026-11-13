@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <!--
 TODO this is apparently dead code: when converted to ir.asset in version 14.x,
@@ -479,4 +479,4 @@ To remove in master. It was compatibility code meant to be removed now anyway.
     <field name="active" eval="False"/>
 </record>
 
-</odoo>
+</weblgx>

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 // -----------------------------------------------------------------------------
 // Cleanup
@@ -20,7 +20,7 @@ export function registerCleanup(callback) {
 }
 
 if (window.QUnit) {
-    QUnit.on("OdooAfterTestHook", (info) => {
+    QUnit.on("WeblgxAfterTestHook", (info) => {
         if (QUnit.config.debug) {
             return;
         }
@@ -81,7 +81,7 @@ if (window.QUnit) {
      * As a payload, an object with keys 'moduleName' and 'testName' is provided. It
      * is used to indicate the test that left elements in the DOM, when it happens.
      */
-    QUnit.on("OdooAfterTestHook", function (info) {
+    QUnit.on("WeblgxAfterTestHook", function (info) {
         if (QUnit.config.debug) {
             return;
         }

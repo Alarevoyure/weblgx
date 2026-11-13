@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { browser } from "@web/core/browser/browser";
 import { fieldService } from "@web/core/field_service";
 import { hotkeyService } from "@web/core/hotkeys/hotkey_service";

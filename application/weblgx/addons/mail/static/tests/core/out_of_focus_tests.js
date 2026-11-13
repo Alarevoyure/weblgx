@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { makeFakePresenceService } from "@bus/../tests/helpers/mock_services";
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
@@ -15,7 +15,7 @@ QUnit.test("Spaces in notifications are not encoded", async () => {
     const channel = pyEnv["discuss.channel"].searchRead([["id", "=", channelId]])[0];
     const { openDiscuss } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isWeblgxFocused: () => false }),
         },
     });
     await openDiscuss();

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {CheckBox} from '@web/core/checkbox/checkbox';
 import { _t } from "@web/core/l10n/translation";
@@ -7,7 +7,7 @@ import {sprintf} from "@web/core/utils/strings";
 import {WebsiteDialog} from './dialog';
 import {FormViewDialog} from "@web/views/view_dialogs/form_view_dialog";
 import { renderToFragment } from "@web/core/utils/render";
-import { Component, useEffect, useState, xml, useRef, onMounted } from "@odoo/owl";
+import { Component, useEffect, useState, xml, useRef, onMounted } from "@weblgx/owl";
 
 export class PageDependencies extends Component {
     setup() {

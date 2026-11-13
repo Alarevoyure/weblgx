@@ -37,7 +37,7 @@
     }]
   },
   "globals": {
-    "odoo": "readonly",
+    "weblgx": "readonly",
     "$": "readonly",
     "jQuery": "readonly",
     "Chart": "readonly",

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="bloc_de_blocs_snippets" inherit_id="website.snippets" name="Bloc de blocs Snippets">
     <xpath expr="//t[@t-snippet='website.s_three_columns']" position="after">
@@ -11,4 +11,4 @@
     </xpath>
 </template>
 
-</odoo>
+</weblgx>

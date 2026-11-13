@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeContext } from "@web/core/context";
 import { _t } from "@web/core/l10n/translation";

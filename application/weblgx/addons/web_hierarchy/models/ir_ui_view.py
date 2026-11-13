@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from lxml import etree
 
-from odoo import fields, models, _
+from weblgx import fields, models, _
 
 HIERARCHY_VALID_ATTRIBUTES = {
     '__validate__',                     # ir.ui.view implementation detail

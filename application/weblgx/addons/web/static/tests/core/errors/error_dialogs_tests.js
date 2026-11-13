@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import {
@@ -175,7 +175,7 @@ QUnit.test("WarningDialog", async (assert) => {
     await mount(WarningDialog, target, {
         env,
         props: {
-            exceptionName: "odoo.exceptions.UserError",
+            exceptionName: "weblgx.exceptions.UserError",
             message: "...",
             data: { arguments: ["Some strange unreadable message"] },
             close() {},

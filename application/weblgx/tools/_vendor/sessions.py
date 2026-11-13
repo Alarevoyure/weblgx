@@ -21,7 +21,7 @@ import re
 import tempfile
 from hashlib import sha1
 from os import path, replace as rename
-from odoo.tools.misc import pickle
+from weblgx.tools.misc import pickle
 from time import time
 
 from werkzeug.datastructures import CallbackDict

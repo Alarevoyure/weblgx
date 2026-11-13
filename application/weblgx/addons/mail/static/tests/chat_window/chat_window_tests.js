@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -79,7 +79,7 @@ QUnit.test("Message post in chat window of chatter should log a note", async () 
     const messageId = pyEnv["mail.message"].create({
         model: "res.partner",
         body: "A needaction message to have it in messaging menu",
-        author_id: pyEnv.odoobotId,
+        author_id: pyEnv.weblgxbotId,
         needaction: true,
         needaction_partner_ids: [pyEnv.currentPartnerId],
         res_id: partnerId,
@@ -118,7 +118,7 @@ QUnit.test("Chatter in chat window should scroll to most recent message", async 
             .map((_, index) => ({
                 model: "res.partner",
                 body: "Non Empty Body ".repeat(25),
-                author_id: pyEnv.odoobotId,
+                author_id: pyEnv.weblgxbotId,
                 needaction: true,
                 needaction_partner_ids: [pyEnv.currentPartnerId],
                 res_id: partnerId,
@@ -127,7 +127,7 @@ QUnit.test("Chatter in chat window should scroll to most recent message", async 
     const lastMessageId = pyEnv["mail.message"].create({
         model: "res.partner",
         body: "A needaction message to have it in messaging menu",
-        author_id: pyEnv.odoobotId,
+        author_id: pyEnv.weblgxbotId,
         needaction: true,
         needaction_partner_ids: [pyEnv.currentPartnerId],
         res_id: partnerId,
@@ -349,7 +349,7 @@ QUnit.test(
     async () => {
         const pyEnv = await startServer();
         const partnerId = pyEnv["res.partner"].create({
-            email: "testpartner@odoo.com",
+            email: "testpartner@weblgx.com",
             name: "TestPartner",
         });
         pyEnv["res.users"].create({ partner_id: partnerId });
@@ -825,13 +825,13 @@ QUnit.test("chat window should open when receiving a new DM", async () => {
     await contains(".o-mail-ChatWindow");
 });
 
-QUnit.test("chat window should not open when receiving a new DM from odoobot", async () => {
+QUnit.test("chat window should not open when receiving a new DM from weblgxbot", async () => {
     const pyEnv = await startServer();
-    const userId = pyEnv["res.users"].create({ partner_id: pyEnv.odoobotId });
+    const userId = pyEnv["res.users"].create({ partner_id: pyEnv.weblgxbotId });
     const channelId = pyEnv["discuss.channel"].create({
         channel_member_ids: [
             Command.create({ is_pinned: false, partner_id: pyEnv.currentPartnerId }),
-            Command.create({ partner_id: pyEnv.odoobotId }),
+            Command.create({ partner_id: pyEnv.weblgxbotId }),
         ],
         channel_type: "chat",
     });

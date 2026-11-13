@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 import { _t } from "@web/core/l10n/translation";
 import { utils } from "@web/core/ui/ui_service";
 import { _legacyIsVisible } from "@web/core/utils/ui";

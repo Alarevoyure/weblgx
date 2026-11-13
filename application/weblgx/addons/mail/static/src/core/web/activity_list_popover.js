@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ActivityListPopoverItem } from "@mail/core/web/activity_list_popover_item";
 
-import { Component, onWillUpdateProps, useState } from "@odoo/owl";
+import { Component, onWillUpdateProps, useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 

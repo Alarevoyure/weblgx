@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import {
     onMounted,
@@ -9,7 +9,7 @@ import {
     useEffect,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { useService } from "@web/core/utils/hooks";

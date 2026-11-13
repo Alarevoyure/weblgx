@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { busParametersService } from "@bus/bus_parameters_service";
 import { busService } from "@bus/services/bus_service";

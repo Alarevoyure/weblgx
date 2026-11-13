@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { assignDefined } from "@mail/utils/common/misc";
 

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, onPatched, useState } from "@odoo/owl";
+import { Component, onPatched, useState } from "@weblgx/owl";
 
 export const ACCORDION = Symbol("Accordion");
 export class AccordionItem extends Component {

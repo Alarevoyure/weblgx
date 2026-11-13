@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { isBrowserFirefox, isBrowserChrome } from "@web/core/browser/feature_detection";
 import { browser } from "../browser/browser";
@@ -110,7 +110,7 @@ export const errorService = {
                 // Firefox doesn't hide details of errors occuring in third-party scripts, check origin explicitly
                 (isBrowserFirefox() && new URL(filename).origin !== window.location.origin);
             // Don't display error dialogs for third party script errors unless we are in debug mode
-            if (isThirdPartyScriptError && !odoo.debug) {
+            if (isThirdPartyScriptError && !weblgx.debug) {
                 return;
             }
             let uncaughtError;
@@ -166,7 +166,7 @@ export const errorService = {
                 // to have extension's errors in the main business page.
                 // We want to ignore those errors as they are not produced by us, and are parasiting
                 // the navigation. We do this according to the heuristic expressed in the if.
-                if (!odoo.debug) {
+                if (!weblgx.debug) {
                     return;
                 }
                 traceback =

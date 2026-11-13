@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { radioField, RadioField } from "@web/views/fields/radio/radio_field";

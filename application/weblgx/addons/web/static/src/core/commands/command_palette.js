@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
@@ -20,7 +20,7 @@ import {
     useState,
     markRaw,
     useExternalListener,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 const DEFAULT_PLACEHOLDER = _t("Search...");
 const DEFAULT_EMPTY_MESSAGE = _t("No result found");

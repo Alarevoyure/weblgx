@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 
@@ -7,16 +7,16 @@ from werkzeug.test import EnvironBuilder
 from werkzeug.urls import url_encode
 
 from unittest.mock import patch, Mock
-from odoo import tests
-from odoo.addons.website.controllers.main import Website
-from odoo.addons.website.tools import MockRequest
-from odoo.tools import mute_logger, submap
+from weblgx import tests
+from weblgx.addons.website.controllers.main import Website
+from weblgx.addons.website.tools import MockRequest
+from weblgx.tools import mute_logger, submap
 
 
 @tests.tagged('post_install', '-at_install')
 class TestControllers(tests.HttpCase):
 
-    @mute_logger('odoo.addons.http_routing.models.ir_http', 'odoo.http')
+    @mute_logger('weblgx.addons.http_routing.models.ir_http', 'weblgx.http')
     def test_last_created_pages_autocompletion(self):
         self.authenticate("admin", "admin")
         Page = self.env['website.page']

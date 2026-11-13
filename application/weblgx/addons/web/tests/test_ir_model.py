@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests.common import TransactionCase
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx.tests.common import TransactionCase
 
-from odoo.tests import tagged
-from odoo.tests.common import new_test_user
+from weblgx.tests import tagged
+from weblgx.tests.common import new_test_user
 
 
 @tagged("post_install", "-at_install")

@@ -1,6 +1,6 @@
 /**
  *------------------------------------------------------------------------------
- * Odoo Web Boostrap Code
+ * Web@LGX Web Boostrap Code
  *------------------------------------------------------------------------------
  */
 (function () {
@@ -40,7 +40,7 @@
                 this.factories.set(name, {
                     deps,
                     fn: factory,
-                    ignoreMissingDeps: globalThis.__odooIgnoreMissingDependencies,
+                    ignoreMissingDeps: globalThis.__weblgxIgnoreMissingDependencies,
                 });
                 this.addJob(name);
                 this.checkErrorProm ||= Promise.resolve().then(() => {
@@ -186,27 +186,14 @@
         }
     }
 
-    if (!globalThis.weblgx) {
-        globalThis.weblgx = globalThis.odoo || {};
-    }
-    if (!globalThis.odoo) {
-        globalThis.odoo = globalThis.weblgx;
-    } else if (globalThis.odoo !== globalThis.weblgx) {
-        // Fusionner si les deux existent déjà (ordre de boot inhabituel).
-        Object.assign(globalThis.weblgx, globalThis.odoo);
-        globalThis.odoo = globalThis.weblgx;
-    }
-    const odoo = globalThis.odoo;
+    globalThis.weblgx = globalThis.weblgx || {};
     const weblgx = globalThis.weblgx;
-    if (odoo.debug && !new URLSearchParams(location.search).has("debug")) {
+    if (weblgx.debug && !new URLSearchParams(location.search).has("debug")) {
         // remove debug mode if not explicitely set in url
-        odoo.debug = "";
+        weblgx.debug = "";
     }
 
     const loader = new ModuleLoader();
-    odoo.define = loader.define.bind(loader);
-    weblgx.define = odoo.define;
-
-    odoo.loader = loader;
+    weblgx.define = loader.define.bind(loader);
     weblgx.loader = loader;
 })();

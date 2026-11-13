@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { cleanTerm } from "@mail/utils/common/format";
 
@@ -12,7 +12,7 @@ export class Messaging {
     }
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     setup(env, services) {
@@ -76,7 +76,7 @@ export class Messaging {
                 type: "guest",
             };
         }
-        this.store.odoobot = { ...data.odoobot, type: "partner" };
+        this.store.weblgxbot = { ...data.weblgxbot, type: "partner" };
         const settings = data.current_user_settings;
         this.userSettingsService.updateFromCommands(settings);
         this.userSettingsService.id = settings.id;
@@ -98,7 +98,7 @@ export class Messaging {
         this.store.CannedResponse.insert(data.shortcodes ?? []);
         this.store.hasLinkPreviewFeature = data.hasLinkPreviewFeature;
         this.store.initBusId = data.initBusId;
-        this.store.odoobotOnboarding = data.odoobotOnboarding;
+        this.store.weblgxbotOnboarding = data.weblgxbotOnboarding;
         this.isReady.resolve(data);
         this.store.isMessagingReady = true;
         this.store.hasMessageTranslationFeature = data.hasMessageTranslationFeature;
@@ -133,7 +133,7 @@ export class Messaging {
             if (
                 partner.name &&
                 cleanTerm(partner.name).includes(searchTerm) &&
-                ((partner.active && partner.user) || partner === this.store.odoobot)
+                ((partner.active && partner.user) || partner === this.store.weblgxbot)
             ) {
                 partners.push(partner);
                 if (partners.length >= limit) {
@@ -176,7 +176,7 @@ export const messagingService = {
         "mail.persona", // FIXME: still necessary until insert is managed by this service
     ],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

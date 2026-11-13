@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 const { DateTime } = luxon;
 

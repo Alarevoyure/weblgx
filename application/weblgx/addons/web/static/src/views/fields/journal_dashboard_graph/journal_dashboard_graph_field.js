@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { loadBundle } from "@web/core/assets";
 import { registry } from "@web/core/registry";
 import { getColor, hexToRGBA } from "@web/core/colors/colors";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, onWillStart, useEffect, useRef } from "@odoo/owl";
+import { Component, onWillStart, useEffect, useRef } from "@weblgx/owl";
 import { cookie } from "@web/core/browser/cookie";
 
 export class JournalDashboardGraphField extends Component {

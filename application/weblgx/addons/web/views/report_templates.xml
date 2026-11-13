@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
     <!-- Private templates used internally by reports -->
 
@@ -820,4 +820,4 @@
         <field name="binding_model_id" ref="model_res_company"/>
         <field name="binding_type">report</field>
     </record>
-</odoo>
+</weblgx>

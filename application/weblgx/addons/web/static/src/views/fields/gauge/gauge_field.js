@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { loadBundle } from "@web/core/assets";
@@ -6,7 +6,7 @@ import { registry } from "@web/core/registry";
 import { formatFloat } from "@web/views/fields/formatters";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 
-import { Component, onWillStart, useEffect, useRef } from "@odoo/owl";
+import { Component, onWillStart, useEffect, useRef } from "@weblgx/owl";
 
 export class GaugeField extends Component {
     setup() {

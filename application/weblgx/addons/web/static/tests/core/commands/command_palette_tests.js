@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { CommandPalette } from "@web/core/commands/command_palette";
@@ -19,7 +19,7 @@ import {
 } from "../../helpers/utils";
 import { backspaceSearchBar, editSearchBar } from "./command_service_tests";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 let env;
 let target;
@@ -1559,7 +1559,7 @@ QUnit.test("checks that href is correctly used", async (assert) => {
                     action: () => {
                         assert.step("command_with_link_clicked");
                     },
-                    href: "https://www.odoo.com",
+                    href: "https://www.weblgx.com",
                 },
                 {
                     name: "Command without link",
@@ -1581,11 +1581,11 @@ QUnit.test("checks that href is correctly used", async (assert) => {
     await editSearchBar("@");
     const command = target.querySelector(".o_command_palette .o_command");
     // Check that command has link inside it
-    assert.strictEqual(command.querySelector("a").getAttribute("href"), "https://www.odoo.com");
+    assert.strictEqual(command.querySelector("a").getAttribute("href"), "https://www.weblgx.com");
     // Check that we get url when doing ctrl+enter on a command having a link inside it
     triggerHotkey("control+enter");
     await nextTick();
-    assert.verifySteps(["https://www.odoo.com"]);
+    assert.verifySteps(["https://www.weblgx.com"]);
     // Check that command has no link inside it
     const commandWithoutLink = target.querySelector(".o_command_palette .o_command:nth-child(2)");
     assert.strictEqual(commandWithoutLink.querySelector("a").getAttribute("href"), null);

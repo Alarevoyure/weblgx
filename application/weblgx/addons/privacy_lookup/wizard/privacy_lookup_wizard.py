@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import UserError
-from odoo.tools import pycompat
+from weblgx import api, fields, models, tools, _
+from weblgx.exceptions import UserError
+from weblgx.tools import pycompat
 
 
 class PrivacyLookupWizard(models.TransientModel):

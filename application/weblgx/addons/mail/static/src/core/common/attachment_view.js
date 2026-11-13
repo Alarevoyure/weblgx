@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { Component, onWillUpdateProps, useEffect, useRef, useState } from "@odoo/owl";
+import { Component, onWillUpdateProps, useEffect, useRef, useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 import { hidePDFJSButtons } from "@web/libs/pdfjs";

@@ -33,17 +33,17 @@ const WikiTocSnippet = publicWidget.Widget.extend({
         }
         try {
             const res = await jsonrpc("/wiki/api/toc", {});
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             if (res && res.border_color) {
                 this.el.style.setProperty("--wiki-border-color", res.border_color);
             }
             tree.innerHTML = (res && res.html) || "<p class=\"text-muted mb-0\">Aucune page wiki.</p>";
             this._initTocBranches();
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         } catch {
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             tree.innerHTML = "<p class=\"text-muted mb-0\">Sommaire indisponible.</p>";
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         }
     },
 

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -23,11 +23,11 @@ QUnit.module("suggestion", {
 QUnit.test('display partner mention suggestions on typing "@"', async () => {
     const pyEnv = await startServer();
     const partnerId_1 = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     const partnerId_2 = pyEnv["res.partner"].create({
-        email: "testpartner2@odoo.com",
+        email: "testpartner2@weblgx.com",
         name: "TestPartner2",
     });
     pyEnv["res.users"].create({ partner_id: partnerId_1 });
@@ -50,11 +50,11 @@ QUnit.test(
     async () => {
         const pyEnv = await startServer();
         const partnerId_1 = pyEnv["res.partner"].create({
-            email: "testpartner@odoo.com",
+            email: "testpartner@weblgx.com",
             name: "TestPartner",
         });
         const partnerId_2 = pyEnv["res.partner"].create({
-            email: "testpartner2@odoo.com",
+            email: "testpartner2@weblgx.com",
             name: "TestPartner2",
         });
         pyEnv["res.users"].create({ partner_id: partnerId_1 });
@@ -89,7 +89,7 @@ QUnit.test('display partner mention suggestions on typing "@" in chatter', async
 QUnit.test("show other channel member in @ mention", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     const channelId = pyEnv["discuss.channel"].create({
@@ -108,7 +108,7 @@ QUnit.test("show other channel member in @ mention", async () => {
 QUnit.test("select @ mention insert mention text in composer", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     const channelId = pyEnv["discuss.channel"].create({
@@ -128,7 +128,7 @@ QUnit.test("select @ mention insert mention text in composer", async () => {
 QUnit.test("select @ mention closes suggestions", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     const channelId = pyEnv["discuss.channel"].create({

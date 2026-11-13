@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 export function getTooltipInfo(params) {
     let widgetDescription = undefined;
@@ -9,7 +9,7 @@ export function getTooltipInfo(params) {
     const info = {
         viewMode: params.viewMode,
         resModel: params.resModel,
-        debug: Boolean(odoo.debug),
+        debug: Boolean(weblgx.debug),
         field: {
             name: params.field.name,
             label: params.field.string,

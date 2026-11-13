@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { formView } from "@web/views/form/form_view";
 import { registry } from "@web/core/registry";
-import { toRaw } from "@odoo/owl";
+import { toRaw } from "@weblgx/owl";
 
 export class MailComposerFormController extends formView.Controller {
     setup() {

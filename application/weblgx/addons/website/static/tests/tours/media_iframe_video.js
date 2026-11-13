@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 import wTourUtils from '@website/js/tours/tour_utils';
 
 wTourUtils.registerWebsitePreviewTour(
@@ -23,7 +23,7 @@ wTourUtils.registerWebsitePreviewTour(
         {
             content: "Enter the url",
             trigger: "input[placeholder='www.example.com']",
-            run: "text odoo.com",
+            run: "text weblgx.com",
         },
         {
             content: "Click on replace media",

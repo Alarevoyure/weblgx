@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <!-- Group multi website -->
     <record id="group_multi_website" model="res.groups">
         <field name="name">Multi-website</field>
@@ -530,4 +530,4 @@
             <field name="user_id" ref="base.public_user"/>
         </record>
     </data>
-</odoo>
+</weblgx>

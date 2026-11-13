@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import * as OdooEditorLib from "@web_editor/js/editor/odoo-editor/src/OdooEditor";
+import * as WeblgxEditorLib from "@web_editor/js/editor/weblgx-editor/src/WeblgxEditor";
 import { _t } from "@web/core/l10n/translation";
 import { isVisible } from "@web/core/utils/ui";
 import weUtils from "@web_editor/js/common/utils";
@@ -12,10 +12,10 @@ import {
     onWillDestroy,
     useState,
     useRef,
-} from "@odoo/owl";
-import { deduceURLfromText } from "@web_editor/js/editor/odoo-editor/src/utils/sanitize";
+} from "@weblgx/owl";
+import { deduceURLfromText } from "@web_editor/js/editor/weblgx-editor/src/utils/sanitize";
 
-const { getDeepRange, getInSelection, EMAIL_REGEX, PHONE_REGEX } = OdooEditorLib;
+const { getDeepRange, getInSelection, EMAIL_REGEX, PHONE_REGEX } = WeblgxEditorLib;
 
 /**
  * Allows to customize link content and style.
@@ -582,7 +582,7 @@ export class Link extends Component {
         }
 
         if (this.state.range) {
-            this.$link = this.$link || $(OdooEditorLib.getInSelection(this.editable.ownerDocument, 'a'));
+            this.$link = this.$link || $(WeblgxEditorLib.getInSelection(this.editable.ownerDocument, 'a'));
             this.linkEl = this.$link[0];
             this.state.iniClassName = this.$link.attr('class') || '';
             this.colorCombinationClass = false;

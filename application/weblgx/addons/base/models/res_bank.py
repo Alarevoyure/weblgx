@@ -4,10 +4,10 @@ import re
 
 from collections.abc import Iterable
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.tools.misc import clean_context
+from weblgx import api, fields, models, _
+from weblgx.exceptions import UserError
+from weblgx.osv import expression
+from weblgx.tools.misc import clean_context
 
 def sanitize_account_number(acc_number):
     if acc_number:

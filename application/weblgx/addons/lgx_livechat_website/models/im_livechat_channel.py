@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from weblgx import _, api, fields, models
+from weblgx.exceptions import ValidationError
 
 
 class ImLivechatChannel(models.Model):

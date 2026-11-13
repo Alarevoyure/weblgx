@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { uuid } from "../../utils";
 
-import { Component, useState, useRef, useEffect } from "@odoo/owl";
+import { Component, useState, useRef, useEffect } from "@weblgx/owl";
 import { useSortable } from "@web/core/utils/sortable_owl";
 
 export class PropertyDefinitionSelection extends Component {

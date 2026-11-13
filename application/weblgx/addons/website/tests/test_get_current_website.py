@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import json
 
-from odoo.addons.website.tools import MockRequest
-from odoo.tests import tagged
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+from weblgx.addons.website.tools import MockRequest
+from weblgx.tests import tagged
+from weblgx.addons.base.tests.common import HttpCaseWithUserDemo
 
 
 @tagged('post_install', '-at_install')

@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 
 from datetime import datetime, timedelta
 from freezegun import freeze_time
 
-from odoo.tests import HttpCase, tagged, new_test_user
+from weblgx.tests import HttpCase, tagged, new_test_user
 from ..models.bus_presence import PRESENCE_OUTDATED_TIMER
-from odoo.addons.bus.models.bus import channel_with_db, json_dump
+from weblgx.addons.bus.models.bus import channel_with_db, json_dump
 
 
 @tagged("-at_install", "post_install")

@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { BarcodeScanner } from "@barcodes/components/barcode_scanner";
 import { getFixture, mount } from "@web/../tests/helpers/utils";
 import { contains } from "@web/../tests/utils";
 import { createWebClient } from "@web/../tests/webclient/helpers";
 
-import { xml, Component } from "@odoo/owl";
+import { xml, Component } from "@weblgx/owl";
 
 QUnit.module("Barcode scan", {});
 

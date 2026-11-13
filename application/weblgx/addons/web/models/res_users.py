@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models
-from odoo.osv import expression
+from weblgx import api, models
+from weblgx.osv import expression
 
 
 class ResUsers(models.Model):

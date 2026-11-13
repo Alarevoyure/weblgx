@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { Component, useRef, useState, onWillUpdateProps, onMounted } from "@odoo/owl";
+import { Component, useRef, useState, onWillUpdateProps, onMounted } from "@weblgx/owl";
 
 import { useAutoresize } from "@web/core/utils/autoresize";
 

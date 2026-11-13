@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 import { ViewButton } from "@web/views/view_button/view_button";
 import { useViewButtons } from "@web/views/view_button/view_button_hook";
 import { setupViewRegistries } from "./helpers";
@@ -8,7 +8,7 @@ import { registry } from "@web/core/registry";
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 
-import { useRef, Component, xml } from "@odoo/owl";
+import { useRef, Component, xml } from "@weblgx/owl";
 
 QUnit.module("UseViewButton tests", (hooks) => {
     let target;

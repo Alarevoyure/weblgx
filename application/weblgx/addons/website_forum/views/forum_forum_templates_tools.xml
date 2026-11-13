@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
 
 <!-- TOOLS / UTILS -->
@@ -166,4 +166,4 @@
     </div>
 </template>
     </data>
-</odoo>
+</weblgx>

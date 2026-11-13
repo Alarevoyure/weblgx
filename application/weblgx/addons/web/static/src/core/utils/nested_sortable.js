@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { localization } from "@web/core/l10n/localization";
 import { makeDraggableHook } from "@web/core/utils/draggable_hook_builder_owl";

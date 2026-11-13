@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import collections
@@ -16,9 +16,9 @@ from lxml import etree
 from random import randint
 from werkzeug import urls
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _, Command
-from odoo.osv.expression import get_unaccent_wrapper
-from odoo.exceptions import RedirectWarning, UserError, ValidationError
+from weblgx import api, fields, models, tools, SUPERUSER_ID, _, Command
+from weblgx.osv.expression import get_unaccent_wrapper
+from weblgx.exceptions import RedirectWarning, UserError, ValidationError
 
 # Global variables used for the warning fields declared on the res.partner
 # in the following modules : sale, purchase, account, stock
@@ -542,7 +542,7 @@ class Partner(models.Model):
             emails_normalized = tools.email_normalize_all(partner.email)
             if emails_normalized:
                 # note: multi-email input leads to invalid email like "Name" <email1, email2>
-                # but this is current behavior in Odoo 14+ and some servers allow it
+                # but this is current behavior in Web@LGX 14+ and some servers allow it
                 partner.email_formatted = tools.formataddr((
                     partner.name or u"False",
                     ','.join(emails_normalized)
@@ -722,7 +722,7 @@ class Partner(models.Model):
             # DLE: It should not be necessary to modify this to make work the ORM. The problem was just the recompute
             # of partner.user_ids when you create a new user for this partner, see test test_70_archive_internal_partners
             # You modified it in a previous commit, see original commit of this:
-            # https://github.com/odoo/odoo/commit/9d7226371730e73c296bcc68eb1f856f82b0b4ed
+            # https://github.com/weblgx/weblgx/commit/9d7226371730e73c296bcc68eb1f856f82b0b4ed
             #
             # RCO: when creating a user for partner, the user is automatically added in partner.user_ids.
             # This is wrong if the user is not active, as partner.user_ids only returns active users.

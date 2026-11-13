@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { CalendarYearRenderer } from "@web/views/calendar/calendar_year/calendar_year_renderer";

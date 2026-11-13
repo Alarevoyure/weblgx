@@ -6,9 +6,9 @@ import itertools
 import logging
 import re
 
-from odoo.tools.translate import _
-from odoo.tools import SKIPPED_ELEMENT_TYPES, html_escape
-from odoo.exceptions import ValidationError
+from weblgx.tools.translate import _
+from weblgx.tools import SKIPPED_ELEMENT_TYPES, html_escape
+from weblgx.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 RSTRIP_REGEXP = re.compile(r'\n[ \t]*$')

@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 import { useRecordObserver } from "@web/model/relational_model/utils";
 
 export class ImageUrlField extends Component {

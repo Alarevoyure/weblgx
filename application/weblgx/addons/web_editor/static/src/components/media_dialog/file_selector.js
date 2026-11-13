@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { useService } from '@web/core/utils/hooks';
@@ -8,7 +8,7 @@ import { KeepLast } from "@web/core/utils/concurrency";
 import { useDebounced } from "@web/core/utils/timing";
 import { SearchMedia } from './search_media';
 
-import { Component, xml, useState, useRef, onWillStart, useEffect } from "@odoo/owl";
+import { Component, xml, useState, useRef, onWillStart, useEffect } from "@weblgx/owl";
 
 export const IMAGE_MIMETYPES = ['image/jpg', 'image/jpeg', 'image/jpe', 'image/png', 'image/svg+xml', 'image/gif', 'image/webp'];
 export const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.jpe', '.png', '.svg', '.gif', '.webp'];
@@ -248,7 +248,7 @@ export class FileSelector extends Component {
             // Reading attachments as a portal user is not permitted and will raise
             // an access error so we catch the error silently and don't return any
             // attachment so he can still use the wizard and upload an attachment
-            if (e.exceptionName !== 'odoo.exceptions.AccessError') {
+            if (e.exceptionName !== 'weblgx.exceptions.AccessError') {
                 throw e;
             }
         }

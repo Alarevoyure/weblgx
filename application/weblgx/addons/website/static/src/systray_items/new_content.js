@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from '@web/core/registry';
@@ -7,7 +7,7 @@ import { WebsiteDialog } from "@website/components/dialog/dialog";
 import { AddPageDialog } from "@website/components/dialog/add_page_dialog";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
 import { sprintf } from '@web/core/utils/strings';
-import { Component, xml, useState, onWillStart } from "@odoo/owl";
+import { Component, xml, useState, onWillStart } from "@weblgx/owl";
 
 export const MODULE_STATUS = {
     NOT_INSTALLED: 'NOT_INSTALLED',

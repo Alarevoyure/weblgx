@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { DROPDOWN } from "./dropdown";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 /**
  * @enum {string}

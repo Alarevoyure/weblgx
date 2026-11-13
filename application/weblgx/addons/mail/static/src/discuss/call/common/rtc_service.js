@@ -1,10 +1,10 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { BlurManager } from "@mail/discuss/call/common/blur_manager";
 import { monitorAudio } from "@mail/discuss/call/common/media_monitoring";
 import { closeStream, onChange } from "@mail/utils/common/misc";
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { _t } from "@web/core/l10n/translation";
@@ -14,9 +14,9 @@ import { loadBundle } from "@web/core/assets";
 import { memoize } from "@web/core/utils/functions";
 
 /**
- * @return {Promise<{ SfuClient: import("@mail/static/libs/odoo_sfu/odoo_sfu").SfuClient, SFU_CLIENT_STATE: import("@mail/static/libs/odoo_sfu/odoo_sfu").SFU_CLIENT_STATE }>}
+ * @return {Promise<{ SfuClient: import("@mail/static/libs/weblgx_sfu/weblgx_sfu").SfuClient, SFU_CLIENT_STATE: import("@mail/static/libs/weblgx_sfu/weblgx_sfu").SFU_CLIENT_STATE }>}
  */
-const loadSfuAssets = memoize(async () => await loadBundle("mail.assets_odoo_sfu"));
+const loadSfuAssets = memoize(async () => await loadBundle("mail.assets_weblgx_sfu"));
 
 const ORDERED_TRANSCEIVER_NAMES = ["audio", "screen", "camera"];
 export const CONNECTION_TYPES = { P2P: "p2p", SERVER: "server" };
@@ -102,11 +102,11 @@ export class Rtc {
     timeouts = new Map();
     /** @type {Map<number, number>} timeoutId by sessionId for download pausing delay */
     downloadTimeouts = new Map();
-    /** @type {import("@mail/static/libs/odoo_sfu/odoo_sfu").SfuClient} */
+    /** @type {import("@mail/static/libs/weblgx_sfu/weblgx_sfu").SfuClient} */
     sfuClient = undefined;
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -273,7 +273,7 @@ export class Rtc {
         }
         try {
             await loadSfuAssets();
-            const sfuModule = odoo.loader.modules.get("@mail/../lib/odoo_sfu/odoo_sfu");
+            const sfuModule = weblgx.loader.modules.get("@mail/../lib/weblgx_sfu/weblgx_sfu");
             this.disconnectFromSfu();
             this.SFU_CLIENT_STATE = sfuModule.SFU_CLIENT_STATE;
             this.sfuClient = new sfuModule.SfuClient();
@@ -1876,7 +1876,7 @@ export const rtcService = {
         "rpc",
     ],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

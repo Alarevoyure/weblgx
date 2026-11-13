@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
@@ -10,7 +10,7 @@ import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services
 import { makeTestEnv } from "../helpers/mock_env";
 import { click, getFixture, mount, nextTick, patchWithCleanup } from "../helpers/utils";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 const serviceRegistry = registry.category("services");
 
 class FileUploadProgressTestRecord extends FileUploadProgressRecord {}

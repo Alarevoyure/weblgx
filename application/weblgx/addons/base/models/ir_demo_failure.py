@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from weblgx import api, fields, models
 
 
 class DemoFailure(models.TransientModel):

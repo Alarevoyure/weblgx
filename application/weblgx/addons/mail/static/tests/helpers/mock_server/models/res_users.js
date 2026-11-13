@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { patch } from "@web/core/utils/patch";
 import { today, serializeDate } from "@web/core/l10n/dates";
@@ -40,7 +40,7 @@ patch(MockServer.prototype, {
             hasMessageTranslationFeature: true,
             initBusId: this.lastBusNotificationId,
             needaction_inbox_counter: this._mockResPartner_GetNeedactionCount(user.partner_id),
-            odoobot: this._mockResPartnerMailPartnerFormat(this.odoobotId).get(this.odoobotId),
+            weblgxbot: this._mockResPartnerMailPartnerFormat(this.weblgxbotId).get(this.weblgxbotId),
             shortcodes: this.pyEnv["mail.shortcode"].searchRead([], {
                 fields: ["source", "substitution"],
             }),

@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { SERVICES_METADATA } from "@web/env";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 function protectMethod(widget, fn) {
     return function (...args) {

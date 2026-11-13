@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 import { browser } from "@web/core/browser/browser";
 import { makeDeferred, patchWithCleanup } from "../../helpers/utils";
 import { download } from "@web/core/network/download";
@@ -62,7 +62,7 @@ QUnit.module("download", (hooks) => {
         const serverError = {
             code: 200,
             data: {
-                name: "odoo.exceptions.RedirectWarning",
+                name: "weblgx.exceptions.RedirectWarning",
                 arguments: ["Business Error Message", "someArg"],
                 message: "Business Error Message",
             },

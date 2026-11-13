@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 import { isMobileOS } from "@web/core/browser/feature_detection";
 
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";

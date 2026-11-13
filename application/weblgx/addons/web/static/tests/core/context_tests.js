@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { evalPartialContext, makeContext } from "@web/core/context";
 

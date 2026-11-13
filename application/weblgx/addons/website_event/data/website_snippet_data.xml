@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<odoo><data>
+<weblgx><data>
 
     <record id="ir_filters_event_list_snippet" model="ir.filters">
         <field name="name">Upcoming Events</field>
@@ -16,4 +16,4 @@
         <field name="name">Upcoming Events</field>
     </record>
 
-</data></odoo>
+</data></weblgx>

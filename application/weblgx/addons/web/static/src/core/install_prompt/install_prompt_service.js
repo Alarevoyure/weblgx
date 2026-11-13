@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 import { browser } from "@web/core/browser/browser";
 import {
     isDisplayStandalone,

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { clickSave, editInput, getFixture } from "@web/../tests/helpers/utils";

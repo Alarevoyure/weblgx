@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.tests.common import tagged, users
+from weblgx.addons.mail.tests.common import MailCommon
+from weblgx.tests.common import tagged, users
 
 
 @tagged('res_company')

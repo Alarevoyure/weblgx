@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { markEventHandled } from "@web/core/utils/misc";
 
@@ -13,7 +13,7 @@ import {
     useEffect,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 import { loadBundle } from "@web/core/assets";
 import { browser } from "@web/core/browser/browser";
@@ -115,7 +115,7 @@ export const loader = {
 export async function loadEmoji() {
     try {
         await loader.loadEmoji();
-        return odoo.loader.modules.get("@web/core/emoji_picker/emoji_data");
+        return weblgx.loader.modules.get("@web/core/emoji_picker/emoji_data");
     } catch {
         // Could be intentional (tour ended successfully while emoji still loading)
         return { emojis: [], categories: [] };

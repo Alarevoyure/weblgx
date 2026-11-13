@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 import { waitForChannels } from "@bus/../tests/helpers/websocket_event_deferred";
@@ -732,7 +732,7 @@ QUnit.test(
     async () => {
         const pyEnv = await startServer();
         const partnerId = pyEnv["res.partner"].create({
-            email: "testpartner@odoo.com",
+            email: "testpartner@weblgx.com",
             name: "TestPartner",
         });
         const channelId = pyEnv["discuss.channel"].create({
@@ -744,9 +744,9 @@ QUnit.test(
         });
         const { openDiscuss } = await start();
         openDiscuss(channelId);
-        await insertText(".o-mail-Composer-input", "email@odoo.com\n@Te");
+        await insertText(".o-mail-Composer-input", "email@weblgx.com\n@Te");
         await click(".o-mail-Composer-suggestion");
-        await contains(".o-mail-Composer-input", { value: "email@odoo.com\n@TestPartner " });
+        await contains(".o-mail-Composer-input", { value: "email@weblgx.com\n@TestPartner " });
         await click(".o-mail-Composer-send:enabled");
         await contains(
             `.o-mail-Message-body .o_mail_redirect[data-oe-id="${partnerId}"][data-oe-model="res.partner"]`,

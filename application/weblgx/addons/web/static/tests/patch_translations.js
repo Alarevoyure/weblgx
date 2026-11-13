@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { translatedTerms, translationLoaded } from "@web/core/l10n/translation";
 

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import {
     Component,
@@ -8,7 +8,7 @@ import {
     useExternalListener,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 
 /**

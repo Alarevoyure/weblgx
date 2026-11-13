@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @weblgx-module */
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@weblgx/owl";
 
 import { useBus } from "@web/core/utils/hooks";
 import { useModel } from "@web/model/model";

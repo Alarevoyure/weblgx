@@ -222,7 +222,7 @@ $-o-grayscale-opacities: null;
 // Weblgx custom text/bg colors classes generation
 // ============================================================================
 
-// 1. Extend odoo's custom colors maps adding Bootstrap's grays.
+// 1. Extend weblgx's custom colors maps adding Bootstrap's grays.
 //    Note: the card-body rule below needs those grays utilities to be defined
 //    before, so that the related o-bg-color text-muted rules work.
 $-o-text-colors-custom: map-merge($o-text-colors-custom, $o-grays);

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -9,7 +9,7 @@ import { isBinarySize } from "@web/core/utils/binary";
 import { fileTypeMagicWordMap, imageCacheKey } from "@web/views/fields/image/image_field";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 const placeholder = "/web/static/img/placeholder.png";
 

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 export const DEBOUNCE = 400;
 export const BUTTON_HANDLER_SELECTOR = 'a, button, input[type="submit"], input[type="button"], .btn';

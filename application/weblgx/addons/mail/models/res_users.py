@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
-from odoo import _, api, Command, fields, models, modules, tools
-from odoo.tools import email_normalize
+from weblgx import _, api, Command, fields, models, modules, tools
+from weblgx.tools import email_normalize
 
 
 class Users(models.Model):
@@ -250,7 +250,7 @@ class Users(models.Model):
 
     def _init_messaging(self):
         self.ensure_one()
-        odoobot = self.env.ref('base.partner_root')
+        weblgxbot = self.env.ref('base.partner_root')
         values = {
             'action_discuss_id': self.env["ir.model.data"]._xmlid_to_res_id("mail.action_discuss"),
             'companyName': self.env.company.name,
@@ -264,7 +264,7 @@ class Users(models.Model):
             'menu_id': self.env['ir.model.data']._xmlid_to_res_id('mail.menu_root_discuss'),
             'mt_comment_id': self.env['ir.model.data']._xmlid_to_res_id('mail.mt_comment'),
             'needaction_inbox_counter': self.partner_id._get_needaction_count(),
-            'odoobot': odoobot.sudo().mail_partner_format().get(odoobot),
+            'weblgxbot': weblgxbot.sudo().mail_partner_format().get(weblgxbot),
             'shortcodes': self.env['mail.shortcode'].sudo().search_read([], ['source', 'substitution']),
             'starred_counter': self.env['mail.message'].search_count([('starred_partner_ids', 'in', self.partner_id.ids)]),
         }

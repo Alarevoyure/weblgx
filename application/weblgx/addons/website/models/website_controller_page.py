@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.addons.http_routing.models.ir_http import slugify
-from odoo import api, fields, models
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx.addons.http_routing.models.ir_http import slugify
+from weblgx import api, fields, models
 
 
 class WebsiteControllerPage(models.Model):

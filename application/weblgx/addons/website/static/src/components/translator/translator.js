@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { useService } from '@web/core/utils/hooks';
 import { WebsiteEditorComponent } from '../editor/editor';
 import { WebsiteDialog } from '../dialog/dialog';
 import { browser } from "@web/core/browser/browser";
-import { useEffect, useRef, Component, xml } from "@odoo/owl";
+import { useEffect, useRef, Component, xml } from "@weblgx/owl";
 
 const localStorageNoDialogKey = 'website_translator_nodialog';
 

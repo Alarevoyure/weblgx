@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     click,
@@ -9,7 +9,7 @@ import {
     nextTick,
     patchWithCleanup,
 } from "../helpers/utils";
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 import { ExpressionEditor } from "@web/core/expression_editor/expression_editor";
 import { MainComponentsContainer } from "@web/core/main_components_container";
 import { makeTestEnv } from "../helpers/mock_env";
@@ -113,7 +113,7 @@ QUnit.module("Components", (hooks) => {
         serverData = makeServerData();
         setupConditionTreeEditorServices();
         target = getFixture();
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
     });
 
     QUnit.module("ExpressionEditor");
@@ -142,7 +142,7 @@ QUnit.module("Components", (hooks) => {
     });
 
     QUnit.test("rendering of 'expr'", async (assert) => {
-        patchWithCleanup(odoo, { debug: false });
+        patchWithCleanup(weblgx, { debug: false });
         await makeExpressionEditor({ expression: "expr" });
         assert.deepEqual(getTreeEditorContent(target), [
             { value: "all", level: 0 },
@@ -200,7 +200,7 @@ QUnit.module("Components", (hooks) => {
     });
 
     QUnit.test("change path, operator and value", async (assert) => {
-        patchWithCleanup(odoo, { debug: false });
+        patchWithCleanup(weblgx, { debug: false });
         await makeExpressionEditor({ expression: `bar != "blabla"` });
         assert.deepEqual(getTreeEditorContent(target), [
             { level: 0, value: "all" },
@@ -383,7 +383,7 @@ QUnit.module("Components", (hooks) => {
     });
 
     QUnit.test("check condition by default when creating a new rule", async (assert) => {
-        patchWithCleanup(odoo, { debug: false });
+        patchWithCleanup(weblgx, { debug: false });
         serverData.models.partner.fields.country_id = { string: "Country ID", type: "char" };
         await makeExpressionEditor({ expression: "expr" });
         await click(target, "a[role='button']");
@@ -417,7 +417,7 @@ QUnit.module("Components", (hooks) => {
     });
 
     QUnit.test("no field of type properties in model field selector", async (assert) => {
-        patchWithCleanup(odoo, { debug: false });
+        patchWithCleanup(weblgx, { debug: false });
         serverData.models.partner.fields.properties = {
             string: "Properties",
             type: "properties",

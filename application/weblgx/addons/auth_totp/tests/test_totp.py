@@ -5,9 +5,9 @@ from xmlrpc.client import Fault
 
 from passlib.totp import TOTP
 
-from odoo import http
-from odoo.tests import tagged, get_db_name, new_test_user, HttpCase
-from odoo.tools import mute_logger
+from weblgx import http
+from weblgx.tests import tagged, get_db_name, new_test_user, HttpCase
+from weblgx.tools import mute_logger
 
 from ..controllers.home import Home
 
@@ -70,7 +70,7 @@ class TestTOTP(TestTOTPMixin, HttpCase):
             'Trying to fake the auth type should not work'
         )
         uid = self.user_test.id
-        with self.assertRaisesRegex(Fault, r'Access Denied'), mute_logger('odoo.http'):
+        with self.assertRaisesRegex(Fault, r'Access Denied'), mute_logger('weblgx.http'):
             self.xmlrpc_object.execute_kw(
                 get_db_name(), uid, 'test_user',
                 'res.users', 'read', [uid, ['login']]
@@ -105,7 +105,7 @@ class TestTOTP(TestTOTPMixin, HttpCase):
         self.start_tour('/web', 'totp_admin_disables', login='admin')
         self.start_tour('/', 'totp_login_disabled', login=None)
 
-    @mute_logger('odoo.http')
+    @mute_logger('weblgx.http')
     def test_totp_authenticate(self):
         """
         Ensure we don't leak the session info from an half-logged-in

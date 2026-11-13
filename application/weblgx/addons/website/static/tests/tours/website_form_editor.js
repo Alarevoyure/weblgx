@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
     import wTourUtils from "@website/js/tours/tour_utils";
 
@@ -11,7 +11,7 @@
     const ESSENTIAL_FIELDS_VALID_DATA_FOR_DEFAULT_FORM = [
         {
             name: 'email_from',
-            value: 'admin@odoo.com',
+            value: 'admin@weblgx.com',
         },
         {
             name: 'subject',
@@ -263,7 +263,7 @@
             trigger: "we-customizeblock-option.snippet-option-WebsiteFieldEditor we-select[data-name='hidden_condition_opt']:not(:has(we-button:contains('Conditional Visibility Check 5')))",
             run: () => null,
         },
-        ...addExistingField('email_cc', 'text', 'Test conditional visibility', false, {visibility: CONDITIONALVISIBILITY, condition: 'odoo'}),
+        ...addExistingField('email_cc', 'text', 'Test conditional visibility', false, {visibility: CONDITIONALVISIBILITY, condition: 'weblgx'}),
         {
             content: "Ensure that the description has correctly been added on the field",
             trigger: "iframe .s_website_form_field:contains('Test conditional visibility') .s_website_form_field_description",
@@ -491,7 +491,7 @@
             trigger: 'iframe #wrapwrap',
             run: () => {
                 const wysiwyg = $('iframe:not(.o_ignore_in_tour)').contents().find('#wrapwrap').data('wysiwyg');
-                wysiwyg.odooEditor.historyStep(true);
+                wysiwyg.weblgxEditor.historyStep(true);
             },
         },
         // Edit the submit button using linkDialog.

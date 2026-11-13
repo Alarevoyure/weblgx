@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, useRef, onMounted } from "@odoo/owl";
+import { Component, useRef, onMounted } from "@weblgx/owl";
 import { Dialog } from "@web/core/dialog/dialog";
 
 export class AltDialog extends Component {

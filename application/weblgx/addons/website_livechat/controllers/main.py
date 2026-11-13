@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import http, _
-from odoo.http import request
-from odoo.addons.im_livechat.controllers.main import LivechatController
+from weblgx import http, _
+from weblgx.http import request
+from weblgx.addons.im_livechat.controllers.main import LivechatController
 
 
 class WebsiteLivechat(LivechatController):

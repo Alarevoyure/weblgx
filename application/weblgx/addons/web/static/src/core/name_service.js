@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { unique, zip } from "@web/core/utils/arrays";

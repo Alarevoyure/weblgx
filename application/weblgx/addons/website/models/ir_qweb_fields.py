@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from lxml import etree
 from markupsafe import Markup
 
-from odoo import api, models, _
-from odoo.addons.website.tools import add_form_signature
+from weblgx import api, models, _
+from weblgx.addons.website.tools import add_form_signature
 
 
 class Contact(models.AbstractModel):

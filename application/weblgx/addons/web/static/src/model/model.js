@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useBus, useService } from "@web/core/utils/hooks";
 import { SEARCH_KEYS } from "@web/search/with_search/with_search";
@@ -12,7 +12,7 @@ import {
     onWillUpdateProps,
     status,
     useComponent,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 /**
  * @typedef {import("@web/search/search_model").SearchParams} SearchParams

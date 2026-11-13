@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 
 <template id="event_details" name="Event Header">
@@ -490,4 +490,4 @@
     </div>
 </template>
 
-</odoo>
+</weblgx>

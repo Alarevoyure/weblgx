@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { Component, useRef, useState } from "@odoo/owl";
+import { Component, useRef, useState } from "@weblgx/owl";
 import { useAutofocus, useService } from "@web/core/utils/hooks";
 
 /**

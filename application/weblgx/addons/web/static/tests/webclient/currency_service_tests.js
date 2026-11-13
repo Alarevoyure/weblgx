@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ormService } from "@web/core/orm_service";
 import { registry } from "@web/core/registry";

@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { patch } from "@web/core/utils/patch";
 import { Message } from "@mail/core/common/message";
-import { onWillUnmount } from "@odoo/owl";
+import { onWillUnmount } from "@weblgx/owl";
 
 patch(Message.prototype, {
     setup() {

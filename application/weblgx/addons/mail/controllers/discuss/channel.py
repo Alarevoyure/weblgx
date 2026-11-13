@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from werkzeug.exceptions import NotFound
 
-from odoo import fields, http
-from odoo.http import request
-from odoo.addons.mail.models.discuss.mail_guest import add_guest_to_context
+from weblgx import fields, http
+from weblgx.http import request
+from weblgx.addons.mail.models.discuss.mail_guest import add_guest_to_context
 
 
 class ChannelController(http.Controller):

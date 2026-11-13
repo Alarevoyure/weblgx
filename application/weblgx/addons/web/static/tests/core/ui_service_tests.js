@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { uiService, useActiveElement } from "@web/core/ui/ui_service";
@@ -7,7 +7,7 @@ import { makeTestEnv } from "../helpers/mock_env";
 import { makeFakeLocalizationService } from "../helpers/mock_services";
 import { getFixture, mount, nextTick, triggerEvent } from "../helpers/utils";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 const serviceRegistry = registry.category("services");
 
 let target;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data noupdate="1">
         <!-- Email template for new users -->
         <record id="set_password_email" model="mail.template">
@@ -242,4 +242,4 @@
         </record>
 
     </data>
-</odoo>
+</weblgx>

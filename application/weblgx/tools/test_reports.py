@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 """ Helper functions for reports testing.
 
@@ -18,7 +18,7 @@ from . import ustr, config
 from .safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
-_test_logger = logging.getLogger('odoo.tests')
+_test_logger = logging.getLogger('weblgx.tests')
 
 
 def try_report(cr, uid, rname, ids, data=None, context=None, our_module=None, report_type=None):

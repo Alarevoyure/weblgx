@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-import odoo.tests
-from odoo.osv import expression
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+import weblgx.tests
+from weblgx.osv import expression
 
 
-@odoo.tests.tagged('post_install', '-at_install', 'assets_bundle')
-class BusWebTests(odoo.tests.HttpCase):
+@weblgx.tests.tagged('post_install', '-at_install', 'assets_bundle')
+class BusWebTests(weblgx.tests.HttpCase):
 
     def test_bundle_sends_bus(self):
         """

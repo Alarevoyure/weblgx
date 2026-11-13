@@ -1,4 +1,4 @@
-/** @odoo-modules **/
+/** @weblgx-modules **/
 
 import { _t } from "@web/core/l10n/translation";
 import { Dialog } from "@web/core/dialog/dialog";
@@ -6,13 +6,13 @@ import { useChildRef } from "@web/core/utils/hooks";
 import weSnippetEditor from "@web_editor/js/editor/snippets.editor";
 import wSnippetOptions from "@website/js/editor/snippets.options";
 import wUtils from "@website/js/utils";
-import * as OdooEditorLib from "@web_editor/js/editor/odoo-editor/src/utils/utils";
-import { Component, onMounted, useRef, useState } from "@odoo/owl";
+import * as WeblgxEditorLib from "@web_editor/js/editor/weblgx-editor/src/utils/utils";
+import { Component, onMounted, useRef, useState } from "@weblgx/owl";
 import { throttleForAnimation } from "@web/core/utils/timing";
 import { applyTextHighlight, switchTextHighlight } from "@website/js/text_processing";
 
-const getDeepRange = OdooEditorLib.getDeepRange;
-const getTraversedNodes = OdooEditorLib.getTraversedNodes;
+const getDeepRange = WeblgxEditorLib.getDeepRange;
+const getTraversedNodes = WeblgxEditorLib.getTraversedNodes;
 
 const FontFamilyPickerUserValueWidget = wSnippetOptions.FontFamilyPickerUserValueWidget;
 
@@ -365,7 +365,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
      * @override
      */
     _getDragAndDropOptions(options = {}) {
-        // TODO: This is currently not in use by Odoo's D&D
+        // TODO: This is currently not in use by Web@LGX's D&D
         // There is currently no way in Weblgx D&D to offset the edge scrolling.
         // When there is, this code should be adapted.
         const finalOptions = this._super(...arguments);
@@ -380,7 +380,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      * @param {string} gmapRequestEventName
      */
     async _handleGMapRequest(ev, gmapRequestEventName) {
@@ -419,7 +419,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
      * @return {Selection|null}
      */
     _getSelection() {
-        return this.options.wysiwyg.odooEditor.document.getSelection();
+        return this.options.wysiwyg.weblgxEditor.document.getSelection();
     },
     /**
      * @override
@@ -439,7 +439,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
 
         // As the toolbar displays css variable that are customizable by users,
         // we have the recompute the font size selector values.
-        this.options.wysiwyg.odooEditor.computeFontSizeSelectorValues();
+        this.options.wysiwyg.weblgxEditor.computeFontSizeSelectorValues();
     },
     /**
     * @override
@@ -448,7 +448,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
         this._super(...arguments);
         const $toolbarTableContainer = this.$('#o-we-editor-table-container');
         if ($toolbarTableContainer.length) {
-            const selection = this.options.wysiwyg.odooEditor.document.getSelection();
+            const selection = this.options.wysiwyg.weblgxEditor.document.getSelection();
             const range = selection && selection.rangeCount && selection.getRangeAt(0);
             const inEditableTable = range && $(range.commonAncestorContainer).closest('.s_editable_table').length;
             if (inEditableTable) {
@@ -534,7 +534,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
         // Check if the text has already the current option activated.
         let selectedTextEl = this._getSelectedTextElement(classSelector);
         if (selectedTextEl) {
-            const restoreCursor = OdooEditorLib.preserveCursor(this.$body[0].ownerDocument);
+            const restoreCursor = WeblgxEditorLib.preserveCursor(this.$body[0].ownerDocument);
             // Unwrap the selected text content and disable the option.
             const selectedTextParent = selectedTextEl.parentNode;
             while (selectedTextEl.firstChild) {
@@ -549,9 +549,9 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
             }
             selectedTextParent.removeChild(selectedTextEl);
             // Update the option's UI.
-            this.options.wysiwyg.odooEditor.historyResetLatestComputedSelection();
+            this.options.wysiwyg.weblgxEditor.historyResetLatestComputedSelection();
             this._disableTextOptions(targetEl);
-            this.options.wysiwyg.odooEditor.historyStep(true);
+            this.options.wysiwyg.weblgxEditor.historyStep(true);
             restoreCursor();
             if (this.options.enableTranslation) {
                 $(selectedTextParent).trigger("content_changed");
@@ -600,7 +600,7 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
                         }
                     },
                 });
-                this.options.wysiwyg.odooEditor.historyStep();
+                this.options.wysiwyg.weblgxEditor.historyStep();
             } else {
                 this.notification.add(
                     _t("Cannot apply this option on current text selection. Try clearing the format and try again."),
@@ -668,14 +668,14 @@ const wSnippetMenu = weSnippetEditor.SnippetsMenu.extend({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onGMapAPIRequest(ev) {
         this._handleGMapRequest(ev, 'gmap_api_request');
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onGMapAPIKeyRequest(ev) {
         this._handleGMapRequest(ev, 'gmap_api_key_request');

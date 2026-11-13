@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import base64
 import uuid
 
-from odoo import api, fields, models
-from odoo.addons.rating.models import rating_data
-from odoo.tools.misc import file_open
+from weblgx import api, fields, models
+from weblgx.addons.rating.models import rating_data
+from weblgx.tools.misc import file_open
 
 
 class Rating(models.Model):

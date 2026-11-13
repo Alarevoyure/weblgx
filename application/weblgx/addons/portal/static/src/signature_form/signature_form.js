@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, onMounted, useRef, useState } from "@odoo/owl";
+import { Component, onMounted, useRef, useState } from "@weblgx/owl";
 import dom from "@web/legacy/js/core/dom";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -21,7 +21,7 @@ export class SignatureForm extends Component {
         this.rootRef = useRef("root");
         this.rpc = useService("rpc");
 
-        this.csrfToken = odoo.csrf_token;
+        this.csrfToken = weblgx.csrf_token;
         this.state = useState({
             error: false,
             success: false,

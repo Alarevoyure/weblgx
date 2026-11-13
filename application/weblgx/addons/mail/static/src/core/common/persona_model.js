@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { AND, Record } from "@mail/core/common/record";
 import { debounce } from "@web/core/utils/timing";
@@ -63,14 +63,14 @@ export class Persona extends Record {
                 return;
             }
             const model = this.type === "partner" ? "res.partner" : "mail.guest";
-            this._store.env.services.bus_service.addChannel(`odoo-presence-${model}_${this.id}`);
+            this._store.env.services.bus_service.addChannel(`weblgx-presence-${model}_${this.id}`);
         },
         onDelete() {
             if (!this._store.env.services.bus_service.isActive) {
                 return;
             }
             const model = this.type === "partner" ? "res.partner" : "mail.guest";
-            this._store.env.services.bus_service.deleteChannel(`odoo-presence-${model}_${this.id}`);
+            this._store.env.services.bus_service.deleteChannel(`weblgx-presence-${model}_${this.id}`);
         },
         eager: true,
         inverse: "imStatusTrackedPersonas",

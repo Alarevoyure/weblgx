@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
@@ -18,7 +18,7 @@ import {
 } from "../helpers/utils";
 import { makeFakeDialogService } from "../helpers/mock_services";
 
-import { Component, useState, onMounted, xml } from "@odoo/owl";
+import { Component, useState, onMounted, xml } from "@weblgx/owl";
 const serviceRegistry = registry.category("services");
 let parent;
 let target;

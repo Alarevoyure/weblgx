@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { markRaw } from "@odoo/owl";
+import { markRaw } from "@weblgx/owl";
 import { evalDomain } from "@web/core/domain";
 import { Reactive } from "@web/core/utils/reactive";
 import { getId } from "./utils";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { uiService } from "@web/core/ui/ui_service";
@@ -21,7 +21,7 @@ import {
     patchWithCleanup,
 } from "@web/../tests/helpers/utils";
 
-import { Component, onMounted, useState, xml } from "@odoo/owl";
+import { Component, onMounted, useState, xml } from "@weblgx/owl";
 import { dialogService } from "@web/core/dialog/dialog_service";
 import { hotkeyService } from "@web/core/hotkeys/hotkey_service";
 import { CommandPalette } from "@web/core/commands/command_palette";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { loadBundle } from "@web/core/assets";
 import { attachComponent } from '@web/legacy/utils';
@@ -16,7 +16,7 @@ export async function loadWysiwygFromTextarea(parent, textarea, options) {
     }
 
     await loadBundle("web_editor.assets_wysiwyg");
-    const { Wysiwyg } = await odoo.loader.modules.get('@web_editor/js/wysiwyg/wysiwyg');
+    const { Wysiwyg } = await weblgx.loader.modules.get('@web_editor/js/wysiwyg/wysiwyg');
     let wysiwyg;
     class LegacyWysiwyg extends Wysiwyg {
         constructor(...args) {

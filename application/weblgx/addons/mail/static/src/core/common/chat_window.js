@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Composer } from "@mail/core/common/composer";
 import { ImStatus } from "@mail/core/common/im_status";
@@ -13,7 +13,7 @@ import {
 } from "@mail/utils/common/hooks";
 import { isEventHandled } from "@web/core/utils/misc";
 
-import { Component, useChildSubEnv, useExternalListener, useRef, useState } from "@odoo/owl";
+import { Component, useChildSubEnv, useExternalListener, useRef, useState } from "@weblgx/owl";
 
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";

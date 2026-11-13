@@ -1,4 +1,4 @@
-<odoo>
+<weblgx>
     <data noupdate="1">
         <record id="group_wiki_user" model="res.groups">
             <field name="name">Wiki User</field>
@@ -133,4 +133,4 @@
             <field name="groups" eval="[(4, ref('base.group_system'))]"/>
         </record>
     </data>
-</odoo>
+</weblgx>

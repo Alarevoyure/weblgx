@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { onMounted } from "@odoo/owl";
+import { onMounted } from "@weblgx/owl";
 import { getFixture, getNodesTextContent, patchWithCleanup } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import { GaugeField } from "@web/views/fields/gauge/gauge_field";

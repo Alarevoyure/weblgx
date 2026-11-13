@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { scrollerService } from "@web/core/scroller_service";
@@ -7,7 +7,7 @@ import { registerCleanup } from "../helpers/cleanup";
 import { makeTestEnv } from "../helpers/mock_env";
 import { click, getFixture, mount, nextTick } from "../helpers/utils";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 const serviceRegistry = registry.category("services");
 
 let env;

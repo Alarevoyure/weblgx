@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 import { TotpConfirmationDialog } from "../components/totp_confirmation_dialog";
 import { handleCheckIdentity } from "@portal/js/portal_security";
 import publicWidget from "@web/legacy/js/public/public_widget";

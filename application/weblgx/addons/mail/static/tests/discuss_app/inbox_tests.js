@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -40,7 +40,7 @@ QUnit.test("reply: discard on reply button toggle", async () => {
 QUnit.test("reply: discard on pressing escape", async () => {
     const pyEnv = await startServer();
     pyEnv["res.partner"].create({
-        email: "testpartnert@odoo.com",
+        email: "testpartnert@weblgx.com",
         name: "TestPartner",
     });
     const messageId = pyEnv["mail.message"].create({

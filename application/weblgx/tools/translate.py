@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from __future__ import annotations
 
@@ -30,19 +30,19 @@ from lxml import etree, html
 from markupsafe import escape, Markup
 from psycopg2.extras import Json
 
-import odoo
-from odoo.exceptions import UserError
+import weblgx
+from weblgx.exceptions import UserError
 from . import config, pycompat
 from .misc import file_open, file_path, get_iso_codes, SKIPPED_ELEMENT_TYPES
 
 _logger = logging.getLogger(__name__)
 
-PYTHON_TRANSLATION_COMMENT = 'odoo-python'
+PYTHON_TRANSLATION_COMMENT = 'weblgx-python'
 
 # translation used for javascript code in web client
-JAVASCRIPT_TRANSLATION_COMMENT = 'odoo-javascript'
+JAVASCRIPT_TRANSLATION_COMMENT = 'weblgx-javascript'
 # used to notify web client that these translations should be loaded in the UI
-# deprecated comment since Odoo 16.0
+# deprecated comment since Web@LGX 16.0
 WEB_TRANSLATION_COMMENT = "openerp-web"
 
 SKIPPED_ELEMENTS = ('script', 'style', 'title')
@@ -469,7 +469,7 @@ class GettextAlias(object):
         # find current DB based on thread/worker db name (see netsvc)
         db_name = getattr(threading.current_thread(), 'dbname', None)
         if db_name:
-            return odoo.sql_db.db_connect(db_name)
+            return weblgx.sql_db.db_connect(db_name)
 
     def _get_cr(self, frame, allow_create=True):
         # try, in order: cr, cursor, self.env.cr, self.cr,
@@ -484,7 +484,7 @@ class GettextAlias(object):
         if hasattr(s, 'cr'):
             return s.cr, False
         try:
-            from odoo.http import request
+            from weblgx.http import request
             return request.env.cr, False
         except RuntimeError:
             pass
@@ -523,7 +523,7 @@ class GettextAlias(object):
                     lang = s.localcontext.get('lang')
             if not lang:
                 try:
-                    from odoo.http import request
+                    from weblgx.http import request
                     lang = request.env.lang
                 except RuntimeError:
                     pass
@@ -535,7 +535,7 @@ class GettextAlias(object):
                 (cr, dummy) = self._get_cr(frame, allow_create=False)
                 uid = self._get_uid(frame)
                 if cr and uid:
-                    env = odoo.api.Environment(cr, uid, {})
+                    env = weblgx.api.Environment(cr, uid, {})
                     lang = env['res.users'].context_get()['lang']
         return lang
 
@@ -561,7 +561,7 @@ class GettextAlias(object):
             if lang and lang != 'en_US':
                 if not module:
                     path = inspect.getfile(frame)
-                    path_info = odoo.modules.get_resource_from_path(path)
+                    path_info = weblgx.modules.get_resource_from_path(path)
                     module = path_info[0] if path_info else 'base'
                 return code_translations.get_python_translations(module, lang).get(source, source)
             else:
@@ -599,7 +599,7 @@ class _lt:
 
         frame = inspect.currentframe().f_back
         path = inspect.getfile(frame)
-        path_info = odoo.modules.get_resource_from_path(path)
+        path_info = weblgx.modules.get_resource_from_path(path)
         self._module = path_info[0] if path_info else 'base'
 
     def __str__(self):
@@ -664,7 +664,7 @@ def unquote(str):
     return re_escaped_char.sub(_sub_replacement, str[1:-1])
 
 def TranslationFileReader(source, fileformat='po'):
-    """ Iterate over translation file to return Odoo translation entries """
+    """ Iterate over translation file to return Web@LGX translation entries """
     if fileformat == 'csv':
         return CSVFileReader(source)
     if fileformat == 'po':
@@ -701,7 +701,7 @@ class CSVFileReader:
             yield entry
 
 class PoFileReader:
-    """ Iterate over po file to return Odoo translation entries """
+    """ Iterate over po file to return Web@LGX translation entries """
     def __init__(self, source):
 
         def get_pot_path(source_name):
@@ -791,7 +791,7 @@ class PoFileReader:
                 _logger.error("malformed po file: unknown occurrence: %s", occurrence)
 
 def TranslationFileWriter(target, fileformat='po', lang=None):
-    """ Iterate over translation file to return Odoo translation entries """
+    """ Iterate over translation file to return Web@LGX translation entries """
     if fileformat == 'csv':
         return CSVFileWriter(target)
 
@@ -819,7 +819,7 @@ class CSVFileWriter:
 
 
 class PoFileWriter:
-    """ Iterate over po file to return Odoo translation entries """
+    """ Iterate over po file to return Web@LGX translation entries """
     def __init__(self, target, lang):
 
         self.buffer = target
@@ -847,7 +847,7 @@ class PoFileWriter:
                 row['translation'] = ''
             self.add_entry(sorted(row['modules']), sorted(row['tnrs']), src, row['translation'], sorted(row['comments']))
 
-        import odoo.release as release
+        import weblgx.release as release
         self.po.header = "Translation of %s.\n" \
                     "This file contains the translation of the following modules:\n" \
                     "%s" % (release.description, ''.join("\t* %s\n" % m for m in modules))
@@ -1064,12 +1064,12 @@ class TranslationReader:
     def __init__(self, cr, lang=None):
         self._cr = cr
         self._lang = lang or 'en_US'
-        self.env = odoo.api.Environment(cr, odoo.SUPERUSER_ID, {})
+        self.env = weblgx.api.Environment(cr, weblgx.SUPERUSER_ID, {})
         self._to_translate = []
 
     def __iter__(self):
         for module, source, name, res_id, ttype, comments, _record_id, value in self._to_translate:
-            yield (module, ttype, name, res_id, source, encode(odoo.tools.ustr(value)), comments)
+            yield (module, ttype, name, res_id, source, encode(weblgx.tools.ustr(value)), comments)
 
     def _push_translation(self, module, ttype, name, res_id, source, comments=None, record_id=None, value=None):
         """ Insert a translation that will be used in the file generation
@@ -1246,7 +1246,7 @@ class TranslationModuleReader(TranslationReader):
     def __init__(self, cr, modules=None, lang=None):
         super().__init__(cr, lang)
         self._modules = modules or ['all']
-        self._path_list = [(path, True) for path in odoo.addons.__path__]
+        self._path_list = [(path, True) for path in weblgx.addons.__path__]
         self._installed_modules = [
             m['name']
             for m in self.env['ir.module.module'].search_read([('state', '=', 'installed')], fields=['name'])
@@ -1361,11 +1361,11 @@ class TranslationModuleReader(TranslationReader):
                                                   extract_keywords={'_t': None, '_lt': None})
                     # QWeb template files
                     for fname in fnmatch.filter(files, '*.xml'):
-                        self._babel_extract_terms(fname, path, root, 'odoo.tools.translate:babel_extract_qweb',
+                        self._babel_extract_terms(fname, path, root, 'weblgx.tools.translate:babel_extract_qweb',
                                                   extra_comments=[JAVASCRIPT_TRANSLATION_COMMENT])
                 if fnmatch.fnmatch(root, '*/data/*'):
                     for fname in filter(spreadsheet_files_regex.match, files):
-                        self._babel_extract_terms(fname, path, root, 'odoo.tools.translate:extract_spreadsheet_terms',
+                        self._babel_extract_terms(fname, path, root, 'weblgx.tools.translate:extract_spreadsheet_terms',
                                                   extra_comments=[JAVASCRIPT_TRANSLATION_COMMENT])
                 if not recursive:
                     # due to topdown, first iteration is in first level
@@ -1385,7 +1385,7 @@ class TranslationImporter:
     def __init__(self, cr, verbose=True):
         self.cr = cr
         self.verbose = verbose
-        self.env = odoo.api.Environment(cr, odoo.SUPERUSER_ID, {})
+        self.env = weblgx.api.Environment(cr, weblgx.SUPERUSER_ID, {})
 
         # {model_name: {field_name: {xmlid: {lang: value}}}}
         self.model_translations = DeepDefaultDict()
@@ -1638,7 +1638,7 @@ def load_language(cr, lang):
     :param str lang: language ISO code with optional underscore (``_``) and
         l10n flavor (ex: 'fr', 'fr_BE', but not 'fr-BE')
     """
-    env = odoo.api.Environment(cr, odoo.SUPERUSER_ID, {})
+    env = weblgx.api.Environment(cr, weblgx.SUPERUSER_ID, {})
     lang_ids = env['res.lang'].with_context(active_test=False).search([('code', '=', lang)]).ids
     installer = env['base.language.install'].create({'lang_ids': [(6, 0, lang_ids)]})
     installer.lang_install()
@@ -1648,7 +1648,7 @@ def get_po_paths(module_name: str, lang: str):
     return get_po_paths_env(module_name, lang)
 
 
-def get_po_paths_env(module_name: str, lang: str, env: odoo.api.Environment | None = None):
+def get_po_paths_env(module_name: str, lang: str, env: weblgx.api.Environment | None = None):
     lang_base = lang.split('_', 1)[0]
     # Load the base as a fallback in case a translation is missing:
     po_names = [lang_base, lang]
@@ -1745,7 +1745,7 @@ def _get_translation_upgrade_queries(cr, field):
     field's column, while the queries in ``cleanup_queries`` remove the corresponding data from
     table ``_ir_translation``.
     """
-    Model = odoo.registry(cr.dbname)[field.model_name]
+    Model = weblgx.registry(cr.dbname)[field.model_name]
     translation_name = f"{field.model_name},{field.name}"
     migrate_queries = []
     cleanup_queries = []

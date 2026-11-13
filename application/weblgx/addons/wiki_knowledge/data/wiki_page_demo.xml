@@ -1,4 +1,4 @@
-<odoo>
+<weblgx>
     <data noupdate="1">
         <record id="wiki_page_demo_home" model="wiki.page">
             <field name="name">Accueil Wiki</field>
@@ -41,4 +41,4 @@
             ]]></field>
         </record>
     </data>
-</odoo>
+</weblgx>

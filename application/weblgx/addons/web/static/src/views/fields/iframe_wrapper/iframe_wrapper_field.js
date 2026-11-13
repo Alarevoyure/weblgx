@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { _t } from "@web/core/l10n/translation";
 import { standardFieldProps } from "../standard_field_props";
-import { Component, useEffect, useRef } from "@odoo/owl";
+import { Component, useEffect, useRef } from "@weblgx/owl";
 
 export class IframeWrapperField extends Component {
     static template = "web.IframeWrapperField";

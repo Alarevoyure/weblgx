@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import api, models
-from odoo.http import request
+from weblgx import api, models
+from weblgx.http import request
 
 
 class Website(models.Model):

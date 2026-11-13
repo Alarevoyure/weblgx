@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { Component, onWillUpdateProps, useExternalListener, useState } from "@odoo/owl";
+import { Component, onWillUpdateProps, useExternalListener, useState } from "@weblgx/owl";
 import { useAutofocus } from "@web/core/utils/hooks";
 import { useMessageSearch } from "@mail/core/common/message_search_hook";
 import { browser } from "@web/core/browser/browser";

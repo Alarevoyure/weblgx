@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { ColorList } from "@web/core/colorlist/colorlist";
@@ -25,7 +25,7 @@ import { KanbanCompiler } from "./kanban_compiler";
 import { KanbanCoverImageDialog } from "./kanban_cover_image_dialog";
 import { KanbanDropdownMenuWrapper } from "./kanban_dropdown_menu_wrapper";
 
-import { Component, onMounted, onWillUpdateProps, useRef, useState, useEffect } from "@odoo/owl";
+import { Component, onMounted, onWillUpdateProps, useRef, useState, useEffect } from "@weblgx/owl";
 const { COLORS } = ColorList;
 
 const formatters = registry.category("formatters");

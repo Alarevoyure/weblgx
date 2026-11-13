@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import logging
 import werkzeug
 from werkzeug.urls import url_encode
 
-from odoo import http, tools, _
-from odoo.addons.auth_signup.models.res_users import SignupError
-from odoo.addons.web.controllers.home import ensure_db, Home, SIGN_UP_REQUEST_PARAMS, LOGIN_SUCCESSFUL_PARAMS
-from odoo.addons.base_setup.controllers.main import BaseSetup
-from odoo.exceptions import UserError
-from odoo.http import request
+from weblgx import http, tools, _
+from weblgx.addons.auth_signup.models.res_users import SignupError
+from weblgx.addons.web.controllers.home import ensure_db, Home, SIGN_UP_REQUEST_PARAMS, LOGIN_SUCCESSFUL_PARAMS
+from weblgx.addons.base_setup.controllers.main import BaseSetup
+from weblgx.exceptions import UserError
+from weblgx.http import request
 
 _logger = logging.getLogger(__name__)
 

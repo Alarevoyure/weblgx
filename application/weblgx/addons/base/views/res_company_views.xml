@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<weblgx>
     <data>
         <record id="view_company_form" model="ir.ui.view">
             <field name="name">res.company.form</field>
@@ -45,7 +45,7 @@
                                     <field name="phone" class="o_force_ltr"/>
                                     <field name="mobile" class="o_force_ltr"/>
                                     <field name="email"/>
-                                    <field name="website" string="Website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                                    <field name="website" string="Website" widget="url" placeholder="e.g. https://www.weblgx.com"/>
                                     <field name="parent_id" groups="base.group_no_one"/>
                                     <field name="parent_id" invisible="1"/>
                                     <field name="sequence" invisible="1"/>
@@ -135,4 +135,4 @@
         </record>
         <menuitem action="action_res_company_form" id="menu_action_res_company_form" parent="base.menu_users"/>
     </data>
-</odoo>
+</weblgx>

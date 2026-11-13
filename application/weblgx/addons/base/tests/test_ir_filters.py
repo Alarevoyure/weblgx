@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 import logging
 
-from odoo import exceptions
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.tests.common import TransactionCase, ADMIN_USER_ID, tagged
+from weblgx import exceptions
+from weblgx.addons.base.tests.common import TransactionCaseWithUserDemo
+from weblgx.tests.common import TransactionCase, ADMIN_USER_ID, tagged
 
 _logger = logging.getLogger(__name__)
 

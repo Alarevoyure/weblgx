@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_call_to_action" name="Call to Action">
     <section class="s_call_to_action o_cc o_cc3 pt48 pb24">
@@ -19,4 +19,4 @@
     </section>
 </template>
 
-</odoo>
+</weblgx>

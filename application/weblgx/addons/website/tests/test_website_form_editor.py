@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 # -*- coding: utf-8 -*-
 
-from odoo.http import request
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
-from odoo.addons.website.controllers.form import WebsiteForm
-from odoo.addons.website.tools import MockRequest
-from odoo.tests.common import tagged, TransactionCase
+from weblgx.http import request
+from weblgx.addons.base.tests.common import HttpCaseWithUserPortal
+from weblgx.addons.website.controllers.form import WebsiteForm
+from weblgx.addons.website.tools import MockRequest
+from weblgx.tests.common import tagged, TransactionCase
 
 
 @tagged('post_install', '-at_install')
@@ -76,7 +76,7 @@ class TestWebsiteForm(TransactionCase):
             WebsiteFormController.insert_record(
                 request,
                 self.env['ir.model'].search([('model', '=', 'mail.mail')]),
-                {'email_from': 'odoobot@example.com', 'subject': 'John <b>Smith</b>', 'email_to': 'company@company.company'},
+                {'email_from': 'weblgxbot@example.com', 'subject': 'John <b>Smith</b>', 'email_to': 'company@company.company'},
                 "John <b>Smith</b>",
             )
             mail = self.env['mail.mail'].search([], order='id desc', limit=1)

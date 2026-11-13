@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 import functools
@@ -8,9 +8,9 @@ import itertools
 import psycopg2
 import pytz
 
-from odoo import api, Command, fields, models, _
-from odoo.tools import ustr, OrderedSet
-from odoo.tools.translate import code_translations, _lt
+from weblgx import api, Command, fields, models, _
+from weblgx.tools import ustr, OrderedSet
+from weblgx.tools.translate import code_translations, _lt
 
 REFERENCING_FIELDS = {None, 'id', '.id'}
 def only_ref_fields(record):
@@ -88,11 +88,11 @@ class IrFieldsConverter(models.AbstractModel):
     @api.model
     def for_model(self, model, fromtype=str):
         """ Returns a converter object for the model. A converter is a
-        callable taking a record-ish (a dictionary representing an odoo
+        callable taking a record-ish (a dictionary representing an weblgx
         record with values of typetag ``fromtype``) and returning a converted
-        records matching what :meth:`odoo.osv.orm.Model.write` expects.
+        records matching what :meth:`weblgx.osv.orm.Model.write` expects.
 
-        :param model: :class:`odoo.osv.orm.Model` for the conversion base
+        :param model: :class:`weblgx.osv.orm.Model` for the conversion base
         :param fromtype:
         :returns: a converter callable
         :rtype: (record: dict, logger: (field, error) -> None) -> dict
@@ -179,7 +179,7 @@ class IrFieldsConverter(models.AbstractModel):
 
         :param model:
         :param field: field object to generate a value for
-        :type field: :class:`odoo.fields.Field`
+        :type field: :class:`weblgx.fields.Field`
         :param fromtype: type to convert to something fitting for ``field``
         :type fromtype: type | str
         :return: a function (fromtype -> field.write_type), if a converter is found

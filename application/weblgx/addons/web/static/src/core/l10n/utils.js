@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * Converts a locale from Python to JavaScript format.

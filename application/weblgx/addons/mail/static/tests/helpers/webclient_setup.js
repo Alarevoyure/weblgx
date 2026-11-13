@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { DiscussClientAction } from "@mail/core/web/discuss_client_action";
 

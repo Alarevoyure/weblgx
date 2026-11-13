@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import logging
 
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import AccessError, ValidationError
-from odoo.osv import expression
-from odoo.tools import config
-from odoo.tools.safe_eval import safe_eval, time
+from weblgx import api, fields, models, tools, _
+from weblgx.exceptions import AccessError, ValidationError
+from weblgx.osv import expression
+from weblgx.tools import config
+from weblgx.tools.safe_eval import safe_eval, time
 
 _logger = logging.getLogger(__name__)
 class IrRule(models.Model):
@@ -192,9 +192,9 @@ class IrRule(models.Model):
     def write(self, vals):
         res = super(IrRule, self).write(vals)
         # DLE P33: tests
-        # - odoo/addons/test_access_rights/tests/test_feedback.py
-        # - odoo/addons/test_access_rights/tests/test_ir_rules.py
-        # - odoo/addons/base/tests/test_orm.py (/home/dle/src/odoo/master-nochange-fp/odoo/addons/base/tests/test_orm.py)
+        # - weblgx/addons/test_access_rights/tests/test_feedback.py
+        # - weblgx/addons/test_access_rights/tests/test_ir_rules.py
+        # - weblgx/addons/base/tests/test_orm.py (/home/dle/src/weblgx/master-nochange-fp/weblgx/addons/base/tests/test_orm.py)
         self.env.flush_all()
         self.env.registry.clear_cache()
         return res

@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { FormController } from "@web/views/form/form_controller";
 import { useService } from "@web/core/utils/hooks";
-import { onWillStart } from "@odoo/owl";
+import { onWillStart } from "@weblgx/owl";
 
 export class CalendarFormController extends FormController {
     setup() {

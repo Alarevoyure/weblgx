@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { shallowEqual } from "@web/core/utils/arrays";
 import { evaluate, formatAST, parseExpr } from "./py_js/py";
@@ -15,7 +15,7 @@ import { escapeRegExp } from "@web/core/utils/strings";
 export class InvalidDomainError extends Error {}
 
 /**
- * Javascript representation of an Odoo domain
+ * Javascript representation of an Web@LGX domain
  */
 export class Domain {
     /**

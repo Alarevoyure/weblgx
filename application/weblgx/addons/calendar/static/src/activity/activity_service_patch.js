@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { ActivityService } from "@mail/core/web/activity_service";
 import { patch } from "@web/core/utils/patch";

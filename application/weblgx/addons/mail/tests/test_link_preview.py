@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from markupsafe import Markup
 from unittest.mock import patch
@@ -6,9 +6,9 @@ from unittest.mock import patch
 import io
 import requests
 
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.addons.mail.tools import link_preview
-from odoo.tests.common import tagged
+from weblgx.addons.mail.tests.common import MailCommon
+from weblgx.addons.mail.tools import link_preview
+from weblgx.tests.common import tagged
 
 
 @tagged("mail_link_preview", "mail_message", "post_install", "-at_install")
@@ -166,8 +166,8 @@ class TestLinkPreview(MailCommon):
                 ("https://www.loegaux.fr/", "https://www.loegaux.fr/chat/", 0),
                 ("https://www.loegaux.fr/", "https://www.loegaux.fr/chat/5/bFtIfYHRco", 0),
                 ("https://www.loegaux.fr/", "https://www.loegaux.fr/web/", 0),
-                ("http://www.odoo.com/", "https://www.loegaux.fr/chat/5/bFtIfYHRco", 1),
-                ("https://clients.odoo.com/", "https://www.loegaux.fr/chat/5/bFtIfYHRco", 1),
+                ("http://www.weblgx.com/", "https://www.loegaux.fr/chat/5/bFtIfYHRco", 1),
+                ("https://clients.weblgx.com/", "https://www.loegaux.fr/chat/5/bFtIfYHRco", 1),
             ]
             for request_url, url, counter in urls:
                 with self.subTest(request_url=request_url, url=url, counter=counter):

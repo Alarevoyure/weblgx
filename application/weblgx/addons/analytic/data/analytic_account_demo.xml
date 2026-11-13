@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data noupdate="1">
         <!-- Analytic Plans -->
         <record id="analytic_plan_departments" model="account.analytic.plan">
@@ -102,4 +102,4 @@
             <field name="plan_id" ref="analytic.analytic_plan_departments"/>
         </record>
     </data>
-</odoo>
+</weblgx>

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 // ensure bus override is applied first.
 import "@bus/../tests/helpers/mock_server";

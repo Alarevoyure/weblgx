@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { omit } from "../utils/objects";
 import { useDateTimePicker } from "./datetime_hook";
 import { DateTimePicker } from "./datetime_picker";

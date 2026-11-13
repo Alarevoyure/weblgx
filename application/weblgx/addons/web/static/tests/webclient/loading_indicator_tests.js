@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser as originalBrowser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -53,7 +53,7 @@ QUnit.test("displays the loading indicator in non debug mode", async (assert) =>
 });
 
 QUnit.test("displays the loading indicator for one rpc in debug mode", async (assert) => {
-    patchWithCleanup(odoo, { debug: "1" });
+    patchWithCleanup(weblgx, { debug: "1" });
     const env = await makeTestEnv();
     await mount(LoadingIndicator, target, { env });
     let loadingIndicator = target.querySelector(".o_loading_indicator");
@@ -74,7 +74,7 @@ QUnit.test("displays the loading indicator for one rpc in debug mode", async (as
 });
 
 QUnit.test("displays the loading indicator for multi rpc in debug mode", async (assert) => {
-    patchWithCleanup(odoo, { debug: "1" });
+    patchWithCleanup(weblgx, { debug: "1" });
     const env = await makeTestEnv();
     await mount(LoadingIndicator, target, { env });
     let loadingIndicator = target.querySelector(".o_loading_indicator");

@@ -502,7 +502,7 @@ a.o_underline {
 }
 
 @include media-breakpoint-down(md) {
-    odoo-wysiwyg-container {
+    weblgx-wysiwyg-container {
         .panel-heading.note-toolbar {
             overflow-x: auto;
         }
@@ -896,7 +896,7 @@ section, .oe_img_bg, [data-oe-shape-data] {
 
 /* QWEB */
 
-.odoo-editor-editable.odoo-editor-qweb, .o_readonly {
+.weblgx-editor-editable.weblgx-editor-qweb, .o_readonly {
     t,
     [t-if],
     [t-elif],

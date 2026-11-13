@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests import BaseCase, tagged
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx.tests import BaseCase, tagged
 
 import logging
 import os
@@ -10,7 +10,7 @@ _logger = logging.getLogger(__name__)
 
 class TestRetryCommon(BaseCase):
     def get_tests_run_count(self):
-        return int(os.environ.get('ODOO_TEST_FAILURE_RETRIES', 0)) + 1
+        return int(os.environ.get('WEBLGX_TEST_FAILURE_RETRIES', 0)) + 1
 
     def update_count(self):
         self.count = getattr(self, 'count', 0) + 1
@@ -18,7 +18,7 @@ class TestRetryCommon(BaseCase):
 
 @tagged('-standard', 'test_retry', 'test_retry_success')
 class TestRetry(TestRetryCommon):
-    """ Check some tests behaviour when ODOO_TEST_FAILURE_RETRIES is set"""
+    """ Check some tests behaviour when WEBLGX_TEST_FAILURE_RETRIES is set"""
 
     def test_log_levels(self):
         _logger.debug('test debug')
@@ -35,7 +35,7 @@ class TestRetry(TestRetryCommon):
 
 @tagged('test_retry', 'test_retry_success')
 class TestRetryTraceback(TestRetryCommon):
-    """ Check some tests behaviour when ODOO_TEST_FAILURE_RETRIES is set"""
+    """ Check some tests behaviour when WEBLGX_TEST_FAILURE_RETRIES is set"""
 
     def test_retry_traceback_success(self):
         tests_run_count = self.get_tests_run_count()

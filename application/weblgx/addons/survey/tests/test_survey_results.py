@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import tagged
+from weblgx.tests import tagged
 
-from odoo.addons.survey.controllers.main import Survey
-from odoo.addons.survey.tests import common
-from odoo.addons.website.tools import MockRequest
+from weblgx.addons.survey.controllers.main import Survey
+from weblgx.addons.survey.tests import common
+from weblgx.addons.website.tools import MockRequest
 
 
 @tagged("is_query_count")

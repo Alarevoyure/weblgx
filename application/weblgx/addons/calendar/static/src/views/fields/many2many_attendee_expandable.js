@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { useState, useEffect } from "@odoo/owl";
+import { useState, useEffect } from "@weblgx/owl";
 import { registry } from "@web/core/registry";
 import { reposition } from "@web/core/position_hook";
 import {

@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import fnmatch
@@ -21,18 +21,18 @@ from werkzeug import urls
 from werkzeug.datastructures import MultiDict
 from werkzeug.exceptions import NotFound
 
-from odoo import api, fields, models, tools, http, release, registry
-from odoo.addons.http_routing.models.ir_http import RequestUID, slugify, url_for
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.addons.website.tools import similarity_score, text_from_html, get_base_domain
-from odoo.addons.web_editor.tools import jsonrpc
-from odoo.addons.portal.controllers.portal import pager
-from odoo.exceptions import AccessError, MissingError, UserError, ValidationError
-from odoo.http import request
-from odoo.modules.module import get_manifest
-from odoo.osv.expression import AND, OR, FALSE_DOMAIN, get_unaccent_wrapper
-from odoo.tools.translate import _, xml_translate
-from odoo.tools import escape_psql, pycompat
+from weblgx import api, fields, models, tools, http, release, registry
+from weblgx.addons.http_routing.models.ir_http import RequestUID, slugify, url_for
+from weblgx.addons.website.models.ir_http import sitemap_qs2dom
+from weblgx.addons.website.tools import similarity_score, text_from_html, get_base_domain
+from weblgx.addons.web_editor.tools import jsonrpc
+from weblgx.addons.portal.controllers.portal import pager
+from weblgx.exceptions import AccessError, MissingError, UserError, ValidationError
+from weblgx.http import request
+from weblgx.modules.module import get_manifest
+from weblgx.osv.expression import AND, OR, FALSE_DOMAIN, get_unaccent_wrapper
+from weblgx.tools.translate import _, xml_translate
+from weblgx.tools import escape_psql, pycompat
 
 logger = logging.getLogger(__name__)
 
@@ -47,8 +47,8 @@ DEFAULT_CDN_FILTERS = [
     "^/website/image/",
 ]
 
-DEFAULT_WEBSITE_ENDPOINT = 'https://website.api.odoo.com'
-DEFAULT_OLG_ENDPOINT = 'https://olg.api.odoo.com'
+DEFAULT_WEBSITE_ENDPOINT = 'https://website.api.weblgx.com'
+DEFAULT_OLG_ENDPOINT = 'https://olg.api.weblgx.com'
 
 
 class Website(models.Model):
@@ -1439,7 +1439,7 @@ class Website(models.Model):
             # everyone except for the website designer which receive `1,0,0,0`.
             # So the "Website/Site/Content/Pages" menu to reach the page manager
             # is not shown to the restricted users, as the action linked model
-            # (website.page) can't be access. It's how the Odoo framework works.
+            # (website.page) can't be access. It's how the Web@LGX framework works.
             # Still, we let the restricted editor access this resource for
             # custos granting them read and/or write access on page.
             raise AccessError(_("Access Denied"))

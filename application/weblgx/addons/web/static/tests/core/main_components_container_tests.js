@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { MainComponentsContainer } from "@web/core/main_components_container";
 import { registry } from "@web/core/registry";
 import { clearRegistryWithCleanup, makeTestEnv } from "../helpers/mock_env";
 import { getFixture, mount, nextTick } from "../helpers/utils";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { registerCleanup } from "../helpers/cleanup";
 const mainComponentsRegistry = registry.category("main_components");
 

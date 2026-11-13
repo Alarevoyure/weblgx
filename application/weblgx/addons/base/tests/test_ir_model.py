@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError
 from psycopg2.errors import NotNullViolation
 
-from odoo.exceptions import ValidationError
-from odoo.tests.common import Form, TransactionCase, HttpCase, tagged
-from odoo.tools import mute_logger
-from odoo import Command
+from weblgx.exceptions import ValidationError
+from weblgx.tests.common import Form, TransactionCase, HttpCase, tagged
+from weblgx.tools import mute_logger
+from weblgx import Command
 
 
 class TestXMLID(TransactionCase):
@@ -163,7 +163,7 @@ class TestXMLID(TransactionCase):
         self.assertEqual(self.get_data('test_convert.foo').noupdate, True)
         self.assertEqual(self.get_data('test_convert.bar').noupdate, True)
 
-    @mute_logger('odoo.sql_db', 'odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.sql_db', 'weblgx.addons.base.models.ir_model')
     def test_create_external_id_with_space(self):
         model = self.env['res.partner.category']
         data_list = [{
@@ -480,7 +480,7 @@ class TestIrModelEdition(TransactionCase):
         self.assertFalse(model.exists())
         self.assertFalse(model2.exists())
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('weblgx.sql_db')
     def test_ir_model_fields_name_create(self):
         model = self.env['ir.model'].create({
             'name': 'Bananas',

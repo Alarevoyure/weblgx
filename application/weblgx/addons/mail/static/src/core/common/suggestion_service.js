@@ -1,14 +1,14 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { partnerCompareRegistry } from "@mail/core/common/partner_compare";
 import { cleanTerm } from "@mail/utils/common/format";
-import { toRaw } from "@odoo/owl";
+import { toRaw } from "@weblgx/owl";
 
 import { registry } from "@web/core/registry";
 
 export class SuggestionService {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -233,7 +233,7 @@ export class SuggestionService {
 export const suggestionService = {
     dependencies: ["orm", "mail.store", "mail.persona"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

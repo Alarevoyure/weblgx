@@ -1,9 +1,9 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { threadActionsRegistry } from "@mail/core/common/thread_actions";
 import { PinnedMessagesPanel } from "@mail/discuss/message_pin/common/pinned_messages_panel";
 
-import { useChildSubEnv } from "@odoo/owl";
+import { useChildSubEnv } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 

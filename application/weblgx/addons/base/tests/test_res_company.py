@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import Command
-from odoo.exceptions import UserError, ValidationError
-from odoo.tests.common import TransactionCase
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx import Command
+from weblgx.exceptions import UserError, ValidationError
+from weblgx.tests.common import TransactionCase
 
 
 class TestCompany(TransactionCase):

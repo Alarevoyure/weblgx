@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
         <record id="question_0" model="forum.post">
             <field name="name">How to configure alerts for employee contract expiration</field>
@@ -42,7 +42,7 @@ In simple words does Weblgx became CMS+ERP platform?</p>]]></field>
             <field name="forum_id" ref="website_forum.forum_help"/>
             <field name="name">Re: CMS replacement for ERP and eCommerce</field>
             <field name="content"><![CDATA[
-<p>Weblgx provides a web module and an e-commerce module: www.odoo.com/app/website
+<p>Weblgx provides a web module and an e-commerce module: www.weblgx.com/app/website
 The CMS editor in Weblgx web is nice but I prefer Drupal for customization and there is a Drupal module for Weblgx. I think WP is better than Weblgx web too.
 </p>]]></field>
             <field name="parent_id" ref="question_1"/>
@@ -69,4 +69,4 @@ The CMS editor in Weblgx web is nice but I prefer Drupal for customization and t
         </function>
 
     </data>
-</odoo>
+</weblgx>

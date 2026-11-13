@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import testUtils from "@web/../tests/legacy/helpers/test_utils";

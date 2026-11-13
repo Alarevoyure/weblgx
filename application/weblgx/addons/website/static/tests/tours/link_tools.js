@@ -1,7 +1,7 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import wTourUtils from '@website/js/tours/tour_utils';
-import { boundariesIn, setSelection, nodeSize } from '@web_editor/js/editor/odoo-editor/src/utils/utils';
+import { boundariesIn, setSelection, nodeSize } from '@web_editor/js/editor/weblgx-editor/src/utils/utils';
 
 const clickOnImgStep = {
     content: "Click somewhere else to save.",
@@ -21,21 +21,21 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Replace first paragraph, to insert a new link",
         trigger: 'iframe #wrap .s_text_image p',
-        run: 'text Go to odoo: '
+        run: 'text Go to weblgx: '
     },
     {
         content: "Open link tools",
         trigger: "#toolbar:not(.oe-floating) #create-link",
     },
     {
-        content: "Type the link URL odoo.com",
+        content: "Type the link URL weblgx.com",
         trigger: '#toolbar:not(.oe-floating) #o_link_dialog_url_input',
-        run: 'text odoo.com'
+        run: 'text weblgx.com'
     },
     clickOnImgStep,
     {
         content: "Select the newly created link",
-        trigger: 'iframe #wrap .s_text_image a[href="http://odoo.com"]:contains("odoo.com")',
+        trigger: 'iframe #wrap .s_text_image a[href="http://weblgx.com"]:contains("weblgx.com")',
         run() {
             setSelection(this.$anchor[0], 0, this.$anchor[0], nodeSize(this.$anchor[0]));
         }
@@ -43,15 +43,15 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     // Remove the link.
     {
         content: "Click on the newly created link",
-        trigger: 'iframe #wrap .s_text_image a[href="http://odoo.com"]:contains("odoo.com")',
+        trigger: 'iframe #wrap .s_text_image a[href="http://weblgx.com"]:contains("weblgx.com")',
     },
     {
         content: "Remove the link.",
-        trigger: 'iframe .popover:contains("http://odoo.com") a .fa-chain-broken',
+        trigger: 'iframe .popover:contains("http://weblgx.com") a .fa-chain-broken',
     },
     {
         content: "Check that the link was removed",
-        trigger: 'iframe #wrap .s_text_image p:contains("Go to odoo:"):not(:has(a))',
+        trigger: 'iframe #wrap .s_text_image p:contains("Go to weblgx:"):not(:has(a))',
         run: () => {}, // It's a check.
     },
     // Recreate the link.
@@ -64,55 +64,55 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
         trigger: "#toolbar #create-link",
     },
     {
-        content: "Type the link URL odoo.com",
+        content: "Type the link URL weblgx.com",
         trigger: '#o_link_dialog_url_input',
-        run: 'text odoo.com'
+        run: 'text weblgx.com'
     },
     clickOnImgStep,
     // 2. Edit the link with the link tools.
     {
         content: "Click on the newly created link",
-        trigger: 'iframe .s_text_image a[href="http://odoo.com"]:contains("odoo.com")',
+        trigger: 'iframe .s_text_image a[href="http://weblgx.com"]:contains("weblgx.com")',
     },
     {
-        content: "Change content (editing the label input) to odoo website_2",
-        trigger: '#o_link_dialog_label_input:propValue(odoo.com)',
-        run: 'text odoo website_2',
+        content: "Change content (editing the label input) to weblgx website_2",
+        trigger: '#o_link_dialog_label_input:propValue(weblgx.com)',
+        run: 'text weblgx website_2',
     },
     {
         content: "Click again on the link",
-        trigger: 'iframe .s_text_image a[href="http://odoo.com"]:contains("odoo website_2")',
+        trigger: 'iframe .s_text_image a[href="http://weblgx.com"]:contains("weblgx website_2")',
     },
     {
-        content: "Change content (editing the DOM) to odoo website",
-        trigger: 'iframe .s_text_image a[href="http://odoo.com"]:contains("odoo website_2")',
-        run: 'text odoo website',
+        content: "Change content (editing the DOM) to weblgx website",
+        trigger: 'iframe .s_text_image a[href="http://weblgx.com"]:contains("weblgx website_2")',
+        run: 'text weblgx website',
     },
     clickOnImgStep,
     {
         content: "Click again on the link",
-        trigger: 'iframe .s_text_image a[href="http://odoo.com"]:contains("odoo website")',
+        trigger: 'iframe .s_text_image a[href="http://weblgx.com"]:contains("weblgx website")',
     },
     {
         content: "Check that the label input contains the new content",
-        trigger: '#o_link_dialog_label_input:propValue(odoo website)',
+        trigger: '#o_link_dialog_label_input:propValue(weblgx website)',
         isCheck: true,
     },
     {
         content: "Link tools, should be open, change the url",
         trigger: '#o_link_dialog_url_input',
-        run: 'text_blur odoo.be'
+        run: 'text_blur weblgx.be'
     },
 
     ...wTourUtils.clickOnSave(),
     // 3. Edit a link after saving the page.
     ...wTourUtils.clickOnEditAndWaitEditMode(),
     {
-        content: "The new link content should be odoo website and url odoo.be",
-        trigger: 'iframe .s_text_image a[href="http://odoo.be"]:contains("odoo website")',
+        content: "The new link content should be weblgx website and url weblgx.be",
+        trigger: 'iframe .s_text_image a[href="http://weblgx.be"]:contains("weblgx website")',
     },
     {
-        content: "The new link content should be odoo website and url odoo.be",
+        content: "The new link content should be weblgx website and url weblgx.be",
         trigger: '#toolbar:not(.oe-floating) .dropdown:has([name="link_style_color"]) > button',
     },
     {
@@ -122,7 +122,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     ...wTourUtils.clickOnSave(),
     {
         content: "The link should have the secondary button style.",
-        trigger: 'iframe .s_text_image a.btn.btn-secondary[href="http://odoo.be"]:contains("odoo website")',
+        trigger: 'iframe .s_text_image a.btn.btn-secondary[href="http://weblgx.be"]:contains("weblgx website")',
         isCheck: true,
     },
     // 4. Add link on image.
@@ -142,7 +142,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Set URL.",
         trigger: '.o_we_customize_panel we-input:contains("Your URL") input',
-        run: 'text odoo.com',
+        run: 'text weblgx.com',
     },
     {
         content: "Deselect image.",
@@ -166,7 +166,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     },
     {
         content: "Check that link tools appear.",
-        trigger: 'iframe .popover div a:contains("http://odoo.com")',
+        trigger: 'iframe .popover div a:contains("http://weblgx.com")',
         isCheck: true,
     },
     ...wTourUtils.clickOnSave(),
@@ -195,12 +195,12 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     },
     {
         content: "Check that link tools appear.",
-        trigger: 'iframe .popover div a:contains("http://odoo.com")',
+        trigger: 'iframe .popover div a:contains("http://weblgx.com")',
         run: () => {}, // It's a check.
     },
     {
         content: "Remove link.",
-        trigger: 'iframe .popover:contains("http://odoo.com") a .fa-chain-broken',
+        trigger: 'iframe .popover:contains("http://weblgx.com") a .fa-chain-broken',
     },
     {
         content: "Check that image is not within a link anymore.",
@@ -239,22 +239,22 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Enter an URL",
         trigger: "#o_link_dialog_url_input",
-        run: "text https://www.odoo.com",
+        run: "text https://www.weblgx.com",
     },
     {
         content: "Check nothing is lost",
-        trigger: "iframe header .s_mega_menu_cards a[href='https://www.odoo.com']:has(img):has(h4):has(span)",
+        trigger: "iframe header .s_mega_menu_cards a[href='https://www.weblgx.com']:has(img):has(h4):has(span)",
         isCheck: true,
     },
     // 7. Create new a link from a URL-like text.
     {
         content: "Replace first paragraph, write a URL",
         trigger: 'iframe #wrap .s_text_image p',
-        run: 'text odoo.com'
+        run: 'text weblgx.com'
     },
     {
         content: "Select text",
-        trigger: 'iframe #wrap .s_text_image p:contains(odoo.com)',
+        trigger: 'iframe #wrap .s_text_image p:contains(weblgx.com)',
         run() {
             setSelection(...boundariesIn(this.$anchor[0]), false);
         }
@@ -268,7 +268,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
         // URL transformation into link should persist, without the need for
         // input at input[name=url]
         content: "Check that link was created",
-        trigger: "iframe .s_text_image p a[href='http://odoo.com']:contains('odoo.com')",
+        trigger: "iframe .s_text_image p a[href='http://weblgx.com']:contains('weblgx.com')",
         isCheck: true,
     },
     {
@@ -279,21 +279,21 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
     {
         content: "Change URL to https",
         trigger: "#o_link_dialog_url_input",
-        run: 'text https://odoo.com',
+        run: 'text https://weblgx.com',
     },
     {
         content: "Check that link was updated",
-        trigger: "iframe .s_text_image p a[href='https://odoo.com']:contains('odoo.com')",
+        trigger: "iframe .s_text_image p a[href='https://weblgx.com']:contains('weblgx.com')",
         isCheck: true,
     },
     {
         content: "Change it back http",
         trigger: "#o_link_dialog_url_input",
-        run: 'text http://odoo.com',
+        run: 'text http://weblgx.com',
     },
     {
         content: "Check that link was updated",
-        trigger: "iframe .s_text_image p a[href='http://odoo.com']:contains('odoo.com')",
+        trigger: "iframe .s_text_image p a[href='http://weblgx.com']:contains('weblgx.com')",
         isCheck: true,
     },
     // 9. Test conversion between http and mailto links.
@@ -317,7 +317,7 @@ wTourUtils.registerWebsitePreviewTour('link_tools', {
         trigger: "iframe .s_text_image p a[href='http://callmemaybe.com']:contains('callmemaybe.com')",
     },
     // 10. Test that UI stays up-to-date.
-    // TODO this step which was added by https://github.com/odoo/odoo/commit/9fc283b514d420fdfd66123845d9ec3563572692
+    // TODO this step which was added by https://github.com/weblgx/weblgx/commit/9fc283b514d420fdfd66123845d9ec3563572692
     // for no apparent reason (the X-original-commit of that one does not add
     // this step) is not required for the test to work (it passes more often
     // without this step than with it). It is a cause of race condition (last

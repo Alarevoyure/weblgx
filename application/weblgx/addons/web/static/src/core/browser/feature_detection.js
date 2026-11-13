@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "./browser";
 
@@ -61,11 +61,11 @@ export function isMobileOS() {
 }
 
 export function isIosApp() {
-    return /OdooMobile \(iOS\)/i.test(browser.navigator.userAgent);
+    return /WeblgxMobile \(iOS\)/i.test(browser.navigator.userAgent);
 }
 
 export function isAndroidApp() {
-    return /OdooMobile.+Android/i.test(browser.navigator.userAgent);
+    return /WeblgxMobile.+Android/i.test(browser.navigator.userAgent);
 }
 
 export function isDisplayStandalone() {

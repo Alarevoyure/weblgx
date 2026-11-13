@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_instagram_page" name="Instagram Page">
-    <section class="s_instagram_page" data-instagram-page="odoo.official">
+    <section class="s_instagram_page" data-instagram-page="weblgx.official">
         <div class="o_container_small o_instagram_container o_not_editable">
             <!-- The iframe will be added here by the public widget. -->
         </div>
@@ -18,7 +18,7 @@
             </we-alert>
             <we-input string="Instagram Page"
                       class="o_we_large"
-                      placeholder="odoo.official"
+                      placeholder="weblgx.official"
                       data-set-instagram-page=""
                       data-no-preview="true"/>
         </div>
@@ -35,4 +35,4 @@
     <path>website/static/src/snippets/s_instagram_page/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

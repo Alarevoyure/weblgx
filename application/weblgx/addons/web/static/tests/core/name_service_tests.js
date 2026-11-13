@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ERROR_INACCESSIBLE_OR_MISSING, nameService } from "@web/core/name_service";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";

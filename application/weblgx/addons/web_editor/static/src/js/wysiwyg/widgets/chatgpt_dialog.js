@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, useState, markup, onWillDestroy, status } from "@odoo/owl";
+import { Component, useState, markup, onWillDestroy, status } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 import { Dialog } from "@web/core/dialog/dialog";
 import { escape } from "@web/core/utils/strings";

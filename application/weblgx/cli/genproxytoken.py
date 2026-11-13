@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import argparse
 import os
 import secrets
@@ -9,7 +9,7 @@ from pathlib import Path
 from passlib.hash import pbkdf2_sha512
 
 from . import Command
-from odoo.tools import config
+from weblgx.tools import config
 
 
 class GenProxyToken(Command):

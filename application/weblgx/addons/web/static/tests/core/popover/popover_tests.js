@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Popover } from "@web/core/popover/popover";
 import { usePosition } from "@web/core/position_hook";
@@ -285,7 +285,7 @@ QUnit.test("within iframe", async (assert) => {
 
 QUnit.test("within iframe -- wrong element class", async (assert) => {
     /**
-     * This use case exists in real life, when adding some blocks with the OdooEditor
+     * This use case exists in real life, when adding some blocks with the WeblgxEditor
      * in an iframe. The HTML spec discourages it though.
      * https://developer.mozilla.org/en-US/docs/Web/API/Document/importNode
      */

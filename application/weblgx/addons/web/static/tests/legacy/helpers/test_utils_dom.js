@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { delay } from "@web/core/utils/concurrency";
 

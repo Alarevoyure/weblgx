@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError
 from unittest.mock import patch
 
-from odoo.addons.base.models.res_users import Users
-from odoo.addons.mail.tests.common import MailCommon, mail_new_test_user
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.tests import RecordCapturer, tagged, users
-from odoo.tools import mute_logger
+from weblgx.addons.base.models.res_users import Users
+from weblgx.addons.mail.tests.common import MailCommon, mail_new_test_user
+from weblgx.addons.base.tests.common import HttpCaseWithUserDemo
+from weblgx.tests import RecordCapturer, tagged, users
+from weblgx.tools import mute_logger
 
 
 @tagged('-at_install', 'post_install', 'mail_tools', 'res_users')
@@ -46,7 +46,7 @@ class TestNotifySecurityUpdate(MailCommon):
 @tagged('-at_install', 'post_install', 'mail_tools', 'res_users')
 class TestUser(MailCommon):
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('weblgx.sql_db')
     def test_notification_type_constraint(self):
         with self.assertRaises(IntegrityError, msg='Portal user can not receive notification in Weblgx'):
             mail_new_test_user(

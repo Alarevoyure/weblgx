@@ -1,10 +1,10 @@
-# Translation of Odoo Server.
+# Translation of Web@LGX Server.
 # This file contains the translation of the following modules:
 # 	* onboarding
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Web@LGX Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2025-12-29 18:38+0000\n"
@@ -41,7 +41,7 @@ msgid "Alt Text for the Step Image"
 msgstr ""
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding_step.py:0
 #, python-format
 msgid ""
@@ -191,7 +191,7 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding_step.py:0
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_step
 #, python-format
@@ -221,7 +221,7 @@ msgid ""
 msgstr ""
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding.py:0
 #, python-format
 msgid "Nice work! Your configuration is done."
@@ -363,7 +363,7 @@ msgid "Show when impossible to load the image"
 msgstr ""
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding_step.py:0
 #, python-format
 msgid "Step Completed!"

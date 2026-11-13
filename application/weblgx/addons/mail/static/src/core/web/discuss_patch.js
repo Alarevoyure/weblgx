@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Discuss } from "@mail/core/common/discuss";
 import { DiscussSidebar } from "@mail/core/web/discuss_sidebar";

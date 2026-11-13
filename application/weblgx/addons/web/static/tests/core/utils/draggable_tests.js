@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     drag,
@@ -11,7 +11,7 @@ import {
 import { browser } from "@web/core/browser/browser";
 import { useDraggable } from "@web/core/utils/draggable";
 
-import { Component, reactive, useRef, useState, xml } from "@odoo/owl";
+import { Component, reactive, useRef, useState, xml } from "@weblgx/owl";
 
 let target;
 QUnit.module("Draggable", ({ beforeEach }) => {

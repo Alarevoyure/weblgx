@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { useSubEnv, useComponent, useState } from "@odoo/owl";
+import { useSubEnv, useComponent, useState } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";

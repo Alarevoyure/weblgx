@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { DiscussApp } from "@mail/core/common/discuss_app_model";
 import { Record } from "@mail/core/common/record";

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { AttachmentList } from "@mail/core/common/attachment_list";
 import { Composer } from "@mail/core/common/composer";
@@ -22,7 +22,7 @@ import {
     useEffect,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 import { ActionSwiper } from "@web/core/action_swiper/action_swiper";
 import { hasTouch } from "@web/core/browser/feature_detection";

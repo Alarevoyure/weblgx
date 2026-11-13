@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from collections import deque
 import io
@@ -7,10 +7,10 @@ import json
 
 from werkzeug.datastructures import FileStorage
 
-from odoo import http, _
-from odoo.http import content_disposition, request
-from odoo.tools import ustr, osutil
-from odoo.tools.misc import xlsxwriter
+from weblgx import http, _
+from weblgx.http import content_disposition, request
+from weblgx.tools import ustr, osutil
+from weblgx.tools.misc import xlsxwriter
 
 
 class TableExporter(http.Controller):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { patch } from "@web/core/utils/patch";
@@ -8,7 +8,7 @@ import { ImageSelector } from '@web_editor/components/media_dialog/image_selecto
 import { useService } from '@web/core/utils/hooks';
 import { uploadService, AUTOCLOSE_DELAY } from '@web_editor/components/upload_progress_toast/upload_service';
 
-import { useState, Component } from "@odoo/owl";
+import { useState, Component } from "@weblgx/owl";
 
 class UnsplashCredentials extends Component {
     setup() {

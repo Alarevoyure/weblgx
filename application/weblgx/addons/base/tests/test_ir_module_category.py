@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx.exceptions import ValidationError
+from weblgx.tests.common import TransactionCase
 
 class TestModuleCategory(TransactionCase):
 

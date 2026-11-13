@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import collections
 import json
@@ -12,11 +12,11 @@ from lxml.builder import E
 from copy import deepcopy
 from textwrap import dedent
 
-from odoo.tests.common import TransactionCase
-from odoo.addons.base.models.ir_qweb import QWebException, render
-from odoo.tools import misc, mute_logger
-from odoo.tools.json import scriptsafe as json_scriptsafe
-from odoo.exceptions import UserError, ValidationError, MissingError
+from weblgx.tests.common import TransactionCase
+from weblgx.addons.base.models.ir_qweb import QWebException, render
+from weblgx.tools import misc, mute_logger
+from weblgx.tools.json import scriptsafe as json_scriptsafe
+from weblgx.exceptions import UserError, ValidationError, MissingError
 
 unsafe_eval = eval
 
@@ -654,7 +654,7 @@ class TestQWebNS(TransactionCase):
             'type': 'qweb',
             'arch': """
                 <t t-name="base.dummy">
-                    <Invoice xmlns:od="http://odoo.com/od">
+                    <Invoice xmlns:od="http://weblgx.com/od">
                         <od:name t-att-test="'a' + 1"/>
                     </Invoice>
                 </t>
@@ -923,10 +923,10 @@ class TestQWebBasic(TransactionCase):
             </t>'''
         })
         result = """
-                <a href="/link/odoo/sub">link</a>
-                <a href="/link/odoo/">link2</a>
+                <a href="/link/weblgx/sub">link</a>
+                <a href="/link/weblgx/">link2</a>
             """
-        values = {'url': 'odoo', 'other': True}
+        values = {'url': 'weblgx', 'other': True}
         rendered = self.env['ir.qweb']._render(t.id, values)
         self.assertEqual(rendered.strip(), result.strip())
 
@@ -1495,7 +1495,7 @@ class TestQWebBasic(TransactionCase):
         with self.assertRaises(MissingError, msg="Not Found"):
             self.env['ir.qweb']._render(-9999)
 
-    @mute_logger('odoo.addons.base.models.ir_qweb') # warning for template not found
+    @mute_logger('weblgx.addons.base.models.ir_qweb') # warning for template not found
     def test_error_message_6(self):
         # Error not found a second rendering (first rendering with option hide this error).
         html = self.env['ir.qweb']._render(-9999, raise_if_not_found=False)
@@ -1514,7 +1514,7 @@ class TestQWebBasic(TransactionCase):
         with self.assertRaises(UserError, msg="Not Found"):
             self.env['ir.qweb']._render(-9999)
 
-    @mute_logger('odoo.addons.base.models.ir_qweb') # warning for template not found
+    @mute_logger('weblgx.addons.base.models.ir_qweb') # warning for template not found
     def test_error_message_8(self):
         # UserError not found a second rendering (first rendering with option hide this error).
         html = self.env['ir.qweb']._render(-9999, raise_if_not_found=False)

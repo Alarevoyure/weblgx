@@ -1,10 +1,10 @@
 
-import odoo.tests
-from odoo import Command
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+import weblgx.tests
+from weblgx import Command
+from weblgx.addons.base.tests.common import HttpCaseWithUserDemo
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@weblgx.tests.tagged('post_install', '-at_install')
 class TestLoadMessages(HttpCaseWithUserDemo):
     def test_01_mail_message_load_order_tour(self):
         partner_admin = self.env.ref('base.partner_admin')
@@ -15,7 +15,7 @@ class TestLoadMessages(HttpCaseWithUserDemo):
         self.env["mail.message"].create([{
             "body": n,
             "model": "discuss.channel",
-            "pinned_at": odoo.fields.Datetime.now() if n == 1 else None,
+            "pinned_at": weblgx.fields.Datetime.now() if n == 1 else None,
             "res_id": channel_id.id,
             "author_id": partner_admin.id,
             "message_type": "comment",

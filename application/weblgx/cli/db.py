@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import argparse
 import io
 import urllib.parse
@@ -44,7 +44,7 @@ class Db(Command):
         subs = parser.add_subparsers()
         load = subs.add_parser(
             "load", help="Load a dump file.",
-            description="Loads a dump file into odoo, dump file can be a URL. "
+            description="Loads a dump file into weblgx, dump file can be a URL. "
                  "If `database` is provided, uses that as the database name. "
                  "Otherwise uses the dump file name without extension.")
         load.set_defaults(func=self.load)

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { DebugMenu } from "@web/core/debug/debug_menu";
 import { useOwnDebugContext } from "@web/core/debug/debug_context";
 
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@weblgx/owl";
 
 export class ActionDialog extends Dialog {
     setup() {

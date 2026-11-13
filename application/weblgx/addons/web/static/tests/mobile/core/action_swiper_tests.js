@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ActionSwiper } from "@web/core/action_swiper/action_swiper";
 import { registry } from "@web/core/registry";
@@ -16,7 +16,7 @@ import {
 import { swipeRight } from "@web/../tests/mobile/helpers";
 import { Deferred } from "@web/core/utils/concurrency";
 
-import { Component, xml, onPatched } from "@odoo/owl";
+import { Component, xml, onPatched } from "@weblgx/owl";
 const serviceRegistry = registry.category("services");
 
 let env;

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@weblgx/owl";
 import { memoize } from "@web/core/utils/functions";
 
 /**

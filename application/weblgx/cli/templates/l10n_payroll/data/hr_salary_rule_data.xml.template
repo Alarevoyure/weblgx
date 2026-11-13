@@ -1,5 +1,5 @@
 {%- set countryPascal = name|pascal -%}
-<odoo>
+<weblgx>
     <!-- 
         Sources:
         government website, pwc, papayaglobal
@@ -128,4 +128,4 @@ elif children &gt;= 4:
         <field name="struct_id" ref="l10n_{{code}}_hr_payroll.l10n_{{code}}_hr_payroll_structure_{{code}}_employee_salary"/>
     </record>
 
-</odoo>
+</weblgx>

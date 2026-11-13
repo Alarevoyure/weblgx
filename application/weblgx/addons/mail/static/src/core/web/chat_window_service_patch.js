@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ChatWindowService } from "@mail/core/common/chat_window_service";
 

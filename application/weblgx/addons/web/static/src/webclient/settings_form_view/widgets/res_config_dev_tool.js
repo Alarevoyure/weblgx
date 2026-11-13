@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { SettingsBlock } from "../settings/settings_block";
 import { Setting } from "../../../views/form/setting/setting";
 
-import { Component, onWillStart } from "@odoo/owl";
+import { Component, onWillStart } from "@weblgx/owl";
 import { standardWidgetProps } from "@web/views/widgets/standard_widget_props";
 
 /**
@@ -24,7 +24,7 @@ export class ResConfigDevTool extends Component {
     };
 
     setup() {
-        this.isDebug = Boolean(odoo.debug);
+        this.isDebug = Boolean(weblgx.debug);
 
         this.action = useService("action");
         this.demo = useService("demo_data");

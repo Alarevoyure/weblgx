@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { loadCSS } from "@web/core/assets";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
@@ -32,7 +32,7 @@ import {
 } from "@website/js/text_processing";
 import { throttleForAnimation } from "@web/core/utils/timing";
 
-import { Component, markup, useRef, useState } from "@odoo/owl";
+import { Component, markup, useRef, useState } from "@weblgx/owl";
 
 const InputUserValueWidget = options.userValueWidgetsRegistry['we-input'];
 const SelectUserValueWidget = options.userValueWidgetsRegistry['we-select'];
@@ -135,7 +135,7 @@ const UrlPickerUserValueWidget = InputUserValueWidget.extend({
      * Called when the autocomplete change the input value.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onWebsiteURLChosen: function (ev) {
         this._value = this.inputEl.value;
@@ -999,7 +999,7 @@ options.Class.include({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onGoogleFontsCustoRequest: function (ev) {
         const values = ev.data.values ? Object.assign({}, ev.data.values) : {};
@@ -1026,7 +1026,7 @@ options.Class.include({
      * This handler prevents reloading the page twice with a `request_save`
      * event when a widget is already going to handle reloading the page.
      *
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSaveRequest(ev) {
         // If a widget requires a reload, any subsequent request to save is
@@ -1713,10 +1713,10 @@ options.registry.menu_data = options.Class.extend({
                             "save",
                             [websiteId, {'data': [data]}]
                         ).then(function () {
-                            widget.wysiwyg.odooEditor.observerUnactive();
+                            widget.wysiwyg.weblgxEditor.observerUnactive();
                             widget.$target.attr('href', url);
                             $menu.text(name);
-                            widget.wysiwyg.odooEditor.observerActive();
+                            widget.wysiwyg.weblgxEditor.observerActive();
                         });
                     },
                 });
@@ -1842,7 +1842,7 @@ options.registry.Carousel = options.registry.CarouselHandler.extend({
      * @private
      */
     async _addSlide() {
-        this.options.wysiwyg.odooEditor.historyPauseSteps();
+        this.options.wysiwyg.weblgxEditor.historyPauseSteps();
         const $items = this.$target.find('.carousel-item');
         this.$controls.removeClass('d-none');
         const $active = $items.filter('.active');
@@ -1857,7 +1857,7 @@ options.registry.Carousel = options.registry.CarouselHandler.extend({
             .insertAfter($active);
         this._reindexIndicators();
         await this._slide("next");
-        this.options.wysiwyg.odooEditor.historyUnpauseSteps();
+        this.options.wysiwyg.weblgxEditor.historyUnpauseSteps();
     },
     /**
      * Reindex indicator attributes to stay in sync with slides.
@@ -1962,10 +1962,10 @@ options.registry.Carousel = options.registry.CarouselHandler.extend({
 
         // Slide the carousel.
         this.trigger_up("snippet_edition_request", {exec: async () => {
-            this.options.wysiwyg.odooEditor.historyPauseSteps();
+            this.options.wysiwyg.weblgxEditor.historyPauseSteps();
             await this._slide(direction);
-            this.options.wysiwyg.odooEditor.historyUnpauseSteps();
-            this.options.wysiwyg.odooEditor.historyStep();
+            this.options.wysiwyg.weblgxEditor.historyUnpauseSteps();
+            this.options.wysiwyg.weblgxEditor.historyStep();
         }});
     },
     /**
@@ -2081,7 +2081,7 @@ options.registry.CarouselItem = options.Class.extend({
      * @see this.selectClass for parameters.
      */
     async removeSlide(previewMode) {
-        this.options.wysiwyg.odooEditor.historyPauseSteps();
+        this.options.wysiwyg.weblgxEditor.historyPauseSteps();
         const $items = this.$carousel.find('.carousel-item');
         const newLength = $items.length - 1;
         if (!this.removing && newLength > 0) {
@@ -2124,7 +2124,7 @@ options.registry.CarouselItem = options.Class.extend({
             this.$carousel.trigger("content_changed");
             this.removing = false;
         }
-        this.options.wysiwyg.odooEditor.historyUnpauseSteps();
+        this.options.wysiwyg.weblgxEditor.historyUnpauseSteps();
         this.hasRemovedSlide = true;
     },
     /**
@@ -2133,7 +2133,7 @@ options.registry.CarouselItem = options.Class.extend({
      * @see this.selectClass for parameters
      */
     switchToSlide(previewMode, widgetValue, params) {
-        this.options.wysiwyg.odooEditor.historyPauseSteps();
+        this.options.wysiwyg.weblgxEditor.historyPauseSteps();
         const direction = widgetValue === "left" ? "prev" : "next";
         return new Promise(resolve => {
             this.trigger_up("option_update", {
@@ -2142,7 +2142,7 @@ options.registry.CarouselItem = options.Class.extend({
                 data: {
                     direction: direction,
                     onSuccess: () => {
-                        this.options.wysiwyg.odooEditor.historyUnpauseSteps();
+                        this.options.wysiwyg.weblgxEditor.historyUnpauseSteps();
                         resolve();
                     },
                 },
@@ -2762,9 +2762,9 @@ options.registry.DeviceVisibility = options.Class.extend({
      * @override
      */
     async onTargetHide() {
-        this.options.wysiwyg.odooEditor.observerUnactive("onTargetHide");
+        this.options.wysiwyg.weblgxEditor.observerUnactive("onTargetHide");
         this.$target[0].classList.remove('o_snippet_override_invisible');
-        this.options.wysiwyg.odooEditor.observerActive("onTargetHide");
+        this.options.wysiwyg.weblgxEditor.observerActive("onTargetHide");
     },
     /**
      * @override
@@ -2775,9 +2775,9 @@ options.registry.DeviceVisibility = options.Class.extend({
         if ((this.$target[0].classList.contains('o_snippet_mobile_invisible')
                 || this.$target[0].classList.contains('o_snippet_desktop_invisible')
             ) && isMobilePreview === isMobileHidden) {
-            this.options.wysiwyg.odooEditor.observerUnactive("onTargetShow");
+            this.options.wysiwyg.weblgxEditor.observerUnactive("onTargetShow");
             this.$target[0].classList.add('o_snippet_override_invisible');
-            this.options.wysiwyg.odooEditor.observerActive("onTargetShow");
+            this.options.wysiwyg.weblgxEditor.observerActive("onTargetShow");
         }
     },
     /**
@@ -3758,7 +3758,7 @@ options.registry.WebsiteAnimate = options.Class.extend({
             // Pause the history until the hover effect is applied in
             // "setImgShapeHoverEffect". This prevents saving the intermediate
             // steps done (in a tricky way) up to that point.
-            this.options.wysiwyg.odooEditor.historyPauseSteps();
+            this.options.wysiwyg.weblgxEditor.historyPauseSteps();
             this.trigger_up("option_update", {
                 optionName: "ImageTools",
                 name: "enable_hover_effect",
@@ -4009,7 +4009,7 @@ options.registry.TextHighlight = options.Class.extend({
      */
     _autoAdaptHighlights() {
         this.trigger_up("snippet_edition_request", { exec: async () =>
-            await this._refreshPublicWidgets($(this.options.wysiwyg.odooEditor.editable))
+            await this._refreshPublicWidgets($(this.options.wysiwyg.weblgxEditor.editable))
         });
     },
 

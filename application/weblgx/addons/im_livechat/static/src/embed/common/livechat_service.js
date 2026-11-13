@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 import { expirableStorage } from "@im_livechat/embed/common/expirable_storage";
 
 import { Record } from "@mail/core/common/record";
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { cookie } from "@web/core/browser/cookie";
@@ -32,10 +32,10 @@ export const SESSION_STATE = Object.freeze({
     PERSISTED: "PERSISTED",
 });
 
-export const ODOO_VERSION_KEY = `${location.origin.replace(
+export const WEBLGX_VERSION_KEY = `${location.origin.replace(
     /:\/{0,2}/g,
     "_"
-)}_im_livechat.odoo_version`;
+)}_im_livechat.weblgx_version`;
 
 export class LivechatService {
     static TEMPORARY_ID = "livechat_temporary_thread";
@@ -61,7 +61,7 @@ export class LivechatService {
     }
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {{
      * bus_service: ReturnType<typeof import("@bus/services/bus_service").busService.start>,
      * rpc: ReturnType<typeof import("@web/core/network/rpc_service").rpcService.start>,
@@ -87,14 +87,14 @@ export class LivechatService {
                 channel_id: this.options.channel_id,
             });
             // Clear session if it is outdated.
-            const prevOdooVersion = browser.localStorage.getItem(ODOO_VERSION_KEY);
-            const currOdooVersion = init?.odoo_version;
+            const prevWeblgxVersion = browser.localStorage.getItem(WEBLGX_VERSION_KEY);
+            const currWeblgxVersion = init?.weblgx_version;
             const visitorUid = this.visitorUid || false;
             const userId = session.user_id || false;
-            if (prevOdooVersion !== currOdooVersion || (this.savedState && visitorUid !== userId)) {
+            if (prevWeblgxVersion !== currWeblgxVersion || (this.savedState && visitorUid !== userId)) {
                 this.leaveSession({ notifyServer: false });
             }
-            browser.localStorage.setItem(ODOO_VERSION_KEY, currOdooVersion);
+            browser.localStorage.setItem(WEBLGX_VERSION_KEY, currWeblgxVersion);
         }
         this.available = init?.available_for_me ?? this.available;
         this.rule = init?.rule ?? {};

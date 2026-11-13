@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models
-from odoo.tools import populate
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx import models
+from weblgx.tools import populate
 
 
 class ResourceCalendar(models.Model):

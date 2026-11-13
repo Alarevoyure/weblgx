@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
         <record id="wizard_lang_export" model="ir.ui.view">
             <field name="name">Export Translations</field>
@@ -32,7 +32,7 @@
                             </ul>
                         </p>
                         <p>For more details about translating Weblgx in your language, please refer to the
-                           <a href="https://github.com/odoo/odoo/wiki/Translations" target="_blank">documentation</a>.</p>
+                           <a href="https://github.com/weblgx/weblgx/wiki/Translations" target="_blank">documentation</a>.</p>
                     </div>
                     <footer invisible="state != 'choose'">
                         <button name="act_getfile" string="Export" type="object" class="btn-primary" data-hotkey="q"/>
@@ -53,4 +53,4 @@
         </record>
         <menuitem action="action_wizard_lang_export" id="menu_wizard_lang_export" parent="menu_translation_export"/>
     </data>
-</odoo>
+</weblgx>

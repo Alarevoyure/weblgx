@@ -1,5 +1,5 @@
-from odoo.tests import TransactionCase, tagged, users
-from odoo.addons.mail.tests.common import mail_new_test_user
+from weblgx.tests import TransactionCase, tagged, users
+from weblgx.addons.mail.tests.common import mail_new_test_user
 
 
 @tagged('post_install', '-at_install')
@@ -17,12 +17,12 @@ class TestLinkTracker(TransactionCase):
         cls.website_1, cls.website_2 = cls.env['website'].create([
             {
                 'name': 'website 1',
-                'domain': 'https://maincompany.odoo.com',
+                'domain': 'https://maincompany.weblgx.com',
                 'company_id': cls.company_1.id
             },
             {
                 'name': 'Website 2',
-                'domain': 'https://secondarycompany.odoo.com',
+                'domain': 'https://secondarycompany.weblgx.com',
                 'company_id': cls.company_2.id
             }
         ])
@@ -44,7 +44,7 @@ class TestLinkTracker(TransactionCase):
             The short URL base should match the website domain of the company
         """
         link_1 = self.env['link.tracker'].create({
-            'url': 'https://www.1odoo.com',
+            'url': 'https://www.1weblgx.com',
         })
         self.assertTrue(link_1.short_url.startswith(self.website_1.domain),
             "Short URL should use company 1 website domain")
@@ -52,7 +52,7 @@ class TestLinkTracker(TransactionCase):
         # Switch to Company 2
         self.env.user.company_id = self.company_2
         link_2 = self.env['link.tracker'].create({
-            'url': 'https://www.2odoooo.com',
+            'url': 'https://www.2weblgxoo.com',
         })
         self.assertTrue(link_2.short_url.startswith(self.website_2.domain),
             "Short URL should use company 2 website domain"

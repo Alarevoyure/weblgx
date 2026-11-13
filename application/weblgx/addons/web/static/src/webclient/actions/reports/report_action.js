@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { Layout } from "@web/search/layout";
@@ -6,7 +6,7 @@ import { getDefaultConfig } from "@web/views/view";
 import { useSetupAction } from "@web/webclient/actions/action_hook";
 import { useEnrichWithActionLinks } from "@web/webclient/actions/reports/report_hook";
 
-import { Component, useRef, useSubEnv } from "@odoo/owl";
+import { Component, useRef, useSubEnv } from "@weblgx/owl";
 
 /**
  * Most of the time reports are printed as pdfs.
@@ -16,7 +16,7 @@ import { Component, useRef, useSubEnv } from "@odoo/owl";
  * If not defined as the default action, the HTML is the fallback to pdf if wkhtmltopdf is not available.
  *
  * It has a button to print the report.
- * It uses a feature to automatically create links to other odoo pages if the selector [res-id][res-model][view-type]
+ * It uses a feature to automatically create links to other weblgx pages if the selector [res-id][res-model][view-type]
  * is detected.
  */
 export class ReportAction extends Component {

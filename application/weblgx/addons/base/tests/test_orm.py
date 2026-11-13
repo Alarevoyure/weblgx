@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 
 import psycopg2
 
-from odoo.exceptions import AccessError, MissingError
-from odoo.tests.common import TransactionCase
-from odoo.tools import mute_logger
-from odoo import Command
+from weblgx.exceptions import AccessError, MissingError
+from weblgx.tests.common import TransactionCase
+from weblgx.tools import mute_logger
+from weblgx import Command
 
 
 class TestORM(TransactionCase):
     """ test special behaviors of ORM CRUD functions """
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_access_deleted_records(self):
         """ Verify that accessing deleted records works as expected """
         c1 = self.env['res.partner.category'].create({'name': 'W'})
@@ -38,7 +38,7 @@ class TestORM(TransactionCase):
         # Deleting an already deleted record should be simply ignored
         self.assertTrue(c1.unlink(), "Re-deleting should be a no-op")
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_access_partial_deletion(self):
         """ Check accessing a record from a recordset where another record has been deleted. """
         Model = self.env['res.country']
@@ -56,7 +56,7 @@ class TestORM(TransactionCase):
             record.display_name
             record.unlink()
 
-    @mute_logger('odoo.models', 'odoo.addons.base.models.ir_rule')
+    @mute_logger('weblgx.models', 'weblgx.addons.base.models.ir_rule')
     def test_access_filtered_records(self):
         """ Verify that accessing filtered records works as expected for non-admin user """
         p1 = self.env['res.partner'].create({'name': 'W'})
@@ -103,7 +103,7 @@ class TestORM(TransactionCase):
         result = partner.read()
         self.assertIsInstance(result, list)
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_search_read(self):
         partner = self.env['res.partner']
 
@@ -139,7 +139,7 @@ class TestORM(TransactionCase):
         self.assertEqual(len(found), 1)
         self.assertTrue(field in list(found[0]) for field in ['id', 'name', 'display_name', 'email'])
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('weblgx.sql_db')
     def test_exists(self):
         partner = self.env['res.partner']
 
@@ -234,7 +234,7 @@ class TestORM(TransactionCase):
         group_user.write({'users': [Command.unlink(user.id)]})
         self.assertTrue(user.share)
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_unlink_with_property(self):
         """ Verify that unlink removes the related ir.property as unprivileged user """
         user = self.env['res.users'].create({
@@ -330,7 +330,7 @@ class TestInherits(TransactionCase):
         self.assertEqual(user_foo.name, 'Foo')
         self.assertEqual(user_foo.partner_id, partner_foo)
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_read(self):
         """ inherited fields should be read without any indirection """
         user_foo = self.env['res.users'].create({'name': 'Foo', 'login': 'foo'})
@@ -340,7 +340,7 @@ class TestInherits(TransactionCase):
         self.assertEqual(user_values['name'], partner_values['name'])
         self.assertEqual(user_foo.name, user_foo.partner_id.name)
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_copy(self):
         """ copying a user should automatically copy its partner, too """
         user_foo = self.env['res.users'].create({
@@ -363,7 +363,7 @@ class TestInherits(TransactionCase):
         self.assertNotEqual(user_foo.id, user_bar.id)
         self.assertNotEqual(user_foo.partner_id.id, user_bar.partner_id.id)
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_copy_with_ancestor(self):
         """ copying a user with 'parent_id' in defaults should not duplicate the partner """
         user_foo = self.env['res.users'].create({'login': 'foo', 'name': 'Foo', 'signature': 'Foo'})
@@ -391,7 +391,7 @@ class TestInherits(TransactionCase):
         self.assertEqual(user_bar.name, 'Bar', "name is given from specific partner")
         self.assertEqual(user_bar.signature, user_foo.signature, "signature should be copied")
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_write_date(self):
         """ modifying inherited fields must update write_date """
         user = self.env.user

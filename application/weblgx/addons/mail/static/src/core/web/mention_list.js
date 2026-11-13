@@ -1,7 +1,7 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { _t } from "@web/core/l10n/translation";
-import { Component, useEffect, useState } from "@odoo/owl";
+import { Component, useEffect, useState } from "@weblgx/owl";
 import { useService, useAutofocus } from "@web/core/utils/hooks";
 
 import { NavigableList } from "@mail/core/common/navigable_list";

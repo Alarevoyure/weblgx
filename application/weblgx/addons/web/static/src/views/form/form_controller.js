@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { hasTouch } from "@web/core/browser/feature_detection";
@@ -33,7 +33,7 @@ import { FormCompiler } from "./form_compiler";
 import { FormErrorDialog } from "./form_error_dialog/form_error_dialog";
 import { FormStatusIndicator } from "./form_status_indicator/form_status_indicator";
 
-import { Component, onRendered, useEffect, useRef, useState } from "@odoo/owl";
+import { Component, onRendered, useEffect, useRef, useState } from "@weblgx/owl";
 
 const viewRegistry = registry.category("views");
 

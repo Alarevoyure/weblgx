@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -14,7 +14,7 @@ import {
 } from "./../helpers";
 import { listView } from "@web/views/list/list_view";
 import { companyService } from "@web/webclient/company_service";
-import { onWillStart } from "@odoo/owl";
+import { onWillStart } from "@weblgx/owl";
 import { GraphModel } from "@web/views/graph/graph_model";
 import { switchView } from "../../search/helpers";
 

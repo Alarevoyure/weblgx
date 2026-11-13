@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { pick } from "@web/core/utils/objects";
@@ -89,14 +89,14 @@ const FacebookPageWidget = publicWidget.Widget.extend({
      * Activates the editor observer if it exists.
      */
     _activateEditorObserver() {
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg && this.options.wysiwyg.weblgxEditor.observerActive();
     },
 
     /**
      * Deactivates the editor observer if it exists.
      */
     _deactivateEditorObserver() {
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg && this.options.wysiwyg.weblgxEditor.observerUnactive();
     },
 });
 

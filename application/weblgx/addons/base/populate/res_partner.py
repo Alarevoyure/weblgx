@@ -2,8 +2,8 @@
 import collections
 import logging
 
-from odoo import models
-from odoo.tools import populate
+from weblgx import models
+from weblgx.tools import populate
 
 _logger = logging.getLogger(__name__)
 

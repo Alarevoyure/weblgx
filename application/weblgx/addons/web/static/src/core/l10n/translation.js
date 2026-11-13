@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Deferred } from "@web/core/utils/concurrency";
 import { sprintf } from "@web/core/utils/strings";
@@ -36,7 +36,7 @@ export function _t(term, ...values) {
  * printed (e.g. inserted into a template).
  * Useful when defining translatable strings in code evaluated before the
  * translations are loaded, as class attributes or at the top-level of
- * an Odoo Web module
+ * an Web@LGX Web module
  *
  * @param {string} term
  * @returns {LazyTranslatedString}

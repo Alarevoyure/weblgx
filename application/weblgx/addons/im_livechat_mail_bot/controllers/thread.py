@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.http import request, route
-from odoo.addons.mail.controllers import thread
+from weblgx.http import request, route
+from weblgx.addons.mail.controllers import thread
 
 
 class ThreadController(thread.ThreadController):

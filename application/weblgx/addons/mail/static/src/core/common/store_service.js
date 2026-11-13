@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { registry } from "@web/core/registry";
 import { debounce } from "@web/core/utils/timing";
@@ -69,8 +69,8 @@ export class Store extends BaseStore {
      */
     inPublicPage = false;
     companyName = "";
-    odoobot = Record.one("Persona");
-    odoobotOnboarding;
+    weblgxbot = Record.one("Persona");
+    weblgxbotOnboarding;
     users = {};
     internalUserGroupId = null;
     imStatusTrackedPersonas = Record.many("Persona", {
@@ -109,16 +109,16 @@ export class Store extends BaseStore {
              * - threads with needaction
              * - unread channels
              * - read channels
-             * - odoobot chat
+             * - weblgxbot chat
              *
              * In each group, thread with most recent message comes first
              */
-            const aOdooBot = a.isCorrespondentOdooBot;
-            const bOdooBot = b.isCorrespondentOdooBot;
-            if (aOdooBot && !bOdooBot) {
+            const aWeblgxBot = a.isCorrespondentWeblgxBot;
+            const bWeblgxBot = b.isCorrespondentWeblgxBot;
+            if (aWeblgxBot && !bWeblgxBot) {
                 return 1;
             }
-            if (bOdooBot && !aOdooBot) {
+            if (bWeblgxBot && !aWeblgxBot) {
                 return -1;
             }
             const aNeedaction = a.needactionMessages.length;
@@ -228,7 +228,7 @@ Store.register();
 export const storeService = {
     dependencies: ["bus_service", "ui"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import threading
 
 from contextlib import contextmanager
 from unittest.mock import patch, Mock
 
-from odoo.tests.common import TransactionCase, HttpCase
-from odoo import Command
+from weblgx.tests.common import TransactionCase, HttpCase
+from weblgx import Command
 
 DISABLED_MAIL_CONTEXT = {
     'tracking_disable': True,

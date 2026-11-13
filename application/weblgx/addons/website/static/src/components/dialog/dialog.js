@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Dialog } from '@web/core/dialog/dialog';
 import { _t } from "@web/core/l10n/translation";
-import { useState, Component } from "@odoo/owl";
+import { useState, Component } from "@weblgx/owl";
 
 const NO_OP = () => {};
 

@@ -1,15 +1,15 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 
-import odoo
-from odoo.tools import mute_logger, date_utils
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.http import STATIC_CACHE_LONG
-from odoo import Command, http
+import weblgx
+from weblgx.tools import mute_logger, date_utils
+from weblgx.addons.base.tests.common import HttpCaseWithUserDemo
+from weblgx.http import STATIC_CACHE_LONG
+from weblgx import Command, http
 
 
-@odoo.tests.tagged("-at_install", "post_install")
+@weblgx.tests.tagged("-at_install", "post_install")
 class TestMessageController(HttpCaseWithUserDemo):
     @classmethod
     def setUpClass(cls):
@@ -45,7 +45,7 @@ class TestMessageController(HttpCaseWithUserDemo):
         cls.guest = cls.env["mail.guest"].create({"name": "Guest"})
         cls.channel.add_members(guest_ids=cls.guest.ids)
 
-    @mute_logger("odoo.addons.http_routing.models.ir_http", "odoo.http")
+    @mute_logger("weblgx.addons.http_routing.models.ir_http", "weblgx.http")
     def test_channel_message_attachments(self):
         self.authenticate(None, None)
         self.opener.cookies[
@@ -166,7 +166,7 @@ class TestMessageController(HttpCaseWithUserDemo):
             "guest should be allowed to add own attachment without token when updating message",
         )
 
-    @mute_logger("odoo.addons.http_routing.models.ir_http", "odoo.http")
+    @mute_logger("weblgx.addons.http_routing.models.ir_http", "weblgx.http")
     def test_attachment_hijack(self):
         att = self.env["ir.attachment"].create(
             [
@@ -209,7 +209,7 @@ class TestMessageController(HttpCaseWithUserDemo):
             "arguments_for_firing_marc_demo", response.text
         )  # demo should not be able to see the name of the document
 
-    @mute_logger("odoo.addons.http_routing.models.ir_http", "odoo.http")
+    @mute_logger("weblgx.addons.http_routing.models.ir_http", "weblgx.http")
     def test_mail_partner_from_email_authenticated(self):
         self.authenticate(None, None)
         self.opener.cookies[

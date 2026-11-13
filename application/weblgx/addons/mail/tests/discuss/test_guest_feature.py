@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
-from odoo.tests import tagged
-from odoo.addons.bus.tests.common import WebsocketCase
-from odoo.addons.mail.tests.common import MailCommon
+from weblgx.tests import tagged
+from weblgx.addons.bus.tests.common import WebsocketCase
+from weblgx.addons.mail.tests.common import MailCommon
 
 
 @tagged("post_install", "-at_install")

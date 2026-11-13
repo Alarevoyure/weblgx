@@ -1,9 +1,9 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ImStatus } from "@mail/core/common/im_status";
 import { ActionPanel } from "@mail/discuss/core/common/action_panel";
 
-import { Component, onMounted, onWillStart, useRef, useState } from "@odoo/owl";
+import { Component, onMounted, onWillStart, useRef, useState } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";

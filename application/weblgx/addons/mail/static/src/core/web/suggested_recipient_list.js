@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { SuggestedRecipient } from "@mail/core/web/suggested_recipient";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 /**
  * @typedef {Object} Props

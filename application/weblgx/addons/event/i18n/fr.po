@@ -8,15 +8,15 @@
 # Tiffany Chang, 2024
 # Manon Rondou, 2025
 #
-# "Manon Rondou (ronm)" <ronm@odoo.com>, 2026.
+# "Manon Rondou (ronm)" <ronm@weblgx.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2026-03-14 08:09+0000\n"
-"Last-Translator: \"Manon Rondou (ronm)\" <ronm@odoo.com>\n"
-"Language-Team: French <https://translate.odoo.com/projects/odoo-17/event/fr/>"
+"Last-Translator: \"Manon Rondou (ronm)\" <ronm@weblgx.com>\n"
+"Language-Team: French <https://translate.weblgx.com/projects/weblgx-17/event/fr/>"
 "\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -38,49 +38,49 @@ msgid "# Sent"
 msgstr "# Envoyés"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "%(event_name)s (%(count)s seats remaining)"
 msgstr "%(event_name)s (%(count)s places restantes)"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "%(event_name)s (Sold out)"
 msgstr "%(event_name)s (Complet)"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "%(event_name)s - Registration #%(registration_id)s"
 msgstr "%(event_name)s - Inscription #%(registration_id)s"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "%(event_name)s - Registration for %(attendee_name)s"
 msgstr "%(event_name)s - Inscription de %(attendee_name)s"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_ticket.py:0
 #, python-format
 msgid "%(ticket_name)s (%(count)s seats remaining)"
 msgstr "%(ticket_name)s (%(count)s places restantes)"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_ticket.py:0
 #, python-format
 msgid "%(ticket_name)s (Sold out)"
 msgstr "%(ticket_name)s (Épuisés)"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "%s (copy)"
@@ -131,14 +131,14 @@ msgid "+123456789"
 msgstr "+123456789"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "- \"%(event_name)s\": Missing %(nb_too_many)i seats."
 msgstr "- \"%(event_name)s\":  %(nb_too_many)i places manquantes."
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_ticket.py:0
 #, python-format
 msgid ""
@@ -2592,14 +2592,14 @@ msgid "Announced"
 msgstr "Annoncé"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "Answers"
 msgstr "Réponses"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Apply change."
@@ -2733,7 +2733,7 @@ msgid "Badge Example"
 msgstr "Exemple du badge"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/controllers/main.py:0
 #, python-format
 msgid "Badges"
@@ -2776,7 +2776,7 @@ msgid "Before the event"
 msgstr "Avant l'événement"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_stage.py:0
 #: model:event.stage,legend_blocked:event.event_stage_announced
 #: model:event.stage,legend_blocked:event.event_stage_booked
@@ -2845,7 +2845,7 @@ msgid "Cancel Registration"
 msgstr "Annuler l'inscription"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "Canceled registration"
@@ -2877,7 +2877,7 @@ msgstr ""
 "l'événement ou de modifier les dates auxquelles il a lieu."
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "Close"
@@ -2918,7 +2918,7 @@ msgid "Community Chat Rooms"
 msgstr "Salles de discussion communautaires"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #: model:ir.model.fields,field_description:event.field_event_event__company_id
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__company_id
@@ -2930,7 +2930,7 @@ msgid "Company"
 msgstr "Société"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_barcode.xml:0
 #, python-format
 msgid "Company Logo"
@@ -2942,7 +2942,7 @@ msgid "Company Name"
 msgstr "Nom de la société"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "Compose Email"
@@ -2976,7 +2976,7 @@ msgid "Configuration"
 msgstr "Configuration"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "Confirm"
@@ -2993,7 +2993,7 @@ msgid "Confirm Registration"
 msgstr "Confirmer l'inscription"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "Confirm attendance for"
@@ -3070,14 +3070,14 @@ msgid "Culture"
 msgstr "Culture"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "Customer"
 msgstr "Client"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "Customer Email"
@@ -3231,7 +3231,7 @@ msgstr ""
 "professionnelles."
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #: model:ir.model,name:event.model_event_event
 #: model:ir.model.fields,field_description:event.field_event_event__name
@@ -3319,7 +3319,7 @@ msgid "Event Responsible"
 msgstr "Responsable de l'évenement"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_mail.py:0
 #, python-format
 msgid ""
@@ -3702,7 +3702,7 @@ msgid "Great Reno Ballon Race"
 msgstr "La Great Reno Balloon Race"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Great! Now all you have to do is wait for your attendees to show up!"
@@ -3785,7 +3785,7 @@ msgid "Icon"
 msgstr "Icône"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/icon_selection_field/icon_selection_field.js:0
 #, python-format
 msgid "Icon Selection"
@@ -3852,7 +3852,7 @@ msgid "Important ticket information"
 msgstr "Informations importantes sur les tickets"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_stage.py:0
 #: model:event.stage,legend_normal:event.event_stage_announced
 #: model:event.stage,legend_normal:event.event_stage_booked
@@ -3890,14 +3890,14 @@ msgid "Introduction, CRM, Sales Management"
 msgstr "Introduction, CRM, Gestion des ventes"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "Invalid event / ticket choice"
 msgstr "Choix d'événement/ticket invalide"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_barcode.js:0
 #, python-format
 msgid "Invalid ticket"
@@ -4041,7 +4041,7 @@ msgid "Late Activities"
 msgstr "Activités en retard"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Let's create your first <b>event</b>."
@@ -4200,7 +4200,7 @@ msgid "My Events"
 msgstr "Mes événements"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #: model:ir.model.fields,field_description:event.field_event_event_ticket__name
 #: model:ir.model.fields,field_description:event.field_event_tag__name
@@ -4259,7 +4259,7 @@ msgid "Nomenclature"
 msgstr "Nomenclature"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "None"
@@ -4285,7 +4285,7 @@ msgid "Nothing Scheduled yet!"
 msgstr "Rien de prévu pour le moment !"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Now that your event is ready, click here to move it to another stage."
@@ -4370,7 +4370,7 @@ msgid "Online Ticketing"
 msgstr "Billetterie en ligne"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Open date range picker. Pick a Start date for your event"
@@ -4402,7 +4402,7 @@ msgstr ""
 "ses clients à gérer les arbres, les fleurs et les champignons."
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "Operation not supported."
@@ -4463,7 +4463,7 @@ msgid "Partner"
 msgstr "Partenaire"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "Payment"
@@ -4488,7 +4488,7 @@ msgstr ""
 "l'événement."
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/res_config_settings.py:0
 #, python-format
 msgid "Please enter a valid base64 secret"
@@ -4505,7 +4505,7 @@ msgid "Previous state"
 msgstr "Statut précédent"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "Print"
@@ -4552,7 +4552,7 @@ msgid "Ratings"
 msgstr "Évaluations"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_stage.py:0
 #: model:event.stage,legend_done:event.event_stage_announced
 #: model:event.stage,legend_done:event.event_stage_booked
@@ -4564,7 +4564,7 @@ msgid "Ready for Next Stage"
 msgstr "Prêt pour l'étape suivante"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Ready to <b>organize events</b> in a few minutes? Let's get started!"
@@ -4585,8 +4585,8 @@ msgid "Registered"
 msgstr "Inscrit"
 
 #. module: event
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/event/models/event_ticket.py:0
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #: model_terms:ir.ui.view,arch_db:event.res_config_settings_view_form
@@ -4606,7 +4606,7 @@ msgid "Registration Date"
 msgstr "Date d'inscription"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/controllers/main.py:0
 #: model:ir.ui.menu,name:event.menu_event_registration_desk
 #: model:res.groups,name:event.group_event_registration_desk
@@ -4646,14 +4646,14 @@ msgid "Registration Start"
 msgstr "Début de l'inscription"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.js:0
 #, python-format
 msgid "Registration confirmed"
 msgstr "Inscription confirmée"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_ticket.py:0
 #, python-format
 msgid "Registration for %s"
@@ -4742,7 +4742,7 @@ msgid "SMS Delivery error"
 msgstr "Erreur d'envoi SMS"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_barcode.xml:0
 #, python-format
 msgid "Scan a badge"
@@ -4788,7 +4788,7 @@ msgid "Secret"
 msgstr "Secret"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_barcode.xml:0
 #, python-format
 msgid "Select Attendee"
@@ -5052,7 +5052,7 @@ msgstr ""
 "offrir le spectacle le plus spectaculaire."
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "The closing date cannot be earlier than the beginning date."
@@ -5088,7 +5088,7 @@ msgstr ""
 "collection"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_ticket.py:0
 #, python-format
 msgid ""
@@ -5106,7 +5106,7 @@ msgid "The place has been reserved"
 msgstr "Cette place a été réservée"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "The registration must be paid"
@@ -5118,7 +5118,7 @@ msgid "The safety of our attendees and our aeronauts comes first!"
 msgstr "La sécurité de nos participants et nos aéronautes avant tout !"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_ticket.py:0
 #, python-format
 msgid ""
@@ -5129,7 +5129,7 @@ msgstr ""
 "vérifier le ticket %(ticket_name)s"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_mail.py:0
 #, python-format
 msgid ""
@@ -5137,7 +5137,7 @@ msgid ""
 msgstr "Le modèle référencé doit venir du modèle %(model_name)s."
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #: code:addons/event/models/event_ticket.py:0
 #, python-format
@@ -5175,7 +5175,7 @@ msgid "This information will be printed on your tickets."
 msgstr "Cette information sera imprimée sur vos tickets."
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "This is the <b>name</b> your guests will see when registering."
@@ -5200,7 +5200,7 @@ msgstr ""
 "écoutant les chansons rock les plus iconiques de tous les temps !"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "This operator is not supported"
@@ -5213,22 +5213,22 @@ msgstr ""
 "Cette étape est terminée. Cliquez pour bloquer ou marquer comme terminée."
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "This ticket is for another event"
 msgstr "Ce ticket est pour un autre événement"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "This ticket is not for an ongoing event"
 msgstr "Ce ticket n'est pas pour un événement en cours"
 
 #. module: event
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/event/controllers/main.py:0
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #: model_terms:ir.ui.view,arch_db:event.event_event_ticket_view_form_from_event
@@ -5257,7 +5257,7 @@ msgid "Ticket type"
 msgstr "Type de tickets"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid ""
@@ -5268,7 +5268,7 @@ msgstr ""
 "<b>Créons-en</b> un nouveau."
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/controllers/main.py:0
 #: model:ir.model.fields,field_description:event.field_event_type__event_type_ticket_ids
 #: model:ir.model.fields,field_description:event.field_res_config_settings__module_event_sale
@@ -5423,7 +5423,7 @@ msgstr ""
 "vos étiquettes d'événement."
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Use the <b>breadcrumbs</b> to go back to your kanban overview."
@@ -5448,7 +5448,7 @@ msgid "VIP"
 msgstr "VIP"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_event.py:0
 #, python-format
 msgid "Value should be True or False (not %s)"
@@ -5465,14 +5465,14 @@ msgid "Venue (formatted for one line uses)"
 msgstr "Lieu (formaté pour une ligne)"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "View"
 msgstr "Voir"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_mail.py:0
 #, python-format
 msgid "WARNING: Event Scheduler Error for event: %s"
@@ -5495,7 +5495,7 @@ msgid "Warehouse management, Manufacturing (MRP) &amp; Sales, Import/Export."
 msgstr "Gestion de l'entrepôt, Fabrication (MRP) &amp; Ventes, Import/Export."
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_barcode.js:0
 #, python-format
 msgid "Warning"
@@ -5532,7 +5532,7 @@ msgid "Weeks"
 msgstr "Semaines"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_barcode.xml:0
 #, python-format
 msgid "Welcome to"
@@ -5648,8 +5648,8 @@ msgstr "par ex. Ticket VIP"
 
 #. module: event
 #: model_terms:event.event,description:event.event_2
-msgid "events@odoo.com"
-msgstr "events@odoo.com"
+msgid "events@weblgx.com"
+msgstr "events@weblgx.com"
 
 #. module: event
 #: model_terms:event.event,description:event.event_7
@@ -5670,49 +5670,49 @@ msgid "https://www.example.com"
 msgstr "https://www.example.com"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "in %d days"
 msgstr "dans %d jours"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "is already registered"
 msgstr "est déjà inscrit"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_registration_summary_dialog.xml:0
 #, python-format
 msgid "is successfully registered"
 msgstr "est inscrit avec succès"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "next month"
 msgstr "le mois prochain"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "next week"
 msgstr "la semaine prochaine"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "on %(date)s"
 msgstr "le %(date)s"
 
 #. module: event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/event/static/src/client_action/event_barcode.xml:0
 #, python-format
 msgid "or"
@@ -5744,14 +5744,14 @@ msgid "to"
 msgstr "au"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "today"
 msgstr "aujourd'hui"
 
 #. module: event
-#. odoo-python
+#. weblgx-python
 #: code:addons/event/models/event_registration.py:0
 #, python-format
 msgid "tomorrow"

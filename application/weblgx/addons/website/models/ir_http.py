@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import contextlib
 import functools
 import logging
@@ -11,17 +11,17 @@ import werkzeug
 import werkzeug.routing
 import werkzeug.utils
 
-import odoo
-from odoo import api, models, tools
-from odoo import SUPERUSER_ID
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.tools.json import scriptsafe as json_scriptsafe
-from odoo.tools.safe_eval import safe_eval
-from odoo.osv.expression import FALSE_DOMAIN
-from odoo.addons.http_routing.models import ir_http
-from odoo.addons.http_routing.models.ir_http import _guess_mimetype
-from odoo.addons.portal.controllers.portal import _build_url_w_params
+import weblgx
+from weblgx import api, models, tools
+from weblgx import SUPERUSER_ID
+from weblgx.exceptions import AccessError
+from weblgx.http import request
+from weblgx.tools.json import scriptsafe as json_scriptsafe
+from weblgx.tools.safe_eval import safe_eval
+from weblgx.osv.expression import FALSE_DOMAIN
+from weblgx.addons.http_routing.models import ir_http
+from weblgx.addons.http_routing.models.ir_http import _guess_mimetype
+from weblgx.addons.portal.controllers.portal import _build_url_w_params
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +51,7 @@ def get_request_website():
 
     Don't import directly the method or it won't be mocked during tests, do:
     ```
-    from odoo.addons.website.models import ir_http
+    from weblgx.addons.website.models import ir_http
     my_var = ir_http.get_request_website()
     ```
     """
@@ -265,7 +265,7 @@ class Http(models.AbstractModel):
     @classmethod
     def _get_translation_frontend_modules_name(cls):
         mods = super()._get_translation_frontend_modules_name()
-        installed = request.registry._init_modules.union(odoo.conf.server_wide_modules)
+        installed = request.registry._init_modules.union(weblgx.conf.server_wide_modules)
         return mods + [mod for mod in installed if mod.startswith('website')]
 
     @classmethod

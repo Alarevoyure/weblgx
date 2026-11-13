@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
-from odoo import fields, models
-from odoo.tools import populate
+from weblgx import fields, models
+from weblgx.tools import populate
 
 CP_WEIGHTS = {1: 35, 2: 30, 3: 25, 4: 10}
 _logger = logging.getLogger(__name__)

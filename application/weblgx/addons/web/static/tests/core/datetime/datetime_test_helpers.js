@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { patchWithCleanup } from "@web/../tests/helpers/utils";
 import { localization } from "@web/core/l10n/localization";

@@ -1,15 +1,15 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from lxml import html
 from unittest.mock import patch
 
-from odoo.addons.website.controllers.main import Website
-from odoo.addons.website.tools import MockRequest
-from odoo.fields import Command
-from odoo.http import root
-from odoo.tests import common, HttpCase, tagged
-from odoo.tests.common import HOST
-from odoo.tools import config, mute_logger
+from weblgx.addons.website.controllers.main import Website
+from weblgx.addons.website.tools import MockRequest
+from weblgx.fields import Command
+from weblgx.http import root
+from weblgx.tests import common, HttpCase, tagged
+from weblgx.tests.common import HOST
+from weblgx.tools import config, mute_logger
 
 
 @tagged('-at_install', 'post_install')
@@ -261,7 +261,7 @@ class WithContext(HttpCase):
             [p['loc'] for p in pages],
         )
 
-    @mute_logger('odoo.http')
+    @mute_logger('weblgx.http')
     def test_03_error_page_debug(self):
         with MockRequest(self.env, website=self.env['website'].browse(1)):
             self.base_view.arch = self.base_view.arch.replace('I am a generic page', '<t t-esc="15/0"/>')

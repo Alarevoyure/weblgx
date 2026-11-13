@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -8,7 +8,7 @@ import { useInputField } from "../input_field_hook";
 import { standardFieldProps } from "../standard_field_props";
 import { useNumpadDecimal } from "../numpad_decimal_hook";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 export class IntegerField extends Component {
     static template = "web.IntegerField";

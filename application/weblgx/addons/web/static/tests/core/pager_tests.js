@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Pager } from "@web/core/pager/pager";
 import { makeTestEnv } from "../helpers/mock_env";
@@ -14,7 +14,7 @@ import {
 import { registry } from "@web/core/registry";
 import { uiService } from "@web/core/ui/ui_service";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 
 const serviceRegistry = registry.category("services");
 

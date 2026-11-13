@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ActivityCompiler } from "@mail/views/web/activity/activity_compiler";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 import { evaluateBooleanExpr } from "@web/core/py_js/py";
 import { useService } from "@web/core/utils/hooks";

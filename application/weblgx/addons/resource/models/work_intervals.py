@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 #
 # Copied from hr_work_entry_contract (same logic as upstream) so that `resource` does not
 # depend on that module when it is removed from the deployment.

@@ -2,7 +2,7 @@
 
 from . import models
 
-from odoo import SUPERUSER_ID, api
+from weblgx import SUPERUSER_ID, api
 
 
 def post_init_hook(env):

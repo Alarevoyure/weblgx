@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { attachComponent } from "@web/legacy/utils";
 import { MediaDialog } from "@web_editor/components/media_dialog/media_dialog";
@@ -32,7 +32,7 @@ import {
     getDataURLBinarySize,
     isWebGLEnabled,
 } from "@web_editor/js/editor/image_processing";
-import * as OdooEditorLib from "@web_editor/js/editor/odoo-editor/src/OdooEditor";
+import * as WeblgxEditorLib from "@web_editor/js/editor/weblgx-editor/src/WeblgxEditor";
 import { pick } from "@web/core/utils/objects";
 import { _t } from "@web/core/l10n/translation";
 import {
@@ -43,9 +43,9 @@ import {
 import { renderToElement } from "@web/core/utils/render";
 import { jsonrpc } from "@web/core/network/rpc_service";
 
-const preserveCursor = OdooEditorLib.preserveCursor;
+const preserveCursor = WeblgxEditorLib.preserveCursor;
 const { DateTime } = luxon;
-const resetOuids = OdooEditorLib.resetOuids;
+const resetOuids = WeblgxEditorLib.resetOuids;
 let _serviceCache = {
     orm: {},
     rpc: {},
@@ -671,7 +671,7 @@ const UserValueWidget = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent|Event}
+     * @param {WeblgxEvent|Event}
      * @returns {boolean}
      */
     _handleNotifierEvent: function (ev) {
@@ -697,7 +697,7 @@ const UserValueWidget = Widget.extend({
      * change.
      *
      * @private
-     * @param {OdooEvent|Event} [ev]
+     * @param {WeblgxEvent|Event} [ev]
      */
     _onUserValueChange: function (ev) {
         if (this._handleNotifierEvent(ev)) {
@@ -708,7 +708,7 @@ const UserValueWidget = Widget.extend({
      * Allows container widgets to add additional data if needed.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onUserValueNotification: function (ev) {
         ev.data.widget = this;
@@ -728,7 +728,7 @@ const UserValueWidget = Widget.extend({
      * preview.
      *
      * @private
-     * @param {OdooEvent|Event} [ev]
+     * @param {WeblgxEvent|Event} [ev]
      */
     _onUserValuePreview: function (ev) {
         if (this._handleNotifierEvent(ev)) {
@@ -740,7 +740,7 @@ const UserValueWidget = Widget.extend({
      * reset.
      *
      * @private
-     * @param {OdooEvent|Event} [ev]
+     * @param {WeblgxEvent|Event} [ev]
      */
     _onUserValueReset: function (ev) {
         if (this._handleNotifierEvent(ev)) {
@@ -4315,7 +4315,7 @@ const SnippetOptionWidget = Widget.extend({
         let $applyTo = null;
 
         if (previewMode === true) {
-            this.options.wysiwyg.odooEditor.automaticStepUnactive('preview_option');
+            this.options.wysiwyg.weblgxEditor.automaticStepUnactive('preview_option');
         }
 
         // Call each option method sequentially
@@ -4338,7 +4338,7 @@ const SnippetOptionWidget = Widget.extend({
         }
 
         if (previewMode === 'reset' || previewMode === false) {
-            this.options.wysiwyg.odooEditor.automaticStepActive('preview_option');
+            this.options.wysiwyg.weblgxEditor.automaticStepActive('preview_option');
         }
 
         // We trigger the event on elements targeted by apply-to if any as
@@ -4447,7 +4447,7 @@ const SnippetOptionWidget = Widget.extend({
         // Ask a mutexed snippet update according to the widget value change
         const shouldRecordUndo = (!previewMode && !ev.data.isSimulatedEvent);
         if (shouldRecordUndo) {
-            this.options.wysiwyg.odooEditor.unbreakableStepUnactive();
+            this.options.wysiwyg.weblgxEditor.unbreakableStepUnactive();
         }
         this.trigger_up('snippet_edition_request', {exec: async () => {
             // If some previous snippet edition in the mutex removed the target from
@@ -4491,7 +4491,7 @@ const SnippetOptionWidget = Widget.extend({
             // If it is not preview mode, the user selected the option for good
             // (so record the action)
             if (shouldRecordUndo) {
-                this.options.wysiwyg.odooEditor.historyStep();
+                this.options.wysiwyg.weblgxEditor.historyStep();
             }
 
             if (previewMode || requiresReload) {
@@ -4659,10 +4659,10 @@ registry.sizing = SnippetOptionWidget.extend({
             const rowEl = self.$target[0].parentNode;
             let backgroundGridEl;
             if (rowEl.classList.contains("o_grid_mode") && !isMobile) {
-                self.options.wysiwyg.odooEditor.observerUnactive('displayBackgroundGrid');
+                self.options.wysiwyg.weblgxEditor.observerUnactive('displayBackgroundGrid');
                 backgroundGridEl = gridUtils._addBackgroundGrid(rowEl, 0);
                 gridUtils._setElementToMaxZindex(backgroundGridEl, rowEl);
-                self.options.wysiwyg.odooEditor.observerActive('displayBackgroundGrid');
+                self.options.wysiwyg.weblgxEditor.observerActive('displayBackgroundGrid');
             }
 
             // For loop to handle the cases where it is ne, nw, se or sw. Since
@@ -4694,7 +4694,7 @@ registry.sizing = SnippetOptionWidget.extend({
                 directions.push(props);
             }
 
-            self.options.wysiwyg.odooEditor.automaticStepUnactive('resizing');
+            self.options.wysiwyg.weblgxEditor.automaticStepUnactive('resizing');
 
             const cursor = $handle.css('cursor') + '-important';
             const $iframeWindow = $(this.ownerDocument.defaultView);
@@ -4759,9 +4759,9 @@ registry.sizing = SnippetOptionWidget.extend({
                 // Also sync the col-* class with the g-col-* class so the
                 // toggle to normal mode and the mobile view are well done.
                 if (rowEl.classList.contains("o_grid_mode") && !isMobile) {
-                    self.options.wysiwyg.odooEditor.observerUnactive('displayBackgroundGrid');
+                    self.options.wysiwyg.weblgxEditor.observerUnactive('displayBackgroundGrid');
                     backgroundGridEl.remove();
-                    self.options.wysiwyg.odooEditor.observerActive('displayBackgroundGrid');
+                    self.options.wysiwyg.weblgxEditor.observerActive('displayBackgroundGrid');
                     gridUtils._resizeGrid(rowEl);
 
                     const colClass = [...self.$target[0].classList].find(c => /^col-/.test(c));
@@ -4770,7 +4770,7 @@ registry.sizing = SnippetOptionWidget.extend({
                     self.$target[0].classList.add(gColClass.substring(2));
                 }
 
-                self.options.wysiwyg.odooEditor.automaticStepActive('resizing');
+                self.options.wysiwyg.weblgxEditor.automaticStepActive('resizing');
 
                 // Freeing the mutex once the resizing is done.
                 resizeResolve();
@@ -4781,7 +4781,7 @@ registry.sizing = SnippetOptionWidget.extend({
                 }
 
                 setTimeout(function () {
-                    self.options.wysiwyg.odooEditor.historyStep();
+                    self.options.wysiwyg.weblgxEditor.historyStep();
 
                     self.trigger_up("snippet_edition_request", { exec: async () => {
                         await new Promise(resolve => {
@@ -5477,11 +5477,11 @@ registry.layout_column = SnippetOptionWidget.extend(ColumnLayoutMixin, {
             void rowEl.offsetWidth; // Trigger a DOM reflow.
 
             // Add an animated grid preview.
-            this.options.wysiwyg.odooEditor.observerUnactive("addGridPreview");
+            this.options.wysiwyg.weblgxEditor.observerUnactive("addGridPreview");
             this.gridPreviewEl = gridUtils._addBackgroundGrid(rowEl, 0);
             this.gridPreviewEl.classList.add("o_we_grid_preview");
             gridUtils._setElementToMaxZindex(this.gridPreviewEl, rowEl);
-            this.options.wysiwyg.odooEditor.observerActive("addGridPreview");
+            this.options.wysiwyg.weblgxEditor.observerActive("addGridPreview");
             this.removeGridPreview = this._removeGridPreview.bind(this);
             rowEl.addEventListener("animationend", this.removeGridPreview);
         }
@@ -5636,14 +5636,14 @@ registry.layout_column = SnippetOptionWidget.extend(ColumnLayoutMixin, {
      * @private
      */
     _removeGridPreview() {
-        this.options.wysiwyg.odooEditor.observerUnactive("removeGridPreview");
+        this.options.wysiwyg.weblgxEditor.observerUnactive("removeGridPreview");
         this.$target[0].removeEventListener("animationend", this.removeGridPreview);
         if (this.gridPreviewEl) {
             this.gridPreviewEl.remove();
             delete this.gridPreviewEl;
         }
         delete this.removeGridPreview;
-        this.options.wysiwyg.odooEditor.observerActive("removeGridPreview");
+        this.options.wysiwyg.weblgxEditor.observerActive("removeGridPreview");
     },
     /**
      * @returns {boolean}
@@ -5678,9 +5678,9 @@ registry.GridColumns = SnippetOptionWidget.extend({
 
             // Highlight the padding when changing it, by adding a pseudo-
             // element with an animated colored border inside the grid item.
-            this.options.wysiwyg.odooEditor.observerUnactive("addPaddingPreview");
+            this.options.wysiwyg.weblgxEditor.observerUnactive("addPaddingPreview");
             this.$target[0].classList.add("o_we_padding_highlight");
-            this.options.wysiwyg.odooEditor.observerActive("addPaddingPreview");
+            this.options.wysiwyg.weblgxEditor.observerActive("addPaddingPreview");
             this.removePaddingPreview = this._removePaddingPreview.bind(this);
             this.$target[0].addEventListener("animationend", this.removePaddingPreview);
         }
@@ -5706,11 +5706,11 @@ registry.GridColumns = SnippetOptionWidget.extend({
      * @private
      */
     _removePaddingPreview() {
-        this.options.wysiwyg.odooEditor.observerUnactive("removePaddingPreview");
+        this.options.wysiwyg.weblgxEditor.observerUnactive("removePaddingPreview");
         this.$target[0].removeEventListener("animationend", this.removePaddingPreview);
         this.$target[0].classList.remove("o_we_padding_highlight");
         delete this.removePaddingPreview;
-        this.options.wysiwyg.odooEditor.observerActive("removePaddingPreview");
+        this.options.wysiwyg.weblgxEditor.observerActive("removePaddingPreview");
     },
 });
 
@@ -6006,8 +6006,8 @@ registry.ReplaceMedia = SnippetOptionWidget.extend({
      * @override
      */
     onFocus() {
-        this.options.wysiwyg.odooEditor.addEventListener('activate_image_link_tool', this._activateLinkTool);
-        this.options.wysiwyg.odooEditor.addEventListener('deactivate_image_link_tool', this._deactivateLinkTool);
+        this.options.wysiwyg.weblgxEditor.addEventListener('activate_image_link_tool', this._activateLinkTool);
+        this.options.wysiwyg.weblgxEditor.addEventListener('deactivate_image_link_tool', this._deactivateLinkTool);
         // When we start editing an image, rerender the UI to ensure the
         // we-select that suggests the anchors is in a consistent state.
         this.rerender = true;
@@ -6133,8 +6133,8 @@ registry.ReplaceMedia = SnippetOptionWidget.extend({
      * @private
      */
     _clearListeners() {
-        this.options.wysiwyg.odooEditor.removeEventListener('activate_image_link_tool', this._activateLinkTool);
-        this.options.wysiwyg.odooEditor.removeEventListener('deactivate_image_link_tool', this._deactivateLinkTool);
+        this.options.wysiwyg.weblgxEditor.removeEventListener('activate_image_link_tool', this._activateLinkTool);
+        this.options.wysiwyg.weblgxEditor.removeEventListener('deactivate_image_link_tool', this._deactivateLinkTool);
     },
     /**
      * @private
@@ -6908,7 +6908,7 @@ registry.ImageTools = ImageHandlerOption.extend({
         // function of the "WebsiteAnimate" class, the history was paused to
         // avoid recording intermediate steps. That's why we unpause it here.
         if (this.firstHoverEffect) {
-            this.options.wysiwyg.odooEditor.historyUnpauseSteps();
+            this.options.wysiwyg.weblgxEditor.historyUnpauseSteps();
             delete this.firstHoverEffect;
         }
     },
@@ -7145,17 +7145,17 @@ registry.ImageTools = ImageHandlerOption.extend({
             // to another), causing a visual glitch. To avoid this, we hide the
             // image with its clone when the source is set.
             clonedImgEl = img.cloneNode(true);
-            this.options.wysiwyg.odooEditor.observerUnactive("addClonedImgForHoverEffectPreview");
+            this.options.wysiwyg.weblgxEditor.observerUnactive("addClonedImgForHoverEffectPreview");
             img.classList.add("d-none");
             img.insertAdjacentElement("afterend", clonedImgEl);
-            this.options.wysiwyg.odooEditor.observerActive("addClonedImgForHoverEffectPreview");
+            this.options.wysiwyg.weblgxEditor.observerActive("addClonedImgForHoverEffectPreview");
         }
         const loadedImg = await loadImage(dataURL, img);
         if (hasHoverEffect) {
-            this.options.wysiwyg.odooEditor.observerUnactive("removeClonedImgForHoverEffectPreview");
+            this.options.wysiwyg.weblgxEditor.observerUnactive("removeClonedImgForHoverEffectPreview");
             clonedImgEl.remove();
             img.classList.remove("d-none");
-            this.options.wysiwyg.odooEditor.observerActive("removeClonedImgForHoverEffectPreview");
+            this.options.wysiwyg.weblgxEditor.observerActive("removeClonedImgForHoverEffectPreview");
         }
         if (needToRefreshPublicWidgets) {
             await this._refreshPublicWidgets();
@@ -7254,7 +7254,7 @@ registry.ImageTools = ImageHandlerOption.extend({
         // smaller screens. So we suggest the width of the current image unless
         // it is smaller than the size of the container on the md breapoint
         // (which is where our bootstrap columns fallback to full container
-        // width since we only use col-lg-* in Odoo).
+        // width since we only use col-lg-* in Web@LGX).
         } else if (img.closest('.container, .o_container_small')) {
             const mdContainerMaxWidth = parseFloat(computedStyles.getPropertyValue('--o-md-container-max-width')) || 720;
             const mdContainerInnerWidth = mdContainerMaxWidth - gutterWidth;
@@ -8214,7 +8214,7 @@ registry.BackgroundImage = SnippetOptionWidget.extend({
         }
         const combined = backgroundImagePartsToCss(parts);
         this.$target.css('background-image', combined);
-        this.options.wysiwyg.odooEditor.editable.focus();
+        this.options.wysiwyg.weblgxEditor.editable.focus();
     },
 });
 
@@ -9094,9 +9094,9 @@ registry.ColoredLevelBackground = registry.BackgroundToggler.extend({
      * @private
      */
     _markColorLevel: function () {
-        this.options.wysiwyg.odooEditor.observerUnactive('_markColorLevel');
+        this.options.wysiwyg.weblgxEditor.observerUnactive('_markColorLevel');
         this.$target.addClass('o_colored_level');
-        this.options.wysiwyg.odooEditor.observerActive('_markColorLevel');
+        this.options.wysiwyg.weblgxEditor.observerActive('_markColorLevel');
     },
 });
 
@@ -9279,7 +9279,7 @@ registry.VersionControl = SnippetOptionWidget.extend({
             },
         });
         // Replacing the block.
-        this.options.wysiwyg.odooEditor.historyPauseSteps();
+        this.options.wysiwyg.weblgxEditor.historyPauseSteps();
         this.$target[0].classList.add("d-none"); // Hiding the block to replace it smoothly.
         this.$target[0].insertAdjacentElement("beforebegin", newBlockEl);
         // Initializing the new block as if it was dropped: the mutex needs to
@@ -9291,9 +9291,9 @@ registry.VersionControl = SnippetOptionWidget.extend({
                     {$snippet: this.$target, onSuccess: resolve, shouldRecordUndo: false}
                 );
             });
-            this.options.wysiwyg.odooEditor.historyUnpauseSteps();
+            this.options.wysiwyg.weblgxEditor.historyUnpauseSteps();
             newBlockEl.classList.remove("oe_snippet_body");
-            this.options.wysiwyg.odooEditor.historyStep();
+            this.options.wysiwyg.weblgxEditor.historyStep();
         });
     },
     /**
@@ -9691,7 +9691,7 @@ registry.SelectTemplate = SnippetOptionWidget.extend({
 
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onWidgetOpening(ev) {
         if (this._templatesLoading || ev.target.getName() !== this.selectTemplateWidgetName) {

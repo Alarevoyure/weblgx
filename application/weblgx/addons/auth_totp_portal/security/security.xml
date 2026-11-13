@@ -1,4 +1,4 @@
-<odoo>
+<weblgx>
     <!-- copies ACL for portal users -->
     <record model="ir.model.access" id="access_auth_totp_portal_wizard">
         <field name="name">auth_totp_portal wizard access rules</field>
@@ -9,4 +9,4 @@
         <field name="perm_create">1</field>
         <field name="perm_unlink">1</field>
     </record>
-</odoo>
+</weblgx>

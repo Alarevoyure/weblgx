@@ -3,9 +3,9 @@ Vendor unittest.TestSuite
 
 This is a modified version of python 3.8 unitest.TestSuite
 
-Odoo tests customisation combined with the need of a cross version compatibility
+Web@LGX tests customisation combined with the need of a cross version compatibility
 started to make TestSuite and other unitest object more complicated than vendoring
-the part we need for Odoo. This versions is simplified in order
+the part we need for Web@LGX. This versions is simplified in order
 to minimise the code to maintain
 
 - Removes expected failure support
@@ -20,7 +20,7 @@ from . import case
 from .common import HttpCase
 from .result import stats_logger
 from unittest import util, BaseTestSuite, TestCase
-from odoo.modules import module
+from weblgx.modules import module
 
 __unittest = True
 
@@ -158,7 +158,7 @@ class _ErrorHolder(object):
         return 0
 
 
-class OdooSuite(TestSuite):
+class WeblgxSuite(TestSuite):
     def _handleClassSetUp(self, test, result):
         previous_test_class = result._previousTestClass
         if not (

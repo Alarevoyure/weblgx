@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { parseVersion } from "@mail/utils/common/misc";
 import { browser } from "@web/core/browser/browser";

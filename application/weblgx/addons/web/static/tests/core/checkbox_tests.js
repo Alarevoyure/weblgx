@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { CheckBox } from "@web/core/checkbox/checkbox";
 import { hotkeyService } from "@web/core/hotkeys/hotkey_service";
@@ -16,7 +16,7 @@ import {
     nextTick,
 } from "@web/../tests/helpers/utils";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 const serviceRegistry = registry.category("services");
 
 let target;

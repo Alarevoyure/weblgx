@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { CalendarQuickCreate } from "@web/views/calendar/quick_create/calendar_quick_create";
 import { click, getFixture } from "../../helpers/utils";

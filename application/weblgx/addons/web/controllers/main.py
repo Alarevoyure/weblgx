@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import warnings
-from odoo import http
-from odoo.tools import lazy
-from odoo.addons.web.controllers import (
+from weblgx import http
+from weblgx.tools import lazy
+from weblgx.addons.web.controllers import (
     action, binary, database, dataset, export, home, report, session,
     utils, view, webclient,
 )

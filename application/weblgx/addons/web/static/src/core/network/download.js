@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { makeErrorFromResponse, ConnectionLostError } from "@web/core/network/rpc_service";
@@ -497,8 +497,8 @@ download._download = (options) => {
             });
         }
         data.append("token", "dummy-because-api-expects-one");
-        if (odoo.csrf_token) {
-            data.append("csrf_token", odoo.csrf_token);
+        if (weblgx.csrf_token) {
+            data.append("csrf_token", weblgx.csrf_token);
         }
         configureBlobDownloadXHR(xhr, {
             onSuccess: resolve,
@@ -530,13 +530,13 @@ export function configureBlobDownloadXHR(
         const header = (xhr.getResponseHeader("Content-Disposition") || "").replace(/;$/, "");
         // replace because apparently we send some C-D headers with a trailing ";"
         const filename = header ? parse(header).parameters.filename : null;
-        // In Odoo, the default mimetype, including for JSON errors is text/html (ref: http.py:Root.get_response )
+        // In Web@LGX, the default mimetype, including for JSON errors is text/html (ref: http.py:Root.get_response )
         // in that case, in order to also be able to download html files, we check if we get a proper filename to be able to download
         if (xhr.status === 200 && (mimetype !== "text/html" || filename)) {
             _download(xhr.response, filename, mimetype);
             onSuccess(filename);
         } else if (xhr.status === 502) {
-            // If Odoo is behind another server (nginx)
+            // If Web@LGX is behind another server (nginx)
             onFailure(new ConnectionLostError(url));
         } else {
             const decoder = new FileReader();

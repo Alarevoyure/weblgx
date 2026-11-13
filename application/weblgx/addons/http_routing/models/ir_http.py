@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import contextlib
 import logging
@@ -19,14 +19,14 @@ try:
 except ImportError:
     slugify_lib = None
 
-import odoo
-from odoo import api, models, exceptions, tools, http
-from odoo.addons.base.models import ir_http
-from odoo.addons.base.models.ir_http import RequestUID
-from odoo.addons.base.models.ir_qweb import QWebException
-from odoo.http import request, HTTPRequest, Response
-from odoo.osv import expression
-from odoo.tools import config, ustr, pycompat
+import weblgx
+from weblgx import api, models, exceptions, tools, http
+from weblgx.addons.base.models import ir_http
+from weblgx.addons.base.models.ir_http import RequestUID
+from weblgx.addons.base.models.ir_qweb import QWebException
+from weblgx.http import request, HTTPRequest, Response
+from weblgx.osv import expression
+from weblgx.tools import config, ustr, pycompat
 
 _logger = logging.getLogger(__name__)
 
@@ -569,7 +569,7 @@ class IrHttp(models.AbstractModel):
             if request.httprequest.method in ('GET', 'HEAD'):
                 try:
                     _, path = rule.build(args)
-                except odoo.exceptions.MissingError as exc:
+                except weblgx.exceptions.MissingError as exc:
                     raise werkzeug.exceptions.NotFound() from exc
                 assert path is not None
                 generated_path = werkzeug.urls.url_unquote_plus(path)

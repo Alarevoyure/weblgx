@@ -3,7 +3,7 @@ function initialize_map() {
     'use strict';
 
     // MAP CONFIG AND LOADING
-    var map = new google.maps.Map(document.getElementById('odoo-google-map'), {
+    var map = new google.maps.Map(document.getElementById('weblgx-google-map'), {
         zoom: 1,
         center: {lat: 0.0, lng: 0.0},
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -76,9 +76,9 @@ function initialize_map() {
 
     /* eslint-disable no-undef */
     // Create the markers and cluster them on the map
-    if (odoo_partner_data){ /* odoo_partner_data special variable should have been defined in google_map.xml */
-        for (var i = 0; i < odoo_partner_data.counter; i++) {
-            set_marker(odoo_partner_data.partners[i]);
+    if (weblgx_partner_data){ /* weblgx_partner_data special variable should have been defined in google_map.xml */
+        for (var i = 0; i < weblgx_partner_data.counter; i++) {
+            set_marker(weblgx_partner_data.partners[i]);
         }
         new MarkerClusterer(map, markers, options);
     }

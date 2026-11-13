@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from datetime import timedelta
 
-from odoo import api, fields, tools, models, _
-from odoo.exceptions import UserError, ValidationError
+from weblgx import api, fields, tools, models, _
+from weblgx.exceptions import UserError, ValidationError
 
 
 class UoMCategory(models.Model):

@@ -1,7 +1,7 @@
-from odoo import Command
-from odoo.http import Request
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.tests.common import HttpCase, tagged
+from weblgx import Command
+from weblgx.http import Request
+from weblgx.addons.mail.tests.common import mail_new_test_user
+from weblgx.tests.common import HttpCase, tagged
 
 
 @tagged('-at_install', 'post_install')

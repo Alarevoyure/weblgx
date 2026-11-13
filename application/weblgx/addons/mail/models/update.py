@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import datetime
 import logging
@@ -9,11 +9,11 @@ import werkzeug.urls
 
 from ast import literal_eval
 
-from odoo import api, release, SUPERUSER_ID
-from odoo.exceptions import UserError
-from odoo.models import AbstractModel
-from odoo.tools.translate import _
-from odoo.tools import config, misc, ustr
+from weblgx import api, release, SUPERUSER_ID
+from weblgx.exceptions import UserError
+from weblgx.models import AbstractModel
+from weblgx.tools.translate import _
+from weblgx.tools import config, misc, ustr
 
 _logger = logging.getLogger(__name__)
 

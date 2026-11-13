@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     Component,
@@ -10,7 +10,7 @@ import {
     useEffect,
     useState,
     xml,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { makeServerError } from "@web/../tests/helpers/mock_server";
 import { makeFakeNotificationService } from "@web/../tests/helpers/mock_services";
 import {
@@ -6820,7 +6820,7 @@ QUnit.module("Views", (hooks) => {
 
     QUnit.test("onchange returns an error", async function (assert) {
         registry.category("services").add("error", errorService);
-        registry.category("error_dialogs").add("odoo.exceptions.UserError", WarningDialog);
+        registry.category("error_dialogs").add("weblgx.exceptions.UserError", WarningDialog);
 
         serverData.models.partner.onchanges = { int_field: () => {} };
         await makeView({
@@ -10784,7 +10784,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("display tooltips for buttons (debug = true)", async function (assert) {
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -11194,7 +11194,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("proper stringification in debug mode tooltip", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
 
         patchWithCleanup(browser, {
             setTimeout: (fn) => fn(),
@@ -11262,7 +11262,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("field tooltip in debug mode, on field with domain attr", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
 
         patchWithCleanup(browser, {
             setTimeout: (fn) => fn(),
@@ -11292,7 +11292,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("do not display unset attributes in debug field tooltip", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
 
         patchWithCleanup(browser, {
             setTimeout: (fn) => fn(),
@@ -12182,7 +12182,7 @@ QUnit.module("Views", (hooks) => {
                             code: 200,
                             message: "Web@LGX Server Error",
                             data: {
-                                name: `odoo.exceptions.${"UserError"}`,
+                                name: `weblgx.exceptions.${"UserError"}`,
                                 debug: "traceback",
                                 arguments: [],
                                 context: {},
@@ -13514,7 +13514,7 @@ QUnit.module("Views", (hooks) => {
 
     QUnit.test("no 'oh snap' error when clicking on a view button", async (assert) => {
         registry.category("services").add("error", errorService);
-        registry.category("error_dialogs").add("odoo.exceptions.UserError", WarningDialog);
+        registry.category("error_dialogs").add("weblgx.exceptions.UserError", WarningDialog);
 
         await makeView({
             type: "form",
@@ -13548,7 +13548,7 @@ QUnit.module("Views", (hooks) => {
         assert.expect(5);
 
         registry.category("services").add("error", errorService);
-        registry.category("error_dialogs").add("odoo.exceptions.UserError", WarningDialog);
+        registry.category("error_dialogs").add("weblgx.exceptions.UserError", WarningDialog);
 
         serverData.views = {
             "partner,false,form": `<form><field name="foo"/><footer><button type="object" name="some_method" class="myButton"/></footer></form>`,
@@ -13898,7 +13898,7 @@ QUnit.module("Views", (hooks) => {
 
     QUnit.test("help on field as precedence over field's declaration -- form", async (assert) => {
         serverData.models.partner.fields.foo.help = "pythonHelp";
-        patchWithCleanup(odoo, { debug: "1" });
+        patchWithCleanup(weblgx, { debug: "1" });
         await makeView({
             type: "form",
             resModel: "partner",

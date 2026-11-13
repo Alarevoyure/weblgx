@@ -6,10 +6,10 @@ import secrets
 from datetime import timedelta
 from email.utils import make_msgid
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools import email_domain_extract, email_normalize, plaintext2html
-from odoo.tools.misc import html_escape
+from weblgx import _, api, fields, models
+from weblgx.exceptions import UserError
+from weblgx.tools import email_domain_extract, email_normalize, plaintext2html
+from weblgx.tools.misc import html_escape
 
 _logger = logging.getLogger(__name__)
 

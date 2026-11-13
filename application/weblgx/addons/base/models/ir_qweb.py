@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 """
 ================
 IrQWeb / ir.qweb
@@ -187,7 +187,7 @@ Only validate the **input**, the compilation if inside the ``t-if`` directive.
 
 ``t-groups`` (``groups`` is an alias)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-**Values**: name of the allowed odoo user group, or preceded by ``!`` for
+**Values**: name of the allowed weblgx user group, or preceded by ``!`` for
 prohibited groups
 
 The generated code uses ``user_has_groups`` Weblgx method.
@@ -389,21 +389,21 @@ from dateutil.relativedelta import relativedelta
 from os.path import join as opj
 from psycopg2.extensions import TransactionRollbackError
 
-from odoo import api, models, tools
-from odoo.modules import get_module_path, registry
-from odoo.tools import config, safe_eval, pycompat
-from odoo.tools.constants import SUPPORTED_DEBUGGER, EXTERNAL_ASSET
-from odoo.tools.safe_eval import assert_valid_codeobj, _BUILTINS, to_opcodes, _EXPR_OPCODES, _BLACKLIST
-from odoo.tools.json import scriptsafe
-from odoo.tools.lru import LRU
-from odoo.tools.misc import file_open, str2bool
-from odoo.tools.image import image_data_uri, FILETYPE_BASE64_MAGICWORD
-from odoo.http import request
-from odoo.tools.profiler import QwebTracker
-from odoo.exceptions import UserError, AccessDenied, AccessError, MissingError, ValidationError
+from weblgx import api, models, tools
+from weblgx.modules import get_module_path, registry
+from weblgx.tools import config, safe_eval, pycompat
+from weblgx.tools.constants import SUPPORTED_DEBUGGER, EXTERNAL_ASSET
+from weblgx.tools.safe_eval import assert_valid_codeobj, _BUILTINS, to_opcodes, _EXPR_OPCODES, _BLACKLIST
+from weblgx.tools.json import scriptsafe
+from weblgx.tools.lru import LRU
+from weblgx.tools.misc import file_open, str2bool
+from weblgx.tools.image import image_data_uri, FILETYPE_BASE64_MAGICWORD
+from weblgx.http import request
+from weblgx.tools.profiler import QwebTracker
+from weblgx.exceptions import UserError, AccessDenied, AccessError, MissingError, ValidationError
 
-from odoo.addons.base.models.assetsbundle import AssetsBundle
-from odoo.tools.constants import SCRIPT_EXTENSIONS, STYLE_EXTENSIONS, TEMPLATE_EXTENSIONS
+from weblgx.addons.base.models.assetsbundle import AssetsBundle
+from weblgx.tools.constants import SCRIPT_EXTENSIONS, STYLE_EXTENSIONS, TEMPLATE_EXTENSIONS
 
 _logger = logging.getLogger(__name__)
 
@@ -2604,7 +2604,7 @@ class IrQWeb(models.AbstractModel):
                     attributes['src'] = path
 
             if is_asset_bundle:
-                attributes['onerror'] = "__odooAssetError=1"
+                attributes['onerror'] = "__weblgxAssetError=1"
 
             return ('script', attributes)
 

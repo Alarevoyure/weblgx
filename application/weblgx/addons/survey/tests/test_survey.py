@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from freezegun import freeze_time
 
-from odoo import _, Command, fields
-from odoo.addons.mail.tests.common import MailCase
-from odoo.addons.survey.tests import common
-from odoo.tests.common import users
+from weblgx import _, Command, fields
+from weblgx.addons.mail.tests.common import MailCase
+from weblgx.addons.survey.tests import common
+from weblgx.tests.common import users
 
 
 class TestSurveyInternals(common.TestSurveyCommon, MailCase):

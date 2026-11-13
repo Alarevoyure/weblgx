@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
     <!--
         Remove legacy rule using website.id in domain_force: in the backend
@@ -19,4 +19,4 @@
         </record>
     </data>
 
-</odoo>
+</weblgx>

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import TransactionCase
-from odoo.exceptions import UserError
+from weblgx.tests.common import TransactionCase
+from weblgx.exceptions import UserError
 
 class test_res_lang(TransactionCase):
 
     def test_00_intersperse(self):
-        from odoo.addons.base.models.res_lang import intersperse
+        from weblgx.addons.base.models.res_lang import intersperse
 
         assert intersperse("", []) == ("", 0)
         assert intersperse("0", []) == ("0", 0)

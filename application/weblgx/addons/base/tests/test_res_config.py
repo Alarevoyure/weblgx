@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from lxml import etree
 import logging
 
-from odoo import exceptions, Command
-from odoo.tests.common import Form, TransactionCase, tagged
+from weblgx import exceptions, Command
+from weblgx.tests.common import Form, TransactionCase, tagged
 
 _logger = logging.getLogger(__name__)
 

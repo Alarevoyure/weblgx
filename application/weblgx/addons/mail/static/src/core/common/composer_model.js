@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { OR, Record } from "@mail/core/common/record";
 

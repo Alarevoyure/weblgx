@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { getPickerCell, getTimePickers } from "@web/../tests/core/datetime/datetime_test_helpers";
 import {

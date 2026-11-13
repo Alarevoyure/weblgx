@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import contextlib
 import json
 import logging
@@ -27,22 +27,22 @@ WEBLGX_LOGGER_PREFIX = 'weblgx'
 
 
 def brand_logger_name(name):
-    """Expose Web@LGX branding in log output instead of internal odoo.* names."""
-    if name.startswith('odoo.modules.'):
-        return WEBLGX_LOGGER_PREFIX + '.module.' + name[len('odoo.modules.'):]
-    if name.startswith('odoo.'):
-        return WEBLGX_LOGGER_PREFIX + '.' + name[len('odoo.'):]
-    if name == 'odoo':
+    """Expose Web@LGX branding in log output instead of internal weblgx.* names."""
+    if name.startswith('weblgx.modules.'):
+        return WEBLGX_LOGGER_PREFIX + '.module.' + name[len('weblgx.modules.'):]
+    if name.startswith('weblgx.'):
+        return WEBLGX_LOGGER_PREFIX + '.' + name[len('weblgx.'):]
+    if name == 'weblgx':
         return WEBLGX_LOGGER_PREFIX
     return name
 
 
 def brand_log_message(message):
-    """Replace visible Odoo mentions in rendered log messages."""
+    """Replace visible Web@LGX mentions in rendered log messages."""
     return (
         message
-        .replace('Odoo', 'Web@LGX')
-        .replace('odoo', WEBLGX_LOGGER_PREFIX)
+        .replace('Web@LGX', 'Web@LGX')
+        .replace('weblgx', WEBLGX_LOGGER_PREFIX)
     )
 
 
@@ -73,7 +73,7 @@ class PostgreSQLHandler(logging.Handler):
         super().__init__()
         self._support_metadata = False
         if tools.config['log_db'] != '%d':
-            with contextlib.suppress(Exception), tools.mute_logger('odoo.sql_db'), sql_db.db_connect(tools.config['log_db'], allow_uri=True).cursor() as cr:
+            with contextlib.suppress(Exception), tools.mute_logger('weblgx.sql_db'), sql_db.db_connect(tools.config['log_db'], allow_uri=True).cursor() as cr:
                 cr.execute("""SELECT 1 FROM information_schema.columns WHERE table_name='ir_logging' and column_name='metadata'""")
                 self._support_metadata = bool(cr.fetchone())
 
@@ -83,7 +83,7 @@ class PostgreSQLHandler(logging.Handler):
         dbname = tools.config['log_db'] if tools.config['log_db'] and tools.config['log_db'] != '%d' else ct_db
         if not dbname:
             return
-        with contextlib.suppress(Exception), tools.mute_logger('odoo.sql_db'), sql_db.db_connect(dbname, allow_uri=True).cursor() as cr:
+        with contextlib.suppress(Exception), tools.mute_logger('weblgx.sql_db'), sql_db.db_connect(dbname, allow_uri=True).cursor() as cr:
             # preclude risks of deadlocks
             cr.execute("SET LOCAL statement_timeout = 1000")
             msg = tools.ustr(record.msg)
@@ -207,7 +207,7 @@ def init_logger():
     if sys.version_info[:2] == (3, 9):
         # recordsets are both sequence and set so trigger warning despite no issue
         # Only applies to 3.9 as it was fixed in 3.10 see https://bugs.python.org/issue42470
-        warnings.filterwarnings('ignore', r'^Sampling from a set', category=DeprecationWarning, module='odoo')
+        warnings.filterwarnings('ignore', r'^Sampling from a set', category=DeprecationWarning, module='weblgx')
     # https://github.com/urllib3/urllib3/issues/2680
     warnings.filterwarnings('ignore', r'^\'urllib3.contrib.pyopenssl\' module is deprecated.+', category=DeprecationWarning)
     # ofxparse use an html parser to parse ofx xml files and triggers a warning since bs4 4.11.0
@@ -233,7 +233,7 @@ def init_logger():
     # reportlab<4.0.6 triggers this in Py3.10/3.11
     warnings.filterwarnings('ignore', r'the load_module\(\) method is deprecated', category=DeprecationWarning, module='importlib._bootstrap')
     # the SVG guesser thing always compares str and bytes, ignore it
-    warnings.filterwarnings('ignore', category=BytesWarning, module='odoo.tools.image')
+    warnings.filterwarnings('ignore', category=BytesWarning, module='weblgx.tools.image')
     # reportlab does a bunch of bytes/str mixing in a hashmap
     warnings.filterwarnings('ignore', category=BytesWarning, module='reportlab.platypus.paraparser')
 
@@ -293,7 +293,7 @@ def init_logger():
     def is_a_tty(stream):
         return hasattr(stream, 'fileno') and os.isatty(stream.fileno())
 
-    if os.name == 'posix' and isinstance(handler, logging.StreamHandler) and (is_a_tty(handler.stream) or os.environ.get("ODOO_PY_COLORS")):
+    if os.name == 'posix' and isinstance(handler, logging.StreamHandler) and (is_a_tty(handler.stream) or os.environ.get("WEBLGX_PY_COLORS")):
         formatter = ColoredFormatter(format)
         perf_filter = ColoredPerfFilter()
     else:
@@ -333,20 +333,20 @@ def init_logger():
 
 
 DEFAULT_LOG_CONFIGURATION = [
-    'odoo.http.rpc.request:INFO',
-    'odoo.http.rpc.response:INFO',
+    'weblgx.http.rpc.request:INFO',
+    'weblgx.http.rpc.response:INFO',
     ':INFO',
 ]
 PSEUDOCONFIG_MAPPER = {
-    'debug_rpc_answer': ['odoo:DEBUG', 'odoo.sql_db:INFO', 'odoo.http.rpc:DEBUG'],
-    'debug_rpc': ['odoo:DEBUG', 'odoo.sql_db:INFO', 'odoo.http.rpc.request:DEBUG'],
-    'debug': ['odoo:DEBUG', 'odoo.sql_db:INFO'],
-    'debug_sql': ['odoo.sql_db:DEBUG'],
+    'debug_rpc_answer': ['weblgx:DEBUG', 'weblgx.sql_db:INFO', 'weblgx.http.rpc:DEBUG'],
+    'debug_rpc': ['weblgx:DEBUG', 'weblgx.sql_db:INFO', 'weblgx.http.rpc.request:DEBUG'],
+    'debug': ['weblgx:DEBUG', 'weblgx.sql_db:INFO'],
+    'debug_sql': ['weblgx.sql_db:DEBUG'],
     'info': [],
-    'runbot': ['odoo:RUNBOT', 'werkzeug:WARNING'],
-    'warn': ['odoo:WARNING', 'werkzeug:WARNING'],
-    'error': ['odoo:ERROR', 'werkzeug:ERROR'],
-    'critical': ['odoo:CRITICAL', 'werkzeug:CRITICAL'],
+    'runbot': ['weblgx:RUNBOT', 'werkzeug:WARNING'],
+    'warn': ['weblgx:WARNING', 'werkzeug:WARNING'],
+    'error': ['weblgx:ERROR', 'werkzeug:ERROR'],
+    'critical': ['weblgx:CRITICAL', 'werkzeug:CRITICAL'],
 }
 
 logging.RUNBOT = 25

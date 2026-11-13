@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo>
+<weblgx>
     <data>
 
         <!--  FOLLOWERS !-->
@@ -44,4 +44,4 @@
         </record>
 
     </data>
-</odoo>
+</weblgx>

@@ -1,6 +1,6 @@
-from odoo.http import route
-from odoo.addons.mail.controllers.attachment import AttachmentController
-from odoo.addons.im_livechat.tools.misc import force_guest_env
+from weblgx.http import route
+from weblgx.addons.mail.controllers.attachment import AttachmentController
+from weblgx.addons.im_livechat.tools.misc import force_guest_env
 
 
 class LivechatAttachmentController(AttachmentController):

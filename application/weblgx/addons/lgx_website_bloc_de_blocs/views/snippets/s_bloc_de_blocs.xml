@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_bloc_de_blocs" name="Bloc de blocs">
     <section class="s_bloc_de_blocs pt32 pb32 o_colored_level"
@@ -73,4 +73,4 @@
     </xpath>
 </template>
 
-</odoo>
+</weblgx>

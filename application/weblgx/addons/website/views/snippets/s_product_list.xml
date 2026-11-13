@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template name="Items" id="s_product_list">
     <t t-set="url" value="url or '#'"/>
@@ -69,4 +69,4 @@
     <path>website/static/src/snippets/s_product_list/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { registry } from "@web/core/registry";
 import { _t } from "@web/core/l10n/translation";
 import { standardFieldProps } from "../standard_field_props";

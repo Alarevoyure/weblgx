@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-import odoo
-from odoo import api, fields, models, tools, _, Command
-from odoo.exceptions import MissingError, ValidationError, AccessError, UserError
-from odoo.tools import frozendict
-from odoo.tools.safe_eval import safe_eval, test_python_expr
-from odoo.tools.float_utils import float_compare
-from odoo.http import request
+import weblgx
+from weblgx import api, fields, models, tools, _, Command
+from weblgx.exceptions import MissingError, ValidationError, AccessError, UserError
+from weblgx.tools import frozendict
+from weblgx.tools.safe_eval import safe_eval, test_python_expr
+from weblgx.tools.float_utils import float_compare
+from weblgx.http import request
 import base64
 from collections import defaultdict
 from functools import partial, reduce
@@ -875,7 +875,7 @@ class IrActionsServer(models.Model):
             'env': self.env,
             'model': model,
             # Exceptions
-            'UserError': odoo.exceptions.UserError,
+            'UserError': weblgx.exceptions.UserError,
             # record
             'record': record,
             'records': records,

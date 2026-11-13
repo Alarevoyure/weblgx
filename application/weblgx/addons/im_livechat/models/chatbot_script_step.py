@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import _, api, models, fields
-from odoo.exceptions import ValidationError
-from odoo.fields import Command
-from odoo.osv import expression
-from odoo.tools import html2plaintext, is_html_empty, email_normalize, plaintext2html
+from weblgx import _, api, models, fields
+from weblgx.exceptions import ValidationError
+from weblgx.fields import Command
+from weblgx.osv import expression
+from weblgx.tools import html2plaintext, is_html_empty, email_normalize, plaintext2html
 
 from collections import defaultdict
 from markupsafe import Markup

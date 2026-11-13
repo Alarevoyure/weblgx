@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 import base64
 import datetime
 import logging
 
-from odoo import _, api, fields, models, tools, Command
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import is_html_empty
-from odoo.addons.mail.tools.parser import parse_res_ids
+from weblgx import _, api, fields, models, tools, Command
+from weblgx.exceptions import UserError, ValidationError
+from weblgx.osv import expression
+from weblgx.tools import is_html_empty
+from weblgx.addons.mail.tools.parser import parse_res_ids
 
 
 def _reopen(self, res_id, model, context=None):

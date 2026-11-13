@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { Component, useExternalListener, useRef, useState } from "@odoo/owl";
+import { Component, useExternalListener, useRef, useState } from "@weblgx/owl";
 import { makeDraggableHook } from "@web/core/utils/draggable_hook_builder_owl";
 
 import { useService } from "@web/core/utils/hooks";

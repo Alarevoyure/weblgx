@@ -1071,7 +1071,7 @@ Docs & License: https://fullcalendar.io/
             for (var id in droppableStore) {
                 var component = droppableStore[id].component;
                 var offsetTracker = offsetTrackers[id];
-                if (offsetTracker && // Odoo patch - backport fix
+                if (offsetTracker && // Web@LGX patch - backport fix
                     offsetTracker.isWithinClipping(offsetLeft, offsetTop)
                 ) {
                     var originLeft = offsetTracker.computeLeft();

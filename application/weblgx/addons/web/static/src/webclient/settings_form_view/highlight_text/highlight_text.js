@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { escapeRegExp } from "@web/core/utils/strings";
 
-import { Component, useState, onWillRender } from "@odoo/owl";
+import { Component, useState, onWillRender } from "@weblgx/owl";
 
 export class HighlightText extends Component {
     setup() {

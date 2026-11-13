@@ -26,14 +26,14 @@ except ImportError:
 
 from rjsmin import jsmin as rjsmin
 
-from odoo import release, SUPERUSER_ID, _
-from odoo.http import request
-from odoo.tools import (func, misc, transpile_javascript,
-    is_odoo_module, SourceMapGenerator, profiler,
+from weblgx import release, SUPERUSER_ID, _
+from weblgx.http import request
+from weblgx.tools import (func, misc, transpile_javascript,
+    is_weblgx_module, SourceMapGenerator, profiler,
     apply_inheritance_specs)
-from odoo.tools.constants import SCRIPT_EXTENSIONS, STYLE_EXTENSIONS
-from odoo.tools.misc import file_open, file_path
-from odoo.tools.pycompat import to_text
+from weblgx.tools.constants import SCRIPT_EXTENSIONS, STYLE_EXTENSIONS
+from weblgx.tools.misc import file_open, file_path
+from weblgx.tools.pycompat import to_text
 
 _logger = logging.getLogger(__name__)
 
@@ -337,7 +337,7 @@ class AssetsBundle(object):
                     *  Templates                               *
                     *******************************************/
 
-                    odoo.define('{self.name}.bundle.xml', ['@web/core/registry'], function(require){{
+                    weblgx.define('{self.name}.bundle.xml', ['@web/core/registry'], function(require){{
                         'use strict';
                         const {{ registry }} = require('@web/core/registry');
                         registry.category(`xml_templates`).add(`{self.name}`, `{templates}`);
@@ -421,7 +421,7 @@ class AssetsBundle(object):
             # Load content.
             try:
                 content = asset.content.strip()
-                template = content if content.startswith('<odoo>') else f'<templates>{asset.content}</templates>'
+                template = content if content.startswith('<weblgx>') else f'<templates>{asset.content}</templates>'
                 io_content = io.BytesIO(template.encode('utf-8'))
                 content_templates_tree = etree.parse(io_content, parser=parser).getroot()
             except etree.ParseError as e:
@@ -847,7 +847,7 @@ class JavascriptAsset(WebAsset):
     @property
     def is_transpiled(self):
         if self._is_transpiled is None:
-            self._is_transpiled = bool(is_odoo_module(super().content))
+            self._is_transpiled = bool(is_weblgx_module(super().content))
         return self._is_transpiled
 
     @property

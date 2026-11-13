@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { click, getFixture } from "@web/../tests/helpers/utils";
 import { SearchPanel } from "@web/search/search_panel/search_panel";
@@ -6,7 +6,7 @@ import { makeWithSearch, setupControlPanelServiceRegistry } from "@web/../tests/
 import { registry } from "@web/core/registry";
 import { uiService } from "@web/core/ui/ui_service";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 let serverData;
 let target;

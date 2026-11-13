@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 import { createWebClient, getActionManagerServerData } from "@web/../tests/webclient/helpers";
 import { browser } from "@web/core/browser/browser";
 import { Dialog } from "@web/core/dialog/dialog";

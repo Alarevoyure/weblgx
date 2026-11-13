@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from '@web/core/registry';
@@ -7,7 +7,7 @@ import { isVisible } from "@web/core/utils/ui";
 
 import { FullscreenIndication } from '../components/fullscreen_indication/fullscreen_indication';
 import { WebsiteLoader } from '../components/website_loader/website_loader';
-import { reactive, EventBus } from "@odoo/owl";
+import { reactive, EventBus } from "@weblgx/owl";
 import { session } from "@web/session";
 
 const websiteSystrayRegistry = registry.category('website_systray');

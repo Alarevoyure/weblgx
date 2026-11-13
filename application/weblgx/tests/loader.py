@@ -9,14 +9,14 @@ from pathlib import Path
 
 from .. import tools
 from .tag_selector import TagsSelector
-from .suite import OdooSuite
-from .result import OdooTestResult
+from .suite import WeblgxSuite
+from .result import WeblgxTestResult
 
 
 def get_test_modules(module):
     """ Return a list of module for the addons potentially containing tests to
     feed unittest.TestLoader.loadTestsFromModule() """
-    results = _get_tests_modules(importlib.util.find_spec(f'odoo.addons.{module}'))
+    results = _get_tests_modules(importlib.util.find_spec(f'weblgx.addons.{module}'))
     results += list(_get_upgrade_test_modules(module))
 
     return results
@@ -37,9 +37,9 @@ def _get_tests_modules(mod):
 
 def _get_upgrade_test_modules(module):
     upgrade_modules = (
-        f"odoo.upgrade.{module}",
-        f"odoo.addons.{module}.migrations",
-        f"odoo.addons.{module}.upgrades",
+        f"weblgx.upgrade.{module}",
+        f"weblgx.addons.{module}.migrations",
+        f"weblgx.addons.{module}.upgrades",
     )
     for module_name in upgrade_modules:
         if not importlib.util.find_spec(module_name):
@@ -73,7 +73,7 @@ def make_suite(module_names, position='at_install'):
         for t in unwrap_suite(unittest.TestLoader().loadTestsFromModule(m))
         if position_tag.check(t) and config_tags.check(t)
     )
-    return OdooSuite(sorted(tests, key=lambda t: t.test_sequence))
+    return WeblgxSuite(sorted(tests, key=lambda t: t.test_sequence))
 
 
 def run_suite(suite, module_name=None, global_report=None):
@@ -82,7 +82,7 @@ def run_suite(suite, module_name=None, global_report=None):
     module.current_test = True
     threading.current_thread().testing = True
 
-    results = OdooTestResult(global_report=global_report)
+    results = WeblgxTestResult(global_report=global_report)
     suite(results)
 
     threading.current_thread().testing = False

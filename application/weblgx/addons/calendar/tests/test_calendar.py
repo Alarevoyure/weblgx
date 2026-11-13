@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import datetime
 
 from datetime import date, datetime, timedelta
 
-from odoo import fields, Command
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.exceptions import AccessError
-from odoo.tests import Form, tagged, new_test_user
-from odoo.addons.base.tests.common import SavepointCaseWithUserDemo
+from weblgx import fields, Command
+from weblgx.addons.base.tests.common import HttpCaseWithUserDemo
+from weblgx.exceptions import AccessError
+from weblgx.tests import Form, tagged, new_test_user
+from weblgx.addons.base.tests.common import SavepointCaseWithUserDemo
 
 import freezegun
 import pytz

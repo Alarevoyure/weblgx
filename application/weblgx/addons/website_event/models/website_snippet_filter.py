@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import timedelta
 
-from odoo import models, fields, _
+from weblgx import models, fields, _
 
 
 class WebsiteSnippetFilter(models.Model):

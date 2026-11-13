@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 # Copyright (c) 2015 ACSONE SA/NV (<http://acsone.eu>)
 
-from odoo.addons.base.tests.common import SavepointCaseWithUserDemo
+from weblgx.addons.base.tests.common import SavepointCaseWithUserDemo
 
 
 class TestResPartnerBank(SavepointCaseWithUserDemo):

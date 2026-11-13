@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { Dialog } from "@web/core/dialog/dialog";
@@ -9,7 +9,7 @@ import { Field } from "@web/views/fields/field";
 import { Record } from "@web/model/record";
 import { getFormattedDateSpan } from "@web/views/calendar/utils";
 
-import { Component, useExternalListener } from "@odoo/owl";
+import { Component, useExternalListener } from "@weblgx/owl";
 
 export class CalendarCommonPopover extends Component {
     setup() {

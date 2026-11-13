@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 from . import _monkeypatches
 from . import _monkeypatches_pytz
 
@@ -30,5 +30,5 @@ from .translate import *
 from .xml_utils import *
 from .convert import *
 from . import osutil
-from .js_transpiler import transpile_javascript, is_odoo_module, URL_RE, ODOO_MODULE_RE
+from .js_transpiler import transpile_javascript, is_weblgx_module, URL_RE, WEBLGX_MODULE_RE
 from .sourcemap_generator import SourceMapGenerator

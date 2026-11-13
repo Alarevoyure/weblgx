@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Record } from "@mail/core/common/record";
 import { assignDefined } from "@mail/utils/common/misc";

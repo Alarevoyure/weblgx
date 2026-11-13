@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "./browser/browser";
 import { registry } from "./registry";
@@ -8,7 +8,7 @@ export const scrollerService = {
     start(env) {
         /**
          * Listen to click event to allow having links with href towards an anchor.
-         * Since odoo use hashtag to represent the current state of the view, we can't
+         * Since weblgx use hashtag to represent the current state of the view, we can't
          * easily distinguish between a link towards an anchor and a link towards
          * another view/state. If we want to navigate towards an anchor, we must not
          * change the hash of the url otherwise we will be redirected to the app switcher

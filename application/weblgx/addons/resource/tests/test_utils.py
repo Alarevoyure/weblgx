@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 
-from odoo.fields import Datetime
-from odoo.tests.common import TransactionCase
-from odoo.osv.expression import normalize_domain
-from odoo.addons.resource.models import utils
-from odoo.tests import Form
+from weblgx.fields import Datetime
+from weblgx.tests.common import TransactionCase
+from weblgx.osv.expression import normalize_domain
+from weblgx.addons.resource.models import utils
+from weblgx.tests import Form
 
 
 class TestExpression(TransactionCase):

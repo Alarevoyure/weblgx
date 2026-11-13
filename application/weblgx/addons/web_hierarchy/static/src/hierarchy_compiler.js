@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { KanbanCompiler } from "@web/views/kanban/kanban_compiler";
 

@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { escapeRegExp } from "@web/core/utils/strings";
 import { Setting } from "@web/views/form/setting/setting";
-import { onMounted, useRef, useState } from "@odoo/owl";
+import { onMounted, useRef, useState } from "@weblgx/owl";
 import { FormLabelHighlightText } from "../highlight_text/form_label_highlight_text";
 import { HighlightText } from "../highlight_text/highlight_text";
 

@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import re
 
-from odoo import models
-from odoo.addons.mail.models.discuss.mail_guest import add_guest_to_context
+from weblgx import models
+from weblgx.addons.mail.models.discuss.mail_guest import add_guest_to_context
 
 
 class IrWebsocket(models.AbstractModel):

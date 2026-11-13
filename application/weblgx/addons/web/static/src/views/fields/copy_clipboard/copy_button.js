@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { Tooltip } from "@web/core/tooltip/tooltip";
 import { usePopover } from "@web/core/popover/popover_hook";
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@weblgx/owl";
 
 export class CopyButton extends Component {
     static template = "web.CopyButton";

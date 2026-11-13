@@ -7,11 +7,11 @@ from datetime import date, datetime
 from collections import defaultdict
 from markupsafe import Markup
 
-import odoo
-from odoo.http import Controller, route, dispatch_rpc, request, Response
-from odoo.fields import Date, Datetime, Command
-from odoo.tools import lazy, ustr
-from odoo.tools.misc import frozendict
+import weblgx
+from weblgx.http import Controller, route, dispatch_rpc, request, Response
+from weblgx.fields import Date, Datetime, Command
+from weblgx.tools import lazy, ustr
+from weblgx.tools.misc import frozendict
 
 # ==========================================================
 # XML-RPC helpers
@@ -19,7 +19,7 @@ from odoo.tools.misc import frozendict
 
 # XML-RPC fault codes. Some care must be taken when changing these: the
 # constants are also defined client-side and must remain in sync.
-# User code must use the exceptions defined in ``odoo.exceptions`` (not
+# User code must use the exceptions defined in ``weblgx.exceptions`` (not
 # create directly ``xmlrpc.client.Fault`` objects).
 RPC_FAULT_CODE_CLIENT_ERROR = 1 # indistinguishable from app. error.
 RPC_FAULT_CODE_APPLICATION_ERROR = 1
@@ -32,13 +32,13 @@ CONTROL_CHARACTERS = dict.fromkeys(set(range(32)) - {9, 10, 13})
 
 
 def xmlrpc_handle_exception_int(e):
-    if isinstance(e, odoo.exceptions.RedirectWarning):
+    if isinstance(e, weblgx.exceptions.RedirectWarning):
         fault = xmlrpc.client.Fault(RPC_FAULT_CODE_WARNING, str(e))
-    elif isinstance(e, odoo.exceptions.AccessError):
+    elif isinstance(e, weblgx.exceptions.AccessError):
         fault = xmlrpc.client.Fault(RPC_FAULT_CODE_ACCESS_ERROR, str(e))
-    elif isinstance(e, odoo.exceptions.AccessDenied):
+    elif isinstance(e, weblgx.exceptions.AccessDenied):
         fault = xmlrpc.client.Fault(RPC_FAULT_CODE_ACCESS_DENIED, str(e))
-    elif isinstance(e, odoo.exceptions.UserError):
+    elif isinstance(e, weblgx.exceptions.UserError):
         fault = xmlrpc.client.Fault(RPC_FAULT_CODE_WARNING, str(e))
     else:
         info = sys.exc_info()
@@ -49,26 +49,26 @@ def xmlrpc_handle_exception_int(e):
 
 
 def xmlrpc_handle_exception_string(e):
-    if isinstance(e, odoo.exceptions.RedirectWarning):
+    if isinstance(e, weblgx.exceptions.RedirectWarning):
         fault = xmlrpc.client.Fault('warning -- Warning\n\n' + str(e), '')
-    elif isinstance(e, odoo.exceptions.MissingError):
+    elif isinstance(e, weblgx.exceptions.MissingError):
         fault = xmlrpc.client.Fault('warning -- MissingError\n\n' + str(e), '')
-    elif isinstance(e, odoo.exceptions.AccessError):
+    elif isinstance(e, weblgx.exceptions.AccessError):
         fault = xmlrpc.client.Fault('warning -- AccessError\n\n' + str(e), '')
-    elif isinstance(e, odoo.exceptions.AccessDenied):
+    elif isinstance(e, weblgx.exceptions.AccessDenied):
         fault = xmlrpc.client.Fault('AccessDenied', str(e))
-    elif isinstance(e, odoo.exceptions.UserError):
+    elif isinstance(e, weblgx.exceptions.UserError):
         fault = xmlrpc.client.Fault('warning -- UserError\n\n' + str(e), '')
     #InternalError
     else:
         info = sys.exc_info()
         formatted_info = "".join(traceback.format_exception(*info))
-        fault = xmlrpc.client.Fault(odoo.tools.exception_to_unicode(e), formatted_info)
+        fault = xmlrpc.client.Fault(weblgx.tools.exception_to_unicode(e), formatted_info)
 
     return xmlrpc.client.dumps(fault, allow_none=None, encoding=None)
 
 
-class OdooMarshaller(xmlrpc.client.Marshaller):
+class WeblgxMarshaller(xmlrpc.client.Marshaller):
     dispatch = dict(xmlrpc.client.Marshaller.dispatch)
 
     def dump_frozen_dict(self, value, write):
@@ -76,7 +76,7 @@ class OdooMarshaller(xmlrpc.client.Marshaller):
         self.dump_struct(value, write)
 
     # By default, in xmlrpc, bytes are converted to xmlrpc.client.Binary object.
-    # Historically, odoo is sending binary as base64 string.
+    # Historically, weblgx is sending binary as base64 string.
     # In python 3, base64.b64{de,en}code() methods now works on bytes.
     # Convert them to str to have a consistent behavior between python 2 and python 3.
     def dump_bytes(self, value, write):
@@ -112,7 +112,7 @@ class OdooMarshaller(xmlrpc.client.Marshaller):
 
 
 # monkey-patch xmlrpc.client's marshaller
-xmlrpc.client.Marshaller = OdooMarshaller
+xmlrpc.client.Marshaller = WeblgxMarshaller
 
 # ==========================================================
 # RPC Controller

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
-from odoo.exceptions import AccessError
+from weblgx import api, fields, models, _
+from weblgx.exceptions import AccessError
 
 
 class MailMessage(models.Model):

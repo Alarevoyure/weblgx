@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Désinstallation du module « transifex » puis commit explicite.
-À lancer sous l’utilisateur système prévu pour Odoo (souvent odoo).
+À lancer sous l’utilisateur système prévu pour Web@LGX (souvent weblgx).
 
 Usage:
     ./uninstall_transifex.py -d NOM_BASE [-c /chemin/weblgx.conf]
@@ -15,8 +15,8 @@ from __future__ import annotations
 import argparse
 import sys
 
-import odoo
-from odoo import SUPERUSER_ID, api
+import weblgx
+from weblgx import SUPERUSER_ID, api
 
 
 def main() -> int:
@@ -25,12 +25,12 @@ def main() -> int:
         "-d",
         "--database",
         required=True,
-        help="Nom de la base PostgreSQL Odoo",
+        help="Nom de la base PostgreSQL Web@LGX",
     )
     parser.add_argument(
         "-c",
         "--config",
-        help="Fichier de configuration Odoo (recommandé en production)",
+        help="Fichier de configuration Web@LGX (recommandé en production)",
     )
     argv = parser.parse_args()
 
@@ -39,13 +39,13 @@ def main() -> int:
         cli.extend(["-c", argv.config])
     cli.extend(["-d", argv.database])
 
-    odoo.tools.config.parse_config(cli)
-    odoo.cli.server.report_configuration()
-    odoo.modules.module.initialize_sys_path()
-    odoo.service.server.start(preload=[], stop=True)
+    weblgx.tools.config.parse_config(cli)
+    weblgx.cli.server.report_configuration()
+    weblgx.modules.module.initialize_sys_path()
+    weblgx.service.server.start(preload=[], stop=True)
 
-    dbname = odoo.tools.config["db_name"]
-    registry = odoo.registry(dbname)
+    dbname = weblgx.tools.config["db_name"]
+    registry = weblgx.registry(dbname)
     with registry.cursor() as cr:
         env = api.Environment(cr, SUPERUSER_ID, {})
         mods = env["ir.module.module"].search([("name", "=", "transifex")])

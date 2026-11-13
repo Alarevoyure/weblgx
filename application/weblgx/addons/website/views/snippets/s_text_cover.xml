@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_text_cover" name="Text Cover">
     <section class="s_text_cover">
@@ -21,4 +21,4 @@
     <path>website/static/src/snippets/s_text_cover/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

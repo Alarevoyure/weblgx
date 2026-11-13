@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { loadEmoji } from "@web/core/emoji_picker/emoji_picker";
 import { onExternalClick } from "@mail/utils/common/hooks";
@@ -10,7 +10,7 @@ import {
     useExternalListener,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { useService } from "@web/core/utils/hooks";

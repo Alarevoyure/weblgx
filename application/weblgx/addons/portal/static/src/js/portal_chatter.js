@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { renderToElement } from "@web/core/utils/render";
 import dom from "@web/legacy/js/core/dom";
@@ -6,7 +6,7 @@ import publicWidget from "@web/legacy/js/public/public_widget";
 import portalComposer from "@portal/js/portal_composer";
 import { range } from "@web/core/utils/numbers";
 
-import { Component, markup } from "@odoo/owl";
+import { Component, markup } from "@weblgx/owl";
 
 /**
  * Widget PortalChatter
@@ -117,7 +117,7 @@ var PortalChatter = publicWidget.Widget.extend({
         const defaultOptions = Object.assign({
             'allow_composer': true,
             'display_composer': false,
-            'csrf_token': odoo.csrf_token,
+            'csrf_token': weblgx.csrf_token,
             'message_count': 0,
             'pager_step': 10,
             'pager_scope': 5,

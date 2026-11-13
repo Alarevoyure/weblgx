@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { TEST_USER_IDS } from "@bus/../tests/helpers/test_constants";
 
@@ -28,7 +28,7 @@ async function getModelDefinitions() {
 
     // fetch the model definitions.
     const formData = new FormData();
-    formData.append("csrf_token", odoo.csrf_token);
+    formData.append("csrf_token", weblgx.csrf_token);
     formData.append("model_names_to_fetch", JSON.stringify(modelNamesToFetch));
     const response = await window.fetch("/bus/get_model_definitions", {
         body: formData,

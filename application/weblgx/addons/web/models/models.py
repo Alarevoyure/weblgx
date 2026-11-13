@@ -8,13 +8,13 @@ import itertools
 import json
 import pytz
 
-from odoo import _, _lt, api, fields, models
-from odoo.fields import Command
-from odoo.models import BaseModel, NewId
-from odoo.osv.expression import AND, TRUE_DOMAIN, normalize_domain
-from odoo.tools import date_utils, unique
-from odoo.tools.misc import OrderedSet, get_lang
-from odoo.exceptions import UserError
+from weblgx import _, _lt, api, fields, models
+from weblgx.fields import Command
+from weblgx.models import BaseModel, NewId
+from weblgx.osv.expression import AND, TRUE_DOMAIN, normalize_domain
+from weblgx.tools import date_utils, unique
+from weblgx.tools.misc import OrderedSet, get_lang
+from weblgx.exceptions import UserError
 from collections import defaultdict
 
 SEARCH_PANEL_ERROR_MESSAGE = _lt("Too many items to display.")

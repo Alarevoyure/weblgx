@@ -3,8 +3,8 @@ import logging
 import pytz
 from unittest.mock import patch
 
-from odoo.tests.common import TransactionCase
-from odoo.tools._monkeypatches_pytz import _tz_mapping
+from weblgx.tests.common import TransactionCase
+from weblgx.tools._monkeypatches_pytz import _tz_mapping
 
 _logger = logging.getLogger(__name__)
 

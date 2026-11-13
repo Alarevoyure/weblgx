@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-"""The Odoo Exceptions module defines a few core exception types.
+"""The Web@LGX Exceptions module defines a few core exception types.
 
 Those types are understood by the RPC layer.
 Any other exception type bubbling until the RPC layer will be
@@ -9,7 +9,7 @@ treated as a 'Server error'.
 
 .. note::
     If you consider introducing new exceptions,
-    check out the :mod:`odoo.addons.test_exceptions` module.
+    check out the :mod:`weblgx.addons.test_exceptions` module.
 """
 
 import warnings

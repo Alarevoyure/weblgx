@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 import { useModel } from "@web/model/model";

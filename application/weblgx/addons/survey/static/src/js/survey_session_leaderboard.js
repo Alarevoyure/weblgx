@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
 import SESSION_CHART_COLORS from "@survey/js/survey_session_colors";

@@ -1,18 +1,18 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import fields
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.tests.common import tagged, users
-from odoo.tools import mute_logger
+from weblgx import fields
+from weblgx.addons.mail.tests.common import MailCommon
+from weblgx.tests.common import tagged, users
+from weblgx.tools import mute_logger
 
 
 @tagged("RTC", "post_install", "-at_install")
 class TestChannelRTC(MailCommon):
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_01_join_call(self):
         """Join call should remove existing sessions, remove invitation, create a new session, and return data."""
         channel = self.env['discuss.channel'].channel_create(name='Test Channel', group_id=self.env.ref('base.group_user').id)
@@ -84,7 +84,7 @@ class TestChannelRTC(MailCommon):
         })
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_10_start_call_in_chat_should_invite_all_members_to_call(self):
         test_user = self.env['res.users'].sudo().create({'name': "Test User", 'login': 'test'})
         channel = self.env['discuss.channel'].channel_get(partners_to=(self.user_employee.partner_id + test_user.partner_id).ids)
@@ -161,7 +161,7 @@ class TestChannelRTC(MailCommon):
         }])])
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_11_start_call_in_group_should_invite_all_members_to_call(self):
         test_user = self.env['res.users'].sudo().create({'name': "Test User", 'login': 'test'})
         test_guest = self.env['mail.guest'].sudo().create({'name': "Test Guest"})
@@ -285,7 +285,7 @@ class TestChannelRTC(MailCommon):
         ])])
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_20_join_call_should_cancel_pending_invitations(self):
         test_user = self.env['res.users'].sudo().create({'name': "Test User", 'login': 'test'})
         test_guest = self.env['mail.guest'].sudo().create({'name': "Test Guest"})
@@ -421,7 +421,7 @@ class TestChannelRTC(MailCommon):
             channel_member_test_guest._rtc_join_call()
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_21_leave_call_should_cancel_pending_invitations(self):
         test_user = self.env['res.users'].sudo().create({'name': "Test User", 'login': 'test'})
         test_guest = self.env['mail.guest'].sudo().create({'name': "Test Guest"})
@@ -513,7 +513,7 @@ class TestChannelRTC(MailCommon):
             channel_member_test_guest._rtc_leave_call()
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_25_lone_call_participant_leaving_call_should_cancel_pending_invitations(self):
         test_user = self.env['res.users'].sudo().create({'name': "Test User", 'login': 'test'})
         test_guest = self.env['mail.guest'].sudo().create({'name': "Test Guest"})
@@ -603,7 +603,7 @@ class TestChannelRTC(MailCommon):
             channel_member._rtc_leave_call()
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_30_add_members_while_in_call_should_invite_new_members_to_call(self):
         test_user = self.env['res.users'].sudo().create({'name': "Test User", 'login': 'test'})
         test_guest = self.env['mail.guest'].sudo().create({'name': "Test Guest"})
@@ -717,7 +717,7 @@ class TestChannelRTC(MailCommon):
         self.assertEqual(self._new_bus_notifs, found_bus_notifs)
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_40_leave_call_should_remove_existing_sessions_of_user_in_channel_and_return_data(self):
         channel = self.env['discuss.channel'].create_group(partners_to=self.user_employee.partner_id.ids)
         channel_member = channel.sudo().channel_member_ids.filtered(lambda channel_member: channel_member.partner_id == self.user_employee.partner_id)
@@ -747,7 +747,7 @@ class TestChannelRTC(MailCommon):
             channel_member._rtc_leave_call()
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_50_garbage_collect_should_remove_old_sessions_and_notify_data(self):
         channel = self.env['discuss.channel'].create_group(partners_to=self.user_employee.partner_id.ids)
         channel_member = channel.sudo().channel_member_ids.filtered(lambda channel_member: channel_member.partner_id == self.user_employee.partner_id)
@@ -780,7 +780,7 @@ class TestChannelRTC(MailCommon):
         self.assertFalse(channel_member.rtc_session_ids)
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_51_action_disconnect_should_remove_selected_session_and_notify_data(self):
         channel = self.env['discuss.channel'].create_group(partners_to=self.user_employee.partner_id.ids)
         channel_member = channel.sudo().channel_member_ids.filtered(lambda channel_member: channel_member.partner_id == self.user_employee.partner_id)
@@ -811,7 +811,7 @@ class TestChannelRTC(MailCommon):
         self.assertFalse(channel_member.rtc_session_ids)
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_60_rtc_sync_sessions_should_gc_and_return_outdated_and_active_sessions(self):
         channel = self.env['discuss.channel'].create_group(partners_to=self.user_employee.partner_id.ids)
         channel_member = channel.sudo().channel_member_ids.filtered(lambda channel_member: channel_member.partner_id == self.user_employee.partner_id)

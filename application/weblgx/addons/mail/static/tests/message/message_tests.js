@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -370,7 +370,7 @@ QUnit.test("mentions are kept when editing message", async () => {
 QUnit.test("can add new mentions when editing message", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     const channelId = pyEnv["discuss.channel"].create({
@@ -1106,7 +1106,7 @@ QUnit.test(
         const pyEnv = await startServer();
         const partnerId = pyEnv["res.partner"].create({
             display_name: "testPartner",
-            email: "testPartner@odoo.com",
+            email: "testPartner@weblgx.com",
         });
         pyEnv["res.users"].create({ partner_id: partnerId });
         const channelId = pyEnv["discuss.channel"].create({
@@ -1390,7 +1390,7 @@ QUnit.test("Chat with partner should be opened after clicking on their mention",
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
         name: "Test Partner",
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
     });
     pyEnv["res.users"].create({ partner_id: partnerId });
     const { openFormView } = await start();

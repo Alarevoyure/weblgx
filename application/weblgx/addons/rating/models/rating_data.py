@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import operator
 
-from odoo.tools.float_utils import float_compare
+from weblgx.tools.float_utils import float_compare
 
 RATING_AVG_TOP = 3.66
 RATING_AVG_OK = 2.33

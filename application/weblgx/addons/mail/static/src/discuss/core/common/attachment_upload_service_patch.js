@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { AttachmentUploadService } from "@mail/core/common/attachment_upload_service";
 

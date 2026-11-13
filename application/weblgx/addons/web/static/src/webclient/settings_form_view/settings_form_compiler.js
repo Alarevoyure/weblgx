@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { append, createElement } from "@web/core/utils/xml";
 import { FormCompiler } from "@web/views/form/form_compiler";

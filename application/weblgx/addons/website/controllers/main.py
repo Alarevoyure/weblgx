@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import base64
 import datetime
 import json
@@ -19,19 +19,19 @@ from textwrap import shorten
 from werkzeug.exceptions import Forbidden, NotFound
 from xml.etree import ElementTree as ET
 
-import odoo
+import weblgx
 
-from odoo import http, models, fields, _
-from odoo.exceptions import AccessError
-from odoo.http import request, SessionExpiredException
-from odoo.osv import expression
-from odoo.tools import OrderedSet, escape_psql, html_escape as escape
-from odoo.addons.base.models.ir_qweb import QWebException
-from odoo.addons.http_routing.models.ir_http import slug, slugify, _guess_mimetype
-from odoo.addons.portal.controllers.portal import pager as portal_pager
-from odoo.addons.portal.controllers.web import Home
-from odoo.addons.web.controllers.binary import Binary
-from odoo.addons.website.tools import get_base_domain
+from weblgx import http, models, fields, _
+from weblgx.exceptions import AccessError
+from weblgx.http import request, SessionExpiredException
+from weblgx.osv import expression
+from weblgx.tools import OrderedSet, escape_psql, html_escape as escape
+from weblgx.addons.base.models.ir_qweb import QWebException
+from weblgx.addons.http_routing.models.ir_http import slug, slugify, _guess_mimetype
+from weblgx.addons.portal.controllers.portal import pager as portal_pager
+from weblgx.addons.portal.controllers.web import Home
+from weblgx.addons.web.controllers.binary import Binary
+from weblgx.addons.website.tools import get_base_domain
 
 logger = logging.getLogger(__name__)
 
@@ -339,7 +339,7 @@ class Website(Home):
         values = {
             'apps': apps,
             'l10n': l10n,
-            'version': odoo.service.common.exp_version()
+            'version': weblgx.service.common.exp_version()
         }
         return request.render('website.website_info', values)
 

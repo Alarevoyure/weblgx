@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { onMounted, useComponent, useEffect, useExternalListener } from "@odoo/owl";
+import { onMounted, useComponent, useEffect, useExternalListener } from "@weblgx/owl";
 
 export const scrollSymbol = Symbol("scroll");
 

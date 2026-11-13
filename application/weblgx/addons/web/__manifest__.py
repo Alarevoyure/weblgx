@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Web',
@@ -53,7 +53,7 @@ This module provides the core of the Weblgx Web Client.
             ('include', 'web._assets_core'),
 
             'web/static/src/libs/fontawesome/css/font-awesome.css',
-            'web/static/lib/odoo_ui_icons/*',
+            'web/static/lib/weblgx_ui_icons/*',
             'web/static/src/webclient/navbar/navbar.scss',
             'web/static/src/scss/animation.scss',
             'web/static/src/scss/fontawesome_overridden.scss',
@@ -149,7 +149,7 @@ This module provides the core of the Weblgx Web Client.
             ('include', 'web._assets_bootstrap_frontend'),
 
             'web/static/src/libs/fontawesome/css/font-awesome.css',
-            'web/static/lib/odoo_ui_icons/*',
+            'web/static/lib/weblgx_ui_icons/*',
             'web/static/lib/select2/select2.css',
             'web/static/lib/select2-bootstrap-css/select2-bootstrap.css',
             'web/static/src/webclient/navbar/navbar.scss',
@@ -169,7 +169,7 @@ This module provides the core of the Weblgx Web Client.
             ('include', 'web.assets_frontend_minimal'),
 
             'web/static/lib/owl/owl.js',
-            'web/static/lib/owl/odoo_module.js',
+            'web/static/lib/owl/weblgx_module.js',
             'web/static/lib/jquery/jquery.js',
             'web/static/lib/popper/popper.js',
             'web/static/lib/bootstrap/js/dist/dom/data.js',
@@ -267,7 +267,7 @@ This module provides the core of the Weblgx Web Client.
             'base/static/src/css/description.css',
             'web/static/src/libs/fontawesome/css/font-awesome.css',
             'web/static/src/scss/fontawesome_overridden.scss',
-            'web/static/lib/odoo_ui_icons/*',
+            'web/static/lib/weblgx_ui_icons/*',
             'web/static/fonts/fonts.scss',
 
             'web/static/src/webclient/actions/reports/report.scss',
@@ -317,7 +317,7 @@ This module provides the core of the Weblgx Web Client.
             # libs
             'web/static/lib/luxon/luxon.js',
             'web/static/lib/owl/owl.js',
-            'web/static/lib/owl/odoo_module.js',
+            'web/static/lib/owl/weblgx_module.js',
             # core
             'web/static/src/env.js',
             'web/static/src/session.js',

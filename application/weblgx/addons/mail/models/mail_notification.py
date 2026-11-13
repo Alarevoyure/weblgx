@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models
-from odoo.exceptions import AccessError
-from odoo.tools.translate import _
+from weblgx import api, fields, models
+from weblgx.exceptions import AccessError
+from weblgx.tools.translate import _
 
 
 class MailNotification(models.Model):

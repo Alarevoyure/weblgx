@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import importlib
 import io
 import re
@@ -14,8 +14,8 @@ from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
 
-from odoo.tools.parse_version import parse_version
-from odoo.tools.misc import file_open
+from weblgx.tools.parse_version import parse_version
+from weblgx.tools.misc import file_open
 
 try:
     import fontTools
@@ -101,8 +101,8 @@ if hasattr(PdfWriter, 'write_stream'):
     class BrandedFileWriter(PdfWriter):
         def write_stream(self, *args, **kwargs):
             self.add_metadata({
-                '/Creator': "Odoo",
-                '/Producer': "Odoo",
+                '/Creator': "Web@LGX",
+                '/Producer': "Web@LGX",
             })
             super().write_stream(*args, **kwargs)
 else:
@@ -110,8 +110,8 @@ else:
     class BrandedFileWriter(PdfWriter):
         def write(self, *args, **kwargs):
             self.addMetadata({
-                '/Creator': "Odoo",
-                '/Producer': "Odoo",
+                '/Creator': "Web@LGX",
+                '/Producer': "Web@LGX",
             })
             super().write(*args, **kwargs)
 
@@ -218,11 +218,11 @@ def to_pdf_stream(attachment) -> io.BytesIO:
 
 
 def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
-    """ Add a banner on a PDF in the upper right corner, with Odoo's logo (optionally).
+    """ Add a banner on a PDF in the upper right corner, with Web@LGX's logo (optionally).
 
     :param pdf_stream (BytesIO):    The PDF stream where the banner will be applied.
     :param text (str):              The text to be displayed.
-    :param logo (bool):             Whether to display Odoo's logo in the banner.
+    :param logo (bool):             Whether to display Web@LGX's logo in the banner.
     :param thickness (float):       The thickness of the banner in pixels.
     :return (BytesIO):              The modified PDF stream.
     """
@@ -230,8 +230,8 @@ def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
     old_pdf = PdfFileReader(pdf_stream, strict=False, overwriteWarnings=False)
     packet = io.BytesIO()
     can = canvas.Canvas(packet)
-    odoo_logo = Image.open(file_open('base/static/img/main_partner-image.png', mode='rb'))
-    odoo_color = colors.Color(113 / 255, 75 / 255, 103 / 255, 0.8)
+    weblgx_logo = Image.open(file_open('base/static/img/main_partner-image.png', mode='rb'))
+    weblgx_color = colors.Color(113 / 255, 75 / 255, 103 / 255, 0.8)
 
     for p in range(old_pdf.getNumPages()):
         page = old_pdf.getPage(p)
@@ -248,7 +248,7 @@ def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
         path.lineTo(-width, -2 * thickness)
         path.lineTo(width, -2 * thickness)
         path.lineTo(width, -thickness)
-        can.setFillColor(odoo_color)
+        can.setFillColor(weblgx_color)
         can.drawPath(path, fill=1, stroke=False)
 
         # Insert text (and logo) inside the banner
@@ -256,7 +256,7 @@ def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
         can.setFillColor(colors.white)
         can.drawRightString(0.75 * thickness, -1.45 * thickness, text)
         logo and can.drawImage(
-            ImageReader(odoo_logo), 0.25 * thickness, -2.05 * thickness, 40, 40, mask='auto', preserveAspectRatio=True)
+            ImageReader(weblgx_logo), 0.25 * thickness, -2.05 * thickness, 40, 40, mask='auto', preserveAspectRatio=True)
 
         can.showPage()
 
@@ -280,7 +280,7 @@ def add_banner(pdf_stream, text=None, logo=False, thickness=2 * cm):
     return output
 
 
-class OdooPdfFileReader(PdfFileReader):
+class WeblgxPdfFileReader(PdfFileReader):
     # OVERRIDE of PdfFileReader to add the management of multiple embedded files.
 
     ''' Returns the files inside the PDF.
@@ -315,7 +315,7 @@ class OdooPdfFileReader(PdfFileReader):
             return []
 
 
-class OdooPdfFileWriter(PdfFileWriter):
+class WeblgxPdfFileWriter(PdfFileWriter):
 
     def __init__(self, *args, **kwargs):
         """
@@ -393,8 +393,8 @@ class OdooPdfFileWriter(PdfFileWriter):
             })
     addAttachment = add_attachment
 
-    def embed_odoo_attachment(self, attachment, subtype=None):
-        assert attachment, "embed_odoo_attachment cannot be called without attachment."
+    def embed_weblgx_attachment(self, attachment, subtype=None):
+        assert attachment, "embed_weblgx_attachment cannot be called without attachment."
         self.addAttachment(attachment.name, attachment.raw, subtype=subtype or attachment.mimetype)
 
     def cloneReaderDocumentRoot(self, reader):
@@ -533,10 +533,10 @@ class OdooPdfFileWriter(PdfFileWriter):
         struct_tree_root = DictionaryObject({NameObject("/Type"): NameObject("/StructTreeRoot")})
         self._root_object[NameObject("/StructTreeRoot")] = struct_tree_root
 
-        # Set odoo as producer
+        # Set weblgx as producer
         self.addMetadata({
-            '/Creator': "Odoo",
-            '/Producer': "Odoo",
+            '/Creator': "Web@LGX",
+            '/Producer': "Web@LGX",
         })
         self.is_pdfa = True
 

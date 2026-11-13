@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 import { _t } from "@web/core/l10n/translation";
 import { TourPointer } from "@web_tour/tour_pointer/tour_pointer";
 import { getScrollParent } from "./tour_utils";

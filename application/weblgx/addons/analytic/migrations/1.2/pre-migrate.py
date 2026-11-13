@@ -1,4 +1,4 @@
-from odoo.tools import sql
+from weblgx.tools import sql
 
 
 def migrate(cr, version):

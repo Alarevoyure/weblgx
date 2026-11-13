@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import Dialog from '@web/legacy/js/core/dialog';
 

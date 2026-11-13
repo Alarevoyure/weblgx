@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 from contextlib import contextmanager
 from dateutil.relativedelta import relativedelta
 from freezegun import freeze_time
 from unittest.mock import patch
 
-from odoo import exceptions, fields
-from odoo.addons.mail.models.mail_activity import MailActivity
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.tests.common import Form, tagged, HttpCase
-from odoo.tools.misc import format_date
+from weblgx import exceptions, fields
+from weblgx.addons.mail.models.mail_activity import MailActivity
+from weblgx.addons.mail.tests.common import MailCommon
+from weblgx.tests.common import Form, tagged, HttpCase
+from weblgx.tools.misc import format_date
 
 
 class ActivityScheduleCase(MailCommon):

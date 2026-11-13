@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import itertools
 import logging
 from ast import literal_eval
 
-from odoo import _, api, fields, models, tools, Command
-from odoo.exceptions import ValidationError, UserError
-from odoo.tools import is_html_empty
-from odoo.tools.safe_eval import safe_eval, time
+from weblgx import _, api, fields, models, tools, Command
+from weblgx.exceptions import ValidationError, UserError
+from weblgx.tools import is_html_empty
+from weblgx.tools.safe_eval import safe_eval, time
 
 _logger = logging.getLogger(__name__)
 

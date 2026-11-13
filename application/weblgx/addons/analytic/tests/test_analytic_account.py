@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from odoo.tests import tagged
-from odoo.tests.common import Form, TransactionCase
-from odoo import Command
-from odoo.exceptions import RedirectWarning
+from weblgx.tests import tagged
+from weblgx.tests.common import Form, TransactionCase
+from weblgx import Command
+from weblgx.exceptions import RedirectWarning
 
 
 @tagged('post_install', '-at_install')

@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from collections import defaultdict
 from lxml.builder import E
 from markupsafe import Markup
 
-from odoo import api, models, tools, _
-from odoo.addons.mail.tools.alias_error import AliasError
+from weblgx import api, models, tools, _
+from weblgx.addons.mail.tools.alias_error import AliasError
 
 import logging
 

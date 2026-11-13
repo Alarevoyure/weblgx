@@ -1,6 +1,6 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests.common import BaseCase
-from odoo.addons.web.controllers.utils import fix_view_modes
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx.tests.common import BaseCase
+from weblgx.addons.web.controllers.utils import fix_view_modes
 
 
 class ActionMungerTest(BaseCase):

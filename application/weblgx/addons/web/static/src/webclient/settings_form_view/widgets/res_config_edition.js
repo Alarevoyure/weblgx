@@ -1,16 +1,16 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { registry } from "@web/core/registry";
 import { session } from "@web/session";
 import { Setting } from "@web/views/form/setting/setting";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { standardWidgetProps } from "@web/views/widgets/standard_widget_props";
 const { DateTime } = luxon;
 
 /**
  * Widget in the settings that handles a part of the "About" section.
- * Contains info about the odoo version, database expiration date and copyrights.
+ * Contains info about the weblgx version, database expiration date and copyrights.
  */
 class ResConfigEdition extends Component {
     static template = "res_config_edition";

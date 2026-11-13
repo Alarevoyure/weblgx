@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
     <record id="mail_message_blog_comment_public" model="ir.rule">
         <field name="name">Blog comment: visitors read validated comments</field>
@@ -90,4 +90,4 @@
         ]"/>
     </record>
 
-</odoo>
+</weblgx>

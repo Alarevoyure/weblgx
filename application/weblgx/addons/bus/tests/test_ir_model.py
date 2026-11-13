@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-import odoo
-from odoo.tests import HttpCase
+import weblgx
+from weblgx.tests import HttpCase
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
+@weblgx.tests.tagged('-at_install', 'post_install')
 class TestGetModelDefinitions(HttpCase):
     def test_access_cr(self):
         """ Checks that get_model_definitions does not return anything else than models """

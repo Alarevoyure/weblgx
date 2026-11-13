@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 /**
  * @typedef {Object} OrderTerm

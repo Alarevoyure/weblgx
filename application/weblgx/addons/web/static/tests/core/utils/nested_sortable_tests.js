@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { drag, getFixture, mount, nextTick } from "@web/../tests/helpers/utils";
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 import { useNestedSortable } from "@web/core/utils/nested_sortable";
 
-import { Component, reactive, useRef, useState, xml } from "@odoo/owl";
+import { Component, reactive, useRef, useState, xml } from "@weblgx/owl";
 
 /**
  * Dragging methods taking into account the fact that it's the top of the

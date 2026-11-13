@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { SuggestionService } from "@mail/core/common/suggestion_service";
 import { cleanTerm } from "@mail/utils/common/format";
@@ -7,7 +7,7 @@ import { patch } from "@web/core/utils/patch";
 
 patch(SuggestionService.prototype, {
     getSupportedDelimiters(thread) {
-        return (thread.type === "chat" && thread.correspondent?.eq(this.store.odoobot)) ||
+        return (thread.type === "chat" && thread.correspondent?.eq(this.store.weblgxbot)) ||
             thread.model !== "discuss.channel" ||
             thread.type === "livechat"
             ? [...super.getSupportedDelimiters(...arguments), [":"]]

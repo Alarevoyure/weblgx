@@ -1,12 +1,12 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { registry } from "@web/core/registry";
 
 export class MailCoreCommon {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -90,7 +90,7 @@ export const mailCoreCommon = {
         "mail.user_settings",
     ],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { localization } from "@web/core/l10n/localization";
 import { useOwnedDialogs, useService } from "@web/core/utils/hooks";
 import { TranslationDialog } from "./translation_dialog";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 /**
  * Prepares a function that will open the dialog that allows to edit translation

@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { registry } from "@web/core/registry";
 import { useSequential } from "@mail/utils/common/hooks";
-import { markRaw } from "@odoo/owl";
+import { markRaw } from "@weblgx/owl";
 import { compareDatetime } from "@mail/utils/common/misc";
 
 export const DEFAULT_AVATAR = "/mail/static/src/img/smiley/avatar.jpg";
@@ -13,7 +13,7 @@ export class PersonaService {
     }
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     setup(env, services) {
@@ -95,7 +95,7 @@ export class PersonaService {
 export const personaService = {
     dependencies: ["orm", "rpc", "mail.store"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

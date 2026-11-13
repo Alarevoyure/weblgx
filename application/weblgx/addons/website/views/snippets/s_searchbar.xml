@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_searchbar_input" name="Search">
     <t t-call="website.website_search_box_input">
@@ -68,4 +68,4 @@
     <path>website/static/src/snippets/s_searchbar/000.xml</path>
 </asset>
 
-</odoo>
+</weblgx>

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { makeView } from "../helpers";
 import { setupViewRegistries } from "@web/../tests/views/helpers";
 import { FormCompiler } from "@web/views/form/form_compiler";
@@ -6,7 +6,7 @@ import { registry } from "@web/core/registry";
 import { getFixture, patchWithCleanup } from "../../helpers/utils";
 import { createElement } from "@web/core/utils/xml";
 import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services";
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 function compileTemplate(arch) {
     const parser = new DOMParser();

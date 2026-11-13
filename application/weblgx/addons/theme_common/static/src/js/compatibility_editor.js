@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import sOptions from "@web_editor/js/editor/snippets.options";
 

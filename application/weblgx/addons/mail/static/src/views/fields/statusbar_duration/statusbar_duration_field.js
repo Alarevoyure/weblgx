@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { formatDuration } from "@web/core/l10n/dates";
 import { _t } from "@web/core/l10n/translation";

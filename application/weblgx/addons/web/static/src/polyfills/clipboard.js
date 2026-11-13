@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 class ClipboardItemImpl {
     constructor(items, options = {}) {

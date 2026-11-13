@@ -1,5 +1,5 @@
-/** @odoo-module */
-import { Component, onWillDestroy, onWillStart, useEffect, useRef } from "@odoo/owl";
+/** @weblgx-module */
+import { Component, onWillDestroy, onWillStart, useEffect, useRef } from "@weblgx/owl";
 import { loadBundle } from "@web/core/assets";
 import { useDebounced } from "@web/core/utils/timing";
 

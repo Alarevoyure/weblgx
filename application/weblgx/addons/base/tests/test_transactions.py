@@ -1,4 +1,4 @@
-from odoo.tests.common import TransactionCase
+from weblgx.tests.common import TransactionCase
 
 
 class TestTransactionEnvs(TransactionCase):

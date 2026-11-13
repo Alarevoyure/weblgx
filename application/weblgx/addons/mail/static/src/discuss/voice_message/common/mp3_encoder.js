@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 const MAX_SAMPLES = 1152;
 

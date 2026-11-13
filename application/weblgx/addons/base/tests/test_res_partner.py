@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from contextlib import contextmanager
 from unittest.mock import patch
 
-from odoo import Command
-from odoo.addons.base.models.ir_mail_server import extract_rfc2822_addresses
-from odoo.addons.base.models.res_partner import Partner
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.exceptions import AccessError, RedirectWarning, UserError, ValidationError
-from odoo.tests import Form
-from odoo.tests.common import tagged, TransactionCase
+from weblgx import Command
+from weblgx.addons.base.models.ir_mail_server import extract_rfc2822_addresses
+from weblgx.addons.base.models.res_partner import Partner
+from weblgx.addons.base.tests.common import TransactionCaseWithUserDemo
+from weblgx.exceptions import AccessError, RedirectWarning, UserError, ValidationError
+from weblgx.tests import Form
+from weblgx.tests.common import tagged, TransactionCase
 
 # samples use effective TLDs from the Mozilla public suffix
 # list at http://publicsuffix.org
@@ -61,7 +61,7 @@ class TestPartner(TransactionCaseWithUserDemo):
     def test_archive_internal_partners(self):
         test_partner = self.env['res.partner'].create({'name':'test partner'})
         test_user = self.env['res.users'].create({
-                                'login': 'test@odoo.com',
+                                'login': 'test@weblgx.com',
                                 'partner_id': test_partner.id,
                                 })
         # Cannot archive the partner

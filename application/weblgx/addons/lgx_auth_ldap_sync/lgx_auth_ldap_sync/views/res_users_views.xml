@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <record id="view_users_tree_ldap_reload" model="ir.ui.view">
         <field name="name">res.users.tree.ldap.reload</field>
         <field name="model">res.users</field>
@@ -16,4 +16,4 @@
             </xpath>
         </field>
     </record>
-</odoo>
+</weblgx>

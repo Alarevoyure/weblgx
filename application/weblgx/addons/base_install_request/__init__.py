@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from . import models
 from . import wizard
 
-from odoo import tools
+from weblgx import tools
 
 
 def _auto_install_apps(env):

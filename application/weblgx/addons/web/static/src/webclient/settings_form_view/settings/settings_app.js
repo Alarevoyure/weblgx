@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, useState, useEffect, useRef } from "@odoo/owl";
+import { Component, useState, useEffect, useRef } from "@weblgx/owl";
 
 export class SettingsApp extends Component {
     setup() {

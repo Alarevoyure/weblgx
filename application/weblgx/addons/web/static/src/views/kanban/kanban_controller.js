@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { deleteConfirmationMessage, ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { _t } from "@web/core/l10n/translation";
@@ -19,7 +19,7 @@ import { addFieldDependencies, extractFieldsFromArchInfo } from "@web/model/rela
 import { KanbanRenderer } from "./kanban_renderer";
 import { useProgressBar } from "./progress_bar_hook";
 
-import { Component, reactive, useRef, useState } from "@odoo/owl";
+import { Component, reactive, useRef, useState } from "@weblgx/owl";
 
 const QUICK_CREATE_FIELD_TYPES = ["char", "boolean", "many2one", "selection", "many2many"];
 

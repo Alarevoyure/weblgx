@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { reactive, toRaw } from "@odoo/owl";
+import { reactive, toRaw } from "@weblgx/owl";
 
 const {
     DateTime,

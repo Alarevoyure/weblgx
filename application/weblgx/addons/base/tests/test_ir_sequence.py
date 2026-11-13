@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from contextlib import contextmanager
 
 import psycopg2
 import psycopg2.errorcodes
 
-import odoo
-from odoo.exceptions import UserError
-from odoo.tests import common
-from odoo.tests.common import BaseCase
-from odoo.tools.misc import mute_logger
+import weblgx
+from weblgx.exceptions import UserError
+from weblgx.tests import common
+from weblgx.tests.common import BaseCase
+from weblgx.tools.misc import mute_logger
 
 ADMIN_USER_ID = common.ADMIN_USER_ID
 
@@ -19,9 +19,9 @@ def environment():
     """ Return an environment with a new cursor for the current database; the
         cursor is committed and closed after the context block.
     """
-    registry = odoo.registry(common.get_db_name())
+    registry = weblgx.registry(common.get_db_name())
     with registry.cursor() as cr:
-        yield odoo.api.Environment(cr, ADMIN_USER_ID, {})
+        yield weblgx.api.Environment(cr, ADMIN_USER_ID, {})
 
 
 def drop_sequence(code):
@@ -87,7 +87,7 @@ class TestIrSequenceNoGap(BaseCase):
             n = env['ir.sequence'].next_by_code('test_sequence_type_2')
             self.assertTrue(n)
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('weblgx.sql_db')
     def test_ir_sequence_draw_twice_no_gap(self):
         """ Try to draw a number from two transactions.
         This is expected to not work.

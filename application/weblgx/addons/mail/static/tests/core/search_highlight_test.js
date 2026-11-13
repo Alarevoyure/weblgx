@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { HIGHLIGHT_CLASS, searchHighlight } from "@mail/core/common/message_search_hook";
 import { triggerHotkey } from "@web/../tests/helpers/utils";
@@ -12,55 +12,55 @@ QUnit.module("Search highlight test", {});
 QUnit.test("Search highlight", async (assert) => {
     const testCases = [
         {
-            input: "test odoo",
-            output: `test <span class="${HIGHLIGHT_CLASS}">odoo</span>`,
-            searchTerm: "odoo",
+            input: "test weblgx",
+            output: `test <span class="${HIGHLIGHT_CLASS}">weblgx</span>`,
+            searchTerm: "weblgx",
         },
         {
-            input: '<a href="https://www.odoo.com">https://www.odoo.com</a>',
-            output: `<a href="https://www.odoo.com">https://www.<span class="${HIGHLIGHT_CLASS}">odoo</span>.com</a>`,
-            searchTerm: "odoo",
+            input: '<a href="https://www.weblgx.com">https://www.weblgx.com</a>',
+            output: `<a href="https://www.weblgx.com">https://www.<span class="${HIGHLIGHT_CLASS}">weblgx</span>.com</a>`,
+            searchTerm: "weblgx",
         },
         {
-            input: '<a href="https://www.odoo.com">Weblgx</a>',
-            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span></a>`,
-            searchTerm: "odoo",
+            input: '<a href="https://www.weblgx.com">Weblgx</a>',
+            output: `<a href="https://www.weblgx.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span></a>`,
+            searchTerm: "weblgx",
         },
         {
-            input: '<a href="https://www.odoo.com">Weblgx</a> Weblgx is a free software',
-            output: `<a href="https://www.odoo.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span></a> <span class="${HIGHLIGHT_CLASS}">Weblgx</span> is a free software`,
-            searchTerm: "odoo",
+            input: '<a href="https://www.weblgx.com">Weblgx</a> Weblgx is a free software',
+            output: `<a href="https://www.weblgx.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span></a> <span class="${HIGHLIGHT_CLASS}">Weblgx</span> is a free software`,
+            searchTerm: "weblgx",
         },
         {
-            input: "odoo is a free software",
-            output: `<span class="${HIGHLIGHT_CLASS}">odoo</span> is a free software`,
-            searchTerm: "odoo",
+            input: "weblgx is a free software",
+            output: `<span class="${HIGHLIGHT_CLASS}">weblgx</span> is a free software`,
+            searchTerm: "weblgx",
         },
         {
-            input: "software ODOO is a free",
-            output: `software <span class="${HIGHLIGHT_CLASS}">ODOO</span> is a free`,
-            searchTerm: "odoo",
+            input: "software WEBLGX is a free",
+            output: `software <span class="${HIGHLIGHT_CLASS}">WEBLGX</span> is a free`,
+            searchTerm: "weblgx",
         },
         {
             input: `<ul>
                 <li>Weblgx</li>
-                <li><a href="https://odoo.com">Weblgx ERP</a> Best ERP</li>
+                <li><a href="https://weblgx.com">Weblgx ERP</a> Best ERP</li>
             </ul>`,
             output: `<ul>
                 <li><span class="${HIGHLIGHT_CLASS}">Weblgx</span></li>
-                <li><a href="https://odoo.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span> ERP</a> Best ERP</li>
+                <li><a href="https://weblgx.com"><span class="${HIGHLIGHT_CLASS}">Weblgx</span> ERP</a> Best ERP</li>
             </ul>`,
-            searchTerm: "odoo",
+            searchTerm: "weblgx",
         },
         {
             input: "test <strong>Weblgx</strong> test",
             output: `<span class="${HIGHLIGHT_CLASS}">test</span> <strong><span class="${HIGHLIGHT_CLASS}">Weblgx</span></strong> <span class="${HIGHLIGHT_CLASS}">test</span>`,
-            searchTerm: "odoo test",
+            searchTerm: "weblgx test",
         },
         {
             input: "test <br> test",
             output: `<span class="${HIGHLIGHT_CLASS}">test</span> <br> <span class="${HIGHLIGHT_CLASS}">test</span>`,
-            searchTerm: "odoo test",
+            searchTerm: "weblgx test",
         },
         {
             input: "<strong>test</strong> test",

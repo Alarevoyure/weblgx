@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 
-from odoo.tests import tagged, HttpCase
-from odoo.addons.auth_totp.tests.test_totp import TestTOTPMixin
+from weblgx.tests import tagged, HttpCase
+from weblgx.addons.auth_totp.tests.test_totp import TestTOTPMixin
 
 _logger = logging.getLogger(__name__)
 

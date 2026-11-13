@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * Returns a promise resolved after 'wait' milliseconds
@@ -49,7 +49,7 @@ export class KeepLast {
 }
 
 /**
- * A (Odoo) mutex is a primitive for serializing computations.  This is
+ * A (Web@LGX) mutex is a primitive for serializing computations.  This is
  * useful to avoid a situation where two computations modify some shared
  * state and cause some corrupted state.
  *

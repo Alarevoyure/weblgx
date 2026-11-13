@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <!-- Footer Wiki : visibilité du footer du site et du Footer Wiki. -->
 <template id="s_wiki_footer_options" inherit_id="website.snippet_options" name="Footer Wiki Options">
@@ -48,4 +48,4 @@
     </xpath>
 </template>
 
-</odoo>
+</weblgx>

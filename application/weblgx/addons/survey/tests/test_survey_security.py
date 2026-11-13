@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import datetime
 
-from odoo.addons.survey.tests import common
-from odoo.exceptions import AccessError, UserError
-from odoo.tests import tagged
-from odoo.tests.common import users, HttpCase
-from odoo.tools import mute_logger
+from weblgx.addons.survey.tests import common
+from weblgx.exceptions import AccessError, UserError
+from weblgx.tests import tagged
+from weblgx.tests.common import users, HttpCase
+from weblgx.tools import mute_logger
 
 
 @tagged('security')
@@ -20,7 +20,7 @@ class TestAccess(common.TestSurveyCommon):
         self.answer_0_0 = self._add_answer_line(self.question_ft, self.answer_0, 'Test Answer')
         self.answer_0_1 = self._add_answer_line(self.question_num, self.answer_0, 5)
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('user_emp')
     def test_access_survey_employee(self):
         # Create: nope
@@ -53,7 +53,7 @@ class TestAccess(common.TestSurveyCommon):
         with self.assertRaises(AccessError):
             self.question_ft.with_user(self.env.user).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('user_portal')
     def test_access_survey_portal(self):
         # Create: nope
@@ -86,7 +86,7 @@ class TestAccess(common.TestSurveyCommon):
         with self.assertRaises(AccessError):
             self.question_ft.with_user(self.env.user).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('user_public')
     def test_access_survey_public(self):
         # Create: nope
@@ -137,7 +137,7 @@ class TestAccess(common.TestSurveyCommon):
         # Unlink: all
         (self.survey | survey).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('survey_user')
     def test_access_survey_survey_user(self):
         # Create: own only
@@ -160,7 +160,7 @@ class TestAccess(common.TestSurveyCommon):
         with self.assertRaises(AccessError):
             self.survey.with_user(self.env.user).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('user_emp')
     def test_access_answers_employee(self):
         # Create: nope
@@ -189,7 +189,7 @@ class TestAccess(common.TestSurveyCommon):
         with self.assertRaises(AccessError):
             self.answer_0_0.with_user(self.env.user).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('user_portal')
     def test_access_answers_portal(self):
         # Create: nope
@@ -218,7 +218,7 @@ class TestAccess(common.TestSurveyCommon):
         with self.assertRaises(AccessError):
             self.answer_0_0.with_user(self.env.user).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('user_public')
     def test_access_answers_public(self):
         # Create: nope
@@ -247,7 +247,7 @@ class TestAccess(common.TestSurveyCommon):
         with self.assertRaises(AccessError):
             self.answer_0_0.with_user(self.env.user).unlink()
 
-    @mute_logger('odoo.addons.base.models.ir_model')
+    @mute_logger('weblgx.addons.base.models.ir_model')
     @users('survey_user')
     def test_access_answers_survey_user(self):
         survey_own = self.env['survey.survey'].create({'title': 'Other'})

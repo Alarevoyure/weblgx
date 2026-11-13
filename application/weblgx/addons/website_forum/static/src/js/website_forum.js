@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 import { FlagMarkAsOffensiveDialog } from "../components/flag_mark_as_offensive/flag_mark_as_offensive";
 import dom from "@web/legacy/js/core/dom";
 import { cookie } from "@web/core/browser/cookie";;

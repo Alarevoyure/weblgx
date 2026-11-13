@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import json
@@ -9,12 +9,12 @@ from markupsafe import Markup
 from psycopg2 import IntegrityError
 from werkzeug.exceptions import BadRequest
 
-from odoo import http, SUPERUSER_ID, _, _lt
-from odoo.addons.base.models.ir_qweb_fields import nl2br, nl2br_enclose
-from odoo.http import request
-from odoo.tools import plaintext2html
-from odoo.exceptions import AccessDenied, ValidationError, UserError
-from odoo.tools.misc import hmac, consteq
+from weblgx import http, SUPERUSER_ID, _, _lt
+from weblgx.addons.base.models.ir_qweb_fields import nl2br, nl2br_enclose
+from weblgx.http import request
+from weblgx.tools import plaintext2html
+from weblgx.exceptions import AccessDenied, ValidationError, UserError
+from weblgx.tools.misc import hmac, consteq
 
 
 class WebsiteForm(http.Controller):

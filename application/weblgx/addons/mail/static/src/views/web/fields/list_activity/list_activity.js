@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ActivityButton } from "@mail/core/web/activity_button";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";

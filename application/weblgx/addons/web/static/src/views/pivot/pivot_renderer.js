@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { CheckBox } from "@web/core/checkbox/checkbox";
@@ -9,7 +9,7 @@ import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { formatPercentage } from "@web/views/fields/formatters";
 import { PivotGroupByMenu } from "@web/views/pivot/pivot_group_by_menu";
 
-import { Component, onWillUpdateProps, useRef } from "@odoo/owl";
+import { Component, onWillUpdateProps, useRef } from "@weblgx/owl";
 import { download } from "@web/core/network/download";
 import { useService } from "@web/core/utils/hooks";
 const formatters = registry.category("formatters");

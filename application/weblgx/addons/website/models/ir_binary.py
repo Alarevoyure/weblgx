@@ -1,4 +1,4 @@
-from odoo import models
+from weblgx import models
 
 
 class IrBinary(models.AbstractModel):

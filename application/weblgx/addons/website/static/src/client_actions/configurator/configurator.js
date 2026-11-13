@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 const sessionStorage = browser.sessionStorage;
@@ -21,7 +21,7 @@ import {
     useSubEnv,
     onWillStart,
     useExternalListener,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 const ROUTES = {
     descriptionScreen: 2,

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models
+from weblgx import api, models
 
 
 class ResConfigSettings(models.TransientModel):

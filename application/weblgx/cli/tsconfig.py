@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import argparse
 import glob
 import json
@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from . import Command
-from odoo.modules.module import MANIFEST_NAMES
+from weblgx.modules.module import MANIFEST_NAMES
 
 
 class TSConfig(Command):
@@ -50,7 +50,7 @@ class TSConfig(Command):
                     owl_path = self.prefix_suffix_path(module, path, "/static/lib/owl/owl.js")
 
         content = self.generate_file_content(modules, paths)
-        content["compilerOptions"]["paths"]["@odoo/owl"] = [owl_path]
+        content["compilerOptions"]["paths"]["@weblgx/owl"] = [owl_path]
         # pylint: disable=bad-builtin
         print(json.dumps(content, indent=2))
 

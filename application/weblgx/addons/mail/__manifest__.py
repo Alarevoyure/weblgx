@@ -137,7 +137,7 @@ For more specific needs, you may also assign custom-defined actions
             'mail/static/src/scss/variables/derived_variables.scss',
             'mail/static/src/scss/*.scss',
             'mail/static/lib/**/*',
-            ('remove', 'mail/static/lib/odoo_sfu/odoo_sfu.js'),
+            ('remove', 'mail/static/lib/weblgx_sfu/weblgx_sfu.js'),
             ('remove', 'mail/static/lib/lame/lame.js'),
             'mail/static/src/js/**/*',
             'mail/static/src/core/common/**/*',
@@ -190,15 +190,15 @@ For more specific needs, you may also assign custom-defined actions
         'web.qunit_mobile_suite_tests': [
             'mail/static/tests/mobile/**/*',
         ],
-        'mail.assets_odoo_sfu': [
-            'mail/static/lib/odoo_sfu/odoo_sfu.js',
+        'mail.assets_weblgx_sfu': [
+            'mail/static/lib/weblgx_sfu/weblgx_sfu.js',
         ],
         'mail.assets_lamejs': [
             'mail/static/lib/lame/lame.js',
         ],
         'mail.assets_public': [
             'web/static/lib/jquery/jquery.js',
-            'web/static/lib/odoo_ui_icons/style.css',
+            'web/static/lib/weblgx_ui_icons/style.css',
             'web/static/src/libs/fontawesome/css/font-awesome.css',
             ('include', 'web._assets_helpers'),
             ('include', 'web._assets_backend_helpers'),

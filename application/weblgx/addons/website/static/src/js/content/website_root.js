@@ -1,13 +1,13 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { loadJS } from "@web/core/assets";
 import { _t } from "@web/core/l10n/translation";
 import { session } from "@web/session";
 import publicRootData from '@web/legacy/js/public/public_root';
-import "@website/libs/zoomodoo/zoomodoo";
+import "@website/libs/zoomweblgx/zoomweblgx";
 import { pick } from "@web/core/utils/objects";
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 
 export const WebsiteRoot = publicRootData.PublicRoot.extend({
     events: Object.assign({}, publicRootData.PublicRoot.prototype.events || {}, {
@@ -37,7 +37,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend({
      */
     start: function () {
         // Enable magnify on zommable img
-        this.$('.zoomable img[data-zoom]').zoomOdoo();
+        this.$('.zoomable img[data-zoom]').zoomWeblgx();
 
         return this._super.apply(this, arguments);
     },
@@ -107,7 +107,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend({
             this._gmapAPILoading = new Promise(async resolve => {
                 const key = await this._getGMapAPIKey(refetch);
 
-                window.odoo_gmap_api_post_load = (async function odoo_gmap_api_post_load() {
+                window.weblgx_gmap_api_post_load = (async function weblgx_gmap_api_post_load() {
                     await this._startWidgets($("section.s_google_map"), {editableMode: editableMode});
                     resolve(key);
                 }).bind(this);
@@ -128,7 +128,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend({
                     this._gmapAPILoading = false;
                     return;
                 }
-                await loadJS(`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=odoo_gmap_api_post_load&key=${encodeURIComponent(key)}`);
+                await loadJS(`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=weblgx_gmap_api_post_load&key=${encodeURIComponent(key)}`);
             });
         }
         return this._gmapAPILoading;
@@ -168,7 +168,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     async _onGMapAPIRequest(ev) {
         ev.stopPropagation();
@@ -177,7 +177,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     async _onGMapAPIKeyRequest(ev) {
         ev.stopPropagation();
@@ -189,7 +189,7 @@ export const WebsiteRoot = publicRootData.PublicRoot.extend({
      * Checks information about the page SEO object.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSeoObjectRequest: function (ev) {
         var res = this._unslugHtmlDataObject('seo-object');

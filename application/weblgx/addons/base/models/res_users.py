@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import binascii
 import contextlib
@@ -24,14 +24,14 @@ from lxml.builder import E
 from passlib.context import CryptContext as _CryptContext
 from psycopg2 import sql
 
-from odoo import api, fields, models, tools, SUPERUSER_ID, _, Command
-from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
-from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
-from odoo.http import request, DEFAULT_LANG
-from odoo.osv import expression
-from odoo.service.db import check_super
-from odoo.tools import is_html_empty, partition, collections, frozendict, lazy_property
-from odoo.tools.misc import OrderedSet
+from weblgx import api, fields, models, tools, SUPERUSER_ID, _, Command
+from weblgx.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
+from weblgx.exceptions import AccessDenied, AccessError, UserError, ValidationError
+from weblgx.http import request, DEFAULT_LANG
+from weblgx.osv import expression
+from weblgx.service.db import check_super
+from weblgx.tools import is_html_empty, partition, collections, frozendict, lazy_property
+from weblgx.tools.misc import OrderedSet
 
 _logger = logging.getLogger(__name__)
 
@@ -983,8 +983,8 @@ class Users(models.Model):
         password is not used to authenticate requests.
 
         :return: True
-        :raise: odoo.exceptions.AccessDenied when old password is wrong
-        :raise: odoo.exceptions.UserError when new password is not set or empty
+        :raise: weblgx.exceptions.AccessDenied when old password is wrong
+        :raise: weblgx.exceptions.UserError when new password is not set or empty
         """
         if not old_passwd:
             raise AccessDenied()

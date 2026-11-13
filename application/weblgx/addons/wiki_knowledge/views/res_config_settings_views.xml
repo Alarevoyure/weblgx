@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <!-- Vue dédiée : évite la page blanche quand l'onglet wiki_knowledge
          est absent du formulaire global (droits / contexte module). -->
     <record id="res_config_settings_view_form_wiki_only" model="ir.ui.view">
@@ -195,4 +195,4 @@
             </xpath>
         </field>
     </record>
-</odoo>
+</weblgx>

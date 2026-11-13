@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { uiService } from "@web/core/ui/ui_service";
 import { createElement } from "@web/core/utils/xml";

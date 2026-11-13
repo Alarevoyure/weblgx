@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 import { makeFakePresenceService } from "@bus/../tests/helpers/mock_services";
@@ -25,7 +25,7 @@ QUnit.test("Notify message received out of focus", async () => {
     const { env } = await start({
         services: {
             presence: makeFakePresenceService({
-                isOdooFocused() {
+                isWeblgxFocused() {
                     return false;
                 },
             }),

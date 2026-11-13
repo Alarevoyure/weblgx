@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Cache } from "@web/core/utils/cache";
 import { Domain } from "@web/core/domain";

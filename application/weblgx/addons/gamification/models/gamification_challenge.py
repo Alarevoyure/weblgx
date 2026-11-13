@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import ast
 import itertools
 import logging
@@ -8,9 +8,9 @@ from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta, MO
 from markupsafe import Markup
 
-from odoo import _, api, exceptions, fields, models
-from odoo.http import SESSION_LIFETIME
-from odoo.tools import ustr
+from weblgx import _, api, exceptions, fields, models
+from weblgx.http import SESSION_LIFETIME
+from weblgx.tools import ustr
 
 _logger = logging.getLogger(__name__)
 

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, onWillStart, onWillUpdateProps, useState } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps, useState } from "@weblgx/owl";
 import { KeepLast } from "@web/core/utils/concurrency";
 import { ModelFieldSelectorPopover } from "./model_field_selector_popover";
 import { useLoadFieldInfo, useLoadPathDescription } from "./utils";

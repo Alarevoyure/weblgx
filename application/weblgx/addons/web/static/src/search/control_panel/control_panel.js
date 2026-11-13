@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { browser } from "@web/core/browser/browser";
@@ -10,7 +10,7 @@ import { Dropdown } from "@web/core/dropdown/dropdown";
 import { useCommand } from "@web/core/commands/command_hook";
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 
-import { Component, useState, onMounted, useExternalListener, useRef, useEffect } from "@odoo/owl";
+import { Component, useState, onMounted, useExternalListener, useRef, useEffect } from "@weblgx/owl";
 
 const STICKY_CLASS = "o_mobile_sticky";
 

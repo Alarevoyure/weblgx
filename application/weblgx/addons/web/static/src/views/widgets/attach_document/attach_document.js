@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { FileInput } from "@web/core/file_input/file_input";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { checkFileSize } from "@web/core/utils/files";
 import { standardWidgetProps } from "@web/views/widgets/standard_widget_props";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class AttachDocumentWidget extends Component {
     static template = "web.AttachDocument";
@@ -39,7 +39,7 @@ export class AttachDocumentWidget extends Component {
         const fileData = await this.http.post(
             "/web/binary/upload_attachment",
             {
-                csrf_token: odoo.csrf_token,
+                csrf_token: weblgx.csrf_token,
                 ufile: ufile,
                 model: this.props.record.resModel,
                 id: this.props.record.resId,

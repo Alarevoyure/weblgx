@@ -1,11 +1,11 @@
-import odoo
-from odoo import Command
-from odoo.addons.im_livechat.tests.common import TestImLivechatCommon
+import weblgx
+from weblgx import Command
+from weblgx.addons.im_livechat.tests.common import TestImLivechatCommon
 
 from unittest.mock import patch
 
 
-@odoo.tests.tagged("-at_install", "post_install")
+@weblgx.tests.tagged("-at_install", "post_install")
 class TestGetOperator(TestImLivechatCommon):
     def _create_chat(self, livechat, operator, in_call=False):
         channel = self.env["discuss.channel"].create(

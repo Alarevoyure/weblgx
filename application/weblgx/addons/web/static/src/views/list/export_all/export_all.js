@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { registry } from "@web/core/registry";
 import { archParseBoolean } from "@web/views/utils";
 import { STATIC_ACTIONS_GROUP_NUMBER } from "@web/search/action_menus/action_menus";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 const cogMenuRegistry = registry.category("cogMenu");
 

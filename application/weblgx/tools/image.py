@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import base64
 import binascii
 import io
@@ -14,9 +14,9 @@ except ImportError:
 
 from random import randrange
 
-from odoo.exceptions import UserError
-from odoo.tools.misc import DotDict
-from odoo.tools.translate import _
+from weblgx.exceptions import UserError
+from weblgx.tools.misc import DotDict
+from weblgx.tools.translate import _
 
 
 # Preload PIL with the minimal subset of image formats we need

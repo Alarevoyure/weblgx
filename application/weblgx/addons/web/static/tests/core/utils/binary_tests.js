@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { humanSize } from "@web/core/utils/binary";
 import { resizeBlobImg } from "@web/core/utils/files";

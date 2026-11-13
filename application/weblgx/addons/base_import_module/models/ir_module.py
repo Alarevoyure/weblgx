@@ -12,19 +12,19 @@ from collections import defaultdict
 from io import BytesIO
 from os.path import join as opj
 
-from odoo import api, fields, models, _
-from odoo.exceptions import AccessDenied, AccessError, UserError
-from odoo.http import request
-from odoo.modules.module import adapt_version, MANIFEST_NAMES
-from odoo.osv.expression import is_leaf
-from odoo.release import major_version
-from odoo.tools import convert_csv_import, convert_sql_import, convert_xml_import, exception_to_unicode
-from odoo.tools import file_open, file_open_temporary_directory, ormcache
-from odoo.tools.translate import get_po_paths_env, TranslationImporter
+from weblgx import api, fields, models, _
+from weblgx.exceptions import AccessDenied, AccessError, UserError
+from weblgx.http import request
+from weblgx.modules.module import adapt_version, MANIFEST_NAMES
+from weblgx.osv.expression import is_leaf
+from weblgx.release import major_version
+from weblgx.tools import convert_csv_import, convert_sql_import, convert_xml_import, exception_to_unicode
+from weblgx.tools import file_open, file_open_temporary_directory, ormcache
+from weblgx.tools.translate import get_po_paths_env, TranslationImporter
 
 _logger = logging.getLogger(__name__)
 
-APPS_URL = "https://apps.odoo.com"
+APPS_URL = "https://apps.weblgx.com"
 MAX_FILE_SIZE = 100 * 1024 * 1024  # in megabytes
 
 
@@ -457,7 +457,7 @@ class IrModule(models.Model):
             description += _(
                 "\nYou may need the Enterprise version to install the data module. Please visit "
                 "https://www.loegaux.fr/pricing-plan for more information.\n"
-                "If you need Website themes, it can be downloaded from https://github.com/odoo/design-themes.\n"
+                "If you need Website themes, it can be downloaded from https://github.com/weblgx/design-themes.\n"
             )
         else:
             description = _(

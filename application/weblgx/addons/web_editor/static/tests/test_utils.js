@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { MockServer } from "@web/../tests/helpers/mock_server";
 import testUtils from "@web/../tests/legacy/helpers/test_utils";
 import { patch } from "@web/core/utils/patch";
-import * as OdooEditorLib from "@web_editor/js/editor/odoo-editor/src/OdooEditor";
+import * as WeblgxEditorLib from "@web_editor/js/editor/weblgx-editor/src/WeblgxEditor";
 import { Wysiwyg } from '@web_editor/js/wysiwyg/wysiwyg';
 import options from "@web_editor/js/editor/snippets.options";
 import { TABLE_ATTRIBUTES, TABLE_STYLES } from '@web_editor/js/backend/convert_inline';
@@ -327,9 +327,9 @@ var testKeyboard = function ($editable, assert, keyboardTests, addTests) {
 
     function nextPoint(point) {
         var node, offset;
-        if (OdooEditorLib.nodeSize(point.node) === point.offset) {
+        if (WeblgxEditorLib.nodeSize(point.node) === point.offset) {
             node = point.node.parentNode;
-            offset = OdooEditorLib.childNodeIndex(point.node) + 1;
+            offset = WeblgxEditorLib.childNodeIndex(point.node) + 1;
         } else if (point.node.hasChildNodes()) {
             node = point.node.childNodes[point.offset];
             offset = 0;

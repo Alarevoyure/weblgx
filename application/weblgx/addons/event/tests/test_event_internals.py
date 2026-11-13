@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 from freezegun import freeze_time
 
-from odoo import Command
-from odoo.addons.event.tests.common import EventCase
-from odoo import exceptions
-from odoo.fields import Datetime as FieldsDatetime
-from odoo.tests.common import users, Form, tagged
-from odoo.tools import mute_logger
+from weblgx import Command
+from weblgx.addons.event.tests.common import EventCase
+from weblgx import exceptions
+from weblgx.fields import Datetime as FieldsDatetime
+from weblgx.tests.common import users, Form, tagged
+from weblgx.tools import mute_logger
 
 
 class TestEventInternalsCommon(EventCase):
@@ -126,7 +126,7 @@ class TestEventData(TestEventInternalsCommon):
         self.assertFalse(event.is_ongoing)
 
     @users('user_eventmanager')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_event_configuration_from_type(self):
         """ Test data computation of event coming from its event.type template. """
         self.assertEqual(self.env.user.tz, 'Europe/Brussels')

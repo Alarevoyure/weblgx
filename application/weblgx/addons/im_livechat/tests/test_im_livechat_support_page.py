@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-import odoo
-from odoo.tests import HttpCase
+import weblgx
+from weblgx.tests import HttpCase
 
-@odoo.tests.tagged('-at_install', 'post_install')
+@weblgx.tests.tagged('-at_install', 'post_install')
 class TestImLivechatSupportPage(HttpCase):
     def test_load_modules(self):
         """Checks that all javascript modules load correctly on the livechat support page"""
@@ -12,8 +12,8 @@ class TestImLivechatSupportPage(HttpCase):
         # Give some time to the assets to load to prevent fetch
         # interrupt errors then ensures all the assets are loaded.
         check_js_modules = """
-            odoo.livechatReady.then(() => {
-                const { missing, failed, unloaded } = odoo.loader.findErrors();
+            weblgx.livechatReady.then(() => {
+                const { missing, failed, unloaded } = weblgx.loader.findErrors();
                 if ([missing, failed, unloaded].some(arr => arr.length)) {
                     console.error("Couldn't load all JS modules.", JSON.stringify({ missing, failed, unloaded }));
                 } else {

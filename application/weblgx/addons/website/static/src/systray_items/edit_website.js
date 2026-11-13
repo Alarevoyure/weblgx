@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { useService } from '@web/core/utils/hooks';
-import { Component, useState, useEffect } from "@odoo/owl";
+import { Component, useState, useEffect } from "@weblgx/owl";
 
 class EditWebsiteSystray extends Component {
     setup() {

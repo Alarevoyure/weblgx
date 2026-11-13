@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { WebsiteTranslator } from '@website/components/translator/translator';
 import { patch } from "@web/core/utils/patch";

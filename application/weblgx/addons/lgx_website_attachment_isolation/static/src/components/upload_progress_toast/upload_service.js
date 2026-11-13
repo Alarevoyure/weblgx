@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { patch } from "@web/core/utils/patch";
 import { uploadService } from "@web_editor/components/upload_progress_toast/upload_service";

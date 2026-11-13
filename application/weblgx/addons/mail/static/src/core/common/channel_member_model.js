@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Record } from "@mail/core/common/record";
 import { deserializeDateTime } from "@web/core/l10n/dates";

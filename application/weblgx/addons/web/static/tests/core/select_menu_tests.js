@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { hotkeyService } from "@web/core/hotkeys/hotkey_service";
@@ -16,7 +16,7 @@ import {
     editInput,
 } from "../helpers/utils";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 
 const serviceRegistry = registry.category("services");
 

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 from collections import defaultdict, OrderedDict
 
-from odoo import api, fields, models
-from odoo.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
-from odoo.exceptions import MissingError
-from odoo.http import request
-from odoo.modules.module import get_manifest
-from odoo.tools import escape_psql, split_every
+from weblgx import api, fields, models
+from weblgx.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
+from weblgx.exceptions import MissingError
+from weblgx.http import request
+from weblgx.modules.module import get_manifest
+from weblgx.tools import escape_psql, split_every
 
 _logger = logging.getLogger(__name__)
 

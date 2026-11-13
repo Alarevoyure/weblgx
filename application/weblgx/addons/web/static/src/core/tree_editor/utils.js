@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { unique, zip } from "@web/core/utils/arrays";
 import { getOperatorLabel } from "@web/core/tree_editor/tree_editor_operator_editor";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { Dropdown } from "@web/core/dropdown/dropdown";
@@ -15,7 +15,7 @@ import { KanbanHeader } from "./kanban_header";
 import { KanbanRecord } from "./kanban_record";
 import { KanbanRecordQuickCreate } from "./kanban_record_quick_create";
 
-import { Component, onPatched, onWillDestroy, onWillPatch, useRef, useState } from "@odoo/owl";
+import { Component, onPatched, onWillDestroy, onWillPatch, useRef, useState } from "@weblgx/owl";
 import { evaluateExpr } from "@web/core/py_js/py";
 
 const DRAGGABLE_GROUP_TYPES = ["many2one"];

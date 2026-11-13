@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services";
 import { registry } from "@web/core/registry";
@@ -7,7 +7,7 @@ import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import { localization } from "@web/core/l10n/localization";
 import { useNumpadDecimal } from "@web/views/fields/numpad_decimal_hook";
 import { makeTestEnv } from "../../helpers/mock_env";
-import { Component, mount, useState, xml } from "@odoo/owl";
+import { Component, mount, useState, xml } from "@weblgx/owl";
 
 let serverData;
 let target;

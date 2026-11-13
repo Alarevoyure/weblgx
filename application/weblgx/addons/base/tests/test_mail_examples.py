@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 MISC_HTML_SOURCE = u"""
 <font size="2" style="color: rgb(31, 31, 31); font-family: monospace; font-variant: normal; line-height: normal; ">test1</font>
@@ -73,7 +73,7 @@ QUOTE_BLOCKQUOTE = u"""<html>
     </div>
     <blockquote
 cite="mid:CAEJSRZvWvud8c6Qp=wfNG6O1+wK3i_jb33qVrF7XyrgPNjnyUA@mail.gmail.com"
-      type="cite"><base href="https://www.odoo.com">
+      type="cite"><base href="https://www.weblgx.com">
       <div dir="ltr">Yep Dominique that is true, as Postgres was the
         base of all same as Weblgx and MySQL etc came much later.Â 
         <div><br>

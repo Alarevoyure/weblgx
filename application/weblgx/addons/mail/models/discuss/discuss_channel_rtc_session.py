@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 import requests
@@ -6,8 +6,8 @@ import requests
 from collections import defaultdict
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models
-from odoo.addons.mail.tools import discuss, jwt
+from weblgx import api, fields, models
+from weblgx.addons.mail.tools import discuss, jwt
 
 _logger = logging.getLogger(__name__)
 
@@ -83,7 +83,7 @@ class MailRtcSession(models.Model):
     def _gc_inactive_sessions(self):
         """ Garbage collect sessions that aren't active anymore,
             this can happen when the server or the user's browser crash
-            or when the user's odoo session ends.
+            or when the user's weblgx session ends.
         """
         self.search(self._inactive_rtc_session_domain()).unlink()
 

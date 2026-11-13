@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 
 """
@@ -26,7 +26,7 @@ from psycopg2.pool import PoolError
 from psycopg2.sql import Composable
 from werkzeug import urls
 
-import odoo
+import weblgx
 from . import tools
 from .tools import SQL
 from .tools.func import frame_codeinfo, locked
@@ -276,7 +276,7 @@ class Cursor(BaseCursor):
 
         self.cache = {}
         self._now = None
-        if os.getenv('ODOO_FAKETIME_TEST_MODE') and self.dbname in tools.config['db_name'].split(','):
+        if os.getenv('WEBLGX_FAKETIME_TEST_MODE') and self.dbname in tools.config['db_name'].split(','):
             self.execute("SET search_path = public, pg_catalog;")
             self.commit()  # ensure that the search_path remains after a rollback
 
@@ -386,7 +386,7 @@ class Cursor(BaseCursor):
         A proxy for psycopg2.extras.execute_values which can log all queries like execute.
         But this method cannot set log_exceptions=False like execute
         """
-        # Odoo Cursor only proxies all methods of psycopg2 Cursor. This is a patch for problems caused by passing
+        # Web@LGX Cursor only proxies all methods of psycopg2 Cursor. This is a patch for problems caused by passing
         # self instead of self._obj to the first parameter of psycopg2.extras.execute_values.
         if isinstance(query, Composable):
             query = query.as_string(self._obj)
@@ -787,11 +787,11 @@ def connection_info_for(db_or_uri):
     :param str db_or_uri: database name or postgres dsn
     :rtype: (str, dict)
     """
-    if 'ODOO_PGAPPNAME' in os.environ:
+    if 'WEBLGX_PGAPPNAME' in os.environ:
         # Using manual string interpolation for security reason and trimming at default NAMEDATALEN=63
-        app_name = os.environ['ODOO_PGAPPNAME'].replace('{pid}', str(os.getpid()))[0:63]
+        app_name = os.environ['WEBLGX_PGAPPNAME'].replace('{pid}', str(os.getpid()))[0:63]
     else:
-        app_name = "odoo-%d" % os.getpid()
+        app_name = "weblgx-%d" % os.getpid()
     if db_or_uri.startswith(('postgresql://', 'postgres://')):
         # extract db from uri
         us = urls.url_parse(db_or_uri)
@@ -817,7 +817,7 @@ def db_connect(to, allow_uri=False):
     global _Pool
     if _Pool is None:
         _Pool = ConnectionPool(int(
-            odoo.evented and tools.config['db_maxconn_gevent']
+            weblgx.evented and tools.config['db_maxconn_gevent']
             or tools.config['db_maxconn']
         ))
 
@@ -827,7 +827,7 @@ def db_connect(to, allow_uri=False):
     return Connection(_Pool, db, info)
 
 def close_db(db_name):
-    """ You might want to call odoo.modules.registry.Registry.delete(db_name) along this function."""
+    """ You might want to call weblgx.modules.registry.Registry.delete(db_name) along this function."""
     global _Pool
     if _Pool:
         _Pool.close_all(connection_info_for(db_name)[1])

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -14,7 +14,7 @@ QUnit.test("Toggle display of original/translated version of chatter message", a
     pyEnv["mail.message"].create({
         model: "res.partner",
         body: "Al mal tiempo, buena cara.",
-        author_id: pyEnv.odoobotId,
+        author_id: pyEnv.weblgxbotId,
         res_id: partnerId,
     });
     const { openFormView } = await start({

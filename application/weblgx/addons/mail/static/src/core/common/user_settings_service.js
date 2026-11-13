@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -8,7 +8,7 @@ export class UserSettings {
     id;
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -284,7 +284,7 @@ export class UserSettings {
 export const userSettingsService = {
     dependencies: ["orm", "mail.store"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

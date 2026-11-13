@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @weblgx-module */
 
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@weblgx/owl";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 
 export class InputConfirmationDialog extends ConfirmationDialog {

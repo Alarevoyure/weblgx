@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * Converts RGB color components to HSL components.

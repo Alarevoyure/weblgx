@@ -36,7 +36,7 @@ const AstuceSnippet = publicWidget.Widget.extend({
         }
         try {
             const res = await jsonrpc("/website/astuce/get", {astuce_id: astuceId});
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             const label = this.el.querySelector(".s_astuce_label");
             if (label && res && res.name) {
                 label.textContent = res.name;
@@ -53,14 +53,14 @@ const AstuceSnippet = publicWidget.Widget.extend({
                     "Aucune astuce disponible pour le moment." +
                     "</p>";
             }
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         } catch {
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             body.innerHTML =
                 '<p class="s_astuce_placeholder text-muted mb-0">' +
                 "Astuce indisponible." +
                 "</p>";
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         }
     },
 });

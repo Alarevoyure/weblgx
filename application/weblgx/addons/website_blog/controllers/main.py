@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import werkzeug
 import itertools
@@ -7,13 +7,13 @@ import pytz
 import babel.dates
 from collections import defaultdict
 
-from odoo import _, http, fields, tools, models
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.website.controllers.main import QueryURL
-from odoo.http import request
-from odoo.tools import html2plaintext
-from odoo.tools.misc import get_lang
-from odoo.tools import sql
+from weblgx import _, http, fields, tools, models
+from weblgx.addons.http_routing.models.ir_http import slug, unslug
+from weblgx.addons.website.controllers.main import QueryURL
+from weblgx.http import request
+from weblgx.tools import html2plaintext
+from weblgx.tools.misc import get_lang
+from weblgx.tools import sql
 
 
 class WebsiteBlog(http.Controller):

@@ -1,14 +1,14 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Record } from "@mail/core/common/record";
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 
 export class DiscussCoreCommon {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -35,7 +35,7 @@ export class DiscussCoreCommon {
             () =>
                 this.store.imStatusTrackedPersonas.forEach((p) => {
                     const model = p.type === "partner" ? "res.partner" : "mail.guest";
-                    this.busService.addChannel(`odoo-presence-${model}_${p.id}`);
+                    this.busService.addChannel(`weblgx-presence-${model}_${p.id}`);
                 }),
             { once: true }
         );
@@ -134,7 +134,7 @@ export class DiscussCoreCommon {
                 const lastMessageId = this.messageService.getLastMessageId();
                 const message = this.store.Message.insert(
                     {
-                        author: this.store.odoobot,
+                        author: this.store.weblgxbot,
                         body,
                         id: lastMessageId + 0.01,
                         is_note: true,
@@ -250,7 +250,7 @@ export class DiscussCoreCommon {
             }
         }
         if (
-            !channel.chatPartner?.eq(this.store.odoobot) &&
+            !channel.chatPartner?.eq(this.store.weblgxbot) &&
             channel.type !== "channel" &&
             this.store.user
         ) {
@@ -285,7 +285,7 @@ export const discussCoreCommon = {
         "rpc",
     ],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

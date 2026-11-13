@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class FileUploadProgressContainer extends Component {}
 FileUploadProgressContainer.template = "web.FileUploadProgressContainer";

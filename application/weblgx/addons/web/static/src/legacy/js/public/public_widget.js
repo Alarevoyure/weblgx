@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 /**
  * Provides a way to start JS code for public contents.

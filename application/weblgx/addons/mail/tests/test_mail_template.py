@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 from markupsafe import Markup
 from unittest.mock import patch
 
-from odoo.addons.mail.tests.common import MailCommon, mail_new_test_user
-from odoo.exceptions import AccessError, ValidationError, UserError
-from odoo.tests import Form, HttpCase, tagged, users
-from odoo.tools import convert_file
+from weblgx.addons.mail.tests.common import MailCommon, mail_new_test_user
+from weblgx.exceptions import AccessError, ValidationError, UserError
+from weblgx.tests import Form, HttpCase, tagged, users
+from weblgx.tools import convert_file
 
 
 @tagged('mail_template')
@@ -332,7 +332,7 @@ class TestMailTemplateReset(MailCommon):
                     'name':  {'mail.mail_template_test': {'fr_FR': "Mail: Test Mail Template FR"}},
                 }
 
-        with patch('odoo.tools.translate.TranslationImporter.load_file', fake_load_file):
+        with patch('weblgx.tools.translate.TranslationImporter.load_file', fake_load_file):
             mail_template_reset = self.env['mail.template.reset'].with_context(context).create({})
             reset_action = mail_template_reset.reset_template()
         self.assertTrue(reset_action)

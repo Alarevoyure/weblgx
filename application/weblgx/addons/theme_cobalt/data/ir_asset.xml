@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <asset id="theme_cobalt.primary_variables_scss" name="Primary variables SCSS">
     <field name="key">theme_cobalt.primary_variables_scss</field>
@@ -13,4 +13,4 @@
     <path>theme_cobalt/static/src/scss/bootstrap_overridden.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

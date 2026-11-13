@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {applyModifications, cropperDataFields, activateCropper, loadImage, loadImageInfo} from "@web_editor/js/editor/image_processing";
 import { _t } from "@web/core/l10n/translation";
@@ -10,10 +10,10 @@ import {
     onWillDestroy,
     onWillUpdateProps,
     markup,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 import dom from "@web/legacy/js/core/dom";
-import { preserveCursor } from "@web_editor/js/editor/odoo-editor/src/utils/utils";
+import { preserveCursor } from "@web_editor/js/editor/weblgx-editor/src/utils/utils";
 
 export class ImageCrop extends Component {
     static template = 'web_editor.ImageCrop';

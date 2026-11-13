@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import re
 import werkzeug
 
-from odoo import models, fields, api, _
-from odoo.exceptions import ValidationError
+from weblgx import models, fields, api, _
+from weblgx.exceptions import ValidationError
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -107,7 +107,7 @@ class WebsiteRewrite(models.Model):
 
                 if any(
                     rule for rule in self.env['ir.http'].routing_map().iter_rules()
-                    # Odoo routes are normally always defined without trailing
+                    # Web@LGX routes are normally always defined without trailing
                     # slashes + strict_slashes=False, but there are exceptions.
                     if rule.rule.rstrip('/') == rewrite.url_to.rstrip('/')
                 ):

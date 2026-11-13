@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import itertools
 import random
 
 from markupsafe import Markup
-from odoo import models, _
+from weblgx import models, _
 
 class MailBot(models.AbstractModel):
     _name = 'mail.bot'
@@ -13,16 +13,16 @@ class MailBot(models.AbstractModel):
 
     def _apply_logic(self, record, values, command=None):
         """ Apply bot logic to generate an answer (or not) for the user
-        The logic will only be applied if odoobot is in a chat with a user or
-        if someone pinged odoobot.
+        The logic will only be applied if weblgxbot is in a chat with a user or
+        if someone pinged weblgxbot.
 
          :param record: the mail_thread (or discuss_channel) where the user
-            message was posted/odoobot will answer.
+            message was posted/weblgxbot will answer.
          :param values: msg_values of the message_post or other values needed by logic
          :param command: the name of the called command if the logic is not triggered by a message_post
         """
-        odoobot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
-        if len(record) != 1 or values.get("author_id") == odoobot_id or values.get("message_type") != "comment" and not command:
+        weblgxbot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
+        if len(record) != 1 or values.get("author_id") == weblgxbot_id or values.get("message_type") != "comment" and not command:
             return
         if self._is_bot_pinged(values) or self._is_bot_in_private_channel(record):
             body = values.get("body", "").replace(u'\xa0', u' ').strip().lower().strip(".!")
@@ -30,61 +30,61 @@ class MailBot(models.AbstractModel):
             if answer:
                 message_type = 'comment'
                 subtype_id = self.env['ir.model.data']._xmlid_to_res_id('mail.mt_comment')
-                record.with_context(mail_create_nosubscribe=True).sudo().message_post(body=answer, author_id=odoobot_id, message_type=message_type, subtype_id=subtype_id)
+                record.with_context(mail_create_nosubscribe=True).sudo().message_post(body=answer, author_id=weblgxbot_id, message_type=message_type, subtype_id=subtype_id)
 
     def _get_answer(self, record, body, values, command=False):
         # onboarding
-        odoobot_state = self.env.user.odoobot_state
+        weblgxbot_state = self.env.user.weblgxbot_state
         if self._is_bot_in_private_channel(record):
             # main flow
-            if odoobot_state == 'onboarding_emoji' and self._body_contains_emoji(body):
-                self.env.user.odoobot_state = "onboarding_command"
-                self.env.user.odoobot_failed = False
-                return Markup(_("Great! 👍<br/>To access special commands, <b>start your sentence with</b> <span class=\"o_odoobot_command\">/</span>. Try getting help."))
-            elif odoobot_state == 'onboarding_command' and command == 'help':
-                self.env.user.odoobot_state = "onboarding_ping"
-                self.env.user.odoobot_failed = False
-                return Markup(_("Wow you are a natural!<br/>Ping someone with @username to grab their attention. <b>Try to ping me using</b> <span class=\"o_odoobot_command\">@WeblgxBot</span> in a sentence."))
-            elif odoobot_state == 'onboarding_ping' and self._is_bot_pinged(values):
-                self.env.user.odoobot_state = "onboarding_attachement"
-                self.env.user.odoobot_failed = False
+            if weblgxbot_state == 'onboarding_emoji' and self._body_contains_emoji(body):
+                self.env.user.weblgxbot_state = "onboarding_command"
+                self.env.user.weblgxbot_failed = False
+                return Markup(_("Great! 👍<br/>To access special commands, <b>start your sentence with</b> <span class=\"o_weblgxbot_command\">/</span>. Try getting help."))
+            elif weblgxbot_state == 'onboarding_command' and command == 'help':
+                self.env.user.weblgxbot_state = "onboarding_ping"
+                self.env.user.weblgxbot_failed = False
+                return Markup(_("Wow you are a natural!<br/>Ping someone with @username to grab their attention. <b>Try to ping me using</b> <span class=\"o_weblgxbot_command\">@WeblgxBot</span> in a sentence."))
+            elif weblgxbot_state == 'onboarding_ping' and self._is_bot_pinged(values):
+                self.env.user.weblgxbot_state = "onboarding_attachement"
+                self.env.user.weblgxbot_failed = False
                 return Markup(_("Yep, I am here! 🎉 <br/>Now, try <b>sending an attachment</b>, like a picture of your cute dog..."))
-            elif odoobot_state == 'onboarding_attachement' and values.get("attachment_ids"):
-                self.env.user.odoobot_state = "idle"
-                self.env.user.odoobot_failed = False
-                return Markup(_("I am a simple bot, but if that's a dog, he is the cutest 😊 <br/>Congratulations, you finished this tour. You can now <b>close this conversation</b> or start the tour again with typing <span class=\"o_odoobot_command\">start the tour</span>. Enjoy discovering Web@LGX!"))
-            elif odoobot_state in (False, "idle", "not_initialized") and (_('start the tour') in body.lower()):
-                self.env.user.odoobot_state = "onboarding_emoji"
+            elif weblgxbot_state == 'onboarding_attachement' and values.get("attachment_ids"):
+                self.env.user.weblgxbot_state = "idle"
+                self.env.user.weblgxbot_failed = False
+                return Markup(_("I am a simple bot, but if that's a dog, he is the cutest 😊 <br/>Congratulations, you finished this tour. You can now <b>close this conversation</b> or start the tour again with typing <span class=\"o_weblgxbot_command\">start the tour</span>. Enjoy discovering Web@LGX!"))
+            elif weblgxbot_state in (False, "idle", "not_initialized") and (_('start the tour') in body.lower()):
+                self.env.user.weblgxbot_state = "onboarding_emoji"
                 return _("To start, try to send me an emoji :)")
             # easter eggs
-            elif odoobot_state == "idle" and body in ['❤️', _('i love you'), _('love')]:
+            elif weblgxbot_state == "idle" and body in ['❤️', _('i love you'), _('love')]:
                 return _("Aaaaaw that's really cute but, you know, bots don't work that way. You're too human for me! Let's keep it professional ❤️")
             elif _('fuck') in body or "fuck" in body:
                 return _("That's not nice! I'm a bot but I have feelings... 💔")
             # help message
-            elif self._is_help_requested(body) or odoobot_state == 'idle':
+            elif self._is_help_requested(body) or weblgxbot_state == 'idle':
                 return Markup(_("Unfortunately, I'm just a bot 😞 I don't understand! If you need help discovering our product, please check "
                          "<a href=\"https://wiki.loegaux.fr/wiki?page_id=19\" target=\"_blank\">our documentation</a> or "
                          "<a href=\"https://www.loegaux.fr/slides\" target=\"_blank\">our videos</a>."))
             else:
                 # repeat question
-                if odoobot_state == 'onboarding_emoji':
-                    self.env.user.odoobot_failed = True
-                    return Markup(_("Not exactly. To continue the tour, send an emoji: <b>type</b> <span class=\"o_odoobot_command\">:)</span> and press enter."))
-                elif odoobot_state == 'onboarding_attachement':
-                    self.env.user.odoobot_failed = True
+                if weblgxbot_state == 'onboarding_emoji':
+                    self.env.user.weblgxbot_failed = True
+                    return Markup(_("Not exactly. To continue the tour, send an emoji: <b>type</b> <span class=\"o_weblgxbot_command\">:)</span> and press enter."))
+                elif weblgxbot_state == 'onboarding_attachement':
+                    self.env.user.weblgxbot_failed = True
                     return Markup(_("To <b>send an attachment</b>, click on the <i class=\"fa fa-paperclip\" aria-hidden=\"true\"></i> icon and select a file."))
-                elif odoobot_state == 'onboarding_command':
-                    self.env.user.odoobot_failed = True
-                    return Markup(_("Not sure what you are doing. Please, type <span class=\"o_odoobot_command\">/</span> and wait for the propositions. Select <span class=\"o_odoobot_command\">help</span> and press enter"))
-                elif odoobot_state == 'onboarding_ping':
-                    self.env.user.odoobot_failed = True
-                    return Markup(_("Sorry, I am not listening. To get someone's attention, <b>ping him</b>. Write <span class=\"o_odoobot_command\">@WeblgxBot</span> and select me."))
+                elif weblgxbot_state == 'onboarding_command':
+                    self.env.user.weblgxbot_failed = True
+                    return Markup(_("Not sure what you are doing. Please, type <span class=\"o_weblgxbot_command\">/</span> and wait for the propositions. Select <span class=\"o_weblgxbot_command\">help</span> and press enter"))
+                elif weblgxbot_state == 'onboarding_ping':
+                    self.env.user.weblgxbot_failed = True
+                    return Markup(_("Sorry, I am not listening. To get someone's attention, <b>ping him</b>. Write <span class=\"o_weblgxbot_command\">@WeblgxBot</span> and select me."))
                 return random.choice([
-                    Markup(_("I'm not smart enough to answer your question.<br/>To follow my guide, ask: <span class=\"o_odoobot_command\">start the tour</span>.")),
+                    Markup(_("I'm not smart enough to answer your question.<br/>To follow my guide, ask: <span class=\"o_weblgxbot_command\">start the tour</span>.")),
                     _("Hmmm..."),
                     _("I'm afraid I don't understand. Sorry!"),
-                    Markup(_("Sorry I'm sleepy. Or not! Maybe I'm just trying to hide my unawareness of human language...<br/>I can show you features if you write: <span class=\"o_odoobot_command\">start the tour</span>."))
+                    Markup(_("Sorry I'm sleepy. Or not! Maybe I'm just trying to hide my unawareness of human language...<br/>I can show you features if you write: <span class=\"o_weblgxbot_command\">start the tour</span>."))
                 ])
         return False
 
@@ -222,17 +222,17 @@ class MailBot(models.AbstractModel):
         return False
 
     def _is_bot_pinged(self, values):
-        odoobot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
-        return odoobot_id in values.get('partner_ids', [])
+        weblgxbot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
+        return weblgxbot_id in values.get('partner_ids', [])
 
     def _is_bot_in_private_channel(self, record):
-        odoobot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
+        weblgxbot_id = self.env['ir.model.data']._xmlid_to_res_id("base.partner_root")
         if record._name == 'discuss.channel' and record.channel_type == 'chat':
-            return odoobot_id in record.with_context(active_test=False).channel_partner_ids.ids
+            return weblgxbot_id in record.with_context(active_test=False).channel_partner_ids.ids
         return False
 
     def _is_help_requested(self, body):
         """Returns whether a message linking to the documentation and videos
         should be sent back to the user.
         """
-        return any(token in body for token in ['help', _('help'), '?']) or self.env.user.odoobot_failed
+        return any(token in body for token in ['help', _('help'), '?']) or self.env.user.weblgxbot_failed

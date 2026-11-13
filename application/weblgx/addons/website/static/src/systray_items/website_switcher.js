@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { browser } from "@web/core/browser/browser";
@@ -8,7 +8,7 @@ import { Dropdown } from "@web/core/dropdown/dropdown";
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { session } from "@web/session";
 import wUtils from '@website/js/utils';
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class WebsiteSwitcherSystray extends Component {
     setup() {
@@ -31,7 +31,7 @@ export class WebsiteSwitcherSystray extends Component {
             callback: () => {
                 // TODO share this condition with the website_preview somehow
                 // -> we should probably show the redirection warning here too
-                if (!session.website_bypass_domain_redirect // Used by the Odoo support (bugs to be expected)
+                if (!session.website_bypass_domain_redirect // Used by the Web@LGX support (bugs to be expected)
                         && website.domain
                         && !wUtils.isHTTPSorNakedDomainRedirection(website.domain, window.location.origin)) {
                     const { location: { pathname, search, hash } } = this.websiteService.contentWindow;

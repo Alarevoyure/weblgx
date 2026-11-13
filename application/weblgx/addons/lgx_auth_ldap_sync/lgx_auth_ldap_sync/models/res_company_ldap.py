@@ -4,7 +4,7 @@ import re
 
 from ldap.filter import filter_format
 
-from odoo import _, models, tools
+from weblgx import _, models, tools
 
 _logger = logging.getLogger(__name__)
 

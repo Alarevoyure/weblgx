@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-import odoo.tests
-from odoo.tests import HttpCase
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+import weblgx.tests
+from weblgx.tests import HttpCase
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@weblgx.tests.common.tagged('post_install', '-at_install')
 class TestSitemap(HttpCase):
 
     def setUp(self):

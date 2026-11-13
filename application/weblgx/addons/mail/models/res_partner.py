@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import re
 
-import odoo
-from odoo import _, api, fields, models, tools
-from odoo.osv import expression
+import weblgx
+from weblgx import _, api, fields, models, tools
+from weblgx.osv import expression
 from collections import defaultdict
 
 class Partner(models.Model):
@@ -36,10 +36,10 @@ class Partner(models.Model):
 
     def _compute_im_status(self):
         super()._compute_im_status()
-        odoobot_id = self.env['ir.model.data']._xmlid_to_res_id('base.partner_root')
-        odoobot = self.env['res.partner'].browse(odoobot_id)
-        if odoobot in self:
-            odoobot.im_status = 'bot'
+        weblgxbot_id = self.env['ir.model.data']._xmlid_to_res_id('base.partner_root')
+        weblgxbot = self.env['res.partner'].browse(weblgxbot_id)
+        if weblgxbot in self:
+            weblgxbot.im_status = 'bot'
 
     # pseudo computes
 
@@ -232,7 +232,7 @@ class Partner(models.Model):
             if 'is_company' in fields:
                 data['is_company'] = partner.is_company
             if "write_date" in fields:
-                data["write_date"] = odoo.fields.Datetime.to_string(partner.write_date)
+                data["write_date"] = weblgx.fields.Datetime.to_string(partner.write_date)
             if 'user' in fields:
                 users = partner.with_context(active_test=False).user_ids
                 internal_users = users - users.filtered('share')

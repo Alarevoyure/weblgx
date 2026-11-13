@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { discussSidebarItemsRegistry } from "@mail/core/web/discuss_sidebar";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 
 /**

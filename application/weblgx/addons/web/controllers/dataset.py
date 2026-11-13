@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 import warnings
 
-from odoo import http
-from odoo.api import call_kw
-from odoo.http import request
-from odoo.service.model import get_public_method
+from weblgx import http
+from weblgx.api import call_kw
+from weblgx.http import request
+from weblgx.service.model import get_public_method
 from .utils import clean_action
 
 

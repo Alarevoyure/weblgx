@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <record id="autovacuum_job" model="ir.cron">
         <field name="name">Base: Auto-vacuum internal data</field>
         <field name="model_id" ref="model_ir_autovacuum"/>
@@ -20,4 +20,4 @@
         <field name='interval_type'>days</field>
         <field name="numbercall">-1</field>
     </record>
-</odoo>
+</weblgx>

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Notebook } from "@web/core/notebook/notebook";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { click, getFixture, mount, nextTick } from "@web/../tests/helpers/utils";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 let target;
 
 QUnit.module("Components", (hooks) => {

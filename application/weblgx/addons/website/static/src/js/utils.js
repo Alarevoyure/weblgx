@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { intersection } from "@web/core/utils/arrays";
 import { _t } from "@web/core/l10n/translation";
 import { renderToElement } from "@web/core/utils/render";
-import { App, Component } from "@odoo/owl";
+import { App, Component } from "@weblgx/owl";
 import { templates } from "@web/core/assets";
 import { UrlAutoComplete } from "@website/components/autocomplete_with_pages/url_autocomplete";
 
@@ -245,8 +245,8 @@ function sendRequest(route, params) {
         form.setAttribute('target', '_top');
     }
 
-    if (odoo.csrf_token) {
-        _addInput(form, 'csrf_token', odoo.csrf_token);
+    if (weblgx.csrf_token) {
+        _addInput(form, 'csrf_token', weblgx.csrf_token);
     }
 
     for (const key in params) {

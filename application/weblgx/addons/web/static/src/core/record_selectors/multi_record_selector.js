@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, onWillStart, onWillUpdateProps } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps } from "@weblgx/owl";
 import { TagsList } from "@web/core/tags_list/tags_list";
 import { useService } from "@web/core/utils/hooks";
 import { RecordAutocomplete } from "./record_autocomplete";

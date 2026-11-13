@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class CustomGroupByItem extends Component {
     get choices() {

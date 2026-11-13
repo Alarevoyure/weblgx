@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { useOpenChat } from "@mail/core/web/open_chat_hook";
 

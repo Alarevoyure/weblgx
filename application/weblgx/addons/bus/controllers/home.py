@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import ipaddress
 
-from odoo import _, SUPERUSER_ID
-from odoo.http import request
-from odoo.addons.web.controllers.home import Home as WebHome
+from weblgx import _, SUPERUSER_ID
+from weblgx.http import request
+from weblgx.addons.web.controllers.home import Home as WebHome
 
 
 def _admin_password_warn(uid):

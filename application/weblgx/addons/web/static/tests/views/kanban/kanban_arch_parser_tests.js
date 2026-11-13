@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { KanbanArchParser } from "@web/views/kanban/kanban_arch_parser";
 import { parseXML } from "@web/core/utils/xml";

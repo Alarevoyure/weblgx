@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Wysiwyg } from '@web_editor/js/wysiwyg/wysiwyg';
 import { patch } from "@web/core/utils/patch";
@@ -81,8 +81,8 @@ patch(Wysiwyg.prototype, {
     _loadIframe() {
         var self = this;
         const isEditableRoot = this.$editable === this.$root;
-        this.$editable = $('<div class="note-editable oe_structure odoo-editor-editable"></div>');
-        this.$el.removeClass('note-editable oe_structure odoo-editor-editable');
+        this.$editable = $('<div class="note-editable oe_structure weblgx-editor-editable"></div>');
+        this.$el.removeClass('note-editable oe_structure weblgx-editor-editable');
         if (isEditableRoot) {
             this.$root = this.$editable;
         }
@@ -110,7 +110,7 @@ patch(Wysiwyg.prototype, {
                 const $utilsZone = $('<div class="iframe-utils-zone">');
                 self.$utilsZone = $utilsZone;
 
-                const $iframeWrapper = $('<div class="iframe-editor-wrapper odoo-editor">');
+                const $iframeWrapper = $('<div class="iframe-editor-wrapper weblgx-editor">');
                 const $codeview = $('<textarea class="o_codeview d-none"/>');
                 self.$editable.addClass('o_editable oe_structure');
 
@@ -216,11 +216,11 @@ patch(Wysiwyg.prototype, {
             const scrollInIframe = ev.target === iframeDocument || ev.target.ownerDocument === iframeDocument;
             if (ev.target.contains(this.$iframe[0]))  {
                 this.scrollContainer = ev.target;
-                this.odooEditor.updateToolbarPosition();
+                this.weblgxEditor.updateToolbarPosition();
             } else if (scrollInIframe) {
                 // UpdateToolbarPosition needs a scroll container in the top document.
                 this.scrollContainer = this.$iframe[0];
-                this.odooEditor.updateToolbarPosition();
+                this.weblgxEditor.updateToolbarPosition();
             }
         } else {
             return super._onScroll(...arguments);
@@ -271,7 +271,7 @@ function getWysiwygIframeContent(params) {
         ${assets.jsContents.join('\n')}
 
         <script type="text/javascript">
-            odoo.define('root.widget', ['@web/legacy/js/core/widget'], function (require) {
+            weblgx.define('root.widget', ['@web/legacy/js/core/widget'], function (require) {
                 'use strict';
                 var Widget = require('@web/legacy/js/core/widget')[Symbol.for("default")];
                 var widget = new Widget();
@@ -283,7 +283,7 @@ function getWysiwygIframeContent(params) {
     <body class="o_in_iframe">
         <div id="iframe_target"/>
         <script type="text/javascript">
-            odoo.define('web_editor.wysiwyg.iniframe', [], function (require) {
+            weblgx.define('web_editor.wysiwyg.iniframe', [], function (require) {
                 'use strict';
                 if (window.top.${params.updateIframeId}) {
                     window.top.${params.updateIframeId}(${params.avoidDoubleLoad});

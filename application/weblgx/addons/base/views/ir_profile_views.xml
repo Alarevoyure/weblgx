@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
     <record id="ir_profile_view_search" model="ir.ui.view">
         <field name="name">IR Profile Search</field>
@@ -86,4 +86,4 @@
         id="menu_ir_profile"
         parent="base.next_id_9"/>
 
-</odoo>
+</weblgx>

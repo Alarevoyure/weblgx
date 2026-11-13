@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { patch } from "@web/core/utils/patch";
 import { Picker } from "@mail/core/common/picker";

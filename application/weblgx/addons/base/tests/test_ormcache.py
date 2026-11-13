@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import TransactionCase
-from odoo.tools import get_cache_key_counter
+from weblgx.tests.common import TransactionCase
+from weblgx.tools import get_cache_key_counter
 from threading import Thread, Barrier
 
 class TestOrmcache(TransactionCase):
@@ -103,7 +103,7 @@ class TestOrmcache(TransactionCase):
         self.registry.cache_invalidated.clear()
         registry = self.registry
         old_sequences = dict(registry.cache_sequences)
-        with self.assertLogs('odoo.modules.registry') as logs:
+        with self.assertLogs('weblgx.modules.registry') as logs:
             registry.cache_invalidated.add('assets')
             self.assertEqual(registry.cache_invalidated, {'assets'})
             registry.signal_changes()
@@ -111,7 +111,7 @@ class TestOrmcache(TransactionCase):
 
         self.assertEqual(
             logs.output,
-            ["INFO:odoo.modules.registry:Caches invalidated, signaling through the database: ['assets']"],
+            ["INFO:weblgx.modules.registry:Caches invalidated, signaling through the database: ['assets']"],
         )
 
         for key, value in old_sequences.items():
@@ -131,7 +131,7 @@ class TestOrmcache(TransactionCase):
             registry.check_signaling()
         self.assertEqual(
             logs.output,
-            ["INFO:odoo.modules.registry:Invalidating caches after database signaling: ['assets', 'templates.cached_values']"],
+            ["INFO:weblgx.modules.registry:Invalidating caches after database signaling: ['assets', 'templates.cached_values']"],
         )
 
     def test_signaling_01_multiple(self):
@@ -139,7 +139,7 @@ class TestOrmcache(TransactionCase):
         self.registry.cache_invalidated.clear()
         registry = self.registry
         old_sequences = dict(registry.cache_sequences)
-        with self.assertLogs('odoo.modules.registry') as logs:
+        with self.assertLogs('weblgx.modules.registry') as logs:
             registry.cache_invalidated.add('assets')
             registry.cache_invalidated.add('default')
             self.assertEqual(registry.cache_invalidated, {'assets', 'default'})
@@ -149,7 +149,7 @@ class TestOrmcache(TransactionCase):
         self.assertEqual(
             logs.output,
             [
-                "INFO:odoo.modules.registry:Caches invalidated, signaling through the database: ['assets', 'default']",
+                "INFO:weblgx.modules.registry:Caches invalidated, signaling through the database: ['assets', 'default']",
             ],
         )
 
@@ -170,5 +170,5 @@ class TestOrmcache(TransactionCase):
             registry.check_signaling()
         self.assertEqual(
             logs.output,
-            ["INFO:odoo.modules.registry:Invalidating caches after database signaling: ['assets', 'default', 'templates.cached_values']"],
+            ["INFO:weblgx.modules.registry:Invalidating caches after database signaling: ['assets', 'default', 'templates.cached_values']"],
         )

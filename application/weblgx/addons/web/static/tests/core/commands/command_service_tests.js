@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services";
 import { browser } from "@web/core/browser/browser";
@@ -22,7 +22,7 @@ import {
     triggerHotkey,
 } from "../../helpers/utils";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 let env;
 let target;

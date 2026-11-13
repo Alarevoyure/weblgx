@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
@@ -6,7 +6,7 @@ import { loadBundle } from "@web/core/assets";
 import { renderToString } from "@web/core/utils/render";
 import { useDebounced } from "@web/core/utils/timing";
 
-import { Component, useState, useRef, onWillStart, onMounted, onWillUnmount } from "@odoo/owl";
+import { Component, useState, useRef, onWillStart, onMounted, onWillUnmount } from "@weblgx/owl";
 
 class MenuItem extends Component {
     static template = "web.ProfilingQwebView.menuitem";

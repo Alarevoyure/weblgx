@@ -14,7 +14,7 @@
 
   global$1 = global$1 && global$1.hasOwnProperty('default') ? global$1['default'] : global$1;
 
-  const debug = odoo.debug;
+  const debug = weblgx.debug;
 
   var window$1 = global$1.window;
   var self$1 = global$1.self;
@@ -1251,7 +1251,7 @@
 
   var LISTENERS = Object.create(null);
   var SUPPORTED_EVENTS = ["runStart", "suiteStart", "testStart", "assertion", "testEnd", "suiteEnd", "runEnd"];
-  SUPPORTED_EVENTS.push("OdooBeforeTestHook", "OdooAfterTestHook"); // Odoo customization
+  SUPPORTED_EVENTS.push("WeblgxBeforeTestHook", "WeblgxAfterTestHook"); // Web@LGX customization
 
   /**
    * Emits an event with the specified data to all currently registered listeners.
@@ -3007,7 +3007,7 @@
 
   			_this.started = now();
 			emit("testStart", _this.testReport.start(true));
-			emit("OdooBeforeTestHook"); // Odoo customization
+			emit("WeblgxBeforeTestHook"); // Web@LGX customization
   			return runLoggingCallbacks("testStart", {
   				name: _this.testName,
   				module: module.name,
@@ -3154,7 +3154,7 @@
   		// have been executed, for the errors to be properly preventDefaulted if necessary (see
   		// qunit.js, Error management section).
   		await new Promise((r) => setTimeout(r, 0));
-  		emit("OdooAfterTestHook", this);
+  		emit("WeblgxAfterTestHook", this);
 
   		var i,
   		    module = this.module,

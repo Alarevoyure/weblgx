@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { usePopover } from "@web/core/popover/popover_hook";
 import { many2OneField, Many2OneField } from "../many2one/many2one_field";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { AvatarMany2XAutocomplete } from "@web/views/fields/relational_utils";
 
 export class Many2OneAvatarField extends Component {

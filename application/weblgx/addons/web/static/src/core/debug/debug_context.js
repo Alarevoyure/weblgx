@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "../registry";
 import { memoize } from "../utils/functions";
 
-import { useEffect, useEnv, useSubEnv } from "@odoo/owl";
+import { useEffect, useEnv, useSubEnv } from "@weblgx/owl";
 const debugRegistry = registry.category("debug");
 
 const getAccessRights = memoize(async function getAccessRights(orm) {

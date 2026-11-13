@@ -1,10 +1,10 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
 import { start } from "@mail/../tests/helpers/test_utils";
 
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@weblgx/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { popoverService } from "@web/core/popover/popover_service";
@@ -409,7 +409,7 @@ QUnit.test("avatar card preview", async (assert) => {
     const pyEnv = await startServer();
     const userId = pyEnv["res.users"].create({
         name: "Mario",
-        email: "Mario@odoo.test",
+        email: "Mario@weblgx.test",
         phone: "+78786987",
         im_status: "online",
     });
@@ -449,7 +449,7 @@ QUnit.test("avatar card preview", async (assert) => {
     await click(".o_m2o_avatar > img");
     await contains(".o_avatar_card");
     await contains(".o_card_user_infos > span", { text: "Mario" });
-    await contains(".o_card_user_infos > a", { text: "Mario@odoo.test" });
+    await contains(".o_card_user_infos > a", { text: "Mario@weblgx.test" });
     await contains(".o_card_user_infos > a", { text: "+78786987" });
     assert.verifySteps(["setTimeout of 250ms", "user read"]);
     // Close card

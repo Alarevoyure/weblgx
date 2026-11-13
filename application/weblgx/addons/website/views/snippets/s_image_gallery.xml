@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_image_gallery" name="Image Gallery">
     <section class="s_image_gallery o_slideshow s_image_gallery_show_indicators s_image_gallery_indicators_rounded pt24" data-vcss="001" data-columns="3" style="height: 500px; overflow: hidden;">
@@ -137,4 +137,4 @@
     <path>website/static/src/snippets/s_image_gallery/000.xml</path>
 </asset>
 
-</odoo>
+</weblgx>

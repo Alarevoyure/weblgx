@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@weblgx/owl";
 
 // -----------------------------------------------------------------------------
 // Errors

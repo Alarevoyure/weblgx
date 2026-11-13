@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { App, blockDom, Component, markup } from "@odoo/owl";
+import { App, blockDom, Component, markup } from "@weblgx/owl";
 import { templates } from "@web/core/assets";
 import { _t } from "@web/core/l10n/translation";
 

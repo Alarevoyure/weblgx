@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -18,8 +18,8 @@ QUnit.test("add_link utility function", function (assert) {
         "www.127.0.0.5": false,
         "should.notmatch": false,
         "fhttps://test.example.com/test": false,
-        "https://www.transifex.com/odoo/odoo-11/translate/#fr/lunch?q=text%3A'La+Tartiflette'": true,
-        "https://www.transifex.com/odoo/odoo-11/translate/#fr/$/119303430?q=text%3ATartiflette": true,
+        "https://www.transifex.com/weblgx/weblgx-11/translate/#fr/lunch?q=text%3A'La+Tartiflette'": true,
+        "https://www.transifex.com/weblgx/weblgx-11/translate/#fr/$/119303430?q=text%3ATartiflette": true,
         "https://tenor.com/view/chỗgiặt-dog-smile-gif-13860250": true,
         "http://www.boîtenoire.be": true,
         "https://x.com": true,
@@ -58,7 +58,7 @@ QUnit.test("addLink: utility function and special entities", function (assert) {
         // special character in smileys should be escaped
         "&lt;3": "&lt;3",
         // Already encoded url should not be encoded twice
-        "https://odoo.com/%5B%5D": `<a target="_blank" rel="noreferrer noopener" href="https://odoo.com/%5B%5D">https://odoo.com/[]</a>`,
+        "https://weblgx.com/%5B%5D": `<a target="_blank" rel="noreferrer noopener" href="https://weblgx.com/%5B%5D">https://weblgx.com/[]</a>`,
     };
 
     for (const [content, result] of Object.entries(testInputs)) {
@@ -110,7 +110,7 @@ QUnit.test("url", async () => {
     const { openDiscuss } = await start();
     await openDiscuss(channelId);
     // see: https://www.ietf.org/rfc/rfc1738.txt
-    const messageBody = "https://odoo.com?test=~^|`{}[]#";
+    const messageBody = "https://weblgx.com?test=~^|`{}[]#";
     await insertText(".o-mail-Composer-input", messageBody);
     await click("button:enabled", { text: "Send" });
     await contains(".o-mail-Message a", { text: messageBody });
@@ -121,10 +121,10 @@ QUnit.test("url with comma at the end", async () => {
     const channelId = pyEnv["discuss.channel"].create({ name: "General" });
     const { openDiscuss } = await start();
     await openDiscuss(channelId);
-    const messageBody = "Go to https://odoo.com, it's great!";
+    const messageBody = "Go to https://weblgx.com, it's great!";
     await insertText(".o-mail-Composer-input", messageBody);
     await click("button:enabled", { text: "Send" });
-    await contains(".o-mail-Message a", { text: "https://odoo.com" });
+    await contains(".o-mail-Message a", { text: "https://weblgx.com" });
     await contains(".o-mail-Message-content", { text: messageBody });
 });
 
@@ -133,10 +133,10 @@ QUnit.test("url with dot at the end", async () => {
     const channelId = pyEnv["discuss.channel"].create({ name: "General" });
     const { openDiscuss } = await start();
     await openDiscuss(channelId);
-    const messageBody = "Go to https://odoo.com. It's great!";
+    const messageBody = "Go to https://weblgx.com. It's great!";
     await insertText(".o-mail-Composer-input", messageBody);
     await click("button:enabled", { text: "Send" });
-    await contains(".o-mail-Message a", { text: "https://odoo.com" });
+    await contains(".o-mail-Message a", { text: "https://weblgx.com" });
     await contains(".o-mail-Message-content", { text: messageBody });
 });
 
@@ -145,10 +145,10 @@ QUnit.test("url with semicolon at the end", async () => {
     const channelId = pyEnv["discuss.channel"].create({ name: "General" });
     const { openDiscuss } = await start();
     await openDiscuss(channelId);
-    const messageBody = "Go to https://odoo.com; it's great!";
+    const messageBody = "Go to https://weblgx.com; it's great!";
     await insertText(".o-mail-Composer-input", messageBody);
     await click("button:enabled", { text: "Send" });
-    await contains(".o-mail-Message a", { text: "https://odoo.com" });
+    await contains(".o-mail-Message a", { text: "https://weblgx.com" });
     await contains(".o-mail-Message-content", { text: messageBody });
 });
 
@@ -157,10 +157,10 @@ QUnit.test("url with ellipsis at the end", async () => {
     const channelId = pyEnv["discuss.channel"].create({ name: "General" });
     const { openDiscuss } = await start();
     await openDiscuss(channelId);
-    const messageBody = "Go to https://odoo.com... it's great!";
+    const messageBody = "Go to https://weblgx.com... it's great!";
     await insertText(".o-mail-Composer-input", messageBody);
     await click("button:enabled", { text: "Send" });
-    await contains(".o-mail-Message a", { text: "https://odoo.com" });
+    await contains(".o-mail-Message a", { text: "https://weblgx.com" });
     await contains(".o-mail-Message-content", { text: messageBody });
 });
 
@@ -169,10 +169,10 @@ QUnit.test("url with number in subdomain", async () => {
     const channelId = pyEnv["discuss.channel"].create({ name: "General" });
     const { openDiscuss } = await start();
     await openDiscuss(channelId);
-    const messageBody = "https://www.45017478-master-all.runbot134.odoo.com/web";
+    const messageBody = "https://www.45017478-master-all.runbot134.weblgx.com/web";
     await insertText(".o-mail-Composer-input", messageBody);
     await click("button:enabled", { text: "Send" });
     await contains(".o-mail-Message a", {
-        text: "https://www.45017478-master-all.runbot134.odoo.com/web",
+        text: "https://www.45017478-master-all.runbot134.weblgx.com/web",
     });
 });

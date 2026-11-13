@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -9,7 +9,7 @@ import { standardFieldProps } from "../standard_field_props";
 import { TranslationButton } from "../translation_button";
 import { useDynamicPlaceholder } from "../dynamic_placeholder_hook";
 
-import { Component, useExternalListener, useRef, useEffect } from "@odoo/owl";
+import { Component, useExternalListener, useRef, useEffect } from "@weblgx/owl";
 
 export class CharField extends Component {
     static template = "web.CharField";

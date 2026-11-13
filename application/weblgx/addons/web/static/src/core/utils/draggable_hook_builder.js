@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { clamp } from "@web/core/utils/numbers";
 import { closestScrollableX, closestScrollableY } from "@web/core/utils/scrolling";
@@ -19,11 +19,11 @@ import { hasTouch, isBrowserFirefox, isIOS } from "../browser/feature_detection"
  * @property {Record<string, any>} [defaultParams]
  * Setup hooks
  * @property {{
- *  addListener: typeof import("@odoo/owl")["useExternalListener"];
- *  setup: typeof import("@odoo/owl")["useEffect"];
- *  teardown: typeof import("@odoo/owl")["onWillUnmount"];
+ *  addListener: typeof import("@weblgx/owl")["useExternalListener"];
+ *  setup: typeof import("@weblgx/owl")["useEffect"];
+ *  teardown: typeof import("@weblgx/owl")["onWillUnmount"];
  *  throttle: typeof import("./timing")["useThrottleForAnimation"];
- *  wrapState: typeof import("@odoo/owl")["reactive"];
+ *  wrapState: typeof import("@weblgx/owl")["reactive"];
  * }} setupHooks
  * Build hooks
  * @property {(params: DraggableBuildHandlerParams) => any} onComputeParams

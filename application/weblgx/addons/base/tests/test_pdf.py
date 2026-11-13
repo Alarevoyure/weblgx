@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import TransactionCase
-from odoo.tools import pdf
-from odoo.tools.misc import file_open
+from weblgx.tests.common import TransactionCase
+from weblgx.tools import pdf
+from weblgx.tools.misc import file_open
 import io
 
 
@@ -14,9 +14,9 @@ class TestPdf(TransactionCase):
         super().setUp()
         self.file = file_open('base/tests/minimal.pdf', 'rb').read()
         self.minimal_reader_buffer = io.BytesIO(self.file)
-        self.minimal_pdf_reader = pdf.OdooPdfFileReader(self.minimal_reader_buffer)
+        self.minimal_pdf_reader = pdf.WeblgxPdfFileReader(self.minimal_reader_buffer)
 
-    def test_odoo_pdf_file_reader(self):
+    def test_weblgx_pdf_file_reader(self):
         attachments = list(self.minimal_pdf_reader.getAttachments())
         self.assertEqual(len(attachments), 0)
 
@@ -26,10 +26,10 @@ class TestPdf(TransactionCase):
         out = io.BytesIO()
         pdf_writer.write(out)
 
-        r = pdf.OdooPdfFileReader(io.BytesIO(out.getvalue()))
+        r = pdf.WeblgxPdfFileReader(io.BytesIO(out.getvalue()))
         self.assertEqual(len(list(r.getAttachments())), 1)
 
-    def test_odoo_pdf_file_writer(self):
+    def test_weblgx_pdf_file_writer(self):
         attachments = list(self.minimal_pdf_reader.getAttachments())
         self.assertEqual(len(attachments), 0)
         r = self.minimal_pdf_reader
@@ -38,17 +38,17 @@ class TestPdf(TransactionCase):
             ('test_attachment.txt', b'My awesome attachment'),
             ('another_attachment.txt', b'My awesome OTHER attachment'),
         ], start=1):
-            pdf_writer = pdf.OdooPdfFileWriter()
+            pdf_writer = pdf.WeblgxPdfFileWriter()
             pdf_writer.cloneReaderDocumentRoot(r)
             pdf_writer.addAttachment(name, data)
             out = io.BytesIO()
             pdf_writer.write(out)
 
-            r = pdf.OdooPdfFileReader(io.BytesIO(out.getvalue()))
+            r = pdf.WeblgxPdfFileReader(io.BytesIO(out.getvalue()))
             self.assertEqual(len(list(r.getAttachments())), count)
 
-    def test_odoo_pdf_file_reader_with_owner_encryption(self):
-        pdf_writer = pdf.OdooPdfFileWriter()
+    def test_weblgx_pdf_file_reader_with_owner_encryption(self):
+        pdf_writer = pdf.WeblgxPdfFileWriter()
         pdf_writer.cloneReaderDocumentRoot(self.minimal_pdf_reader)
 
         pdf_writer.addAttachment('test_attachment.txt', b'My awesome attachment')
@@ -61,14 +61,14 @@ class TestPdf(TransactionCase):
             encrypted_content = writer_buffer.getvalue()
 
         with io.BytesIO(encrypted_content) as reader_buffer:
-            pdf_reader = pdf.OdooPdfFileReader(reader_buffer)
+            pdf_reader = pdf.WeblgxPdfFileReader(reader_buffer)
             attachments = list(pdf_reader.getAttachments())
 
         self.assertEqual(len(attachments), 2)
 
-    def test_odoo_pdf_file_reader_with_nested_attachments(self):
+    def test_weblgx_pdf_file_reader_with_nested_attachments(self):
         with file_open('base/tests/multi_kids_embedded.pdf', 'rb') as file:
-            pdf_reader = pdf.OdooPdfFileReader(file, strict=False)
+            pdf_reader = pdf.WeblgxPdfFileReader(file, strict=False)
             attachments = list(pdf_reader.getAttachments())
         self.assertEqual(len(attachments), 2)
 
@@ -78,7 +78,7 @@ class TestPdf(TransactionCase):
 
         merged_pdf = pdf.merge_pdf([self.file, self.file])
         merged_reader_buffer = io.BytesIO(merged_pdf)
-        merged_pdf_reader = pdf.OdooPdfFileReader(merged_reader_buffer)
+        merged_pdf_reader = pdf.WeblgxPdfFileReader(merged_reader_buffer)
         self.assertEqual(merged_pdf_reader.getNumPages(), 2)
         merged_reader_buffer.close()
 

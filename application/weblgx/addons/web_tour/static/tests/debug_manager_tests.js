@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { disableTours } from "@web_tour/debug/debug_manager";
 

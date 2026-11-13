@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { loadBundle } from "@web/core/assets";
 import { _t } from "@web/core/l10n/translation";

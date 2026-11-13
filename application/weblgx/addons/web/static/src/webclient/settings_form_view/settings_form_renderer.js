@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { FormRenderer } from "@web/views/form/form_renderer";
 import { FormLabelHighlightText } from "./highlight_text/form_label_highlight_text";
@@ -9,7 +9,7 @@ import { SettingsBlock } from "./settings/settings_block";
 import { SettingsApp } from "./settings/settings_app";
 import { SettingsPage } from "./settings/settings_page";
 
-import { useState } from "@odoo/owl";
+import { useState } from "@weblgx/owl";
 
 export class SettingsFormRenderer extends FormRenderer {
     setup() {

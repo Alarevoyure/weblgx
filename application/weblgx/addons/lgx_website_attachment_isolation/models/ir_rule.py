@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models
-from odoo.http import request
-from odoo.osv import expression
+from weblgx import models
+from weblgx.http import request
+from weblgx.osv import expression
 
 
 class IrRule(models.Model):

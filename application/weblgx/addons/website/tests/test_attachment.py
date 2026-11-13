@@ -1,10 +1,10 @@
-import odoo.tests
-from odoo.tests.common import HOST
-from odoo.tools import config
+import weblgx.tests
+from weblgx.tests.common import HOST
+from weblgx.tools import config
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteAttachment(odoo.tests.HttpCase):
+@weblgx.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteAttachment(weblgx.tests.HttpCase):
 
     def test_01_type_url_301_image(self):
         IMD = self.env['ir.model.data']

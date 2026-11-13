@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { uniqueId } from "@web/core/utils/functions";
 import publicWidget from "@web/legacy/js/public/public_widget";

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     BUTTON_HANDLER_SELECTOR,

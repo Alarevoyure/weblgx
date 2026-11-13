@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { BurgerMenu } from '@web/webclient/burger_menu/burger_menu';
 import { useService } from '@web/core/utils/hooks';

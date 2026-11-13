@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import wTourUtils from '@website/js/tours/tour_utils';
 
@@ -108,7 +108,7 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
     // Create a Link for which we don't have an icon to propose.
     ...addNewSocialNetwork(8, 7, 'https://whatever.it/1EdSw9X'),
     // Create a custom instagram link.
-    ...addNewSocialNetwork(9, 8, 'https://instagr.am/odoo.official/'),
+    ...addNewSocialNetwork(9, 8, 'https://instagr.am/weblgx.official/'),
     {
         content: "Check if the result is correct before removing",
         trigger: "iframe .s_social_media" +
@@ -120,7 +120,7 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
                  ":has(a:eq(5)[href='/website/social/tiktok'])" +
                  ":has(a:eq(6)[href='https://www.youtu.be/y7TlnAv6cto']:has(i.fa-youtube))" +
                  ":has(a:eq(7)[href='https://whatever.it/1EdSw9X']:has(i.fa-pencil))" +
-                 ":has(a:eq(8)[href='https://instagr.am/odoo.official/']:has(i.fa-instagram))",
+                 ":has(a:eq(8)[href='https://instagr.am/weblgx.official/']:has(i.fa-instagram))",
         run: () => {}, // This is a check.
     },
     // Create a custom link, not officially supported, ensure icon is found.
@@ -162,13 +162,13 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
                  ":has(a:eq(5)[href='/website/social/tiktok'])" +
                  ":has(a:eq(6)[href='/website/social/facebook'])" +
                  ":has(a:eq(7)[href='https://whatever.it/1EdSw9X']:has(i.fa-pencil))" +
-                 ":has(a:eq(8)[href='https://instagr.am/odoo.official/']:has(i.fa-instagram))",
+                 ":has(a:eq(8)[href='https://instagr.am/weblgx.official/']:has(i.fa-instagram))",
         run: () => {}, // This is a check.
     },
     {
         content: 'Change url of the DB instagram link',
         trigger: 'we-list table input:eq(3)',
-        run: 'text_blur https://instagram.com/odoo.official/',
+        run: 'text_blur https://instagram.com/weblgx.official/',
     },
     ...wTourUtils.clickOnSave(),
     ...wTourUtils.clickOnEditAndWaitEditMode(),
@@ -195,7 +195,7 @@ wTourUtils.registerWebsitePreviewTour('snippet_social_media', {
                  ":has(a:eq(5)[href='/website/social/tiktok'])" +
                  ":has(a:eq(6)[href='/website/social/facebook'])" +
                  ":has(a:eq(7)[href='https://whatever.it/1EdSw9X']:has(i.fa-heart))" +
-                 ":has(a:eq(8)[href='https://instagr.am/odoo.official/']:has(i.fa-instagram))",
+                 ":has(a:eq(8)[href='https://instagr.am/weblgx.official/']:has(i.fa-instagram))",
         isCheck: true,
     },
     // Create a social network but replace its icon by an image before setting

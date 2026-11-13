@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 
-import odoo.tests
+import weblgx.tests
 
-from odoo.tests.common import HOST
-from odoo.tools import config
+from weblgx.tests.common import HOST
+from weblgx.tools import config
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsitePageManager(odoo.tests.HttpCase):
+@weblgx.tests.common.tagged('post_install', '-at_install')
+class TestWebsitePageManager(weblgx.tests.HttpCase):
 
     def test_01_page_manager(self):
         website = self.env['website'].create({

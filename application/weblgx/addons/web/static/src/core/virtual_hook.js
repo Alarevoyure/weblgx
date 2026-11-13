@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     onWillRender,
@@ -7,7 +7,7 @@ import {
     useEffect,
     useExternalListener,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { shallowEqual } from "@web/core/utils/arrays";
 import { useThrottleForAnimation } from "@web/core/utils/timing";
 
@@ -19,7 +19,7 @@ import { useThrottleForAnimation } from "@web/core/utils/timing";
  * @property {(item: T) => number} getItemHeight
  *  a getter for the height of a given item.
  *  The height should be a number of pixels.
- * @property {ReturnType<typeof import("@odoo/owl").useRef>} scrollableRef
+ * @property {ReturnType<typeof import("@weblgx/owl").useRef>} scrollableRef
  *  a ref to the scrollable element
  * @property {ScrollPosition} [initialScroll={ top: 0 }]
  *  the initial scroll position of the scrollable element

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { assets, templates } from "@web/core/assets";
 import { browser, makeRAMLocalStorage } from "@web/core/browser/browser";
@@ -13,7 +13,7 @@ import { loadLanguages } from "@web/core/l10n/translation";
 transitionConfig.disabled = true;
 
 import { patch } from "@web/core/utils/patch";
-import { App, EventBus, whenReady } from "@odoo/owl";
+import { App, EventBus, whenReady } from "@weblgx/owl";
 import { currencies } from "@web/core/currency";
 import { cookie } from "@web/core/browser/cookie";
 
@@ -202,8 +202,8 @@ function patchBodyAddEventListener() {
     });
 }
 
-function patchOdoo() {
-    patchWithCleanup(odoo, {
+function patchWeblgx() {
+    patchWithCleanup(weblgx, {
         debug: "",
     });
 }
@@ -355,7 +355,7 @@ export async function setupTests() {
         patchCookie();
         patchBodyAddEventListener();
         patchEventBus();
-        patchOdoo();
+        patchWeblgx();
         patchSessionInfo();
         patchOwlApp();
     });

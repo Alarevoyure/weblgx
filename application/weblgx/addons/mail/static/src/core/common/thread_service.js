@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { loadEmoji } from "@web/core/emoji_picker/emoji_picker";
 import { DEFAULT_AVATAR } from "@mail/core/common/persona_service";
@@ -17,7 +17,7 @@ const FETCH_LIMIT = 30;
 export class ThreadService {
     nextId = 0;
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -25,7 +25,7 @@ export class ThreadService {
     }
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     setup(env, services) {
@@ -961,7 +961,7 @@ export class ThreadService {
             notify = true;
         }
         if (
-            thread.chatPartner?.eq(this.store.odoobot) ||
+            thread.chatPartner?.eq(this.store.weblgxbot) ||
             thread.muteUntilDateTime ||
             thread.custom_notifications === "no_notif" ||
             (thread.custom_notifications === "mentions" &&
@@ -1031,7 +1031,7 @@ export const threadService = {
         "user",
     ],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

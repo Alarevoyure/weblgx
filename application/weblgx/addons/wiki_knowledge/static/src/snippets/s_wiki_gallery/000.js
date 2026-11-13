@@ -181,7 +181,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         if (!wrap) {
             return;
         }
-        const editor = this.options.wysiwyg?.odooEditor;
+        const editor = this.options.wysiwyg?.weblgxEditor;
         editor?.observerUnactive?.();
         try {
             let contribute = wrap.closest(".s_wiki_gallery_contribute");
@@ -494,7 +494,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         textareas.slice(1).forEach((node) => node.remove());
 
         form.querySelectorAll(
-            ".o_wysiwyg_wrapper, .note-editable, .odoo-editor-editable, .o_wysiwyg_resizer, .o_wysiwyg_loading, .o_table_ui_container"
+            ".o_wysiwyg_wrapper, .note-editable, .weblgx-editor-editable, .o_wysiwyg_resizer, .o_wysiwyg_loading, .o_table_ui_container"
         ).forEach((node) => node.remove());
 
         [...form.querySelectorAll(".o_wysiwyg_textarea_wrapper")].forEach((wrapper) => {
@@ -719,12 +719,12 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         const galleryId = this._getGalleryId();
         this._itemsById = {};
         if (!galleryId) {
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             listEl.innerHTML =
                 '<p class="text-muted mb-0 s_wiki_gallery_empty">' +
                 "Sélectionnez une bibliothèque dans les options du bloc." +
                 "</p>";
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
             return;
         }
         try {
@@ -736,7 +736,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
                 this._writingHelpUrl = res.writing_help_url;
             }
             const items = (res && res.items) || [];
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             if (!items.length) {
                 listEl.innerHTML =
                     '<p class="text-muted mb-0 s_wiki_gallery_empty">Aucune contribution publiée pour le moment.</p>';
@@ -750,13 +750,13 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
                 listEl.innerHTML = "";
                 listEl.appendChild(grid);
             }
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
             this._openLinkedArticle();
         } catch {
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             listEl.innerHTML =
                 '<p class="text-muted mb-0 s_wiki_gallery_empty">Bibliothèque indisponible.</p>';
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         }
     },
 
@@ -1055,7 +1055,7 @@ const WikiGallerySnippet = publicWidget.Widget.extend({
         }
         try {
             const body = new FormData();
-            body.append("csrf_token", odoo.csrf_token || "");
+            body.append("csrf_token", weblgx.csrf_token || "");
             body.append("text", this._getEditorHtml());
             body.append("image", file, file.name);
             body.append("contributor_name", contributor);

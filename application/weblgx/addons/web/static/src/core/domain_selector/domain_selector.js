@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { extractPathsFromDomain, useGetDefaultCondition } from "@web/core/domain_selector/utils";
-import { Component, onWillStart, onWillUpdateProps } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps } from "@weblgx/owl";
 import { Domain } from "@web/core/domain";
 import { TreeEditor } from "@web/core/tree_editor/tree_editor";
 import {

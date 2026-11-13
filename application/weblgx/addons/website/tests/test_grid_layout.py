@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 
-import odoo.tests
-from odoo.tests.common import HOST
-from odoo.tools import config
+import weblgx.tests
+from weblgx.tests.common import HOST
+from weblgx.tools import config
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteGridLayout(odoo.tests.HttpCase):
+@weblgx.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteGridLayout(weblgx.tests.HttpCase):
 
     def test_01_replace_grid_image(self):
         IrAttachment = self.env['ir.attachment']

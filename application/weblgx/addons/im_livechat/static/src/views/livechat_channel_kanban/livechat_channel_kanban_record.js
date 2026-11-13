@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { KanbanRecord } from "@web/views/kanban/kanban_record";
 

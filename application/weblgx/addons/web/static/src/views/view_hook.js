@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useDebugCategory } from "@web/core/debug/debug_context";
 import { useSetupAction } from "@web/webclient/actions/action_hook";
@@ -7,7 +7,7 @@ import { useService } from "@web/core/utils/hooks";
 import { browser } from "@web/core/browser/browser";
 import { evaluateExpr } from "@web/core/py_js/py";
 
-import { useComponent, useEffect, xml } from "@odoo/owl";
+import { useComponent, useEffect, xml } from "@weblgx/owl";
 
 export function useSetupView(params) {
     const component = useComponent();

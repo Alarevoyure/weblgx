@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 
-import { Component, useEffect, useExternalListener, useState } from "@odoo/owl";
+import { Component, useEffect, useExternalListener, useState } from "@weblgx/owl";
 
 /**
  * @typedef Common
@@ -17,7 +17,7 @@ import { Component, useEffect, useExternalListener, useState } from "@odoo/owl";
  * @property {string} message Message to be displayed on rainbowman card
  *
  * @typedef Custom
- * @property {typeof import("@odoo/owl").Component} Component
+ * @property {typeof import("@weblgx/owl").Component} Component
  * @property {any} [props]
  *
  * @typedef {Common & (Simple | Custom)} RainbowManProps

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { useThrottleForAnimation } from "./utils/timing";
 import {
@@ -8,7 +8,7 @@ import {
     useComponent,
     useEffect,
     useRef,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { localization } from "@web/core/l10n/localization";
 
 /**

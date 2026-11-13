@@ -1,6 +1,6 @@
 {%- set countryPascal = name|pascal -%}
 {%- set codeUpper = code|upper -%}
-<odoo>
+<weblgx>
     <record id="l10n_{{code}}_rule_parameter_social_employee_rate" model="hr.rule.parameter">
         <field name="name">{{countryPascal}}: Pension Contribution Employee Rate</field>
         <field name="code">l10n_{{code}}_social_employee_rate</field>
@@ -48,4 +48,4 @@
         <field name="rule_parameter_id" ref="l10n_{{code}}_rule_parameter_childcare_relief"/>
         <field name="date_from" eval="datetime(2017, 1, 1).date()"/>
     </record>
-</odoo>
+</weblgx>

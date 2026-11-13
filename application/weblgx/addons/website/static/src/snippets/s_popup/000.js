@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
 import { cookie } from "@web/core/browser/cookie";
@@ -620,9 +620,9 @@ publicWidget.registry.cookies_bar = PopupWidget.extend({
         this._super(...arguments);
         const params = new URLSearchParams(window.location.search);
         const trackingFields = {
-            utm_campaign: "odoo_utm_campaign",
-            utm_source: "odoo_utm_source",
-            utm_medium: "odoo_utm_medium",
+            utm_campaign: "weblgx_utm_campaign",
+            utm_source: "weblgx_utm_source",
+            utm_medium: "weblgx_utm_medium",
         };
         for (const [key, value] of params) {
             if (key in trackingFields) {

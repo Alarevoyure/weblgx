@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { registry } from "@web/core/registry";
 import { click, contains, createFile, inputFiles } from "@web/../tests/utils";
@@ -18,7 +18,7 @@ registry.category("web_tour.tours").add("discuss_channel_public_tour.js", {
                 if (!window.location.pathname.startsWith("/discuss/channel")) {
                     console.error("Channel secret token is still present in URL.");
                 }
-                const { missing, failed, unloaded } = odoo.loader.findErrors();
+                const { missing, failed, unloaded } = weblgx.loader.findErrors();
                 if ([missing, failed, unloaded].some((arr) => arr.length)) {
                     console.error(
                         "Couldn't load all JS modules.",

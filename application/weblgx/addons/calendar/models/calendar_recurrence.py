@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, time
 import pytz
@@ -8,11 +8,11 @@ import re
 from dateutil import rrule
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.tools.misc import clean_context
+from weblgx import api, fields, models, _
+from weblgx.exceptions import UserError
+from weblgx.tools.misc import clean_context
 
-from odoo.addons.base.models.res_partner import _tz_get
+from weblgx.addons.base.models.res_partner import _tz_get
 
 
 MAX_RECURRENT_EVENT = 720
@@ -434,7 +434,7 @@ class RecurrenceRule(models.Model):
             data['month_by'] = 'date'
             data['rrule_type'] = 'monthly'
 
-        # Repeat yearly but for odoo it's monthly, take same information as monthly but interval is 12 times
+        # Repeat yearly but for weblgx it's monthly, take same information as monthly but interval is 12 times
         if rule._bymonth:
             data['interval'] *= 12
 

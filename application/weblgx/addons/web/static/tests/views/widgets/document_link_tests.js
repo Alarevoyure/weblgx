@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { getFixture } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 
@@ -49,11 +49,11 @@ QUnit.module("Widgets", (hooks) => {
             arch: `
                 <form>
                     <field name="bar"/>
-                    <widget name="documentation_link"  path="http://www.odoo.com/"/>
+                    <widget name="documentation_link"  path="http://www.weblgx.com/"/>
                 </form>`,
         });
 
-        assert.hasAttrValue(target.querySelector(".o_doc_link"), "href", "http://www.odoo.com/");
+        assert.hasAttrValue(target.querySelector(".o_doc_link"), "href", "http://www.weblgx.com/");
     });
     QUnit.test("documentation_link: absoluth path (https)", async function (assert) {
         await makeView({
@@ -69,7 +69,7 @@ QUnit.module("Widgets", (hooks) => {
 
         assert.hasAttrValue(target.querySelector(".o_doc_link"), "href", "https://www.loegaux.fr/");
     });
-    QUnit.test("documentation_link: odoo.com/documentation redirects to Web@LGX docs", async function (assert) {
+    QUnit.test("documentation_link: weblgx.com/documentation redirects to Web@LGX docs", async function (assert) {
         await makeView({
             type: "form",
             resModel: "partner",

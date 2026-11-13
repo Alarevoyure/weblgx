@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { getFixture, mount, nextTick } from "@web/../tests/helpers/utils";
 import { makeWithSearch, setupControlPanelServiceRegistry } from "@web/../tests/search/helpers";
@@ -7,7 +7,7 @@ import { getDefaultConfig } from "@web/views/view";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { SearchModel } from "@web/search/search_model";
 
-import { Component, xml, onWillStart, useChildSubEnv, useSubEnv } from "@odoo/owl";
+import { Component, xml, onWillStart, useChildSubEnv, useSubEnv } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 
 let target;

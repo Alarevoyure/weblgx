@@ -1,7 +1,7 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { onChange } from "@mail/utils/common/misc";
-import { markRaw, markup, reactive, toRaw } from "@odoo/owl";
+import { markRaw, markup, reactive, toRaw } from "@weblgx/owl";
 import { registry } from "@web/core/registry";
 
 export const modelRegistry = registry.category("discuss.model");

@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { CodeEditor } from "@web/core/code_editor/code_editor";
 import options from "@web_editor/js/editor/snippets.options";
 import { _t } from "@web/core/l10n/translation";
 import { cloneContentEls } from "@website/js/utils";
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 const PLACEHOLDER_HTML = `
 <div class="s_colonnes_html_placeholder font-monospace p-3">

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { dialogService } from "@web/core/dialog/dialog_service";
 import { ErrorDialog } from "@web/core/errors/error_dialogs";
@@ -21,7 +21,7 @@ import { Dialog } from "../../src/core/dialog/dialog";
 import { popoverService } from "@web/core/popover/popover_service";
 import { usePopover } from "@web/core/popover/popover_hook";
 import { useAutofocus } from "@web/core/utils/hooks";
-import { Component, onMounted, xml } from "@odoo/owl";
+import { Component, onMounted, xml } from "@weblgx/owl";
 
 let env;
 let target;

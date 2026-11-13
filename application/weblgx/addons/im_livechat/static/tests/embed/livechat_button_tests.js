@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 import { waitUntilSubscribe } from "@bus/../tests/helpers/websocket_event_deferred";

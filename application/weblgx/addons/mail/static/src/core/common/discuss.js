@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { AutoresizeInput } from "@mail/core/common/autoresize_input";
 import { Composer } from "@mail/core/common/composer";
@@ -22,7 +22,7 @@ import {
     useState,
     useEffect,
     useExternalListener,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { getActiveHotkey } from "@web/core/hotkeys/hotkey_service";
 
 import { _t } from "@web/core/l10n/translation";

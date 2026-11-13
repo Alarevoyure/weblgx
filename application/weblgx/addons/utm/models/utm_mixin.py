@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import re
 from collections import defaultdict
 import itertools
 
-from odoo import api, fields, models
-from odoo.http import request
-from odoo.osv import expression
+from weblgx import api, fields, models
+from weblgx.http import request
+from weblgx.osv import expression
 
 
 class UtmMixin(models.AbstractModel):
@@ -54,9 +54,9 @@ class UtmMixin(models.AbstractModel):
         # methods of utm.mixin, but will ignore overridden method on crm.lead
         return [
             # ("URL_PARAMETER", "FIELD_NAME_MIXIN", "NAME_IN_COOKIES")
-            ('utm_campaign', 'campaign_id', 'odoo_utm_campaign'),
-            ('utm_source', 'source_id', 'odoo_utm_source'),
-            ('utm_medium', 'medium_id', 'odoo_utm_medium'),
+            ('utm_campaign', 'campaign_id', 'weblgx_utm_campaign'),
+            ('utm_source', 'source_id', 'weblgx_utm_source'),
+            ('utm_medium', 'medium_id', 'weblgx_utm_medium'),
         ]
 
     def _find_or_create_record(self, model_name, name):

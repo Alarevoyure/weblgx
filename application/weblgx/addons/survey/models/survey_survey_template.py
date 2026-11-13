@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 
-from odoo import api, models, _
+from weblgx import api, models, _
 
 
 class SurveyTemplate(models.Model):
@@ -113,7 +113,7 @@ class SurveyTemplate(models.Model):
                     'random_questions_count': 2
                 }),
                 (0, 0, { # survey.question
-                    'title': _('What does "ODOO" stand for?'),
+                    'title': _('What does "WEBLGX" stand for?'),
                     'question_type': 'simple_choice',
                     'suggested_answer_ids': [
                         (0, 0, { # survey.question.answer

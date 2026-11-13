@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -15,7 +15,7 @@ window.addEventListener("beforeunload", () => {
 /**
  * Handles the errors trigger after the before unload event.
  *
- * @param {OdooEnv} env
+ * @param {WeblgxEnv} env
  * @param {UncaughError} error
  * @returns {boolean}
  */

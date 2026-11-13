@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 import lxml.html
 from urllib.parse import urlparse
 
-import odoo
-from odoo.addons.http_routing.models.ir_http import url_lang
-from odoo.addons.website.tools import MockRequest
-from odoo.tests import HttpCase, tagged
+import weblgx
+from weblgx.addons.http_routing.models.ir_http import url_lang
+from weblgx.addons.website.tools import MockRequest
+from weblgx.tests import HttpCase, tagged
 
 
 class TestLangUrlCommon(HttpCase):
@@ -62,13 +62,13 @@ class TestLangUrl(TestLangUrlCommon):
         self.assertEqual(r.status_code, 200)
 
         for line in r.text.splitlines():
-            _, match, session_info_str = line.partition('odoo.__session_info__ = ')
+            _, match, session_info_str = line.partition('weblgx.__session_info__ = ')
             if match:
                 session_info = json.loads(session_info_str[:-1])
                 self.assertEqual(session_info['user_context']['lang'], 'en_US', "ensure english was loaded")
                 self.assertEqual(session_info['bundle_params']['lang'], 'en_US', "ensure bundle use english")
                 with MockRequest(self.env) as req:
-                    backend_modules = list(req.registry._init_modules) + (odoo.conf.server_wide_modules or [])
+                    backend_modules = list(req.registry._init_modules) + (weblgx.conf.server_wide_modules or [])
                 en_hash = self.env['ir.http'].get_web_translations_hash(modules=backend_modules, lang='en_US')
                 self.assertEqual(session_info['cache_hashes']['translations'], en_hash)
                 break
@@ -89,7 +89,7 @@ class TestLangUrl(TestLangUrlCommon):
             self.assertEqual(doc.get('lang'), 'fr-FR', "Ensure contactus did not soft crash + loaded in correct lang")
 
         for line in r.text.splitlines():
-            _, match, session_info_str = line.partition('odoo.__session_info__ = ')
+            _, match, session_info_str = line.partition('weblgx.__session_info__ = ')
             if match:
                 session_info = json.loads(session_info_str[:-1])
                 self.assertEqual(session_info['bundle_params']['lang'], 'fr_FR', "ensure bundle use french")

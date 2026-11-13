@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from weblgx import models, fields
 
 
 class ResCompany(models.Model):

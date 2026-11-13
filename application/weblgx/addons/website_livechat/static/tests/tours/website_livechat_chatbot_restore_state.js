@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { registry } from "@web/core/registry";
 
@@ -13,7 +13,7 @@ registry.category("web_tour.tours").add("website_livechat.chatbot_restore_state_
         {
             trigger: ".o-mail-Message:contains(How can I help you?)",
             run: () => {
-                const chatbotService = odoo.__WOWL_DEBUG__.root.env.services["im_livechat.chatbot"];
+                const chatbotService = weblgx.__WOWL_DEBUG__.root.env.services["im_livechat.chatbot"];
                 if (chatbotService.isRestoringSavedState) {
                     throw new Error(
                         "Chatbot should not be restoring state at this stage."

@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import contextlib
 import re
 import werkzeug.urls
@@ -8,9 +8,9 @@ from unittest.mock import Mock, MagicMock, patch
 from werkzeug.exceptions import NotFound
 from werkzeug.test import EnvironBuilder
 
-import odoo
-from odoo.tests.common import HttpCase, HOST
-from odoo.tools.misc import hmac, DotDict, frozendict
+import weblgx
+from weblgx.tests.common import HttpCase, HOST
+from weblgx.tools.misc import hmac, DotDict, frozendict
 
 
 @contextlib.contextmanager
@@ -29,7 +29,7 @@ def MockRequest(
         httprequest=Mock(
             host='localhost',
             path=path,
-            app=odoo.http.root,
+            app=weblgx.http.root,
             environ=dict(
                 EnvironBuilder(
                     path=path,
@@ -45,18 +45,18 @@ def MockRequest(
             args=[],
         ),
         type='http',
-        future_response=odoo.http.FutureResponse(),
+        future_response=weblgx.http.FutureResponse(),
         params={},
         redirect=env['ir.http']._redirect,
         session=DotDict(
-            odoo.http.get_default_session(),
+            weblgx.http.get_default_session(),
             geoip={'country_code': country_code},
             sale_order_id=sale_order_id,
             website_sale_current_pl=website_sale_current_pl,
             force_website_id=website and website.id,
             context={'lang': ''},
         ),
-        geoip=odoo.http.GeoIP('127.0.0.1'),
+        geoip=weblgx.http.GeoIP('127.0.0.1'),
         db=env.registry.db_name,
         env=env,
         registry=env.registry,
@@ -76,7 +76,7 @@ def MockRequest(
     # 'routing' attribute (routing=True) or to raise a NotFound
     # exception (routing=False).
     #
-    #   router = odoo.http.root.get_db_router()
+    #   router = weblgx.http.root.get_db_router()
     #   rule, args = router.bind(...).match(path)
     #   # arg routing is True => rule.endpoint.routing == {...}
     #   # arg routing is False => NotFound exception
@@ -98,9 +98,9 @@ def MockRequest(
     request.update_context = update_context
 
     with contextlib.ExitStack() as s:
-        odoo.http._request_stack.push(request)
-        s.callback(odoo.http._request_stack.pop)
-        s.enter_context(patch('odoo.http.root.get_db_router', router))
+        weblgx.http._request_stack.push(request)
+        s.callback(weblgx.http._request_stack.pop)
+        s.enter_context(patch('weblgx.http.root.get_db_router', router))
 
         yield request
 

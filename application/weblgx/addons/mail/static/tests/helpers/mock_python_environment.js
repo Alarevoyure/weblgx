@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { pyEnvTarget } from "@bus/../tests/helpers/mock_python_environment";
 

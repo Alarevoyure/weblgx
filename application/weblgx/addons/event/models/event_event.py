@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 import pytz
 
 from datetime import timedelta
 
-from odoo import _, api, Command, fields, models, tools
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import format_datetime, is_html_empty
-from odoo.tools.misc import formatLang
-from odoo.tools.translate import html_translate
+from weblgx import _, api, Command, fields, models, tools
+from weblgx.addons.base.models.res_partner import _tz_get
+from weblgx.exceptions import UserError, ValidationError
+from weblgx.osv import expression
+from weblgx.tools import format_datetime, is_html_empty
+from weblgx.tools.misc import formatLang
+from weblgx.tools.translate import html_translate
 
 _logger = logging.getLogger(__name__)
 

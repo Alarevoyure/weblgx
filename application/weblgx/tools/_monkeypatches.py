@@ -2,7 +2,7 @@ import ast
 import os
 import logging
 from email._policybase import _PolicyBase
-from odoo import MIN_PY_VERSION
+from weblgx import MIN_PY_VERSION
 from shutil import copyfileobj
 from types import CodeType
 
@@ -71,16 +71,16 @@ orig_literal_eval = ast.literal_eval
 def literal_eval(expr):
     # limit the size of the expression to avoid segmentation faults
     # the default limit is set to 100KiB
-    # can be overridden by setting the ODOO_LIMIT_LITEVAL_BUFFER buffer_size_environment variable
+    # can be overridden by setting the WEBLGX_LIMIT_LITEVAL_BUFFER buffer_size_environment variable
 
     buffer_size = 102400
-    buffer_size_env = os.getenv("ODOO_LIMIT_LITEVAL_BUFFER")
+    buffer_size_env = os.getenv("WEBLGX_LIMIT_LITEVAL_BUFFER")
 
     if buffer_size_env:
         if buffer_size_env.isdigit():
             buffer_size = int(buffer_size_env)
         else:
-            _logger.error("ODOO_LIMIT_LITEVAL_BUFFER has to be an integer, defaulting to 100KiB")
+            _logger.error("WEBLGX_LIMIT_LITEVAL_BUFFER has to be an integer, defaulting to 100KiB")
 
     if isinstance(expr, str) and len(expr) > buffer_size:
         raise ValueError("expression can't exceed buffer limit")
@@ -107,7 +107,7 @@ def new_get_soap_client(wsdlurl, timeout=30):
     # The code is a copy of the original apart for the line related to the Transport class.
     # This was done to keep the code as similar to the original and to reduce the possibility
     # of introducing import errors, even though some imports are not in the requirements.
-    # See https://github.com/odoo/odoo/pull/173359 for a more thorough explanation.
+    # See https://github.com/weblgx/weblgx/pull/173359 for a more thorough explanation.
     if (wsdlurl, timeout) not in _soap_clients:
         try:
             from zeep.transports import Transport

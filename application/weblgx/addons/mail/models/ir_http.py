@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-import odoo
-from odoo import models
-from odoo.http import request
+import weblgx
+from weblgx import models
+from weblgx.http import request
 
 
 class IrHttp(models.AbstractModel):
@@ -16,7 +16,7 @@ class IrHttp(models.AbstractModel):
         guest = self.env['mail.guest']._get_guest_from_context()
         if not request.session.uid and guest:
             user_context = {'lang': guest.lang}
-            mods = odoo.conf.server_wide_modules or []
+            mods = weblgx.conf.server_wide_modules or []
             lang = user_context.get("lang")
             translation_hash = self.env['ir.http'].sudo().get_web_translations_hash(mods, lang)
             result['cache_hashes']['translations'] = translation_hash

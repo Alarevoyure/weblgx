@@ -1,5 +1,5 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-import odoo
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+import weblgx
 import sys
 import optparse
 import logging
@@ -13,7 +13,7 @@ _logger = logging.getLogger(__name__)
 
 
 class Obfuscate(Command):
-    """Obfuscate data in a given odoo database"""
+    """Obfuscate data in a given weblgx database"""
     def __init__(self):
         super().__init__()
         self.cr = None
@@ -41,7 +41,7 @@ class Obfuscate(Command):
     @_ensure_cr
     def set_pwd(self, pwd):
         """Set password to cypher/uncypher datas"""
-        self.cr.execute("INSERT INTO ir_config_parameter (key, value) VALUES ('odoo_cyph_pwd', 'odoo_cyph_'||encode(pgp_sym_encrypt(%s, %s), 'base64')) ON CONFLICT(key) DO NOTHING", [pwd, pwd])
+        self.cr.execute("INSERT INTO ir_config_parameter (key, value) VALUES ('weblgx_cyph_pwd', 'weblgx_cyph_'||encode(pgp_sym_encrypt(%s, %s), 'base64')) ON CONFLICT(key) DO NOTHING", [pwd, pwd])
 
     @_ensure_cr
     def check_pwd(self, pwd):
@@ -49,7 +49,7 @@ class Obfuscate(Command):
         uncypher_pwd = self.uncypher_string(sql.Identifier('value'))
 
         try:
-            qry = sql.SQL("SELECT {uncypher_pwd} FROM ir_config_parameter WHERE key='odoo_cyph_pwd'").format(uncypher_pwd=uncypher_pwd)
+            qry = sql.SQL("SELECT {uncypher_pwd} FROM ir_config_parameter WHERE key='weblgx_cyph_pwd'").format(uncypher_pwd=uncypher_pwd)
             self.cr.execute(qry, {'pwd': pwd})
             if self.cr.rowcount == 0 or (self.cr.rowcount == 1 and self.cr.fetchone()[0] == pwd):
                 return True
@@ -60,14 +60,14 @@ class Obfuscate(Command):
     @_ensure_cr
     def clear_pwd(self):
         """Unset password to cypher/uncypher datas"""
-        self.cr.execute("DELETE FROM ir_config_parameter WHERE key='odoo_cyph_pwd' ")
+        self.cr.execute("DELETE FROM ir_config_parameter WHERE key='weblgx_cyph_pwd' ")
 
     def cypher_string(self, sql_field):
         # don't double cypher fields
-        return sql.SQL("""CASE WHEN starts_with({field_name}, 'odoo_cyph_') THEN {field_name} ELSE 'odoo_cyph_'||encode(pgp_sym_encrypt({field_name}, %(pwd)s), 'base64') END""").format(field_name=sql_field)
+        return sql.SQL("""CASE WHEN starts_with({field_name}, 'weblgx_cyph_') THEN {field_name} ELSE 'weblgx_cyph_'||encode(pgp_sym_encrypt({field_name}, %(pwd)s), 'base64') END""").format(field_name=sql_field)
 
     def uncypher_string(self, sql_field):
-        return sql.SQL("""CASE WHEN starts_with({field_name}, 'odoo_cyph_') THEN pgp_sym_decrypt(decode(substring({field_name}, 11)::text, 'base64'), %(pwd)s) ELSE {field_name} END""").format(field_name=sql_field)
+        return sql.SQL("""CASE WHEN starts_with({field_name}, 'weblgx_cyph_') THEN pgp_sym_decrypt(decode(substring({field_name}, 11)::text, 'base64'), %(pwd)s) ELSE {field_name} END""").format(field_name=sql_field)
 
     def check_field(self, table, field):
         qry = "SELECT udt_name FROM information_schema.columns WHERE table_name=%s AND column_name=%s"
@@ -128,7 +128,7 @@ class Obfuscate(Command):
         return True
 
     def run(self, cmdargs):
-        parser = odoo.tools.config.parser
+        parser = weblgx.tools.config.parser
         group = optparse.OptionGroup(parser, "Obfuscate Configuration")
         group.add_option('--pwd', dest="pwd", default=False, help="Cypher password")
         group.add_option('--fields', dest="fields", default=False, help="List of table.columns to obfuscate/unobfuscate: table1.column1,table2.column1,table2.column2")
@@ -147,15 +147,15 @@ class Obfuscate(Command):
             sys.exit(parser.print_help())
 
         try:
-            opt = odoo.tools.config.parse_config(cmdargs)
+            opt = weblgx.tools.config.parse_config(cmdargs)
             if not opt.pwd:
                 _logger.error("--pwd is required")
                 sys.exit("ERROR: --pwd is required")
             if opt.allfields and not opt.unobfuscate:
                 _logger.error("--allfields can only be used in unobfuscate mode")
                 sys.exit("ERROR: --allfields can only be used in unobfuscate mode")
-            self.dbname = odoo.tools.config['db_name']
-            self.registry = odoo.registry(self.dbname)
+            self.dbname = weblgx.tools.config['db_name']
+            self.registry = weblgx.registry(self.dbname)
             with self.registry.cursor() as cr:
                 self.cr = cr
                 self.begin()

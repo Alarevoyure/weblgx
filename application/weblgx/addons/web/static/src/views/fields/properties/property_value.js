@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { AutoComplete } from "@web/core/autocomplete/autocomplete";
 import { CheckBox } from "@web/core/checkbox/checkbox";
 import { DateTimeInput } from "@web/core/datetime/datetime_input";

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { useAutofocus, useService } from '@web/core/utils/hooks';
 import { debounce } from '@web/core/utils/timing';
 
-import { Component, useState, useRef, onMounted, onWillStart } from "@odoo/owl";
+import { Component, useState, useRef, onMounted, onWillStart } from "@weblgx/owl";
 
 class VideoOption extends Component {}
 VideoOption.template = 'web_editor.VideoOption';

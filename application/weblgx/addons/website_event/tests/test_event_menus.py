@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.addons.website_event.tests.common import OnlineEventCase
-from odoo.tests.common import HttpCase, users
+from weblgx import fields
+from weblgx.addons.website_event.tests.common import OnlineEventCase
+from weblgx.tests.common import HttpCase, users
 
 
 class TestEventMenus(OnlineEventCase, HttpCase):

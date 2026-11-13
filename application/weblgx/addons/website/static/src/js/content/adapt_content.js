@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 document.addEventListener('DOMContentLoaded', () => {
     const htmlEl = document.documentElement;

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Thread } from "@mail/core/common/thread_model";
 import { assignIn } from "@mail/utils/common/misc";

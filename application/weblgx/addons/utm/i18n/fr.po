@@ -14,7 +14,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Manon Rondou, 2025\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr ""
 "1000000 == 0 ? 1 : 2;\n"
 
 #. module: utm
-#. odoo-python
+#. weblgx-python
 #: code:addons/utm/models/utm_source.py:0
 #, python-format
 msgid "%(content)s (%(model_description)s created on %(create_date)s)"
@@ -41,14 +41,14 @@ msgid "Allows us to filter relevant Campaigns"
 msgstr "Nous permet de filtrer les campagnes pertinentes"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Approval-based Flow"
 msgstr "Flux basé sur la validation"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Approved"
@@ -74,7 +74,7 @@ msgstr ""
 "les suivre."
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Audience-driven Flow"
@@ -140,7 +140,7 @@ msgid "Christmas Special"
 msgstr "Offre de Noël"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Collect ideas, design creative content and publish it once reviewed."
@@ -155,7 +155,7 @@ msgid "Color Index"
 msgstr "Couleur"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Copywriting"
@@ -200,7 +200,7 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Creative Flow"
@@ -212,21 +212,21 @@ msgid "Delete"
 msgstr "Supprimer"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Deploy"
 msgstr "Déployer"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Deployed"
 msgstr "Déployé"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #: model:utm.stage,name:utm.campaign_stage_2
 #, python-format
@@ -243,7 +243,7 @@ msgid "Display Name"
 msgstr "Nom d'affichage"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Done"
@@ -265,21 +265,21 @@ msgid "Email Campaign - Services"
 msgstr "Campagne d'e-mail - Services"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Event-driven Flow"
 msgstr "Flux événementiel"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Gather Data"
 msgstr "Recueillir des données"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid ""
@@ -309,7 +309,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Ideas"
@@ -334,7 +334,7 @@ msgid "Last Updated on"
 msgstr "Mis à jour le"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Later"
@@ -346,7 +346,7 @@ msgid "Link Tracker"
 msgstr "Tracker de liens"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "List-Building"
@@ -399,14 +399,14 @@ msgid "No Sources yet!"
 msgstr "Aucune source pour le moment !"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Pre-Launch"
 msgstr "Pré-lancement"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Prepare Campaigns and get them approved before making them go live."
@@ -414,7 +414,7 @@ msgstr ""
 "Préparez des campagnes et faites-les approuver avant de les mettre en ligne."
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid ""
@@ -425,7 +425,7 @@ msgstr ""
 "déployez-la entièrement par la suite."
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Report"
@@ -443,14 +443,14 @@ msgid "Restore"
 msgstr "Restaurer"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Review"
 msgstr "Examiner"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Running"
@@ -472,14 +472,14 @@ msgid "Search UTM Medium"
 msgstr "Chercher les mediums UTM"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Send"
 msgstr "Envoyer"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #: model:utm.stage,name:utm.campaign_stage_3
 #, python-format
@@ -492,14 +492,14 @@ msgid "Sequence"
 msgstr "Séquence"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Soft-Launch"
 msgstr "Lancement en douceur"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Soft-Launch Flow"
@@ -568,7 +568,7 @@ msgid "Tags"
 msgstr "Étiquettes"
 
 #. module: utm
-#. odoo-python
+#. weblgx-python
 #: code:addons/utm/models/utm_medium.py:0
 #, python-format
 msgid ""
@@ -587,14 +587,14 @@ msgid "The name must be unique"
 msgstr "Le nom doit être unique"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "This Month"
 msgstr "Ce mois"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "This Week"
@@ -625,14 +625,14 @@ msgstr ""
 "liste d'adresses e-mail"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "To be Approved"
 msgstr "À approuver"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid ""
@@ -708,14 +708,14 @@ msgid "UTMs"
 msgstr "UTMs"
 
 #. module: utm
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Use This For My Campaigns"
 msgstr "Utiliser ceci pour mes campagnes"
 
 #. module: utm
-#. odoo-python
+#. weblgx-python
 #: code:addons/utm/models/utm_source.py:0
 #, python-format
 msgid ""

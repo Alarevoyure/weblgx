@@ -1,5 +1,5 @@
-/** @odoo-module **/
-import { Component, xml, useState, onError } from "@odoo/owl";
+/** @weblgx-module **/
+import { Component, xml, useState, onError } from "@weblgx/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { useRecordObserver } from "@web/model/relational_model/utils";

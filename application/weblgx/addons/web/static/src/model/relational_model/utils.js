@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { markup, onWillDestroy, onWillStart, onWillUpdateProps, useComponent } from "@odoo/owl";
+import { markup, onWillDestroy, onWillStart, onWillUpdateProps, useComponent } from "@weblgx/owl";
 import { evalPartialContext, makeContext } from "@web/core/context";
 import {
     deserializeDate,

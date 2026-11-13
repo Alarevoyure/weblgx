@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'WeblgxBot',
@@ -20,7 +20,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'mail_bot/static/src/scss/odoobot_style.scss',
+            'mail_bot/static/src/scss/weblgxbot_style.scss',
         ],
     },
     'license': 'LGPL-3',

@@ -16857,7 +16857,7 @@ class BasePreferences {
         "enablePrintAutoRotate": true,
         // don't support scripting (#115302)
         "enableScripting": false,
-        // open links in new tabs to keep odoo document (#84594)
+        // open links in new tabs to keep weblgx document (#84594)
         "externalLinkTarget": 2,
         "historyUpdateUrl": false,
         "ignoreDestinationZoom": false,
@@ -18115,7 +18115,7 @@ PDFPrintService.prototype = {
     const pageSize = this.pagesOverview[0];
     this.pageStyleSheet.textContent = "@page { size: " + pageSize.width + "pt " + pageSize.height + "pt;}";
     body.append(this.pageStyleSheet);
-    // ODOO PATCH PRINT PREVIEW MOBILE
+    // WEBLGX PATCH PRINT PREVIEW MOBILE
     this.hasFinishPrint = null;
   },
 
@@ -18195,7 +18195,7 @@ PDFPrintService.prototype = {
 
   performPrint() {
     this.throwIfInactive();
-    // ODOO PATCH PRINT PREVIEW MOBILE
+    // WEBLGX PATCH PRINT PREVIEW MOBILE
     const hasFinishPrintPromise = new Promise((resolve) => {
       if ("afterprint" in window) {
         this.hasFinishPrint = resolve;
@@ -18205,14 +18205,14 @@ PDFPrintService.prototype = {
     });
     setTimeout(() => {
       if (!this.active) {
-        // ODOO PATCH PRINT PREVIEW MOBILE
+        // WEBLGX PATCH PRINT PREVIEW MOBILE
         this.hasFinishPrint();
         return;
       }
 
       print.call(window);
     }, 0);
-    // ODOO PATCH PRINT PREVIEW MOBILE
+    // WEBLGX PATCH PRINT PREVIEW MOBILE
     return hasFinishPrintPromise;
   },
 
@@ -18255,10 +18255,10 @@ window.print = function () {
     }
 
     const activeServiceOnEntry = activeService;
-    // ODOO: FIX MOBILE PRINT PREVIEW
+    // WEBLGX: FIX MOBILE PRINT PREVIEW
     const timeBeforeRendering = new Date().getTime();
     activeService.renderPages().then(function () {
-      // ODOO: FIX MOBILE PRINT PREVIEW
+      // WEBLGX: FIX MOBILE PRINT PREVIEW
       return Promise.all([
         activeServiceOnEntry.performPrint(),
         new Promise(resolve => setTimeout(resolve, 1000 + new Date().getTime() - timeBeforeRendering))
@@ -18312,7 +18312,7 @@ window.addEventListener("keydown", function (event) {
 
 if ("onbeforeprint" in window) {
   const stopPropagationIfNeeded = function (event) {
-    // ODOO PATCH PRINT PREVIEW MOBILE
+    // WEBLGX PATCH PRINT PREVIEW MOBILE
     if (activeService?.hasFinishPrint && event.type === "afterprint") {
       activeService.hasFinishPrint();
       return;

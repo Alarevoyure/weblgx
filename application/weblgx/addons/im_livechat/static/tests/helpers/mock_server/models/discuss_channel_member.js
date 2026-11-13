@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import "@mail/../tests/helpers/mock_server/models/discuss_channel_member"; // ensure mail overrides are applied first
 

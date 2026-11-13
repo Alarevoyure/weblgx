@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
     import { attachComponent } from "@web/legacy/utils";
 
@@ -12,7 +12,7 @@
         onWillStart,
         onWillUpdateProps,
         xml,
-    } from "@odoo/owl";
+    } from "@weblgx/owl";
     import { nextTick } from "./helpers/test_utils";
 
     QUnit.module("Owl Compatibility", function () {

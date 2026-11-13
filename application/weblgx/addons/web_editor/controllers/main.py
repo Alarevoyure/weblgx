@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import contextlib
 import io
 import json
@@ -16,21 +16,21 @@ from datetime import datetime
 from math import floor
 from os.path import join as opj
 
-from odoo.http import request, Response
-from odoo import http, tools, _, SUPERUSER_ID, release
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.addons.web_editor.tools import get_video_url_data, jsonrpc
-from odoo.exceptions import UserError, MissingError, AccessError
-from odoo.tools.misc import file_open
-from odoo.tools.mimetypes import guess_mimetype
-from odoo.tools.image import image_data_uri, binary_to_image, get_webp_size
-from odoo.addons.base.models.assetsbundle import AssetsBundle
+from weblgx.http import request, Response
+from weblgx import http, tools, _, SUPERUSER_ID, release
+from weblgx.addons.http_routing.models.ir_http import slug, unslug
+from weblgx.addons.web_editor.tools import get_video_url_data, jsonrpc
+from weblgx.exceptions import UserError, MissingError, AccessError
+from weblgx.tools.misc import file_open
+from weblgx.tools.mimetypes import guess_mimetype
+from weblgx.tools.image import image_data_uri, binary_to_image, get_webp_size
+from weblgx.addons.base.models.assetsbundle import AssetsBundle
 
 from ..models.ir_attachment import SUPPORTED_IMAGE_MIMETYPES
 
 logger = logging.getLogger(__name__)
-DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.odoo.com'
-DEFAULT_OLG_ENDPOINT = 'https://olg.api.odoo.com'
+DEFAULT_LIBRARY_ENDPOINT = 'https://media-api.weblgx.com'
+DEFAULT_OLG_ENDPOINT = 'https://olg.api.weblgx.com'
 
 
 def get_existing_attachment(IrAttachment, vals):

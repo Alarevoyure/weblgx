@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { formatDate, formatDateTime } from "@web/core/l10n/dates";
 import { localization as l10n } from "@web/core/l10n/localization";
@@ -12,7 +12,7 @@ import {
     insertThousandsSep,
 } from "@web/core/utils/numbers";
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 import { formatCurrency } from "@web/core/currency";
 
 // -----------------------------------------------------------------------------

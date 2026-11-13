@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * @param {string} folder folder that can only import from `allowedFolders`
@@ -9,14 +9,14 @@
 function invalidImportsFrom(folder, allowedFolders) {
     // modules within a folder can always depend on one another
     allowedFolders.push(folder);
-    const modulesToCheck = Array.from(odoo.loader.modules.keys()).filter((module) =>
+    const modulesToCheck = Array.from(weblgx.loader.modules.keys()).filter((module) =>
         module.startsWith(`@web/${folder}/`)
     );
     const invalidDeps = {};
     for (const module of modulesToCheck) {
-        const invalid = odoo.loader.factories.get(module).deps.filter((dep) => {
+        const invalid = weblgx.loader.factories.get(module).deps.filter((dep) => {
             // owl and @web/session are allowed everywhere
-            if (dep === "@odoo/owl" || dep === "@web/session") {
+            if (dep === "@weblgx/owl" || dep === "@web/session") {
                 return false;
             }
             return !allowedFolders.some((allowed) => dep.startsWith(`@web/${allowed}/`));

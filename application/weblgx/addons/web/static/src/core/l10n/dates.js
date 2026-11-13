@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { localization } from "@web/core/l10n/localization";
 import { _t } from "@web/core/l10n/translation";
@@ -42,7 +42,7 @@ const nonDigitRegex = /[^\d]/g;
 
 const normalizeFormatTable = {
     // Python strftime to luxon.js conversion table
-    // See odoo/addons/base/views/res_lang_views.xml
+    // See weblgx/addons/base/views/res_lang_views.xml
     // for details about supported directives
     a: "ccc",
     A: "cccc",

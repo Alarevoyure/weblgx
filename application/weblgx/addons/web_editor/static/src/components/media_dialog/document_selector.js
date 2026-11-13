@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { Attachment, FileSelector, IMAGE_MIMETYPES } from './file_selector';

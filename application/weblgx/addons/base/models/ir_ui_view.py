@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 import collections
@@ -17,19 +17,19 @@ from lxml import etree
 from lxml.etree import LxmlError
 from lxml.builder import E
 
-import odoo
-from odoo import api, fields, models, tools, _
-from odoo.exceptions import ValidationError, AccessError, UserError
-from odoo.http import request
-from odoo.modules.module import get_resource_from_path
-from odoo.service.model import get_public_method
-from odoo.tools import config, ConstantMapping, get_diff, pycompat, apply_inheritance_specs, locate_node, str2bool
-from odoo.tools import safe_eval, lazy, lazy_property, frozendict
-from odoo.tools.convert import _fix_multiple_roots
-from odoo.tools.misc import file_path
-from odoo.tools.translate import xml_translate, TRANSLATED_ATTRS
-from odoo.tools.view_validation import valid_view, get_domain_value_names, get_expression_field_names, get_dict_asts
-from odoo.osv.expression import expression
+import weblgx
+from weblgx import api, fields, models, tools, _
+from weblgx.exceptions import ValidationError, AccessError, UserError
+from weblgx.http import request
+from weblgx.modules.module import get_resource_from_path
+from weblgx.service.model import get_public_method
+from weblgx.tools import config, ConstantMapping, get_diff, pycompat, apply_inheritance_specs, locate_node, str2bool
+from weblgx.tools import safe_eval, lazy, lazy_property, frozendict
+from weblgx.tools.convert import _fix_multiple_roots
+from weblgx.tools.misc import file_path
+from weblgx.tools.translate import xml_translate, TRANSLATED_ATTRS
+from weblgx.tools.view_validation import valid_view, get_domain_value_names, get_expression_field_names, get_dict_asts
+from weblgx.osv.expression import expression
 
 _logger = logging.getLogger(__name__)
 
@@ -68,7 +68,7 @@ def att_names(name):
 
 @lazy
 def keep_query():
-    mod = odoo.addons.base.models.ir_qweb
+    mod = weblgx.addons.base.models.ir_qweb
     warnings.warn(f"keep_query has been moved to {mod}", DeprecationWarning)
     return mod.keep_query
 

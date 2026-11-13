@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { useComponent } from "@odoo/owl";
+import { useComponent } from "@weblgx/owl";
 
 import { useCommand } from "@web/core/commands/command_hook";
 import { Domain } from "@web/core/domain";

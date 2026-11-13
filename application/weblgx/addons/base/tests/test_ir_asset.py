@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import TransactionCase, tagged
-from odoo.tools import convert_file
-from odoo.tools.misc import file_path
+from weblgx.tests.common import TransactionCase, tagged
+from weblgx.tools import convert_file
+from weblgx.tools.misc import file_path
 
 
 @tagged('-at_install', 'post_install')

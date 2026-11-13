@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { KanbanRenderer } from "@web/views/kanban/kanban_renderer";
 import { LivechatChannelKanbanRecord } from "./livechat_channel_kanban_record";

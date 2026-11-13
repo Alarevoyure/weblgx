@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     drag,
@@ -10,7 +10,7 @@ import {
 } from "@web/../tests/helpers/utils";
 import { useSortable } from "@web/core/utils/sortable_owl";
 
-import { Component, reactive, useRef, useState, xml } from "@odoo/owl";
+import { Component, reactive, useRef, useState, xml } from "@weblgx/owl";
 
 let target;
 QUnit.module("Draggable", ({ beforeEach }) => {

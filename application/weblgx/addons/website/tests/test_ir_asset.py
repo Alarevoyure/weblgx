@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
+import weblgx.tests
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestIrAsset(odoo.tests.HttpCase):
+@weblgx.tests.common.tagged('post_install', '-at_install')
+class TestIrAsset(weblgx.tests.HttpCase):
 
     def test_01_website_specific_assets(self):
         IrAsset = self.env['ir.asset']

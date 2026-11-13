@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { isBrowserFirefox } from "@web/core/browser/feature_detection";
 import { Deferred } from "@web/core/utils/concurrency";
@@ -6,7 +6,7 @@ import { useAutofocus, useService } from '@web/core/utils/hooks';
 import { _t } from "@web/core/l10n/translation";
 import { WebsiteDialog } from '@website/components/dialog/dialog';
 import { Switch } from '@website/components/switch/switch';
-import { useRef, useState, useSubEnv, Component, onWillStart, onMounted, status } from "@odoo/owl";
+import { useRef, useState, useSubEnv, Component, onWillStart, onMounted, status } from "@weblgx/owl";
 import wUtils from '@website/js/utils';
 
 const NO_OP = () => {};
@@ -34,7 +34,7 @@ export class AddPageConfirmDialog extends Component {
     }
 
     async addPage() {
-        const params = {'add_menu': this.state.addMenu || '', csrf_token: odoo.csrf_token};
+        const params = {'add_menu': this.state.addMenu || '', csrf_token: weblgx.csrf_token};
         if (this.props.sectionsArch) {
             params.sections_arch = this.props.sectionsArch;
         }

@@ -1,13 +1,13 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 
 export class DiscussCoreWeb {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -36,9 +36,9 @@ export class DiscussCoreWeb {
                 if (this.ui.isSmall || message.isSelfAuthored) {
                     return;
                 }
-                if (channel.correspondent?.eq(this.store.odoobot) && this.store.odoobotOnboarding) {
-                    // this cancels odoobot onboarding auto-opening of chat window
-                    this.store.odoobotOnboarding = false;
+                if (channel.correspondent?.eq(this.store.weblgxbot) && this.store.weblgxbotOnboarding) {
+                    // this cancels weblgxbot onboarding auto-opening of chat window
+                    this.store.weblgxbotOnboarding = false;
                     return;
                 }
                 this.threadService.notifyMessageToUser(channel, message);
@@ -105,7 +105,7 @@ export const discussCoreWeb = {
         "ui",
     ],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

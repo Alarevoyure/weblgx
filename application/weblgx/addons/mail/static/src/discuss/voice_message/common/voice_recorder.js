@@ -1,5 +1,5 @@
-/* @odoo-module */
-import { Component, useState, onWillUnmount, status } from "@odoo/owl";
+/* @weblgx-module */
+import { Component, useState, onWillUnmount, status } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 import { _t } from "@web/core/l10n/translation";
 import { browser } from "@web/core/browser/browser";

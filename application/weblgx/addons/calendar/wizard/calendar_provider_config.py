@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models
-from odoo.addons.base.models.ir_module import assert_log_admin_access
-from odoo.tools import str2bool
+from weblgx import fields, models
+from weblgx.addons.base.models.ir_module import assert_log_admin_access
+from weblgx.tools import str2bool
 
 
 class CalendarProviderConfig(models.TransientModel):

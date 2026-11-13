@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { overlayService } from "@web/core/overlay/overlay_service";
 import { browser } from "@web/core/browser/browser";
@@ -20,7 +20,7 @@ import {
     mockTimeout,
 } from "../helpers/utils";
 
-import { Component, xml, onRendered } from "@odoo/owl";
+import { Component, xml, onRendered } from "@weblgx/owl";
 
 const systrayRegistry = registry.category("systray");
 const serviceRegistry = registry.category("services");

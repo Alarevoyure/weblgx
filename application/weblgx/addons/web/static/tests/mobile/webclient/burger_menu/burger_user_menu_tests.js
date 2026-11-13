@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ormService } from "@web/core/orm_service";
 import { registry } from "@web/core/registry";
@@ -9,7 +9,7 @@ import { userService } from "@web/core/user_service";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services";
 import { click, getFixture, mount } from "@web/../tests/helpers/utils";
-import {markup} from "@odoo/owl";
+import {markup} from "@weblgx/owl";
 
 const serviceRegistry = registry.category("services");
 const userMenuRegistry = registry.category("user_menuitems");

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, onWillRender, useState } from "@odoo/owl";
+import { Component, onWillRender, useState } from "@weblgx/owl";
 import { useDateTimePicker } from "@web/core/datetime/datetime_hook";
 import {
     areDatesEqual,

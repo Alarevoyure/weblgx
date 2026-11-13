@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { makeEnv, startServices } from "@web/env";
@@ -7,7 +7,7 @@ import { registerCleanup } from "./cleanup";
 import { makeMockServer } from "./mock_server";
 import { mocks } from "./mock_services";
 import { patchWithCleanup } from "./utils";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 function prepareRegistry(registry, keepContent = false) {
     const _addEventListener = registry.addEventListener.bind(registry);
@@ -93,14 +93,14 @@ export function prepareRegistriesWithCleanup() {
 }
 
 /**
- * @typedef {import("@web/env").OdooEnv} OdooEnv
+ * @typedef {import("@web/env").WeblgxEnv} WeblgxEnv
  */
 
 /**
  * Create a test environment
  *
  * @param {*} config
- * @returns {Promise<OdooEnv>}
+ * @returns {Promise<WeblgxEnv>}
  */
 export async function makeTestEnv(config = {}) {
     // add all missing dependencies if necessary
@@ -136,7 +136,7 @@ export async function makeTestEnv(config = {}) {
  * Create a test environment for dialog tests
  *
  * @param {*} config
- * @returns {Promise<OdooEnv>}
+ * @returns {Promise<WeblgxEnv>}
  */
 export async function makeDialogTestEnv(config = {}) {
     const env = await makeTestEnv(config);

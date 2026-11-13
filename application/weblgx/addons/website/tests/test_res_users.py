@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError
 from unittest import TestCase
 
-from odoo.tests.common import TransactionCase, new_test_user
-from odoo.exceptions import ValidationError
-from odoo.tools import mute_logger
-from odoo.service.model import retrying
-from odoo.addons.website.tools import MockRequest
+from weblgx.tests.common import TransactionCase, new_test_user
+from weblgx.exceptions import ValidationError
+from weblgx.tools import mute_logger
+from weblgx.service.model import retrying
+from weblgx.addons.website.tools import MockRequest
 
 
 class TestWebsiteResUsers(TransactionCase):
@@ -38,7 +38,7 @@ class TestWebsiteResUsers(TransactionCase):
     def test_change_login(self):
         new_test_user(self.env, login='Pou', website_id=self.website_1.id)
         user_belle = new_test_user(self.env, login='Belle', website_id=self.website_1.id)
-        with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
+        with self.assertRaises(IntegrityError), mute_logger('weblgx.sql_db'):
             user_belle.login = 'Pou'
 
     def test_change_login_no_website(self):
@@ -63,7 +63,7 @@ class TestWebsiteResUsers(TransactionCase):
         # IntegrityError. Do not use self.assertRaises as it would try
         # to create and rollback to a savepoint that is removed by the
         # rollback in retrying().
-        with TestCase.assertRaises(self, ValidationError), mute_logger('odoo.sql_db'):
+        with TestCase.assertRaises(self, ValidationError), mute_logger('weblgx.sql_db'):
             retrying(create_user_pou, env)
 
     def _create_user_via_website(self, website, login):

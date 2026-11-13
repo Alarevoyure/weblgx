@@ -1,11 +1,11 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { patch } from "@web/core/utils/patch";
 import { useDebounced } from "@web/core/utils/timing";
 import { charField, CharField } from "@web/views/fields/char/char_field";
 import { textField, TextField } from "@web/views/fields/text/text_field";
 import { archParseBoolean } from "@web/views/utils";
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@weblgx/owl";
 
 /**
  * Support a key-based onchange in text fields.

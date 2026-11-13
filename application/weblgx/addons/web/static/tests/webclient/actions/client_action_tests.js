@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -6,7 +6,7 @@ import testUtils from "@web/../tests/legacy/helpers/test_utils";
 import { click, getFixture, nextTick, patchWithCleanup } from "../../helpers/utils";
 import { createWebClient, doAction, getActionManagerServerData } from "./../helpers";
 
-import { Component, onMounted, xml } from "@odoo/owl";
+import { Component, onMounted, xml } from "@weblgx/owl";
 
 let serverData;
 let target;

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { patch } from "@web/core/utils/patch";
 import { DiscussAppCategory } from "@mail/core/common/discuss_app_category_model";

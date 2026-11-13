@@ -1,10 +1,10 @@
-# Translation of Odoo Server.
+# Translation of Web@LGX Server.
 # This file contains the translation of the following modules:
 # 	* theme_enark
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0+e\n"
+"Project-Id-Version: Web@LGX Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-28 12:21+0000\n"
 "PO-Revision-Date: 2023-09-28 12:21+0000\n"

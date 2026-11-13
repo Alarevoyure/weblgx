@@ -4,7 +4,7 @@ import re
 
 import ldap.dn
 
-from odoo import models, tools
+from weblgx import models, tools
 
 _logger = logging.getLogger(__name__)
 

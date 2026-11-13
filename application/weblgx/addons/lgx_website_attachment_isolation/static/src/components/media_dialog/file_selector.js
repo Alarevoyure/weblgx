@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { patch } from "@web/core/utils/patch";
 import { useService } from "@web/core/utils/hooks";
@@ -44,7 +44,7 @@ patch(FileSelector.prototype, {
             );
             attachments.forEach((attachment) => (attachment.mediaType = "attachment"));
         } catch (e) {
-            if (e.exceptionName !== "odoo.exceptions.AccessError") {
+            if (e.exceptionName !== "weblgx.exceptions.AccessError") {
                 throw e;
             }
         }

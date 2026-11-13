@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Domain } from "@web/core/domain";
 import { getDefaultValue } from "@web/core/tree_editor/tree_editor_value_editors";

@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import importlib.util
 import io
 import zipfile
 
-import odoo.http as http
+import weblgx.http as http
 
-from odoo.exceptions import UserError
-from odoo.http import request, content_disposition
+from weblgx.exceptions import UserError
+from weblgx.http import request, content_disposition
 
 
 class Partner(http.Controller):

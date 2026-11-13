@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { DEFAULT_AVATAR } from "@mail/core/common/persona_service";
 import { ThreadService } from "@mail/core/common/thread_service";

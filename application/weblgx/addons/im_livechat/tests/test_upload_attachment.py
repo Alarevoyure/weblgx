@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.tests.common import tagged, HttpCase
-from odoo.tools import mute_logger, file_open
+from weblgx import http
+from weblgx.tests.common import tagged, HttpCase
+from weblgx.tools import mute_logger, file_open
 
 
 @tagged("post_install", "-at_install")
@@ -23,7 +23,7 @@ class TestUploadAttachment(HttpCase):
             },
         )
         self.make_jsonrpc_request("/im_livechat/visitor_leave_session", {"uuid": channel_info["uuid"]})
-        with mute_logger("odoo.http"), file_open("addons/web/__init__.py") as file:
+        with mute_logger("weblgx.http"), file_open("addons/web/__init__.py") as file:
             response = self.url_open(
                 "/mail/attachment/upload",
                 {

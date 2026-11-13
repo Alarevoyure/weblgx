@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 """ OpenERP core library."""
 
 
 #----------------------------------------------------------
-# odoo must be a namespace package for odoo.addons to become one too
+# weblgx must be a namespace package for weblgx.addons to become one too
 # https://packaging.python.org/guides/packaging-namespace-packages/
 #----------------------------------------------------------
 import pkgutil
@@ -18,7 +18,7 @@ __path__ = [
 import sys
 MIN_PY_VERSION = (3, 10)
 MAX_PY_VERSION = (3, 13)
-assert sys.version_info > MIN_PY_VERSION, f"Outdated python version detected, Odoo requires Python >= {'.'.join(map(str, MIN_PY_VERSION))} to run."
+assert sys.version_info > MIN_PY_VERSION, f"Outdated python version detected, Web@LGX requires Python >= {'.'.join(map(str, MIN_PY_VERSION))} to run."
 
 #----------------------------------------------------------
 # Running mode flags (gevent, prefork)
@@ -36,7 +36,7 @@ if len(sys.argv) > 1 and sys.argv[1] == 'gevent':
         """A wait callback useful to allow gevent to work with Psycopg."""
         # Copyright (C) 2010-2012 Daniele Varrazzo <daniele.varrazzo@gmail.com>
         # This function is borrowed from psycogreen module which is licensed
-        # under the BSD license (see in odoo/debian/copyright)
+        # under the BSD license (see in weblgx/debian/copyright)
         while 1:
             state = conn.poll()
             if state == psycopg2.extensions.POLL_OK:
@@ -128,39 +128,6 @@ from . import fields
 from . import api
 from .tools.translate import _, _lt
 from .fields import Command
-
-#----------------------------------------------------------
-# Web@LGX package aliasing (odoo <-> weblgx)
-#----------------------------------------------------------
-def alias_module_name(name):
-    """Mirror framework modules under both odoo.* and weblgx.* names."""
-    import sys
-    if name.startswith('odoo.'):
-        alt = 'weblgx.' + name[5:]
-    elif name.startswith('weblgx.'):
-        alt = 'odoo.' + name[7:]
-    elif name == 'odoo':
-        alt = 'weblgx'
-    elif name == 'weblgx':
-        alt = 'odoo'
-    else:
-        return
-    mod = sys.modules.get(name)
-    if mod is not None and sys.modules.get(alt) is not mod:
-        sys.modules[alt] = mod
-
-
-def _alias_framework_modules():
-    import sys
-    root = __name__
-    other = 'weblgx' if root == 'odoo' else 'odoo'
-    sys.modules[other] = sys.modules[root]
-    for name in list(sys.modules):
-        if name == root or name.startswith(root + '.'):
-            alias_module_name(name)
-
-
-_alias_framework_modules()
 
 #----------------------------------------------------------
 # Other imports, which may require stuff from above

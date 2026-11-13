@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
         <template id="mail_group_footer" name="Mail Group: Footer">
             <div id="o_mg_message_footer">
@@ -19,4 +19,4 @@
             </div>
         </template>
     </data>
-</odoo>
+</weblgx>

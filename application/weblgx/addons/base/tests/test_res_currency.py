@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 from lxml import etree
-from odoo import Command
-from odoo.tests.common import TransactionCase
+from weblgx import Command
+from weblgx.tests.common import TransactionCase
 
 
 class TestResCurrency(TransactionCase):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { getFixture, patchWithCleanup, triggerEvent } from "@web/../tests/helpers/utils";
 import { browser } from "@web/core/browser/browser";
@@ -18,7 +18,7 @@ import {
     validateSearch,
 } from "./helpers";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 import { SearchBar } from "@web/search/search_bar/search_bar";
 const serviceRegistry = registry.category("services");
 

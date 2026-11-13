@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { KeepLast } from "@web/core/utils/concurrency";
 import publicWidget from '@web/legacy/js/public/public_widget';
@@ -7,7 +7,7 @@ import { isBrowserSafari } from "@web/core/browser/feature_detection";
 import { renderToElement, renderToString } from "@web/core/utils/render";
 import { debounce } from '@web/core/utils/timing';
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 
 publicWidget.registry.searchBar = publicWidget.Widget.extend({
     selector: '.o_searchbar_form',

@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ChatGPTDialog } from '@web_editor/js/wysiwyg/widgets/chatgpt_dialog';
-import { useState, status } from "@odoo/owl";
+import { useState, status } from "@weblgx/owl";
 
 export class ChatGPTAlternativesDialog extends ChatGPTDialog {
     static template = 'web_edior.ChatGPTAlternativesDialog';

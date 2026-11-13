@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import dom from "@web/legacy/js/core/dom";
 import Widget from "@web/legacy/js/core/widget";
@@ -348,7 +348,7 @@ var Dialog = Widget.extend({
      * Moves the focus to the first button primary in the footer of the dialog
      *
      * @private
-     * @param {odooEvent} e
+     * @param {weblgxEvent} e
      */
     _onFocusControlButton: function (e) {
         if (this.$footer) {

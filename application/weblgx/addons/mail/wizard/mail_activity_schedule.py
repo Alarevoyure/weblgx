@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from markupsafe import Markup
 
-from odoo import api, fields, models, _
-from odoo.addons.mail.tools.parser import parse_res_ids
-from odoo.exceptions import ValidationError
-from odoo.tools import html2plaintext
-from odoo.tools.misc import clean_context, format_date
+from weblgx import api, fields, models, _
+from weblgx.addons.mail.tools.parser import parse_res_ids
+from weblgx.exceptions import ValidationError
+from weblgx.tools import html2plaintext
+from weblgx.tools.misc import clean_context, format_date
 
 
 class MailActivitySchedule(models.TransientModel):

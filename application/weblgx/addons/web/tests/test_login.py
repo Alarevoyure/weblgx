@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import http
-from odoo.tests.common import get_db_name, HOST, HttpCase, new_test_user, Opener
+from weblgx import http
+from weblgx.tests.common import get_db_name, HOST, HttpCase, new_test_user, Opener
 
 
 class TestWebLoginCommon(HttpCase):

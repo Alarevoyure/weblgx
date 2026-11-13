@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { AnimatedNumber } from "./animated_number";
 
 export class ColumnProgress extends Component {

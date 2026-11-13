@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <record id="view_website_astuce_tree" model="ir.ui.view">
         <field name="name">website.astuce.tree</field>
         <field name="model">website.astuce</field>
@@ -93,4 +93,4 @@
             </p>
         </field>
     </record>
-</odoo>
+</weblgx>

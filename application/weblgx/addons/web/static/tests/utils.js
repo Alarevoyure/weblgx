@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { isVisible } from "@web/core/utils/ui";
 import { registerCleanup } from "@web/../tests/helpers/cleanup";

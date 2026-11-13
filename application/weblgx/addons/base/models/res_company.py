@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import logging
 import warnings
 
-from odoo import api, fields, models, tools, _, Command, SUPERUSER_ID
-from odoo.exceptions import ValidationError, UserError
-from odoo.tools import html2plaintext, file_open, ormcache
+from weblgx import api, fields, models, tools, _, Command, SUPERUSER_ID
+from weblgx.exceptions import ValidationError, UserError
+from weblgx.tools import html2plaintext, file_open, ormcache
 
 _logger = logging.getLogger(__name__)
 

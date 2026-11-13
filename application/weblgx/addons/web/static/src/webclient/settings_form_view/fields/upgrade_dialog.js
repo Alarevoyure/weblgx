@@ -1,9 +1,9 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class UpgradeDialog extends Component {
     setup() {
@@ -14,7 +14,7 @@ export class UpgradeDialog extends Component {
         const usersCount = await this.orm.call("res.users", "search_count", [
             [["share", "=", false]],
         ]);
-        window.open("https://www.loegaux.fr/odoo-enterprise/upgrade?num_users=" + usersCount, "_blank");
+        window.open("https://www.loegaux.fr/weblgx-enterprise/upgrade?num_users=" + usersCount, "_blank");
         this.props.close();
     }
 }

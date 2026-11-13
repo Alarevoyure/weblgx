@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 from werkzeug.exceptions import NotFound
 
-from odoo import http, _
-from odoo.http import Controller, request, route, content_disposition
-from odoo.tools import consteq
+from weblgx import http, _
+from weblgx.http import Controller, request, route, content_disposition
+from weblgx.tools import consteq
 
 
 class EventController(Controller):

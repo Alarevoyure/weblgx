@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { click, getFixture, patchWithCleanup } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import { NameAndSignature } from "@web/core/signature/name_and_signature";

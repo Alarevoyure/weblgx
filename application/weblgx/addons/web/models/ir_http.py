@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import hashlib
 import json
 
-import odoo
-from odoo import api, models
-from odoo.http import request, DEFAULT_MAX_CONTENT_LENGTH
-from odoo.tools import ormcache, ustr
-from odoo.tools.misc import str2bool
+import weblgx
+from weblgx import api, models
+from weblgx.http import request, DEFAULT_MAX_CONTENT_LENGTH
+from weblgx.tools import ormcache, ustr
+from weblgx.tools.misc import str2bool
 
 
 """
@@ -69,7 +69,7 @@ class Http(models.AbstractModel):
     def session_info(self):
         user = self.env.user
         session_uid = request.session.uid
-        version_info = odoo.service.common.exp_version()
+        version_info = weblgx.service.common.exp_version()
 
         if session_uid:
             user_context = dict(self.env['res.users'].context_get())
@@ -83,7 +83,7 @@ class Http(models.AbstractModel):
             'web.max_file_upload_size',
             default=DEFAULT_MAX_CONTENT_LENGTH,
         ))
-        mods = odoo.conf.server_wide_modules or []
+        mods = weblgx.conf.server_wide_modules or []
         if request.db:
             mods = list(request.registry._init_modules) + mods
         is_internal_user = user.has_group('base.group_user')
@@ -187,7 +187,7 @@ class Http(models.AbstractModel):
         if request.session.debug:
             session_info['bundle_params']['debug'] = request.session.debug
         if session_uid:
-            version_info = odoo.service.common.exp_version()
+            version_info = weblgx.service.common.exp_version()
             session_info.update({
                 'server_version': version_info.get('server_version'),
                 'server_version_info': version_info.get('server_version_info')

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     deleteConfirmationMessage,
@@ -21,7 +21,7 @@ import { CogMenu } from "@web/search/cog_menu/cog_menu";
 import { browser } from "@web/core/browser/browser";
 import { getWeekNumber } from "./utils";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 const { DateTime } = luxon;
 

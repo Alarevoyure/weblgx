@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeEnv, mountComponent, startServices } from "@web/env";
 import { registry } from "@web/core/registry";
@@ -8,7 +8,7 @@ import {
     makeTestEnv,
 } from "./helpers/mock_env";
 import { getFixture, makeDeferred, nextTick, patchWithCleanup } from "./helpers/utils";
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 
 const serviceRegistry = registry.category("services");
@@ -266,12 +266,12 @@ QUnit.test(
         }
         const app = await mountComponent(Root, getFixture());
         registerCleanup(() => {
-            delete odoo.__WOWL_DEBUG__;
+            delete weblgx.__WOWL_DEBUG__;
         });
         const { env } = app;
 
         assert.deepEqual(env.services, { my_service: "a" });
-        assert.deepEqual(odoo.__WOWL_DEBUG__, { root: app.root.component });
+        assert.deepEqual(weblgx.__WOWL_DEBUG__, { root: app.root.component });
         assert.strictEqual(getFixture().textContent, "Root");
     }
 );
@@ -301,7 +301,7 @@ QUnit.test(
         const app = await mountComponent(Root, getFixture(), { env });
         assert.verifySteps([]);
         assert.strictEqual(app.env.services, env.services);
-        assert.strictEqual(odoo.__WOWL_DEBUG__, undefined);
+        assert.strictEqual(weblgx.__WOWL_DEBUG__, undefined);
         assert.strictEqual(getFixture().textContent, "Root");
     }
 );
@@ -316,7 +316,7 @@ QUnit.test("mountComponent: can pass props to the root component", async functio
 
     await mountComponent(Root, getFixture(), { props: { text: "text from props" } });
     registerCleanup(() => {
-        delete odoo.__WOWL_DEBUG__;
+        delete weblgx.__WOWL_DEBUG__;
     });
 
     assert.strictEqual(getFixture().textContent, "text from props");

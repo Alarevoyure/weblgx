@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { Record } from "@mail/core/common/record";
 import { Thread } from "@mail/core/common/thread_model";

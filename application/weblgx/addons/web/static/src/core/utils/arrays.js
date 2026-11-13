@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { shallowEqual as _shallowEqual } from "./objects";
 

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, onError, xml, useSubEnv } from "@odoo/owl";
+import { Component, onError, xml, useSubEnv } from "@weblgx/owl";
 
 export class ErrorHandler extends Component {
     setup() {

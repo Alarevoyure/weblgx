@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models, fields, api, _
-from odoo.tools import SQL, unique
-from odoo.tools.float_utils import float_round, float_compare
-from odoo.tools.misc import flatten
-from odoo.exceptions import UserError, ValidationError
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx import models, fields, api, _
+from weblgx.tools import SQL, unique
+from weblgx.tools.float_utils import float_round, float_compare
+from weblgx.tools.misc import flatten
+from weblgx.exceptions import UserError, ValidationError
 
 class AnalyticMixin(models.AbstractModel):
     _name = 'analytic.mixin'

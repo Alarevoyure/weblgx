@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 import { DomainSelectorDialog } from "@web/core/domain_selector_dialog/domain_selector_dialog";
 import { click, dragAndDrop, getFixture, mount } from "../helpers/utils";
 import { makeDialogTestEnv } from "../helpers/mock_env";

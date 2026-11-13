@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { manageMessages } from "@mail/js/tools/debug_manager";
 
@@ -13,7 +13,7 @@ import {
 QUnit.module("debug menu");
 
 QUnit.test("Manage Messages", async (assert) => {
-    patchWithCleanup(odoo, { debug: "1" });
+    patchWithCleanup(weblgx, { debug: "1" });
     const serverData = getActionManagerServerData();
     // Add fake "mail.message" model and arch
     serverData.models["mail.message"] = {

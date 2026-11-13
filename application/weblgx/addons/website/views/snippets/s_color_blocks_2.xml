@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template name="Big Boxes" id="s_color_blocks_2">
     <section class="s_color_blocks_2">
@@ -27,4 +27,4 @@
     <path>website/static/src/snippets/s_color_blocks_2/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

@@ -7,8 +7,8 @@ import os
 import re
 
 from lxml import etree
-from odoo import tools
-from odoo.osv.expression import DOMAIN_OPERATORS
+from weblgx import tools
+from weblgx.osv.expression import DOMAIN_OPERATORS
 
 _logger = logging.getLogger(__name__)
 

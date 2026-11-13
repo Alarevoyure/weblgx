@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeFakeLocalizationService, makeMockXHR } from "@web/../tests/helpers/mock_services";
 import {

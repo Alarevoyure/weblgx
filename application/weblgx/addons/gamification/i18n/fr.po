@@ -8,15 +8,15 @@
 # Martin Trigaux, 2024
 # Manon Rondou, 2024
 #
-# "Manon Rondou (ronm)" <ronm@odoo.com>, 2025.
+# "Manon Rondou (ronm)" <ronm@weblgx.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2025-08-28 01:40+0000\n"
-"Last-Translator: \"Manon Rondou (ronm)\" <ronm@odoo.com>\n"
-"Language-Team: French <https://translate.odoo.com/projects/odoo-17/"
+"Last-Translator: \"Manon Rondou (ronm)\" <ronm@weblgx.com>\n"
+"Language-Team: French <https://translate.weblgx.com/projects/weblgx-17/"
 "gamification/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -33,14 +33,14 @@ msgid "# Users"
 msgstr "# Utilisateurs"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid "%s has joined the challenge"
 msgstr "%s a rejoint le défi"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid "%s has refused the challenge"
@@ -341,7 +341,7 @@ msgid ""
 "590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-"
 "collapse:separate;\">\n"
 "      <tr><td style=\"text-align: center; font-size: 14px;\">\n"
-"        Powered by <a target=\"_blank\" href=\"https://www.odoo.com?"
+"        Powered by <a target=\"_blank\" href=\"https://www.weblgx.com?"
 "utm_source=db&amp;utm_medium=gamification\" style=\"color: #875A7B;\">Weblgx</"
 "a>\n"
 "      </td></tr>\n"
@@ -473,7 +473,7 @@ msgstr ""
 "590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-"
 "collapse:separate;\">\n"
 "      <tr><td style=\"text-align: center; font-size: 14px;\">\n"
-"        Généré par <a target=\"_blank\" href=\"https://www.odoo.com?"
+"        Généré par <a target=\"_blank\" href=\"https://www.weblgx.com?"
 "utm_source=db&amp;utm_medium=gamification\" style=\"color: #875A7B;\">Weblgx</"
 "a>\n"
 "      </td></tr>\n"
@@ -1175,7 +1175,7 @@ msgid "Active"
 msgstr "Actif"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_karma_tracking.py:0
 #: code:addons/gamification/models/res_users.py:0
 #: code:addons/gamification/tests/test_karma_tracking.py:0
@@ -1329,7 +1329,7 @@ msgid "Can not grant"
 msgstr "Impossible de délivrer"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_goal.py:0
 #, python-format
 msgid "Can not modify the configuration of a started goal"
@@ -1442,7 +1442,7 @@ msgid "Consolidated"
 msgstr "Consolidé"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_karma_tracking.py:0
 #, python-format
 msgid "Consolidation from %s to %s"
@@ -2144,7 +2144,7 @@ msgid "Karma Tracking"
 msgstr "Suivi de karma"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/res_users.py:0
 #, python-format
 msgid "Karma Updates"
@@ -2375,7 +2375,7 @@ msgid "No one, assigned through challenges"
 msgstr "Personne, attribué par les défis"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid ""
@@ -2386,7 +2386,7 @@ msgstr ""
 "défi."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid "Nobody reached the required conditions to receive special badges."
@@ -2678,7 +2678,7 @@ msgid "Responsible"
 msgstr "Responsable"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid "Retrieving progress for personal challenge without user information"
@@ -2691,7 +2691,7 @@ msgid "Reward"
 msgstr "Récompense"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid ""
@@ -2873,7 +2873,7 @@ msgid "Source Type"
 msgstr "Type de source"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid ""
@@ -2951,7 +2951,7 @@ msgid "Target: less than"
 msgstr "Cible : inférieur à"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/tests/test_karma_tracking.py:0
 #, python-format
 msgid "Test Reason"
@@ -2964,7 +2964,7 @@ msgstr ""
 "L'action qui sera appelée pour à mettre à jour la valeur de l'objectif."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid "The challenge %s is finished."
@@ -3001,7 +3001,7 @@ msgstr ""
 "de périodicité, la date de début de l'objectif sera utilisée."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_goal_definition.py:0
 #, python-format
 msgid ""
@@ -3053,7 +3053,7 @@ msgid "The maximum number of time this badge can be sent per month per person."
 msgstr "Le nombre maximum d'envois de ce badge par mois et par personne."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_goal_definition.py:0
 #, python-format
 msgid ""
@@ -3068,7 +3068,7 @@ msgstr ""
 "%(error)s non trouvé"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_goal_definition.py:0
 #, python-format
 msgid ""
@@ -3172,7 +3172,7 @@ msgstr ""
 " Assurez-vous que votre défi est actif et assigné à au moins un utilisateur."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_badge.py:0
 #, python-format
 msgid "This badge can not be sent by users."
@@ -3240,14 +3240,14 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_goal.py:0
 #, python-format
 msgid "Update %s"
 msgstr "Mettre à jour %s"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_karma_tracking.py:0
 #: model:ir.model,name:gamification.model_res_users
 #: model:ir.model.fields,field_description:gamification.field_gamification_badge_user__user_id
@@ -3260,7 +3260,7 @@ msgid "User"
 msgstr "Utilisateur"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/res_users.py:0
 #, python-format
 msgid "User Creation"
@@ -3317,21 +3317,21 @@ msgid "Yearly"
 msgstr "Annuel"
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_badge.py:0
 #, python-format
 msgid "You are not in the user allowed list."
 msgstr "Vous ne faites pas partie des utilisateurs autorisés."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/wizard/grant_badge.py:0
 #, python-format
 msgid "You can not grant a badge to yourself."
 msgstr "Vous ne pouvez pas vous délivrer un badge à vous-même."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_challenge.py:0
 #, python-format
 msgid "You can not reset a challenge with unfinished goals."
@@ -3349,14 +3349,14 @@ msgid "You did great at your job."
 msgstr "Vous avez fait du bon travail."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_badge.py:0
 #, python-format
 msgid "You do not have the required badges."
 msgstr "Vous ne possédez pas les badges requis."
 
 #. module: gamification
-#. odoo-python
+#. weblgx-python
 #: code:addons/gamification/models/gamification_badge.py:0
 #, python-format
 msgid "You have already sent this badge too many time this month."

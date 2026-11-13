@@ -1,5 +1,5 @@
 {%- set countryPascal = name|pascal -%}
-<odoo>
+<weblgx>
     <record id="l10n_{{code}}_action_report_payslip_{{code}}" model="ir.actions.report">
         <field name="name">{{countryPascal}}: Payslip</field>
         <field name="model">hr.payslip</field>
@@ -13,4 +13,4 @@
         <field name="attachment"></field>
         <field name="attachment_use" eval="False"/>
     </record>
-</odoo>
+</weblgx>

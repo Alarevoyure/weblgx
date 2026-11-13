@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, reactive, useState, xml } from "@odoo/owl";
+import { Component, reactive, useState, xml } from "@weblgx/owl";
 import { clearRegistryWithCleanup, makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services";
 import { editInput, getFixture, mount, nextTick } from "@web/../tests/helpers/utils";

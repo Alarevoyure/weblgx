@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { AND, Record } from "@mail/core/common/record";
 import { ScrollPosition } from "@mail/core/common/scroll_position";
@@ -226,9 +226,9 @@ export class Thread extends Record {
     isAdmin = false;
     loadOlder = false;
     loadNewer = false;
-    isCorrespondentOdooBot = Record.attr(undefined, {
+    isCorrespondentWeblgxBot = Record.attr(undefined, {
         compute() {
-            return this.correspondent2?.eq(this._store.odoobot);
+            return this.correspondent2?.eq(this._store.weblgxbot);
         },
     });
     isLoadingAttachments = false;
@@ -371,7 +371,7 @@ export class Thread extends Record {
     get allowCalls() {
         return (
             this.typesAllowingCalls.includes(this.type) &&
-            !this.correspondent?.eq(this._store.odoobot)
+            !this.correspondent?.eq(this._store.weblgxbot)
         );
     }
 

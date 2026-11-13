@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<weblgx>
     <data noupdate="1">
         <!-- No default blog: each website creates its own. A blog without website_id would be visible on every site. -->
 
@@ -27,4 +27,4 @@
         </record>
 
     </data>
-</odoo>
+</weblgx>

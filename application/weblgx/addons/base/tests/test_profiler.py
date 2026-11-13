@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import sys
 import time
 
 from unittest.mock import patch
 
-from odoo.exceptions import AccessError
-from odoo.tests.common import BaseCase, TransactionCase, tagged, new_test_user
-from odoo.tools import profiler
-from odoo.tools.profiler import Profiler, ExecutionContext
-from odoo.tools.speedscope import Speedscope
+from weblgx.exceptions import AccessError
+from weblgx.tests.common import BaseCase, TransactionCase, tagged, new_test_user
+from weblgx.tools import profiler
+from weblgx.tools.profiler import Profiler, ExecutionContext
+from weblgx.tools.speedscope import Speedscope
 
 
 @tagged('post_install', '-at_install', 'profiling')
@@ -536,7 +536,7 @@ class TestProfiling(TransactionCase):
         self.addCleanup(self.registry.leave_test_mode)
         # Trick: patch db_connect() to make it return the registry with the current test cursor
         # See `ProfilingHttpCase`
-        self.startClassPatcher(patch('odoo.sql_db.db_connect', return_value=self.registry))
+        self.startClassPatcher(patch('weblgx.sql_db.db_connect', return_value=self.registry))
         with self.profile(collectors=["sql"]) as p:
             self.env.cr.execute("SELECT 1")
         p.json()  # check we can call it

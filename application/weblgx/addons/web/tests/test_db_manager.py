@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import operator
 import re
@@ -9,9 +9,9 @@ from unittest.mock import patch
 
 import requests
 
-import odoo
-from odoo.tests.common import BaseCase, HttpCase, tagged
-from odoo.tools import config
+import weblgx
+from weblgx.tests.common import BaseCase, HttpCase, tagged
+from weblgx.tools import config
 
 
 class TestDatabaseManager(HttpCase):
@@ -38,7 +38,7 @@ class TestDatabaseOperations(BaseCase):
 
         # monkey-patch password verification
         self.verify_admin_password_patcher = patch(
-            'odoo.tools.config.verify_admin_password', self.password.__eq__,
+            'weblgx.tools.config.verify_admin_password', self.password.__eq__,
         )
         self.startPatcher(self.verify_admin_password_patcher)
 
@@ -61,7 +61,7 @@ class TestDatabaseOperations(BaseCase):
         )
 
     def list_dbs_filtered(self):
-        return set(db for db in odoo.service.db.list_dbs(True) if re.match(config['dbfilter'], db))
+        return set(db for db in weblgx.service.db.list_dbs(True) if re.match(config['dbfilter'], db))
 
     def url(self, path):
         return HttpCase.base_url() + path
@@ -79,7 +79,7 @@ class TestDatabaseOperations(BaseCase):
 
     def test_database_creation(self):
         # check verify_admin_password patch
-        self.assertTrue(odoo.tools.config.verify_admin_password(self.password))
+        self.assertTrue(weblgx.tools.config.verify_admin_password(self.password))
 
         # create a database
         test_db_name = self.db_name + '-test-database-creation'
@@ -146,7 +146,7 @@ class TestDatabaseOperations(BaseCase):
 
         # upload the backup under a new name (create a duplicate)
         with self.subTest(DEFAULT_MAX_CONTENT_LENGTH=None), \
-             patch.object(odoo.http, 'DEFAULT_MAX_CONTENT_LENGTH', None):
+             patch.object(weblgx.http, 'DEFAULT_MAX_CONTENT_LENGTH', None):
             backup_file.seek(0)
             self.session.post(
                 self.url('/web/database/restore'),
@@ -167,7 +167,7 @@ class TestDatabaseOperations(BaseCase):
         # too large under the default size limit, the default size limit
         # shouldn't apply to /web/database URLs
         with self.subTest(DEFAULT_MAX_CONTENT_LENGTH=1024), \
-             patch.object(odoo.http, 'DEFAULT_MAX_CONTENT_LENGTH', 1024):
+             patch.object(weblgx.http, 'DEFAULT_MAX_CONTENT_LENGTH', 1024):
             backup_file.seek(0)
             self.session.post(
                 self.url('/web/database/restore'),

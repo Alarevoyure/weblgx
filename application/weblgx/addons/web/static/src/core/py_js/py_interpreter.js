@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { BUILTINS, EvaluationError, execOnIterable } from "./py_builtin";
 import {

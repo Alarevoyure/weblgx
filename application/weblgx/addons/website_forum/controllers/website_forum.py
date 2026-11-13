@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import json
 import logging
 
@@ -9,13 +9,13 @@ import werkzeug.exceptions
 import werkzeug.urls
 import werkzeug.wrappers
 
-from odoo import _, http, tools
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.website.models.ir_http import sitemap_qs2dom
-from odoo.addons.website_profile.controllers.main import WebsiteProfile
-from odoo.exceptions import AccessError, UserError
-from odoo.http import request
-from odoo.osv import expression
+from weblgx import _, http, tools
+from weblgx.addons.http_routing.models.ir_http import slug
+from weblgx.addons.website.models.ir_http import sitemap_qs2dom
+from weblgx.addons.website_profile.controllers.main import WebsiteProfile
+from weblgx.exceptions import AccessError, UserError
+from weblgx.http import request
+from weblgx.osv import expression
 
 _logger = logging.getLogger(__name__)
 

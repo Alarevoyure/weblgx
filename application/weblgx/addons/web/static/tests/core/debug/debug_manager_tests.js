@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { DebugMenu } from "@web/core/debug/debug_menu";
@@ -38,7 +38,7 @@ import {
 } from "@web/views/debug_items";
 import { fieldService } from "@web/core/field_service";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 export class DebugMenuParent extends Component {
     setup() {
@@ -236,7 +236,7 @@ QUnit.module("DebugMenu", (hooks) => {
                     useDebugCategory("custom", { customKey: "abc" });
                 }
             }
-            patchWithCleanup(odoo, { debug: "1" });
+            patchWithCleanup(weblgx, { debug: "1" });
             const env = await makeTestEnv(testConfig);
             env.dialogData = {
                 isActive: true,
@@ -320,7 +320,7 @@ QUnit.module("DebugMenu", (hooks) => {
         prepareRegistriesWithCleanup();
         registry.category("services").add("company", fakeCompanyService);
 
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -363,7 +363,7 @@ QUnit.module("DebugMenu", (hooks) => {
 
     QUnit.test("get view: basic rendering", async (assert) => {
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -404,7 +404,7 @@ QUnit.module("DebugMenu", (hooks) => {
         };
         prepareRegistriesWithCleanup();
 
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -454,7 +454,7 @@ QUnit.module("DebugMenu", (hooks) => {
         prepareRegistriesWithCleanup();
         registry.category("services").add("company", fakeCompanyService);
 
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -505,7 +505,7 @@ QUnit.module("DebugMenu", (hooks) => {
             }
         };
 
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -553,7 +553,7 @@ QUnit.module("DebugMenu", (hooks) => {
             };
             prepareRegistriesWithCleanup();
 
-            patchWithCleanup(odoo, {
+            patchWithCleanup(weblgx, {
                 debug: true,
             });
             registry.category("debug").category("view").add("editSearchViewItem", editSearchView);
@@ -570,7 +570,7 @@ QUnit.module("DebugMenu", (hooks) => {
 
     QUnit.test("set defaults: basic rendering", async (assert) => {
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -618,7 +618,7 @@ QUnit.module("DebugMenu", (hooks) => {
 
     QUnit.test("set defaults: click close", async (assert) => {
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -667,7 +667,7 @@ QUnit.module("DebugMenu", (hooks) => {
         assert.expect(3);
 
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -719,7 +719,7 @@ QUnit.module("DebugMenu", (hooks) => {
 
     QUnit.test("fetch raw data: basic rendering", async (assert) => {
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -760,7 +760,7 @@ QUnit.module("DebugMenu", (hooks) => {
 
     QUnit.test("view metadata: basic rendering", async (assert) => {
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -830,7 +830,7 @@ QUnit.module("DebugMenu", (hooks) => {
         assert.expect(7);
 
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -904,7 +904,7 @@ QUnit.module("DebugMenu", (hooks) => {
 
     QUnit.test("set defaults: settings default value for a very long value", async (assert) => {
         prepareRegistriesWithCleanup();
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
         registry.category("services").add("user", makeFakeUserService());

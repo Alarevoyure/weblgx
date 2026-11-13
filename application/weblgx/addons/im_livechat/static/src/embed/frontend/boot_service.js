@@ -1,10 +1,10 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { makeRoot, makeShadow } from "@im_livechat/embed/common/boot_helpers";
 import { LivechatRoot } from "@im_livechat/embed/frontend/livechat_root";
 import { isAvailable } from "@im_livechat/embed/common/livechat_data";
 import { _t } from "@web/core/l10n/translation";
-import { App } from "@odoo/owl";
+import { App } from "@weblgx/owl";
 
 import { templates } from "@web/core/assets";
 import { registry } from "@web/core/registry";

@@ -4,11 +4,11 @@ import os
 from markupsafe import Markup
 from math import ceil
 
-from odoo import api, fields, models, tools
+from weblgx import api, fields, models, tools
 
-from odoo.addons.base.models.ir_qweb_fields import nl2br
-from odoo.tools import html2plaintext, is_html_empty
-from odoo.tools.misc import file_path
+from weblgx.addons.base.models.ir_qweb_fields import nl2br
+from weblgx.tools import html2plaintext, is_html_empty
+from weblgx.tools.misc import file_path
 
 try:
     import sass as libsass
@@ -281,7 +281,7 @@ class BaseDocumentLayout(models.TransientModel):
     def _compile_scss(self, scss_source):
         """
         This code will compile valid scss into css.
-        Parameters are the same from odoo/addons/base/models/assetsbundle.py
+        Parameters are the same from weblgx/addons/base/models/assetsbundle.py
         Simply copied and adapted slightly
         """
 

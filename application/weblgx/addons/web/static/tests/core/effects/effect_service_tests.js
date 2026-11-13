@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { notificationService } from "@web/core/notifications/notification_service";
 import { registry } from "@web/core/registry";
@@ -16,7 +16,7 @@ import {
     patchWithCleanup,
 } from "../../helpers/utils";
 
-import { Component, markup, xml } from "@odoo/owl";
+import { Component, markup, xml } from "@weblgx/owl";
 import { MainComponentsContainer } from "@web/core/main_components_container";
 const serviceRegistry = registry.category("services");
 

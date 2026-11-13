@@ -1,7 +1,7 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Discuss } from "@mail/core/common/discuss";
-import { useChildSubEnv, useEffect, useState } from "@odoo/owl";
+import { useChildSubEnv, useEffect, useState } from "@weblgx/owl";
 
 import { patch } from "@web/core/utils/patch";
 

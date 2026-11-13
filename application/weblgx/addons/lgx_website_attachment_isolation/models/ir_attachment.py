@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models
-from odoo.osv import expression
+from weblgx import api, models
+from weblgx.osv import expression
 
 
 class IrAttachment(models.Model):

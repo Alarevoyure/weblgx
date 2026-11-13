@@ -3,15 +3,15 @@
 # * base
 #
 # Translators:
-# Martin Trigaux <mat@odoo.com>, 2017
+# Martin Trigaux <mat@weblgx.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Weblgx Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-16 15:09+0000\n"
 "PO-Revision-Date: 2017-11-08 13:21+0000\n"
-"Last-Translator: Martin Trigaux <mat@odoo.com>, 2017\n"
-"Language-Team: French (Canada) (https://www.transifex.com/odoo/teams/41243/fr_CA/)\n"
+"Last-Translator: Martin Trigaux <mat@weblgx.com>, 2017\n"
+"Language-Team: French (Canada) (https://www.transifex.com/weblgx/teams/41243/fr_CA/)\n"
 "Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -282,13 +282,13 @@ msgid ""
 "\n"
 "* Fiscal positions '内税' and '外税' have been added to handle special requirements which might arise from POS implementation. [1]  Under normal circumstances, you might not need to use those at all.\n"
 "\n"
-"[1] See https://github.com/odoo/odoo/pull/6470 for detail.\n"
+"[1] See https://github.com/weblgx/weblgx/pull/6470 for detail.\n"
 "\n"
 "    "
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid ""
@@ -1615,10 +1615,10 @@ msgid ""
 "\n"
 "    * the factur-x doc (form the FNFE)\n"
 "    * the peppol-bis-invoice-3 doc (the github repository: https://github.com/OpenPEPPOL/peppol-bis-invoice-3/tree/master/rules/examples contains examples)\n"
-"    * odoo, these files pass all validation tests (using ecosio or the FNFE validator)\n"
+"    * weblgx, these files pass all validation tests (using ecosio or the FNFE validator)\n"
 "\n"
 "    We test that the external examples are correctly imported (currency, total amount and total tax match).\n"
-"    We also test that generating xml from odoo with given parameters gives exactly the same xml as the expected,\n"
+"    We also test that generating xml from weblgx with given parameters gives exactly the same xml as the expected,\n"
 "    valid ones.\n"
 "    "
 msgstr ""
@@ -2917,7 +2917,7 @@ msgid ""
 "\n"
 "Legal\n"
 "-----\n"
-"**The use of pos_blackbox_be sources is only certified on odoo.com SaaS platform\n"
+"**The use of pos_blackbox_be sources is only certified on weblgx.com SaaS platform\n"
 "for version 13.0.** Contact Weblgx SA before installing pos_blackbox_be module.\n"
 "\n"
 "An obfuscated and certified version of the pos_blackbox_be may be provided on\n"
@@ -3747,7 +3747,7 @@ msgid ""
 "For auditing and troubleshooting purposes we also add a menu \"Consulit Invoice in AFIP\" that let us to consult invoices previously\n"
 "sent to AFIP and last number used as support for any possible issues on the sequences synchronization between Weblgx and AFIP.\n"
 "\n"
-"    NOTE: From the Journal's form view we are able to force a sync between the odoo sequences to each of the document types in\n"
+"    NOTE: From the Journal's form view we are able to force a sync between the weblgx sequences to each of the document types in\n"
 "    with the last numbers registered in AFIP.\n"
 "\n"
 "From vendor bills, we have added a functionality that can be configured in the accounting settings to be able to verify\n"
@@ -4205,9 +4205,9 @@ msgid ""
 "Step 1: First you need to create an API username and password in the E-invoice portal.\n"
 "Step 2: Switch to company related to that GST number\n"
 "Step 3: Set that username and password in Weblgx (Goto: Invoicing/Accounting -> Configuration -> Settings -> Customer Invoices or find \"E-invoice\" in search bar)\n"
-"Step 4: Repeat steps 1,2,3 for all GSTIN you have in odoo. If you have a multi-company with the same GST number then perform step 1 for the first company only.\n"
+"Step 4: Repeat steps 1,2,3 for all GSTIN you have in weblgx. If you have a multi-company with the same GST number then perform step 1 for the first company only.\n"
 "\n"
-"For the creation of API username and password please ref this document: <https://service.odoo.co.in/einvoice_create_api_user>\n"
+"For the creation of API username and password please ref this document: <https://service.weblgx.co.in/einvoice_create_api_user>\n"
 "    "
 msgstr ""
 
@@ -4223,7 +4223,7 @@ msgid ""
 "Step 1: First you need to create an API username and password in the E-waybill portal.\n"
 "Step 2: Switch to company related to that GST number\n"
 "Step 3: Set that username and password in Weblgx (Goto: Invoicing/Accounting -> Configration -> Settings -> Indian Electronic WayBill or find \"E-waybill\" in search bar)\n"
-"Step 4: Repeat steps 1,2,3 for all GSTIN you have in odoo. If you have a multi-company with the same GST number then perform step 1 for the first company only.\n"
+"Step 4: Repeat steps 1,2,3 for all GSTIN you have in weblgx. If you have a multi-company with the same GST number then perform step 1 for the first company only.\n"
 "    "
 msgstr ""
 
@@ -6092,7 +6092,7 @@ msgid ""
 "rejestrów podatkowych. Moduł ustawia też konta do kupna i sprzedaży towarów\n"
 "zakładając, że wszystkie towary są w obrocie hurtowym.\n"
 "\n"
-"Niniejszy moduł jest przeznaczony dla odoo 8.0.\n"
+"Niniejszy moduł jest przeznaczony dla weblgx 8.0.\n"
 "Wewnętrzny numer wersji OpenGLOBE 1.02\n"
 "    "
 msgstr ""
@@ -6279,7 +6279,7 @@ msgid ""
 "will add their specific templates and controllers to extend the customer\n"
 "portal.\n"
 "\n"
-"This module contains most code coming from odoo v10 website_portal. Purpose\n"
+"This module contains most code coming from weblgx v10 website_portal. Purpose\n"
 "of this module is to allow the display of a customer portal without having\n"
 "a dependency towards website editing and customization capabilities."
 msgstr ""
@@ -7218,7 +7218,7 @@ msgid " This is the base module to manage chart of accounts and localization for
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "\"group_by\" value must be a string %(attribute)s=%(value)r"
@@ -7253,7 +7253,7 @@ msgid ""
 "## Merge details\n"
 "\n"
 "The first version of the module was specified in task\n"
-"[2802678](https://www.loegaux.fr/web#id=2802678&model=project.task) and merged with PR odoo/odoo#95860\n"
+"[2802678](https://www.loegaux.fr/web#id=2802678&model=project.task) and merged with PR weblgx/weblgx#95860\n"
 "in `saas-15.5`.\n"
 "\n"
 "## Testing instructions\n"
@@ -7292,7 +7292,7 @@ msgid ""
 "\n"
 "The first version of the module was specified in task\n"
 "[2845428](https://www.loegaux.fr/web#id=2845428&model=project.task) and merged with PR\n"
-"odoo/odoo#98441 in `saas-15.5`.\n"
+"weblgx/weblgx#98441 in `saas-15.5`.\n"
 "\n"
 "## Testing instructions\n"
 "\n"
@@ -7333,7 +7333,7 @@ msgid ""
 "\n"
 "The first version of the module was specified in task\n"
 "[2759117](https://www.loegaux.fr/web#id=2759117&model=project.task) and merged with PR\n"
-"odoo/odoo#84820 in `saas-15.4`.\n"
+"weblgx/weblgx#84820 in `saas-15.4`.\n"
 "\n"
 "## Testing instructions\n"
 "\n"
@@ -7384,7 +7384,7 @@ msgid ""
 "\n"
 "The first version of the module was specified in task\n"
 "[2704764](https://www.loegaux.fr/web#id=2704764&model=project.task) and merged with PR\n"
-"odoo/odoo#83957 in `saas-15.5`.\n"
+"weblgx/weblgx#83957 in `saas-15.5`.\n"
 "\n"
 "## Testing instructions\n"
 "\n"
@@ -7422,7 +7422,7 @@ msgid ""
 "\n"
 "The first version of the module was specified in task\n"
 "[2800823](https://www.loegaux.fr/web#id=2800823&model=project.task) and merged with PR\n"
-"odoo/odoo#92848 in `saas-15.5`.\n"
+"weblgx/weblgx#92848 in `saas-15.5`.\n"
 "\n"
 "## Testing instructions\n"
 "\n"
@@ -7443,35 +7443,35 @@ msgid "#{alt}"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "%(action_name)s is not a valid action on %(model_name)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "%(attribute)r value must be an integer (%(value)s)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid "%(company_currency_name)s per %(rate_currency_name)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "%(method)s on %(model)s is private and cannot be called from a button"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0 code:addons/models.py:0
 #, python-format
 msgid ""
@@ -7481,14 +7481,14 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid "%(rate_currency_name)s per %(company_currency_name)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "%(xmlid)s is of type %(xmlid_model)s, expected a subclass of ir.actions.actions"
@@ -7560,14 +7560,14 @@ msgid "%p - Equivalent of either AM or PM.\""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "%s (Dedicated Outgoing Mail Server):"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_filters.py:0
 #: code:addons/base/models/res_partner.py:0
 #: code:addons/base/models/res_users.py:0
@@ -7576,7 +7576,7 @@ msgid "%s (copy)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid "%s per Unit"
@@ -7604,42 +7604,42 @@ msgid "&amp;nbsp;"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be a number for field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be a valid JSON for field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be a valid date for field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be a valid datetime for field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be an integer for field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0
 #, python-format
 msgid "(Record: %s, User: %s)"
@@ -7666,7 +7666,7 @@ msgid ", required"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "- %(record)r belongs to company %(company)r and %(field)r (%(fname)s: %(values)s) belongs to another company."
@@ -7685,7 +7685,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "- Record is company %(company)r and %(field)r (%(fname)s: %(values)s) belongs to another company."
@@ -8539,7 +8539,7 @@ msgid "A - AGRICULTURE, FORESTRY AND FISHING"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "A <graph> can only contains <field> nodes, found a <%s>"
@@ -8717,7 +8717,7 @@ msgid "A user without any rights on Time Off will be able to see the application
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "A valid email is required for find_or_create to work properly."
@@ -8789,7 +8789,7 @@ msgid "API Key Description"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "API Key Ready"
@@ -8817,7 +8817,7 @@ msgid "API Keys are used to connect to Weblgx from external tools without the ne
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0
 #, python-format
 msgid "ASCII characters are required for %s in %s"
@@ -8855,7 +8855,7 @@ msgid "Access Menu"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #: model:ir.actions.act_window,name:base.ir_access_act
 #: model:ir.ui.menu,name:base.menu_ir_access_act
@@ -8907,7 +8907,7 @@ msgid "Access to export feature"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/api.py:0
 #, python-format
 msgid "Access to unauthorized or invalid companies."
@@ -9122,7 +9122,7 @@ msgid "Action"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Action %(action_reference)s (id: %(action_id)s) does not exist for button of type action."
@@ -9360,14 +9360,14 @@ msgid "Add crm UTM info on social"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Add direction"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Add directional information (not used for digital)"
@@ -9452,7 +9452,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model_terms:ir.ui.view,arch_db:base.contact
 #: model_terms:ir.ui.view,arch_db:base.no_contact
@@ -9481,7 +9481,7 @@ msgid "Address format..."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Address separator"
@@ -9617,7 +9617,7 @@ msgid "Administrative/Utilities"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Administrator access is required to uninstall a module"
@@ -9736,7 +9736,7 @@ msgid "All"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_partner_merge.py:0
 #, python-format
 msgid "All contacts must have the same email. Only the Administrator can merge contacts with different emails."
@@ -9876,7 +9876,7 @@ msgid "Amazon/TaxCloud Bridge"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Ambiguous specification for field '%(field)s', only provide one of name, external id or database id"
@@ -9908,7 +9908,7 @@ msgid "An Irish-American payment provider covering the US and many others."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -9917,7 +9917,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -9936,14 +9936,14 @@ msgid "An auto-installable module is automatically installed by the system when 
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "An email is required for find_or_create to work"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -9998,7 +9998,7 @@ msgid "Anguilla"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Another user already has this barcode"
@@ -10043,7 +10043,7 @@ msgid "Apply"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #: model:ir.actions.act_window,name:base.action_view_base_module_upgrade
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_upgrade_install
@@ -10319,7 +10319,7 @@ msgid "Associated reports"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "At least one language must be active."
@@ -10373,7 +10373,7 @@ msgid "Attract visitors to subscribe to mailing lists"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Attribute %(attribute)s evaluation expects a boolean, got %(value)s"
@@ -10420,7 +10420,7 @@ msgid "Austrian Standardized Charts & Tax"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -10651,7 +10651,7 @@ msgid "Background Image"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/translate.py:0
 #, python-format
 msgid "Bad file format: %s"
@@ -10748,7 +10748,7 @@ msgid "Barcode"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Barcode %s"
@@ -10775,14 +10775,14 @@ msgid "Barcode for Batch Transfer"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Barcode symbology"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Barcode type, eg: UPCA, EAN13, Code128"
@@ -10822,7 +10822,7 @@ msgid "Base Import Tests: Ensure Flow Robustness"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Base Language 'en_US' can not be deleted."
@@ -10871,12 +10871,12 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_web_grid
-msgid "Basic 2D Grid view for odoo"
+msgid "Basic 2D Grid view for weblgx"
 msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_web_cohort
-msgid "Basic Cohort view for odoo"
+msgid "Basic Cohort view for weblgx"
 msgstr ""
 
 #. module: base
@@ -11392,7 +11392,7 @@ msgid "Burundi"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Button must have a name"
@@ -11404,7 +11404,7 @@ msgid "By"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "By default the widget uses the field information"
@@ -11507,28 +11507,28 @@ msgid "Cameroon"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Can not create Many-To-One records indirectly, import the field separately"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Can not upgrade module '%s'. It is not installed."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Can only rename one field at a time!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Can't compare more than two views."
@@ -11589,42 +11589,42 @@ msgid "Cancel Upgrade"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/assetsbundle.py:0
 #, python-format
 msgid "Cannot create %r because the template to inherit %r is not found."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Cannot create new '%s' records from their name alone. Please create those records manually and try importing again."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Cannot deactivate a language that is currently used by contacts."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Cannot deactivate a language that is currently used by users."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid "Cannot duplicate configuration!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Cannot rename/delete fields that are still present in views:"
@@ -11720,28 +11720,28 @@ msgid "Change the way addresses are displayed in reports"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Changing the company of a contact should only be done if it was never correctly set. If an existing contact starts working for a new company then a new contact should be created under that new company. You can use the \"Discard\" button to abandon this change."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Changing the model of a field is forbidden!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Changing the type of a field is not yet supported. Please drop it and create it again!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Changing to 12-hour clock format instead."
@@ -12064,7 +12064,7 @@ msgid "Comm10E 25  105 x 241 mm, U.S. Common 10 Envelope"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Comma"
@@ -12122,7 +12122,7 @@ msgid "Companies count"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields,field_description:base.field_ir_attachment__company_id
 #: model:ir.model.fields,field_description:base.field_ir_default__company_id
@@ -12143,7 +12143,7 @@ msgid "Company"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Company %(company_name)s is not in the allowed companies for user %(user_name)s (%(company_allowed)s)."
@@ -12218,7 +12218,7 @@ msgid "Company Type"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Company used for the original currency (only used for t-esc). By default use the user company"
@@ -12378,7 +12378,7 @@ msgid "Connect the Web Client to Hardware Peripherals"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -12397,7 +12397,7 @@ msgid "Connection Encryption"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -12406,7 +12406,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Connection Test Successful!"
@@ -12504,7 +12504,7 @@ msgid "Contact image"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0 code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Contact your administrator to request access if necessary."
@@ -12610,7 +12610,7 @@ msgid "Costa Rica - Accounting"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -12619,7 +12619,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Couldn't create contact without email address!"
@@ -13182,7 +13182,7 @@ msgid "Currency sign, to be used when printing amounts."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Current Arch"
@@ -13233,7 +13233,7 @@ msgid "Custom View"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Custom fields must have a name that starts with 'x_'!"
@@ -13346,7 +13346,7 @@ msgid "DLE 26 110 x 220 mm"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Dash"
@@ -13409,7 +13409,7 @@ msgid "Database Structure"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields,field_description:base.field_res_currency__date
 #: model:ir.model.fields,field_description:base.field_res_currency_rate__name
@@ -13427,42 +13427,42 @@ msgid "Date Format"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Date format"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Date to compare with the field value, by default use the current date."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Date unit"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Date unit used for comparison and formatting"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Date unit used for the rounding. The value must be smaller than 'hour' if you use the digital formatting."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Date used for the original currency (only used for t-esc). by default use the current date."
@@ -13518,7 +13518,7 @@ msgid "Decimal places taken into account for operations on amounts in this curre
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Decimalized number"
@@ -13588,7 +13588,7 @@ msgstr ""
 #: model:ir.model.fields,help:base.field_ir_mail_server__from_filter
 msgid ""
 "Define for which email address or domain this server can be used.\n"
-"e.g.: \"notification@odoo.com\" or \"odoo.com\""
+"e.g.: \"notification@weblgx.com\" or \"weblgx.com\""
 msgstr ""
 
 #. module: base
@@ -13598,7 +13598,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_web_map
-msgid "Defines the map view for odoo enterprise"
+msgid "Defines the map view for weblgx enterprise"
 msgstr ""
 
 #. module: base
@@ -13798,7 +13798,7 @@ msgid "Digital Products"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Digital formatting"
@@ -13830,7 +13830,7 @@ msgid "Disable smart shrinking"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid ""
@@ -13988,14 +13988,14 @@ msgid "Display an option on related documents to print this report"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Display country image"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Display currency"
@@ -14014,42 +14014,42 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Display only the date"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Display only the time"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Display phone icons"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Display the country image if the field is present on the record"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Display the phone icons even if no_marker is True"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Displayed fields"
@@ -14082,7 +14082,7 @@ msgid "Document management"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Document type:"
@@ -14194,7 +14194,7 @@ msgid "Domain Value"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Domain on non-relational field \"%(name)s\" makes no sense (domain:%(domain)s)"
@@ -14221,7 +14221,7 @@ msgid "Dominican Republic - Accounting Reports"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Don't display the font awesome marker"
@@ -14269,35 +14269,35 @@ msgid "Dropship and Subcontracting Management"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Due to security restrictions, you are not allowed to access '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Due to security restrictions, you are not allowed to create '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Due to security restrictions, you are not allowed to delete '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Due to security restrictions, you are not allowed to modify '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_company.py:0
 #, python-format
 msgid "Duplicating a company is not allowed. Please create a new company instead."
@@ -14486,21 +14486,21 @@ msgid "Electronic invoicing for Colombia with Carvajal"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/template_inheritance.py:0
 #, python-format
 msgid "Element %r cannot be located in parent view"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/template_inheritance.py:0
 #, python-format
 msgid "Element '%s' cannot be located in parent view"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__group_by_email
 #: model:ir.model.fields,field_description:base.field_res_bank__email
@@ -14607,7 +14607,7 @@ msgid "Employees time registration on Work Orders"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Empty dependency in %r"
@@ -14755,7 +14755,7 @@ msgid "Error message returned when the constraint is violated."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid ""
@@ -14766,7 +14766,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid ""
@@ -14776,7 +14776,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_menu.py:0
 #, python-format
 msgid "Error! You cannot create recursive menus."
@@ -15321,63 +15321,63 @@ msgid "Field"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field \"%(field_name)s\" does not exist in model \"%(model_name)s\""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Field \"Model\" cannot be modified on models."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Field \"Transient Model\" cannot be modified on models."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Field \"Type\" cannot be modified on models."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field %(name)r used in %(use)s is present in view but is in select multi."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field %(name)r used in %(use)s is restricted to the group(s) %(groups)s."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field %(name)r used in %(use)s must be present in view but is missing."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field '%(field)s' found in 'groupby' node does not exist in model %(model)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field '%(name)s' found in 'groupby' node can only be of type many2one, found %(type)s"
@@ -15447,14 +15447,14 @@ msgid "Field Type"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field `%(name)s` does not exist"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Field names can only contain characters, digits and underscores (up to 63)."
@@ -15466,7 +15466,7 @@ msgid "Field names must be unique per model."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Field tag must have a \"name\" attribute defined"
@@ -15504,7 +15504,7 @@ msgid "Fields Selection"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Fields: %s"
@@ -15523,7 +15523,7 @@ msgid "File"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_import_language.py:0
 #, python-format
 msgid ""
@@ -15534,7 +15534,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "File Arch"
@@ -15770,28 +15770,28 @@ msgid "For relationship fields, the technical name of the target model"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_partner_merge.py:0
 #, python-format
 msgid "For safety reasons, you cannot merge more than 3 contacts together. You can re-open the wizard several times if needed."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Forbidden attribute used in arch (%s)."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Forbidden owl directive used in arch (%s)."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Forbidden use of `__comp__` in arch."
@@ -15810,7 +15810,7 @@ msgid "Form"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Format"
@@ -15829,7 +15829,7 @@ msgid "Formatted Email"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Formatting: long, short, narrow (not used for digital)"
@@ -15846,14 +15846,14 @@ msgid "Forum on Courses"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Found more than 10 errors and more than one error per 10 records, interrupted to avoid showing too many errors."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Found multiple matches for value '%s' in field '%%(field)s' (%d matches)"
@@ -16270,14 +16270,14 @@ msgid "Gmail support for incoming / outgoing mail servers"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid "Go to the configuration panel"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Go to users"
@@ -16402,7 +16402,7 @@ msgid "Group-specific rules are combined together with a logical OR operator"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #: model:ir.actions.act_window,name:base.action_res_groups
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window__groups_id
@@ -16583,7 +16583,7 @@ msgid "Heard Island and McDonald Islands"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Height"
@@ -16807,14 +16807,14 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Hide badges"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Hide seconds"
@@ -16934,7 +16934,7 @@ msgid "Hr Recruitment Interview Forms"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Human Readable"
@@ -17316,14 +17316,14 @@ msgid "Image Mixin"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0
 #, python-format
 msgid "Image is not encoded in base64."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/image.py:0
 #, python-format
 msgid "Image size excessive, uploaded images must be smaller than %s million pixels."
@@ -17415,7 +17415,7 @@ msgid "Import QIF Bank Statement"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Import Template for Customers"
@@ -17481,14 +17481,14 @@ msgid "Include"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Incompatible companies on records:"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Incorrect Password, try again or click on Forgot Password to reset your password."
@@ -17656,7 +17656,7 @@ msgid "Inherited models"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Inherited view cannot have 'Groups' define on the record. Use 'groups' attributes inside the view definition"
@@ -17688,7 +17688,7 @@ msgid "Input View"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #: model_terms:ir.ui.view,arch_db:base.module_tree
 #, python-format
@@ -17730,14 +17730,14 @@ msgid "Instant Messaging Bus allow you to send messages to users, in live."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Insufficient fields for Calendar View!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Insufficient fields to generate a Calendar View for %s, missing a date_stop or a date_delay"
@@ -17879,56 +17879,56 @@ msgid "Introspection report on objects"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Invalid \"order\" specified (%s). A valid \"order\" specification is a comma-separated list of valid field names (optionally followed by asc/desc for the direction)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Invalid 'group by' parameter"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid composed field %(definition)s in %(use)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Invalid database id '%s' for the field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Invalid date/time format directive specified. Please refer to the list of allowed directives, displayed when you edit a language."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid domain format %(expr)s in %(use)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_default.py:0
 #, python-format
 msgid "Invalid field %s.%s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/assetsbundle.py:0
 #, python-format
 msgid "Invalid inherit mode. Module %r and template name %r"
@@ -17945,42 +17945,42 @@ msgid "Invalid key: QWeb view should have a key"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/template_inheritance.py:0
 #, python-format
 msgid "Invalid mode attribute:"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions.py:0
 #, python-format
 msgid "Invalid model name %r in action definition."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/template_inheritance.py:0
 #, python-format
 msgid "Invalid position attribute: '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_sequence.py:0
 #, python-format
 msgid "Invalid prefix or suffix for sequence '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Invalid search criterion"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -17989,49 +17989,49 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid special '%(value)s' in button"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/template_inheritance.py:0
 #, python-format
 msgid "Invalid specification for moved nodes: %r"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid "Invalid template user. It seems it has been deleted."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_property.py:0
 #, python-format
 msgid "Invalid type"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_default.py:0
 #, python-format
 msgid "Invalid value for %s.%s: %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid view %(name)s definition in %(file)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid xmlid %(xmlid)s for button of type action."
@@ -18252,7 +18252,7 @@ msgid "Journal Items associated to the contact"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Json"
@@ -18430,7 +18430,7 @@ msgid "LGPL Version 3"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Label tag must contain a \"for\". To match label style without corresponding field or button, use 'class=\"o_form_label\"'."
@@ -18485,7 +18485,7 @@ msgid "Language Name"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Language code cannot be modified."
@@ -18863,7 +18863,7 @@ msgid "Line"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Linebreak"
@@ -18942,7 +18942,7 @@ msgid "Link module between pos_sale and pos_loyalty"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "List of contact fields to display in the widget"
@@ -19061,7 +19061,7 @@ msgid "Logs"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Long"
@@ -19197,7 +19197,7 @@ msgid "Madam"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Mail Delivery Failed"
@@ -19255,7 +19255,7 @@ msgid "Mail Tests: performances and tests specific to mail with all sub-modules"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -19624,7 +19624,7 @@ msgid "Many2One"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Many2one %s on model %s does not exist!"
@@ -20022,28 +20022,28 @@ msgid "Miss"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Missing SMTP Server"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Missing required value for the field '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Missing required value for the field '%s' (%s)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Missing view architecture."
@@ -20055,7 +20055,7 @@ msgid "Mister"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields,field_description:base.field_res_company__mobile
 #: model:ir.model.fields,field_description:base.field_res_partner__mobile
@@ -20098,21 +20098,21 @@ msgid "Model"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Model %s does not exist"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Model %s does not exist!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Model '%s' contains module data and cannot be removed."
@@ -20176,7 +20176,7 @@ msgid "Model name of the object to open in the view window"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Model not found: %(model)s"
@@ -20224,7 +20224,7 @@ msgid "Module"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/assetsbundle.py:0
 #, python-format
 msgid "Module %r not loaded or inexistent (try to inherit %r), or templates of addon being loaded %r are misordered (template %r)"
@@ -20282,7 +20282,7 @@ msgid "Module exclusion"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/convert.py:0
 #, python-format
 msgid ""
@@ -20296,7 +20296,7 @@ msgid "Modules"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Modules \"%s\" and \"%s\" are incompatible."
@@ -20470,7 +20470,7 @@ msgid "NPWP"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__group_by_name
 #: model:ir.model.fields,field_description:base.field_ir_actions_todo__name
@@ -20508,7 +20508,7 @@ msgid "Name"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Name or id %(name_or_id)r in %(use)s must be present in view but is missing."
@@ -20530,7 +20530,7 @@ msgid "Namibia"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Narrow"
@@ -20587,7 +20587,7 @@ msgid "New Caledonia"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_export_language.py:0
 #, python-format
 msgid "New Language (Empty translation template)"
@@ -20709,7 +20709,7 @@ msgid "No Country Found!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "No default view of type '%s' could be found!"
@@ -20721,28 +20721,28 @@ msgid "No gap"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "No group currently allows this operation."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0
 #, python-format
 msgid "No inverse field %r found for %r"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "No matching record found for %(field_type)s '%(value)s' in field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "No matching record found for %(field_type)s '%(value)s' in field '%%(field)s' and the following error was encountered when we attempted to create one: %(error_message)s"
@@ -20759,7 +20759,7 @@ msgid "No of Views"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -20768,7 +20768,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions.py:0
 #, python-format
 msgid "No spaces allowed in view_mode: %r"
@@ -20780,21 +20780,21 @@ msgid "Non Updatable"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Non-relational field %(field)r in path %(field_path)r in %(use)s)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Non-relational field %r in dependency %r"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Non-relational field name '%s' in related field '%s'"
@@ -20821,7 +20821,7 @@ msgid "Norfolk Island"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_bank.py:0
 #, python-format
 msgid "Normal"
@@ -20876,14 +20876,14 @@ msgid "Not done"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Not enough access rights on the external ID:"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Note: this might be a multi-company issue."
@@ -20970,7 +20970,7 @@ msgid "Object"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/model.py:0
 #, python-format
 msgid "Object %s doesn't exist"
@@ -22017,7 +22017,7 @@ msgid "Weblgx helps you track all activities related to your contacts."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid ""
@@ -22026,7 +22026,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions_report.py:0
 #, python-format
 msgid "Weblgx is unable to merge the generated PDFs."
@@ -22104,21 +22104,21 @@ msgid "Once the delivery is validated, update the cost on the SO to have an exac
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "One of the documents you are trying to access has been deleted, please try again after refreshing."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "One or more of the selected modules have already been uninstalled, if you believe this to be an error, you may try again later or contact support."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "One2Many fields cannot be synchronized as part of `commercial_fields` or `address fields`"
@@ -22165,21 +22165,21 @@ msgid "Online Task Submission"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid "Only administrators can change the settings"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_attachment.py:0
 #, python-format
 msgid "Only administrators can execute this action."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0
 #, python-format
 msgid "Only admins can upload SVG files."
@@ -22200,7 +22200,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Only internal users can create API keys"
@@ -22217,14 +22217,14 @@ msgid "Only one value can be defined for each given usage!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_partner_merge.py:0
 #, python-format
 msgid "Only the destination contact may be linked to existing Journal Items. Please ask the Administrator if you need to merge several contacts linked to existing Journal Items."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Only the portal users can delete their accounts. The user(s) %s can not be deleted."
@@ -22267,7 +22267,7 @@ msgid "Open a Window"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Operation:"
@@ -22316,7 +22316,7 @@ msgid "Optional password for SMTP authentication"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Optional timezone name"
@@ -22521,7 +22521,7 @@ msgid "Original View"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Original currency"
@@ -22533,7 +22533,7 @@ msgid "Oswald"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #: model_terms:ir.ui.view,arch_db:base.user_groups_view
 #, python-format
@@ -22731,7 +22731,7 @@ msgid "POS Stripe"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Page direct ancestor must be notebook"
@@ -22943,7 +22943,7 @@ msgid "Partners Geolocation"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Partners: %(category)s"
@@ -22993,7 +22993,7 @@ msgid "Path (or glob pattern)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Pattern to format"
@@ -23196,7 +23196,7 @@ msgid "Philippines - Accounting"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields,field_description:base.field_res_bank__phone
 #: model:ir.model.fields,field_description:base.field_res_company__phone
@@ -23270,7 +23270,7 @@ msgid "Planning integration with holidays"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Please configure an email on the current user to simulate sending an email message via this outgoing server"
@@ -23282,7 +23282,7 @@ msgid "Please confirm that you want to <b>irreversibly</b> make this database a 
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Please define at least one SMTP server, or provide the SMTP parameters explicitly."
@@ -23299,7 +23299,7 @@ msgid "Please set the Model to Create before choosing values"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Please use the change password wizard (in User Preferences or User menu) to change your own password."
@@ -23432,7 +23432,7 @@ msgid "PostgreSQL table name implementing a many2many relation."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Precision Digits"
@@ -23475,7 +23475,7 @@ msgid "Preview pdf src"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Previous Arch"
@@ -23548,7 +23548,7 @@ msgid "Private Address Form"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Private methods (such as %s) cannot be called remotely."
@@ -23652,7 +23652,7 @@ msgid "Profiling is currently disabled."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_profile.py:0
 #, python-format
 msgid "Profiling is not enabled on this database. Please contact an administrator."
@@ -23915,7 +23915,7 @@ msgid "Properties"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Properties of base fields cannot be altered in this manner! Please modify them through Python code, preferably through a custom addon!"
@@ -24391,7 +24391,7 @@ msgid "Record Rule"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #: model:ir.actions.act_window,name:base.action_rule
 #: model:ir.model.fields,field_description:base.field_ir_model__rule_ids
@@ -24406,14 +24406,14 @@ msgid "Record Rules"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_cron.py:0
 #, python-format
 msgid "Record cannot be modified right now: This cron task is currently being executed and may not be modified Please try again in a few minutes"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0
 #, python-format
 msgid "Record does not exist or has been deleted."
@@ -24430,14 +24430,14 @@ msgid "Record time"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Records:"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Records: %s"
@@ -24475,21 +24475,21 @@ msgid "Recruitment tracking on appointments"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Recursion Detected."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Recursion error in modules dependencies!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions.py:0
 #, python-format
 msgid "Recursion found in child server actions"
@@ -24505,7 +24505,7 @@ msgid "Reference"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Reference date"
@@ -24548,14 +24548,14 @@ msgid "Related field"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Related field '%s' does not have comodel '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Related field '%s' does not have type '%s'"
@@ -24788,7 +24788,7 @@ msgid "Reset to file version (hard reset)."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Resolve other errors first"
@@ -24887,14 +24887,14 @@ msgid "Rounding Factor"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Rounding precision"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Rounding unit"
@@ -24921,7 +24921,7 @@ msgid "Rules"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "Rules can not be applied on the Record Rules model."
@@ -25059,7 +25059,7 @@ msgid "SSL Private Key"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "SSL certificate is missing for %s."
@@ -25071,7 +25071,7 @@ msgid "SSL certificate used for authentication"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "SSL private key is missing for %s."
@@ -25505,14 +25505,14 @@ msgid "Search modules"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Search tag can only contain one search panel"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Searchpanel item with select multi cannot have a domain."
@@ -25529,21 +25529,21 @@ msgid "Security"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Security Control"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "See all possible values"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/common.py:0
 #, python-format
 msgid "See http://openerp.com"
@@ -25578,7 +25578,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields.selection,name:base.selection__base_partner_merge_automatic_wizard__state__selection
 #: model:ir.model.fields.selection,name:base.selection__ir_property__type__selection
@@ -25794,7 +25794,7 @@ msgid "Separator Format"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Separator use to split the address from the display_name."
@@ -25897,7 +25897,7 @@ msgid "Server action"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -25962,7 +25962,7 @@ msgid "Setting a value makes this action available in the sidebar for the given 
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Setting empty passwords is not allowed for security reasons!"
@@ -26018,7 +26018,7 @@ msgid "Shopper's Wishlist"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Short"
@@ -26107,7 +26107,7 @@ msgid "Simple Discounts in the Point of Sale "
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Since %(user)s is a/an \"%(category)s: %(group)s\", they will at least obtain the right %(missing_group_message)s"
@@ -26169,7 +26169,7 @@ msgid "Skip these contacts"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Slash"
@@ -26309,14 +26309,14 @@ msgid "Sometimes called BIC or Swift."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_attachment.py:0
 #, python-format
 msgid "Sorry, you are not allowed to access this document."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_attachment.py:0
 #, python-format
 msgid "Sorry, you are not allowed to write on this document"
@@ -26358,7 +26358,7 @@ msgid "South Sudan"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Space"
@@ -26718,7 +26718,7 @@ msgid "Step"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_sequence.py:0
 #, python-format
 msgid "Step must not be zero."
@@ -27179,7 +27179,7 @@ msgid "Technical guide"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/assetsbundle.py:0
 #, python-format
 msgid "Template %r already exists in module %r"
@@ -27191,7 +27191,7 @@ msgid "Template Name"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/assetsbundle.py:0
 #, python-format
 msgid "Template name is missing in file %r."
@@ -27398,14 +27398,14 @@ msgid "Thailand - Accounting"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "The \"%s\" action cannot be selected as home action."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "The \"App Switcher\" action cannot be selected as home action."
@@ -27436,7 +27436,7 @@ msgid "The Separator Format should be like [,n] where 0 < n :starting from Unit 
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "The Separator Format should be like [,n] where 0 < n :starting from Unit digit. -1 will end the separation. e.g. [3,2,-1] will represent 106500 to be 1,06,500;[1,2,-1] will represent it to be 106,50,0;[3] will represent it as 106,500. Provided as the thousand separator in each case."
@@ -27460,7 +27460,7 @@ msgid "The active field allows you to hide the category without removing it."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_attachment.py:0
 #, python-format
 msgid "The attachment collides with an existing file."
@@ -27492,7 +27492,7 @@ msgid "The combination Account Number/Partner must be unique."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_company.py:0
 #, python-format
 msgid "The company %(company_name)s cannot be archived because it is still used as the default company of %(active_users)s users."
@@ -27540,7 +27540,7 @@ msgid "The demonstration data of"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "The field '%s' cannot be removed because the field '%s' depends on it."
@@ -27585,35 +27585,35 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/fields.py:0
 #, python-format
 msgid "The field value you're saving (%s %s) includes content that is restricted for security reasons. It is possible that someone with higher privileges previously modified it, and you are therefore not able to modify it yourself while preserving the content."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "The following languages are not activated: %(missing_names)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_module_upgrade.py:0
 #, python-format
 msgid "The following modules are not installed or unknown: %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "The group %(name)r defined in view does not exist!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "The hour must be between 0 and 23"
@@ -27626,21 +27626,21 @@ msgid "The internal user in charge of this contact."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_language_install.py:0
 #, python-format
 msgid "The languages that you selected have been successfully installed.                            Users can choose their favorite language in their preferences."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "The languages that you selected have been successfully installed. Users can choose their favorite language in their preferences."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_country.py:0
 #, python-format
 msgid "The layout contains an invalid format key"
@@ -27652,7 +27652,7 @@ msgid "The list of models that extends the current model."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "The m2o field %s is required but declares its ondelete policy as being 'set null'. Only 'restrict' and 'cascade' make sense."
@@ -27664,21 +27664,21 @@ msgid "The menu action this filter applies to. When left empty the filter applie
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "The method _button_immediate_install cannot be called on init or non loaded registries. Please use button_install instead."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "The model name can only contain lowercase characters, digits, underscores and dots."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "The model name must start with 'x_'."
@@ -27690,14 +27690,14 @@ msgid "The model this field belongs to"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions.py:0
 #, python-format
 msgid "The modes in view_mode must not be duplicated: %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid ""
@@ -27711,7 +27711,7 @@ msgid "The name of the country must be unique!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "The name of the group can not start with \"-\""
@@ -27733,14 +27733,14 @@ msgid "The name of the module must be unique!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "The new password and its confirmation must be identical."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid ""
@@ -27759,7 +27759,7 @@ msgid "The next step depends on the file format:"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "The ondelete policy %r is not valid for field %r"
@@ -27772,7 +27772,7 @@ msgid "The only predefined variables are"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/model.py:0
 #, python-format
 msgid ""
@@ -27785,14 +27785,14 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/model.py:0
 #, python-format
 msgid "The operation cannot be completed: %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/model.py:0
 #, python-format
 msgid ""
@@ -27818,7 +27818,7 @@ msgid "The payment engine used by payment provider modules."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/decimal_precision.py:0
 #, python-format
 msgid ""
@@ -27837,7 +27837,7 @@ msgid "The priority of the job, as an integer: 0 means higher priority, 10 means
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -27868,7 +27868,7 @@ msgid "The registry number of the company. Use it if it is different from the Ta
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions_report.py:0
 #, python-format
 msgid ""
@@ -27878,7 +27878,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid ""
@@ -27892,7 +27892,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "The root node of a %(view_type)s view should be a <%(view_type)s>, not a <%(tag)s>"
@@ -27904,14 +27904,14 @@ msgid "The rounding factor must be greater than 0!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "The server \"%s\" cannot be used because it is archived."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -27920,21 +27920,21 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "The server refused the sender address (%(email_from)s) with error %(repl)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "The server refused the test connection with error %(repl)s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "The server refused the test recipient (%(email_to)s) with error %(repl)s"
@@ -27946,7 +27946,7 @@ msgid "The state code."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "The table %r if used for other, possibly incompatible fields."
@@ -27963,7 +27963,7 @@ msgid "The type of the report that will be rendered, each one having its own ren
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "The user cannot have more than one user types."
@@ -27980,28 +27980,28 @@ msgid "The user this filter is private to. When left empty the filter is public 
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "The value (%s) passed should be positive"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "The value for the field '%s' already exists (this is probably '%s' in the current model)."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "The value send to monetary field is not a number."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "The values for the fields '%s' already exist (they are probably '%s' in the current model)."
@@ -28025,7 +28025,7 @@ msgid "There are no more contacts to merge for this request"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_filters.py:0
 #, python-format
 msgid "There is already a shared filter set as default for %(model)s, delete or change it before setting a new default"
@@ -28053,14 +28053,14 @@ msgid "This Window"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "This column contains module data and cannot be removed!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid "This currency is set on a company and therefore cannot be deactivated."
@@ -28096,7 +28096,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/image.py:0
 #, python-format
 msgid "This file could not be decoded as an image file."
@@ -28143,7 +28143,7 @@ msgid "This is your company's currency."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "This method can only be accessed over HTTP"
@@ -28324,7 +28324,7 @@ msgid "This module will trigger the uninstallation of below modules."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid ""
@@ -28333,7 +28333,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid ""
@@ -28347,7 +28347,7 @@ msgid "This technical module allows to define lease prices on a product template
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Those modules cannot be uninstalled: %s"
@@ -28533,7 +28533,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "Too many login failures, please wait a bit before trying again."
@@ -28657,7 +28657,7 @@ msgid "Translations"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Translations for model translated fields only accept falsy values and str"
@@ -28676,7 +28676,7 @@ msgid "Tree"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Tree child can only have one of %(tags)s tag (not %(wrong_tag)s)"
@@ -28925,42 +28925,42 @@ msgid "Ukraine - Accounting"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Unable to delete this document because it is used as a default property"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions_report.py:0
 #, python-format
 msgid "Unable to find Wkhtmltopdf on this system. The PDF can not be created."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Unable to install module \"%s\" because an external dependency is not met: %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Unable to order by %s: fields used for ordering must be present on the model and stored."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Unable to process module \"%s\" because an external dependency is not met: %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Unable to upgrade module \"%s\" because an external dependency is not met: %s"
@@ -28972,7 +28972,7 @@ msgid "Uncategorized"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #: model_terms:ir.ui.view,arch_db:base.module_form
 #: model_terms:ir.ui.view,arch_db:base.module_view_kanban
@@ -28982,7 +28982,7 @@ msgid "Uninstall"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_uninstall
 #, python-format
@@ -29002,7 +29002,7 @@ msgid "Uninstalling modules can be risky, we recommend you to try it on a duplic
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid "Unit per %s"
@@ -29054,7 +29054,7 @@ msgid "Units of measure"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/model.py:0 model:ir.model,name:base.model__unknown
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module_dependency__state__unknown
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module_exclusion__state__unknown
@@ -29063,84 +29063,84 @@ msgid "Unknown"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Unknown database error: '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Unknown database identifier '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Unknown error during import:"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Unknown field \"%(field)s\" in \"group_by\" value in %(attribute)s=%(value)r"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Unknown field \"%(model)s.%(field)s\" in %(use)s)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Unknown field %r in dependency %r"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Unknown field name '%s' in related field '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Unknown model name '%s' in Related Model"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Unknown sub-field '%s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Unknown value '%s' for boolean field '%%(field)s'"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/translate.py:0
 #, python-format
 msgid "Unrecognized extension: must be one of .csv, .po, or .tgz (received .%s)."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Unsearchable field %(field)r in path %(field_path)r in %(use)s)"
@@ -29222,7 +29222,7 @@ msgid "Usage"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Use '1' for yes and '0' for no"
@@ -29259,14 +29259,14 @@ msgid "Use barcode scanners to process logistics operations"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Use comma"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Use comma instead of the <br> tag to display the address"
@@ -29313,14 +29313,14 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Use the SMTP configuration set in the \"Command Line Interface\" arguments."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Use the format '%s'"
@@ -29442,14 +29442,14 @@ msgid "User-friendly PoS interface for shops and restaurants"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "User:"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
 msgid "User: %s"
@@ -29462,7 +29462,7 @@ msgid "Username"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #: model:ir.actions.act_window,name:base.action_res_users
 #: model:ir.model.fields,field_description:base.field_change_password_wizard__user_ids
@@ -29517,7 +29517,7 @@ msgid "Uses Default Logo"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Using 24-hour clock format with AM/PM can cause issues."
@@ -29529,7 +29529,7 @@ msgid "Uzbekistan"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__group_by_vat
 #: model:res.country,vat_label:base.be model:res.country,vat_label:base.bg
@@ -29591,7 +29591,7 @@ msgid "Value"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Value '%s' not found in selection field '%%(field)s'"
@@ -29679,7 +29679,7 @@ msgid "Venezuela - Accounting"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Vertical bar"
@@ -29704,14 +29704,14 @@ msgid "View"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "View '%(name)s' accessible only to groups %(groups)s "
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "View '%(name)s' is private"
@@ -29764,7 +29764,7 @@ msgid "View livechat sessions for leads"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "View: %s"
@@ -29850,7 +29850,7 @@ msgid "Warn user in case of products merging"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #: code:addons/base/models/ir_model.py:0
 #: code:addons/base/models/res_partner.py:0 code:addons/models.py:0
@@ -29859,7 +29859,7 @@ msgid "Warning"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/decimal_precision.py:0
 #: code:addons/base/models/res_currency.py:0
 #, python-format
@@ -29867,14 +29867,14 @@ msgid "Warning for %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid "Warning!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Warnings"
@@ -30213,7 +30213,7 @@ msgid "Wholesale/Retail"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Width"
@@ -30238,14 +30238,14 @@ msgid "Wizards to be Launched"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions_report.py:0
 #, python-format
 msgid "Wkhtmltopdf failed (error code: %s). Memory limit too low or maximum file number of subprocess reached. Message : %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions_report.py:0
 #, python-format
 msgid "Wkhtmltopdf failed (error code: %s). Message: %s"
@@ -30330,7 +30330,7 @@ msgid "Write down your key"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Wrong property field value name %r."
@@ -30352,42 +30352,42 @@ msgid "You are inviting a new user."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "You are not allowed to access '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "You are not allowed to create '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "You are not allowed to delete '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "You are not allowed to modify '%(document_kind)s' (%(document_model)s) records."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "You are trying to install incompatible modules in category \"%s\":"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "You are trying to remove a module that is installed or will be installed."
@@ -30404,7 +30404,7 @@ msgid "You can either upload a file from your computer or copy/paste an internet
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "You can not create recursive tags."
@@ -30416,35 +30416,35 @@ msgid "You can not have two users with the same login!"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "You can not remove API keys unless they're yours or you are a system user"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "You can not remove the admin user as it is used internally for resources created by Weblgx (updates, module installation, ...)"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/report_paperformat.py:0
 #, python-format
 msgid "You can select either a format or a specific page width/height, but not both."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "You cannot activate the superuser."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid ""
@@ -30456,7 +30456,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid ""
@@ -30467,7 +30467,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -30476,7 +30476,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -30485,35 +30485,35 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "You cannot create recursive Partner hierarchies."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_company.py:0
 #, python-format
 msgid "You cannot create recursive companies."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "You cannot create recursive inherited views."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "You cannot deactivate the user you're currently logged in as."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid ""
@@ -30525,7 +30525,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid ""
@@ -30536,7 +30536,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid ""
@@ -30545,14 +30545,14 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "You cannot delete the language which is the user's preferred language."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_partner_merge.py:0
 #, python-format
 msgid "You cannot merge a contact with one of his parent."
@@ -30564,7 +30564,7 @@ msgid "You cannot reduce the number of decimal places of a currency already used
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid ""
@@ -30574,21 +30574,21 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions.py:0
 #, python-format
 msgid "You don't have enough access rights to run this action."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "You don't have the rights to export data. Please contact an Administrator."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/wizard/base_partner_merge.py:0
 #, python-format
 msgid "You have to specify a filter for your selection."
@@ -30605,7 +30605,7 @@ msgid "You should update this document to reflect your T&amp;C."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid ""
@@ -30614,7 +30614,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid ""
@@ -30628,7 +30628,7 @@ msgid "You will be able to define additional access rights by editing the newly 
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Your Weblgx Server does not support SMTP-over-SSL. You could use STARTTLS instead. If SSL is needed, an upgrade to Python 2.6 on the server-side should do the trick."
@@ -30641,7 +30641,7 @@ msgid "Your conditions..."
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Your server does not seem to support SSL, you may want to try STARTTLS instead"
@@ -30696,21 +30696,21 @@ msgid "active"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "allowed for groups %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "always forbidden"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_currency.py:0
 #, python-format
 msgid "and"
@@ -30732,7 +30732,7 @@ msgid "binary"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_attachment.py:0
 #, python-format
 msgid "binary_field_real_user should be a res.users record."
@@ -30764,7 +30764,7 @@ msgid "choose"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "database id"
@@ -30781,7 +30781,7 @@ msgid "datetime"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "day"
@@ -30896,7 +30896,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base.view_company_form
 #: model_terms:ir.ui.view,arch_db:base.view_partner_address_form
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
-msgid "e.g. https://www.odoo.com"
+msgid "e.g. https://www.weblgx.com"
 msgstr ""
 
 #. module: base
@@ -30956,14 +30956,14 @@ msgid "expenses"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "external id"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "false"
@@ -30983,14 +30983,14 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/models.py:0
 #, python-format
 msgid "forbidden for groups %s"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "format() must be given exactly one %char format specifier"
@@ -31009,7 +31009,7 @@ msgid ""
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "hour"
@@ -31066,7 +31066,7 @@ msgid "many2many"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_actions.py:0
 #, python-format
 msgid "many2many fields cannot be evaluated by reference"
@@ -31083,7 +31083,7 @@ msgid "many2one_reference"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "minute"
@@ -31100,21 +31100,21 @@ msgid "monetary"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "month"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "name"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "no"
@@ -31181,7 +31181,7 @@ msgid "sales"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "second"
@@ -31318,28 +31318,28 @@ msgid "title"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "true"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "week"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "year"
 msgstr ""
 
 #. module: base
-#. odoo-python
+#. weblgx-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "yes"

@@ -65,7 +65,7 @@ $spacers: (
 // the box will be forced by an Weblgx CSS rule instead of relying on Bootstrap
 // CSS rule (the <body> background color CSS rule) which uses `$body-bg`.
 // In future bootstrap version (> 5.1.3), this should probably be reviewed.
-// grep: BOXED_BODY_BG_ODOO
+// grep: BOXED_BODY_BG_WEBLGX
 $body-bg: o-color('o-cc1-bg') !default;
 $body-color: o-color('o-cc1-text') or color-contrast($body-bg) !default;
 

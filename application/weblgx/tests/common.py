@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-The module :mod:`odoo.tests.common` provides unittest test cases and a few
+The module :mod:`weblgx.tests.common` provides unittest test cases and a few
 helpers and classes to write tests.
 
 """
@@ -48,17 +48,17 @@ from passlib.context import CryptContext
 from requests import PreparedRequest, Session
 from urllib3.util import Url, parse_url
 
-import odoo
-from odoo import api
-from odoo.models import BaseModel
-from odoo.exceptions import AccessError
-from odoo.http import BadRequest
-from odoo.modules import module
-from odoo.modules.registry import Registry
-from odoo.service import security
-from odoo.sql_db import BaseCursor, Cursor, TestCursor
-from odoo.tools import float_compare, single_email_re, profiler, lower_logging, SQL
-from odoo.tools.misc import find_in_path, mute_logger
+import weblgx
+from weblgx import api
+from weblgx.models import BaseModel
+from weblgx.exceptions import AccessError
+from weblgx.http import BadRequest
+from weblgx.modules import module
+from weblgx.modules.registry import Registry
+from weblgx.service import security
+from weblgx.sql_db import BaseCursor, Cursor, TestCursor
+from weblgx.tools import float_compare, single_email_re, profiler, lower_logging, SQL
+from weblgx.tools.misc import find_in_path, mute_logger
 
 from . import case
 
@@ -92,18 +92,18 @@ def __getattr__(name):
     from .form import Form
 
     warnings.warn(
-        "Since 17.0: odoo.tests.common.Form is deprecated, use odoo.tests.Form",
+        "Since 17.0: weblgx.tests.common.Form is deprecated, use weblgx.tests.Form",
         category=PendingDeprecationWarning,
         stacklevel=2,
     )
     return Form
 
 
-# The odoo library is supposed already configured.
-ADDONS_PATH = odoo.tools.config['addons_path']
+# The weblgx library is supposed already configured.
+ADDONS_PATH = weblgx.tools.config['addons_path']
 HOST = '127.0.0.1'
 # Useless constant, tests are aware of the content of demo data
-ADMIN_USER_ID = odoo.SUPERUSER_ID
+ADMIN_USER_ID = weblgx.SUPERUSER_ID
 
 CHECK_BROWSER_SLEEP = 0.1 # seconds
 CHECK_BROWSER_ITERATIONS = 100
@@ -117,7 +117,7 @@ IGNORED_MSGS = re.compile(r"""
 """, flags=re.VERBOSE | re.IGNORECASE).search
 
 def get_db_name():
-    db = odoo.tools.config['db_name']
+    db = weblgx.tools.config['db_name']
     # If the database name is not provided on the command-line,
     # use the one on the thread (which means if it is provided on
     # the command-line, this will break when installing another
@@ -134,11 +134,11 @@ def standalone(*tags):
     """ Decorator for standalone test functions.  This is somewhat dedicated to
     tests that install, upgrade or uninstall some modules, which is currently
     forbidden in regular test cases.  The function is registered under the given
-    ``tags`` and the corresponding Odoo module name.
+    ``tags`` and the corresponding Web@LGX module name.
     """
     def register(func):
-        # register func by odoo module name
-        if func.__module__.startswith('odoo.addons.'):
+        # register func by weblgx module name
+        if func.__module__.startswith('weblgx.addons.'):
             module = func.__module__.split('.')[2]
             standalone_tests[module].append(func)
         # register func with aribitrary name, if any
@@ -171,7 +171,7 @@ def new_test_user(env, login='', groups='base.group_user', context=None, **kwarg
      * name: "login (groups)" by default as it is required;
      * email: it is either the login (if it is a valid email) or a generated
        string 'x.x@example.com' (x being the first login letter). This is due
-       to email being required for most odoo operations;
+       to email being required for most weblgx operations;
     """
     if not login:
         raise ValueError('New users require at least a login')
@@ -231,7 +231,7 @@ class MetaCase(type):
     def __init__(cls, name, bases, attrs):
         super(MetaCase, cls).__init__(name, bases, attrs)
         # assign default test tags
-        if cls.__module__.startswith('odoo.addons.'):
+        if cls.__module__.startswith('weblgx.addons.'):
             if getattr(cls, 'test_tags', None) is None:
                 cls.test_tags = {'standard', 'at_install'}
             cls.test_module = cls.__module__.split('.')[2]
@@ -262,11 +262,11 @@ class BlockedRequest(requests.exceptions.ConnectionError):
     pass
 _super_send = requests.Session.send
 class BaseCase(case.TestCase, metaclass=MetaCase):
-    """ Subclass of TestCase for Odoo-specific code. This class is abstract and
+    """ Subclass of TestCase for Web@LGX-specific code. This class is abstract and
     expects self.registry, self.cr and self.uid to be initialized by subclasses.
     """
 
-    longMessage = True      # more verbose error message by default: https://www.odoo.com/r/Vmh
+    longMessage = True      # more verbose error message by default: https://www.weblgx.com/r/Vmh
     warm = True             # False during warm-up phase (see :func:`warmup`)
     _python_version = sys.version_info
 
@@ -300,7 +300,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         testMethod = getattr(self, self._testMethodName)
 
         if getattr(testMethod, '_retry', True) and getattr(self, '_retry', True):
-            tests_run_count = int(os.environ.get('ODOO_TEST_FAILURE_RETRIES', 0)) + 1
+            tests_run_count = int(os.environ.get('WEBLGX_TEST_FAILURE_RETRIES', 0)) + 1
         else:
             tests_run_count = 1
             _logger.info('Auto retry disabled for %s', self)
@@ -380,7 +380,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         :param xid: fully-qualified :term:`external identifier`, in the form
                     :samp:`{module}.{identifier}`
         :raise: ValueError if not found
-        :returns: :class:`~odoo.models.BaseModel`
+        :returns: :class:`~weblgx.models.BaseModel`
         """
         assert "." in xid, "this method requires a fully qualified parameter, in the following form: 'module.identifier'"
         return self.env.ref(xid)
@@ -439,7 +439,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
                 return not group_set or origin_user_has_groups(self, ','.join(group_set))
             return origin_user_has_groups(self, groups)
 
-        with patch('odoo.models.BaseModel.user_has_groups', user_has_groups):
+        with patch('weblgx.models.BaseModel.user_has_groups', user_has_groups):
             yield
 
     @contextmanager
@@ -505,8 +505,8 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
             self.env.flush_all()
             self.env.cr.flush()
 
-        with patch('odoo.sql_db.Cursor.execute', execute):
-            with patch('odoo.osv.expression.get_unaccent_wrapper', get_unaccent_wrapper):
+        with patch('weblgx.sql_db.Cursor.execute', execute):
+            with patch('weblgx.osv.expression.get_unaccent_wrapper', get_unaccent_wrapper):
                 yield actual_queries
                 if flush:
                     self.env.flush_all()
@@ -559,8 +559,8 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
                     # add some info on caller to allow semi-automatic update of query count
                     frame, filename, linenum, funcname, lines, index = inspect.stack()[2]
                     filename = filename.replace('\\', '/')
-                    if "/odoo/addons/" in filename:
-                        filename = filename.rsplit("/odoo/addons/", 1)[1]
+                    if "/weblgx/addons/" in filename:
+                        filename = filename.rsplit("/weblgx/addons/", 1)[1]
                     if count > expected:
                         msg = "Query count more than expected for user %s: %d > %d in %s at %s:%s"
                         # add a subtest in order to continue the test_method in case of failures
@@ -751,11 +751,11 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         return route == "/websocket"
 
     def check_test_cursor(self, operation):
-        if odoo.modules.module.current_test != self:
-            message = f"Trying to open a test cursor for {self.canonical_tag} while already in a test {odoo.modules.module.current_test.canonical_tag}"
+        if weblgx.modules.module.current_test != self:
+            message = f"Trying to open a test cursor for {self.canonical_tag} while already in a test {weblgx.modules.module.current_test.canonical_tag}"
             _logger.runbot(message)
             raise BadRequest(message)
-        request = odoo.http.request
+        request = weblgx.http.request
         if not request or isinstance(request, Mock):
             return
         if not hasattr(self, 'http_request_key') or not self.http_request_key:
@@ -792,7 +792,7 @@ class BaseCase(case.TestCase, metaclass=MetaCase):
         """Guess if the test_methods is a query_count and adds an `is_query_count` tag on the test
         """
         additional_tags = []
-        if odoo.tools.config['test_tags'] and 'is_query_count' in odoo.tools.config['test_tags']:
+        if weblgx.tools.config['test_tags'] and 'is_query_count' in weblgx.tools.config['test_tags']:
             method_source = inspect.getsource(test_method) if test_method else ''
             if 'self.assertQueryCount' in method_source:
                 additional_tags.append('is_query_count')
@@ -820,7 +820,7 @@ class TransactionCase(BaseCase):
     registry: Registry = None
     env: api.Environment = None
     cr: Cursor = None
-    muted_registry_logger = mute_logger(odoo.modules.registry._logger.name)
+    muted_registry_logger = mute_logger(weblgx.modules.registry._logger.name)
 
 
     @classmethod
@@ -829,8 +829,8 @@ class TransactionCase(BaseCase):
         # they can addup during test and take some disc space.
         # since cron are not running during tests, we need to gc manually
         # We need to check the status of the file system outside of the test cursor
-        with odoo.registry(get_db_name()).cursor() as cr:
-            gc_env = api.Environment(cr, odoo.SUPERUSER_ID, {})
+        with weblgx.registry(get_db_name()).cursor() as cr:
+            gc_env = api.Environment(cr, weblgx.SUPERUSER_ID, {})
             gc_env['ir.attachment']._gc_file_store_unsafe()
 
     @classmethod
@@ -838,7 +838,7 @@ class TransactionCase(BaseCase):
         super().setUpClass()
 
         cls.addClassCleanup(cls._gc_filestore)
-        cls.registry = odoo.registry(get_db_name())
+        cls.registry = weblgx.registry(get_db_name())
         cls.registry_start_sequence = cls.registry.registry_sequence
         def reset_changes():
             if (cls.registry_start_sequence != cls.registry.registry_sequence) or cls.registry.registry_invalidated:
@@ -862,7 +862,7 @@ class TransactionCase(BaseCase):
 
         cls.addClassCleanup(check_cursor_stack)
 
-        cls.env = api.Environment(cls.cr, odoo.SUPERUSER_ID, {})
+        cls.env = api.Environment(cls.cr, weblgx.SUPERUSER_ID, {})
 
         # speedup CryptContext. Many user an password are done during tests, avoid spending time hasing password with many rounds
         def _crypt_context(self):  # noqa: ARG001
@@ -870,7 +870,7 @@ class TransactionCase(BaseCase):
                 ['pbkdf2_sha512', 'plaintext'],
                 pbkdf2_sha512__rounds=1,
             )
-        cls._crypt_context_patcher = patch('odoo.addons.base.models.res_users.Users._crypt_context', _crypt_context)
+        cls._crypt_context_patcher = patch('weblgx.addons.base.models.res_users.Users._crypt_context', _crypt_context)
         cls.startClassPatcher(cls._crypt_context_patcher)
 
     def setUp(self):
@@ -920,14 +920,14 @@ class SingleTransactionCase(BaseCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.registry = odoo.registry(get_db_name())
+        cls.registry = weblgx.registry(get_db_name())
         cls.addClassCleanup(cls.registry.reset_changes)
         cls.addClassCleanup(cls.registry.clear_all_caches)
 
         cls.cr = cls.registry.cursor()
         cls.addClassCleanup(cls.cr.close)
 
-        cls.env = api.Environment(cls.cr, odoo.SUPERUSER_ID, {})
+        cls.env = api.Environment(cls.cr, weblgx.SUPERUSER_ID, {})
 
     def setUp(self):
         super(SingleTransactionCase, self).setUp()
@@ -983,7 +983,7 @@ def save_test_file(test_name, content, prefix, extension='png', logger=_logger, 
     assert re.fullmatch(r'[a-z]+', extension)
     assert re.fullmatch(r'\w+', test_name)
     now = datetime.now().strftime(date_format)
-    dest = pathlib.Path(odoo.tools.config['screenshots']) / get_db_name() / directory
+    dest = pathlib.Path(weblgx.tools.config['screenshots']) / get_db_name() / directory
     dest.mkdir(parents=True, exist_ok=True)
     full_path = dest / f'{prefix}{now}_{test_name}.{extension}'
     full_path.write_bytes(content)
@@ -1011,10 +1011,10 @@ class ChromeBrowser:
         if websocket is None:
             self._logger.warning("websocket-client module is not installed")
             raise unittest.SkipTest("websocket-client module is not installed")
-        self.user_data_dir = tempfile.mkdtemp(suffix='_chrome_odoo')
+        self.user_data_dir = tempfile.mkdtemp(suffix='_chrome_weblgx')
         self.chrome_log_level = logging.RUNBOT
 
-        otc = odoo.tools.config
+        otc = weblgx.tools.config
         self.screencasts_dir = None
         self.screencast_frames = []
         if otc['screencasts']:
@@ -1221,7 +1221,7 @@ class ChromeBrowser:
             '--remote-debugging-port': str(self.remote_debugging_port),
             '--user-data-dir': user_data_dir,
             '--enable-logging': '',
-            '--v': str(int(os.environ.get("ODOO_BROWSER_LOG_VERBOSITY", "0"))),
+            '--v': str(int(os.environ.get("WEBLGX_BROWSER_LOG_VERBOSITY", "0"))),
             '--no-first-run': '',
             # '--enable-precise-memory-info': '',  # uncomment to debug memory leaks in unit tests
             # FIXME: the next flag is temporarily uncommented to allow client
@@ -1767,7 +1767,7 @@ which leads to stray network requests and inconsistencies."""
             )
         # all that's left is type=object, subtype=None aka custom or
         # non-standard objects, print as TypeName(param=val, ...), sadly because
-        # of the way Odoo widgets are created they all appear as Class(...)
+        # of the way Web@LGX widgets are created they all appear as Class(...)
         # nb: preview properties are *not* recursive, the value is *all* we get
         return '%s(%s)' % (
             arg.get('className') or 'object',
@@ -1818,7 +1818,7 @@ which leads to stray network requests and inconsistencies."""
 
 @lru_cache(1)
 def _find_executable():
-    browser_bin_path = os.environ.get('ODOO_BROWSER_BIN')  # used for testing specific Chrome builds
+    browser_bin_path = os.environ.get('WEBLGX_BROWSER_BIN')  # used for testing specific Chrome builds
     if browser_bin_path and os.path.exists(browser_bin_path):
         return browser_bin_path
     system = platform.system()
@@ -1915,7 +1915,7 @@ class HttpCase(TransactionCase):
         ICP.set_param('web.base.url', cls.base_url())
         ICP.env.flush_all()
         # v8 api with correct xmlrpc exception handling.
-        cls.xmlrpc_url = f'http://{HOST}:{odoo.tools.config["http_port"]:d}/xmlrpc/2/'
+        cls.xmlrpc_url = f'http://{HOST}:{weblgx.tools.config["http_port"]:d}/xmlrpc/2/'
         cls._logger = logging.getLogger('%s.%s' % (cls.__module__, cls.__name__))
 
     def setUp(self):
@@ -1975,7 +1975,7 @@ class HttpCase(TransactionCase):
     def _wait_remaining_requests(self, timeout=10):
 
         def get_http_request_threads():
-            return [t for t in threading.enumerate() if t.name.startswith('odoo.service.http.request.')]
+            return [t for t in threading.enumerate() if t.name.startswith('weblgx.service.http.request.')]
 
         start_time = time.time()
         request_threads = get_http_request_threads()
@@ -1994,19 +1994,19 @@ class HttpCase(TransactionCase):
 
         if request_threads:
             self._logger.info('remaining requests')
-            odoo.tools.misc.dumpstacks()
+            weblgx.tools.misc.dumpstacks()
 
     def logout(self, keep_db=True):
         self.session.logout(keep_db=keep_db)
-        odoo.http.root.session_store.save(self.session)
+        weblgx.http.root.session_store.save(self.session)
 
     def authenticate(self, user, password, browser: ChromeBrowser = None):
         if getattr(self, 'session', None):
-            odoo.http.root.session_store.delete(self.session)
+            weblgx.http.root.session_store.delete(self.session)
 
-        self.session = session = odoo.http.root.session_store.new()
-        session.update(odoo.http.get_default_session(), db=get_db_name())
-        session.context['lang'] = odoo.http.DEFAULT_LANG
+        self.session = session = weblgx.http.root.session_store.new()
+        session.update(weblgx.http.get_default_session(), db=get_db_name())
+        session.context['lang'] = weblgx.http.DEFAULT_LANG
 
         if user: # if authenticated
             # Flush and clear the current transaction.  This is useful, because
@@ -2021,7 +2021,7 @@ class HttpCase(TransactionCase):
             session.session_token = uid and security.compute_session_token(session, env)
             session.context = dict(env['res.users'].context_get())
 
-        odoo.http.root.session_store.save(session)
+        weblgx.http.root.session_store.save(session)
         # Reset the opener: turns out when we set cookies['foo'] we're really
         # setting a cookie on domain='' path='/'.
         #
@@ -2132,7 +2132,7 @@ class HttpCase(TransactionCase):
                 for name, value in cookies.items():
                     browser.set_cookie(name, value, '/', HOST)
 
-            cpu_throttling_os = os.environ.get('ODOO_BROWSER_CPU_THROTTLING') # used by dedicated runbot builds
+            cpu_throttling_os = os.environ.get('WEBLGX_BROWSER_CPU_THROTTLING') # used by dedicated runbot builds
             cpu_throttling = int(cpu_throttling_os) if cpu_throttling_os else cpu_throttling
 
             if cpu_throttling:
@@ -2170,7 +2170,7 @@ class HttpCase(TransactionCase):
 
     @classmethod
     def base_url(cls):
-        return f"http://{HOST}:{odoo.tools.config['http_port']}"
+        return f"http://{HOST}:{weblgx.tools.config['http_port']}"
 
     def start_tour(self, url_path, tour_name, step_delay=None, **kwargs):
         """Wrapper for `browser_js` to start the given `tour_name` with the
@@ -2181,8 +2181,8 @@ class HttpCase(TransactionCase):
             'keepWatchBrowser': kwargs.get('watch', False),
             'startUrl': url_path,
         }
-        code = kwargs.pop('code', "odoo.startTour('%s', %s)" % (tour_name, json.dumps(options)))
-        ready = kwargs.pop('ready', "odoo.isTourReady('%s')" % tour_name)
+        code = kwargs.pop('code', "weblgx.startTour('%s', %s)" % (tour_name, json.dumps(options)))
+        ready = kwargs.pop('ready', "weblgx.isTourReady('%s')" % tour_name)
         return self.browser_js(url_path=url_path, code=code, ready=ready, **kwargs)
 
     def profile(self, **kwargs):
@@ -2193,14 +2193,14 @@ class HttpCase(TransactionCase):
         _profiler = sup.profile(**kwargs)
         def route_profiler(request):
             return sup.profile(description=request.httprequest.full_path)
-        return profiler.Nested(_profiler, patch('odoo.http.Request._get_profiler_context_manager', route_profiler))
+        return profiler.Nested(_profiler, patch('weblgx.http.Request._get_profiler_context_manager', route_profiler))
 
     def get_method_additional_tags(self, test_method):
         """
         guess if the test_methods is a tour and adds an `is_tour` tag on the test
         """
         additional_tags = super().get_method_additional_tags(test_method)
-        if odoo.tools.config['test_tags'] and 'is_tour' in odoo.tools.config['test_tags']:
+        if weblgx.tools.config['test_tags'] and 'is_tour' in weblgx.tools.config['test_tags']:
             method_source = inspect.getsource(test_method)
             if 'self.start_tour' in method_source:
                 additional_tags.append('is_tour')
@@ -2312,7 +2312,7 @@ def tagged(*tags):
 
     A tag prefixed by '-' will remove the tag e.g. to remove the 'standard' tag.
 
-    By default, all Test classes from odoo.tests.common have a test_tags
+    By default, all Test classes from weblgx.tests.common have a test_tags
     attribute that defaults to 'standard' and 'at_install'.
 
     When using class inheritance, the tags ARE inherited.

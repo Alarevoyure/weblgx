@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import logging
 import sys
 import traceback
 from pathlib import Path
 
-import odoo
-from odoo.modules import get_module_path, get_modules, initialize_sys_path
+import weblgx
+from weblgx.modules import get_module_path, get_modules, initialize_sys_path
 
 commands = {}
 class Command:  # noqa: E302
@@ -16,13 +16,13 @@ class Command:  # noqa: E302
         commands[cls.name] = cls
 
 
-ODOO_HELP = """\
-Odoo CLI, use '{odoo_bin} --help' for regular server options.
+WEBLGX_HELP = """\
+Web@LGX CLI, use '{weblgx_bin} --help' for regular server options.
 
 Available commands:
     {command_list}
 
-Use '{odoo_bin} <command> --help' for individual command help."""
+Use '{weblgx_bin} <command> --help' for individual command help."""
 
 
 class Help(Command):
@@ -33,8 +33,8 @@ class Help(Command):
             "    {}{}".format(name.ljust(padding), (command.__doc__ or "").strip())
             for name, command in sorted(commands.items())
         ])
-        print(ODOO_HELP.format(  # noqa: T201
-            odoo_bin=Path(sys.argv[0]).name,
+        print(WEBLGX_HELP.format(  # noqa: T201
+            weblgx_bin=Path(sys.argv[0]).name,
             command_list=command_list,
         ))
 
@@ -46,7 +46,7 @@ def main():
     # commands from modules
     if len(args) > 1 and args[0].startswith('--addons-path=') and not args[1].startswith("-"):
         # parse only the addons-path, do not setup the logger...
-        odoo.tools.config._parse_config([args[0]])
+        weblgx.tools.config._parse_config([args[0]])
         args = args[1:]
 
     # Default legacy command
@@ -60,7 +60,7 @@ def main():
         for module in get_modules():
             if (Path(get_module_path(module)) / 'cli').is_dir():
                 try:
-                    __import__('odoo.addons.' + module)
+                    __import__('weblgx.addons.' + module)
                 except Exception:  # noqa: BLE001
                     print("Failed to scan module", module, file=sys.stderr)  # noqa: T201
                     if module == 'hw_drivers':
@@ -72,7 +72,7 @@ def main():
 
     if command in commands:
         o = commands[command]()
-        odoo.cli.COMMAND = command
+        weblgx.cli.COMMAND = command
         o.run(args)
     else:
         sys.exit('Unknown command %r' % (command,))

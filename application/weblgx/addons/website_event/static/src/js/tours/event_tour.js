@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import EventAdditionalTourSteps from "@event/js/tours/event_steps";
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 import { patch } from "@web/core/utils/patch";
 
 patch(EventAdditionalTourSteps.prototype, {

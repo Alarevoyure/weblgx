@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 import logging
 from datetime import date, datetime, timedelta
 
-from odoo import api, fields, models, _, exceptions
-from odoo.tools.safe_eval import safe_eval, time
+from weblgx import api, fields, models, _, exceptions
+from weblgx.tools.safe_eval import safe_eval, time
 
 _logger = logging.getLogger(__name__)
 

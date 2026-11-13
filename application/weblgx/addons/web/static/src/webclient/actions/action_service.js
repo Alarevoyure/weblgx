@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { browser } from "@web/core/browser/browser";
@@ -24,7 +24,7 @@ import {
     useChildSubEnv,
     xml,
     reactive,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { downloadReport, getReportUrl } from "./reports/utils";
 import { FetchRecordError } from "@web/model/relational_model/utils";
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 from hashlib import sha256
 from unittest.mock import patch
 import logging
@@ -9,12 +9,12 @@ from psycopg2 import IntegrityError
 from psycopg2.extras import Json
 import io
 
-from odoo.exceptions import UserError
-from odoo.tools import sql
-from odoo.tools.translate import quote, unquote, xml_translate, html_translate, TranslationImporter, TranslationModuleReader
-from odoo.tests.common import TransactionCase, BaseCase, new_test_user, tagged
+from weblgx.exceptions import UserError
+from weblgx.tools import sql
+from weblgx.tools.translate import quote, unquote, xml_translate, html_translate, TranslationImporter, TranslationModuleReader
+from weblgx.tests.common import TransactionCase, BaseCase, new_test_user, tagged
 
-_stats_logger = logging.getLogger('odoo.tests.stats')
+_stats_logger = logging.getLogger('weblgx.tests.stats')
 
 # a string with various unicode characters
 SPECIAL_CHARACTERS = " ¥®°²Æçéðπ⁉€∇⓵▲☑♂♥✓➔『にㄅ㊀中한︸🌈🌍👌😀"
@@ -411,7 +411,7 @@ class TestLanguageInstall(TransactionCase):
         def _load_module_terms(self, modules, langs, overwrite=False):
             loaded.append((modules, langs, overwrite))
 
-        with patch('odoo.addons.base.models.ir_module.Module._load_module_terms', _load_module_terms):
+        with patch('weblgx.addons.base.models.ir_module.Module._load_module_terms', _load_module_terms):
             wizard.lang_install()
 
         # _load_module_terms is called once with lang='fr_FR' and overwrite=True
@@ -425,7 +425,7 @@ class TestTranslationExport(TransactionCase):
 
     def test_export_translatable_resources(self):
         """Read files of installed modules and export translatable terms"""
-        with self.assertNoLogs('odoo.tools.translate', "ERROR"):
+        with self.assertNoLogs('weblgx.tools.translate', "ERROR"):
             TranslationModuleReader(self.env.cr)
 
 
@@ -600,17 +600,17 @@ class TestTranslation(TransactionCase):
     # TODO Currently, the unique constraint doesn't work for translatable field
     # def test_111_unique_en(self):
     #     Country = self.env['res.country']
-    #     country_1 = Country.create({'name': 'Odoo'})
-    #     country_1.with_context(lang='fr_FR').name = 'Odoo_Fr'
+    #     country_1 = Country.create({'name': 'Web@LGX'})
+    #     country_1.with_context(lang='fr_FR').name = 'Web@LGX_Fr'
     #     country_1.flush_recordset()
     #
-    #     country_2 = Country.create({'name': 'Odoo2'})
-    #     with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
-    #         country_2.name = 'Odoo'
+    #     country_2 = Country.create({'name': 'Weblgx2'})
+    #     with self.assertRaises(IntegrityError), mute_logger('weblgx.sql_db'):
+    #         country_2.name = 'Web@LGX'
     #         country_2.flush_recordset()
     #
-    #     with self.assertRaises(IntegrityError), mute_logger('odoo.sql_db'):
-    #         country_3 = Country.create({'name': 'Odoo'})
+    #     with self.assertRaises(IntegrityError), mute_logger('weblgx.sql_db'):
+    #         country_3 = Country.create({'name': 'Web@LGX'})
 
 class TestTranslationWrite(TransactionCase):
     @classmethod

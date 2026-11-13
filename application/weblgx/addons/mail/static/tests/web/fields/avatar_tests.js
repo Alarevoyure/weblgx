@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Avatar } from "@mail/views/web/fields/avatar/avatar";
 import { start } from "@mail/../tests/helpers/test_utils";

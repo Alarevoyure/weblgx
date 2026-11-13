@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import testUtils from "@web/../tests/legacy/helpers/test_utils";
 const { DateTime } = luxon;

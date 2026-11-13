@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @weblgx-module */
 
-import { useComponent, useEffect } from "@odoo/owl";
+import { useComponent, useEffect } from "@weblgx/owl";
 
 /**
  * Hook used to enrich html and provide automatic links to action.

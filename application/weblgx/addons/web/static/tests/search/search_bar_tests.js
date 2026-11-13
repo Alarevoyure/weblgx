@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import * as dsHelpers from "@web/../tests/core/domain_selector_tests";
 import {
@@ -30,7 +30,7 @@ function getDomain(controlPanel) {
     return controlPanel.env.searchModel.domain;
 }
 
-import { Component, onWillUpdateProps, xml } from "@odoo/owl";
+import { Component, onWillUpdateProps, xml } from "@weblgx/owl";
 import { SearchBar } from "@web/search/search_bar/search_bar";
 
 let target;

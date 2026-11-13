@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * The jquery library extensions and fixes should be done here to avoid patching
@@ -90,11 +90,11 @@ $.fn.extend({
         return o;
     },
     /**
-     * Makes DOM elements bounce the way Odoo decided it.
+     * Makes DOM elements bounce the way Web@LGX decided it.
      *
      * @param {string} [extraClass]
      */
-    odooBounce: function (extraClass) {
+    weblgxBounce: function (extraClass) {
         for (const el of this) {
             el.classList.add('o_catch_attention', extraClass);
             setTimeout(() => el.classList.remove('o_catch_attention', extraClass), 400);

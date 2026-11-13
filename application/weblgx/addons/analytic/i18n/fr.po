@@ -15,7 +15,7 @@ msgstr ""
 "POT-Creation-Date: 2026-01-29 18:35+0000\n"
 "PO-Revision-Date: 2026-02-24 14:03+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: French <https://translate.odoo.com/projects/odoo-17/analytic/"
+"Language-Team: French <https://translate.weblgx.com/projects/weblgx-17/analytic/"
 "fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Generator: Weblate 5.14.3\n"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_account.py:0
 #, python-format
 msgid "%s (copy)"
@@ -43,7 +43,7 @@ msgid "<span class=\"o_stat_text\">Gross Margin</span>"
 msgstr "<span class=\"o_stat_text\">Marge brute</span>"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_plan.py:0
 #, python-format
 msgid ""
@@ -54,7 +54,7 @@ msgstr ""
 "`analytic.project_plan` dans les variables du système "
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Account field"
@@ -86,7 +86,7 @@ msgid "Active account"
 msgstr "Compte actif"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
 #, python-format
 msgid "Add a Line"
@@ -115,14 +115,14 @@ msgid "Amount"
 msgstr "Montant"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Amount field"
 msgstr "Champ de montant"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
 #, python-format
 msgid "Analytic"
@@ -161,7 +161,7 @@ msgid "Analytic Distribution"
 msgstr "Répartition analytique"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #: model:ir.model,name:analytic.model_account_analytic_distribution_model
 #: model_terms:ir.ui.view,arch_db:analytic.account_analytic_distribution_model_form_view
@@ -234,14 +234,14 @@ msgid "Analytic Precision"
 msgstr "Précision analytique"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_plan.py:0
 #, python-format
 msgid "Analytical Accounts"
 msgstr "Comptes analytiques"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_plan.py:0
 #, python-format
 msgid "Analytical Plans"
@@ -287,7 +287,7 @@ msgid "Balance:"
 msgstr "Solde :"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Business domain"
@@ -329,7 +329,7 @@ msgid "Click to add a new analytic account plan."
 msgstr "Cliquez pour ajouter une nouvelle dimension analytique."
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
 #, python-format
 msgid "Close"
@@ -472,7 +472,7 @@ msgid "Desertic - Hispafuentes"
 msgstr "Désertique - Hispafuentes"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Disable save"
@@ -514,7 +514,7 @@ msgid "Followers (Partners)"
 msgstr "Abonnés (Partenaires)"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Force applicability"
@@ -646,7 +646,7 @@ msgid "Nebula"
 msgstr "Nebula"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
 #, python-format
 msgid "New Model"
@@ -663,7 +663,7 @@ msgid "No activity yet on this account"
 msgstr "Pas encore d'activité sur ce compte"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
 #, python-format
 msgid "No analytic plans found"
@@ -690,7 +690,7 @@ msgid "Number of messages with delivery error"
 msgstr "Nombre de messages avec des erreurs d'envoi"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_mixin.py:0
 #, python-format
 msgid "One or more lines require a 100% analytic distribution."
@@ -703,7 +703,7 @@ msgid "Operating Costs"
 msgstr "Coûts d'exploitation"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_mixin.py:0
 #, python-format
 msgid "Operation not supported"
@@ -747,7 +747,7 @@ msgid "Partner Category"
 msgstr "Catégorie de partenaires"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Percentage"
@@ -759,7 +759,7 @@ msgid "Plan"
 msgstr "Plan"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.js:0
 #, python-format
 msgid "Product field"
@@ -820,7 +820,7 @@ msgid "Root Plan"
 msgstr "Plan de base"
 
 #. module: analytic
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/analytic/static/src/components/analytic_distribution/analytic_distribution.xml:0
 #, python-format
 msgid "Save as new analytic distribution model"
@@ -837,7 +837,7 @@ msgid "Search Analytic Lines"
 msgstr "Chercher des lignes analytiques"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_account.py:0
 #, python-format
 msgid "See them"
@@ -900,7 +900,7 @@ msgid "System Parameter"
 msgstr "Paramètres système"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/ir_config_parameter.py:0
 #, python-format
 msgid ""
@@ -947,7 +947,7 @@ msgid "View"
 msgstr "Vue"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_account.py:0
 #, python-format
 msgid ""
@@ -958,7 +958,7 @@ msgstr ""
 "actuelles. Faisons en sorte d'éviter cela !"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_account.py:0
 #, python-format
 msgid ""
@@ -969,14 +969,14 @@ msgstr ""
 "analytique car certaines écritures analytiques y sont liées."
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_plan.py:0
 #, python-format
 msgid "You cannot add a parent to the base plan '%s'"
 msgstr "Vous ne pouvez pas ajouter un parent au plan de base '%s'"
 
 #. module: analytic
-#. odoo-python
+#. weblgx-python
 #: code:addons/analytic/models/analytic_distribution_model.py:0
 #, python-format
 msgid ""

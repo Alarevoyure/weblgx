@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from weblgx import fields, models
 
 
 class BusPresence(models.Model):

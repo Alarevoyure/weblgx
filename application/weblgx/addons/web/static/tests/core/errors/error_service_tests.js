@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { dialogService } from "@web/core/dialog/dialog_service";
@@ -24,7 +24,7 @@ import {
 import { getFixture, makeDeferred, mount, nextTick, patchWithCleanup } from "../../helpers/utils";
 import { omit } from "@web/core/utils/objects";
 
-import { Component, xml, onError, OwlError, onWillStart } from "@odoo/owl";
+import { Component, xml, onError, OwlError, onWillStart } from "@weblgx/owl";
 import { defaultHandler } from "@web/core/errors/error_handlers";
 const errorDialogRegistry = registry.category("error_dialogs");
 const errorHandlerRegistry = registry.category("error_handlers");
@@ -404,7 +404,7 @@ QUnit.test("show dialog for errors in third-party scripts in debug mode", async 
     const error = new TestError();
     error.message = "Script error.";
     error.name = "Script error.";
-    patchWithCleanup(odoo, { debug: true });
+    patchWithCleanup(weblgx, { debug: true });
 
     function addDialog(_dialogClass, props) {
         assert.step(props.message);

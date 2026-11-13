@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { isMacOS } from "@web/core/browser/feature_detection";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
@@ -8,7 +8,7 @@ import { capitalize } from "@web/core/utils/strings";
 import { getVisibleElements } from "@web/core/utils/ui";
 import { DefaultCommandItem } from "./command_palette";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 const commandSetupRegistry = registry.category("command_setup");
 commandSetupRegistry.add("default", {

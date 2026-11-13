@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import re
 from contextlib import suppress
 
-import odoo.tests
-from odoo.tools.misc import file_open
+import weblgx.tests
+from weblgx.tools.misc import file_open
 from werkzeug.urls import url_quote_plus
 
 RE_ONLY = re.compile(r'QUnit\.(only|debug)\(')
@@ -25,8 +25,8 @@ def qunit_error_checker(message):
     return True  # in other cases, always stop (missing dependency, ...)
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class WebsuiteCommon(odoo.tests.HttpCase):
+@weblgx.tests.tagged('post_install', '-at_install')
+class WebsuiteCommon(weblgx.tests.HttpCase):
     def get_filter(self, test_params):
         positive = []
         negative = []
@@ -84,10 +84,10 @@ class WebsuiteCommon(odoo.tests.HttpCase):
         return filter_param
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@weblgx.tests.tagged('post_install', '-at_install')
 class WebSuite(WebsuiteCommon):
 
-    @odoo.tests.no_retry
+    @weblgx.tests.no_retry
     def test_js(self):
         filter_param = self.get_filter_param()
         # webclient desktop test suite
@@ -117,7 +117,7 @@ class WebSuite(WebsuiteCommon):
                         self.fail("`QUnit.only()` or `QUnit.debug()` used in file %r" % asset['url'])
 
 
-@odoo.tests.tagged('post_install', '-at_install')
+@weblgx.tests.tagged('post_install', '-at_install')
 class MobileWebSuite(WebsuiteCommon):
     browser_size = '375x667'
     touch_enabled = True

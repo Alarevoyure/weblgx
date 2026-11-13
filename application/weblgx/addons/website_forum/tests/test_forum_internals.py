@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website_forum.models.forum_forum import MOST_USED_TAGS_COUNT
-from odoo.addons.website_forum.tests.common import KARMA, TestForumCommon
-from odoo.tests import tagged, users
+from weblgx.addons.website_forum.models.forum_forum import MOST_USED_TAGS_COUNT
+from weblgx.addons.website_forum.tests.common import KARMA, TestForumCommon
+from weblgx.tests import tagged, users
 
 
 @tagged('forum_internals')

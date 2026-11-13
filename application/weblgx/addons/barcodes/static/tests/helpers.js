@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { triggerEvent } from "@web/../tests/helpers/utils";
 

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Message } from "@mail/core/common/message";
 import { MessageConfirmDialog } from "@mail/core/common/message_confirm_dialog";
@@ -6,7 +6,7 @@ import { Message as MessageModel } from "@mail/core/common/message_model";
 import { Record } from "@mail/core/common/record";
 import { Thread } from "@mail/core/common/thread_model";
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -53,7 +53,7 @@ export class MessagePin {
     store;
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -173,7 +173,7 @@ export class MessagePin {
 export const messagePinService = {
     dependencies: ["bus_service", "dialog", "mail.store", "orm", "rpc"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

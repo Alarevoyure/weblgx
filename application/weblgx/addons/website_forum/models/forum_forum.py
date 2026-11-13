@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import textwrap
 from collections import defaultdict
@@ -7,10 +7,10 @@ from operator import itemgetter
 
 from markupsafe import Markup
 
-from odoo import _, api, fields, models
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.osv import expression
-from odoo.tools.translate import html_translate
+from weblgx import _, api, fields, models
+from weblgx.addons.http_routing.models.ir_http import slug
+from weblgx.osv import expression
+from weblgx.tools.translate import html_translate
 
 
 def forum_selected_site_domain(records):

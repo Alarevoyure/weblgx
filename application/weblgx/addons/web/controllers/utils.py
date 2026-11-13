@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import copy
 import hashlib
@@ -16,10 +16,10 @@ import werkzeug.wsgi
 from lxml import etree
 from werkzeug.urls import iri_to_uri
 
-from odoo.tools.translate import JAVASCRIPT_TRANSLATION_COMMENT, WEB_TRANSLATION_COMMENT
-from odoo.tools.misc import file_open
-from odoo import http
-from odoo.http import request
+from weblgx.tools.translate import JAVASCRIPT_TRANSLATION_COMMENT, WEB_TRANSLATION_COMMENT
+from weblgx.tools.misc import file_open
+from weblgx import http
+from weblgx.http import request
 
 
 _logger = logging.getLogger(__name__)

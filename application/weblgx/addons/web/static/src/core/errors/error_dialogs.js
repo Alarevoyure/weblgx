@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "../browser/browser";
 import { Dialog } from "../dialog/dialog";
@@ -7,7 +7,7 @@ import { registry } from "../registry";
 import { useService } from "@web/core/utils/hooks";
 import { capitalize } from "../utils/strings";
 
-import { Component, useState, markup } from "@odoo/owl";
+import { Component, useState, markup } from "@weblgx/owl";
 
 function fallbackCopyToClipboard(text) {
     try {
@@ -51,15 +51,15 @@ export const standardErrorDialogProps = {
     close: Function, // prop added by the Dialog service
 };
 
-export const odooExceptionTitleMap = new Map(
+export const weblgxExceptionTitleMap = new Map(
     Object.entries({
-        "odoo.addons.base.models.ir_mail_server.MailDeliveryException": _t("MailDeliveryException"),
-        "odoo.exceptions.AccessDenied": _t("Access Denied"),
-        "odoo.exceptions.MissingError": _t("Missing Record"),
-        "odoo.exceptions.UserError": _t("Invalid Operation"),
-        "odoo.exceptions.ValidationError": _t("Validation Error"),
-        "odoo.exceptions.AccessError": _t("Access Error"),
-        "odoo.exceptions.Warning": _t("Warning"),
+        "weblgx.addons.base.models.ir_mail_server.MailDeliveryException": _t("MailDeliveryException"),
+        "weblgx.exceptions.AccessDenied": _t("Access Denied"),
+        "weblgx.exceptions.MissingError": _t("Missing Record"),
+        "weblgx.exceptions.UserError": _t("Invalid Operation"),
+        "weblgx.exceptions.ValidationError": _t("Validation Error"),
+        "weblgx.exceptions.AccessError": _t("Access Error"),
+        "weblgx.exceptions.Warning": _t("Warning"),
     })
 );
 
@@ -107,8 +107,8 @@ export class RPCErrorDialog extends ErrorDialog {
     }
     inferTitle() {
         // If the server provides an exception name that we have in a registry.
-        if (this.props.exceptionName && odooExceptionTitleMap.has(this.props.exceptionName)) {
-            this.title = odooExceptionTitleMap.get(this.props.exceptionName).toString();
+        if (this.props.exceptionName && weblgxExceptionTitleMap.has(this.props.exceptionName)) {
+            this.title = weblgxExceptionTitleMap.get(this.props.exceptionName).toString();
             return;
         }
         // Fall back to a name based on the error type.
@@ -147,8 +147,8 @@ export class WarningDialog extends Component {
         }
     }
     inferTitle() {
-        if (this.props.exceptionName && odooExceptionTitleMap.has(this.props.exceptionName)) {
-            return odooExceptionTitleMap.get(this.props.exceptionName).toString();
+        if (this.props.exceptionName && weblgxExceptionTitleMap.has(this.props.exceptionName)) {
+            return weblgxExceptionTitleMap.get(this.props.exceptionName).toString();
         }
         return this.props.title || _t("Web@LGX Warning");
     }
@@ -214,12 +214,12 @@ SessionExpiredDialog.props = { ...standardErrorDialogProps };
 
 registry
     .category("error_dialogs")
-    .add("odoo.exceptions.AccessDenied", WarningDialog)
-    .add("odoo.exceptions.AccessError", WarningDialog)
-    .add("odoo.exceptions.MissingError", WarningDialog)
-    .add("odoo.exceptions.UserError", WarningDialog)
-    .add("odoo.exceptions.ValidationError", WarningDialog)
-    .add("odoo.exceptions.RedirectWarning", RedirectWarningDialog)
-    .add("odoo.http.SessionExpiredException", SessionExpiredDialog)
+    .add("weblgx.exceptions.AccessDenied", WarningDialog)
+    .add("weblgx.exceptions.AccessError", WarningDialog)
+    .add("weblgx.exceptions.MissingError", WarningDialog)
+    .add("weblgx.exceptions.UserError", WarningDialog)
+    .add("weblgx.exceptions.ValidationError", WarningDialog)
+    .add("weblgx.exceptions.RedirectWarning", RedirectWarningDialog)
+    .add("weblgx.http.SessionExpiredException", SessionExpiredDialog)
     .add("werkzeug.exceptions.Forbidden", SessionExpiredDialog)
     .add("504", Error504Dialog);

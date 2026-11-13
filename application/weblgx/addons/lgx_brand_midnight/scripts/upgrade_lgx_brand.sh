@@ -10,9 +10,9 @@
 
 set -euo pipefail
 
-ODOO_BIN="${ODOO_BIN:-/usr/bin/weblgx}"
-ODOO_CONF="${ODOO_CONF:-/etc/weblgx/weblgx.conf}"
-ODOO_USER="${ODOO_USER:-weblgx}"
+WEBLGX_BIN="${WEBLGX_BIN:-/usr/bin/weblgx}"
+WEBLGX_CONF="${WEBLGX_CONF:-/etc/weblgx/weblgx.conf}"
+WEBLGX_USER="${WEBLGX_USER:-weblgx}"
 DB_NAME="${DB_NAME:-weblgx}"
 MODULE="${MODULE:-lgx_brand_midnight}"
 
@@ -21,4 +21,4 @@ if [[ "${INSTALL_FIRST:-0}" == "1" ]]; then
   EXTRA_ARGS=("-i" "${MODULE}" "--stop-after-init")
 fi
 
-exec sudo -u "${ODOO_USER}" "${ODOO_BIN}" -c "${ODOO_CONF}" -d "${DB_NAME}" "${EXTRA_ARGS[@]}"
+exec sudo -u "${WEBLGX_USER}" "${WEBLGX_BIN}" -c "${WEBLGX_CONF}" -d "${DB_NAME}" "${EXTRA_ARGS[@]}"

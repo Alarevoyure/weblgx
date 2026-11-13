@@ -1,11 +1,11 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { BaseStore, Record, makeStore, modelRegistry } from "@mail/core/common/record";
 
 import { registry } from "@web/core/registry";
 import { clearRegistryWithCleanup, makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { assertSteps, step } from "@web/../tests/utils";
-import { markup, reactive, toRaw } from "@odoo/owl";
+import { markup, reactive, toRaw } from "@weblgx/owl";
 
 const serviceRegistry = registry.category("services");
 

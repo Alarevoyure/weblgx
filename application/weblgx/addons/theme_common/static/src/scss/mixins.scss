@@ -361,7 +361,7 @@
             font-weight: bolder;
         }
     }
-    .dropdown-menu, .navbar-collapse { // FIXME navbar should be removed ? (https://github.com/odoo/design-themes/commit/d20298fe41fdee5324c7e32f78e89d26edc71896#diff-042ad6434fc37ef55af3ca7db63906b8L259)
+    .dropdown-menu, .navbar-collapse { // FIXME navbar should be removed ? (https://github.com/weblgx/design-themes/commit/d20298fe41fdee5324c7e32f78e89d26edc71896#diff-042ad6434fc37ef55af3ca7db63906b8L259)
         border-radius: 0px;
         box-shadow: none;
         top: $top;

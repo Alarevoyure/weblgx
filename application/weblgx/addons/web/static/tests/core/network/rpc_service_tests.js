@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { ConnectionAbortedError, ConnectionLostError, rpcService } from "@web/core/network/rpc_service";
@@ -17,7 +17,7 @@ import {
 } from "../../helpers/utils";
 import { registerCleanup } from "../../helpers/cleanup";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 const serviceRegistry = registry.category("services");
 

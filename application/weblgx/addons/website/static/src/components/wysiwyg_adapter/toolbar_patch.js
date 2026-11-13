@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { patch } from "@web/core/utils/patch";
 import { Toolbar } from "@web_editor/js/editor/toolbar";

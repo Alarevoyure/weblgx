@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import contextlib
 
-from odoo import _, models, SUPERUSER_ID
-from odoo.exceptions import AccessError, MissingError, UserError
-from odoo.tools import consteq
+from weblgx import _, models, SUPERUSER_ID
+from weblgx.exceptions import AccessError, MissingError, UserError
+from weblgx.tools import consteq
 
 
 class IrAttachment(models.Model):

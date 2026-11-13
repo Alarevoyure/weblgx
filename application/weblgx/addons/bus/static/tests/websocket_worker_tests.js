@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { patchWebsocketWorkerWithCleanup } from "@bus/../tests/helpers/mock_websocket";
 import { WEBSOCKET_CLOSE_CODES } from "@bus/workers/websocket_worker";

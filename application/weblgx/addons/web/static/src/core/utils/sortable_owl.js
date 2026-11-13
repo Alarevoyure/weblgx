@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @weblgx-module */
 
-import { onWillUnmount, reactive, useEffect, useExternalListener } from "@odoo/owl";
+import { onWillUnmount, reactive, useEffect, useExternalListener } from "@weblgx/owl";
 import { useThrottleForAnimation } from "./timing";
 import { useSortable as nativeUseSortable } from "@web/core/utils/sortable";
 

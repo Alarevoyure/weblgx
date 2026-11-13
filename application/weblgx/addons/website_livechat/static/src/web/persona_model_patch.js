@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { Persona } from "@mail/core/common/persona_model";
 import { _t } from "@web/core/l10n/translation";

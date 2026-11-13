@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { AttachmentList } from "@mail/core/common/attachment_list";
 import { VoicePlayer } from "@mail/discuss/voice_message/common/voice_player";

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import http
-from odoo.addons.http_routing.models.ir_http import unslug, slug
-from odoo.http import request
+from weblgx import http
+from weblgx.addons.http_routing.models.ir_http import unslug, slug
+from weblgx.http import request
 
 
 class WebsitePartnerPage(http.Controller):

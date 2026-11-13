@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { AccordionItem } from "@web/core/dropdown/accordion_item";
@@ -6,7 +6,7 @@ import { CheckBox } from "@web/core/checkbox/checkbox";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, useRef, useState } from "@odoo/owl";
+import { Component, useRef, useState } from "@weblgx/owl";
 
 const favoriteMenuRegistry = registry.category("favoriteMenu");
 

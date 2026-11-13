@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { assignDefined } from "@mail/utils/common/misc";
 
@@ -12,7 +12,7 @@ export const CHAT_WINDOW_HIDDEN_WIDTH = 55;
 
 export class ChatWindowService {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -20,7 +20,7 @@ export class ChatWindowService {
     }
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     setup(env, services) {
@@ -136,7 +136,7 @@ export class ChatWindowService {
 export const chatWindowService = {
     dependencies: ["mail.store", "orm", "ui"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import fnmatch
 import logging
 import optparse
@@ -7,7 +7,7 @@ import time
 from contextlib import nullcontext
 from pathlib import Path
 from unittest.mock import patch
-import odoo
+import weblgx
 
 from . import Command
 _logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ class Populate(Command):
     """ Inject fake data inside a database for testing """
 
     def run(self, cmdargs):
-        parser = odoo.tools.config.parser
+        parser = weblgx.tools.config.parser
         parser.prog = f'{Path(sys.argv[0]).name} {self.name}'
         group = optparse.OptionGroup(parser, "Populate Configuration")
         group.add_option("--size", dest="population_size",
@@ -35,12 +35,12 @@ class Populate(Command):
                          help="Specify if you want to rollback database population.",
                          default=False)
         parser.add_option_group(group)
-        opt = odoo.tools.config.parse_config(cmdargs)
+        opt = weblgx.tools.config.parse_config(cmdargs)
         populate_models = opt.populate_models and set(opt.populate_models.split(','))
-        dbname = odoo.tools.config['db_name']
-        registry = odoo.registry(dbname)
+        dbname = weblgx.tools.config['db_name']
+        registry = weblgx.registry(dbname)
         with registry.cursor() as cr:
-            env = odoo.api.Environment(cr, odoo.SUPERUSER_ID, {})
+            env = weblgx.api.Environment(cr, weblgx.SUPERUSER_ID, {})
             self.populate(
                 env, opt.population_size, populate_models,
                 profiling_enabled=opt.profiling_enabled,
@@ -57,7 +57,7 @@ class Populate(Command):
             _logger.log(25, 'Populating database')
             for model in ordered_models:
                 if profiling_enabled:
-                    profiling_context = odoo.tools.profiler.Profiler(
+                    profiling_context = weblgx.tools.profiler.Profiler(
                         description=f'{model} {size}',
                         db=env.cr.dbname
                     )
@@ -67,7 +67,7 @@ class Populate(Command):
                 if commit:
                     commit_context = nullcontext()
                 else:
-                    commit_context = patch('odoo.sql_db.Cursor.commit')
+                    commit_context = patch('weblgx.sql_db.Cursor.commit')
 
                 _logger.info('Populating database for model %s', model._name)
                 t0 = time.time()

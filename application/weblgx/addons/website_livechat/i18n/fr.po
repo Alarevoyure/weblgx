@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Jolien De Paepe, 2023\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgid "# Sessions"
 msgstr "# Sessions"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/models/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -53,7 +53,7 @@ msgid "Available"
 msgstr "Disponible"
 
 #. module: website_livechat
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_livechat/static/src/web/thread_patch.xml:0
 #, python-format
 msgid "Avatar"
@@ -132,7 +132,7 @@ msgid "Happy face"
 msgstr "Visage souriant"
 
 #. module: website_livechat
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_livechat/static/src/web/thread_patch.xml:0
 #, python-format
 msgid "History"
@@ -149,14 +149,14 @@ msgid "Is Published"
 msgstr "Est publié"
 
 #. module: website_livechat
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_livechat/static/src/web/thread_patch.xml:0
 #, python-format
 msgid "Lang"
 msgstr "Langue"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/models/website.py:0
 #, python-format
 msgid "Live Support"
@@ -183,7 +183,7 @@ msgid "New Channel"
 msgstr "Nouveau canal"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/models/website_visitor.py:0
 #, python-format
 msgid "No Livechat Channel allows you to send a chat request for website %s."
@@ -212,7 +212,7 @@ msgid "Operator Name"
 msgstr "Nom de l'opérateur"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/models/website_visitor.py:0
 #, python-format
 msgid ""
@@ -273,7 +273,7 @@ msgid "The full URL to access the document through the website."
 msgstr "L'URL complète pour accéder au document à travers le site web."
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/models/discuss_channel.py:0
 #, python-format
 msgid "The visitor"
@@ -300,7 +300,7 @@ msgid "Visitor"
 msgstr "Visiteur"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/controllers/main.py:0
 #: code:addons/website_livechat/models/website_visitor.py:0
 #, python-format
@@ -308,8 +308,8 @@ msgid "Visitor #%d"
 msgstr "Visiteur #%d"
 
 #. module: website_livechat
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/website_livechat/controllers/main.py:0
 #: code:addons/website_livechat/static/src/web/persona_model_patch.js:0
 #, python-format
@@ -317,7 +317,7 @@ msgid "Visitor #%s"
 msgstr "Visiteur #%s"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/models/discuss_channel.py:0
 #, python-format
 msgid "Visitor %s left the conversation."
@@ -339,7 +339,7 @@ msgid "Visitors"
 msgstr "Visiteurs"
 
 #. module: website_livechat
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_livechat/static/src/web/thread_patch.xml:0
 #: model:ir.model,name:website_livechat.model_website
 #, python-format
@@ -362,7 +362,7 @@ msgid "Website URL"
 msgstr "URL de site web"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/tests/test_livechat_basic_flow.py:0
 #: model:ir.model,name:website_livechat.model_website_visitor
 #, python-format
@@ -375,7 +375,7 @@ msgid "Website description"
 msgstr "Description du site web"
 
 #. module: website_livechat
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_livechat/models/discuss_channel.py:0
 #, python-format
 msgid "an operator"

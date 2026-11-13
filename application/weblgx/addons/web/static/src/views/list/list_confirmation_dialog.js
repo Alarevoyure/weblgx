@@ -1,11 +1,11 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { _t } from "@web/core/l10n/translation";
 import { Field } from "@web/views/fields/field";
 import { useAutofocus } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class ListConfirmationDialog extends Component {
     setup() {

@@ -248,7 +248,7 @@ $o-theme-font-configs: map-merge($o-base-theme-font-configs, $o-theme-font-confi
     ));
 }
 
-// Add odoo unicode support for all fonts
+// Add weblgx unicode support for all fonts
 @each $font-name, $font-config in $o-theme-font-configs {
     $o-theme-font-configs: map-merge($o-theme-font-configs, (
         $font-name: map-merge($font-config, (

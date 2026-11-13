@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { useOpenChat } from "@mail/core/web/open_chat_hook";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class Avatar extends Component {
     setup() {

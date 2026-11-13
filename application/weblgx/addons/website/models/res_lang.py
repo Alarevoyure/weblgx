@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, models, tools, _
-from odoo.exceptions import UserError
-from odoo.http import request
+from weblgx import api, models, tools, _
+from weblgx.exceptions import UserError
+from weblgx.http import request
 
 
 class Lang(models.Model):

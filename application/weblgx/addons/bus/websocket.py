@@ -21,16 +21,16 @@ from weakref import WeakSet
 from werkzeug.local import LocalStack
 from werkzeug.exceptions import BadRequest, HTTPException, ServiceUnavailable
 
-import odoo
+import weblgx
 from .tools import orjson
-from odoo import api
+from weblgx import api
 from .models.bus import dispatch
-from odoo.http import root, Request, Response, SessionExpiredException, get_default_session
-from odoo.modules.registry import Registry
-from odoo.service import model as service_model
-from odoo.service.server import CommonServer
-from odoo.service.security import check_session
-from odoo.tools import config
+from weblgx.http import root, Request, Response, SessionExpiredException, get_default_session
+from weblgx.modules.registry import Registry
+from weblgx.service import model as service_model
+from weblgx.service.server import CommonServer
+from weblgx.service.security import check_session
+from weblgx.tools import config
 
 _logger = logging.getLogger(__name__)
 
@@ -49,7 +49,7 @@ def acquire_cursor(db):
             # Yield before trying to acquire the cursor to let other
             # greenlets release their cursor.
             time.sleep(0)
-            with suppress(PoolError), odoo.registry(db).cursor() as cr:
+            with suppress(PoolError), weblgx.registry(db).cursor() as cr:
                 yield cr
                 return
             time.sleep(delay + random.uniform(0, JITTER_ON_POOL_ERROR))
@@ -287,7 +287,7 @@ class Websocket:
         # Websocket start up
         self.__selector = (
             selectors.PollSelector()
-            if odoo.evented and hasattr(selectors, 'PollSelector')
+            if weblgx.evented and hasattr(selectors, 'PollSelector')
             else selectors.DefaultSelector()
         )
         self.__selector.register(self.__socket, selectors.EVENT_READ)
@@ -962,7 +962,7 @@ class WebsocketConnectionHandler:
 
     @classmethod
     def _handle_public_configuration(cls, request):
-        if not os.getenv('ODOO_BUS_PUBLIC_SAMESITE_WS'):
+        if not os.getenv('WEBLGX_BUS_PUBLIC_SAMESITE_WS'):
             return
         headers = request.httprequest.headers
         origin_url = urlparse(headers.get('origin'))

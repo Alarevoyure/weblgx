@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 """ Models registries.
 
@@ -19,21 +19,21 @@ import warnings
 
 import psycopg2
 
-import odoo
-from odoo.modules.db import FunctionStatus
-from odoo.osv.expression import get_unaccent_wrapper
+import weblgx
+from weblgx.modules.db import FunctionStatus
+from weblgx.osv.expression import get_unaccent_wrapper
 from .. import SUPERUSER_ID
-from odoo.sql_db import TestCursor
-from odoo.tools import (
+from weblgx.sql_db import TestCursor
+from weblgx.tools import (
     config, existing_tables, lazy_classproperty,
     lazy_property, sql, Collector, OrderedSet, SQL,
     format_frame
 )
-from odoo.tools.func import locked
-from odoo.tools.lru import LRU
+from weblgx.tools.func import locked
+from weblgx.tools.lru import LRU
 
 _logger = logging.getLogger(__name__)
-_schema = logging.getLogger('odoo.schema')
+_schema = logging.getLogger('weblgx.schema')
 
 
 _REGISTRY_CACHES = {
@@ -107,9 +107,9 @@ class Registry(Mapping):
             registry.setup_signaling()
             # This should be a method on Registry
             try:
-                odoo.modules.load_modules(registry, force_demo, status, update_module)
+                weblgx.modules.load_modules(registry, force_demo, status, update_module)
             except Exception:
-                odoo.modules.reset_modules_state(db_name)
+                weblgx.modules.reset_modules_state(db_name)
                 raise
         except Exception:
             _logger.exception('Failed to load registry')
@@ -133,7 +133,7 @@ class Registry(Mapping):
         self._sql_constraints = set()
         self._init = True
         self._database_translated_fields = ()  # names of translated fields in database
-        self._assertion_report = odoo.tests.result.OdooTestResult()
+        self._assertion_report = weblgx.tests.result.WeblgxTestResult()
         self._fields_by_model = None
         self._ordinary_tables = None
         self._constraint_queue = deque()
@@ -145,7 +145,7 @@ class Registry(Mapping):
         self.loaded_xmlids = set()
 
         self.db_name = db_name
-        self._db = odoo.sql_db.db_connect(db_name)
+        self._db = weblgx.sql_db.db_connect(db_name)
 
         # cursor for test mode; None means "normal" mode
         self.test_cr = None
@@ -176,8 +176,8 @@ class Registry(Mapping):
         self._invalidation_flags = threading.local()
 
         with closing(self.cursor()) as cr:
-            self.has_unaccent = odoo.modules.db.has_unaccent(cr)
-            self.has_trigram = odoo.modules.db.has_trigram(cr)
+            self.has_unaccent = weblgx.modules.db.has_unaccent(cr)
+            self.has_trigram = weblgx.modules.db.has_trigram(cr)
 
     @classmethod
     @locked
@@ -274,7 +274,7 @@ class Registry(Mapping):
         """ Complete the setup of models.
             This must be called after loading modules and before using the ORM.
         """
-        env = odoo.api.Environment(cr, SUPERUSER_ID, {})
+        env = weblgx.api.Environment(cr, SUPERUSER_ID, {})
         env.invalidate_all()
 
         # Uninstall registry hooks. Because of the condition, this only happens
@@ -557,7 +557,7 @@ class Registry(Mapping):
         elif context.get('models_to_check', False):
             _logger.info("verifying fields for every extended model")
 
-        env = odoo.api.Environment(cr, SUPERUSER_ID, context)
+        env = weblgx.api.Environment(cr, SUPERUSER_ID, context)
         models = [env[model_name] for model_name in model_names]
 
         try:
@@ -700,7 +700,7 @@ class Registry(Mapping):
         """
         Verify that all tables are present and try to initialize those that are missing.
         """
-        env = odoo.api.Environment(cr, SUPERUSER_ID, {})
+        env = weblgx.api.Environment(cr, SUPERUSER_ID, {})
         table2model = {
             model._table: name
             for name, model in env.registry.items()
@@ -942,7 +942,7 @@ class Registry(Mapping):
         """
         if self.test_cr is not None:
             # in test mode we use a proxy object that uses 'self.test_cr' underneath
-            return TestCursor(self.test_cr, self.test_lock, current_test=odoo.modules.module.current_test)
+            return TestCursor(self.test_cr, self.test_lock, current_test=weblgx.modules.module.current_test)
         return self._db.cursor()
 
 

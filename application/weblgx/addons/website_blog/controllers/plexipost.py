@@ -9,9 +9,9 @@ import os
 import re
 from urllib.parse import quote
 
-from odoo import http
-from odoo.http import request
-from odoo.tools.mimetypes import guess_mimetype
+from weblgx import http
+from weblgx.http import request
+from weblgx.tools.mimetypes import guess_mimetype
 
 _logger = logging.getLogger(__name__)
 

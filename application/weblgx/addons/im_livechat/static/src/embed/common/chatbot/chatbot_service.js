@@ -1,10 +1,10 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Chatbot } from "@im_livechat/embed/common/chatbot/chatbot_model";
 import { ChatbotStep } from "@im_livechat/embed/common/chatbot/chatbot_step_model";
 import { SESSION_STATE } from "@im_livechat/embed/common/livechat_service";
 
-import { EventBus, markup, reactive } from "@odoo/owl";
+import { EventBus, markup, reactive } from "@weblgx/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { _t } from "@web/core/l10n/translation";
@@ -35,7 +35,7 @@ export class ChatBotService {
     }
 
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {{
      * "im_livechat.livechat": import("@im_livechat/embed/common/livechat_service").LivechatService,
      * "mail.message": import("@mail/core/common/message_service").MessageService,

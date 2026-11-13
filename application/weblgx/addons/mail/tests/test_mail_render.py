@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from markupsafe import Markup
 from unittest.mock import patch
 
-from odoo.addons.mail.tests import common
-from odoo.exceptions import AccessError
-from odoo.tests import tagged, users
+from weblgx.addons.mail.tests import common
+from weblgx.exceptions import AccessError
+from weblgx.tests import tagged, users
 
 
 class TestMailRenderCommon(common.MailCommon):
@@ -263,7 +263,7 @@ class TestMailRender(TestMailRenderCommon):
         partner_ids = self.env['res.partner'].sudo().create([{
             'name': f'test partner {n}'
         } for n in range(20)]).ids
-        with patch('odoo.models.Model.get_base_url', new=_mock_get_base_url), self.assertQueryCount(8):
+        with patch('weblgx.models.Model.get_base_url', new=_mock_get_base_url), self.assertQueryCount(8):
             # make sure name isn't already in cache
             self.env['res.partner'].browse(partner_ids).invalidate_recordset(['name', 'display_name'])
             render_results = self.env['mail.render.mixin']._render_template(

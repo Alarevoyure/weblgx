@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-globals */
-const cacheName = "odoo-sw-cache";
+const cacheName = "weblgx-sw-cache";
 const cachedRequests = ["/web/offline"];
 
 self.addEventListener("install", (event) => {

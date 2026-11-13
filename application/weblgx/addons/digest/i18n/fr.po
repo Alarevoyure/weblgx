@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Manon Rondou, 2025\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,8 +34,8 @@ msgstr ""
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
-msgid "<span class=\"odoo_link_text\">Weblgx</span>"
-msgstr "<span class=\"odoo_link_text\">Weblgx</span>"
+msgid "<span class=\"weblgx_link_text\">Weblgx</span>"
+msgstr "<span class=\"weblgx_link_text\">Weblgx</span>"
 
 #. module: digest
 #: model_terms:ir.ui.view,arch_db:digest.digest_mail_main
@@ -71,7 +71,7 @@ msgid "Available Fields"
 msgstr "Champs disponibles"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Choose the metrics you care about"
@@ -93,7 +93,7 @@ msgid "Configure Digest Emails"
 msgstr "Configurer les digests d'e-mails"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Connect"
@@ -216,7 +216,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/controllers/portal.py:0
 #, python-format
 msgid "Invalid periodicity set on digest"
@@ -259,21 +259,21 @@ msgid "Kpi Res Users Connected Value"
 msgstr "Valeur connectée des utilisateurs Kpi Res"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Last 24 hours"
 msgstr "Les dernières 24 heures"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Last 30 Days"
 msgstr "Les 30 derniers jours"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Last 7 Days"
@@ -337,7 +337,7 @@ msgid "Powered by"
 msgstr "Généré par"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Prefer a broader overview?"
@@ -396,7 +396,7 @@ msgid "Status"
 msgstr "Statut"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Switch to weekly Digests"
@@ -495,14 +495,14 @@ msgid "Want to add your own KPIs?<br/>"
 msgstr "Vous souhaitez ajouter vos propres KPI ?<br/>"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "Want to customize this email?"
 msgstr "Personnaliser cet e-mail ?"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid ""
@@ -559,21 +559,21 @@ msgid "e.g. Your Weekly Digest"
 msgstr "par ex. Votre digest hebdomadaire"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "monthly"
 msgstr "mensuel"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "quarterly"
 msgstr "trimestriel"
 
 #. module: digest
-#. odoo-python
+#. weblgx-python
 #: code:addons/digest/models/digest.py:0
 #, python-format
 msgid "weekly"

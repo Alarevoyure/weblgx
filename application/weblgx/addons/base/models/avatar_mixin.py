@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from base64 import b64encode
 from hashlib import sha512
-from odoo import models, fields, api
-from odoo.tools import html_escape, file_open
+from weblgx import models, fields, api
+from weblgx.tools import html_escape, file_open
 
 
 def get_hsl_from_seed(seed):

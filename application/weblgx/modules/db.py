@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from psycopg2.extras import Json
 import logging
 from enum import IntEnum
 
-import odoo.modules
+import weblgx.modules
 
 _logger = logging.getLogger(__name__)
 
@@ -15,7 +15,7 @@ def is_initialized(cr):
     The database can be initialized with the 'initialize' function below.
 
     """
-    return odoo.tools.table_exists(cr, 'ir_module_module')
+    return weblgx.tools.table_exists(cr, 'ir_module_module')
 
 def initialize(cr):
     """ Initialize a database with for the ORM.
@@ -26,22 +26,22 @@ def initialize(cr):
 
     """
     try:
-        f = odoo.tools.misc.file_path('base/data/base_data.sql')
+        f = weblgx.tools.misc.file_path('base/data/base_data.sql')
     except FileNotFoundError:
         m = "File not found: 'base.sql' (provided by module 'base')."
         _logger.critical(m)
         raise IOError(m)
 
-    with odoo.tools.misc.file_open(f) as base_sql_file:
+    with weblgx.tools.misc.file_open(f) as base_sql_file:
         cr.execute(base_sql_file.read())  # pylint: disable=sql-injection
 
-    for i in odoo.modules.get_modules():
-        mod_path = odoo.modules.get_module_path(i)
+    for i in weblgx.modules.get_modules():
+        mod_path = weblgx.modules.get_module_path(i)
         if not mod_path:
             continue
 
         # This will raise an exception if no/unreadable descriptor file.
-        info = odoo.modules.get_manifest(i)
+        info = weblgx.modules.get_manifest(i)
 
         if not info:
             continue
@@ -78,7 +78,7 @@ def initialize(cr):
             )
 
     # Install recursively all auto-installing modules
-    from odoo.tools import config  # noqa: PLC0415
+    from weblgx.tools import config  # noqa: PLC0415
     while True:
         if config.get('skip_auto_install'):
             break
@@ -177,7 +177,7 @@ def has_trigram(cr):
     """ Test if the database has the a word_similarity function.
 
     The word_similarity is supposed to be provided by the PostgreSQL built-in
-    pg_trgm module but any similar function will be picked by Odoo.
+    pg_trgm module but any similar function will be picked by Web@LGX.
 
     """
     cr.execute("SELECT proname FROM pg_proc WHERE proname='word_similarity'")

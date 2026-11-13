@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 
@@ -7,10 +7,10 @@ try:
 except ImportError:
     ws = None
 
-from odoo.tests import tagged, new_test_user
-from odoo.addons.bus.tests.common import WebsocketCase
-from odoo.addons.bus.models.bus import channel_with_db, json_dump
-from odoo.addons.mail.tests.common import MailCommon
+from weblgx.tests import tagged, new_test_user
+from weblgx.addons.bus.tests.common import WebsocketCase
+from weblgx.addons.bus.models.bus import channel_with_db, json_dump
+from weblgx.addons.mail.tests.common import MailCommon
 
 
 @tagged("post_install", "-at_install")
@@ -28,7 +28,7 @@ class TestBusPresence(WebsocketCase, MailCommon):
         sender_bus_target = sender.partner_id if sent_from_user else sender
         self.subscribe(
             websocket,
-            [f"odoo-presence-{sender_bus_target._name}_{sender_bus_target.id}"],
+            [f"weblgx-presence-{sender_bus_target._name}_{sender_bus_target.id}"],
             self.env["bus.bus"]._bus_last_id(),
         )
         self.env["bus.presence"].create(

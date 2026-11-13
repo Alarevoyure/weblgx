@@ -39,7 +39,7 @@ publicWidget.registry.wikiArticleEdit = publicWidget.Widget.extend({
             this.wysiwyg = await loadWysiwygFromTextarea(this, textarea, {
                 value: textarea.value,
                 styleInline: true,
-                codeview: !!odoo.debug,
+                codeview: !!weblgx.debug,
                 resizable: false,
                 allowCommandImage: true,
                 allowCommandVideo: false,
@@ -67,7 +67,7 @@ publicWidget.registry.wikiArticleEdit = publicWidget.Widget.extend({
     _csrfToken() {
         return (
             document.querySelector('meta[name="csrf_token"]')?.getAttribute("content") ||
-            window.odoo?.csrf_token ||
+            window.weblgx?.csrf_token ||
             ""
         );
     },

@@ -1,6 +1,6 @@
-from odoo import http
-from odoo.http import request
-from odoo.addons.web.controllers.binary import Binary
+from weblgx import http
+from weblgx.http import request
+from weblgx.addons.web.controllers.binary import Binary
 
 
 class WebsiteBinary(Binary):

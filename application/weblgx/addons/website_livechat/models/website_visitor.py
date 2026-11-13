@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 import json
 
-from odoo import api, Command, fields, models, _
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools import get_lang
-from odoo.tools.sql import column_exists, create_column
+from weblgx import api, Command, fields, models, _
+from weblgx.exceptions import UserError
+from weblgx.http import request
+from weblgx.tools import get_lang
+from weblgx.tools.sql import column_exists, create_column
 
 
 class WebsiteVisitor(models.Model):

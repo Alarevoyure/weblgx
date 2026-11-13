@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { booleanField, BooleanField } from "@web/views/fields/boolean/boolean_field";
@@ -14,7 +14,7 @@ export class UpgradeBooleanField extends BooleanField {
     setup() {
         super.setup();
         this.dialogService = useService("dialog");
-        this.isEnterprise = odoo.info && odoo.info.isEnterprise;
+        this.isEnterprise = weblgx.info && weblgx.info.isEnterprise;
     }
 
     async onChange(newValue) {

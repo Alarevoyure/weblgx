@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_wiki_toc" name="Wiki Sommaire">
     <section class="s_wiki_toc pt32 pb32"
@@ -20,4 +20,4 @@
     </section>
 </template>
 
-</odoo>
+</weblgx>

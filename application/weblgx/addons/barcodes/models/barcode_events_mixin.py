@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api, _
+from weblgx import models, fields, api, _
 
 class BarcodeEventsMixin(models.AbstractModel):
     """ Mixin class for objects reacting when a barcode is scanned in their form views

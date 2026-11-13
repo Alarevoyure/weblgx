@@ -11,8 +11,8 @@ from pathlib import Path
 from unittest.mock import patch
 from socket import getaddrinfo  # keep a reference on the non-patched function
 
-from odoo.exceptions import UserError
-from odoo.tools import config, file_path, mute_logger
+from weblgx.exceptions import UserError
+from weblgx.tools import config, file_path, mute_logger
 from .common import TransactionCaseWithUserDemo
 
 try:
@@ -61,7 +61,7 @@ class Certificate:
 @unittest.skipUnless(aiosmtpd, "aiosmtpd couldn't be imported")
 @unittest.skipUnless(_openssl, "openssl not found in path")
 # fail fast for timeout errors
-@patch('odoo.addons.base.models.ir_mail_server.SMTP_TIMEOUT', SMTP_TIMEOUT)
+@patch('weblgx.addons.base.models.ir_mail_server.SMTP_TIMEOUT', SMTP_TIMEOUT)
 # prevent the CLI from interfering with the tests
 @patch.dict(config.options, {'smtp_server': ''})
 class TestIrMailServerSMTPD(TransactionCaseWithUserDemo):
@@ -100,7 +100,7 @@ class TestIrMailServerSMTPD(TransactionCaseWithUserDemo):
                 return True
         logging.getLogger('mail.log').addFilter(CustomFilter())
 
-        # decrease aiosmtpd verbosity, odoo INFO = aiosmtpd WARNING
+        # decrease aiosmtpd verbosity, weblgx INFO = aiosmtpd WARNING
         logging.getLogger('mail.log').setLevel(_logger.getEffectiveLevel() + 10)
 
         # Get various TLS keys and certificates. CA was used to sign
@@ -145,7 +145,7 @@ class TestIrMailServerSMTPD(TransactionCaseWithUserDemo):
 
         # fix runbot, docker uses a single ipv4 stack but it gives ::1
         # when resolving "localhost" (so stupid), use the following to
-        # force aiosmtpd/odoo to bind/connect to a fixed ipv4 OR ipv6
+        # force aiosmtpd/weblgx to bind/connect to a fixed ipv4 OR ipv6
         # address.
         family, addr, cls.port = _find_free_local_address()
         cls.localhost = getaddrinfo(addr, cls.port, family)
@@ -261,7 +261,7 @@ class TestIrMailServerSMTPD(TransactionCaseWithUserDemo):
                         if error_pattern:
                             timeout = .1 if 'timed out' in error_pattern else SMTP_TIMEOUT
                             with self.assertRaises(UserError) as error_capture, \
-                                 patch('odoo.addons.base.models.ir_mail_server.SMTP_TIMEOUT', timeout):
+                                 patch('weblgx.addons.base.models.ir_mail_server.SMTP_TIMEOUT', timeout):
                                 mail_server.test_smtp_connection()
                             self.assertRegex(error_capture.exception.args[0], error_pattern)
                         else:
@@ -314,7 +314,7 @@ class TestIrMailServerSMTPD(TransactionCaseWithUserDemo):
                         if error_pattern:
                             timeout = .1 if 'timed out' in error_pattern else SMTP_TIMEOUT
                             with self.assertRaises(UserError) as capture, \
-                                 patch('odoo.addons.base.models.ir_mail_server.SMTP_TIMEOUT', timeout):
+                                 patch('weblgx.addons.base.models.ir_mail_server.SMTP_TIMEOUT', timeout):
                                 mail_server.test_smtp_connection()
                             self.assertRegex(capture.exception.args[0], error_pattern)
                         else:
@@ -373,7 +373,7 @@ class TestIrMailServerSMTPD(TransactionCaseWithUserDemo):
                 with self.start_smtpd(server_encryption, ssl_context, auth_required=False):
                     timeout = .1 if 'timed out' in error_pattern else SMTP_TIMEOUT
                     with self.assertRaises(UserError) as capture, \
-                         patch('odoo.addons.base.models.ir_mail_server.SMTP_TIMEOUT', timeout):
+                         patch('weblgx.addons.base.models.ir_mail_server.SMTP_TIMEOUT', timeout):
                         mail_server.test_smtp_connection()
                     self.assertRegex(capture.exception.args[0], error_pattern)
 

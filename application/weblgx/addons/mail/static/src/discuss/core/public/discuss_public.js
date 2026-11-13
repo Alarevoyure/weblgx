@@ -1,9 +1,9 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Discuss } from "@mail/core/common/discuss";
 import { WelcomePage } from "@mail/discuss/core/public/welcome_page";
 
-import { Component, useEffect, useState } from "@odoo/owl";
+import { Component, useEffect, useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 

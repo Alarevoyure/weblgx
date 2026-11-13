@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { FileModel } from "@web/core/file_viewer/file_model";
 

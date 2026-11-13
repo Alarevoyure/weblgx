@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { registry } from "@web/core/registry";
 
@@ -10,8 +10,8 @@ registry.category("web_tour.tours").add("website_livechat.lazy_frontend_bus", {
         {
             trigger: ".o-livechat-LivechatButton",
             async run() {
-                await odoo.__WOWL_DEBUG__.root.env.services["mail.messaging"].isReady;
-                if (odoo.__WOWL_DEBUG__.root.env.services.bus_service.isActive) {
+                await weblgx.__WOWL_DEBUG__.root.env.services["mail.messaging"].isReady;
+                if (weblgx.__WOWL_DEBUG__.root.env.services.bus_service.isActive) {
                     throw new Error("Bus service should not start when loading the page");
                 }
             },
@@ -26,7 +26,7 @@ registry.category("web_tour.tours").add("website_livechat.lazy_frontend_bus", {
         {
             trigger: ".o-mail-Composer-input",
             run() {
-                if (odoo.__WOWL_DEBUG__.root.env.services.bus_service.isActive) {
+                if (weblgx.__WOWL_DEBUG__.root.env.services.bus_service.isActive) {
                     throw new Error("Bus service should not start for temporary live chat");
                 }
                 this.$anchor[0].dispatchEvent(
@@ -37,7 +37,7 @@ registry.category("web_tour.tours").add("website_livechat.lazy_frontend_bus", {
         {
             trigger: ".o-mail-Message:contains(Hello, I need help!)",
             run() {
-                if (!odoo.__WOWL_DEBUG__.root.env.services.bus_service.isActive) {
+                if (!weblgx.__WOWL_DEBUG__.root.env.services.bus_service.isActive) {
                     throw new Error("Bus service should start after first live chat message");
                 }
             },

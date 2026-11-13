@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from '@web/core/registry';
 import { UploadProgressToast } from './upload_progress_toast';
@@ -7,7 +7,7 @@ import { checkFileSize } from "@web/core/utils/files";
 import { humanNumber } from "@web/core/utils/numbers";
 import { getDataURLFromFile } from "@web/core/utils/urls";
 import { sprintf } from "@web/core/utils/strings";
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 export const AUTOCLOSE_DELAY = 3000;
 

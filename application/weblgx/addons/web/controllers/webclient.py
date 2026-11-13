@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 import logging
@@ -10,13 +10,13 @@ import werkzeug.utils
 import werkzeug.wrappers
 import werkzeug.wsgi
 
-import odoo
-import odoo.modules.registry
-from odoo import http
-from odoo.modules import get_manifest
-from odoo.http import request
-from odoo.tools import lazy
-from odoo.tools.misc import file_open, file_path
+import weblgx
+import weblgx.modules.registry
+from weblgx import http
+from weblgx.modules import get_manifest
+from weblgx.http import request
+from weblgx.tools import lazy
+from weblgx.tools.misc import file_open, file_path
 from .utils import _local_web_translations
 
 
@@ -25,7 +25,7 @@ _logger = logging.getLogger(__name__)
 
 @lazy
 def CONTENT_MAXAGE():
-    warnings.warn("CONTENT_MAXAGE is a deprecated alias to odoo.http.STATIC_CACHE_LONG", DeprecationWarning)
+    warnings.warn("CONTENT_MAXAGE is a deprecated alias to weblgx.http.STATIC_CACHE_LONG", DeprecationWarning)
     return http.STATIC_CACHE_LONG
 
 
@@ -51,7 +51,7 @@ class WebClient(http.Controller):
         lang = request.env.context['lang'].partition('_')[0]
 
         if mods is None:
-            mods = odoo.conf.server_wide_modules or []
+            mods = weblgx.conf.server_wide_modules or []
             if request.db:
                 mods = request.env.registry._init_modules.union(mods)
 
@@ -80,7 +80,7 @@ class WebClient(http.Controller):
         if mods:
             mods = mods.split(',')
         elif mods is None:
-            mods = list(request.env.registry._init_modules) + (odoo.conf.server_wide_modules or [])
+            mods = list(request.env.registry._init_modules) + (weblgx.conf.server_wide_modules or [])
 
         if lang and lang not in {code for code, _ in request.env['res.lang'].sudo().get_installed()}:
             lang = None
@@ -103,7 +103,7 @@ class WebClient(http.Controller):
 
     @http.route('/web/webclient/version_info', type='json', auth="none")
     def version_info(self):
-        return odoo.service.common.exp_version()
+        return weblgx.service.common.exp_version()
 
     @http.route('/web/tests', type='http', auth="user")
     def test_suite(self, mod=None, **kwargs):

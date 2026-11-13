@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -36,12 +36,12 @@ QUnit.test("basic rendering", async () => {
     await contains("[title='Enter Full Screen']");
 });
 
-QUnit.test("no call with odoobot", async () => {
+QUnit.test("no call with weblgxbot", async () => {
     const pyEnv = await startServer();
     const channelId = pyEnv["discuss.channel"].create({
         channel_member_ids: [
             Command.create({ partner_id: pyEnv.currentPartnerId }),
-            Command.create({ partner_id: pyEnv.odoobotId }),
+            Command.create({ partner_id: pyEnv.weblgxbotId }),
         ],
         channel_type: "chat",
     });
@@ -254,7 +254,7 @@ QUnit.test("join/leave sounds are only played on main tab", async () => {
 QUnit.test("should also invite to the call when inviting to the channel", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     pyEnv["res.users"].create({ partner_id: partnerId });

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import random
 import werkzeug.urls
@@ -7,8 +7,8 @@ import werkzeug.urls
 from collections import defaultdict
 from datetime import datetime, timedelta
 
-from odoo import api, exceptions, fields, models, _
-from odoo.tools import sql
+from weblgx import api, exceptions, fields, models, _
+from weblgx.tools import sql
 class SignupError(Exception):
     pass
 

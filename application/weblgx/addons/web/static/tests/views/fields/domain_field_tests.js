@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import {
@@ -509,7 +509,7 @@ QUnit.module("Fields", (hooks) => {
     });
 
     QUnit.test("domain field: manually edit domain with textarea", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
 
         serverData.models.partner.records[0].foo = false;
         serverData.models.partner.fields.bar.type = "char";
@@ -574,7 +574,7 @@ QUnit.module("Fields", (hooks) => {
     QUnit.test(
         "domain field: manually set an invalid domain with textarea",
         async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
 
             serverData.models.partner.records[0].foo = false;
             serverData.models.partner.fields.bar.type = "char";
@@ -652,7 +652,7 @@ QUnit.module("Fields", (hooks) => {
     QUnit.test(
         "domain field: reload count by clicking on the refresh button",
         async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
 
             serverData.models.partner.records[0].foo = "[]";
             serverData.models.partner.fields.bar.type = "char";
@@ -755,7 +755,7 @@ QUnit.module("Fields", (hooks) => {
     QUnit.test("domain field: edit domain with dynamic content", async function (assert) {
         assert.expect(3);
 
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
 
         let rawDomain = `[("date", ">=", datetime.datetime.combine(context_today() + relativedelta(days = -365), datetime.time(0, 0, 0)).to_utc().strftime("%Y-%m-%d %H:%M:%S"))]`;
         serverData.models.partner.records[0].foo = rawDomain;
@@ -805,7 +805,7 @@ QUnit.module("Fields", (hooks) => {
     });
 
     QUnit.test("domain field: edit through selector (dynamic content)", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
         patchDate(2020, 8, 5, 0, 0, 0);
 
         let rawDomain = `[("date", ">=", context_today())]`;
@@ -984,7 +984,7 @@ QUnit.module("Fields", (hooks) => {
 
     QUnit.test("invalid value in domain field with 'inDialog' options", async function (assert) {
         serverData.models.partner.fields.display_name.default = "[]";
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
         await makeView({
@@ -1013,7 +1013,7 @@ QUnit.module("Fields", (hooks) => {
         "edit domain button is available even while loading records count",
         async function (assert) {
             serverData.models.partner.fields.display_name.default = "[]";
-            patchWithCleanup(odoo, {
+            patchWithCleanup(weblgx, {
                 debug: true,
             });
             const searchCountDeffered = makeDeferred();
@@ -1051,7 +1051,7 @@ QUnit.module("Fields", (hooks) => {
     QUnit.test(
         "quick check on save if domain has been edited via the  debug input",
         async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
             serverData.models.partner.fields.display_name.default = "[['id', '=', False]]";
             await makeView({
                 type: "form",
@@ -1157,7 +1157,7 @@ QUnit.module("Fields", (hooks) => {
     });
 
     QUnit.test("add condition in empty foldable domain", async function (assert) {
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
         serverData.models.partner.records[0].foo = '[("id", "=", 1)]';
 
         await makeView({
@@ -1236,7 +1236,7 @@ QUnit.module("Fields", (hooks) => {
     QUnit.test("allow_expressions = true", async function (assert) {
         serverData.models.partner.records[0].foo = "[]";
 
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
         replaceNotificationService(assert);
 
         await makeView({
@@ -1276,7 +1276,7 @@ QUnit.module("Fields", (hooks) => {
     QUnit.test("allow_expressions = false (default)", async function (assert) {
         serverData.models.partner.records[0].foo = "[]";
 
-        patchWithCleanup(odoo, { debug: true });
+        patchWithCleanup(weblgx, { debug: true });
         replaceNotificationService(assert);
 
         await makeView({

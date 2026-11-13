@@ -306,7 +306,7 @@ publicWidget.registry.wikiPortal = publicWidget.Widget.extend({
             this.wysiwyg = await loadWysiwygFromTextarea(this, textarea, {
                 value: textarea.value,
                 styleInline: true,
-                codeview: !!odoo.debug,
+                codeview: !!weblgx.debug,
                 resizable: false,
                 allowCommandImage: true,
                 allowCommandVideo: false,
@@ -366,8 +366,8 @@ publicWidget.registry.wikiPortal = publicWidget.Widget.extend({
     async _onCancelContent(ev) {
         ev.preventDefault();
         ev.stopPropagation();
-        if (this.wysiwyg?.odooEditor?.editable) {
-            this.wysiwyg.odooEditor.editable.innerHTML = this.originalContent || "";
+        if (this.wysiwyg?.weblgxEditor?.editable) {
+            this.wysiwyg.weblgxEditor.editable.innerHTML = this.originalContent || "";
         }
         this._teardownEditor();
         document.dispatchEvent(new CustomEvent("wiki-gallery-canonicalize", {

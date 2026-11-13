@@ -2,11 +2,7 @@
 
 # set server timezone in UTC before time module imported
 __import__('os').environ['TZ'] = 'UTC'
-import odoo
-import sys
-
-sys.modules.setdefault('weblgx', odoo)
-odoo.alias_module_name('odoo')
+import weblgx
 
 if __name__ == "__main__":
-    odoo.cli.main()
+    weblgx.cli.main()

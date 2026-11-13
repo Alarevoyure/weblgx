@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import options from "@web_editor/js/editor/snippets.options";
 import { jsonrpc } from "@web/core/network/rpc_service";
@@ -31,7 +31,7 @@ options.registry.WikiGallery = options.Class.extend({
     /**
      * À la suppression du bloc : purge la bibliothèque liée (photos + textes).
      * Ne pas utiliser async/await ici : après await, this._super n'est plus une fonction
-     * (mécanisme Class.extend d'Odoo / Web@LGX).
+     * (mécanisme Class.extend d'Web@LGX / Web@LGX).
      *
      * @override
      */

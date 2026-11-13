@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { NavBar } from '@web/webclient/navbar/navbar';
 import { useService, useBus } from '@web/core/utils/hooks';
 import { registry } from "@web/core/registry";
 import { patch } from "@web/core/utils/patch";
 import { UserMenu } from "@web/webclient/user_menu/user_menu";
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@weblgx/owl";
 
 const websiteSystrayRegistry = registry.category('website_systray');
 websiteSystrayRegistry.add("UserMenu", { Component: UserMenu }, { sequence: 14 });
@@ -63,7 +63,7 @@ patch(NavBar.prototype, {
                 .map(([key, value], index) => ({ key, ...value, index }))
                 .filter((item) => ('isDisplayed' in item ? item.isDisplayed(this.env) : true))
                 .reverse();
-            // Do not override the regular Odoo navbar if the only visible
+            // Do not override the regular Web@LGX navbar if the only visible
             // elements are the debug items.
             if (!websiteItems.every((item) => ['burger_menu', 'web.debug_mode_menu'].includes(item.key))) {
                 return websiteItems;

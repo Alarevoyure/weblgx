@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * The purpose of this test is to click on every installed App and then open each
  * view. On each view, click on each filter.
  */
 
-import { App } from "@odoo/owl";
+import { App } from "@weblgx/owl";
 import { browser } from "@web/core/browser/browser";
 
 const MOUSE_EVENTS = ["mouseover", "mouseenter", "mousedown", "mouseup", "click"];
@@ -42,7 +42,7 @@ let testedModals;
  * This should be done only once.
  */
 function setup() {
-    env = odoo.__WOWL_DEBUG__.root.env;
+    env = weblgx.__WOWL_DEBUG__.root.env;
     env.bus.addEventListener("ACTION_MANAGER:UI-UPDATED", uiUpdate);
     env.bus.addEventListener("RPC:REQUEST", onRPCRequest);
     env.bus.addEventListener("RPC:RESPONSE", onRPCResponse);
@@ -57,7 +57,7 @@ function setup() {
     appIndex = 0;
     menuIndex = 0;
     subMenuIndex = 0;
-    isEnterprise = odoo.info && odoo.info.isEnterprise;
+    isEnterprise = weblgx.info && weblgx.info.isEnterprise;
 }
 
 function onRPCRequest({ detail }) {

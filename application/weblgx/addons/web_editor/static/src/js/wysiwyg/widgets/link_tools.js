@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Link } from "./link";
 import { ColorPalette } from '@web_editor/js/wysiwyg/widgets/color_palette';
@@ -8,7 +8,7 @@ import {
     onMounted,
     onWillUnmount,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { normalizeCSSColor } from '@web/core/utils/colors';
 
 /**
@@ -131,7 +131,7 @@ export class LinkTools extends Link {
         this._observer.disconnect();
         this.props.onPreApplyLink();
         super.applyLinkToDom(...arguments);
-        this.props.wysiwyg.odooEditor.historyStep();
+        this.props.wysiwyg.weblgxEditor.historyStep();
         this.props.onPostApplyLink();
         this._observer.observe(this.props.link, this._observerOptions);
     }
@@ -387,12 +387,12 @@ export class LinkTools extends Link {
         range.selectNodeContents(this.linkEl);
         selection.removeAllRanges();
         selection.addRange(range);
-        this.props.wysiwyg.odooEditor.execCommand('applyColor', '', 'color');
-        this.props.wysiwyg.odooEditor.execCommand('applyColor', '', 'backgroundColor');
+        this.props.wysiwyg.weblgxEditor.execCommand('applyColor', '', 'color');
+        this.props.wysiwyg.weblgxEditor.execCommand('applyColor', '', 'backgroundColor');
 
         this._colorpaletteApply(cssProperty, params);
 
-        this.props.wysiwyg.odooEditor.historyStep();
+        this.props.wysiwyg.weblgxEditor.historyStep();
         this._updateOptionsUI();
     }
     /**
@@ -488,7 +488,7 @@ export class LinkTools extends Link {
             // Ensure only one option is active in the dropdown.
             $target.addClass('active');
             $target.siblings('we-button').removeClass("active");
-            this.props.wysiwyg.odooEditor.historyStep();
+            this.props.wysiwyg.weblgxEditor.historyStep();
         }
     }
     /**
@@ -496,10 +496,10 @@ export class LinkTools extends Link {
      */
     __onURLInput() {
         super.__onURLInput(...arguments);
-        this.props.wysiwyg.odooEditor.historyPauseSteps('_onURLInput');
+        this.props.wysiwyg.weblgxEditor.historyPauseSteps('_onURLInput');
         this._syncContent();
         this._adaptPreview();
-        this.props.wysiwyg.odooEditor.historyUnpauseSteps('_onURLInput');
+        this.props.wysiwyg.weblgxEditor.historyUnpauseSteps('_onURLInput');
     }
     /**
      * Updates the DOM content of the link with the input value.

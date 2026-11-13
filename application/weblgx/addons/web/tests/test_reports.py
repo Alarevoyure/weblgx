@@ -1,9 +1,9 @@
-import odoo.tests
+import weblgx.tests
 
-from odoo.addons.website.tools import MockRequest
+from weblgx.addons.website.tools import MockRequest
 
 
-class TestReports(odoo.tests.HttpCase):
+class TestReports(weblgx.tests.HttpCase):
     def test_report_session_cookie(self):
         """ Asserts wkhtmltopdf forwards the user session when requesting resources to Weblgx, such as images,
         and that the resource is correctly returned as expected.

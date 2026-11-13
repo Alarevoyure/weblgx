@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <!-- Header Wiki : options de fond + éléments (Logo / Recherche / Inscription). -->
 <template id="s_wiki_header_options" inherit_id="website.snippet_options" name="Header Wiki Options">
@@ -154,4 +154,4 @@
     </xpath>
 </template>
 
-</odoo>
+</weblgx>

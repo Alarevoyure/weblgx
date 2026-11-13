@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 #----------------------------------------------------------
 # ir_http modular http routing
 #----------------------------------------------------------
@@ -23,14 +23,14 @@ try:
 except ImportError:
     from werkzeug.routing.converters import NumberConverter  # moved in werkzeug 2.2.2
 
-import odoo
-from odoo import api, http, models, tools, SUPERUSER_ID
-from odoo.exceptions import AccessDenied, AccessError, MissingError
-from odoo.http import request, Response, ROUTING_KEYS, Stream
-from odoo.modules.registry import Registry
-from odoo.service import security
-from odoo.tools import get_lang, submap
-from odoo.tools.translate import code_translations
+import weblgx
+from weblgx import api, http, models, tools, SUPERUSER_ID
+from weblgx.exceptions import AccessDenied, AccessError, MissingError
+from weblgx.http import request, Response, ROUTING_KEYS, Stream
+from weblgx.modules.registry import Registry
+from weblgx.service import security
+from weblgx.tools import get_lang, submap
+from weblgx.tools.translate import code_translations
 
 _logger = logging.getLogger(__name__)
 
@@ -207,12 +207,12 @@ class IrHttp(models.AbstractModel):
                 # explicitly crash now, instead of crashing later
                 args[key].check_access_rights('read')
                 args[key].check_access_rule('read')
-            except (odoo.exceptions.AccessError, odoo.exceptions.MissingError) as e:
+            except (weblgx.exceptions.AccessError, weblgx.exceptions.MissingError) as e:
                 # custom behavior in case a record is not accessible / has been removed
                 if handle_error := rule.endpoint.routing.get('handle_params_access_error'):
                     if response := handle_error(e):
                         werkzeug.exceptions.abort(response)
-                if request.env.user.is_public or isinstance(e, odoo.exceptions.MissingError):
+                if request.env.user.is_public or isinstance(e, weblgx.exceptions.MissingError):
                     raise werkzeug.exceptions.NotFound() from e
                 raise
 
@@ -253,7 +253,7 @@ class IrHttp(models.AbstractModel):
     def routing_map(self, key=None):
         _logger.info("Generating routing map for key %s", str(key))
         registry = Registry(threading.current_thread().dbname)
-        installed = registry._init_modules.union(odoo.conf.server_wide_modules)
+        installed = registry._init_modules.union(weblgx.conf.server_wide_modules)
         mods = sorted(installed)
         # Note : when routing map is generated, we put it on the class `cls`
         # to make it available for all instance. Since `env` create an new instance
@@ -271,7 +271,7 @@ class IrHttp(models.AbstractModel):
 
     @api.autovacuum
     def _gc_sessions(self):
-        if os.getenv("ODOO_SKIP_GC_SESSIONS"):
+        if os.getenv("WEBLGX_SKIP_GC_SESSIONS"):
             return
         http.root.session_store.vacuum(max_lifetime=http.get_session_max_inactivity(self.env))
 

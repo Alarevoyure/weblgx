@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -10,7 +10,7 @@ import { parseInteger } from "../parsers";
 import { standardFieldProps } from "../standard_field_props";
 import { TranslationButton } from "../translation_button";
 
-import { Component, useExternalListener, useEffect, useRef } from "@odoo/owl";
+import { Component, useExternalListener, useEffect, useRef } from "@weblgx/owl";
 
 export class TextField extends Component {
     static template = "web.TextField";

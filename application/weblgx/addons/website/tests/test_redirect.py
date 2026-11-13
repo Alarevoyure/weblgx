@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.website.tools import MockRequest
-from odoo.models import ValidationError
-from odoo.tests import TransactionCase, tagged
+from weblgx.addons.website.tools import MockRequest
+from weblgx.models import ValidationError
+from weblgx.tests import TransactionCase, tagged
 
 
 @tagged('-at_install', 'post_install')

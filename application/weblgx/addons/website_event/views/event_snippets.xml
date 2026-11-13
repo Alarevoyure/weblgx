@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <!-- Snippets and options -->
 
@@ -49,4 +49,4 @@ perfect and nobody missed this for 4+ major versions).
     </div>
 </template>
 
-</odoo>
+</weblgx>

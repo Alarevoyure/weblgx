@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -118,9 +118,9 @@ QUnit.test("respond to notification prompt (granted)", async () => {
 
 QUnit.test("no 'WeblgxBot has a request' in mobile app", async () => {
     patchBrowserNotification("default");
-    // simulate Android Odoo App
+    // simulate Android Web@LGX App
     patchWithCleanup(browser.navigator, {
-        userAgent: "Chrome/0.0.0 Android (OdooMobile; Linux; Android 13; Weblgx TestSuite)",
+        userAgent: "Chrome/0.0.0 Android (WeblgxMobile; Linux; Android 13; Weblgx TestSuite)",
     });
     await start();
     await click(".o_menu_systray i[aria-label='Messages']");
@@ -865,7 +865,7 @@ QUnit.test("click on preview should mark as read and open the thread", async () 
     const messageId = pyEnv["mail.message"].create({
         model: "res.partner",
         body: "not empty",
-        author_id: pyEnv.odoobotId,
+        author_id: pyEnv.weblgxbotId,
         needaction: true,
         needaction_partner_ids: [pyEnv.currentPartnerId],
         res_id: partnerId,
@@ -894,7 +894,7 @@ QUnit.test(
         const messageId = pyEnv["mail.message"].create({
             model: "res.partner",
             body: "not empty",
-            author_id: pyEnv.odoobotId,
+            author_id: pyEnv.weblgxbotId,
             needaction: true,
             needaction_partner_ids: [pyEnv.currentPartnerId],
             res_id: partnerId,

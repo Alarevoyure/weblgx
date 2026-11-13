@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { Switch } from '@website/components/switch/switch';
 import { useService, useBus } from '@web/core/utils/hooks';
-import { Component, xml, useState } from "@odoo/owl";
+import { Component, xml, useState } from "@weblgx/owl";
 
 const websiteSystrayRegistry = registry.category('website_systray');
 

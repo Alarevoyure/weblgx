@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import websiteTourUtils from "@website/js/tours/tour_utils";
 import { patch } from "@web/core/utils/patch";
 
 const patchWysiwygAdapter = () => {
-    const { WysiwygAdapterComponent } = odoo.loader.modules.get("@website/components/wysiwyg_adapter/wysiwyg_adapter");
+    const { WysiwygAdapterComponent } = weblgx.loader.modules.get("@website/components/wysiwyg_adapter/wysiwyg_adapter");
     return patch(WysiwygAdapterComponent.prototype, {
         _trigger_up(ev) {
             super._trigger_up(...arguments);

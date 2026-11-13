@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Thread } from "@mail/core/common/thread";
 
-import { useState } from "@odoo/owl";
+import { useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 import { patch } from "@web/core/utils/patch";

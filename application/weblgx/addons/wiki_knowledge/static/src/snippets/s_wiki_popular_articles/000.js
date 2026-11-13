@@ -42,7 +42,7 @@ const WikiPopularArticlesSnippet = publicWidget.Widget.extend({
                 limit: this._getLimit(),
             });
             const items = (res && res.items) || [];
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             listEl.dataset.count = String(items.length);
             if (!items.length) {
                 listEl.innerHTML =
@@ -55,15 +55,15 @@ const WikiPopularArticlesSnippet = publicWidget.Widget.extend({
                     listEl.appendChild(this._buildItemEl(item));
                 });
             }
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         } catch {
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             listEl.dataset.count = "0";
             listEl.innerHTML =
                 '<p class="text-muted mb-0 s_wiki_popular_empty">' +
                 "Articles indisponibles." +
                 "</p>";
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         }
     },
 

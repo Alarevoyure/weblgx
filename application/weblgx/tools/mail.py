@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import collections
@@ -20,9 +20,9 @@ from lxml import etree, html
 from lxml.html import clean, defs
 from werkzeug import urls
 
-import odoo
-from odoo.loglevels import ustr
-from odoo.tools import misc
+import weblgx
+from weblgx.loglevels import ustr
+from weblgx.tools import misc
 
 _logger = logging.getLogger(__name__)
 
@@ -174,8 +174,8 @@ def tag_quote(el):
         for sibling in el.itersiblings(preceding=False):
             sibling.set('data-o-mail-quote', '1')
 
-    # odoo, gmail and outlook automatic signature wrapper
-    is_signature_wrapper = 'odoo_signature_wrapper' in el_class or 'gmail_signature' in el_class or el_id == "Signature"
+    # weblgx, gmail and outlook automatic signature wrapper
+    is_signature_wrapper = 'weblgx_signature_wrapper' in el_class or 'gmail_signature' in el_class or el_id == "Signature"
     is_outlook_auto_message = 'appendonsend' in el_id
     # gmail and outlook reply quote
     is_outlook_reply_quote = 'divRplyFwdMsg' in el_id
@@ -483,7 +483,7 @@ def html2plaintext(html, body_id=None, encoding='utf-8', include_references=True
 
 def plaintext2html(text, container_tag=None, with_paragraph=True):
     r"""Convert plaintext into html. Content of the text is escaped to manage
-    html entities, using :func:`~odoo.tools.misc.html_escape`.
+    html entities, using :func:`~weblgx.tools.misc.html_escape`.
 
     - all ``\n``, ``\r`` are replaced by ``<br/>``
     - convert url into clickable link
@@ -672,7 +672,7 @@ def email_normalize(text, strict=True):
     """ Sanitize and standardize email address entries. As of rfc5322 section
     3.4.1 local-part is case-sensitive. However most main providers do consider
     the local-part as case insensitive. With the introduction of smtp-utf8
-    within odoo, this assumption is certain to fall short for international
+    within weblgx, this assumption is certain to fall short for international
     emails. We now consider that
 
       * if local part is ascii: normalize still 'lower' ;
@@ -722,7 +722,7 @@ def email_normalize_all(text):
 def _normalize_email(email):
     """ As of rfc5322 section 3.4.1 local-part is case-sensitive. However most
     main providers do consider the local-part as case insensitive. With the
-    introduction of smtp-utf8 within odoo, this assumption is certain to fall
+    introduction of smtp-utf8 within weblgx, this assumption is certain to fall
     short for international emails. We now consider that
 
       * if local part is ascii: normalize still 'lower' ;
@@ -867,8 +867,8 @@ def encapsulate_email(old_email, new_email):
 
     e.g.
     * Old From: "Admin" <admin@gmail.com>
-    * New From: notifications@odoo.com
-    * Output: "Admin" <notifications@odoo.com>
+    * New From: notifications@weblgx.com
+    * Output: "Admin" <notifications@weblgx.com>
     """
     old_email_split = getaddresses([old_email])
     if not old_email_split or not old_email_split[0]:

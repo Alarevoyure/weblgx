@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { loadJS } from "@web/core/assets";
 import { isMobileOS } from "@web/core/browser/feature_detection";
@@ -18,7 +18,7 @@ import {
     useEffect,
     useExternalListener,
     status,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 let htmlId = 0;
 export class NameAndSignature extends Component {

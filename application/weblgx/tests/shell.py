@@ -5,29 +5,29 @@ import re
 import sys
 from psycopg2.extensions import STATUS_READY
 
-import odoo
-from odoo.modules.registry import Registry
+import weblgx
+from weblgx.modules.registry import Registry
 
 from .loader import make_suite, run_suite
-from .result import OdooTestResult
+from .result import WeblgxTestResult
 
 _logger = logging.getLogger(__name__)
 
-TEST_MODULE_NAME_PATTERN = re.compile(r'^odoo\.addons\.\w+\.tests')
+TEST_MODULE_NAME_PATTERN = re.compile(r'^weblgx\.addons\.\w+\.tests')
 
 
 def run_tests(env, test_tags, modules=None, reload_tests=False):
     """Run tests for the given modules and test tags."""
 
-    if odoo.cli.COMMAND != 'shell':
-        _logger.error('run_tests should be used only in odoo shell')
+    if weblgx.cli.COMMAND != 'shell':
+        _logger.error('run_tests should be used only in weblgx shell')
         return
 
-    if odoo.tools.config['workers'] != 0:
+    if weblgx.tools.config['workers'] != 0:
         _logger.error('run_tests should be used only in threaded mode')
         return
 
-    from odoo.service.server import server  # noqa: PLC0415
+    from weblgx.service.server import server  # noqa: PLC0415
     if not server.httpd:
         # some tests need the http daemon to be available...
         server.http_spawn()
@@ -43,11 +43,11 @@ def run_tests(env, test_tags, modules=None, reload_tests=False):
     if reload_tests:
         _clear_loaded_test_modules()
 
-    odoo.tools.config['test_tags'] = test_tags
-    odoo.tools.config['test_enable'] = True
+    weblgx.tools.config['test_tags'] = test_tags
+    weblgx.tools.config['test_enable'] = True
     report = _run_tests(env.cr.dbname, modules)
-    odoo.tools.config['test_enable'] = None
-    odoo.tools.config['test_tags'] = None
+    weblgx.tools.config['test_enable'] = None
+    weblgx.tools.config['test_tags'] = None
 
     _log_test_report(report)
 
@@ -55,7 +55,7 @@ def run_tests(env, test_tags, modules=None, reload_tests=False):
 
 
 def _run_tests(db_name, modules):
-    report = OdooTestResult()
+    report = WeblgxTestResult()
 
     # Run at_install tests
     with Registry._lock:

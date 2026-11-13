@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { standardWidgetProps } from "@web/views/widgets/standard_widget_props";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { registry } from "@web/core/registry";
 
 const LINK_REGEX = new RegExp("^https?://");
@@ -18,7 +18,7 @@ export class DocumentationLink extends Component {
     get url() {
         const path = this.props.path;
         if (LINK_REGEX.test(path)) {
-            return /odoo\.com\/documentation/i.test(path) ? DOCS_BASE_URL : path;
+            return /weblgx\.com\/documentation/i.test(path) ? DOCS_BASE_URL : path;
         }
         return DOCS_BASE_URL;
     }

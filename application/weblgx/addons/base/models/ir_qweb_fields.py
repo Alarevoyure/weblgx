@@ -12,11 +12,11 @@ from markupsafe import Markup, escape
 from PIL import Image
 from lxml import etree, html
 
-from odoo import api, fields, models, _, _lt, tools
-from odoo.tools import posix_to_ldml, float_utils, format_date, format_duration, pycompat
-from odoo.tools.mail import safe_attrs
-from odoo.tools.misc import get_lang, babel_locale_parse
-from odoo.tools.mimetypes import guess_mimetype
+from weblgx import api, fields, models, _, _lt, tools
+from weblgx.tools import posix_to_ldml, float_utils, format_date, format_duration, pycompat
+from weblgx.tools.mail import safe_attrs
+from weblgx.tools.misc import get_lang, babel_locale_parse
+from weblgx.tools.mimetypes import guess_mimetype
 
 _logger = logging.getLogger(__name__)
 

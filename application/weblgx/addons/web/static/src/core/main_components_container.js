@@ -1,9 +1,9 @@
-/** @odoo-module */
+/** @weblgx-module */
 import { registry } from "./registry";
 import { ErrorHandler } from "./utils/components";
 import { useBus } from "@web/core/utils/hooks";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 export class MainComponentsContainer extends Component {
     setup() {

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { start } from "@mail/../tests/helpers/test_utils";
 

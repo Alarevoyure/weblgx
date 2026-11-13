@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { serializeDateTime } from "@web/core/l10n/dates";
 import { patch } from "@web/core/utils/patch";

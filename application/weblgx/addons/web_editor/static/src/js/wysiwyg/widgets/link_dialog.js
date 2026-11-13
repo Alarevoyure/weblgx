@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { onMounted, useRef } from "@odoo/owl";
+import { onMounted, useRef } from "@weblgx/owl";
 import { Dialog } from "@web/core/dialog/dialog";
 import { Link } from "./link";
 

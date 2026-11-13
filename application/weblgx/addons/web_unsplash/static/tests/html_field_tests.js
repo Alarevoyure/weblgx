@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { unsplashService } from "@web_unsplash/services/unsplash_service";
 import { mediaDialogServices } from "@web_editor/../tests/html_field_tests";

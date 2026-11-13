@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeContext } from "@web/core/context";
 import { evaluateBooleanExpr } from "@web/core/py_js/py";
@@ -19,7 +19,7 @@ import { computeViewClassName } from "@web/views/utils";
 import { ViewButton } from "@web/views/view_button/view_button";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class X2ManyField extends Component {
     static template = "web.X2ManyField";

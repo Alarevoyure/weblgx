@@ -15,7 +15,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Manon Rondou, 2025\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,7 +55,7 @@ msgstr ""
 "text-muted mx-3 my-2\" style=\"font-size: 1.5rem\"/>"
 
 #. module: website_event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "<b>Drag and Drop</b> this snippet below the event title."
@@ -299,14 +299,14 @@ msgid "About us"
 msgstr "À propos de nous"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/controllers/main.py:0
 #, python-format
 msgid "All Countries"
 msgstr "Tous les pays"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #, python-format
 msgid "All Events"
@@ -402,7 +402,7 @@ msgid "Booked by"
 msgstr "Réservé par"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website_snippet_filter.py:0
 #, python-format
 msgid "Business Workshops"
@@ -444,7 +444,7 @@ msgid "Commercials"
 msgstr "Publicités"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #: model_terms:ir.ui.view,arch_db:website_event.event_event_view_form
 #: model_terms:ir.ui.view,arch_db:website_event.event_type_view_form
@@ -466,7 +466,7 @@ msgid "Company"
 msgstr "Société"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website_snippet_filter.py:0
 #, python-format
 msgid "Conference For Architects"
@@ -560,7 +560,7 @@ msgid "Display community tab on website"
 msgstr "Afficher l'onglet communauté sur le site web"
 
 #. module: website_event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Don't forget to click <b>save</b> when you're done."
@@ -578,7 +578,7 @@ msgid "Download Tickets <i class=\"ms-1 fa fa-download\"/>"
 msgstr "Télécharger les tickets <i class=\"ms-1 fa fa-download\"/>"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_type.py:0
 #: model:ir.model.fields.selection,name:website_event.selection__event_question__question_type__email
 #, python-format
@@ -591,7 +591,7 @@ msgid "End -"
 msgstr "Fin -"
 
 #. module: website_event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_event/static/src/js/website_event.js:0
 #, python-format
 msgid "Error"
@@ -719,7 +719,7 @@ msgid "Event unpublished"
 msgstr "Événement non publié"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website.py:0
 #: model:ir.ui.menu,name:website_event.menu_event_pages
 #: model:website.menu,name:website_event.menu_events
@@ -792,7 +792,7 @@ msgid "Google"
 msgstr "Google"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website_snippet_filter.py:0
 #, python-format
 msgid "Great Reno Ballon Race"
@@ -804,7 +804,7 @@ msgid "Grid"
 msgstr "Grid"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website_snippet_filter.py:0
 #, python-format
 msgid "Hockey Tournament"
@@ -843,7 +843,7 @@ msgstr ""
 "participants d'une réservation."
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #: model:ir.model.fields.selection,name:website_event.selection__website_event_menu__menu_type__introduction
 #: model_terms:ir.ui.view,arch_db:website_event.template_intro
@@ -915,14 +915,14 @@ msgid "List"
 msgstr "Liste"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website_snippet_filter.py:0
 #, python-format
 msgid "Live Music Festival"
 msgstr "Festival de musique live"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #: model:ir.model.fields.selection,name:website_event.selection__website_event_menu__menu_type__location
 #: model_terms:ir.ui.view,arch_db:website_event.event_description_full
@@ -941,7 +941,7 @@ msgid "Location Menus"
 msgstr "Menus lieu"
 
 #. module: website_event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid ""
@@ -988,7 +988,7 @@ msgid "Mixed"
 msgstr "Mélangé"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_type.py:0
 #: model:ir.model.fields,field_description:website_event.field_event_event__address_name
 #: model:ir.model.fields.selection,name:website_event.selection__event_question__question_type__name
@@ -1002,7 +1002,7 @@ msgid "New Event"
 msgstr "Nouvel événement"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website.py:0
 #, python-format
 msgid "Next Events"
@@ -1055,7 +1055,7 @@ msgid "Online Events"
 msgstr "Événements en ligne"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website_snippet_filter.py:0
 #, python-format
 msgid "OpenWood Collection Online Reveal"
@@ -1077,7 +1077,7 @@ msgid "Our website"
 msgstr "Notre site web"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #, python-format
 msgid "Past Events"
@@ -1089,7 +1089,7 @@ msgid "Pastafarian"
 msgstr "Pastafarian"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_type.py:0
 #: model:ir.model.fields.selection,name:website_event.selection__event_question__question_type__phone
 #, python-format
@@ -1123,7 +1123,7 @@ msgid "Question Type"
 msgstr "Type de question"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_question.py:0
 #, python-format
 msgid "Question cannot be linked to both an Event and an Event Type."
@@ -1157,8 +1157,8 @@ msgid "Ref:"
 msgstr "Réf :"
 
 #. module: website_event
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #: code:addons/website_event/static/src/js/register_toaster_widget.js:0
 #: model:ir.model.fields.selection,name:website_event.selection__website_event_menu__menu_type__register
@@ -1190,7 +1190,7 @@ msgid "Registered Events"
 msgstr "Événements enregistrés"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/controllers/main.py:0
 #: model:ir.model.fields,field_description:website_event.field_event_registration_answer__registration_id
 #: model_terms:ir.ui.view,arch_db:website_event.modal_ticket_registration
@@ -1393,7 +1393,7 @@ msgid "Suggested answer"
 msgstr "Réponse suggérée"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/controllers/main.py:0
 #, python-format
 msgid "Suspicious activity detected by Google reCaptcha."
@@ -1422,7 +1422,7 @@ msgid "The full URL to access the document through the website."
 msgstr "L'URL complète pour accéder au document à travers le site web."
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #, python-format
 msgid "The website must be from the same company as the event."
@@ -1434,14 +1434,14 @@ msgid "There must be a suggested value or a text value."
 msgstr "Il doit y avoir une valeur suggérée ou une valeur de texte."
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #, python-format
 msgid "This month"
 msgstr "Ce mois"
 
 #. module: website_event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "This shortcut will bring you right back to the event form."
@@ -1453,7 +1453,7 @@ msgid "This technical menu displays all event sub-menu items."
 msgstr "Ce menu technique affiche toutes les sous-rubriques de l'événement."
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/controllers/main.py:0
 #, python-format
 msgid "This ticket is not available for sale for this event"
@@ -1486,7 +1486,7 @@ msgid "Title"
 msgstr "Titre"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #, python-format
 msgid "Today"
@@ -1509,7 +1509,7 @@ msgid "Type"
 msgstr "Type"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/website_visitor.py:0
 #, python-format
 msgid "Unsupported 'Not In' operation on visitors registrations"
@@ -1517,7 +1517,7 @@ msgstr ""
 "Opération 'Not In' non prise en charge sur les inscriptions des visiteurs"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_event.py:0
 #: model:website.snippet.filter,name:website_event.website_snippet_filter_event_list
 #: model_terms:ir.ui.view,arch_db:website_event.event_time
@@ -1526,7 +1526,7 @@ msgid "Upcoming Events"
 msgstr "Événements à venir"
 
 #. module: website_event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid "Use this <b>shortcut</b> to easily access your event web page."
@@ -1680,7 +1680,7 @@ msgid "Which field are you working in"
 msgstr "Dans quel domaine travaillez-vous"
 
 #. module: website_event
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_event/static/src/js/tours/event_tour.js:0
 #, python-format
 msgid ""
@@ -1691,7 +1691,7 @@ msgstr ""
 "visiteurs verront lors de leur inscription."
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_question.py:0
 #, python-format
 msgid ""
@@ -1701,7 +1701,7 @@ msgstr ""
 "des réponses !"
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_question.py:0
 #, python-format
 msgid ""
@@ -1711,7 +1711,7 @@ msgstr ""
 "déjà répondu."
 
 #. module: website_event
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_event/models/event_question_answer.py:0
 #, python-format
 msgid ""

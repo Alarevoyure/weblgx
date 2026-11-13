@@ -1,7 +1,7 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { DiscussPublic } from "@mail/discuss/core/public/discuss_public";
-import { useState } from "@odoo/owl";
+import { useState } from "@weblgx/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { useService } from "@web/core/utils/hooks";

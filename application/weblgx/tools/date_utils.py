@@ -9,7 +9,7 @@ import pytz
 from dateutil.relativedelta import relativedelta, weekdays
 
 from .func import lazy
-from odoo.loglevels import ustr
+from weblgx.loglevels import ustr
 
 
 def date_type(value):
@@ -210,7 +210,7 @@ def json_default(obj):
     """
     Properly serializes date and datetime objects.
     """
-    from odoo import fields
+    from weblgx import fields
     if isinstance(obj, datetime):
         return fields.Datetime.to_string(obj)
     if isinstance(obj, date):

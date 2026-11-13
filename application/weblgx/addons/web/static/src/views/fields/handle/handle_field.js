@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { _t } from "@web/core/l10n/translation";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class HandleField extends Component {
     static template = "web.HandleField";

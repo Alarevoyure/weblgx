@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { browser } from "../browser/browser";
@@ -13,7 +13,7 @@ import {
 import { UncaughtClientError, UncaughtCorsError, UncaughtPromiseError } from "./error_service";
 
 /**
- * @typedef {import("../../env").OdooEnv} OdooEnv
+ * @typedef {import("../../env").WeblgxEnv} WeblgxEnv
  * @typedef {import("./error_service").UncaughtError} UncaughError
  */
 
@@ -26,7 +26,7 @@ const errorNotificationRegistry = registry.category("error_notifications");
 // -----------------------------------------------------------------------------
 
 /**
- * @param {OdooEnv} env
+ * @param {WeblgxEnv} env
  * @param {UncaughError} error
  * @param {Error} originalError
  * @returns {boolean}
@@ -85,7 +85,7 @@ errorHandlerRegistry.add("rpcErrorHandler", rpcErrorHandler, { sequence: 97 });
 
 let connectionLostNotifRemove = null;
 /**
- * @param {OdooEnv} env
+ * @param {WeblgxEnv} env
  * @param {UncaughError} error
  * @param {Error} originalError
  * @returns {boolean}
@@ -142,7 +142,7 @@ const defaultDialogs = new Map([
  * Handles the errors based on the very general error categories emitted by the
  * error service. Notice how we do not look at the original error at all.
  *
- * @param {OdooEnv} env
+ * @param {WeblgxEnv} env
  * @param {UncaughError} error
  * @returns {boolean}
  */

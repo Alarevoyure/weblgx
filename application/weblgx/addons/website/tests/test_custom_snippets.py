@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import Command
-from odoo.tests import HttpCase, TransactionCase, tagged
+from weblgx import Command
+from weblgx.tests import HttpCase, TransactionCase, tagged
 
 
 @tagged('post_install', '-at_install')

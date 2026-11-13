@@ -1,9 +1,9 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import babel
 import requests
 
-from odoo.http import request, route, Controller
+from weblgx.http import request, route, Controller
 
 
 class GoogleTranslateController(Controller):

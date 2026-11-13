@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { MultiRecordSelector } from "@web/core/record_selectors/multi_record_selector";
 import { _t } from "@web/core/l10n/translation";

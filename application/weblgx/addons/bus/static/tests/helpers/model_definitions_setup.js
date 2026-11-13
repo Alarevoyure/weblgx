@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { TEST_GROUP_IDS, TEST_USER_IDS } from "@bus/../tests/helpers/test_constants";
 import {
@@ -72,7 +72,7 @@ insertRecords("res.partner", [
     {
         active: false,
         display_name: "WeblgxBot",
-        id: TEST_USER_IDS.odoobotId,
+        id: TEST_USER_IDS.weblgxbotId,
         im_status: "bot",
         name: "WeblgxBot",
     },

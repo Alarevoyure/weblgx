@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import pytz
 import uuid
@@ -6,14 +6,14 @@ from datetime import datetime, timedelta
 from functools import wraps
 from inspect import Parameter, signature
 
-import odoo
-from odoo.tools import consteq, get_lang
-from odoo import _, api, fields, models
-from odoo.http import request
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.exceptions import UserError
-from odoo.addons.bus.models.bus_presence import AWAY_TIMER, DISCONNECTION_TIMER
-from odoo.addons.bus.websocket import wsrequest
+import weblgx
+from weblgx.tools import consteq, get_lang
+from weblgx import _, api, fields, models
+from weblgx.http import request
+from weblgx.addons.base.models.res_partner import _tz_get
+from weblgx.exceptions import UserError
+from weblgx.addons.bus.models.bus_presence import AWAY_TIMER, DISCONNECTION_TIMER
+from weblgx.addons.bus.websocket import wsrequest
 
 
 def add_guest_to_context(func):
@@ -121,8 +121,8 @@ class MailGuest(models.Model):
 
     def _init_messaging(self):
         self.ensure_one()
-        # sudo: res.partner - exposing OdooBot name and id
-        odoobot = self.env.ref('base.partner_root').sudo()
+        # sudo: res.partner - exposing WeblgxBot name and id
+        weblgxbot = self.env.ref('base.partner_root').sudo()
         # sudo: mail.guest - guest reading their own id/name/channels
         guest_sudo = self.sudo()
         return {
@@ -144,9 +144,9 @@ class MailGuest(models.Model):
             'initBusId': self.env['bus.bus'].sudo()._bus_last_id(),
             'menu_id': False,
             'needaction_inbox_counter': False,
-            'odoobot': {
-                'id': odoobot.id,
-                'name': odoobot.name,
+            'weblgxbot': {
+                'id': weblgxbot.id,
+                'name': weblgxbot.name,
                 'type': "partner",
             },
             'shortcodes': [],
@@ -166,7 +166,7 @@ class MailGuest(models.Model):
             if 'im_status' in fields:
                 data['im_status'] = guest.im_status
             if "write_date" in fields:
-                data["write_date"] = odoo.fields.Datetime.to_string(guest.write_date)
+                data["write_date"] = weblgx.fields.Datetime.to_string(guest.write_date)
             data['type'] = "guest"
             guests_formatted_data[guest] = data
         return guests_formatted_data

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { patch } from "@web/core/utils/patch";
 import { MockServer } from "@web/../tests/helpers/mock_server";
@@ -25,7 +25,7 @@ patch(MockServer.prototype, {
             initBusId: this.lastBusNotificationId,
             menu_id: false,
             needaction_inbox_counter: false,
-            odoobot: this._mockResPartnerMailPartnerFormat(this.odoobotId).get(this.odoobotId),
+            weblgxbot: this._mockResPartnerMailPartnerFormat(this.weblgxbotId).get(this.weblgxbotId),
             shortcodes: [],
             starred_counter: false,
         };

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { getFixture, mount, nextTick } from "@web/../tests/helpers/utils";
@@ -18,7 +18,7 @@ import {
     setupControlPanelServiceRegistry,
 } from "../search/helpers";
 
-import { Component, useSubEnv, xml } from "@odoo/owl";
+import { Component, useSubEnv, xml } from "@weblgx/owl";
 
 const serviceRegistry = registry.category("services");
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_editable_table" name="Editable Table">
     <section class="s_editable_table pt24 pb24"
@@ -69,4 +69,4 @@
     <path>website/static/src/snippets/s_editable_table/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

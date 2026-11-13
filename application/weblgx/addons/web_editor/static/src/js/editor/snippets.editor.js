@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Mutex } from "@web/core/utils/concurrency";
 import { clamp } from "@web/core/utils/numbers";
@@ -11,7 +11,7 @@ import options from "@web_editor/js/editor/snippets.options";
 import weUtils from "@web_editor/js/common/utils";
 import * as gridUtils from "@web_editor/js/common/grid_layout_utils";
 import { escape } from "@web/core/utils/strings";
-import { closestElement, isUnremovable } from "@web_editor/js/editor/odoo-editor/src/utils/utils";
+import { closestElement, isUnremovable } from "@web_editor/js/editor/weblgx-editor/src/utils/utils";
 import { debounce, throttleForAnimation } from "@web/core/utils/timing";
 import { uniqueId } from "@web/core/utils/functions";
 import { sortBy, unique } from "@web/core/utils/arrays";
@@ -22,7 +22,7 @@ import {
     Component,
     markup,
     xml,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { LinkTools } from '@web_editor/js/wysiwyg/widgets/link_tools';
 import { touching, closest, isVisible } from "@web/core/utils/ui";
 import { _t } from "@web/core/l10n/translation";
@@ -390,7 +390,7 @@ var SnippetEditor = Widget.extend({
      * @returns {Promise}
      */
     removeSnippet: async function (shouldRecordUndo = true) {
-        this.options.wysiwyg.odooEditor.unbreakableStepUnactive();
+        this.options.wysiwyg.weblgxEditor.unbreakableStepUnactive();
         this.toggleOverlay(false);
         await this.toggleOptions(false);
         // If it is an invisible element, we must close it before deleting it
@@ -526,7 +526,7 @@ var SnippetEditor = Widget.extend({
         $(window).trigger('resize');
 
         if (shouldRecordUndo) {
-            this.options.wysiwyg.odooEditor.historyStep();
+            this.options.wysiwyg.weblgxEditor.historyStep();
         }
     },
     /**
@@ -696,7 +696,7 @@ var SnippetEditor = Widget.extend({
         this.$target.after($clone);
 
         if (recordUndo) {
-            this.options.wysiwyg.odooEditor.historyStep(true);
+            this.options.wysiwyg.weblgxEditor.historyStep(true);
         }
         await new Promise(resolve => {
             this.trigger_up('call_for_each_child_snippet', {
@@ -1002,9 +1002,9 @@ var SnippetEditor = Widget.extend({
             // resizing the grid and the dropzone.
             self.dragState.dragHelperEl.remove();
             self.dragState.backgroundGridEl.remove();
-            self.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+            self.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
             gridUtils._resizeGrid(rowEl);
-            self.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+            self.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
             const rowCount = parseInt(rowEl.dataset.rowCount);
             previousDropzoneEl.style.gridRowEnd = Math.max(rowCount + 1, 1);
         }
@@ -1042,9 +1042,9 @@ var SnippetEditor = Widget.extend({
      * @private
      */
     _onDragAndDropStart({ helper, addStyle }) {
-        this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+        this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
         this.trigger_up('drag_and_drop_start');
-        this.options.wysiwyg.odooEditor.automaticStepUnactive();
+        this.options.wysiwyg.weblgxEditor.automaticStepUnactive();
         var self = this;
         this.dragState = {};
         const rowEl = this.$target[0].parentNode;
@@ -1074,10 +1074,10 @@ var SnippetEditor = Widget.extend({
             if (allowGridMode) {
                 // Toggle grid mode if it is not already on.
                 if (!rowEl.classList.contains('o_grid_mode')) {
-                    this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+                    this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
                     const containerEl = rowEl.parentNode;
                     gridUtils._toggleGridMode(containerEl);
-                    this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+                    this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
                 }
 
                 // Computing the moving column width and height in terms of columns
@@ -1267,9 +1267,9 @@ var SnippetEditor = Widget.extend({
             // If the column doesn't come from a grid mode snippet.
             if (!this.$target[0].classList.contains('o_grid_item')) {
                 // Converting the column to grid.
-                this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+                this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
                 const spans = gridUtils._convertColumnToGrid(rowEl, this.$target[0], this.dragState.columnWidth, this.dragState.columnHeight);
-                this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+                this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
                 this.dragState.columnColCount = spans.columnColCount;
                 this.dragState.columnRowCount = spans.columnRowCount;
 
@@ -1291,7 +1291,7 @@ var SnippetEditor = Widget.extend({
             const rowCount = Math.max(rowEl.dataset.rowCount, columnRowCount);
             $dropzone[0].style.gridRowEnd = rowCount + 1;
 
-            this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
             // Setting the moving grid item, the background grid and
             // the drag helper z-indexes. The grid item z-index is set
             // to its original one if we are in its starting grid, or
@@ -1315,7 +1315,7 @@ var SnippetEditor = Widget.extend({
             this.$target[0].style.position = 'absolute';
             this.$target[0].style.removeProperty('grid-area');
             rowEl.style.position = 'relative';
-            this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
 
             // Storing useful information and adding an event listener.
             this.dragState.startingHeight = rowEl.clientHeight;
@@ -1345,9 +1345,9 @@ var SnippetEditor = Widget.extend({
                 // resizing the grid and the dropzone.
                 this.dragState.dragHelperEl.remove();
                 this.dragState.backgroundGridEl.remove();
-                this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+                this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
                 gridUtils._resizeGrid(rowEl);
-                this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+                this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
                 const rowCount = parseInt(rowEl.dataset.rowCount);
                 dropzone.el.style.gridRowEnd = Math.max(rowCount + 1, 1);
             }
@@ -1371,9 +1371,9 @@ var SnippetEditor = Widget.extend({
      * @param {Object} ui
      */
     _onDragAndDropStop({ x, y }) {
-        this.options.wysiwyg.odooEditor.automaticStepActive();
-        this.options.wysiwyg.odooEditor.automaticStepSkipStack();
-        this.options.wysiwyg.odooEditor.unbreakableStepUnactive();
+        this.options.wysiwyg.weblgxEditor.automaticStepActive();
+        this.options.wysiwyg.weblgxEditor.automaticStepSkipStack();
+        this.options.wysiwyg.weblgxEditor.unbreakableStepUnactive();
 
         const rowEl = this.$target[0].parentNode;
         if (rowEl && rowEl.classList.contains('o_grid_mode')) {
@@ -1401,14 +1401,14 @@ var SnippetEditor = Widget.extend({
             gridUtils._gridCleanUp(rowEl, this.$target[0]);
             this.dragState.dragHelperEl.remove();
             this.dragState.backgroundGridEl.remove();
-            this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
             gridUtils._resizeGrid(rowEl);
-            this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
         } else if (this.$target[0].classList.contains('o_grid_item') && this.dropped) {
             // Case when dropping a grid item in a non-grid dropzone.
-            this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
             gridUtils._convertToNormalColumn(this.$target[0]);
-            this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
         }
 
         // TODO lot of this is duplicated code of the d&d feature of snippets
@@ -1426,19 +1426,19 @@ var SnippetEditor = Widget.extend({
                     // If the column doesn't come from a snippet in grid mode,
                     // convert it.
                     if (!this.$target[0].classList.contains('o_grid_item')) {
-                        this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+                        this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
                         const spans = gridUtils._convertColumnToGrid(rowEl, this.$target[0], this.dragState.columnWidth, this.dragState.columnHeight);
-                        this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+                        this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
                         this.dragState.columnColCount = spans.columnColCount;
                         this.dragState.columnRowCount = spans.columnRowCount;
                     }
 
                     // Placing it in the top left corner.
-                    this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+                    this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
                     this.$target[0].style.gridArea = `1 / 1 / ${1 + this.dragState.columnRowCount} / ${1 + this.dragState.columnColCount}`;
                     const rowCount = Math.max(rowEl.dataset.rowCount, this.dragState.columnRowCount);
                     rowEl.dataset.rowCount = rowCount;
-                    this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+                    this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
 
                     // Setting the grid item z-index.
                     if (rowEl === this.dragState.startingGrid) {
@@ -1450,9 +1450,9 @@ var SnippetEditor = Widget.extend({
                     if (this.$target[0].classList.contains('o_grid_item')) {
                         // Case when a grid column is dropped near a non-grid
                         // dropzone.
-                        this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+                        this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
                         gridUtils._convertToNormalColumn(this.$target[0]);
-                        this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+                        this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
                     }
                 }
 
@@ -1463,9 +1463,9 @@ var SnippetEditor = Widget.extend({
         // Resize the grid from where the column came from (if any), as it may
         // have not been resized if the column did not go over it.
         if (this.dragState.startingGrid) {
-            this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
             gridUtils._resizeGrid(this.dragState.startingGrid);
-            this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropMoveSnippet');
+            this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropMoveSnippet');
         }
 
         this.$editable.find('.oe_drop_zone').remove();
@@ -1487,7 +1487,7 @@ var SnippetEditor = Widget.extend({
         this.$body.removeClass('move-important');
         $clone.remove();
 
-        this.options.wysiwyg.odooEditor.observerActive('dragAndDropMoveSnippet');
+        this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropMoveSnippet');
         if (this.dropped) {
             if (prev) {
                 this.$target.insertAfter(prev);
@@ -1520,7 +1520,7 @@ var SnippetEditor = Widget.extend({
                 && this.$target[0].style.gridArea === this.dragState.prevGridArea)
             : this._dropSiblings.prev === this.$target.prev()[0] && this._dropSiblings.next === this.$target.next()[0];
         if (!samePositionAsStart) {
-            this.options.wysiwyg.odooEditor.historyStep();
+            this.options.wysiwyg.weblgxEditor.historyStep();
         }
 
         this.dragState.restore();
@@ -1563,7 +1563,7 @@ var SnippetEditor = Widget.extend({
      * specific action/react to a specific event.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onOptionUpdate: function (ev) {
         var self = this;
@@ -1609,7 +1609,7 @@ var SnippetEditor = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetOptionVisibilityUpdate: function (ev) {
         if (this.options.wysiwyg.isSaving()) {
@@ -1968,7 +1968,7 @@ var SnippetsMenu = Widget.extend({
         this.options.wysiwyg.setupToolbar(toolbarEl);
         this._addToolbar();
         this._checkEditorToolbarVisibilityCallback = this._checkEditorToolbarVisibility.bind(this);
-        $(this.options.wysiwyg.odooEditor.document.body).on('click', this._checkEditorToolbarVisibilityCallback);
+        $(this.options.wysiwyg.weblgxEditor.document.body).on('click', this._checkEditorToolbarVisibilityCallback);
 
         this.invisibleDOMPanelEl = document.createElement('div');
         this.invisibleDOMPanelEl.classList.add('o_we_invisible_el_panel');
@@ -2142,8 +2142,8 @@ var SnippetsMenu = Widget.extend({
 
             this._updateInvisibleDOM();
         }, 500);
-        this.options.wysiwyg.odooEditor.addEventListener('historyUndo', refreshSnippetEditors);
-        this.options.wysiwyg.odooEditor.addEventListener('historyRedo', refreshSnippetEditors);
+        this.options.wysiwyg.weblgxEditor.addEventListener('historyUndo', refreshSnippetEditors);
+        this.options.wysiwyg.weblgxEditor.addEventListener('historyRedo', refreshSnippetEditors);
 
         const $autoFocusEls = $('.o_we_snippet_autofocus');
         this._activateSnippet($autoFocusEls.length ? $autoFocusEls.first() : false);
@@ -2153,12 +2153,12 @@ var SnippetsMenu = Widget.extend({
             const $redoButton = this.$('.o_we_external_history_buttons button[data-action="redo"]');
             if ($undoButton.length) {
                 const updateHistoryButtons = () => {
-                    $undoButton.attr('disabled', !this.options.wysiwyg.odooEditor.historyCanUndo());
-                    $redoButton.attr('disabled', !this.options.wysiwyg.odooEditor.historyCanRedo());
+                    $undoButton.attr('disabled', !this.options.wysiwyg.weblgxEditor.historyCanUndo());
+                    $redoButton.attr('disabled', !this.options.wysiwyg.weblgxEditor.historyCanRedo());
                 };
-                this.options.wysiwyg.odooEditor.addEventListener('historyStep', updateHistoryButtons);
-                this.options.wysiwyg.odooEditor.addEventListener('observerApply', () => {
-                    $(this.options.wysiwyg.odooEditor.editable).trigger('content_changed');
+                this.options.wysiwyg.weblgxEditor.addEventListener('historyStep', updateHistoryButtons);
+                this.options.wysiwyg.weblgxEditor.addEventListener('observerApply', () => {
+                    $(this.options.wysiwyg.weblgxEditor.editable).trigger('content_changed');
                 });
             }
 
@@ -2620,7 +2620,7 @@ var SnippetsMenu = Widget.extend({
      */
     _updateInvisibleDOM: function () {
         return this._execWithLoadingEffect(() => {
-            this.options.wysiwyg.odooEditor.automaticStepSkipStack();
+            this.options.wysiwyg.weblgxEditor.automaticStepSkipStack();
             this.invisibleDOMMap = new Map();
             const $invisibleDOMPanelEl = $(this.invisibleDOMPanelEl);
             $invisibleDOMPanelEl.find('.o_we_invisible_entry').remove();
@@ -3511,13 +3511,13 @@ var SnippetsMenu = Widget.extend({
                 const prom = new Promise(resolve => dragAndDropResolve = () => resolve());
                 this._mutex.exec(() => prom);
 
-                const doc = this.options.wysiwyg.odooEditor.document;
+                const doc = this.options.wysiwyg.weblgxEditor.document;
                 $(doc.body).addClass('oe_dropzone_active');
 
-                this.options.wysiwyg.odooEditor.automaticStepUnactive();
+                this.options.wysiwyg.weblgxEditor.automaticStepUnactive();
 
                 this.$el.find('.oe_snippet_thumbnail').addClass('o_we_already_dragging');
-                this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropCreateSnippet');
+                this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropCreateSnippet');
 
                 dropped = false;
                 $snippet = $(element);
@@ -3617,10 +3617,10 @@ var SnippetsMenu = Widget.extend({
                 this.trigger_up('drop_zone_out');
             },
             onDragEnd: async ({ x, y, helper }) => {
-                const doc = this.options.wysiwyg.odooEditor.document;
+                const doc = this.options.wysiwyg.weblgxEditor.document;
                 $(doc.body).removeClass('oe_dropzone_active');
-                this.options.wysiwyg.odooEditor.automaticStepUnactive();
-                this.options.wysiwyg.odooEditor.automaticStepSkipStack();
+                this.options.wysiwyg.weblgxEditor.automaticStepUnactive();
+                this.options.wysiwyg.weblgxEditor.automaticStepSkipStack();
                 $toInsert.removeClass('oe_snippet_body');
                 $scrollingElement.off('scroll.scrolling_element');
                 if (!dropped && y > 3 && x + helper.getBoundingClientRect().height < this.el.getBoundingClientRect().left) {
@@ -3653,7 +3653,7 @@ var SnippetsMenu = Widget.extend({
                     $toInsert.detach();
                 }
 
-                this.options.wysiwyg.odooEditor.observerActive('dragAndDropCreateSnippet');
+                this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropCreateSnippet');
 
                 if (dropped) {
                     if (prev) {
@@ -3667,9 +3667,9 @@ var SnippetsMenu = Widget.extend({
                     var $target = $toInsert;
                     this._updateDroppedSnippet($target);
 
-                    this.options.wysiwyg.odooEditor.observerUnactive('dragAndDropCreateSnippet');
+                    this.options.wysiwyg.weblgxEditor.observerUnactive('dragAndDropCreateSnippet');
                     await this._scrollToSnippet($target, this.$scrollable);
-                    this.options.wysiwyg.odooEditor.observerActive('dragAndDropCreateSnippet');
+                    this.options.wysiwyg.weblgxEditor.observerActive('dragAndDropCreateSnippet');
 
                     browser.setTimeout(async () => {
                         // Free the mutex now to allow following operations
@@ -3680,8 +3680,8 @@ var SnippetsMenu = Widget.extend({
                             // Restore editor to its normal edition state, also
                             // make sure the undroppable snippets are updated.
                             this._disableUndroppableSnippets();
-                            this.options.wysiwyg.odooEditor.unbreakableStepUnactive();
-                            this.options.wysiwyg.odooEditor.historyStep();
+                            this.options.wysiwyg.weblgxEditor.unbreakableStepUnactive();
+                            this.options.wysiwyg.weblgxEditor.historyStep();
                             this.$el.find('.oe_snippet_thumbnail').removeClass('o_we_already_dragging');
                         };
                         await this.callPostSnippetDrop($target);
@@ -3968,7 +3968,7 @@ var SnippetsMenu = Widget.extend({
             // If empty oe_structure, encourage using snippets in there by
             // making them "wizz" in the panel.
             this._activateSnippet(false).then(() => {
-                this.$snippets.odooBounce();
+                this.$snippets.weblgxBounce();
             });
             return;
         }
@@ -3978,7 +3978,7 @@ var SnippetsMenu = Widget.extend({
      * Called when a child editor asks for insertion zones to be enabled.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onActivateInsertionZones: function (ev) {
         this._activateInsertionZones(ev.data.$selectorSiblings, ev.data.$selectorChildren, ev.data.canBeSanitizedUnless, ev.data.toInsertInline, ev.data.selectorGrids, ev.data.fromIframe);
@@ -4000,7 +4000,7 @@ var SnippetsMenu = Widget.extend({
      * snippet of a DOM element.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onCallForEachChildSnippet: function (ev) {
         this._callForEachChildSnippet(ev.data.$snippet, ev.data.callback)
@@ -4010,7 +4010,7 @@ var SnippetsMenu = Widget.extend({
      * Called when the overlay dimensions/positions should be recomputed.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onOverlaysCoverUpdate: function (ev) {
         this.snippetEditors.forEach(editor => {
@@ -4025,7 +4025,7 @@ var SnippetsMenu = Widget.extend({
      * call the _onClone methods if the element's editor has one.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onCloneSnippet: async function (ev) {
         ev.stopPropagation();
@@ -4039,7 +4039,7 @@ var SnippetsMenu = Widget.extend({
      * Called when a child editor asks to clean the UI of a snippet.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onCleanUIRequest(ev) {
         const targetEditors = this.snippetEditors.filter(editor => {
@@ -4070,7 +4070,7 @@ var SnippetsMenu = Widget.extend({
      * Called when a snippet has moved in the page.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetDragAndDropStop: async function (ev) {
         this.snippetEditorDragging = false;
@@ -4134,7 +4134,7 @@ var SnippetsMenu = Widget.extend({
      * Returns the droppable snippet from which a dropped snippet originates.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onFindSnippetTemplate(ev) {
         this.$snippets.each(function () {
@@ -4297,10 +4297,10 @@ var SnippetsMenu = Widget.extend({
      */
     _onMouseDown: function (ev) {
         const $blockedArea = $('#wrapwrap'); // TODO should get that element another way
-        this.options.wysiwyg.odooEditor.automaticStepSkipStack();
+        this.options.wysiwyg.weblgxEditor.automaticStepSkipStack();
         $blockedArea.addClass('o_we_no_pointer_events');
         const reenable = () => {
-            this.options.wysiwyg.odooEditor.automaticStepSkipStack();
+            this.options.wysiwyg.weblgxEditor.automaticStepSkipStack();
             $blockedArea.removeClass('o_we_no_pointer_events');
         };
         // Use a setTimeout fallback to avoid locking the editor if the mouseup
@@ -4349,7 +4349,7 @@ var SnippetsMenu = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onGetSnippetVersions: function (ev) {
         const snippet = this.el.querySelector(`.oe_snippet > [data-snippet="${ev.data.snippetName}"]`);
@@ -4386,7 +4386,7 @@ var SnippetsMenu = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onRemoveSnippet: async function (ev) {
         ev.stopPropagation();
@@ -4433,23 +4433,23 @@ var SnippetsMenu = Widget.extend({
             return;
         }
 
-        this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg.weblgxEditor.observerUnactive();
         for (const el of snippetEls) {
             el.classList.add("o_catch_attention", "o_we_snippet_area_animation");
         }
-        this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg.weblgxEditor.observerActive();
 
         setTimeout(() => {
-            this.options.wysiwyg.odooEditor.observerUnactive();
+            this.options.wysiwyg.weblgxEditor.observerUnactive();
             for (const el of snippetEls) {
                 el.classList.remove("o_catch_attention", "o_we_snippet_area_animation");
             }
-            this.options.wysiwyg.odooEditor.observerActive();
+            this.options.wysiwyg.weblgxEditor.observerActive();
         }, 400);
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      * @param {Object} ev.data
      * @param {function} ev.data.exec
      */
@@ -4458,7 +4458,7 @@ var SnippetsMenu = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetEditorDestroyed(ev) {
         ev.stopPropagation();
@@ -4498,7 +4498,7 @@ var SnippetsMenu = Widget.extend({
      * may depend on their UI status.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetOptionUpdate(ev) {
         ev.stopPropagation();
@@ -4522,7 +4522,7 @@ var SnippetsMenu = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetOptionVisibilityUpdate: async function (ev) {
         if (this.options.wysiwyg.isSaving()) {
@@ -4536,7 +4536,7 @@ var SnippetsMenu = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetThumbnailURLRequest(ev) {
         const $snippet = this.$snippets.has(`[data-snippet="${ev.data.key}"]`);
@@ -4618,7 +4618,7 @@ var SnippetsMenu = Widget.extend({
 
         // Create table-options custom container.
         const customizeTableBlock = renderToElement('web_editor.toolbar.table-options');
-        this.options.wysiwyg.odooEditor.bindExecCommand(customizeTableBlock);
+        this.options.wysiwyg.weblgxEditor.bindExecCommand(customizeTableBlock);
         $(this.customizePanel).append(customizeTableBlock);
         this._removeFormatButton = this._removeFormatButton || this._toolbarWrapperEl.querySelector('#removeFormat');
         $title.append(this._removeFormatButton);
@@ -4632,7 +4632,7 @@ var SnippetsMenu = Widget.extend({
     _checkEditorToolbarVisibility: function (e) {
         const $toolbarContainer = this.$('#o_we_editor_toolbar_container');
         const $toolbarTableContainer = this.$('#o-we-editor-table-container');
-        const selection = this.options.wysiwyg.odooEditor.document.getSelection();
+        const selection = this.options.wysiwyg.weblgxEditor.document.getSelection();
         const range = selection && selection.rangeCount && selection.getRangeAt(0);
         const $currentSelectionTarget = $(range && range.commonAncestorContainer);
         // Do not  toggle visibility if the target is inside the toolbar ( eg.
@@ -4748,10 +4748,10 @@ var SnippetsMenu = Widget.extend({
     },
     /**
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onRequestEditable: function (ev) {
-        ev.data.callback($(this.options.wysiwyg.odooEditor.editable));
+        ev.data.callback($(this.options.wysiwyg.weblgxEditor.editable));
     },
     /**
      * Enable loading effects

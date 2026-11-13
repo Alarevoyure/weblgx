@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { templates } from "@web/core/assets";
 import { browser } from "@web/core/browser/browser";
@@ -23,7 +23,7 @@ import {
     onWillUnmount,
     onWillUpdateProps,
     useComponent,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 /**
  * @typedef {keyof HTMLElementEventMap | keyof WindowEventMap} EventType

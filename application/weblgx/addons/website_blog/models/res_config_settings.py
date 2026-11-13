@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
-from odoo.exceptions import UserError
-from odoo.tools.translate import _
+from weblgx import fields, models
+from weblgx.exceptions import UserError
+from weblgx.tools.translate import _
 
 
 class ResConfigSettings(models.TransientModel):

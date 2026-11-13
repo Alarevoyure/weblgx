@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { addFakeModel } from "@bus/../tests/helpers/model_definitions_helpers";
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";

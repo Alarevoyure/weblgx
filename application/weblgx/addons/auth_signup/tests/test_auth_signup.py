@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-import odoo
-from odoo import http
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
-from odoo.exceptions import AccessError
+import weblgx
+from weblgx import http
+from weblgx.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
+from weblgx.exceptions import AccessError
 
 
 class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
@@ -45,7 +45,7 @@ class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
         }
 
         # Override unlink to not delete the email if the send works.
-        with patch.object(odoo.addons.mail.models.mail_mail.MailMail, 'unlink', lambda self: None):
+        with patch.object(weblgx.addons.mail.models.mail_mail.MailMail, 'unlink', lambda self: None):
             # Call the controller
             url_free_signup = self._get_free_signup_url()
             self.url_open(url_free_signup, data=payload)

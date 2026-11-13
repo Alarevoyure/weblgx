@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { makeFakeLocalizationService } from "@web/../tests/helpers/mock_services";
@@ -13,7 +13,7 @@ import {
     getTimePickers,
     useTwelveHourClockFormat,
 } from "./datetime_test_helpers";
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { nextTick } from "../../helpers/utils";
 
 const { DateTime } = luxon;

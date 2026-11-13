@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
@@ -58,7 +58,7 @@ function accessErrorHandler(env, error, originalError) {
     if (!hash._company_switching) {
         return false;
     }
-    if (originalError?.exceptionName === "odoo.exceptions.AccessError") {
+    if (originalError?.exceptionName === "weblgx.exceptions.AccessError") {
         const { model, id, view_type } = hash;
         if (!model || !id || view_type !== "form") {
             return false;

@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ChatGPTDialog } from '@web_editor/js/wysiwyg/widgets/chatgpt_dialog';
-import { useState, useEffect, useRef } from "@odoo/owl";
+import { useState, useEffect, useRef } from "@weblgx/owl";
 import { useAutofocus, useChildRef } from "@web/core/utils/hooks";
 import { session } from "@web/session";
 import { browser } from "@web/core/browser/browser";
@@ -19,7 +19,7 @@ export class ChatGPTPromptDialog extends ChatGPTDialog {
 
     setup() {
         super.setup();
-        this.assistantAvatarUrl = `${browser.location.origin}/web_editor/static/src/img/odoobot_transparent.png`;
+        this.assistantAvatarUrl = `${browser.location.origin}/web_editor/static/src/img/weblgxbot_transparent.png`;
         this.userAvatarUrl = `${browser.location.origin}/web/image?model=res.users&field=avatar_128&id=${encodeURIComponent(session.uid)}`;
         this.state = useState({
             ...this.state,

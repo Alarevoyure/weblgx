@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
         <!-- Domain UI: company Admin only sees their companies in the picker.
              SuperAdmin has no domain (empty via fields_get / record rules). -->
@@ -17,4 +17,4 @@
             </field>
         </record>
     </data>
-</odoo>
+</weblgx>

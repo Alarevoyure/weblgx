@@ -1543,7 +1543,7 @@
             }
             moveBeforeVNode(other, afterNode) {
                 if (other) {
-                    // check this with @ged-odoo for use in foreach
+                    // check this with @ged-weblgx for use in foreach
                     afterNode = other.firstNode() || afterNode;
                 }
                 this.child.moveBeforeVNode(other ? other.child : null, afterNode);
@@ -6334,7 +6334,7 @@
 
     __info__.date = '2026-01-30T07:49:47.618Z';
     __info__.hash = '52abf8d';
-    __info__.url = 'https://github.com/odoo/owl';
+    __info__.url = 'https://github.com/weblgx/owl';
 
 
 })(this.owl = this.owl || {});

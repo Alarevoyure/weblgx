@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
         <template id="create_shorten_url">
             <div class="o_website_links_create_tracked_url">
                 <div class="container">
@@ -83,4 +83,4 @@
             </t>
         </template>
 
-</odoo>
+</weblgx>

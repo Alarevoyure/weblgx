@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import io
 import logging
 from base64 import b64decode
 from unittest import skipIf
 
-import odoo
-import odoo.tests
+import weblgx
+import weblgx.tests
 
 try:
     from pdfminer.converter import PDFPageAggregator
@@ -22,8 +22,8 @@ except ImportError:
 _logger = logging.getLogger(__name__)
 
 
-@odoo.tests.tagged('post_install', '-at_install', 'post_install_l10n')
-class TestReports(odoo.tests.TransactionCase):
+@weblgx.tests.tagged('post_install', '-at_install', 'post_install_l10n')
+class TestReports(weblgx.tests.TransactionCase):
     def test_reports(self):
         invoice_domain = [('move_type', 'in', ('out_invoice', 'out_refund', 'out_receipt', 'in_invoice', 'in_refund', 'in_receipt'))]
         specific_model_domains = {
@@ -173,7 +173,7 @@ class Box:
 
 
 @skipIf(pdfminer is False, "pdfminer not installed")
-class TestReportsRenderingCommon(odoo.tests.HttpCase):
+class TestReportsRenderingCommon(weblgx.tests.HttpCase):
 
     def setUp(self):
         super().setUp()
@@ -266,7 +266,7 @@ class TestReportsRenderingCommon(odoo.tests.HttpCase):
 
     def save_pdf(self):
         assert self.last_pdf_content
-        odoo.tests.save_test_file(self._testMethodName, self.last_pdf_content, 'pdf_', 'pdf', document_type='Report PDF', logger=_logger)
+        weblgx.tests.save_test_file(self._testMethodName, self.last_pdf_content, 'pdf_', 'pdf', document_type='Report PDF', logger=_logger)
 
     def _get_pdf_pages(self, pdf_content):
         ioBytes = io.BytesIO(pdf_content)
@@ -325,7 +325,7 @@ class TestReportsRenderingCommon(odoo.tests.HttpCase):
             )
 
 
-@odoo.tests.tagged('post_install', '-at_install', 'pdf_rendering')
+@weblgx.tests.tagged('post_install', '-at_install', 'pdf_rendering')
 class TestReportsRendering(TestReportsRenderingCommon):
     """
         This test aims to test as much as possible the current pdf rendering,
@@ -566,7 +566,7 @@ class TestReportsRendering(TestReportsRenderingCommon):
         ])
 
 
-@odoo.tests.tagged('post_install', '-at_install', '-standard', 'pdf_rendering')
+@weblgx.tests.tagged('post_install', '-at_install', '-standard', 'pdf_rendering')
 class TestReportsRenderingLimitations(TestReportsRenderingCommon):
     def test_no_clip(self):
         """
@@ -596,8 +596,8 @@ class TestReportsRenderingLimitations(TestReportsRenderingCommon):
         self.assertGreaterEqual(content.top, header.end_top, "EXISTING LIMITATION: large header shouldn't overflow on body, but they do")
 
 
-@odoo.tests.tagged('post_install', '-at_install')
-class TestAggregatePdfReports(odoo.tests.HttpCase):
+@weblgx.tests.tagged('post_install', '-at_install')
+class TestAggregatePdfReports(weblgx.tests.HttpCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

@@ -2,7 +2,7 @@ import logging
 import sys
 import os
 
-import odoo
+import weblgx
 
 from .command import Command, main
 

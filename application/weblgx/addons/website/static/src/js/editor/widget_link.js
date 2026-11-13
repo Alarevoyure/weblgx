@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { LinkTools } from '@web_editor/js/wysiwyg/widgets/link_tools';
 import { patch } from "@web/core/utils/patch";
 
-import { onWillStart, status, useEffect } from '@odoo/owl';
+import { onWillStart, status, useEffect } from '@weblgx/owl';
 import wUtils from "@website/js/utils";
 import { debounce } from "@web/core/utils/timing";
 import { Wysiwyg } from "@web_editor/js/wysiwyg/wysiwyg";

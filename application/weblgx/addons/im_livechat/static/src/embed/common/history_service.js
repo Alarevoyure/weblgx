@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { browser } from "@web/core/browser/browser";
 import { cookie as cookieManager } from "@web/core/browser/cookie";

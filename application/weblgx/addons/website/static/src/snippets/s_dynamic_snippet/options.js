@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import options from "@web_editor/js/editor/snippets.options";
 
@@ -242,7 +242,7 @@ const dynamicSnippetOptions = options.Class.extend({
         // with the public widget that use following property (eg.
         // numberOfElements or numberOfElementsSmallDevices) might throw an
         // exception by not finding the attribute on the element.
-        this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg.weblgxEditor.observerUnactive();
         const filterKeys = this.$el.find("we-select[data-attribute-name='filterId'] we-selection-items we-button");
         if (filterKeys.length > 0) {
             this._setOptionValue('numberOfRecords', this.dynamicFilters[Object.keys(this.dynamicFilters)[0]].limit);
@@ -259,7 +259,7 @@ const dynamicSnippetOptions = options.Class.extend({
                 !this.dynamicFilterTemplates[this.$target.get(0).dataset['templateKey']]) {
             this._setDefaultTemplate();
         }
-        this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg.weblgxEditor.observerActive();
     },
     /**
      * Take the new filter selection into account

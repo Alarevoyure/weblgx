@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { evaluateExpr } from "@web/core/py_js/py";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 
-import { status, useComponent, useEnv, useSubEnv } from "@odoo/owl";
+import { status, useComponent, useEnv, useSubEnv } from "@weblgx/owl";
 
 export async function executeButtonCallback(el, fct) {
     let btns = [];

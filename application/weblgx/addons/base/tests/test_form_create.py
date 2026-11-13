@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import TransactionCase, tagged, Form
+from weblgx.tests import TransactionCase, tagged, Form
 
 
 @tagged('-at_install', 'post_install')
@@ -17,7 +17,7 @@ class TestFormCreate(TransactionCase):
             # Required for `property_account_payable_id`, `property_account_receivable_id` to be visible in the view
             # By default, it's the `group` `group_account_readonly` which is required to see it, in the `account` module
             # But once `account_accountant` gets installed, it becomes `account.group_account_user`
-            # https://github.com/odoo/enterprise/commit/68f6c1f9fd3ff6762c98e1a405ade035129efce0
+            # https://github.com/weblgx/enterprise/commit/68f6c1f9fd3ff6762c98e1a405ade035129efce0
             self.env.user.groups_id += self.env.ref('account.group_account_readonly')
             self.env.user.groups_id += self.env.ref('account.group_account_user')
         partner_form = Form(self.env['res.partner'])

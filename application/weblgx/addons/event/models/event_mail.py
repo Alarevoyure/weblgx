@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 import random
@@ -9,10 +9,10 @@ from collections import namedtuple
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, tools
-from odoo.tools import exception_to_unicode
-from odoo.tools.translate import _
-from odoo.exceptions import MissingError, ValidationError
+from weblgx import api, fields, models, tools
+from weblgx.tools import exception_to_unicode
+from weblgx.tools.translate import _
+from weblgx.exceptions import MissingError, ValidationError
 
 
 _logger = logging.getLogger(__name__)

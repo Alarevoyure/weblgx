@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ActivityListPopover } from "@mail/core/web/activity_list_popover";
 
-import { Component, useEnv, useRef } from "@odoo/owl";
+import { Component, useEnv, useRef } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { usePopover } from "@web/core/popover/popover_hook";

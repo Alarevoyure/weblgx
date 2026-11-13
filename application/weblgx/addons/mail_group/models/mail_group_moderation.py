@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api, _
-from odoo.exceptions import UserError
-from odoo.tools import email_normalize
+from weblgx import fields, models, api, _
+from weblgx.exceptions import UserError
+from weblgx.tools import email_normalize
 
 
 class MailGroupModeration(models.Model):

@@ -49,7 +49,7 @@ const WikiLatestArticlesSnippet = publicWidget.Widget.extend({
                 default_image: this._getDefaultImage(),
             });
             const items = (res && res.items) || [];
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             if (!items.length) {
                 listEl.innerHTML =
                     '<p class="text-muted mb-0 s_wiki_latest_articles_empty">' +
@@ -61,14 +61,14 @@ const WikiLatestArticlesSnippet = publicWidget.Widget.extend({
                     listEl.appendChild(this._buildItemEl(item));
                 });
             }
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         } catch {
-            this.options.wysiwyg?.odooEditor?.observerUnactive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerUnactive?.();
             listEl.innerHTML =
                 '<p class="text-muted mb-0 s_wiki_latest_articles_empty">' +
                 "Articles indisponibles." +
                 "</p>";
-            this.options.wysiwyg?.odooEditor?.observerActive?.();
+            this.options.wysiwyg?.weblgxEditor?.observerActive?.();
         }
     },
 

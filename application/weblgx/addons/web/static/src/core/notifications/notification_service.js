@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "../browser/browser";
 import { registry } from "../registry";
 import { NotificationContainer } from "./notification_container";
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 const AUTOCLOSE_DELAY = 4000;
 

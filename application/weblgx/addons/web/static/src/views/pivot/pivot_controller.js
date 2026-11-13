@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Layout } from "@web/search/layout";
 import { useModelWithSampleData } from "@web/model/model";
@@ -8,7 +8,7 @@ import { SearchBar } from "@web/search/search_bar/search_bar";
 import { useSearchBarToggler } from "@web/search/search_bar/search_bar_toggler";
 import { CogMenu } from "@web/search/cog_menu/cog_menu";
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@weblgx/owl";
 
 export class PivotController extends Component {
     setup() {

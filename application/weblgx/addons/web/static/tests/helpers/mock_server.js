@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { assets } from "@web/core/assets";
 import { browser } from "@web/core/browser/browser";
@@ -112,7 +112,7 @@ export function makeServerError({ code, context, description, message, subType, 
         code: code || 200,
         message: message || "Web@LGX Server Error",
         data: {
-            name: `odoo.exceptions.${type || "UserError"}`,
+            name: `weblgx.exceptions.${type || "UserError"}`,
             debug: "traceback",
             arguments: args || [],
             context: context || {},

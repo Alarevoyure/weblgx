@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import re
 
-import odoo.tests
+import weblgx.tests
 
-from odoo.tools import config, mute_logger
+from weblgx.tools import config, mute_logger
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestWebsiteAssets(odoo.tests.HttpCase):
+@weblgx.tests.common.tagged('post_install', '-at_install')
+class TestWebsiteAssets(weblgx.tests.HttpCase):
 
     def test_01_multi_domain_assets_generation(self):
         Website = self.env['website']
@@ -138,12 +138,12 @@ class TestWebsiteAssets(odoo.tests.HttpCase):
         self.assertTrue(website_attach.exists(), 'attachment for website should still exist after generating attachment for no website')
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestWebAssets(odoo.tests.HttpCase):
+@weblgx.tests.tagged('-at_install', 'post_install')
+class TestWebAssets(weblgx.tests.HttpCase):
     def test_assets_url_validation(self):
         website_id = self.env['website'].search([], limit=1, order='id desc').id
 
-        with odoo.tools.mute_logger('odoo.addons.web.controllers.binary'):
+        with weblgx.tools.mute_logger('weblgx.addons.web.controllers.binary'):
             self.assertEqual(
                 self.url_open(f'/web/assets/{website_id}/debug/hello/web.assets_frontend.css', allow_redirects=False).status_code,
                 404,
@@ -271,5 +271,5 @@ class TestWebAssets(odoo.tests.HttpCase):
             'bundle': 'web.assets_frontend',
             'path': 'website/static/src/css/test_error.scss',
         })
-        with mute_logger('odoo.addons.base.models.assetsbundle'):
+        with mute_logger('weblgx.addons.base.models.assetsbundle'):
             self.start_tour('/', 'css_error_tour_frontend', login='admin')

@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from markupsafe import Markup
 from werkzeug.exceptions import NotFound
 
-from odoo import http
-from odoo.http import request
-from odoo.addons.mail.models.discuss.mail_guest import add_guest_to_context
+from weblgx import http
+from weblgx.http import request
+from weblgx.addons.mail.models.discuss.mail_guest import add_guest_to_context
 
 
 class ThreadController(http.Controller):

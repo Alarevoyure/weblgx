@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 
@@ -46,7 +46,7 @@ registry.category("web_tour.tours").add('forum_question', {
         trigger: 'form button:contains("Edit")',
     }, {
         content: "Check that the content is the same",
-        trigger: 'div.odoo-editor-editable p:contains("First Question <p>code here</p>")',
+        trigger: 'div.weblgx-editor-editable p:contains("First Question <p>code here</p>")',
         run: function () {}, //it's a check
     }, {
         content: "Save changes",

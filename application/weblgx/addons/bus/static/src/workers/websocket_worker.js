@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { debounce, Deferred } from "@bus/workers/websocket_worker_utils";
 

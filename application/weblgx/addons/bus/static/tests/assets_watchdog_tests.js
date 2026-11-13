@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { getPyEnv, startServer } from "@bus/../tests/helpers/mock_python_environment";
 import { addBusServicesToRegistry } from "@bus/../tests/helpers/test_utils";

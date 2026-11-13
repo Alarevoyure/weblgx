@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import logging
 
 from lxml import html
 from werkzeug.urls import url_encode
 
-from odoo.tests import HttpCase, tagged
-from odoo.addons.website.tools import MockRequest
-from odoo.tests.common import HOST
-from odoo.tools import config
+from weblgx.tests import HttpCase, tagged
+from weblgx.addons.website.tools import MockRequest
+from weblgx.tests.common import HOST
+from weblgx.tools import config
 
 _logger = logging.getLogger(__name__)
 
@@ -57,11 +57,11 @@ class TestSnippets(HttpCase):
         self.env.ref('website.default_website').write({
             'social_facebook': "https://www.facebook.com/Weblgx",
             'social_twitter': 'https://twitter.com/Weblgx',
-            'social_linkedin': 'https://www.linkedin.com/company/odoo',
+            'social_linkedin': 'https://www.linkedin.com/company/weblgx',
             'social_youtube': 'https://www.youtube.com/user/OpenERPonline',
-            'social_github': 'https://github.com/odoo',
-            'social_instagram': 'https://www.instagram.com/explore/tags/odoo/',
-            'social_tiktok': 'https://www.tiktok.com/@odoo',
+            'social_github': 'https://github.com/weblgx',
+            'social_instagram': 'https://www.instagram.com/explore/tags/weblgx/',
+            'social_tiktok': 'https://www.tiktok.com/@weblgx',
         })
         IrAttachment = self.env['ir.attachment']
         base = "http://%s:%s" % (HOST, config['http_port'])
@@ -74,7 +74,7 @@ class TestSnippets(HttpCase):
         self.start_tour(self.env['website'].get_client_action_url('/'), 'snippet_social_media', login="admin")
         self.assertEqual(
             self.env['website'].browse(1).social_instagram,
-            'https://instagram.com/odoo.official/',
+            'https://instagram.com/weblgx.official/',
             'Social media should have been updated'
         )
 

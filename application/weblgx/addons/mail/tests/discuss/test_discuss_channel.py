@@ -1,17 +1,17 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 from datetime import datetime
 from unittest.mock import patch
 
-from odoo import Command, fields
-from odoo.addons.mail.models.discuss.discuss_channel import channel_avatar, group_avatar
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.exceptions import ValidationError
-from odoo.tests.common import tagged, users
-from odoo.tools import html_escape, mute_logger
-from odoo.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
+from weblgx import Command, fields
+from weblgx.addons.mail.models.discuss.discuss_channel import channel_avatar, group_avatar
+from weblgx.addons.mail.tests.common import mail_new_test_user
+from weblgx.addons.mail.tests.common import MailCommon
+from weblgx.exceptions import ValidationError
+from weblgx.tests.common import tagged, users
+from weblgx.tools import html_escape, mute_logger
+from weblgx.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 
 
 @tagged("post_install", "-at_install")
@@ -65,7 +65,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(channel.channel_partner_ids, self.env['res.partner'])
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('weblgx.addons.mail.models.mail_mail', 'weblgx.models.unlink')
     def test_channel_chat_message_post_should_update_last_interest_dt(self):
         chat = self.env['discuss.channel'].with_user(self.user_admin).channel_get((self.partner_employee | self.user_admin.partner_id).ids)
         post_time = fields.Datetime.now()
@@ -85,7 +85,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(channel_member_admin.last_interest_dt, post_time)
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('weblgx.addons.mail.models.mail_mail', 'weblgx.models.unlink')
     def test_channel_recipients_channel(self):
         """ Posting a message on a channel should not send emails """
         channel = self.env['discuss.channel'].browse(self.test_channel.ids)
@@ -100,7 +100,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(new_msg.notified_partner_ids, self.env['res.partner'])
 
     @users('employee')
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('weblgx.addons.mail.models.mail_mail', 'weblgx.models.unlink')
     def test_channel_recipients_chat(self):
         """ Posting a message on a chat should not send emails """
         chat = self.env['discuss.channel'].with_user(self.user_admin).channel_get((self.partner_employee | self.user_admin.partner_id).ids)
@@ -113,7 +113,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(new_msg.partner_ids, self.env['res.partner'])
         self.assertEqual(new_msg.notified_partner_ids, self.env['res.partner'])
 
-    @mute_logger('odoo.addons.mail.models.mail_mail', 'odoo.models.unlink')
+    @mute_logger('weblgx.addons.mail.models.mail_mail', 'weblgx.models.unlink')
     def test_channel_recipients_mention(self):
         """ Posting a message on a classic channel should support mentioning somebody """
         with self.mock_mail_gateway():
@@ -122,7 +122,7 @@ class TestChannelInternals(MailCommon):
                 message_type='comment', subtype_xmlid='mail.mt_comment')
         self.assertSentEmail(self.test_channel.env.user.partner_id, [self.test_partner])
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_channel_user_synchronize(self):
         """Archiving / deleting a user should automatically unsubscribe related partner from group restricted channels"""
         group_restricted_channel = self.env['discuss.channel'].channel_create(name='Sic Mundus', group_id=self.env.ref('base.group_user').id)
@@ -289,7 +289,7 @@ class TestChannelInternals(MailCommon):
         channel.message_post(attachments=[('audio', b'OggS\x00\x02', {'voice': True})])
         self.assertTrue(channel.message_ids.attachment_ids.voice_ids, "message's attachment should have voice metadata")
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_channel_unsubscribe_auto(self):
         """ Archiving / deleting a user should automatically unsubscribe related
         partner from private channels """
@@ -326,7 +326,7 @@ class TestChannelInternals(MailCommon):
         self.assertEqual(private_group.channel_partner_ids, self.user_employee.partner_id | test_partner)
 
     @users('employee')
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_channel_private_unfollow(self):
         """ Test that a partner can leave (unfollow) a channel/group/chat. """
         group_restricted_channel = self.env['discuss.channel'].channel_create(name='Channel for Groups', group_id=self.env.ref('base.group_user').id)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_comparisons" name="Comparisons">
     <section class="s_comparisons pt32 pb32">
@@ -84,4 +84,4 @@
     <path>website/static/src/snippets/s_comparisons/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

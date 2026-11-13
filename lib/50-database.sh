@@ -24,7 +24,7 @@ website_state="$(sudo -u postgres psql -d "${WEBLGX_DB_NAME}" -tAc "SELECT state
 website_state="${website_state//[[:space:]]/}"
 if [[ "${db_exists}" == "1" && "${website_state}" == "installed" ]]; then
   # Un module déjà installé ne doit pas être passé à -i.
-  # Odoo le charge alors en mode init et réécrit les données noupdate,
+  # Web@LGX le charge alors en mode init et réécrit les données noupdate,
   # dont le mot de passe du compte admin.
   declare -A installed_set=()
   in_list=""

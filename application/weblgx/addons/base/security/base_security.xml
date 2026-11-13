@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo>
+<weblgx>
     <data noupdate="1">
         <!-- TODO Remove me? Ony group system -->
         <record model="ir.rule" id="res_users_log_rule">
@@ -204,4 +204,4 @@
             <field name="groups" eval="[Command.link(ref('base.group_system'))]"/>
         </record>
     </data>
-</odoo>
+</weblgx>

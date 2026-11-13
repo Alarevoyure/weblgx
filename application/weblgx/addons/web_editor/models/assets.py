@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import re
 
-from odoo import api, models
-from odoo.tools import misc
-from odoo.addons.base.models.assetsbundle import EXTENSIONS
+from weblgx import api, models
+from weblgx.tools import misc
+from weblgx.addons.base.models.assetsbundle import EXTENSIONS
 
 _match_asset_file_url_regex = re.compile(r"^(/_custom/([^/]+))?/(\w+)/([/\w]+\.\w+)$")
 

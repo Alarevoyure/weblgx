@@ -1,9 +1,9 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { threadActionsRegistry } from "@mail/core/common/thread_actions";
 import { CallSettings } from "@mail/discuss/call/common/call_settings";
 
-import { useComponent, useState } from "@odoo/owl";
+import { useComponent, useState } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { useService } from "@web/core/utils/hooks";

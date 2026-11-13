@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import collections
 import secrets
@@ -10,10 +10,10 @@ from datetime import timedelta
 from unittest.mock import call, patch
 from freezegun import freeze_time
 
-import odoo
-from odoo import api, fields
-from odoo.tests.common import BaseCase, TransactionCase, RecordCapturer, get_db_name, tagged
-from odoo.tools import mute_logger
+import weblgx
+from weblgx import api, fields
+from weblgx.tests.common import BaseCase, TransactionCase, RecordCapturer, get_db_name, tagged
+from weblgx.tools import mute_logger
 
 
 class CronMixinCase:
@@ -264,7 +264,7 @@ class TestIrCron(TransactionCase, CronMixinCase):
     def test_cron_null_interval(self):
         self.cron.interval_number = 0
         self.cron.flush_recordset()
-        with self.assertLogs('odoo.addons.base.models.ir_cron', 'ERROR'):
+        with self.assertLogs('weblgx.addons.base.models.ir_cron', 'ERROR'):
             self.cron._process_job(get_db_name(), self.env.cr, self.cron.read(load=False)[0])
         self.cron.invalidate_recordset(['active'])
         self.assertFalse(self.cron.active)
@@ -278,7 +278,7 @@ class TestIrCronConcurrent(BaseCase, CronMixinCase):
         super().setUpClass()
 
         # Keep a reference on the real cron methods, those without patch
-        cls.registry = odoo.registry(get_db_name())
+        cls.registry = weblgx.registry(get_db_name())
         cls.cron_process_job = cls.registry['ir.cron']._process_job
         cls.cron_process_jobs = cls.registry['ir.cron']._process_jobs
         cls.cron_get_all_ready_jobs = cls.registry['ir.cron']._get_all_ready_jobs
@@ -289,7 +289,7 @@ class TestIrCronConcurrent(BaseCase, CronMixinCase):
         super().setUp()
 
         with self.registry.cursor() as cr:
-            env = api.Environment(cr, odoo.SUPERUSER_ID, {})
+            env = api.Environment(cr, weblgx.SUPERUSER_ID, {})
             env['ir.cron'].search([]).unlink()
             env['ir.cron.trigger'].search([]).unlink()
 
@@ -347,7 +347,7 @@ class TestIrCronConcurrent(BaseCase, CronMixinCase):
         def acquire_one_job(*args, **kwargs):
             lock.acquire(timeout=1)
             try:
-                with mute_logger('odoo.sql_db'):
+                with mute_logger('weblgx.sql_db'):
                     job = self.cron_acquire_one_job(*args, **kwargs)
             except Exception:
                 lock.release()
@@ -368,7 +368,7 @@ class TestIrCronConcurrent(BaseCase, CronMixinCase):
 
         # Set 2 jobs ready, process them in 2 different threads.
         with self.registry.cursor() as cr:
-            env = api.Environment(cr, odoo.SUPERUSER_ID, {})
+            env = api.Environment(cr, weblgx.SUPERUSER_ID, {})
             env['ir.cron'].browse(self.cron_ids).write({
                 'nextcall': fields.Datetime.now() - timedelta(hours=1)
             })

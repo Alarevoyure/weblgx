@@ -1,13 +1,13 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { patch } from "@web/core/utils/patch";
 import { endDiscussion, okRating, feedback, transcript, close } from "./website_livechat_common";
 import { registry } from "@web/core/registry";
 
-odoo.loader.bus.addEventListener("module-started", (e) => {
+weblgx.loader.bus.addEventListener("module-started", (e) => {
     if (e.detail.moduleName === "@im_livechat/embed/common/livechat_service") {
-        const { LivechatService, ODOO_VERSION_KEY } = e.detail.module;
-        // Livechat sessions are deleted if they come from a different odoo version than
+        const { LivechatService, WEBLGX_VERSION_KEY } = e.detail.module;
+        // Livechat sessions are deleted if they come from a different weblgx version than
         // the current one. Since each test is run with a different browser the version
         // is never set. This patch sets the version to the current one.
         patch(LivechatService.prototype, {
@@ -21,7 +21,7 @@ odoo.loader.bus.addEventListener("module-started", (e) => {
                         body: JSON.stringify({}),
                     });
                     const { server_version: serverVersion } = (await response.json()).result;
-                    localStorage.setItem(ODOO_VERSION_KEY, serverVersion);
+                    localStorage.setItem(WEBLGX_VERSION_KEY, serverVersion);
                 } catch {
                     // Could be intentional (tour ended successfully while version still loading)
                 }

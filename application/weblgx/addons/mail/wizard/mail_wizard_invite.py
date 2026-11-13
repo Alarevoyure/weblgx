@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from lxml import etree
 from lxml.html import builder as html
 
-from odoo import _, api, fields, models
-from odoo.exceptions import UserError
-from odoo.tools import is_html_empty
+from weblgx import _, api, fields, models
+from weblgx.exceptions import UserError
+from weblgx.tools import is_html_empty
 
 
 class Invite(models.TransientModel):

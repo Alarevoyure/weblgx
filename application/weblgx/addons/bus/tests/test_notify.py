@@ -1,13 +1,13 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 import selectors
 import threading
 
-import odoo
-from odoo.tests import TransactionCase
+import weblgx
+from weblgx.tests import TransactionCase
 
-from ..models.bus import json_dump, get_notify_payloads, NOTIFY_PAYLOAD_MAX_LENGTH, ODOO_NOTIFY_FUNCTION
+from ..models.bus import json_dump, get_notify_payloads, NOTIFY_PAYLOAD_MAX_LENGTH, WEBLGX_NOTIFY_FUNCTION
 
 
 class NotifyTests(TransactionCase):
@@ -55,7 +55,7 @@ class NotifyTests(TransactionCase):
 
     def test_postcommit(self):
         """Asserts all ``postcommit`` channels are fetched with a single listen."""
-        if ODOO_NOTIFY_FUNCTION != 'pg_notify':
+        if WEBLGX_NOTIFY_FUNCTION != 'pg_notify':
             return
         channels = []
         stop_event = threading.Event()
@@ -64,7 +64,7 @@ class NotifyTests(TransactionCase):
         def single_listen():
             nonlocal channels
             with (
-                odoo.sql_db.db_connect("postgres").cursor() as cr,
+                weblgx.sql_db.db_connect("postgres").cursor() as cr,
                 selectors.DefaultSelector() as sel,
             ):
                 cr.execute("listen imbus")

@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useAutofocus, useService } from "@web/core/utils/hooks";
 import { Dialog } from "@web/core/dialog/dialog";
 import { _t } from "@web/core/l10n/translation";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class CalendarQuickCreate extends Component {
     setup() {

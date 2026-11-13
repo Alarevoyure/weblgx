@@ -1,14 +1,14 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from psycopg2 import IntegrityError
 from psycopg2.errorcodes import UNIQUE_VIOLATION
 from werkzeug.exceptions import NotFound
 
-from odoo import _, http
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools import consteq, replace_exceptions
-from odoo.addons.mail.models.discuss.mail_guest import add_guest_to_context
+from weblgx import _, http
+from weblgx.exceptions import UserError
+from weblgx.http import request
+from weblgx.tools import consteq, replace_exceptions
+from weblgx.addons.mail.models.discuss.mail_guest import add_guest_to_context
 
 
 class PublicPageController(http.Controller):

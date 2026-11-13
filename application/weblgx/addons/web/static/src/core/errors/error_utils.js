@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { loadJS } from "../assets"; // use the real, non patched (in tests), loadJS
 

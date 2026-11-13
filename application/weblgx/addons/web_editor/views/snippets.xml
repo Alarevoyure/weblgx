@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 <template id="snippets" groups="base.group_user">
     <div class="o_we_website_top_actions">
         <div class="o_we_external_history_buttons d-flex">
@@ -794,4 +794,4 @@
     </div>
 </template>
 
-</odoo>
+</weblgx>

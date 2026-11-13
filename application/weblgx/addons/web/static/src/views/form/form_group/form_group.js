@@ -1,5 +1,5 @@
-/** @odoo-module */
-import { Component } from "@odoo/owl";
+/** @weblgx-module */
+import { Component } from "@weblgx/owl";
 import { sortBy } from "@web/core/utils/arrays";
 
 class Group extends Component {

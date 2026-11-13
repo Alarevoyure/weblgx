@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { isMacOS } from "../browser/feature_detection";
 import { registry } from "../registry";
@@ -104,7 +104,7 @@ export function getActiveHotkey(ev) {
 
 export const hotkeyService = {
     dependencies: ["ui"],
-    // Be aware that all odoo hotkeys are designed with this modifier in mind,
+    // Be aware that all weblgx hotkeys are designed with this modifier in mind,
     // so changing the overlay modifier may conflict with some shortcuts.
     overlayModifier: "alt",
     start(env, { ui }) {

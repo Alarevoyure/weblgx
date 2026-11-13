@@ -1,11 +1,11 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { SESSION_STATE } from "@im_livechat/embed/common/livechat_service";
 import { FeedbackPanel } from "@im_livechat/embed/common/feedback_panel/feedback_panel";
 
 import { ChatWindow } from "@mail/core/common/chat_window";
 
-import { useState } from "@odoo/owl";
+import { useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 import { patch } from "@web/core/utils/patch";

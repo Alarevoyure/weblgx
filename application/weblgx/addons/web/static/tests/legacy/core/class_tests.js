@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import Class from "@web/legacy/js/core/class";
 

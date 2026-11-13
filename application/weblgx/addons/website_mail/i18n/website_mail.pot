@@ -1,10 +1,10 @@
-# Translation of Odoo Server.
+# Translation of Web@LGX Server.
 # This file contains the translation of the following modules:
 # 	* website_mail
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Web@LGX Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2025-12-29 18:38+0000\n"
@@ -26,7 +26,7 @@ msgid "<small>Unfollow</small><i class=\"fa fa-fw ms-1\"/>"
 msgstr ""
 
 #. module: website_mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_mail/static/src/js/follow.js:0
 #, python-format
 msgid "Error"
@@ -43,7 +43,7 @@ msgid "Subscribe"
 msgstr ""
 
 #. module: website_mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_mail/controllers/main.py:0
 #, python-format
 msgid "Suspicious activity detected by Google reCaptcha."

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from psycopg2.errors import CheckViolation
 
-from odoo.tests.common import BaseCase, TransactionCase
-from odoo.tools import SQL, mute_logger, sql
+from weblgx.tests.common import BaseCase, TransactionCase
+from weblgx.tools import SQL, mute_logger, sql
 
 
 class TestSQL(BaseCase):
@@ -168,7 +168,7 @@ class TestSqlTools(TransactionCase):
         sql.add_constraint(self.env.cr, 'res_bank', 'test_constraint_dummy', definition)
 
         # ensure the constraint with % works and it's in the DB
-        with self.assertRaises(CheckViolation), mute_logger('odoo.sql_db'):
+        with self.assertRaises(CheckViolation), mute_logger('weblgx.sql_db'):
             self.env['res.bank'].create({'name': '10% bank'})
 
         # ensure the definitions match

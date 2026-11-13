@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, useRef, onPatched } from "@odoo/owl";
+import { Component, useRef, onPatched } from "@weblgx/owl";
 import { browser } from "@web/core/browser/browser";
 import { isIOS } from "@web/core/browser/feature_detection";
 import { clamp } from "@web/core/utils/numbers";

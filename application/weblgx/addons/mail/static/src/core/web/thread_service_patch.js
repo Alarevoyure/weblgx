@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ThreadService, threadService } from "@mail/core/common/thread_service";
 import { parseEmail } from "@mail/js/utils";
@@ -13,7 +13,7 @@ let nextId = 1;
 
 patch(ThreadService.prototype, {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     setup(env, services) {

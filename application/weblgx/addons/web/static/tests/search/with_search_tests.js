@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { getFixture, nextTick } from "@web/../tests/helpers/utils";
@@ -13,7 +13,7 @@ import {
     toggleMenuItem,
 } from "./helpers";
 
-import { Component, onWillUpdateProps, onWillStart, useState, xml, useSubEnv } from "@odoo/owl";
+import { Component, onWillUpdateProps, onWillStart, useState, xml, useSubEnv } from "@weblgx/owl";
 
 let target;
 let serverData;

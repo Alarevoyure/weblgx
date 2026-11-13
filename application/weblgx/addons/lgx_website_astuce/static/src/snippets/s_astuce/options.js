@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import options from "@web_editor/js/editor/snippets.options";
 import { jsonrpc } from "@web/core/network/rpc_service";

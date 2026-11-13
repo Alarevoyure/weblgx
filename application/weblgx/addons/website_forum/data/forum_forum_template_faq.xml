@@ -1,4 +1,4 @@
-<odoo>
+<weblgx>
     <data>
         <record id="default_faq" model="ir.ui.view">
             <field name="name">Faq Accordion</field>
@@ -97,4 +97,4 @@
             </field>
         </record>
     </data>
-</odoo>
+</weblgx>

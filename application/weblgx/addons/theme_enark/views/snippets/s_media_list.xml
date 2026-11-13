@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_media_list" inherit_id="website.s_media_list">
     <!-- Section -->
@@ -50,4 +50,4 @@
     </xpath>
 </template>
 
-</odoo>
+</weblgx>

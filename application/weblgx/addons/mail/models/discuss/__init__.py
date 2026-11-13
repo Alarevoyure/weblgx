@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 # mail
 from . import mail_message
@@ -11,7 +11,7 @@ from . import discuss_gif_favorite
 from . import discuss_voice_metadata
 from . import mail_guest
 
-# odoo models
+# weblgx models
 from . import ir_attachment
 from . import ir_websocket
 from . import res_groups

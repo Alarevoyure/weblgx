@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
 
         <!--
@@ -21,8 +21,8 @@
                     <t t-out="channel.script_external"/>
 
                     <script>
-                        window.odoo ??= {};
-                        window.odoo.csrf_token = "<t t-out="request.csrf_token(None)"/>";
+                        window.weblgx ??= {};
+                        window.weblgx.csrf_token = "<t t-out="request.csrf_token(None)"/>";
                     </script>
                     <style type="text/css">
                         body {
@@ -96,13 +96,13 @@
         <template id="loader" name="Livechat : Javascript appending the livechat button">
             <t t-translation="off">
                 if (!window.weblgx) {
-                    window.weblgx = window.odoo || {};
+                    window.weblgx = window.weblgx || {};
                 }
-                if (!window.odoo) {
-                    window.odoo = window.weblgx;
-                } else if (window.odoo !== window.weblgx) {
-                    Object.assign(window.weblgx, window.odoo);
-                    window.odoo = window.weblgx;
+                if (!window.weblgx) {
+                    window.weblgx = window.weblgx;
+                } else if (window.weblgx !== window.weblgx) {
+                    Object.assign(window.weblgx, window.weblgx);
+                    window.weblgx = window.weblgx;
                 }
                 window.weblgx_session_info = Object.assign(
                     window.weblgx_session_info || window.weblgx.__session_info__ || {},
@@ -115,10 +115,10 @@
                     }
                 );
                 weblgx.__session_info__ = window.weblgx_session_info;
-                odoo.__session_info__ = window.weblgx_session_info;
+                weblgx.__session_info__ = window.weblgx_session_info;
             </t>
         </template>
 
 
     </data>
-</odoo>
+</weblgx>

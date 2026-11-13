@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <!-- ======== Change default snippets images ======== -->
 <!-- Cover -->
@@ -231,4 +231,4 @@
     <field name="url">/theme_cobalt/static/src/img/pictures/s_gallery_3.jpg</field>
 </record>
 
-</odoo>
+</weblgx>

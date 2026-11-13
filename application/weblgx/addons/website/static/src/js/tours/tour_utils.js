@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { cookie } from "@web/core/browser/cookie";
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 
 function addMedia(position = "right") {
     return {

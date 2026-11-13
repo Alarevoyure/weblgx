@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { useService } from '@web/core/utils/hooks';
@@ -10,7 +10,7 @@ import {
     onWillStart,
     onMounted,
     onWillUnmount,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 export class WebsiteEditorComponent extends Component {
     /**
@@ -37,7 +37,7 @@ export class WebsiteEditorComponent extends Component {
 
         onWillStart(async () => {
             await this.websiteService.loadWysiwyg();
-            const adapterModule = await odoo.loader.modules.get('@website/components/wysiwyg_adapter/wysiwyg_adapter');
+            const adapterModule = await weblgx.loader.modules.get('@website/components/wysiwyg_adapter/wysiwyg_adapter');
             this.WysiwygAdapterComponent = adapterModule.WysiwygAdapterComponent;
         });
 

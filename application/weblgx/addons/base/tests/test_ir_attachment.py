@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import base64
 import hashlib
 import io
@@ -8,10 +8,10 @@ from unittest.mock import patch
 
 from PIL import Image
 
-import odoo
-from odoo.exceptions import AccessError
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.tools import image_to_base64, mute_logger
+import weblgx
+from weblgx.exceptions import AccessError
+from weblgx.addons.base.tests.common import TransactionCaseWithUserDemo
+from weblgx.tools import image_to_base64, mute_logger
 
 HASH_SPLIT = 2      # FIXME: testing implementations detail is not a good idea
 
@@ -127,7 +127,7 @@ class TestIrAttachment(TransactionCaseWithUserDemo):
         Attachment = self.env['ir.attachment']
         img_bin = io.BytesIO()
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        with Image.open(os.path.join(dir_path, 'odoo.jpg'), 'r') as logo:
+        with Image.open(os.path.join(dir_path, 'weblgx.jpg'), 'r') as logo:
             img = Image.new('RGB', (4000, 2000), '#4169E1')
             img.paste(logo)
             img.save(img_bin, 'JPEG')
@@ -251,7 +251,7 @@ class TestIrAttachment(TransactionCaseWithUserDemo):
         self.addCleanup(self.registry.leave_test_mode)
         self.cr = self.registry.cursor()
         self.addCleanup(self.cr.close)
-        self.env = odoo.api.Environment(self.cr, odoo.SUPERUSER_ID, {})
+        self.env = weblgx.api.Environment(self.cr, weblgx.SUPERUSER_ID, {})
 
         # the data needs to be unique so that no other attachment link
         # the file so that the gc removes it
@@ -337,17 +337,17 @@ class TestPermissions(TransactionCaseWithUserDemo):
         # Check the user can access his own attachment
         attachment_user.datas
         # Create an attachment as superuser without res_model/res_id
-        attachment_admin = self.Attachments.with_user(odoo.SUPERUSER_ID).create({'name': 'foo'})
+        attachment_admin = self.Attachments.with_user(weblgx.SUPERUSER_ID).create({'name': 'foo'})
         # Check the record cannot be accessed by a regular user
         with self.assertRaises(AccessError):
             attachment_admin.with_user(self.env.user).datas
         # Check the record can be accessed by an admin (other than superuser)
         admin_user = self.env.ref('base.user_admin')
         # Safety assert that base.user_admin is not the superuser, otherwise the test is useless
-        self.assertNotEqual(odoo.SUPERUSER_ID, admin_user.id)
+        self.assertNotEqual(weblgx.SUPERUSER_ID, admin_user.id)
         attachment_admin.with_user(admin_user).datas
 
-    @mute_logger("odoo.addons.base.models.ir_rule", "odoo.models")
+    @mute_logger("weblgx.addons.base.models.ir_rule", "weblgx.models")
     def test_field_read_permission(self):
         """If the record field can't be read,
         e.g. `groups="base.group_system"` on the field,

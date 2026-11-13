@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Command } from "@mail/../tests/helpers/command";
 

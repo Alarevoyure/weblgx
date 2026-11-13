@@ -112,7 +112,6 @@ if [[ -L /usr/lib/python3/dist-packages/odoo || -e /usr/lib/python3/dist-package
   rm -rf /usr/lib/python3/dist-packages/odoo
 fi
 cp -a "${app}" /usr/lib/python3/dist-packages/weblgx
-ln -s weblgx /usr/lib/python3/dist-packages/odoo
 install -m 755 "${ROOT}/application/bin/weblgx" /usr/bin/weblgx
 
 # shellcheck disable=SC1091

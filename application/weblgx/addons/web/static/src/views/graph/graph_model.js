@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { sortBy, groupBy } from "@web/core/utils/arrays";
@@ -629,7 +629,7 @@ export class GraphModel extends Model {
             if (!fieldName.includes(".")) {
                 const { sortable, type, store } = fields[fieldName];
                 if (
-                    // many2many is groupable precisely when it is stored (cf. groupable in odoo/fields.py)
+                    // many2many is groupable precisely when it is stored (cf. groupable in weblgx/fields.py)
                     (type === "many2many" ? !store : !sortable) ||
                     ["id", "__count"].includes(fieldName) ||
                     !GROUPABLE_TYPES.includes(type)

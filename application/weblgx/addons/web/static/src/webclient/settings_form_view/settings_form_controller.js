@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { useAutofocus } from "@web/core/utils/hooks";
@@ -7,7 +7,7 @@ import { formView } from "@web/views/form/form_view";
 import { SettingsConfirmationDialog } from "./settings_confirmation_dialog";
 import { SettingsFormRenderer } from "./settings_form_renderer";
 
-import { useSubEnv, useState, useRef, useEffect } from "@odoo/owl";
+import { useSubEnv, useState, useRef, useEffect } from "@weblgx/owl";
 
 export class SettingsFormController extends formView.Controller {
     setup() {

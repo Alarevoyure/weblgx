@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 """
 safe_eval module - methods intended to provide more restricted alternatives to
@@ -27,7 +27,7 @@ from psycopg2 import OperationalError
 
 from .misc import ustr
 
-import odoo
+import weblgx
 
 unsafe_eval = eval
 
@@ -397,9 +397,9 @@ def safe_eval(expr, globals_dict=None, locals_dict=None, mode="eval", nocopy=Fal
     c = test_expr(expr, _SAFE_OPCODES, mode=mode, filename=filename)
     try:
         return unsafe_eval(c, globals_dict, locals_dict)
-    except odoo.exceptions.UserError:
+    except weblgx.exceptions.UserError:
         raise
-    except odoo.exceptions.RedirectWarning:
+    except weblgx.exceptions.RedirectWarning:
         raise
     except werkzeug.exceptions.HTTPException:
         raise
@@ -440,10 +440,10 @@ def check_values(d):
 Prefer providing only the items necessary for your intended use.
 
 If a "module" is necessary for backwards compatibility, use
-`odoo.tools.safe_eval.wrap_module` to generate a wrapper recursively
+`weblgx.tools.safe_eval.wrap_module` to generate a wrapper recursively
 whitelisting allowed attributes.
 
-Pre-wrapped modules are provided as attributes of `odoo.tools.safe_eval`.
+Pre-wrapped modules are provided as attributes of `weblgx.tools.safe_eval`.
 """)
     return d
 

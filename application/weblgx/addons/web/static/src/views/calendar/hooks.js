@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { loadCSS, loadJS } from "@web/core/assets";
 import { browser } from "@web/core/browser/browser";
@@ -14,7 +14,7 @@ import {
     useComponent,
     useExternalListener,
     useRef,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 export function useCalendarPopover(component) {
     const owner = useComponent();

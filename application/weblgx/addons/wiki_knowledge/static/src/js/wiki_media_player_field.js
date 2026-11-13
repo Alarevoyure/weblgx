@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 
 export class WikiMediaPlayerField extends Component {

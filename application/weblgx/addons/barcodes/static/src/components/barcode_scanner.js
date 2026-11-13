@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { isBarcodeScannerSupported, scanBarcode } from "@web/webclient/barcode/barcode_scanner";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 
 export class BarcodeScanner extends Component {

@@ -1,7 +1,7 @@
 # coding: utf-8
-from odoo import api, models
-from odoo.addons.website.models import ir_http
-from odoo.http import request
+from weblgx import api, models
+from weblgx.addons.website.models import ir_http
+from weblgx.http import request
 
 
 class IrRule(models.Model):

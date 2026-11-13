@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     click,
@@ -27,7 +27,7 @@ import {
 import { SearchBar } from "@web/search/search_bar/search_bar";
 import { SearchBarMenu } from "@web/search/search_bar_menu/search_bar_menu";
 import { registry } from "@web/core/registry";
-import { Component, onWillUpdateProps, xml } from "@odoo/owl";
+import { Component, onWillUpdateProps, xml } from "@weblgx/owl";
 import { createWebClient, doAction } from "../webclient/helpers";
 import { openModelFieldSelectorPopover } from "@web/../tests/core/model_field_selector_tests";
 import * as dsHelpers from "@web/../tests/core/domain_selector_tests";
@@ -1728,7 +1728,7 @@ QUnit.module("Search", (hooks) => {
         });
 
         QUnit.test("Add a custom filter containing an expression", async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
 
             const controlPanel = await makeWithSearch({
                 serverData,
@@ -1762,7 +1762,7 @@ QUnit.module("Search", (hooks) => {
         });
 
         QUnit.test("Add a custom filter containing a between operator", async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
 
             const controlPanel = await makeWithSearch({
                 serverData,
@@ -1790,7 +1790,7 @@ QUnit.module("Search", (hooks) => {
         });
 
         QUnit.test("consistent display of ! in debug mode", async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
 
             const controlPanel = await makeWithSearch({
                 serverData,
@@ -1890,7 +1890,7 @@ QUnit.module("Search", (hooks) => {
 
         QUnit.test("Add a custom filter: notification on invalid domain", async function (assert) {
             assert.expect(3);
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
             registry.category("services").add(
                 "notification",
                 {
@@ -1925,7 +1925,7 @@ QUnit.module("Search", (hooks) => {
         });
 
         QUnit.test("display names in facets", async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
             serverData.models.partner = {
                 fields: {},
                 records: [
@@ -1974,7 +1974,7 @@ QUnit.module("Search", (hooks) => {
         });
 
         QUnit.test("display names in facets (with a property)", async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
             serverData.models.partner = {
                 fields: {},
                 records: [{ id: 1, display_name: "John" }],
@@ -2140,7 +2140,7 @@ QUnit.module("Search", (hooks) => {
         });
 
         QUnit.test("shorten descriptions of long lists", async function (assert) {
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
 
             const controlPanel = await makeWithSearch({
                 serverData,
@@ -2177,7 +2177,7 @@ QUnit.module("Search", (hooks) => {
                 string: "Active",
                 searchable: true,
             };
-            patchWithCleanup(odoo, { debug: true });
+            patchWithCleanup(weblgx, { debug: true });
 
             const controlPanel = await makeWithSearch({
                 serverData,

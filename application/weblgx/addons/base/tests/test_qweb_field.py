@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
-from odoo.tests import common
+from weblgx.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from weblgx.tests import common
 
 
 class TestQwebFieldTime(common.TransactionCase):

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -10,7 +10,7 @@ import { loadBundle } from "@web/core/assets";
 import { renderToString } from "@web/core/utils/render";
 import { useService } from "@web/core/utils/hooks";
 
-import { Component, onWillUnmount, useEffect, useRef, onWillStart } from "@odoo/owl";
+import { Component, onWillUnmount, useEffect, useRef, onWillStart } from "@weblgx/owl";
 import { Dropdown } from "@web/core/dropdown/dropdown";
 import { DropdownItem } from "@web/core/dropdown/dropdown_item";
 import { cookie } from "@web/core/browser/cookie";

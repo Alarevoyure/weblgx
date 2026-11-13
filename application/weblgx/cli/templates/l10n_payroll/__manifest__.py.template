@@ -1,6 +1,6 @@
 {%- set countryPascal = name|pascal -%}
 {%- set codeUpper = code|upper -%}
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 {
     'name': '{{countryPascal}} - Payroll',

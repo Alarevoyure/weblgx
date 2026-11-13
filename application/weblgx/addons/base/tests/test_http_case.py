@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import threading
 from unittest.mock import patch
 
-from odoo.http import Controller, request, route
-from odoo.tests.common import ChromeBrowser, HttpCase, tagged
-from odoo.tools import config, logging
+from weblgx.http import Controller, request, route
+from weblgx.tests.common import ChromeBrowser, HttpCase, tagged
+from weblgx.tools import config, logging
 
 _logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class TestHttpCase(HttpCase):
         with self.assertLogs(level='ERROR') as log_catcher:
             with self.assertRaises(AssertionError) as error_catcher:
                 code = "console.error('test error','message')"
-                with patch('odoo.tests.common.ChromeBrowser.take_screenshot', return_value=None):
+                with patch('weblgx.tests.common.ChromeBrowser.take_screenshot', return_value=None):
                     self.browser_js(url_path='about:blank', code=code)
             # second line must contains error message
             self.assertEqual(error_catcher.exception.args[0].splitlines()[-1], "test error message")
@@ -29,7 +29,7 @@ class TestHttpCase(HttpCase):
         with self.assertLogs(level='ERROR') as log_catcher:
             with self.assertRaises(AssertionError) as error_catcher:
                 code = "console.error(TypeError('test error message'))"
-                with patch('odoo.tests.common.ChromeBrowser.take_screenshot', return_value=None):
+                with patch('weblgx.tests.common.ChromeBrowser.take_screenshot', return_value=None):
                     self.browser_js(url_path='about:blank', code=code)
             # second line must contains error message
             self.assertEqual(error_catcher.exception.args[0].splitlines()[-2:],
@@ -38,7 +38,7 @@ class TestHttpCase(HttpCase):
         self.assertIn('TypeError: test error message\n    at <anonymous>:1:15', log_catcher.output[0])
 
     def test_console_log_object(self):
-        logger = logging.getLogger('odoo')
+        logger = logging.getLogger('weblgx')
         level = logger.level
         logger.setLevel(logging.INFO)
         self.addCleanup(logger.setLevel, level)
@@ -126,9 +126,9 @@ class TestRequestRemaining(HttpCase):
 
     def test_requests_b(self):
         self.env.cr.execute('SELECT 1')
-        with self.assertLogs('odoo.tests.common') as lc:
+        with self.assertLogs('weblgx.tests.common') as lc:
             self.main_lock.release()
             _logger.info('B started, waiting for A to finish')
             self.thread_a.join()
-        self.assertEqual(lc.output[0].split(':', 1)[1], 'odoo.tests.common:Request with path /web/concurrent has been ignored during test as it it does not contain the test_cursor cookie or it is expired. (required "/base/tests/test_http_case.py:TestRequestRemaining.test_requests_b", got "/base/tests/test_http_case.py:TestRequestRemaining.test_requests_a")')
+        self.assertEqual(lc.output[0].split(':', 1)[1], 'weblgx.tests.common:Request with path /web/concurrent has been ignored during test as it it does not contain the test_cursor cookie or it is expired. (required "/base/tests/test_http_case.py:TestRequestRemaining.test_requests_b", got "/base/tests/test_http_case.py:TestRequestRemaining.test_requests_a")')
         self.env.cr.fetchall()

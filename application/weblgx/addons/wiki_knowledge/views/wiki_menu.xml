@@ -1,4 +1,4 @@
-<odoo>
+<weblgx>
     <menuitem
         id="menu_wiki_root"
         name="Wiki"
@@ -54,4 +54,4 @@
         sequence="10"
         groups="wiki_knowledge.group_wiki_manager,base.group_system"
     />
-</odoo>
+</weblgx>

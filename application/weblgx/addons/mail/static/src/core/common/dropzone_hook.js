@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Dropzone } from "@mail/core/common/dropzone";
 
-import { useEffect, useExternalListener } from "@odoo/owl";
+import { useEffect, useExternalListener } from "@weblgx/owl";
 
 import { registry } from "@web/core/registry";
 

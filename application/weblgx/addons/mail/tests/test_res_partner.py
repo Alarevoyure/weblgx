@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from contextlib import contextmanager
 from markupsafe import Markup
 from unittest.mock import patch
 from uuid import uuid4
 
-from odoo import tools
-from odoo.addons.base.models.res_partner import Partner
-from odoo.addons.mail.tests.common import MailCommon, mail_new_test_user
-from odoo.tests.common import Form, tagged, users
-from odoo.tools import mute_logger
+from weblgx import tools
+from weblgx.addons.base.models.res_partner import Partner
+from weblgx.addons.mail.tests.common import MailCommon, mail_new_test_user
+from weblgx.tests.common import Form, tagged, users
+from weblgx.tools import mute_logger
 
 
 @tagged('res_partner', 'mail_tools')
@@ -507,7 +507,7 @@ class TestPartner(MailCommon):
                 self.assertEqual(partner.email, expected_email)
 
     @users('admin')
-    @mute_logger('odoo.addons.base.partner.merge', 'odoo.tests')
+    @mute_logger('weblgx.addons.base.partner.merge', 'weblgx.tests')
     def test_partner_merge_wizards(self):
         Partner = self.env['res.partner']
 

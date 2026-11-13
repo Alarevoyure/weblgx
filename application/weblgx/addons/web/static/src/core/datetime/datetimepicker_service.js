@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { markRaw, reactive } from "@odoo/owl";
+import { markRaw, reactive } from "@weblgx/owl";
 import { areDatesEqual, formatDate, formatDateTime, parseDate, parseDateTime } from "../l10n/dates";
 import { makePopover } from "../popover/popover_hook";
 import { registry } from "../registry";
@@ -21,7 +21,7 @@ import { DateTimePickerPopover } from "./datetime_picker_popover";
  *  invoked once the value is committed: this is either when all inputs received
  *  a "change" event or when the datetime picker popover has been closed.
  * @property {DateTimePickerProps} [pickerProps]
- * @property {string | ReturnType<typeof import("@odoo/owl").useRef>} [target]
+ * @property {string | ReturnType<typeof import("@weblgx/owl").useRef>} [target]
  *
  * @typedef {import("./datetime_picker").DateTimePickerProps} DateTimePickerProps
  */

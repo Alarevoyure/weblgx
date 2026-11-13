@@ -1,7 +1,7 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests import new_test_user, tagged
-from odoo.addons.im_livechat.tests.common import TestImLivechatCommon
+from weblgx.tests import new_test_user, tagged
+from weblgx.addons.im_livechat.tests.common import TestImLivechatCommon
 
 
 @tagged("-at_install", "post_install")

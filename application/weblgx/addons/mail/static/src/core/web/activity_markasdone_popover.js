@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { Component, onMounted, useExternalListener, useRef, useState } from "@odoo/owl";
+import { Component, onMounted, useExternalListener, useRef, useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 

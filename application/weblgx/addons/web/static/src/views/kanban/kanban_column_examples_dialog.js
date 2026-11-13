@@ -1,10 +1,10 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { Notebook } from "@web/core/notebook/notebook";
 import { _t } from "@web/core/l10n/translation";
 
-import { Component, useRef } from "@odoo/owl";
+import { Component, useRef } from "@weblgx/owl";
 
 const random = (min, max) => Math.floor(Math.random() * (max - min) + min);
 

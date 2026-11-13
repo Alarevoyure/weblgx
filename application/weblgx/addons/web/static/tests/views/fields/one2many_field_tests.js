@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 import {
@@ -34,7 +34,7 @@ import { Record } from "@web/model/relational_model/record";
 import { getPickerCell } from "../../core/datetime/datetime_test_helpers";
 import { makeServerError } from "@web/../tests/helpers/mock_server";
 import { errorService } from "../../../src/core/errors/error_service";
-import { onWillDestroy, onWillStart, reactive, useState } from "@odoo/owl";
+import { onWillDestroy, onWillStart, reactive, useState } from "@weblgx/owl";
 import { X2ManyField, x2ManyField } from "@web/views/fields/x2many/x2many_field";
 
 const serviceRegistry = registry.category("services");
@@ -9226,7 +9226,7 @@ QUnit.module("Fields", (hooks) => {
 
         serviceRegistry.add("error", errorService);
         function validationHandler(env, error, originalError) {
-            if (originalError.data.name === "odoo.exceptions.ValidationError") {
+            if (originalError.data.name === "weblgx.exceptions.ValidationError") {
                 return true;
             }
         }
@@ -10417,7 +10417,7 @@ QUnit.module("Fields", (hooks) => {
         // onClose handler, executed because the python method does not return
         // any action, or an ir.action.act_window_close) ; this test ensures that
         // it reloads the fields of the opened view (i.e. the form in this case).
-        // See https://github.com/odoo/odoo/issues/24189
+        // See https://github.com/weblgx/weblgx/issues/24189
 
         const actionService = {
             start() {

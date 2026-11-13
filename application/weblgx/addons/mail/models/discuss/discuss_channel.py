@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import logging
@@ -8,12 +8,12 @@ from hashlib import sha512
 from secrets import choice
 from markupsafe import Markup
 
-from odoo import _, api, fields, models, tools, Command
-from odoo.addons.base.models.avatar_mixin import get_hsl_from_seed
-from odoo.exceptions import UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import html_escape, get_lang
-from odoo.tools.misc import babel_locale_parse, DEFAULT_SERVER_DATETIME_FORMAT
+from weblgx import _, api, fields, models, tools, Command
+from weblgx.addons.base.models.avatar_mixin import get_hsl_from_seed
+from weblgx.exceptions import UserError, ValidationError
+from weblgx.osv import expression
+from weblgx.tools import html_escape, get_lang
+from weblgx.tools.misc import babel_locale_parse, DEFAULT_SERVER_DATETIME_FORMAT
 
 _logger = logging.getLogger(__name__)
 

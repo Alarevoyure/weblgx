@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 /**
  * Improved John Resig's inheritance, based on:
  *
@@ -47,7 +47,7 @@
  *
  * @class Class
  */
-function OdooClass(){}
+function WeblgxClass(){}
 
 var initializing = false;
 // eslint-disable-next-line no-undef
@@ -58,7 +58,7 @@ var fnTest = /xyz/.test(function(){xyz();}) ? /\b_super\b/ : /.*/;
  *
  * @param {Object} prop class-level properties (class attributes and instance methods) to set on the new class
  */
-OdooClass.extend = function() {
+WeblgxClass.extend = function() {
     var _super = this.prototype;
     // Support mixins arguments
     var args = [...arguments];
@@ -102,7 +102,7 @@ OdooClass.extend = function() {
 
     // The dummy class constructor
     function Class() {
-        if(this.constructor !== OdooClass){
+        if(this.constructor !== WeblgxClass){
             throw new Error("You can only instanciate objects with the 'new' operator");
         }
         // All construction is actually done in the init method
@@ -155,4 +155,4 @@ OdooClass.extend = function() {
     return Class;
 };
 
-export default OdooClass;
+export default WeblgxClass;

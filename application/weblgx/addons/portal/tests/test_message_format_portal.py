@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tools import mute_logger
-from odoo.tests import common, tagged
+from weblgx.tools import mute_logger
+from weblgx.tests import common, tagged
 
 
 @tagged('mail_message')
 class TestMessageFormatPortal(common.TransactionCase):
 
-    @mute_logger('odoo.models.unlink')
+    @mute_logger('weblgx.models.unlink')
     def test_mail_message_format(self):
         """ Test the specific message formatting for the portal.
         Notably the flag that tells if the message is of subtype 'note'. """

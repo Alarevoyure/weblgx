@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import werkzeug.exceptions
 import werkzeug.urls
 
 from werkzeug.urls import url_parse
 
-from odoo import api, fields, models, _
-from odoo.addons.http_routing.models.ir_http import unslug_url
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools.translate import html_translate
+from weblgx import api, fields, models, _
+from weblgx.addons.http_routing.models.ir_http import unslug_url
+from weblgx.exceptions import UserError
+from weblgx.http import request
+from weblgx.tools.translate import html_translate
 
 
 class Menu(models.Model):
@@ -34,7 +34,7 @@ class Menu(models.Model):
         for menu in self:
             if menu.is_mega_menu:
                 if not menu.mega_menu_content:
-                    menu.mega_menu_content = self.env['ir.ui.view']._render_template('website.s_mega_menu_odoo_menu')
+                    menu.mega_menu_content = self.env['ir.ui.view']._render_template('website.s_mega_menu_weblgx_menu')
             else:
                 menu.mega_menu_content = False
                 menu.mega_menu_classes = False

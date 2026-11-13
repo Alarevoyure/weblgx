@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -191,7 +191,7 @@ QUnit.test("mention suggestion displays WeblgxBot before archived partners", asy
         channel_member_ids: [
             Command.create({ partner_id: pyEnv.currentPartnerId }),
             Command.create({ partner_id: partnerId }),
-            Command.create({ partner_id: pyEnv.odoobotId }),
+            Command.create({ partner_id: pyEnv.weblgxbotId }),
         ],
     });
     const { openDiscuss } = await start();

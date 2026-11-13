@@ -1,9 +1,9 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Thread } from "@mail/core/common/thread_model";
 import { discussSidebarChannelIndicatorsRegistry } from "@mail/discuss/core/web/discuss_sidebar_categories";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 
 /**

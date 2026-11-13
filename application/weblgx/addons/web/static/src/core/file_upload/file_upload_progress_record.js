@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { FileUploadProgressBar } from "./file_upload_progress_bar";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class FileUploadProgressRecord extends Component {
     getProgressTexts() {

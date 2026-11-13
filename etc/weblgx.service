@@ -7,7 +7,7 @@ Wants=postgresql.service
 Type=simple
 User=__SYSTEM_USER__
 Group=__SYSTEM_USER__
-Environment=ODOO_RC=__CONFIG__
+Environment=WEBLGX_RC=__CONFIG__
 ExecStart=/usr/bin/weblgx --config __CONFIG__
 KillMode=mixed
 Restart=on-failure

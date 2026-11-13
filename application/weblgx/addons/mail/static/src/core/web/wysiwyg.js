@@ -1,9 +1,9 @@
-/** @odoo-module **/
-import { useState } from "@odoo/owl";
+/** @weblgx-module **/
+import { useState } from "@weblgx/owl";
 
 import { renderToElement } from "@web/core/utils/render";
 import { Wysiwyg } from "@web_editor/js/wysiwyg/wysiwyg";
-import { closestBlock, setCursorEnd } from "@web_editor/js/editor/odoo-editor/src/OdooEditor";
+import { closestBlock, setCursorEnd } from "@web_editor/js/editor/weblgx-editor/src/WeblgxEditor";
 import { patch } from "@web/core/utils/patch";
 import { MentionList } from "@mail/core/web/mention_list";
 import { useService } from "@web/core/utils/hooks";
@@ -33,25 +33,25 @@ patch(Wysiwyg.prototype, {
         const res = await super.startEdition(...arguments);
         // Only enable mention list in full chatter mode web editor
         if (this.inDiscuss) {
-            this.odooEditor.document.addEventListener("keydown", this.triggerMentionList, true);
-            this.odooEditor.document.addEventListener("click", this.triggerMentionList, true);
+            this.weblgxEditor.document.addEventListener("keydown", this.triggerMentionList, true);
+            this.weblgxEditor.document.addEventListener("click", this.triggerMentionList, true);
         }
         return res;
     },
     destroy() {
         super.destroy();
-        if (this.inDiscuss && this.odooEditor) {
-            this.odooEditor.document.removeEventListener("keydown", this.triggerMentionList, true);
-            this.odooEditor.document.removeEventListener("click", this.triggerMentionList, true);
+        if (this.inDiscuss && this.weblgxEditor) {
+            this.weblgxEditor.document.removeEventListener("keydown", this.triggerMentionList, true);
+            this.weblgxEditor.document.removeEventListener("click", this.triggerMentionList, true);
         }
     },
     async triggerMentionList(ev) {
         if (!this.inDiscuss) {
             return;
         }
-        // Let event be handled by bubbling handlers and other handlers from Odoo Editor first.
+        // Let event be handled by bubbling handlers and other handlers from Web@LGX Editor first.
         await new Promise((resolve) => setTimeout(resolve, 0));
-        const selection = this.odooEditor.document.getSelection();
+        const selection = this.weblgxEditor.document.getSelection();
         if (
             this.isSelectionInEditable() &&
             selection.isCollapsed &&
@@ -59,8 +59,8 @@ patch(Wysiwyg.prototype, {
             !this.mentionList.isOpen &&
             (ev.key === "@" || ev.key === "#")
         ) {
-            this.stepBeforeMention = this.odooEditor._historySteps.length - 2;
-            const closest = closestBlock(this.odooEditor.document.getSelection().anchorNode);
+            this.stepBeforeMention = this.weblgxEditor._historySteps.length - 2;
+            const closest = closestBlock(this.weblgxEditor.document.getSelection().anchorNode);
             this.mentionList.open(closest, {
                 thread: this.mailStore.Thread.get({
                     model: this.props.options.record.data.model,
@@ -87,10 +87,10 @@ patch(Wysiwyg.prototype, {
         const nameNode = document.createTextNode(`${option.partner ? "@" : "#"}${option.label}`);
         const space = document.createTextNode("\u00A0");
         mentionBlock.appendChild(nameNode);
-        this.odooEditor.historyRevertUntil(this.stepBeforeMention);
-        this.odooEditor.execCommand("insert", mentionBlock);
-        this.odooEditor.execCommand("insert", space);
+        this.weblgxEditor.historyRevertUntil(this.stepBeforeMention);
+        this.weblgxEditor.execCommand("insert", mentionBlock);
+        this.weblgxEditor.execCommand("insert", space);
         setCursorEnd(space, false);
-        this.odooEditor.historyStep();
+        this.weblgxEditor.historyStep();
     },
 });

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
         <!-- LINT.TRACKER -->
         <record id="link_tracker_view_search" model="ir.ui.view">
@@ -190,4 +190,4 @@
             action="link_tracker_action"
             groups="base.group_no_one"/>
     </data>
-</odoo>
+</weblgx>

@@ -1,10 +1,10 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ImStatus } from "@mail/core/common/im_status";
 import { NotificationItem } from "@mail/core/web/notification_item";
 import { onExternalClick, useDiscussSystray } from "@mail/utils/common/hooks";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 import { hasTouch } from "@web/core/browser/feature_detection";
 import { Dropdown } from "@web/core/dropdown/dropdown";
@@ -82,11 +82,11 @@ export class MessagingMenu extends Component {
             (this.store.failures.length > 0 &&
                 this.store.discuss.activeTab === "main" &&
                 !this.env.inDiscussApp) ||
-            (this.store.odoobot &&
+            (this.store.weblgxbot &&
                 this.shouldAskPushPermission &&
                 this.store.discuss.activeTab === "main" &&
                 !this.env.inDiscussApp) ||
-            (this.store.odoobot &&
+            (this.store.weblgxbot &&
                 this.canPromptToInstall &&
                 this.store.discuss.activeTab === "main" &&
                 !this.env.inDiscussApp)
@@ -96,12 +96,12 @@ export class MessagingMenu extends Component {
     get installationRequest() {
         return {
             body: _t("Come here often? Install Weblgx on your device!"),
-            displayName: _t("%s has a suggestion", this.store.odoobot.name),
+            displayName: _t("%s has a suggestion", this.store.weblgxbot.name),
             onClick: () => {
                 this.installPrompt.show();
             },
-            iconSrc: this.threadService.avatarUrl(this.store.odoobot),
-            partner: this.store.odoobot,
+            iconSrc: this.threadService.avatarUrl(this.store.weblgxbot),
+            partner: this.store.weblgxbot,
             isShown: this.store.discuss.activeTab === "main" && this.canPromptToInstall,
         };
     }
@@ -109,9 +109,9 @@ export class MessagingMenu extends Component {
     get notificationRequest() {
         return {
             body: _t("Enable desktop notifications to chat"),
-            displayName: _t("%s has a request", this.store.odoobot.name),
-            iconSrc: this.threadService.avatarUrl(this.store.odoobot),
-            partner: this.store.odoobot,
+            displayName: _t("%s has a request", this.store.weblgxbot.name),
+            iconSrc: this.threadService.avatarUrl(this.store.weblgxbot),
+            partner: this.store.weblgxbot,
             isShown: this.store.discuss.activeTab === "main" && this.shouldAskPushPermission,
         };
     }

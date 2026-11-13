@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { isVisible } from "@web/core/utils/ui";
-import * as OdooEditorLib from "@web_editor/js/editor/odoo-editor/src/utils/utils";
+import * as WeblgxEditorLib from "@web_editor/js/editor/weblgx-editor/src/utils/utils";
 
 // SVG generator: contains all information needed to draw highlight SVGs
 // according to text dimensions, highlight style,...
@@ -448,9 +448,9 @@ export function switchTextHighlight(textEl, highlightID) {
     if (restoreSelection && cursorEndPosition) {
         if (rangeCollapsed) {
             const selectionOffset = getOffsetNode(textEl, cursorEndPosition);
-            OdooEditorLib.setSelection(...selectionOffset, ...selectionOffset);
+            WeblgxEditorLib.setSelection(...selectionOffset, ...selectionOffset);
         } else {
-            OdooEditorLib.setSelection(
+            WeblgxEditorLib.setSelection(
                 ...getOffsetNode(textEl, cursorEndPosition - rangeSize),
                 ...getOffsetNode(textEl, cursorEndPosition)
             );

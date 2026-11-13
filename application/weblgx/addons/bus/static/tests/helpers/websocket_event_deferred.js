@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { patchWebsocketWorkerWithCleanup } from "@bus/../tests/helpers/mock_websocket";
 
@@ -102,7 +102,7 @@ export function waitForChannels(channels, { operation = "add" } = {}) {
 /**
  * @typedef {Object} ExpectedNotificationOptions
  * @property {boolean} [received=true]
- * @typedef {[env: import("@web/env").OdooEnv, notificationType: string, notificationPayload: any, options: ExpectedNotificationOptions]} ExpectedNotification
+ * @typedef {[env: import("@web/env").WeblgxEnv, notificationType: string, notificationPayload: any, options: ExpectedNotificationOptions]} ExpectedNotification
  */
 
 /**
@@ -166,7 +166,7 @@ export function waitNotifications(...expectedNotifications) {
  * received from the bus service.
  *
  * @typedef {"connect"|"disconnect"|"reconnect"|"reconnecting"|"notification"} EventType
- * @param {import("@web/env").OdooEnv} env
+ * @param {import("@web/env").WeblgxEnv} env
  * @param {EventType} eventType
  * @param {object} [options={}]
  * @param {boolean} [options.received=true]
@@ -197,7 +197,7 @@ export function waitForBusEvent(env, eventType, { received = true } = {}) {
  * Returns a deferred that resolves when an event matching the given type is
  * received by the websocket worker.
  *
- * @param {import("@web/env").OdooEnv} env
+ * @param {import("@web/env").WeblgxEnv} env
  * @param {import("@bus/workers/websocket_worker").WorkerAction} targetAction
  * @param {object} [options={}]
  * @param {boolean} [options.received=true]

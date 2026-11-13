@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { TagsList } from "@web/core/tags_list/tags_list";
 import { makeTestEnv } from "../helpers/mock_env";
 import { getFixture, patchWithCleanup, mount, click } from "../helpers/utils";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 QUnit.module("Web Components", (hooks) => {
     QUnit.module("TagsList");

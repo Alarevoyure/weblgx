@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { ActionSwiper } from "@web/core/action_swiper/action_swiper";
 
-import { Component, useState, useRef, useEffect } from "@odoo/owl";
+import { Component, useState, useRef, useEffect } from "@weblgx/owl";
 
 export class SettingsPage extends Component {
     setup() {

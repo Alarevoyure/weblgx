@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -14,7 +14,7 @@ QUnit.test(
     async () => {
         const pyEnv = await startServer();
         const partnerId = pyEnv["res.partner"].create({
-            email: "testpartner@odoo.com",
+            email: "testpartner@weblgx.com",
             name: "TestPartner",
         });
         pyEnv["res.users"].create({ partner_id: partnerId });
@@ -36,7 +36,7 @@ QUnit.test(
 QUnit.test("can invite users in channel from chat window", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     pyEnv["res.users"].create({ partner_id: partnerId });
@@ -62,11 +62,11 @@ QUnit.test("can invite users in channel from chat window", async () => {
 QUnit.test("should be able to search for a new user to invite from an existing chat", async () => {
     const pyEnv = await startServer();
     const partnerId_1 = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     const partnerId_2 = pyEnv["res.partner"].create({
-        email: "testpartner2@odoo.com",
+        email: "testpartner2@weblgx.com",
         name: "TestPartner2",
     });
     pyEnv["res.users"].create({ partner_id: partnerId_1 });
@@ -89,7 +89,7 @@ QUnit.test("should be able to search for a new user to invite from an existing c
 QUnit.test("Invitation form should display channel group restriction", async () => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     pyEnv["res.users"].create({ partner_id: partnerId });
@@ -114,11 +114,11 @@ QUnit.test("Invitation form should display channel group restriction", async () 
 QUnit.test("should be able to create a new group chat from an existing chat", async () => {
     const pyEnv = await startServer();
     const partnerId_1 = pyEnv["res.partner"].create({
-        email: "testpartner@odoo.com",
+        email: "testpartner@weblgx.com",
         name: "TestPartner",
     });
     const partnerId_2 = pyEnv["res.partner"].create({
-        email: "testpartner2@odoo.com",
+        email: "testpartner2@weblgx.com",
         name: "TestPartner2",
     });
     pyEnv["res.users"].create({ partner_id: partnerId_1 });

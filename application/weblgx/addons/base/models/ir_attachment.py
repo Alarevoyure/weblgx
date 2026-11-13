@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import binascii
@@ -16,11 +16,11 @@ import uuid
 from collections import defaultdict
 from PIL import Image
 
-from odoo import api, fields, models, SUPERUSER_ID, tools, _
-from odoo.exceptions import AccessError, ValidationError, UserError
-from odoo.tools import config, human_size, ImageProcess, str2bool, consteq
-from odoo.tools.mimetypes import guess_mimetype
-from odoo.osv import expression
+from weblgx import api, fields, models, SUPERUSER_ID, tools, _
+from weblgx.exceptions import AccessError, ValidationError, UserError
+from weblgx.tools import config, human_size, ImageProcess, str2bool, consteq
+from weblgx.tools.mimetypes import guess_mimetype
+from weblgx.osv import expression
 
 _logger = logging.getLogger(__name__)
 

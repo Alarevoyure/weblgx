@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { AutoComplete } from "@web/core/autocomplete/autocomplete";
@@ -47,7 +47,7 @@ import {
     useEnv,
     useState,
     useSubEnv,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 //
 // Commons
@@ -304,7 +304,7 @@ export class Many2XAutocomplete extends Component {
                     } catch (e) {
                         if (
                             e instanceof RPCError &&
-                            e.exceptionName === "odoo.exceptions.ValidationError"
+                            e.exceptionName === "weblgx.exceptions.ValidationError"
                         ) {
                             const context = this.getCreationContext(request);
                             return this.openMany2X({ context });

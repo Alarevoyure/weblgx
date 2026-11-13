@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Dialog } from "@web/core/dialog/dialog";
 import { _t } from "@web/core/l10n/translation";
@@ -8,7 +8,7 @@ import { escape } from "@web/core/utils/strings";
 
 import { FormViewDialog } from "./form_view_dialog";
 
-import { Component, markup, useState } from "@odoo/owl";
+import { Component, markup, useState } from "@weblgx/owl";
 import { registry } from "@web/core/registry";
 
 export class SelectCreateDialog extends Component {

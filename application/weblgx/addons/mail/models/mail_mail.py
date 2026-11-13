@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 import base64
@@ -14,9 +14,9 @@ import pytz
 from collections import defaultdict
 from dateutil.parser import parse
 
-from odoo import _, api, fields, models
-from odoo import tools
-from odoo.addons.base.models.ir_mail_server import MailDeliveryException
+from weblgx import _, api, fields, models
+from weblgx import tools
+from weblgx.addons.base.models.ir_mail_server import MailDeliveryException
 
 _logger = logging.getLogger(__name__)
 _UNFOLLOW_REGEX = re.compile(r'<span id="mail_unfollow".*?<\/span>', re.DOTALL)
@@ -565,7 +565,7 @@ class MailMail(models.Model):
             except Exception as exc:
                 if raise_exception:
                     # To be consistent and backward compatible with mail_mail.send() raised
-                    # exceptions, it is encapsulated into an Odoo MailDeliveryException
+                    # exceptions, it is encapsulated into an Web@LGX MailDeliveryException
                     raise MailDeliveryException(_('Unable to connect to SMTP Server'), exc)
                 else:
                     batch = self.browse(batch_ids)

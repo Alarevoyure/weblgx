@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { assignDefined } from "@mail/utils/common/misc";
 
@@ -6,7 +6,7 @@ import { registry } from "@web/core/registry";
 
 export class AttachmentService {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -54,7 +54,7 @@ export class AttachmentService {
 export const attachmentService = {
     dependencies: ["mail.store", "rpc"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

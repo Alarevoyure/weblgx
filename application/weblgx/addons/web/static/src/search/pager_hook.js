@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { useEnv, useSubEnv, useState, onWillRender } from "@odoo/owl";
+import { useEnv, useSubEnv, useState, onWillRender } from "@weblgx/owl";
 
 /**
  * @typedef PagerUpdateParams

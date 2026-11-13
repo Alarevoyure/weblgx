@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { discussSidebarCategoriesRegistry } from "@mail/discuss/core/web/discuss_sidebar_categories";
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.tests.common import BaseCase, TransactionCase
-from odoo.tools import Query
+from weblgx.tests.common import BaseCase, TransactionCase
+from weblgx.tools import Query
 
 
 class QueryTestCase(BaseCase):

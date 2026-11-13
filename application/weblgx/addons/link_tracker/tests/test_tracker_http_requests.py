@@ -1,12 +1,12 @@
-from odoo.addons.link_tracker.tests.common import MockLinkTracker
-from odoo.tests import common, tagged
-from odoo.tools import mute_logger
+from weblgx.addons.link_tracker.tests.common import MockLinkTracker
+from weblgx.tests import common, tagged
+from weblgx.tools import mute_logger
 
 
 @tagged('post_install', '-at_install')
 class TestTrackerHttpRequests(MockLinkTracker, common.HttpCase):
 
-    @mute_logger("odoo.addons.http_routing.models.ir_http", "odoo.http")
+    @mute_logger("weblgx.addons.http_routing.models.ir_http", "weblgx.http")
     def test_no_preview_tracking(self):
         """Ensure that requests with a user agent matching known preview user agents will not be registered as a click"""
         link_tracker = self.env['link.tracker'].create({

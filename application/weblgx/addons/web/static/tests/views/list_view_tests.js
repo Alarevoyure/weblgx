@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, markup, onRendered, onWillStart, xml } from "@odoo/owl";
+import { Component, markup, onRendered, onWillStart, xml } from "@weblgx/owl";
 import { browser } from "@web/core/browser/browser";
 import { Domain } from "@web/core/domain";
 import { currencies } from "@web/core/currency";
@@ -7780,7 +7780,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("display a tooltip on a field", async function (assert) {
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: false,
         });
 
@@ -7800,7 +7800,7 @@ QUnit.module("Views", (hooks) => {
         assert.strictEqual(target.querySelectorAll(".o-tooltip").length, 1);
         assert.strictEqual(target.querySelector(".o-tooltip").innerText, "Foo");
 
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: true,
         });
 
@@ -7831,7 +7831,7 @@ QUnit.module("Views", (hooks) => {
     });
 
     QUnit.test("field (with help) tooltip in non debug mode", async function (assert) {
-        patchWithCleanup(odoo, {
+        patchWithCleanup(weblgx, {
             debug: false,
         });
 

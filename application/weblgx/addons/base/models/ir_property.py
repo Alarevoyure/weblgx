@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.osv.expression import TERM_OPERATORS_NEGATION
-from odoo.tools import ormcache
+from weblgx import api, fields, models, _
+from weblgx.exceptions import UserError
+from weblgx.osv.expression import TERM_OPERATORS_NEGATION
+from weblgx.tools import ormcache
 
 TYPE2FIELD = {
     'char': 'value_text',

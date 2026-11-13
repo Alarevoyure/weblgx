@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { AutoComplete } from "@web/core/autocomplete/autocomplete";
 import { _t } from "@web/core/l10n/translation";
 import { Domain } from "@web/core/domain";

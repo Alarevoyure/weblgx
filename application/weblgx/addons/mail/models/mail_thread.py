@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 import base64
@@ -26,11 +26,11 @@ from werkzeug import urls
 from xmlrpc import client as xmlrpclib
 from markupsafe import Markup, escape
 
-from odoo import _, api, exceptions, fields, models, tools, registry, SUPERUSER_ID, Command
-from odoo.exceptions import MissingError, AccessError
-from odoo.osv import expression
-from odoo.tools import email_normalize, is_html_empty, html_escape, html2plaintext, parse_contact_from_email
-from odoo.tools.misc import clean_context, split_every
+from weblgx import _, api, exceptions, fields, models, tools, registry, SUPERUSER_ID, Command
+from weblgx.exceptions import MissingError, AccessError
+from weblgx.osv import expression
+from weblgx.tools import email_normalize, is_html_empty, html_escape, html2plaintext, parse_contact_from_email
+from weblgx.tools.misc import clean_context, split_every
 
 from requests import Session
 from ..web_push import push_to_end_point, DeviceUnreachableError, ENCRYPTION_BLOCK_OVERHEAD, ENCRYPTION_HEADER_SIZE, MAX_PAYLOAD_SIZE
@@ -1056,7 +1056,7 @@ class MailThread(models.AbstractModel):
     def _detect_write_to_catchall(self, msg_dict):
         """Return True if directly contacts catchall."""
         # Note: tweaked in stable to avoid doing two times same search due to bugfix
-        # (see odoo/odoo#161782), to clean when reaching master
+        # (see weblgx/weblgx#161782), to clean when reaching master
         if self.env.context.get("mail_catchall_aliases"):
             catchall_aliases = self.env.context["mail_catchall_aliases"]
         else:
@@ -1320,7 +1320,7 @@ class MailThread(models.AbstractModel):
                 thread_id = thread.id
                 subtype_id = thread._creation_subtype().id
 
-            # switch to odoobot for all incoming message creation
+            # switch to weblgxbot for all incoming message creation
             # to have a priviledged archived user so real_author_id is correctly computed
             thread_root = thread.with_user(self.env.ref('base.user_root'))
             # replies to internal message are considered as notes, but parent message
@@ -1339,14 +1339,14 @@ class MailThread(models.AbstractModel):
 
             post_params = dict(subtype_id=subtype_id, partner_ids=partner_ids, **message_dict)
             # remove computational values not stored on mail.message and avoid warnings when creating it
-            for x in ('from', 'to', 'cc', 'recipients', 'references', 'in_reply_to', 'x_odoo_message_id',
+            for x in ('from', 'to', 'cc', 'recipients', 'references', 'in_reply_to', 'x_weblgx_message_id',
                       'is_bounce', 'bounced_email', 'bounced_message', 'bounced_msg_ids', 'bounced_partner'):
                 post_params.pop(x, None)
             new_msg = False
             if thread_root._name == 'mail.thread':  # message with parent_id not linked to record
                 new_msg = thread_root.message_notify(**post_params)
             else:
-                # parsing should find an author independently of user running mail gateway, and ensure it is not odoobot
+                # parsing should find an author independently of user running mail gateway, and ensure it is not weblgxbot
                 partner_from_found = message_dict.get('author_id') and message_dict['author_id'] != self.env['ir.model.data']._xmlid_to_res_id('base.partner_root')
                 thread_root = thread_root.with_context(from_alias=True, mail_create_nosubscribe=not partner_from_found)
                 new_msg = thread_root.message_post(**post_params)
@@ -3614,7 +3614,7 @@ class MailThread(models.AbstractModel):
 
         # compute references: set references to parents likely to be sent and add current message just to
         # have a fallback in case replies mess with Messsage-Id in the In-Reply-To (e.g. amazon
-        # SES SMTP may replace Message-Id and In-Reply-To refers an internal ID not stored in Odoo)
+        # SES SMTP may replace Message-Id and In-Reply-To refers an internal ID not stored in Web@LGX)
         message_sudo = message.sudo()
         ancestors = self.env['mail.message'].sudo().search(
             [
@@ -4439,7 +4439,7 @@ class MailThread(models.AbstractModel):
         msg_sudo = message.sudo()
         msg_type = msg_vals.get('message_type') or msg_sudo.message_type
         author_id = [msg_vals.get('author_id')] if 'author_id' in msg_vals else msg_sudo.author_id.ids
-        # never send to author and to people outside Odoo (email), except comments
+        # never send to author and to people outside Web@LGX (email), except comments
         pids = set()
         if msg_type in {'comment', 'whatsapp_message'}:
             pids = set(notif_pids) - set(author_id)
@@ -4617,7 +4617,7 @@ class MailThread(models.AbstractModel):
             res_id = message.res_id
             body = message.body
 
-        icon = '/web/static/img/odoo-icon-192x192.png'
+        icon = '/web/static/img/weblgx-icon-192x192.png'
 
         if author_name:
             title = "%s: %s" % (author_name, title)

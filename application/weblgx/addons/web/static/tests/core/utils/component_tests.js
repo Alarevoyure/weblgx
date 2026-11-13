@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ErrorHandler } from "@web/core/utils/components";
 import { makeTestEnv } from "../../helpers/mock_env";
 import { getFixture, mount } from "../../helpers/utils";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 QUnit.module("utils", () => {
     QUnit.module("components");

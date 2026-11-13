@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from urllib.parse import quote
 
-from odoo import api, models, fields, tools
+from weblgx import api, models, fields, tools
 
 SUPPORTED_IMAGE_MIMETYPES = {
     'image/gif': '.gif',

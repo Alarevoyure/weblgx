@@ -1,1 +1,1 @@
-window.__odooIgnoreMissingDependencies = false;
+window.__weblgxIgnoreMissingDependencies = false;

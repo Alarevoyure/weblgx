@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import json
 
 from werkzeug.urls import url_encode
 
-import odoo
-import odoo.tests
-from odoo import http
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
-from odoo.addons.web_editor.controllers.main import Web_Editor
-from odoo.fields import Command
+import weblgx
+import weblgx.tests
+from weblgx import http
+from weblgx.addons.base.tests.common import HttpCaseWithUserDemo
+from weblgx.addons.web_editor.controllers.main import Web_Editor
+from weblgx.fields import Command
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestUiCustomizeTheme(odoo.tests.HttpCase):
+@weblgx.tests.tagged('-at_install', 'post_install')
+class TestUiCustomizeTheme(weblgx.tests.HttpCase):
     def test_01_attachment_website_unlink(self):
         ''' Some ir.attachment needs to be unlinked when a website is unlink,
             otherwise some flows will just crash. That's the case when 2 website
@@ -65,7 +65,7 @@ class TestUiCustomizeTheme(odoo.tests.HttpCase):
         self.assertFalse(so_attachment.website_id, 'Website should be removed')
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
+@weblgx.tests.tagged('-at_install', 'post_install')
 class TestUiHtmlEditor(HttpCaseWithUserDemo):
 
     def test_html_editor_language(self):
@@ -184,14 +184,14 @@ class TestUiHtmlEditor(HttpCaseWithUserDemo):
         self.start_tour("/", 'website_media_dialog_undraw', login='admin')
 
 
-@odoo.tests.tagged('external', '-standard', '-at_install', 'post_install')
+@weblgx.tests.tagged('external', '-standard', '-at_install', 'post_install')
 class TestUiHtmlEditorWithExternal(HttpCaseWithUserDemo):
     def test_media_dialog_external_library(self):
         self.start_tour("/", 'website_media_dialog_external_library', login='admin')
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
-class TestUiTranslate(odoo.tests.HttpCase):
+@weblgx.tests.tagged('-at_install', 'post_install')
+class TestUiTranslate(weblgx.tests.HttpCase):
     def test_admin_tour_rte_translator(self):
         self.env['res.lang'].create({
             'name': 'Parseltongue',
@@ -280,8 +280,8 @@ class TestUiTranslate(odoo.tests.HttpCase):
         self.start_tour(f"/website/force/{website_2.id}", 'snippet_translation_changing_lang', login='admin')
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
-class TestUi(odoo.tests.HttpCase):
+@weblgx.tests.common.tagged('post_install', '-at_install')
+class TestUi(weblgx.tests.HttpCase):
 
     def fetch_proxy(self, url):
         if 'vimeo' in url:

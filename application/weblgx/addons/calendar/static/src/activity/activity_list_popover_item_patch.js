@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { ActivityListPopoverItem } from "@mail/core/web/activity_list_popover_item";
 import { patch } from "@web/core/utils/patch";

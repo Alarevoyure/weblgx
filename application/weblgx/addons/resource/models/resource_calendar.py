@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import itertools
 
@@ -12,13 +12,13 @@ from dateutil.relativedelta import relativedelta
 from dateutil.rrule import rrule, DAILY
 from pytz import timezone, utc
 
-from odoo import api, fields, models, _
-from odoo.addons.base.models.res_partner import _tz_get
-from odoo.exceptions import ValidationError
-from odoo.osv import expression
-from odoo.tools.float_utils import float_round
+from weblgx import api, fields, models, _
+from weblgx.addons.base.models.res_partner import _tz_get
+from weblgx.exceptions import ValidationError
+from weblgx.osv import expression
+from weblgx.tools.float_utils import float_round
 
-from odoo.tools import date_utils, float_utils
+from weblgx.tools import date_utils, float_utils
 from .utils import Intervals, float_to_time, make_aware, datetime_to_string, string_to_datetime
 from .work_intervals import WorkIntervals
 

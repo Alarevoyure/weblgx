@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { getDomainDisplayedOperators } from "@web/core/domain_selector/domain_selector_operator_editor";
 

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { registry } from "@web/core/registry";
 import { debounce } from "@web/core/utils/timing";
@@ -14,7 +14,7 @@ registry.category("web_tour.tours").add("website_livechat_chatbot_flow_tour", {
             trigger: messagesContain("Hello! I'm a bot!"),
             run: () => {
                 // make chat bot faster for this tour
-                const chatbotService = odoo.__WOWL_DEBUG__.root.env.services["im_livechat.chatbot"];
+                const chatbotService = weblgx.__WOWL_DEBUG__.root.env.services["im_livechat.chatbot"];
                 chatbotService.debouncedProcessUserAnswer = debounce(
                     chatbotService._processUserAnswer.bind(chatbotService),
                     500

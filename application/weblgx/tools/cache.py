@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 # decorator makes wrappers that have the same API as their wrapped function
 from collections import Counter, defaultdict
@@ -144,7 +144,7 @@ class ormcache_context(ormcache):
 
 def log_ormcache_stats(sig=None, frame=None):
     """ Log statistics of ormcache usage by database, model, and method. """
-    from odoo.modules.registry import Registry
+    from weblgx.modules.registry import Registry
     import threading
 
     me = threading.current_thread()

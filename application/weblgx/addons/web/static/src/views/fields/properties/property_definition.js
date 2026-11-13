@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { PropertyValue } from "./property_value";
@@ -15,7 +15,7 @@ import { PropertyTags } from "./property_tags";
 import { SelectCreateDialog } from "@web/views/view_dialogs/select_create_dialog";
 import { uuid } from "../../utils";
 
-import { Component, useState, onWillUpdateProps, useEffect, useRef } from "@odoo/owl";
+import { Component, useState, onWillUpdateProps, useEffect, useRef } from "@weblgx/owl";
 
 export class PropertyDefinition extends Component {
     setup() {

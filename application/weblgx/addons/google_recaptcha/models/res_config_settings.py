@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import fields, models
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx import fields, models
 
 
 class ResConfigSettings(models.TransientModel):

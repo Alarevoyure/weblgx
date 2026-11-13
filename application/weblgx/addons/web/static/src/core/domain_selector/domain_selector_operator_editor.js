@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 export function getDomainDisplayedOperators(fieldDef) {
     if (!fieldDef) {

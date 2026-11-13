@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { DiscussPublic } from "@mail/discuss/core/public/discuss_public";
 
-import { mount, whenReady } from "@odoo/owl";
+import { mount, whenReady } from "@weblgx/owl";
 
 import { templates } from "@web/core/assets";
 import { _t } from "@web/core/l10n/translation";
@@ -16,13 +16,13 @@ import { makeEnv, startServices } from "@web/env";
     const mainComponentsRegistry = registry.category("main_components");
     mainComponentsRegistry.add("DiscussPublic", {
         Component: DiscussPublic,
-        props: { data: odoo.discuss_data },
+        props: { data: weblgx.discuss_data },
     });
 
     const env = makeEnv();
     await startServices(env);
     env.services["mail.store"].inPublicPage = true;
-    odoo.isReady = true;
+    weblgx.isReady = true;
     await mount(MainComponentsContainer, document.body, {
         dev: env.debug,
         env,

@@ -1,4 +1,4 @@
-<odoo>
+<weblgx>
 <template id="l10n_{{code}}_report_payslip_{{code}}" inherit_id="hr_payroll.report_payslip" primary="True">
 
 </template>
@@ -11,4 +11,4 @@
         </t>
     </t>
 </template>
-</odoo>
+</weblgx>

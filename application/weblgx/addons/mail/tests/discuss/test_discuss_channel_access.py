@@ -1,12 +1,12 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from psycopg2.errors import UniqueViolation
 
-from odoo.addons.mail.tests.common import mail_new_test_user
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.exceptions import AccessError, UserError
-from odoo.tests.common import tagged
-from odoo.tools import mute_logger
+from weblgx.addons.mail.tests.common import mail_new_test_user
+from weblgx.addons.mail.tests.common import MailCommon
+from weblgx.exceptions import AccessError, UserError
+from weblgx.tests.common import tagged
+from weblgx.tools import mute_logger
 
 
 @tagged("post_install", "-at_install")
@@ -159,10 +159,10 @@ class TestDiscussChannelAccess(MailCommon):
                     ) from e
             else:
                 try:
-                    with self.assertRaises(AccessError), mute_logger("odoo.sql_db"), mute_logger(
-                        "odoo.addons.base.models.ir_model"
-                    ), mute_logger("odoo.addons.base.models.ir_rule"), mute_logger(
-                        "odoo.models.unlink"
+                    with self.assertRaises(AccessError), mute_logger("weblgx.sql_db"), mute_logger(
+                        "weblgx.addons.base.models.ir_model"
+                    ), mute_logger("weblgx.addons.base.models.ir_rule"), mute_logger(
+                        "weblgx.models.unlink"
                     ):
                         self._execute_action_channel(
                             user_key, channel_key, membership, operation, result
@@ -407,10 +407,10 @@ class TestDiscussChannelAccess(MailCommon):
                     ) from e
             else:
                 try:
-                    with self.assertRaises(AccessError), mute_logger("odoo.sql_db"), mute_logger(
-                        "odoo.addons.base.models.ir_model"
-                    ), mute_logger("odoo.addons.base.models.ir_rule"), mute_logger(
-                        "odoo.models.unlink"
+                    with self.assertRaises(AccessError), mute_logger("weblgx.sql_db"), mute_logger(
+                        "weblgx.addons.base.models.ir_model"
+                    ), mute_logger("weblgx.addons.base.models.ir_rule"), mute_logger(
+                        "weblgx.models.unlink"
                     ):
                         try:
                             self._execute_action_member(

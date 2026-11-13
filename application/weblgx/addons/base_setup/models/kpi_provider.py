@@ -1,4 +1,4 @@
-from odoo import api, models
+from weblgx import api, models
 
 
 class KpiProvider(models.AbstractModel):

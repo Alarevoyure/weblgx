@@ -1,12 +1,12 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 import { registry } from "@web/core/registry";
 
 export class DiscussCorePublic {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -22,7 +22,7 @@ export class DiscussCorePublic {
 export const discussCorePublic = {
     dependencies: ["bus_service", "mail.messaging"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

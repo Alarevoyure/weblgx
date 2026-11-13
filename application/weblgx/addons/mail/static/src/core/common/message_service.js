@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { convertBrToLineBreak, prettifyMessageContent } from "@mail/utils/common/format";
 
@@ -10,7 +10,7 @@ const { DateTime } = luxon;
 
 export class MessageService {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {

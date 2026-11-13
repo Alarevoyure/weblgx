@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @weblgx-module */
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { DROPDOWN } from "@web/core/dropdown/dropdown";
 
 export class KanbanDropdownMenuWrapper extends Component {

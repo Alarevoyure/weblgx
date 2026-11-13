@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import api, models, _
-from odoo.exceptions import AccessError
-from odoo import SUPERUSER_ID
+from weblgx import api, models, _
+from weblgx.exceptions import AccessError
+from weblgx import SUPERUSER_ID
 
 
 class ResUsers(models.Model):
@@ -203,6 +203,6 @@ class ResGroups(models.Model):
 
     @api.model
     def _lgx_saas_admin_ensure_partner_manager(self):
-        from odoo.addons.lgx_saas_admin.hooks import _ensure_erp_implies_partner_manager
+        from weblgx.addons.lgx_saas_admin.hooks import _ensure_erp_implies_partner_manager
         _ensure_erp_implies_partner_manager(self.env)
         return True

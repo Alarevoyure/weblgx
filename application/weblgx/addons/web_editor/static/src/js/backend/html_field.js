@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { _t } from "@web/core/l10n/translation";
@@ -15,7 +15,7 @@ import {
     getAdjacentPreviousSiblings,
     getAdjacentNextSiblings,
     getRangePosition
-} from '@web_editor/js/editor/odoo-editor/src/utils/utils';
+} from '@web_editor/js/editor/weblgx-editor/src/utils/utils';
 import { toInline } from '@web_editor/js/backend/convert_inline';
 import { getBundle, loadBundle } from '@web/core/assets';
 import {
@@ -28,7 +28,7 @@ import {
     useEffect,
     onWillUnmount,
     status,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { uniqueId } from '@web/core/utils/functions';
 // Ensure `@web/views/fields/html/html_field` is loaded first as this module
 // must override the html field in the registry.
@@ -260,8 +260,8 @@ export class HtmlField extends Component {
      */
     _filterPowerBoxCommands(commands) {
         let selectionIsInForbidenSnippet = false;
-        if (this.wysiwyg && this.wysiwyg.odooEditor) {
-            const selection = this.wysiwyg.odooEditor.document.getSelection();
+        if (this.wysiwyg && this.wysiwyg.weblgxEditor) {
+            const selection = this.wysiwyg.weblgxEditor.document.getSelection();
             selectionIsInForbidenSnippet = this.wysiwyg.closestElement(
                 selection.anchorNode,
                 'div[data-snippet="s_cover"], div[data-snippet="s_masonry_block"]'
@@ -297,16 +297,16 @@ export class HtmlField extends Component {
             const contentMetadata = getHtmlFieldMetadata(lastValue);
             let restoredData = setHtmlFieldMetadata(value, contentMetadata);
             await this.props.record.update({ [this.props.name]: restoredData });
-            if (this.wysiwyg.odooEditor) {
-                this.wysiwyg.odooEditor.lastSavePoint =
-                    this.wysiwyg.odooEditor._historySteps.at(-1).id;
+            if (this.wysiwyg.weblgxEditor) {
+                this.wysiwyg.weblgxEditor.lastSavePoint =
+                    this.wysiwyg.weblgxEditor._historySteps.at(-1).id;
             }
         }
     }
     async startWysiwyg(wysiwyg) {
         this.wysiwyg = wysiwyg;
         await this.wysiwyg.startEdition();
-        wysiwyg.$editable[0].classList.add("odoo-editor-qweb");
+        wysiwyg.$editable[0].classList.add("weblgx-editor-qweb");
 
         if (this.props.codeview) {
             const $codeviewButtonToolbar = $(`
@@ -319,29 +319,29 @@ export class HtmlField extends Component {
             this.wysiwyg.toolbarEl.append($codeviewButtonToolbar[0]);
             $codeviewButtonToolbar.click(this.toggleCodeView.bind(this));
         }
-        this.wysiwyg.odooEditor.lastSavePoint = null;
+        this.wysiwyg.weblgxEditor.lastSavePoint = null;
         this.isDirty = false;
-        this.wysiwyg.odooEditor.addEventListener("historyStep", () => {
-            if (!this.wysiwyg.odooEditor.lastSavePoint) {
-                this.wysiwyg.odooEditor.lastSavePoint = this.wysiwyg.odooEditor._historySteps[0].id;
+        this.wysiwyg.weblgxEditor.addEventListener("historyStep", () => {
+            if (!this.wysiwyg.weblgxEditor.lastSavePoint) {
+                this.wysiwyg.weblgxEditor.lastSavePoint = this.wysiwyg.weblgxEditor._historySteps[0].id;
             }
-            const lastStep = this.wysiwyg.odooEditor._historySteps.at(-1);
+            const lastStep = this.wysiwyg.weblgxEditor._historySteps.at(-1);
             this.isDirty = true;
             if (lastStep.isSavePoint) {
-                this.wysiwyg.odooEditor.lastSavePoint = lastStep.id;
+                this.wysiwyg.weblgxEditor.lastSavePoint = lastStep.id;
                 this.isDirty = false;
             } else if (
                 lastStep.restoredStepId &&
-                lastStep.restoredStepId === this.wysiwyg.odooEditor.lastSavePoint
+                lastStep.restoredStepId === this.wysiwyg.weblgxEditor.lastSavePoint
             ) {
-                this.wysiwyg.odooEditor.lastSavePoint = lastStep.id;
+                this.wysiwyg.weblgxEditor.lastSavePoint = lastStep.id;
                 this.isDirty = false;
             }
             this.props.record.model.bus.trigger("FIELD_IS_DIRTY", this._isDirty());
         });
 
         if (this.props.isCollaborative) {
-            this.wysiwyg.odooEditor.addEventListener("onExternalHistorySteps", () =>
+            this.wysiwyg.weblgxEditor.addEventListener("onExternalHistorySteps", () =>
                 this.props.record.model.bus.trigger("FIELD_IS_DIRTY", this._isDirty())
             );
         }
@@ -355,14 +355,14 @@ export class HtmlField extends Component {
         this.state.showCodeView = !this.state.showCodeView;
 
         if (this.wysiwyg) {
-            this.wysiwyg.odooEditor.observerUnactive('toggleCodeView');
+            this.wysiwyg.weblgxEditor.observerUnactive('toggleCodeView');
             if (this.state.showCodeView) {
                 this.wysiwyg.$editable.remove();
-                this.wysiwyg.odooEditor.toolbarHide();
+                this.wysiwyg.weblgxEditor.toolbarHide();
                 const value = this.wysiwyg.getValue();
                 this.props.record.update({ [this.props.name]: value });
             } else {
-                this.wysiwyg.odooEditor.observerActive('toggleCodeView');
+                this.wysiwyg.weblgxEditor.observerActive('toggleCodeView');
             }
         }
         if (!this.state.showCodeView) {
@@ -381,9 +381,9 @@ export class HtmlField extends Component {
             dynamicPlaceholder += defaultValue && defaultValue !== '' ? ` or '''${defaultValue}'''` : '';
             const t = document.createElement('T');
             t.setAttribute('t-out', dynamicPlaceholder);
-            this.wysiwyg.odooEditor.execCommand('insert', t);
+            this.wysiwyg.weblgxEditor.execCommand('insert', t);
             // Ensure the dynamic placeholder <t> element is sanitized.
-            this.wysiwyg.odooEditor.sanitize(t);
+            this.wysiwyg.weblgxEditor.sanitize(t);
         }
     }
     onDynamicPlaceholderClose() {
@@ -416,11 +416,11 @@ export class HtmlField extends Component {
         }
         if (this._isDirty() || urgent || (shouldInline && this.props.isInlineStyle)) {
             let savePendingImagesPromise, toInlinePromise;
-            if (this.wysiwyg && this.wysiwyg.odooEditor) {
+            if (this.wysiwyg && this.wysiwyg.weblgxEditor) {
                 if (!urgent) {
                     this.isCurrentlySaving = new Deferred();
                 }
-                this.wysiwyg.odooEditor.observerUnactive('commitChanges');
+                this.wysiwyg.weblgxEditor.observerUnactive('commitChanges');
                 savePendingImagesPromise = this.wysiwyg.savePendingImages();
                 if (this.props.isInlineStyle) {
                     // Avoid listening to changes made during the _toInline process.
@@ -437,7 +437,7 @@ export class HtmlField extends Component {
                 if (this.props.isInlineStyle) {
                     await toInlinePromise;
                 }
-                this.wysiwyg.odooEditor.observerActive('commitChanges');
+                this.wysiwyg.weblgxEditor.observerActive('commitChanges');
             }
             if (status(this) !== 'destroyed') {
                 await this.updateValue();
@@ -449,13 +449,13 @@ export class HtmlField extends Component {
     }
     async _lazyloadWysiwyg() {
         // In some bundle (eg. `web.qunit_suite_tests`), the following module is already included.
-        let wysiwygModule = await odoo.loader.modules.get('@web_editor/js/wysiwyg/wysiwyg');
-        this.MoveNodePlugin = (await odoo.loader.modules.get('@web_editor/js/wysiwyg/MoveNodePlugin'))?.MoveNodePlugin;
+        let wysiwygModule = await weblgx.loader.modules.get('@web_editor/js/wysiwyg/wysiwyg');
+        this.MoveNodePlugin = (await weblgx.loader.modules.get('@web_editor/js/wysiwyg/MoveNodePlugin'))?.MoveNodePlugin;
         // Otherwise, load the module.
         if (!wysiwygModule) {
             await loadBundle('web_editor.backend_assets_wysiwyg');
-            wysiwygModule = await odoo.loader.modules.get('@web_editor/js/wysiwyg/wysiwyg');
-            this.MoveNodePlugin = (await odoo.loader.modules.get('@web_editor/js/wysiwyg/MoveNodePlugin')).MoveNodePlugin;
+            wysiwygModule = await weblgx.loader.modules.get('@web_editor/js/wysiwyg/wysiwyg');
+            this.MoveNodePlugin = (await weblgx.loader.modules.get('@web_editor/js/wysiwyg/MoveNodePlugin')).MoveNodePlugin;
         }
         stripHistoryIds = wysiwygModule.stripHistoryIds;
         this.Wysiwyg = wysiwygModule.Wysiwyg;
@@ -584,19 +584,19 @@ export class HtmlField extends Component {
      */
     async _toInline() {
         const $editable = this.wysiwyg.getEditable();
-        this.wysiwyg.odooEditor.sanitize(this.wysiwyg.odooEditor.editable);
+        this.wysiwyg.weblgxEditor.sanitize(this.wysiwyg.weblgxEditor.editable);
         const html = this.wysiwyg.getValue();
-        const $odooEditor = $editable.closest('.odoo-editor-editable');
+        const $weblgxEditor = $editable.closest('.weblgx-editor-editable');
         // Save correct nodes references.
         // Remove temporarily the class so that css editing will not be converted.
-        $odooEditor.removeClass('odoo-editor-editable');
+        $weblgxEditor.removeClass('weblgx-editor-editable');
         $editable.html(html);
 
         await toInline($editable, undefined, this.wysiwyg.$iframe);
-        $odooEditor.addClass('odoo-editor-editable');
+        $weblgxEditor.addClass('weblgx-editor-editable');
 
         this.wysiwyg.setValue($editable.html());
-        this.wysiwyg.odooEditor.sanitize(this.wysiwyg.odooEditor.editable);
+        this.wysiwyg.weblgxEditor.sanitize(this.wysiwyg.weblgxEditor.editable);
     }
     _onAttachmentChange(attachment) {
         // This only needs to happen for the composer for now
@@ -769,7 +769,7 @@ export const htmlField = {
             wysiwygOptions.allowCommandVideo = Boolean(options.allowCommandVideo);
         }
         return {
-            codeview: Boolean(odoo.debug && options.codeview),
+            codeview: Boolean(weblgx.debug && options.codeview),
             placeholder: attrs.placeholder,
             sandboxedPreview: Boolean(options.sandboxedPreview),
 

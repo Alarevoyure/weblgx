@@ -1,11 +1,11 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
 
 export class SoundEffects {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      */
     constructor(env) {
         this.soundEffects = {
@@ -80,7 +80,7 @@ export class SoundEffects {
 
 export const soundEffects = {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      */
     start(env) {
         return new SoundEffects(env);

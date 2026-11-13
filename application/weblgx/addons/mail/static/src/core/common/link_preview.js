@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { LinkPreviewConfirmDelete } from "@mail/core/common/link_preview_confirm_delete";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 

@@ -21,7 +21,7 @@ $real-body-bg: $body-bg;
 :root {
     // The color behind the boxed layout is forced by Weblgx. The box background
     // color uses the `$body-bg` variable.
-    // grep: BOXED_BODY_BG_ODOO
+    // grep: BOXED_BODY_BG_WEBLGX
     @if o-website-value('layout') != 'full' {
         $-boxed-layout-body-bg: o-color('body');
         $real-body-bg: $-boxed-layout-body-bg !global;
@@ -210,7 +210,7 @@ body {
         > main {
             // The color behind the boxed layout is forced by Weblgx. The box
             // background color uses the `$body-bg` variable.
-            // grep: BOXED_BODY_BG_ODOO
+            // grep: BOXED_BODY_BG_WEBLGX
             background-color: $body-bg;
         }
 

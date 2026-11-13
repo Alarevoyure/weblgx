@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from lxml import etree
 
-from odoo import api, models, _
-from odoo.exceptions import AccessError
+from weblgx import api, models, _
+from weblgx.exceptions import AccessError
 
 
 class ResCompany(models.Model):
@@ -33,7 +33,7 @@ class ResCompany(models.Model):
     @api.model
     def lgx_apply_saas_record_rules(self):
         """Apply SaaS record rules (needed when target XML IDs are noupdate)."""
-        from odoo.addons.lgx_saas_admin.hooks import apply_saas_record_rules
+        from weblgx.addons.lgx_saas_admin.hooks import apply_saas_record_rules
 
         apply_saas_record_rules(self.env)
 

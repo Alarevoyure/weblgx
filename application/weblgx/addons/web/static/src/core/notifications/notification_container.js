@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { Notification } from "./notification";
 import { Transition } from "@web/core/transition";
 
-import { Component, xml, useState } from "@odoo/owl";
+import { Component, xml, useState } from "@weblgx/owl";
 
 export class NotificationContainer extends Component {
     setup() {

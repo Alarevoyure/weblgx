@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import {PageControllerMixin, PageRendererMixin} from "./page_views_mixin";

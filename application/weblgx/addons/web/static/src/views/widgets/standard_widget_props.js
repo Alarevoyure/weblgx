@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 export const standardWidgetProps = {
     readonly: { type: Boolean, optional: true },

@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Discuss } from "@mail/core/common/discuss";
 
-import { Component, onWillStart, onWillUpdateProps, useState } from "@odoo/owl";
+import { Component, onWillStart, onWillUpdateProps, useState } from "@weblgx/owl";
 
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from lxml import etree
 
-from odoo.exceptions import AccessError
-from odoo.addons.base.tests.common import TransactionCaseWithUserDemo
-from odoo.tests.common import TransactionCase
-from odoo.tools.misc import mute_logger
-from odoo import Command
+from weblgx.exceptions import AccessError
+from weblgx.addons.base.tests.common import TransactionCaseWithUserDemo
+from weblgx.tests.common import TransactionCase
+from weblgx.tools.misc import mute_logger
+from weblgx import Command
 
 # test group that demo user should not have
 GROUP_SYSTEM = 'base.group_system'
@@ -90,7 +90,7 @@ class TestACL(TransactionCaseWithUserDemo):
         self.assertNotEqual(view_arch.xpath("//label[@for='decimal_places']"), [],
                              "Label for 'decimal_places' must be found in view definition again")
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_field_crud_restriction(self):
         "Read/Write RPC access to restricted field should be forbidden"
         partner = self.env['res.partner'].browse(1).with_user(self.user_demo)
@@ -120,7 +120,7 @@ class TestACL(TransactionCaseWithUserDemo):
         self.assertTrue(partner.read(['bank_ids']))
         self.assertTrue(partner.write({'bank_ids': []}))
 
-    @mute_logger('odoo.models')
+    @mute_logger('weblgx.models')
     def test_fields_browse_restriction(self):
         """Test access to records having restricted fields"""
         # Invalidate cache to avoid restricted value to be available
@@ -134,7 +134,7 @@ class TestACL(TransactionCaseWithUserDemo):
         partner.name
         # ... except if they are restricted
         with self.assertRaises(AccessError):
-            with mute_logger('odoo.models'):
+            with mute_logger('weblgx.models'):
                 partner.email
 
     def test_view_create_edit_button(self):

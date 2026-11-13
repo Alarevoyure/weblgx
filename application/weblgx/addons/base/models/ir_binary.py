@@ -3,12 +3,12 @@ import werkzeug.http
 from datetime import datetime
 from mimetypes import guess_extension
 
-from odoo import models
-from odoo.exceptions import MissingError, UserError
-from odoo.http import Stream, request
-from odoo.tools import file_open, replace_exceptions
-from odoo.tools.image import image_process, image_guess_size_from_field_name
-from odoo.tools.mimetypes import MIMETYPE_HEAD_SIZE, guess_mimetype, get_extension
+from weblgx import models
+from weblgx.exceptions import MissingError, UserError
+from weblgx.http import Stream, request
+from weblgx.tools import file_open, replace_exceptions
+from weblgx.tools.image import image_process, image_guess_size_from_field_name
+from weblgx.tools.mimetypes import MIMETYPE_HEAD_SIZE, guess_mimetype, get_extension
 
 
 DEFAULT_PLACEHOLDER_PATH = 'web/static/img/placeholder.png'
@@ -67,7 +67,7 @@ class IrBinary(models.AbstractModel):
         :param record: the record where to load the data from.
         :param str field_name: the binary field where to load the data
             from.
-        :rtype: odoo.http.Stream
+        :rtype: weblgx.http.Stream
         """
         if record._name == 'ir.attachment' and field_name in ('raw', 'datas', 'db_datas'):
             return Stream.from_attachment(record)
@@ -91,7 +91,7 @@ class IrBinary(models.AbstractModel):
         mimetype=None, default_mimetype='application/octet-stream',
     ):
         """
-        Create a :class:odoo.http.Stream: from a record's binary field.
+        Create a :class:weblgx.http.Stream: from a record's binary field.
 
         :param record: the record where to load the data from.
         :param str field_name: the binary field where to load the data
@@ -108,7 +108,7 @@ class IrBinary(models.AbstractModel):
         :param str default_mimetype: the mimetype to use when the
             mimetype couldn't be determined. By default it is
             ``application/octet-stream``.
-        :rtype: odoo.http.Stream
+        :rtype: weblgx.http.Stream
         """
         with replace_exceptions(ValueError, by=UserError(f'Expected singleton: {record}')):
             record.ensure_one()
@@ -156,19 +156,19 @@ class IrBinary(models.AbstractModel):
         width=0, height=0, crop=False, quality=0,
     ):
         """
-        Create a :class:odoo.http.Stream: from a record's binary field,
+        Create a :class:weblgx.http.Stream: from a record's binary field,
         equivalent of :meth:`~get_stream_from` but for images.
 
         In case the record does not exist or is not accessible, the
         alternative ``placeholder`` path is used instead. If not set,
         a path is determined via
-        :meth:`~odoo.models.BaseModel._get_placeholder_filename` which
+        :meth:`~weblgx.models.BaseModel._get_placeholder_filename` which
         ultimately fallbacks on ``web/static/img/placeholder.png``.
 
         In case the arguments ``width``, ``height``, ``crop`` or
         ``quality`` are given, the image will be post-processed and the
         ETags (the unique cache http header) will be updated
-        accordingly. See also :func:`odoo.tools.image.image_process`.
+        accordingly. See also :func:`weblgx.tools.image.image_process`.
 
         :param record: the record where to load the data from.
         :param str field_name: the binary field where to load the data

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="submenu" name="Submenu">
     <t t-set="show_dropdown" t-value="(submenu.is_mega_menu and submenu.is_visible) or submenu.child_id.filtered(lambda menu: menu.is_visible)"/>
@@ -89,7 +89,7 @@
         - Only for non-designers (especially visitors) (hence the "editable or
           translatable" check).
         - Only if not in any debug mode (we want any correct value of debug mode
-          to correctly appear in the `odoo` object + assets may depend on this
+          to correctly appear in the `weblgx` object + assets may depend on this
           (e.g. debug=assets or debug=tests)).
         -->
         <attribute name="t-cache">main_object if main_object and main_object._name == 'website.page' and not request.session.debug and not editable and not translatable else None</attribute>
@@ -2420,14 +2420,14 @@
 <template id="default_less">
     <style type="text/less">
         div#wrap div &gt; h1 {
-            color: @o-brand-odoo;
+            color: @o-brand-weblgx;
         }
     </style>
 </template>
 <template id="default_scss">
     <style type="text/scss">
         div#wrap div &gt; h1 {
-            color: $o-brand-odoo;
+            color: $o-brand-weblgx;
         }
     </style>
 </template>
@@ -3021,4 +3021,4 @@ Sitemap: <t t-esc="url_root"/>sitemap.xml
         </li>
     </xpath>
 </template>
-</odoo>
+</weblgx>

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import models
+from weblgx import models
 
 
 class ResUsers(models.Model):

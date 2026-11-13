@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { useState } from "@odoo/owl";
+import { useState } from "@weblgx/owl";
 
 import { ListController } from "@web/views/list/list_controller";
 import { useService } from "@web/core/utils/hooks";

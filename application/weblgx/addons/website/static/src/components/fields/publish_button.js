@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 class PublishField extends Component {}
 PublishField.template = "website.PublishField";

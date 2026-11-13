@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import logging
@@ -7,9 +7,9 @@ import operator
 from tempfile import TemporaryFile
 from os.path import splitext
 
-from odoo import api, fields, models, tools, sql_db, _
-from odoo.exceptions import UserError
-from odoo.tools.translate import TranslationImporter
+from weblgx import api, fields, models, tools, sql_db, _
+from weblgx.exceptions import UserError
+from weblgx.tools.translate import TranslationImporter
 
 _logger = logging.getLogger(__name__)
 

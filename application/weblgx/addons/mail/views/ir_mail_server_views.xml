@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <record id="ir_mail_server_form_company" model="ir.ui.view">
         <field name="name">ir.mail_server.form.company</field>
         <field name="model">ir.mail_server</field>
@@ -42,4 +42,4 @@
 
     <!-- Migration : serveurs existants → société 1 -->
     <function model="ir.mail_server" name="_lgx_assign_default_company"/>
-</odoo>
+</weblgx>

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { browser } from "@web/core/browser/browser";
 import {
@@ -95,7 +95,7 @@ QUnit.module("URLS", (hooks) => {
         assert.strictEqual(testRedirect("/abc/def?x=y"), "http://www.test.com/abc/def?x=y");
         assert.strictEqual(testRedirect("/abc?x=y#a=1&b=2"), "http://www.test.com/abc?x=y#a=1&b=2");
 
-        assert.throws(() => testRedirect("https://www.odoo.com"), RedirectionError);
+        assert.throws(() => testRedirect("https://www.weblgx.com"), RedirectionError);
         assert.throws(() => testRedirect("javascript:alert('boom');"), RedirectionError);
     });
 });

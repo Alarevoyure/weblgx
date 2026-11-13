@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import { click, getFixture, patchWithCleanup } from "@web/../tests/helpers/utils";

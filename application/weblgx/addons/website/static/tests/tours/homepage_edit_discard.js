@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { markup } from "@odoo/owl";
+import { markup } from "@weblgx/owl";
 import wTourUtils from "@website/js/tours/tour_utils";
 
 // TODO remove this test; it is badly written: you just have to change the fact

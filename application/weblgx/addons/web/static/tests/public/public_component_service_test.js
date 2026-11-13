@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { publicComponentService } from "@web/public/public_component_service";
 import { getFixture, mount, nextTick } from "../helpers/utils";
 import { makeTestEnv } from "../helpers/mock_env";
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 let target;
 

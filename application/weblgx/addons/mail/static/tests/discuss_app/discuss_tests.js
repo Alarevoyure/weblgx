@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 import { makeFakePresenceService } from "@bus/../tests/helpers/mock_services";
@@ -957,7 +957,7 @@ QUnit.test("no out-of-focus notif on non-needaction message in channel", async (
     });
     const { env } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isWeblgxFocused: () => false }),
         },
     });
     patchWithCleanup(env.services["title"], {
@@ -996,7 +996,7 @@ QUnit.test("out-of-focus notif on needaction message in channel", async (assert)
     });
     const { env } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isWeblgxFocused: () => false }),
         },
     });
     patchWithCleanup(env.services["title"], {
@@ -1008,7 +1008,7 @@ QUnit.test("out-of-focus notif on needaction message in channel", async (assert)
     });
     await contains(".o_menu_systray i[aria-label='Messages']");
     await contains(".o-mail-ChatWindow", { count: 0 });
-    // simulate receiving a new needaction message with odoo out-of-focused
+    // simulate receiving a new needaction message with weblgx out-of-focused
     const currentPartnerId = pyEnv.currentPartnerId;
     pyEnv.withUser(userId, () =>
         env.services.rpc("/mail/message/post", {
@@ -1025,7 +1025,7 @@ QUnit.test("out-of-focus notif on needaction message in channel", async (assert)
     await assertSteps(["set_title_part:1 Message"]);
 });
 
-QUnit.test("receive new chat message: out of odoo focus (notification, chat)", async (assert) => {
+QUnit.test("receive new chat message: out of weblgx focus (notification, chat)", async (assert) => {
     const pyEnv = await startServer();
     const partnerId = pyEnv["res.partner"].create({ name: "Dumbledore" });
     const userId = pyEnv["res.users"].create({ partner_id: partnerId });
@@ -1038,7 +1038,7 @@ QUnit.test("receive new chat message: out of odoo focus (notification, chat)", a
     });
     const { env } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isWeblgxFocused: () => false }),
         },
     });
     patchWithCleanup(env.services["title"], {
@@ -1050,7 +1050,7 @@ QUnit.test("receive new chat message: out of odoo focus (notification, chat)", a
     });
     await contains(".o_menu_systray i[aria-label='Messages']");
     await contains(".o-mail-ChatWindow", { count: 0 });
-    // simulate receiving a new message with odoo out-of-focused
+    // simulate receiving a new message with weblgx out-of-focused
     pyEnv.withUser(userId, () =>
         env.services.rpc("/mail/message/post", {
             post_data: {
@@ -1070,7 +1070,7 @@ QUnit.test("no out-of-focus notification on receiving self messages in chat", as
     const channelId = pyEnv["discuss.channel"].create({ channel_type: "chat" });
     const { env } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isWeblgxFocused: () => false }),
         },
     });
     patchWithCleanup(env.services["title"], {
@@ -1082,7 +1082,7 @@ QUnit.test("no out-of-focus notification on receiving self messages in chat", as
     });
     await contains(".o_menu_systray i[aria-label='Messages']");
     await contains(".o-mail-ChatWindow", { count: 0 });
-    // simulate receiving a new message of self with odoo out-of-focused
+    // simulate receiving a new message of self with weblgx out-of-focused
     pyEnv.withUser(pyEnv.currentUserId, () =>
         env.services.rpc("/mail/message/post", {
             post_data: {
@@ -1099,7 +1099,7 @@ QUnit.test("no out-of-focus notification on receiving self messages in chat", as
     assertSteps([]);
 });
 
-QUnit.test("receive new chat messages: out of odoo focus (tab title)", async (assert) => {
+QUnit.test("receive new chat messages: out of weblgx focus (tab title)", async (assert) => {
     let stepCount = 0;
     const pyEnv = await startServer();
     const [channelId_1, channelId_2] = pyEnv["discuss.channel"].create([
@@ -1108,7 +1108,7 @@ QUnit.test("receive new chat messages: out of odoo focus (tab title)", async (as
     ]);
     const { env, openDiscuss } = await start({
         services: {
-            presence: makeFakePresenceService({ isOdooFocused: () => false }),
+            presence: makeFakePresenceService({ isWeblgxFocused: () => false }),
         },
     });
     openDiscuss();
@@ -1131,7 +1131,7 @@ QUnit.test("receive new chat messages: out of odoo focus (tab title)", async (as
         },
     });
     const channel_1 = pyEnv["discuss.channel"].searchRead([["id", "=", channelId_1]])[0];
-    // simulate receiving a new message in chat 1 with odoo out-of-focused
+    // simulate receiving a new message in chat 1 with weblgx out-of-focused
     pyEnv["bus.bus"]._sendone(channel_1, "discuss.channel/new_message", {
         id: channelId_1,
         message: {
@@ -1143,7 +1143,7 @@ QUnit.test("receive new chat messages: out of odoo focus (tab title)", async (as
     await assertSteps(["set_title_part"]);
 
     const channel_2 = pyEnv["discuss.channel"].searchRead([["id", "=", channelId_2]])[0];
-    // simulate receiving a new message in chat 2 with odoo out-of-focused
+    // simulate receiving a new message in chat 2 with weblgx out-of-focused
     pyEnv["bus.bus"]._sendone(channel_2, "discuss.channel/new_message", {
         id: channelId_2,
         message: {
@@ -1154,7 +1154,7 @@ QUnit.test("receive new chat messages: out of odoo focus (tab title)", async (as
     });
     await assertSteps(["set_title_part"]);
 
-    // simulate receiving another new message in chat 2 with odoo focused
+    // simulate receiving another new message in chat 2 with weblgx focused
     pyEnv["bus.bus"]._sendone(channel_2, "discuss.channel/new_message", {
         id: channelId_2,
         message: {
@@ -1314,7 +1314,7 @@ QUnit.test(
             {
                 channel_member_ids: [
                     Command.create({ partner_id: pyEnv.currentPartnerId }),
-                    Command.create({ partner_id: TEST_USER_IDS.odoobotId }),
+                    Command.create({ partner_id: TEST_USER_IDS.weblgxbotId }),
                 ],
                 channel_type: "chat",
             },
@@ -1873,7 +1873,7 @@ QUnit.test(
         const messageId = pyEnv["mail.message"].create({
             model: "res.partner",
             body: "A needaction message to have it in messaging menu",
-            author_id: pyEnv.odoobotId,
+            author_id: pyEnv.weblgxbotId,
             needaction: true,
             needaction_partner_ids: [pyEnv.currentPartnerId],
             res_id: partnerId,

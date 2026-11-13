@@ -1,4 +1,4 @@
-<odoo>
+<weblgx>
     <record id="view_wiki_page_tree" model="ir.ui.view">
         <field name="name">wiki.page.tree</field>
         <field name="model">wiki.page</field>
@@ -94,4 +94,4 @@
         <field name="search_view_id" ref="view_wiki_page_search"/>
         <field name="context">{'search_default_current_website': 1}</field>
     </record>
-</odoo>
+</weblgx>

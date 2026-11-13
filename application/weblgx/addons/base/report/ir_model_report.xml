@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
         <record id="report_ir_model_overview" model="ir.actions.report">
             <field name="name">Model Overview</field>
             <field name="model">ir.model</field>
@@ -10,5 +10,5 @@
             <field name="binding_type">report</field>
         </record>
 
-</odoo>
+</weblgx>
 

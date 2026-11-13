@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { click, getFixture, patchWithCleanup, editInput, nextTick } from "@web/../tests/helpers/utils";
 import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 import { SignatureWidget } from "@web/views/widgets/signature/signature";

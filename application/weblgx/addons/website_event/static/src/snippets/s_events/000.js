@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { groupBy } from '@web/core/utils/arrays';
 import publicWidget from '@web/legacy/js/public/public_widget';

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { cookie } from "@web/core/browser/cookie";
 import { registry } from "@web/core/registry";

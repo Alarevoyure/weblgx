@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import base64
 import json
 import mimetypes
 
-from odoo import http
-from odoo.exceptions import AccessError
-from odoo.http import request
-from odoo.tools import ustr, file_open
+from weblgx import http
+from weblgx.exceptions import AccessError
+from weblgx.http import request
+from weblgx.tools import ustr, file_open
 
 
 class WebManifest(http.Controller):
@@ -57,7 +57,7 @@ class WebManifest(http.Controller):
         }
         icon_sizes = ['192x192', '512x512']
         manifest['icons'] = [{
-            'src': '/web/static/img/odoo-icon-%s.png' % size,
+            'src': '/web/static/img/weblgx-icon-%s.png' % size,
             'sizes': size,
             'type': 'image/png',
         } for size in icon_sizes]
@@ -87,11 +87,11 @@ class WebManifest(http.Controller):
             return body
 
     def _icon_path(self):
-        return 'web/static/img/odoo-icon-192x192.png'
+        return 'web/static/img/weblgx-icon-192x192.png'
 
     @http.route('/web/offline', type='http', auth='public', methods=['GET'])
     def offline(self):
         """ Returns the offline page delivered by the service worker """
         return request.render('web.webclient_offline', {
-            'odoo_icon': base64.b64encode(file_open(self._icon_path(), 'rb').read())
+            'weblgx_icon': base64.b64encode(file_open(self._icon_path(), 'rb').read())
         })

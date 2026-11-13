@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <!--
     The web_editor.colorpicker template regroups section of colorpicker menu for website customization
@@ -159,7 +159,7 @@
         <t t-set="title">Weblgx Editor Tests</t>
         <t t-set="head">
             <t t-call-assets="web_editor.assets_tests_styles" t-js="false"/>
-            <link rel="stylesheet" href="/web_editor/static/src/js/editor/odoo-editor/test/lib/mocha.css"/>
+            <link rel="stylesheet" href="/web_editor/static/src/js/editor/weblgx-editor/test/lib/mocha.css"/>
             <style type="text/css">
                 #mocha-report b.zws, #mocha-report b.tab {
                     background-color: #833112;
@@ -174,8 +174,8 @@
                 }
             </style>
             <script src="/web_editor/static/lib/DOMPurify.js"></script>
-            <script src="/web_editor/static/src/js/editor/odoo-editor/test/lib/mocha.js"></script>
-            <script src="/web_editor/static/src/js/editor/odoo-editor/test/lib/chai.js"></script>
+            <script src="/web_editor/static/src/js/editor/weblgx-editor/test/lib/mocha.js"></script>
+            <script src="/web_editor/static/src/js/editor/weblgx-editor/test/lib/chai.js"></script>
             <script>mocha.setup('bdd').fullTrace()</script>
             <t t-call-assets="web_editor.mocha_tests"/>
         </t>
@@ -183,4 +183,4 @@
         <div id="editor-test-container"></div>
     </t>
 </template>
-</odoo>
+</weblgx>

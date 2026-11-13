@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 import { ExpressionEditorDialog } from "@web/core/expression_editor_dialog/expression_editor_dialog";
 import { makeDialogTestEnv } from "../helpers/mock_env";
 import { mount, getFixture, nextTick, click } from "../helpers/utils";

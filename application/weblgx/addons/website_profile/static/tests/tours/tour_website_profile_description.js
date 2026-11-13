@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { registry } from "@web/core/registry";
 
@@ -13,7 +13,7 @@ registry.category("web_tour.tours").add('website_profile_description', {
         trigger: "a:contains('EDIT PROFILE')",
     }, {
         content: "Add some content",
-        trigger: ".odoo-editor-editable p",
+        trigger: ".weblgx-editor-editable p",
         run: "text content <p>code here</p>",
     }, {
         content: "Save changes",

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { registry } from "@web/core/registry";
 import { contains } from "@web/../tests/utils";
@@ -122,7 +122,7 @@ registry.category("web_tour.tours").add("mail_template_dynamic_placeholder_tour"
         },
         {
             content: "Insert tesxt inside editable",
-            trigger: ".note-editable.odoo-editor-editable",
+            trigger: ".note-editable.weblgx-editor-editable",
             run(actions) {
                 actions.text(`/`, this.$anchor);
                 document.querySelector(".note-editable").dispatchEvent(
@@ -163,7 +163,7 @@ registry.category("web_tour.tours").add("mail_template_dynamic_placeholder_tour"
         {
             content: "Ensure the editable contain the dynamic placeholder t tag",
             trigger:
-                ".note-editable.odoo-editor-editable t[t-out=\"object.name or '''defValue'''\"]",
+                ".note-editable.weblgx-editor-editable t[t-out=\"object.name or '''defValue'''\"]",
         },
         {
             content: "Discard form changes",

@@ -1,5 +1,5 @@
-from odoo import models
-from odoo.tools import populate
+from weblgx import models
+from weblgx.tools import populate
 
 
 class Filter(models.Model):

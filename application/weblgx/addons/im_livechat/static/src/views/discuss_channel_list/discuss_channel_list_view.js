@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { DiscussChannelListController } from "@im_livechat/views/discuss_channel_list/discuss_channel_list_view_controller";
 

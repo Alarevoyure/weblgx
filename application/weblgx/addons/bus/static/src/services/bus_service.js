@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { _t } from "@web/core/l10n/translation";
@@ -6,7 +6,7 @@ import { Deferred } from "@web/core/utils/concurrency";
 import { registry } from "@web/core/registry";
 import { session } from "@web/session";
 import { isIosApp } from "@web/core/browser/feature_detection";
-import { EventBus } from "@odoo/owl";
+import { EventBus } from "@weblgx/owl";
 
 // List of worker events that should not be broadcasted.
 const INTERNAL_EVENTS = new Set(["initialized", "outdated"]);
@@ -131,7 +131,7 @@ export const busService = {
                     session.websocket_worker_version
                 }`,
                 db: session.db,
-                debug: odoo.debug,
+                debug: weblgx.debug,
                 lastNotificationId: multiTab.getSharedValue("last_notification_id", 0),
                 uid,
                 startTs: startedAt.valueOf(),
@@ -154,8 +154,8 @@ export const busService = {
             const workerClass = isUsingSharedWorker ? browser.SharedWorker : browser.Worker;
             worker = new workerClass(workerURL, {
                 name: isUsingSharedWorker
-                    ? "odoo:websocket_shared_worker"
-                    : "odoo:websocket_worker",
+                    ? "weblgx:websocket_shared_worker"
+                    : "weblgx:websocket_worker",
             });
             worker.addEventListener("error", (e) => {
                 if (!isInitialized && workerClass === browser.SharedWorker) {

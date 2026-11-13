@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ActionPanel } from "@mail/discuss/core/common/action_panel";
 
-import { Component, onWillStart, useExternalListener, useState } from "@odoo/owl";
+import { Component, onWillStart, useExternalListener, useState } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 import { browser } from "@web/core/browser/browser";

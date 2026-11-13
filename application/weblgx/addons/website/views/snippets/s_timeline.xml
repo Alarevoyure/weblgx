@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <!--
 TODO review s_timeline_date XML structure (useless <span> that the editor
@@ -85,4 +85,4 @@ actually removes because it judges them useless)
     <path>website/static/src/snippets/s_timeline/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, useEffect, useRef } from "@odoo/owl";
+import { Component, useEffect, useRef } from "@weblgx/owl";
 import { usePosition } from "@web/core/position_hook";
 
 /**

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { useHotkey } from "@web/core/hotkeys/hotkey_hook";
@@ -17,7 +17,7 @@ import {
 } from "../../helpers/utils";
 import { registerCleanup } from "../../helpers/cleanup";
 
-import { Component, useRef, useState, xml } from "@odoo/owl";
+import { Component, useRef, useState, xml } from "@weblgx/owl";
 const serviceRegistry = registry.category("services");
 
 let env;
@@ -91,7 +91,7 @@ QUnit.test("hotkey handles wrongly formed KeyboardEvent", async (assert) => {
         assert.step("error");
     };
 
-    // fake error service so that the odoo qunit handlers don't think that they need to handle the error
+    // fake error service so that the weblgx qunit handlers don't think that they need to handle the error
     registry.category("services").add("error", { start: () => {} });
     window.addEventListener("error", handler);
     const _onError = window.onerror;

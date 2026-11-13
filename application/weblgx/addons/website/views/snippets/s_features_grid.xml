@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="s_features_grid" name="Features Grid">
     <section class="s_features_grid pt48 pb24">
@@ -73,4 +73,4 @@
     <path>website/static/src/snippets/s_features_grid/000.scss</path>
 </asset>
 
-</odoo>
+</weblgx>

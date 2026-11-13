@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { browser } from "@web/core/browser/browser";
 import { MacroEngine } from "@web/core/macro";
@@ -21,7 +21,7 @@ import {
     patchWithCleanup,
 } from "@web/../tests/helpers/utils";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { session } from "@web/session";
 
 let target, mock;

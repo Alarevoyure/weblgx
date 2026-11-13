@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { booleanToggleField, BooleanToggleField } from "./boolean_toggle_field";

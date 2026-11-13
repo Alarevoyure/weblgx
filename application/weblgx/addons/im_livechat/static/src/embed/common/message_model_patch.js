@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ChatbotStep } from "@im_livechat/embed/common/chatbot/chatbot_step_model";
 

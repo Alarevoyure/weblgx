@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { jsonrpc } from "@web/core/network/rpc_service";
 import { registry } from "@web/core/registry";

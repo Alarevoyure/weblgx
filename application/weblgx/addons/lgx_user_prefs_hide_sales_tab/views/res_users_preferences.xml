@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- L'action ouverte depuis Profil utilisateur doit transmettre une clé de contexte. -->
 <!-- L'onglet sales_purchases vient du formulaire res.partner (délégation res.users/partner_id). -->
-<odoo>
+<weblgx>
     <record id="base.action_res_users_my" model="ir.actions.act_window">
         <field name="context">{'lgx_hide_partner_sales_tab': True}</field>
     </record>
@@ -16,4 +16,4 @@
             </xpath>
         </field>
     </record>
-</odoo>
+</weblgx>

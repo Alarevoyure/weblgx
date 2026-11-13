@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import json
 import random
@@ -8,10 +8,10 @@ from collections import defaultdict
 
 import werkzeug
 
-from odoo import api, exceptions, fields, models, _
-from odoo.exceptions import AccessError, UserError, ValidationError
-from odoo.osv import expression
-from odoo.tools import is_html_empty
+from weblgx import api, exceptions, fields, models, _
+from weblgx.exceptions import AccessError, UserError, ValidationError
+from weblgx.osv import expression
+from weblgx.tools import is_html_empty
 
 
 class Survey(models.Model):

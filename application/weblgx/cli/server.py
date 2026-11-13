@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 """
 OpenERP - Server
@@ -20,17 +20,17 @@ from pathlib import Path
 
 from psycopg2 import ProgrammingError, errorcodes
 
-import odoo
+import weblgx
 
 from . import Command
 
-__author__ = odoo.release.author
-__version__ = odoo.release.version
+__author__ = weblgx.release.author
+__version__ = weblgx.release.version
 
-# Also use the `odoo` logger for the main script.
-_logger = logging.getLogger('odoo')
+# Also use the `weblgx` logger for the main script.
+_logger = logging.getLogger('weblgx')
 
-re._MAXCACHE = 4096  # default is 512, a little too small for odoo
+re._MAXCACHE = 4096  # default is 512, a little too small for weblgx
 
 def check_root_user():
     """Warn if the process's user is 'root' (on POSIX system)."""
@@ -44,7 +44,7 @@ def check_postgres_user():
 
     This function assumes the configuration has been initialized.
     """
-    config = odoo.tools.config
+    config = weblgx.tools.config
     if (config['db_user'] or os.environ.get('PGUSER')) == 'postgres':
         sys.stderr.write("Using the database user 'postgres' is a security risk, aborting.")
         sys.exit(1)
@@ -54,11 +54,11 @@ def report_configuration():
 
     This function assumes the configuration has been initialized.
     """
-    config = odoo.tools.config
-    _logger.info("%s version %s", odoo.release.product_name, __version__)
+    config = weblgx.tools.config
+    _logger.info("%s version %s", weblgx.release.product_name, __version__)
     if os.path.isfile(config.rcfile):
         _logger.info("Using configuration file at " + config.rcfile)
-    _logger.info('addons paths: %s', odoo.addons.__path__)
+    _logger.info('addons paths: %s', weblgx.addons.__path__)
     if config.get('upgrade_path'):
         _logger.info('upgrade path: %s', config['upgrade_path'])
     if config.get('pre_upgrade_scripts'):
@@ -67,14 +67,14 @@ def report_configuration():
     port = config['db_port'] or os.environ.get('PGPORT', 'default')
     user = config['db_user'] or os.environ.get('PGUSER', 'default')
     _logger.info('database: %s@%s:%s', user, host, port)
-    if sys.version_info[:2] > odoo.MAX_PY_VERSION:
+    if sys.version_info[:2] > weblgx.MAX_PY_VERSION:
         _logger.warning("Python %s is not officially supported, please use Python %s instead",
             '.'.join(map(str, sys.version_info[:2])),
-            '.'.join(map(str, odoo.MAX_PY_VERSION))
+            '.'.join(map(str, weblgx.MAX_PY_VERSION))
         )
 
 def rm_pid_file(main_pid):
-    config = odoo.tools.config
+    config = weblgx.tools.config
     if config['pidfile'] and main_pid == os.getpid():
         try:
             os.unlink(config['pidfile'])
@@ -86,15 +86,15 @@ def setup_pid_file():
 
     This function assumes the configuration has been initialized.
     """
-    config = odoo.tools.config
-    if not odoo.evented and config['pidfile']:
+    config = weblgx.tools.config
+    if not weblgx.evented and config['pidfile']:
         pid = os.getpid()
         with open(config['pidfile'], 'w') as fd:
             fd.write(str(pid))
         atexit.register(rm_pid_file, pid)
 
 def export_translation():
-    config = odoo.tools.config
+    config = weblgx.tools.config
     dbname = config['db_name']
 
     if config["language"]:
@@ -110,31 +110,31 @@ def export_translation():
         fileformat = "po"
 
     with open(config["translate_out"], "wb") as buf:
-        registry = odoo.modules.registry.Registry.new(dbname)
+        registry = weblgx.modules.registry.Registry.new(dbname)
         with registry.cursor() as cr:
-            odoo.tools.trans_export(config["language"],
+            weblgx.tools.trans_export(config["language"],
                 config["translate_modules"] or ["all"], buf, fileformat, cr)
 
     _logger.info('translation file written successfully')
 
 def import_translation():
-    config = odoo.tools.config
+    config = weblgx.tools.config
     overwrite = config["overwrite_existing_translations"]
     dbname = config['db_name']
 
-    registry = odoo.modules.registry.Registry.new(dbname)
+    registry = weblgx.modules.registry.Registry.new(dbname)
     with registry.cursor() as cr:
-        translation_importer = odoo.tools.translate.TranslationImporter(cr)
+        translation_importer = weblgx.tools.translate.TranslationImporter(cr)
         translation_importer.load_file(config["translate_in"], config["language"])
         translation_importer.save(overwrite=overwrite)
 
 def main(args):
     check_root_user()
-    odoo.tools.config.parse_config(args)
+    weblgx.tools.config.parse_config(args)
     check_postgres_user()
     report_configuration()
 
-    config = odoo.tools.config
+    config = weblgx.tools.config
 
     # the default limit for CSV fields in the module is 128KiB, which is not
     # quite sufficient to import images to store in attachment. 500MiB is a
@@ -146,7 +146,7 @@ def main(args):
         preload = config['db_name'].split(',')
         for db_name in preload:
             try:
-                odoo.service.db._create_empty_database(db_name)
+                weblgx.service.db._create_empty_database(db_name)
                 config['init']['base'] = True
             except ProgrammingError as err:
                 if err.pgcode == errorcodes.INSUFFICIENT_PRIVILEGE:
@@ -157,7 +157,7 @@ def main(args):
                                  "skipping auto-creation: %s", db_name, err)
                 else:
                     raise err
-            except odoo.service.db.DatabaseExists:
+            except weblgx.service.db.DatabaseExists:
                 pass
 
     if config["translate_out"]:
@@ -171,16 +171,16 @@ def main(args):
     # This needs to be done now to ensure the use of the multiprocessing
     # signaling mechanism for registries loaded with -d
     if config['workers']:
-        odoo.multi_process = True
+        weblgx.multi_process = True
 
     stop = config["stop_after_init"]
 
     setup_pid_file()
-    rc = odoo.service.server.start(preload=preload, stop=stop)
+    rc = weblgx.service.server.start(preload=preload, stop=stop)
     sys.exit(rc)
 
 class Server(Command):
-    """Start the odoo server (default command)"""
+    """Start the weblgx server (default command)"""
     def run(self, args):
-        odoo.tools.config.parser.prog = f'{Path(sys.argv[0]).name} {self.name}'
+        weblgx.tools.config.parser.prog = f'{Path(sys.argv[0]).name} {self.name}'
         main(args)

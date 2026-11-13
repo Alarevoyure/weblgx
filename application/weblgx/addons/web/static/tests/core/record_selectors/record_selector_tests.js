@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { RecordSelector } from "@web/core/record_selectors/record_selector";
 import { makeTestEnv } from "../../helpers/mock_env";
@@ -6,7 +6,7 @@ import { getFixture, mount, click } from "../../helpers/utils";
 import { registry } from "@web/core/registry";
 import { hotkeyService } from "@web/core/hotkeys/hotkey_service";
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { nameService } from "@web/core/name_service";
 import { dialogService } from "@web/core/dialog/dialog_service";
 import { MainComponentsContainer } from "@web/core/main_components_container";

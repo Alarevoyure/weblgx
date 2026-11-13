@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { isValidEmail } from "@im_livechat/embed/common/misc";
 
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 import { useService } from "@web/core/utils/hooks";
 

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { createWebClient, doAction, getActionManagerServerData } from "./../helpers";
@@ -6,7 +6,7 @@ import { click, getFixture, nextTick } from "../../helpers/utils";
 import { errorService } from "@web/core/errors/error_service";
 import { ConnectionLostError } from "@web/core/network/rpc_service";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 
 let serverData;
 let target;

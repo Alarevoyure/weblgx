@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import base64
 import functools
@@ -11,17 +11,17 @@ import unicodedata
 try:
     from werkzeug.utils import send_file
 except ImportError:
-    from odoo.tools._vendor.send_file import send_file
+    from weblgx.tools._vendor.send_file import send_file
 
-import odoo
-import odoo.modules.registry
-from odoo import SUPERUSER_ID, _, http
-from odoo.addons.base.models.assetsbundle import ANY_UNIQUE
-from odoo.exceptions import AccessError, UserError
-from odoo.http import request, Response
-from odoo.tools import file_open, file_path, replace_exceptions, str2bool
-from odoo.tools.image import image_guess_size_from_field_name
-from odoo.tools.mimetypes import guess_mimetype
+import weblgx
+import weblgx.modules.registry
+from weblgx import SUPERUSER_ID, _, http
+from weblgx.addons.base.models.assetsbundle import ANY_UNIQUE
+from weblgx.exceptions import AccessError, UserError
+from weblgx.http import request, Response
+from weblgx.tools import file_open, file_path, replace_exceptions, str2bool
+from weblgx.tools.image import image_guess_size_from_field_name
+from weblgx.tools.mimetypes import guess_mimetype
 
 _logger = logging.getLogger(__name__)
 
@@ -51,10 +51,10 @@ class Binary(http.Controller):
 
     @http.route('/web/filestore/<path:_path>', type='http', auth='none')
     def content_filestore(self, _path):
-        if odoo.tools.config['x_sendfile']:
+        if weblgx.tools.config['x_sendfile']:
             # pylint: disable=logging-format-interpolation
             _logger.error(BAD_X_SENDFILE_ERROR.format(
-                data_dir=odoo.tools.config['data_dir']
+                data_dir=weblgx.tools.config['data_dir']
             ))
         raise http.request.not_found()
 
@@ -244,14 +244,14 @@ class Binary(http.Controller):
         imgname = 'logo'
         imgext = '.png'
         dbname = request.db
-        uid = (request.session.uid if dbname else None) or odoo.SUPERUSER_ID
+        uid = (request.session.uid if dbname else None) or weblgx.SUPERUSER_ID
 
         if not dbname:
             response = http.Stream.from_path(file_path('web/static/img/logo.png')).get_response()
         else:
             try:
                 # create an empty registry
-                registry = odoo.modules.registry.Registry(dbname)
+                registry = weblgx.modules.registry.Registry(dbname)
                 with registry.cursor() as cr:
                     company = int(kw['company']) if kw and kw.get('company') else False
                     if company:

@@ -1,10 +1,10 @@
-/**@odoo-module */
+/**@weblgx-module */
 
 import { loadCSS, loadJS } from "@web/core/assets";
 import { useService } from "@web/core/utils/hooks";
 import { useActionLinks } from "@web/views/view_hook";
 
-import { Component, markup, onWillStart, useRef, xml } from "@odoo/owl";
+import { Component, markup, onWillStart, useRef, xml } from "@weblgx/owl";
 import { useTransition } from "@web/core/transition";
 
 export class OnboardingBanner extends Component {

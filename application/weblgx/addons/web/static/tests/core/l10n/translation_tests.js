@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registerCleanup } from "@web/../tests/helpers/cleanup";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
@@ -10,7 +10,7 @@ import { translatedTerms, translationLoaded, _t } from "@web/core/l10n/translati
 import { registry } from "@web/core/registry";
 import { session } from "@web/session";
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 const { DateTime, Settings } = luxon;
 
 const terms = { Hello: "Bonjour" };

@@ -3,10 +3,10 @@ import time
 
 from passlib.totp import TOTP
 
-from odoo import http
-from odoo.addons.auth_totp.controllers.home import Home
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
-from odoo.tests import tagged
+from weblgx import http
+from weblgx.addons.auth_totp.controllers.home import Home
+from weblgx.addons.base.tests.common import HttpCaseWithUserPortal
+from weblgx.tests import tagged
 
 _logger = logging.getLogger(__name__)
 

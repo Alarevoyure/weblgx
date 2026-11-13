@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { ViewScaleSelector } from "@web/views/view_components/view_scale_selector";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { click, getFixture, mount } from "@web/../tests/helpers/utils";

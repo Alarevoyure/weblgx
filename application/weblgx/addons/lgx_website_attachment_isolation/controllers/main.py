@@ -3,12 +3,12 @@
 import re
 from urllib.parse import unquote
 
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.tools.translate import _
+from weblgx.exceptions import UserError
+from weblgx.http import request
+from weblgx.tools.translate import _
 
-from odoo.addons.web_editor.controllers.main import Web_Editor as WebEditorController
-from odoo.addons.web_editor.controllers.main import get_existing_attachment
+from weblgx.addons.web_editor.controllers.main import Web_Editor as WebEditorController
+from weblgx.addons.web_editor.controllers.main import get_existing_attachment
 
 
 class WebEditor(WebEditorController):

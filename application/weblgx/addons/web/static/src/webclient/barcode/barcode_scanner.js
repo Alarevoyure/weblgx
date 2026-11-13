@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 /* global BarcodeDetector */
 
 import { browser } from "@web/core/browser/browser";
@@ -8,7 +8,7 @@ import { loadJS } from "@web/core/assets";
 import { isVideoElementReady, buildZXingBarcodeDetector } from "./ZXingBarcodeDetector";
 import { CropOverlay } from "./crop_overlay";
 
-import { Component, onMounted, onWillStart, onWillUnmount, status, useRef, useState } from "@odoo/owl";
+import { Component, onMounted, onWillStart, onWillUnmount, status, useRef, useState } from "@weblgx/owl";
 import { _t } from "@web/core/l10n/translation";
 
 export class BarcodeDialog extends Component {

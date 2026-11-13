@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data>
 
         <record id="base.language_install_view_form_lang_switch" model="ir.ui.view">
@@ -50,4 +50,4 @@
             <field name="target">new</field>
         </record>
     </data>
-</odoo>
+</weblgx>

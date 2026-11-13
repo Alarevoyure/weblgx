@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 """ Domain expression processing
 
@@ -123,9 +123,9 @@ from datetime import date, datetime, time
 
 import psycopg2.sql
 
-import odoo.modules
-from odoo.models import BaseModel, check_property_field_value_name
-from odoo.tools import (
+import weblgx.modules
+from weblgx.models import BaseModel, check_property_field_value_name
+from weblgx.tools import (
     pycompat, pattern_to_translated_trigram_pattern, value_to_translated_trigram_pattern,
     Query, SQL,
 )
@@ -764,7 +764,7 @@ def _unaccent_wrapper(x):
     return 'unaccent({})'.format(x)
 
 def get_unaccent_wrapper(cr):
-    if odoo.registry(cr.dbname).has_unaccent:
+    if weblgx.registry(cr.dbname).has_unaccent:
         return _unaccent_wrapper
     return lambda x: x
 

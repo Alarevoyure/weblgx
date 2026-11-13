@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <template id="mail.discuss_public_channel_template" name="Discuss Public Template">&lt;!DOCTYPE html&gt;
         <html class="h-100">
             <head>
@@ -15,7 +15,7 @@
                         debug: "<t t-out="debug"/>",
                         discuss_data: <t t-out="json.dumps(data)"/>
                     };
-                    window.odoo = window.weblgx;
+                    window.weblgx = window.weblgx;
                     {
                         const { user_context,  cache_hashes } = weblgx_session_info;
                         fetch(`/web/webclient/translations/${cache_hashes.translations}?lang=${user_context.lang}`);
@@ -34,4 +34,4 @@
             </body>
         </html>
     </template>
-</odoo>
+</weblgx>

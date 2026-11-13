@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { memoize } from "./utils/functions";
 import { browser } from "./browser/browser";
 import { registry } from "./registry";
 import { session } from "@web/session";
-import { Component, xml, onWillStart, App } from "@odoo/owl";
+import { Component, xml, onWillStart, App } from "@weblgx/owl";
 
 /**
  * This export is done only in order to modify the behavior of the exported
@@ -198,7 +198,7 @@ assets.loadBundle = async function loadBundle(desc) {
             );
         }
     }
-    odoo.loader.checkAndReportErrors();
+    weblgx.loader.checkAndReportErrors();
 };
 
 export const loadJS = function (url) {
@@ -219,7 +219,7 @@ export const loadBundle = function (desc) {
  * This can be imported by the modules in order to use it when loading the
  * application and the components.
  */
-export const templates = new DOMParser().parseFromString("<odoo/>", "text/xml");
+export const templates = new DOMParser().parseFromString("<weblgx/>", "text/xml");
 /**
  * Each template is registered in xml_templates registry.
  * When a new template is added in the registry, it's also added to each owl App.

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 /**
  * Tweaks the website rendering so that the old browsers correctly render the

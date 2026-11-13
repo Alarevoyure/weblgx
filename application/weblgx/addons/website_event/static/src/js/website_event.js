@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
 import { _t } from "@web/core/l10n/translation";
@@ -18,7 +18,7 @@ var EventRegistrationForm = publicWidget.Widget.extend({
         this.notification = this.bindService("notification");
         // dynamic get rather than import as we don't depend on this module
         if (session.turnstile_site_key) {
-            const { turnStile } = odoo.loader.modules.get("@website_cf_turnstile/js/turnstile");
+            const { turnStile } = weblgx.loader.modules.get("@website_cf_turnstile/js/turnstile");
             this._turnstile = turnStile;
         }
     },

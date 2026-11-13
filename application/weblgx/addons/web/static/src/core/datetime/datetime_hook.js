@@ -1,6 +1,6 @@
-/** @odoo-module */
+/** @weblgx-module */
 
-import { onPatched, onWillRender, useEffect, useRef } from "@odoo/owl";
+import { onPatched, onWillRender, useEffect, useRef } from "@weblgx/owl";
 import { usePopover } from "@web/core/popover/popover_hook";
 import { useService } from "@web/core/utils/hooks";
 

@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from freezegun import freeze_time
 from unittest.mock import patch
 
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.website_forum.tests.common import TestForumCommon
-from odoo.tests import tagged
+from weblgx.addons.http_routing.models.ir_http import slug
+from weblgx.addons.website_forum.tests.common import TestForumCommon
+from weblgx.tests import tagged
 
 
 @tagged('post_install', '-at_install')

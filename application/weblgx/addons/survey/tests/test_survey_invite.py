@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from lxml import etree
 
-from odoo import fields, Command
-from odoo.addons.survey.tests import common
-from odoo.addons.mail.tests.common import MailCommon
-from odoo.exceptions import UserError
-from odoo.tests import Form
-from odoo.tests.common import users
+from weblgx import fields, Command
+from weblgx.addons.survey.tests import common
+from weblgx.addons.mail.tests.common import MailCommon
+from weblgx.exceptions import UserError
+from weblgx.tests import Form
+from weblgx.tests.common import users
 
 
 class TestSurveyInvite(common.TestSurveyCommon, MailCommon):
@@ -360,11 +360,11 @@ class TestSurveyInvite(common.TestSurveyCommon, MailCommon):
         invite_form = Form(self.env[action['res_model']].with_context(action['context']))
         invite_form.send_email = True
         invite_form.template_id = mail_template
-        invite_form.emails = 'test_survey_invite_with_template_attachment@odoo.gov'
+        invite_form.emails = 'test_survey_invite_with_template_attachment@weblgx.gov'
         invite = invite_form.save()
         with self.mock_mail_gateway():
             invite.action_invite()
 
         self.assertEqual(self.env['mail.mail'].sudo().search([
-            ('email_to', '=', 'test_survey_invite_with_template_attachment@odoo.gov')
+            ('email_to', '=', 'test_survey_invite_with_template_attachment@weblgx.gov')
         ]).attachment_ids, mail_template.attachment_ids)

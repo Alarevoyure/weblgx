@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { makeFakeDialogService } from "@web/../tests/helpers/mock_services";
 import { click, editInput, nextTick } from "@web/../tests/helpers/utils";

@@ -1,8 +1,8 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { Dialog } from "@web/core/dialog/dialog";
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class AskRecurrenceUpdatePolicyDialog extends Component {
     setup() {

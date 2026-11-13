@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { TEST_USER_IDS } from "@bus/../tests/helpers/test_constants";
 import { patchWebsocketWorkerWithCleanup } from "@bus/../tests/helpers/mock_websocket";

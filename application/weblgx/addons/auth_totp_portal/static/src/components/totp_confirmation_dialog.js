@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { useEffect } from "@odoo/owl";
+import { useEffect } from "@weblgx/owl";
 import { InputConfirmationDialog } from "@portal/js/components/input_confirmation_dialog/input_confirmation_dialog";
 import { browser } from "@web/core/browser/browser";
 import { _t } from "@web/core/l10n/translation";

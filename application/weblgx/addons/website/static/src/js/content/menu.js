@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
 import animations from "@website/js/content/snippets.animation";
@@ -59,9 +59,9 @@ const BaseAnimatedHeader = animations.Animation.extend({
             .on("hide.bs.collapse.BaseAnimatedHeader", enableScroll);
 
         // We can rely on transitionend which is well supported but not on
-        // transitionstart, so we listen to a custom odoo event.
+        // transitionstart, so we listen to a custom weblgx event.
         this._transitionCount = 0;
-        this.$el.on('odoo-transitionstart.BaseAnimatedHeader', () => {
+        this.$el.on('weblgx-transitionstart.BaseAnimatedHeader', () => {
             this.el.classList.add('o_transitioning');
             this._adaptToHeaderChangeLoop(1);
         });
@@ -98,7 +98,7 @@ const BaseAnimatedHeader = animations.Animation.extend({
      * @private
      */
     _adaptToHeaderChange: function () {
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerUnactive();
+        this.options.wysiwyg && this.options.wysiwyg.weblgxEditor.observerUnactive();
         this._updateMainPaddingTop();
         // Take menu into account when `dom.scrollTo()` is used whenever it is
         // visible - be it floating, fully displayed or partially hidden.
@@ -107,7 +107,7 @@ const BaseAnimatedHeader = animations.Animation.extend({
         for (const callback of extraMenuUpdateCallbacks) {
             callback();
         }
-        this.options.wysiwyg && this.options.wysiwyg.odooEditor.observerActive();
+        this.options.wysiwyg && this.options.wysiwyg.weblgxEditor.observerActive();
     },
     /**
      * @private
@@ -241,7 +241,7 @@ const BaseAnimatedHeader = animations.Animation.extend({
             this.scrollHeightTooShort = headerIsScrolled && this._scrollHeightTooShort();
             if (!this.scrollHeightTooShort) {
                 this.el.classList.toggle('o_header_is_scrolled', headerIsScrolled);
-                this.$el.trigger('odoo-transitionstart');
+                this.$el.trigger('weblgx-transitionstart');
                 this.headerIsScrolled = headerIsScrolled;
             }
         }
@@ -516,7 +516,7 @@ const BaseDisappearingHeader = publicWidget.registry.FixedHeader.extend({
      * @private
      */
     _hideHeader: function () {
-        this.$el.trigger('odoo-transitionstart');
+        this.$el.trigger('weblgx-transitionstart');
     },
     /**
      * @override
@@ -528,7 +528,7 @@ const BaseDisappearingHeader = publicWidget.registry.FixedHeader.extend({
      * @private
      */
     _showHeader: function () {
-        this.$el.trigger('odoo-transitionstart');
+        this.$el.trigger('weblgx-transitionstart');
     },
 
     //--------------------------------------------------------------------------
@@ -822,7 +822,7 @@ publicWidget.registry.MegaMenuDropdown = publicWidget.Widget.extend({
         if (hasMegaMenu) {
             return;
         }
-        this.options.wysiwyg?.odooEditor.observerUnactive("moveMegaMenu");
+        this.options.wysiwyg?.weblgxEditor.observerUnactive("moveMegaMenu");
         const isMobileNavbar = !!megaMenuToggleEl.closest(".o_header_mobile");
         const currentNavbarToggleEls = isMobileNavbar ?
             this.mobileMegaMenuToggleEls : this.desktopMegaMenuToggleEls;
@@ -835,7 +835,7 @@ publicWidget.registry.MegaMenuDropdown = publicWidget.Widget.extend({
         // so everything is in a consistent state.
         Dropdown.getOrCreateInstance(previousMegaMenuToggleEl).hide();
         megaMenuToggleEl.insertAdjacentElement("afterend", megaMenuEl);
-        this.options.wysiwyg?.odooEditor.observerActive("moveMegaMenu");
+        this.options.wysiwyg?.weblgxEditor.observerActive("moveMegaMenu");
     },
 
     //--------------------------------------------------------------------------
@@ -933,19 +933,19 @@ publicWidget.registry.HeaderGeneral = publicWidget.Widget.extend({
      * @private
      */
     _onCollapseShow() {
-        this.options.wysiwyg?.odooEditor.observerUnactive("addCollapseClass");
+        this.options.wysiwyg?.weblgxEditor.observerUnactive("addCollapseClass");
         this.el.classList.add('o_top_menu_collapse_shown');
-        this.options.wysiwyg?.odooEditor.observerActive("addCollapseClass");
+        this.options.wysiwyg?.weblgxEditor.observerActive("addCollapseClass");
     },
     /**
      * @private
      */
     _onCollapseHidden() {
-        this.options.wysiwyg?.odooEditor.observerUnactive("removeCollapseClass");
+        this.options.wysiwyg?.weblgxEditor.observerUnactive("removeCollapseClass");
         if (!this.el.querySelector("#top_menu_collapse_mobile.show")) {
             this.el.classList.remove('o_top_menu_collapse_shown');
         }
-        this.options.wysiwyg?.odooEditor.observerActive("removeCollapseClass");
+        this.options.wysiwyg?.weblgxEditor.observerActive("removeCollapseClass");
     },
     /**
      * @private

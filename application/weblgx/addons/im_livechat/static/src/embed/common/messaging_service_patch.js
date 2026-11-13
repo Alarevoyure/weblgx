@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 import { SESSION_STATE } from "@im_livechat/embed/common/livechat_service";
 
 import { Messaging } from "@mail/core/common/messaging_service";

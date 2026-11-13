@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useService } from "@web/core/utils/hooks";
-import { Component, onWillStart } from "@odoo/owl";
+import { Component, onWillStart } from "@weblgx/owl";
 import { useOpenChat } from "@mail/core/web/open_chat_hook";
 
 export class AvatarCardPopover extends Component {

@@ -2,8 +2,8 @@
 import logging
 import re
 
-from odoo import _, models, tools
-from odoo import SUPERUSER_ID
+from weblgx import _, models, tools
+from weblgx import SUPERUSER_ID
 
 _logger = logging.getLogger(__name__)
 

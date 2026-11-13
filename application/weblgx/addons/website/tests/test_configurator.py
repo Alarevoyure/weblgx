@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from unittest.mock import patch
 
-import odoo.tests
+import weblgx.tests
 
-class TestConfiguratorCommon(odoo.tests.HttpCase):
+class TestConfiguratorCommon(weblgx.tests.HttpCase):
 
     def _theme_upgrade_upstream(self):
         # patch to prevent module install/upgrade during tests
@@ -42,13 +42,13 @@ class TestConfiguratorCommon(odoo.tests.HttpCase):
             elif '/api/olg/1/generate_placeholder' in endpoint:
                 return {"a non existing placeholder": "😠", 'Catchy Headline': 'Welcome to XXXX - Your Super test'}
 
-        iap_patch = patch('odoo.addons.website.models.website.jsonrpc', iap_jsonrpc_mocked_configurator)
+        iap_patch = patch('weblgx.addons.website.models.website.jsonrpc', iap_jsonrpc_mocked_configurator)
         self.startPatcher(iap_patch)
 
-        patcher = patch('odoo.addons.website.models.ir_module_module.IrModuleModule._theme_upgrade_upstream', wraps=self._theme_upgrade_upstream)
+        patcher = patch('weblgx.addons.website.models.ir_module_module.IrModuleModule._theme_upgrade_upstream', wraps=self._theme_upgrade_upstream)
         self.startPatcher(patcher)
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@weblgx.tests.common.tagged('post_install', '-at_install')
 class TestConfiguratorTranslation(TestConfiguratorCommon):
 
     def test_01_configurator_translation(self):

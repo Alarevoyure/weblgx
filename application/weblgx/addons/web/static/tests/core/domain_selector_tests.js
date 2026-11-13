@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {
     click,
@@ -11,7 +11,7 @@ import {
     patchTimeZone,
     patchWithCleanup,
 } from "../helpers/utils";
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { DomainSelector } from "@web/core/domain_selector/domain_selector";
 import { fieldService } from "@web/core/field_service";
 import { hotkeyService } from "@web/core/hotkeys/hotkey_service";

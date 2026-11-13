@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Web Editor',
@@ -34,7 +34,7 @@ Weblgx Web Editor widget.
             'web/static/lib/bootstrap/scss/_variables.scss',
 
             'web/static/src/libs/fontawesome/css/font-awesome.css',
-            'web/static/lib/odoo_ui_icons/*',
+            'web/static/lib/weblgx_ui_icons/*',
             'web/static/lib/select2/select2.css',
             'web/static/lib/select2-bootstrap-css/select2-bootstrap.css',
             'web/static/src/webclient/navbar/navbar.scss',
@@ -50,7 +50,7 @@ Weblgx Web Editor widget.
             'web/static/src/module_loader.js',
             'web/static/src/session.js',
             'web/static/lib/owl/owl.js',
-            'web/static/lib/owl/odoo_module.js',
+            'web/static/lib/owl/weblgx_module.js',
             'web/static/lib/jquery/jquery.js',
             'web/static/lib/popper/popper.js',
             'web/static/lib/bootstrap/js/dist/dom/data.js',
@@ -75,24 +75,24 @@ Weblgx Web Editor widget.
             'web/static/src/legacy/js/libs/jquery.js',
             'web/static/src/core/registry.js',
 
-            # odoo-editor
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/utils.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/constants.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/align.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/commands.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/deleteBackward.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/deleteForward.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/enter.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/shiftEnter.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/shiftTab.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/tab.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/toggleList.js',
+            # weblgx-editor
+            'web_editor/static/src/js/editor/weblgx-editor/src/utils/utils.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/utils/constants.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/align.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/commands.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/deleteBackward.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/deleteForward.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/enter.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/shiftEnter.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/shiftTab.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/tab.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/toggleList.js',
 
-            # odoo utils
+            # weblgx utils
             'web_editor/static/src/scss/bootstrap_overridden.scss',
             'web/static/src/scss/pre_variables.scss',
             'web/static/lib/bootstrap/scss/_variables.scss',
-            'web_editor/static/src/js/editor/odoo-editor/src/style.scss',
+            'web_editor/static/src/js/editor/weblgx-editor/src/style.scss',
 
             # integration
             'web_editor/static/src/scss/wysiwyg.scss',
@@ -111,8 +111,8 @@ Weblgx Web Editor widget.
         ],
         'web_editor.assets_tests_styles': [
             ('include', 'web._assets_helpers'),
-            'web_editor/static/src/js/editor/odoo-editor/src/base_style.scss',
-            'web_editor/static/src/js/editor/odoo-editor/src/checklist.scss',
+            'web_editor/static/src/js/editor/weblgx-editor/src/base_style.scss',
+            'web_editor/static/src/js/editor/weblgx-editor/src/checklist.scss',
         ],
         'web_editor.assets_wysiwyg': [
             # legacy stuff that are no longer in assets_backend
@@ -134,23 +134,23 @@ Weblgx Web Editor widget.
             'web_editor/static/lib/webgl-image-filter/webgl-image-filter.js',
             'web_editor/static/lib/DOMPurify.js',
 
-            # odoo-editor
-            'web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/constants.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/sanitize.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/serialize.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/tablepicker/TablePicker.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/powerbox/patienceDiff.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/powerbox/Powerbox.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/align.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/commands.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/deleteBackward.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/deleteForward.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/enter.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/shiftEnter.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/shiftTab.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/tab.js',
-            'web_editor/static/src/js/editor/odoo-editor/src/commands/toggleList.js',
+            # weblgx-editor
+            'web_editor/static/src/js/editor/weblgx-editor/src/WeblgxEditor.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/utils/constants.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/utils/sanitize.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/utils/serialize.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/tablepicker/TablePicker.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/powerbox/patienceDiff.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/powerbox/Powerbox.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/align.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/commands.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/deleteBackward.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/deleteForward.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/enter.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/shiftEnter.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/shiftTab.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/tab.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/commands/toggleList.js',
 
             # utils
             'web_editor/static/src/js/editor/drag_and_drop.js',
@@ -161,13 +161,13 @@ Weblgx Web Editor widget.
             'web_editor/static/src/js/wysiwyg/conflict_dialog.xml',
             'web_editor/static/src/js/wysiwyg/get_color_picker_template_service.js',
 
-            # odoo utils
+            # weblgx utils
             ('include', 'web._assets_helpers'),
 
             'web_editor/static/src/scss/bootstrap_overridden.scss',
             'web/static/src/scss/pre_variables.scss',
             'web/static/lib/bootstrap/scss/_variables.scss',
-            'web_editor/static/src/js/editor/odoo-editor/src/style.scss',
+            'web_editor/static/src/js/editor/weblgx-editor/src/style.scss',
 
             # integration
             'web_editor/static/src/scss/wysiwyg.scss',
@@ -198,10 +198,10 @@ Weblgx Web Editor widget.
             ('include', 'web_editor.assets_wysiwyg'),
         ],
         'web.assets_backend': [
-            'web_editor/static/src/js/editor/odoo-editor/src/base_style.scss',
+            'web_editor/static/src/js/editor/weblgx-editor/src/base_style.scss',
             'web_editor/static/lib/vkbeautify/**/*',
             'web_editor/static/src/js/common/**/*',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/utils.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/utils/utils.js',
             'web_editor/static/src/js/wysiwyg/fonts.js',
 
             ('include', 'web_editor.assets_media_dialog'),
@@ -214,9 +214,9 @@ Weblgx Web Editor widget.
             'web_editor/static/src/components/history_dialog/**/*',
         ],
         "web.assets_web_dark": [
-            'web_editor/static/src/scss/odoo-editor/powerbox.dark.scss',
-            'web_editor/static/src/scss/odoo-editor/tablepicker.dark.scss',
-            'web_editor/static/src/scss/odoo-editor/tableui.dark.scss',
+            'web_editor/static/src/scss/weblgx-editor/powerbox.dark.scss',
+            'web_editor/static/src/scss/weblgx-editor/tablepicker.dark.scss',
+            'web_editor/static/src/scss/weblgx-editor/tableui.dark.scss',
             'web_editor/static/src/scss/wysiwyg.dark.scss',
             'web_editor/static/src/scss/web_editor.common.dark.scss',
         ],
@@ -229,9 +229,9 @@ Weblgx Web Editor widget.
 
             ('include', 'web_editor.assets_media_dialog'),
 
-            'web_editor/static/src/js/editor/odoo-editor/src/base_style.scss',
+            'web_editor/static/src/js/editor/weblgx-editor/src/base_style.scss',
             'web_editor/static/src/js/common/**/*',
-            'web_editor/static/src/js/editor/odoo-editor/src/utils/utils.js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/utils/utils.js',
             'web_editor/static/src/js/wysiwyg/fonts.js',
 
             'web_editor/static/src/scss/web_editor.common.scss',
@@ -240,7 +240,7 @@ Weblgx Web Editor widget.
             'web_editor/static/src/js/frontend/loadWysiwygFromTextarea.js',
         ],
         'web.report_assets_common': [
-            'web_editor/static/src/js/editor/odoo-editor/src/base_style.scss',
+            'web_editor/static/src/js/editor/weblgx-editor/src/base_style.scss',
             'web_editor/static/src/scss/bootstrap_overridden.scss',
             'web_editor/static/src/scss/web_editor.common.scss',
         ],
@@ -273,16 +273,16 @@ Weblgx Web Editor widget.
             ('include', 'web_editor.backend_assets_wysiwyg'),
 
             'web_editor/static/tests/**/*',
-            'web_editor/static/src/js/editor/odoo-editor/test/utils.js'
+            'web_editor/static/src/js/editor/weblgx-editor/test/utils.js'
         ],
         'web_editor.mocha_tests': [
             'web/static/src/module_loader.js',
             # insert module dependencies here
             'web/static/src/core/utils/concurrency.js',
 
-            'web_editor/static/src/js/editor/odoo-editor/src/**/*js',
-            'web_editor/static/src/js/editor/odoo-editor/test/spec/*js',
-            'web_editor/static/src/js/editor/odoo-editor/test/*js',
+            'web_editor/static/src/js/editor/weblgx-editor/src/**/*js',
+            'web_editor/static/src/js/editor/weblgx-editor/test/spec/*js',
+            'web_editor/static/src/js/editor/weblgx-editor/test/*js',
         ],
     },
     'auto_install': True,

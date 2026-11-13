@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { TourError } from "@web_tour/tour_service/tour_utils";
 import wTourUtils from '@website/js/tours/tour_utils';

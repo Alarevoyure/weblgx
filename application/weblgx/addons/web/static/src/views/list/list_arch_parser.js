@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import { Field } from "@web/views/fields/field";
 import { visitXML } from "@web/core/utils/xml";

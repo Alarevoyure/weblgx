@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import psycopg2
 
-from odoo.exceptions import UserError
-from odoo.tests import tagged
-from odoo.tests.common import TransactionCase
-from odoo.tools import mute_logger
+from weblgx.exceptions import UserError
+from weblgx.tests import tagged
+from weblgx.tests.common import TransactionCase
+from weblgx.tools import mute_logger
 
 
 @tagged('post_install', '-at_install')
@@ -17,7 +17,7 @@ class TestAnalyticPlanOperations(TransactionCase):
         self.env.cr.execute(f"SELECT {column} FROM account_analytic_line LIMIT 1")
 
         plan.unlink()
-        with self.assertRaises(psycopg2.errors.UndefinedColumn), mute_logger('odoo.sql_db'):
+        with self.assertRaises(psycopg2.errors.UndefinedColumn), mute_logger('weblgx.sql_db'):
             # column has been deleted
             self.env.cr.execute(f"SELECT {column} FROM account_analytic_line LIMIT 1")
 

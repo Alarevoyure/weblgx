@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 # pylint: disable=sql-injection
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ import psycopg2
 
 from .misc import named_to_positional_printf
 
-_schema = logging.getLogger('odoo.schema')
+_schema = logging.getLogger('weblgx.schema')
 
 IDENT_RE = re.compile(r'^[a-z0-9_][a-z0-9_$\-]*$', re.I)
 

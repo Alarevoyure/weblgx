@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Wil Weblgx, 2024\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgid "Alt Text for the Step Image"
 msgstr "Alt Texte pour de l'image de l'étape"
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding_step.py:0
 #, python-format
 msgid ""
@@ -203,7 +203,7 @@ msgid "Last Updated on"
 msgstr "Mis à jour le"
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding_step.py:0
 #: model_terms:ir.ui.view,arch_db:onboarding.onboarding_step
 #, python-format
@@ -237,7 +237,7 @@ msgstr ""
 "de l'étape, par ex. action_open_onboarding_1_step_1"
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding.py:0
 #, python-format
 msgid "Nice work! Your configuration is done."
@@ -383,7 +383,7 @@ msgid "Show when impossible to load the image"
 msgstr "Afficher quand il est impossible de charger l'image"
 
 #. module: onboarding
-#. odoo-python
+#. weblgx-python
 #: code:addons/onboarding/models/onboarding_onboarding_step.py:0
 #, python-format
 msgid "Step Completed!"

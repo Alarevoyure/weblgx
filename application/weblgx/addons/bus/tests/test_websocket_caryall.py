@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import gc
 import json
@@ -10,8 +10,8 @@ from threading import Event
 from unittest.mock import patch
 from weakref import WeakSet
 
-from odoo.api import Environment
-from odoo.tests import common, new_test_user
+from weblgx.api import Environment
+from weblgx.tests import common, new_test_user
 from .common import WebsocketCase
 from .. import websocket as websocket_module
 from ..models.bus import dispatch
@@ -232,11 +232,11 @@ class TestWebsocketCaryall(WebsocketCase):
 
     def test_no_cursor_when_no_callback_for_lifecycle_event(self):
         with patch.object(Websocket, '_Websocket__event_callbacks', defaultdict(set)):
-            with patch('odoo.addons.bus.websocket.acquire_cursor') as mock:
+            with patch('weblgx.addons.bus.websocket.acquire_cursor') as mock:
                 self.websocket_connect()
                 self.assertFalse(mock.called)
 
-    @patch.dict(os.environ, {"ODOO_BUS_PUBLIC_SAMESITE_WS": "True"})
+    @patch.dict(os.environ, {"WEBLGX_BUS_PUBLIC_SAMESITE_WS": "True"})
     def test_public_configuration(self):
         new_test_user(self.env, login='test_user', password='Password!1')
         user_session = self.authenticate('test_user', 'Password!1')
@@ -289,7 +289,7 @@ class TestWebsocketCaryall(WebsocketCase):
             websocket.recv_data_frame(control_frame=True)  # pong
 
     def test_trigger_on_websocket_closed(self):
-        with patch('odoo.addons.bus.models.ir_websocket.IrWebsocket._on_websocket_closed') as mock:
+        with patch('weblgx.addons.bus.models.ir_websocket.IrWebsocket._on_websocket_closed') as mock:
             ws = self.websocket_connect()
             ws.close(CloseCode.CLEAN)
             self.wait_remaining_websocket_connections()
@@ -310,7 +310,7 @@ class TestWebsocketCaryall(WebsocketCase):
             terminate_done_event.set()
 
         with (
-            patch('odoo.addons.bus.websocket.TimeoutManager.KEEP_ALIVE_TIMEOUT', 0),
+            patch('weblgx.addons.bus.websocket.TimeoutManager.KEEP_ALIVE_TIMEOUT', 0),
             patch.object(Websocket, 'disconnect', disconnect_wrapper),
             patch.object(Websocket, '_terminate', terminate_wrapper),
             freeze_time('2022-08-19') as frozen_time,

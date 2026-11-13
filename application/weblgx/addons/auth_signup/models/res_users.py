@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import contextlib
 import logging
@@ -8,14 +8,14 @@ from ast import literal_eval
 from collections import defaultdict
 from dateutil.relativedelta import relativedelta
 
-from odoo import api, fields, models, _
-from odoo.exceptions import UserError
-from odoo.osv import expression
-from odoo.tools.misc import ustr
-from odoo.http import request
+from weblgx import api, fields, models, _
+from weblgx.exceptions import UserError
+from weblgx.osv import expression
+from weblgx.tools.misc import ustr
+from weblgx.http import request
 
-from odoo.addons.base.models.ir_mail_server import MailDeliveryException
-from odoo.addons.auth_signup.models.res_partner import SignupError, now
+from weblgx.addons.base.models.ir_mail_server import MailDeliveryException
+from weblgx.addons.auth_signup.models.res_partner import SignupError, now
 
 _logger = logging.getLogger(__name__)
 
@@ -56,7 +56,7 @@ class ResUsers(models.Model):
 
     @api.model
     def _lgx_patch_invitation_email_intro(self):
-        from odoo.addons.auth_signup.hooks import (
+        from weblgx.addons.auth_signup.hooks import (
             patch_invitation_email_intro,
             patch_signup_email_button_colors,
         )

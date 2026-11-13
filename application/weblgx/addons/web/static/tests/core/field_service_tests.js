@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { fieldService } from "@web/core/field_service";
 import { makeTestEnv } from "@web/../tests/helpers/mock_env";
 import { registry } from "@web/core/registry";
-import { Component, useState, xml } from "@odoo/owl";
+import { Component, useState, xml } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 import { getFixture, makeDeferred, mount, nextTick } from "@web/../tests/helpers/utils";
 

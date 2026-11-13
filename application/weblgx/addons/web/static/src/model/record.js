@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { useService } from "@web/core/utils/hooks";
 import { pick } from "@web/core/utils/objects";
 import { RelationalModel } from "@web/model/relational_model/relational_model";
 import { getFieldsSpec } from "@web/model/relational_model/utils";
-import { Component, xml, onWillStart, onWillUpdateProps, useState } from "@odoo/owl";
+import { Component, xml, onWillStart, onWillUpdateProps, useState } from "@weblgx/owl";
 
 const defaultActiveField = { attrs: {}, options: {}, domain: "[]", string: "" };
 

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import dom from '@web/legacy/js/core/dom';
 import { cookie } from "@web/core/browser/cookie";
@@ -12,7 +12,7 @@ import { templates } from '@web/core/assets';
 import { MainComponentsContainer } from "@web/core/main_components_container";
 import { browser } from '@web/core/browser/browser';
 import { _t } from "@web/core/l10n/translation";
-import { App, Component, whenReady } from "@odoo/owl";
+import { App, Component, whenReady } from "@weblgx/owl";
 import { RPCError } from '@web/core/network/rpc_service';
 
 const { Settings } = luxon;
@@ -199,7 +199,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * context to RPCs.
      *
      * @private
-     * @param {OdooEvent} event
+     * @param {WeblgxEvent} event
      */
     _onCallService: function (ev) {
         const payload = ev.data;
@@ -212,7 +212,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * Called when someone asked for the global public context.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onContextGet: function (ev) {
         if (ev.data.extra) {
@@ -225,7 +225,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * Checks information about the page main object.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onMainObjectRequest: function (ev) {
         var repr = $('html').data('main-object');
@@ -240,7 +240,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * (re)started.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onWidgetsStartRequest: function (ev) {
         this._startWidgets(ev.data.$target, ev.data.options)
@@ -259,7 +259,7 @@ export const PublicRoot = publicWidget.RootWidget.extend({
      * stopped.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onWidgetsStopRequest: function (ev) {
         this._stopWidgets(ev.data.$target);
@@ -325,7 +325,7 @@ export async function createPublicRoot(RootWidget) {
         app.mount(document.body),
         publicRoot.attachTo(document.body),
     ]);
-    odoo.__WOWL_DEBUG__ = { root };
+    weblgx.__WOWL_DEBUG__ = { root };
     return publicRoot;
 }
 

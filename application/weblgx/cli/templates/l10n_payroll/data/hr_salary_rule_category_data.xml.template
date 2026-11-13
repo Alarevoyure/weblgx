@@ -1,6 +1,6 @@
 {%- set countryPascal = name|pascal -%}
 {%- set codeUpper = code|upper -%}
-<odoo>
+<weblgx>
     <record id="l10n_{{code}}_category_social_security_employee" model="hr.salary.rule.category">
         <field name="name">{{countryPascal}}: Social Security Employee</field>
         <field name="code">SOCIAL.EMPLOYEE</field>
@@ -32,4 +32,4 @@
         <field name="code">TAX</field>
         <field name="parent_id" ref="hr_payroll.DED"/>
     </record>
-</odoo>
+</weblgx>

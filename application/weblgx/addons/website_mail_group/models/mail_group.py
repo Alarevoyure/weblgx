@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import api, fields, models
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.osv import expression
+from weblgx import api, fields, models
+from weblgx.addons.http_routing.models.ir_http import slug
+from weblgx.osv import expression
 
 
 def mail_group_selected_site_domain(records):

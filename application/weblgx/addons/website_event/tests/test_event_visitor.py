@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime, timedelta
 
-from odoo import fields
-from odoo.addons.website.tests.test_website_visitor import WebsiteVisitorTests
-from odoo.addons.website_event.tests.common import TestEventOnlineCommon
-from odoo.tests import tagged
+from weblgx import fields
+from weblgx.addons.website.tests.test_website_visitor import WebsiteVisitorTests
+from weblgx.addons.website_event.tests.common import TestEventOnlineCommon
+from weblgx.tests import tagged
 
 
 @tagged('website_visitor', 'is_query_count')

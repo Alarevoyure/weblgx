@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -16,7 +16,7 @@ import { archParseBoolean } from "@web/views/utils";
 import { useSortable } from "@web/core/utils/sortable_owl";
 import { useRecordObserver } from "@web/model/relational_model/utils";
 
-import { Component, useRef, useState, useEffect, onWillStart } from "@odoo/owl";
+import { Component, useRef, useState, useEffect, onWillStart } from "@weblgx/owl";
 
 export class PropertiesField extends Component {
     static template = "web.PropertiesField";

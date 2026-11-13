@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import hashlib
 import uuid
 
 from datetime import datetime
 from werkzeug import urls
-from odoo import api, models
+from weblgx import api, models
 
 VALIDATION_KARMA_GAIN = 3
 

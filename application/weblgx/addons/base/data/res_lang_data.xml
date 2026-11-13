@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data noupdate="1">
         <function name="install_lang" model="res.lang"/>
     </data>
@@ -17,4 +17,4 @@
             <field name="flag_image" type="base64" file="base/static/img/lang_flags/lang_ca.png"/>
         </record>
     </data>
-</odoo>
+</weblgx>

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -61,15 +61,15 @@ QUnit.test("subscribe to presence channels according to store data", async (asse
     await assertSteps([]);
     // Starting the bus should subscribe to known presence channels.
     busServiceStartDeferred.resolve();
-    await assertSteps([`subscribe - [odoo-presence-res.partner_${store.self.id}]`]);
+    await assertSteps([`subscribe - [weblgx-presence-res.partner_${store.self.id}]`]);
     // Discovering new presence channels should refresh the subscription.
     store["Persona"].insert({ id: 5000, type: "partner", name: "Partner 5000" });
     await assertSteps([
-        `subscribe - [odoo-presence-res.partner_${store.self.id},odoo-presence-res.partner_5000]`,
+        `subscribe - [weblgx-presence-res.partner_${store.self.id},weblgx-presence-res.partner_5000]`,
     ]);
     store["Persona"].insert({ id: 1, type: "guest" });
     await assertSteps([
-        `subscribe - [odoo-presence-mail.guest_1,odoo-presence-res.partner_${store.self.id},odoo-presence-res.partner_5000]`,
+        `subscribe - [weblgx-presence-mail.guest_1,weblgx-presence-res.partner_${store.self.id},weblgx-presence-res.partner_5000]`,
     ]);
 });
 

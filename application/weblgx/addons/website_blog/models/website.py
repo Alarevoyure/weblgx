@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import hmac
 import secrets
 
-from odoo import _, api, fields, models
-from odoo.addons.http_routing.models.ir_http import url_for
+from weblgx import _, api, fields, models
+from weblgx.addons.http_routing.models.ir_http import url_for
 
 
 class Website(models.Model):

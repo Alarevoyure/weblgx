@@ -1,7 +1,7 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "../registry";
-import { Component, markRaw, reactive, xml } from "@odoo/owl";
+import { Component, markRaw, reactive, xml } from "@weblgx/owl";
 import { WithEnv } from "../utils/components";
 
 class DialogWrapper extends Component {
@@ -22,7 +22,7 @@ class DialogWrapper extends Component {
 /**
  *  @typedef {{
  *      add(
- *          Component: typeof import("@odoo/owl").Component,
+ *          Component: typeof import("@weblgx/owl").Component,
  *          props: {},
  *          options?: DialogServiceInterfaceAddOptions
  *      ): () => void;

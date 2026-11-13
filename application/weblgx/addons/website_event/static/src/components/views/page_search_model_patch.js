@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { patch } from "@web/core/utils/patch";
 import { PageSearchModel } from "@website/components/views/page_search_model";

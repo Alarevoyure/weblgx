@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { Layout } from "@web/search/layout";
 import { loadBundle } from "@web/core/assets";
-import { Component, onWillStart, onWillUnmount, useEffect, useRef, useState } from "@odoo/owl";
+import { Component, onWillStart, onWillUnmount, useEffect, useRef, useState } from "@weblgx/owl";
 import { KeepLast } from "@web/core/utils/concurrency";
 
 const MIDNIGHT = "#16213e";

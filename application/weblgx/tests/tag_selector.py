@@ -1,7 +1,7 @@
 import re
 import logging
 
-from odoo.tools.misc import OrderedSet
+from weblgx.tools.misc import OrderedSet
 
 _logger = logging.getLogger(__name__)
 

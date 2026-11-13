@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import babel.dates
 import werkzeug
 
-from odoo import http, fields, tools, models
-from odoo.addons.http_routing.models.ir_http import slug
-from odoo.addons.portal.controllers.portal import pager as portal_pager
-from odoo.exceptions import AccessError
-from odoo.http import request, Response
-from odoo.osv import expression
-from odoo.tools import consteq
-from odoo.tools.misc import get_lang
+from weblgx import http, fields, tools, models
+from weblgx.addons.http_routing.models.ir_http import slug
+from weblgx.addons.portal.controllers.portal import pager as portal_pager
+from weblgx.exceptions import AccessError
+from weblgx.http import request, Response
+from weblgx.osv import expression
+from weblgx.tools import consteq
+from weblgx.tools.misc import get_lang
 
 
 class PortalMailGroup(http.Controller):

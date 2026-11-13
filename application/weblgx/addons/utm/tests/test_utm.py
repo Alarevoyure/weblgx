@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.utm.models.utm_mixin import UtmMixin
-from odoo.addons.utm.tests.common import TestUTMCommon
-from odoo.tests import tagged
+from weblgx.addons.utm.models.utm_mixin import UtmMixin
+from weblgx.addons.utm.tests.common import TestUTMCommon
+from weblgx.tests import tagged
 
 
 @tagged("utm", "post_install", "-at_install")

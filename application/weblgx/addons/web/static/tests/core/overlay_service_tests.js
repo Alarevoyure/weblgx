@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, xml } from "@odoo/owl";
+import { Component, xml } from "@weblgx/owl";
 import { MainComponentsContainer } from "@web/core/main_components_container";
 import { overlayService } from "@web/core/overlay/overlay_service";
 import { registry } from "@web/core/registry";

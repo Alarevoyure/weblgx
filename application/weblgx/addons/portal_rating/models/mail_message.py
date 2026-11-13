@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import models
-from odoo.tools import format_datetime
+from weblgx import models
+from weblgx.tools import format_datetime
 
 
 class MailMessage(models.Model):

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ThreadService, threadService } from "@mail/core/common/thread_service";
 
@@ -9,7 +9,7 @@ threadService.dependencies.push("im_livechat.livechat", "im_livechat.chatbot");
 
 patch(ThreadService.prototype, {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {{
      * "im_livechat.chatbot": import("@im_livechat/embed/chatbot/chatbot_service").ChatBotService,
      * "im_livechat.livechat": import("@im_livechat/embed/common/livechat_service").LivechatService,

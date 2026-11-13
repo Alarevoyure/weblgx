@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { useService } from "@web/core/utils/hooks";
 

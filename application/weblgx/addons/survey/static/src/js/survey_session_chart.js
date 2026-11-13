@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 /* global ChartDataLabels */
 
 import { loadJS } from "@web/core/assets";

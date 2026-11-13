@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <!-- Bibliothèques (une par page / sujet) -->
     <record id="view_wiki_gallery_tree" model="ir.ui.view">
         <field name="name">wiki.gallery.tree</field>
@@ -273,4 +273,4 @@
             </p>
         </field>
     </record>
-</odoo>
+</weblgx>

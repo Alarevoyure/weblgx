@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 
 """
@@ -44,12 +44,12 @@ import pytz
 import werkzeug.utils
 from lxml import etree, objectify
 
-import odoo
-import odoo.addons
+import weblgx
+import weblgx.addons
 # get_encodings, ustr and exception_to_unicode were originally from tools.misc.
 # There are moved to loglevels until we refactor tools.
-from odoo.loglevels import get_encodings, ustr, exception_to_unicode     # noqa
-from odoo.tools.float_utils import float_round
+from weblgx.loglevels import get_encodings, ustr, exception_to_unicode     # noqa
+from weblgx.tools.float_utils import float_round
 from . import pycompat
 from .cache import *
 from .config import config
@@ -112,7 +112,7 @@ def find_pg_tool(name):
 def exec_pg_environ():
     """
     Force the database PostgreSQL environment variables to the database
-    configuration of Odoo.
+    configuration of Web@LGX.
 
     Note: On systems where pg_restore/pg_dump require an explicit password
     (i.e.  on Windows where TCP sockets are used), it is necessary to pass the
@@ -122,14 +122,14 @@ def exec_pg_environ():
     See also http://www.postgresql.org/docs/8.4/static/libpq-envars.html
     """
     env = os.environ.copy()
-    if odoo.tools.config['db_host']:
-        env['PGHOST'] = odoo.tools.config['db_host']
-    if odoo.tools.config['db_port']:
-        env['PGPORT'] = str(odoo.tools.config['db_port'])
-    if odoo.tools.config['db_user']:
-        env['PGUSER'] = odoo.tools.config['db_user']
-    if odoo.tools.config['db_password']:
-        env['PGPASSWORD'] = odoo.tools.config['db_password']
+    if weblgx.tools.config['db_host']:
+        env['PGHOST'] = weblgx.tools.config['db_host']
+    if weblgx.tools.config['db_port']:
+        env['PGPORT'] = str(weblgx.tools.config['db_port'])
+    if weblgx.tools.config['db_user']:
+        env['PGUSER'] = weblgx.tools.config['db_user']
+    if weblgx.tools.config['db_password']:
+        env['PGPASSWORD'] = weblgx.tools.config['db_password']
     return env
 
 def exec_pg_command(name, *args):
@@ -169,7 +169,7 @@ def file_path(file_path, filter_ext=('',), env=None):
     :raise ValueError: if the file doesn't have one of the supported extensions (`filter_ext`)
     """
     root_path = os.path.abspath(config['root_path'])
-    addons_paths = odoo.addons.__path__ + [root_path]
+    addons_paths = weblgx.addons.__path__ + [root_path]
     if env and hasattr(env.transaction, '__file_open_tmp_paths'):
         addons_paths += env.transaction.__file_open_tmp_paths
     is_abs = os.path.isabs(file_path)
@@ -200,7 +200,7 @@ def file_open(name, mode="r", filter_ext=None, env=None):
 
         >>> file_open('hr/static/description/icon.png')
         >>> file_open('hr/static/description/icon.png', filter_ext=('.png', '.jpg'))
-        >>> with file_open('/opt/odoo/addons/hr/static/description/icon.png', 'rb') as f:
+        >>> with file_open('/opt/weblgx/addons/hr/static/description/icon.png', 'rb') as f:
         ...     contents = f.read()
 
     :param name: absolute or relative path to a file located inside an addon
@@ -237,10 +237,10 @@ def file_open_temporary_directory(env):
 
     Examples::
 
-        >>> with odoo.tools.file_open_temporary_directory(self.env) as module_dir:
+        >>> with weblgx.tools.file_open_temporary_directory(self.env) as module_dir:
         ...    with zipfile.ZipFile('foo.zip', 'r') as z:
         ...        z.extract('foo/__manifest__.py', module_dir)
-        ...    with odoo.tools.file_open('foo/__manifest__.py', env=self.env) as f:
+        ...    with weblgx.tools.file_open('foo/__manifest__.py', env=self.env) as f:
         ...        manifest = f.read()
 
     :param env: environment for which the temporary directory is created.
@@ -792,11 +792,11 @@ class mute_logger(logging.Handler):
 
     Can be used as context manager or decorator::
 
-        @mute_logger('odoo.plic.ploc')
+        @mute_logger('weblgx.plic.ploc')
         def do_stuff():
             blahblah()
 
-        with mute_logger('odoo.foo.bar'):
+        with mute_logger('weblgx.foo.bar'):
             do_suff()
     """
     def __init__(self, *loggers):
@@ -988,7 +988,7 @@ def dumpstacks(sig=None, frame=None, thread_idents=None, log_level=logging.INFO)
             for line in extract_stack(stack):
                 code.append(line)
 
-    if odoo.evented:
+    if weblgx.evented:
         # code from http://stackoverflow.com/questions/12510648/in-gevent-how-can-i-dump-stack-traces-of-all-running-greenlets
         import gc
         from greenlet import greenlet
@@ -1306,7 +1306,7 @@ class Reverse(object):
     def __lt__(self, other): return self.val > other.val
 
 def ignore(*exc):
-    warnings.warn("Since 16.0 `odoo.tools.ignore` is replaced by `contextlib.suppress`.", DeprecationWarning, stacklevel=2)
+    warnings.warn("Since 16.0 `weblgx.tools.ignore` is replaced by `contextlib.suppress`.", DeprecationWarning, stacklevel=2)
     return contextlib.suppress(*exc)
 
 class replace_exceptions(ContextDecorator):
@@ -1465,13 +1465,13 @@ def format_date(env, value, lang_code=False, date_format=False):
             return ''
         if len(value) > DATE_LENGTH:
             # a datetime, convert to correct timezone
-            value = odoo.fields.Datetime.from_string(value)
-            value = odoo.fields.Datetime.context_timestamp(env['res.lang'], value)
+            value = weblgx.fields.Datetime.from_string(value)
+            value = weblgx.fields.Datetime.context_timestamp(env['res.lang'], value)
         else:
-            value = odoo.fields.Datetime.from_string(value)
+            value = weblgx.fields.Datetime.from_string(value)
     elif isinstance(value, datetime.datetime) and not value.tzinfo:
         # a datetime, convert to correct timezone
-        value = odoo.fields.Datetime.context_timestamp(env['res.lang'], value)
+        value = weblgx.fields.Datetime.context_timestamp(env['res.lang'], value)
 
     lang = get_lang(env, lang_code)
     locale = babel_locale_parse(lang.code)
@@ -1513,7 +1513,7 @@ def format_datetime(env, value, tz=False, dt_format='medium', lang_code=False):
     if not value:
         return ''
     if isinstance(value, str):
-        timestamp = odoo.fields.Datetime.from_string(value)
+        timestamp = weblgx.fields.Datetime.from_string(value)
     else:
         timestamp = value
 
@@ -1561,7 +1561,7 @@ def format_time(env, value, tz=False, time_format='medium', lang_code=False):
         localized_datetime = value
     else:
         if isinstance(value, str):
-            value = odoo.fields.Datetime.from_string(value)
+            value = weblgx.fields.Datetime.from_string(value)
         tz_name = tz or env.user.tz or 'UTC'
         utc_datetime = pytz.utc.localize(value, is_dst=False)
         try:

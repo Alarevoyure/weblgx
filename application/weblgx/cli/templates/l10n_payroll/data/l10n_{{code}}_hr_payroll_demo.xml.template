@@ -1,6 +1,6 @@
 {%- set countryPascal = name|pascal -%}
 {%- set codeUpper = code|upper -%}
-<odoo>
+<weblgx>
     <record id="l10n_{{code}}_res_company_{{code}}" model="res.company">
         <field name="name">My ''country-ish'' Company</field>
         <field name="currency_id" ref="base.EUR"/>
@@ -137,4 +137,4 @@
     <record id="l10n_{{code}}_hr_employee_antonina" model="hr.employee">
         <field name="contract_id" ref="l10n_{{code}}_hr_payroll.hr_contract_cdi_antonina"/>
     </record>
-</odoo>
+</weblgx>

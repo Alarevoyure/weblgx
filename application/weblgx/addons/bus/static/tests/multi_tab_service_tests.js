@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { addBusServicesToRegistry } from "@bus/../tests/helpers/test_utils";
 

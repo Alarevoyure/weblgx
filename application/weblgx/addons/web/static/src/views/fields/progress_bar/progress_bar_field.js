@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
@@ -7,7 +7,7 @@ import { parseFloat } from "../parsers";
 import { useInputField } from "@web/views/fields/input_field_hook";
 import { standardFieldProps } from "../standard_field_props";
 
-import { Component, useRef, useState } from "@odoo/owl";
+import { Component, useRef, useState } from "@weblgx/owl";
 const formatters = registry.category("formatters");
 
 export class ProgressBarField extends Component {

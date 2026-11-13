@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from odoo.tests.common import TransactionCase
+from weblgx.tests.common import TransactionCase
 
 
 class TestRecurrenceRule(TransactionCase):

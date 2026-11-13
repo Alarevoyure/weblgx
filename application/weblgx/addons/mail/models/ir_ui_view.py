@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models
+from weblgx import fields, models
 
 
 class View(models.Model):

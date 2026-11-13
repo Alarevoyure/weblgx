@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-# from odoo import exceptions
-from odoo.addons.mail.tests import common
-from odoo.tests import new_test_user, tagged
+# from weblgx import exceptions
+from weblgx.addons.mail.tests import common
+from weblgx.tests import new_test_user, tagged
 
 
 @tagged("mail_message", "-at_install", "post_install")

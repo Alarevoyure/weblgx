@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<odoo>
+<weblgx>
     <data>
 
         <record id="discuss_channel_view_search" model="ir.ui.view">
@@ -183,4 +183,4 @@
 
 
     </data>
-</odoo>
+</weblgx>

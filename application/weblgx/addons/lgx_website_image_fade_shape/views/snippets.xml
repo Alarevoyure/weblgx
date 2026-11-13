@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
 
 <template id="image_fade_shapes" inherit_id="website.snippet_options" name="Image Fade Shapes">
     <xpath expr="//div[hasclass('o_scroll_shapes_decorative')]/we-title[1]" position="before">
@@ -33,4 +33,4 @@
     </xpath>
 </template>
 
-</odoo>
+</weblgx>

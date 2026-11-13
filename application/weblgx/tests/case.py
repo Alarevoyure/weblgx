@@ -78,7 +78,7 @@ class _Outcome(object):
             tb = Traceback(tb, current_frame, current_frame.f_lasti, current_frame.f_lineno)
             current_frame = current_frame.f_back
 
-        # remove traceback root part (odoo_bin, main, loading, ...), as
+        # remove traceback root part (weblgx_bin, main, loading, ...), as
         # everything under the testCase is not useful. Using '_callTestMethod',
         # '_callSetUp', '_callTearDown', '_callCleanup' instead of the test
         # method since the error does not comme especially from the test method.
@@ -251,7 +251,7 @@ class TestCase(_TestCase):
     @property
     def canonical_tag(self):
         module = self.__module__
-        for prefix in ('odoo.addons.', 'odoo.upgrade.'):
+        for prefix in ('weblgx.addons.', 'weblgx.upgrade.'):
             if module.startswith(prefix):
                 module = module[len(prefix):]
 

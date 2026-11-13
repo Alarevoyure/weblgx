@@ -1,11 +1,11 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { useService, useAutofocus } from '@web/core/utils/hooks';
 import { useNestedSortable } from "@web/core/utils/nested_sortable";
 import wUtils from '@website/js/utils';
 import { WebsiteDialog } from './dialog';
-import { Component, useState, useEffect, onWillStart, useRef } from "@odoo/owl";
+import { Component, useState, useEffect, onWillStart, useRef } from "@weblgx/owl";
 
 const useControlledInput = (initialValue, validate) => {
     const input = useState({

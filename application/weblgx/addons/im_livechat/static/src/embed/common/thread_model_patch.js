@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { LivechatService, SESSION_STATE } from "@im_livechat/embed/common/livechat_service";
 

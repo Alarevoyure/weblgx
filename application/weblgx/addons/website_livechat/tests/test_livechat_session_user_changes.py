@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-from odoo import tests
-from odoo.addons.website_livechat.tests.common import TestLivechatCommon
+from weblgx import tests
+from weblgx.addons.website_livechat.tests.common import TestLivechatCommon
 
 
 @tests.tagged("-at_install", "post_install")

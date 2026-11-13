@@ -1,8 +1,8 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 from datetime import date
 
-from odoo.tests import BaseCase
-from odoo.tools.date_utils import get_fiscal_year
+from weblgx.tests import BaseCase
+from weblgx.tools.date_utils import get_fiscal_year
 
 
 class TestDateUtils(BaseCase):

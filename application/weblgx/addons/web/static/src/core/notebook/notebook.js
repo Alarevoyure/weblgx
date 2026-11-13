@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { scrollTo } from "@web/core/utils/scrolling";
 
@@ -9,7 +9,7 @@ import {
     useEffect,
     useRef,
     useState,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 /**
  * A notebook component that will render only the current page and allow

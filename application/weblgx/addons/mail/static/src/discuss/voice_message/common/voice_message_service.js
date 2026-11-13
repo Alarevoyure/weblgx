@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { loadBundle } from "@web/core/assets";
 import { registry } from "@web/core/registry";

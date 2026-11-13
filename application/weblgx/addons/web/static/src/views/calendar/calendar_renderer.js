@@ -1,10 +1,10 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { ActionSwiper } from "@web/core/action_swiper/action_swiper";
 import { CalendarCommonRenderer } from "./calendar_common/calendar_common_renderer";
 import { CalendarYearRenderer } from "./calendar_year/calendar_year_renderer";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 export class CalendarRenderer extends Component {
     get calendarComponent() {

@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { AutoComplete } from "@web/core/autocomplete/autocomplete";
 import { ColorList } from "@web/core/colorlist/colorlist";
@@ -8,7 +8,7 @@ import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { TagsList } from "@web/core/tags_list/tags_list";
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 
 class PropertyTagsColorListPopover extends Component {}
 PropertyTagsColorListPopover.template = "web.PropertyTagsColorListPopover";

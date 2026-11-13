@@ -1,11 +1,11 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
-import odoo.tests
-from odoo import Command
-from odoo.addons.base.tests.common import HttpCaseWithUserDemo
+import weblgx.tests
+from weblgx import Command
+from weblgx.addons.base.tests.common import HttpCaseWithUserDemo
 
 
-@odoo.tests.common.tagged('post_install', '-at_install')
+@weblgx.tests.common.tagged('post_install', '-at_install')
 class TestUiFeedback(HttpCaseWithUserDemo):
 
     def setUp(self):

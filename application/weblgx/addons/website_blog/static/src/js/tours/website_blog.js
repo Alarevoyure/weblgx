@@ -1,9 +1,9 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
     import { _t } from "@web/core/l10n/translation";
     import wTourUtils from "@website/js/tours/tour_utils";
 
-    import { markup } from "@odoo/owl";
+    import { markup } from "@weblgx/owl";
 
     wTourUtils.registerWebsitePreviewTour("blog", {
         url: "/",

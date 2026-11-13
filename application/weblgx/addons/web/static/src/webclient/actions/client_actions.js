@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { browser } from "@web/core/browser/browser";
@@ -7,7 +7,7 @@ import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { escape, sprintf } from "@web/core/utils/strings";
 
-import { Component, markup, onMounted, xml } from "@odoo/owl";
+import { Component, markup, onMounted, xml } from "@weblgx/owl";
 
 export function displayNotificationAction(env, action) {
     const params = action.params || {};

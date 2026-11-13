@@ -1,8 +1,8 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Record } from "@mail/core/common/record";
 import { assignIn } from "@mail/utils/common/misc";
-import { markRaw } from "@odoo/owl";
+import { markRaw } from "@weblgx/owl";
 
 import { _t } from "@web/core/l10n/translation";
 

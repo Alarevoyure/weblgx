@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { FormViewDialog } from "@web/views/view_dialogs/form_view_dialog";

@@ -1,6 +1,6 @@
 from num2words import num2words
 
-from odoo.tests.common import TransactionCase
+from weblgx.tests.common import TransactionCase
 
 
 class TestNum2WordsAr(TransactionCase):

@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import {
     Component,
@@ -9,7 +9,7 @@ import {
     useExternalListener,
     useRef,
     useComponent,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 
 function useResizable({
     containerRef,

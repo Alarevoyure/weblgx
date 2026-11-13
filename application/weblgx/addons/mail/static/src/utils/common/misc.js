@@ -1,6 +1,6 @@
-/* @odoo-module */
+/* @weblgx-module */
 
-import { reactive } from "@odoo/owl";
+import { reactive } from "@weblgx/owl";
 
 export function assignDefined(obj, data, keys = Object.keys(data)) {
     for (const key of keys) {

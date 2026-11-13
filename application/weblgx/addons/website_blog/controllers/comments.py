@@ -2,10 +2,10 @@
 
 from werkzeug.exceptions import Forbidden, NotFound
 
-from odoo import _, http
-from odoo.exceptions import UserError
-from odoo.http import request
-from odoo.addons.portal.controllers.mail import PortalChatter
+from weblgx import _, http
+from weblgx.exceptions import UserError
+from weblgx.http import request
+from weblgx.addons.portal.controllers.mail import PortalChatter
 
 
 class BlogPortalChatter(PortalChatter):

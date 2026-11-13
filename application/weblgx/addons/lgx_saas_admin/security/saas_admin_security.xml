@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<weblgx>
     <data noupdate="0">
 
         <!-- Company Admin (Access Rights): only their companies — no global view. -->
@@ -123,4 +123,4 @@
         </record>
 
     </data>
-</odoo>
+</weblgx>

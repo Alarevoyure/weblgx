@@ -1,10 +1,10 @@
-# Translation of Odoo Server.
+# Translation of Web@LGX Server.
 # This file contains the translation of the following modules:
 # 	* barcodes
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Web@LGX Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2025-12-29 18:37+0000\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid " '*' is not a valid Regex Barcode Pattern. Did you mean '.*'?"
@@ -70,7 +70,7 @@ msgid "Any"
 msgstr ""
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/components/barcode_scanner.xml:0
 #, python-format
 msgid "Barcode"
@@ -112,7 +112,7 @@ msgid "Barcode Scanned"
 msgstr ""
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/barcode_handlers.js:0
 #, python-format
 msgid "Barcode: "
@@ -173,7 +173,7 @@ msgid "ID"
 msgstr ""
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_events_mixin.py:0
 #, python-format
 msgid ""
@@ -215,7 +215,7 @@ msgid ""
 msgstr ""
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/components/barcode_scanner.js:0
 #, python-format
 msgid "Please, Scan again!"
@@ -242,7 +242,7 @@ msgid "Tables"
 msgstr ""
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/components/barcode_scanner.xml:0
 #, python-format
 msgid "Tap to scan"
@@ -254,7 +254,7 @@ msgid "The barcode matching pattern"
 msgstr ""
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -272,7 +272,7 @@ msgid "The matched pattern will alias to this barcode"
 msgstr ""
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -281,7 +281,7 @@ msgid ""
 msgstr ""
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -290,7 +290,7 @@ msgid ""
 msgstr ""
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -338,7 +338,7 @@ msgid "Unit Product"
 msgstr ""
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/barcode_handlers.js:0
 #, python-format
 msgid "Unknown barcode command"

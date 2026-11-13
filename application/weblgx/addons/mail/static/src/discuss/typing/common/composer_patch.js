@@ -1,9 +1,9 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { Composer } from "@mail/core/common/composer";
 import { Typing } from "@mail/discuss/typing/common/typing";
 
-import { onWillDestroy } from "@odoo/owl";
+import { onWillDestroy } from "@weblgx/owl";
 import { browser } from "@web/core/browser/browser";
 import { registry } from "@web/core/registry";
 import { patch } from "@web/core/utils/patch";

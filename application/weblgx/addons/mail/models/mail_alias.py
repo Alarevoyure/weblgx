@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import ast
 import re
 from collections import defaultdict
 from markupsafe import Markup
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError, UserError
-from odoo.osv import expression
-from odoo.tools import is_html_empty, remove_accents
+from weblgx import _, api, fields, models
+from weblgx.exceptions import ValidationError, UserError
+from weblgx.osv import expression
+from weblgx.tools import is_html_empty, remove_accents
 
 # see rfc5322 section 3.2.3
 atext = r"[a-zA-Z0-9!#$%&'*+\-/=?^_`{|}~]"
@@ -37,7 +37,7 @@ class Alias(models.Model):
     # email definition
     alias_name = fields.Char(
         'Alias Name', copy=False,
-        help="The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.odoo.com>")
+        help="The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.weblgx.com>")
     alias_full_name = fields.Char('Alias Email', compute='_compute_alias_full_name', store=True, index='btree_not_null')
     display_name = fields.Char(string='Display Name', compute='_compute_display_name')
     alias_domain_id = fields.Many2one(
@@ -230,7 +230,7 @@ class Alias(models.Model):
     @api.depends('alias_domain', 'alias_name')
     def _compute_display_name(self):
         """ Return the mail alias display alias_name, including the catchall
-        domain if found otherwise "Inactive Alias". e.g.`jobs@mail.odoo.com`
+        domain if found otherwise "Inactive Alias". e.g.`jobs@mail.weblgx.com`
         or `jobs` or 'Inactive Alias' """
         for record in self:
             if record.alias_name and record.alias_domain:

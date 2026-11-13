@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { ActivityArchParser } from "@mail/views/web/activity/activity_arch_parser";
 import { ActivityController } from "@mail/views/web/activity/activity_controller";

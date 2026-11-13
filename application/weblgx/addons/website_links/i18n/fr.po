@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Manon Rondou, 2024\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,21 +22,21 @@ msgstr ""
 "1000000 == 0 ? 1 : 2;\n"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links_charts.js:0
 #, python-format
 msgid " clicks"
 msgstr "clics"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links_charts.js:0
 #, python-format
 msgid " countries"
 msgstr "pays"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links_charts.js:0
 #, python-format
 msgid "# of clicks"
@@ -91,14 +91,14 @@ msgstr ""
 "promouvoir ou d'une promotion spéciale.\"/>"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #, python-format
 msgid "Copied"
 msgstr "Copié"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #, python-format
@@ -106,7 +106,7 @@ msgid "Copy"
 msgstr "Copier"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #: model_terms:ir.ui.view,arch_db:website_links.graphs
 #, python-format
@@ -114,7 +114,7 @@ msgid "Edit code"
 msgstr "Modifier le code"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #, python-format
 msgid "Generating link..."
@@ -126,7 +126,7 @@ msgid "Get tracked link"
 msgstr "Obtenir un lien tracké"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #, python-format
 msgid "Icon"
@@ -174,7 +174,7 @@ msgid "Newest"
 msgstr "Le plus récent"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links_charts.js:0
 #, python-format
 msgid "No data"
@@ -213,14 +213,14 @@ msgid "Statistics"
 msgstr "Statistiques"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #, python-format
 msgid "Stats"
 msgstr "Stats"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #: code:addons/website_links/static/src/js/website_links_code_editor.js:0
 #, python-format
@@ -228,14 +228,14 @@ msgid "The code cannot be left empty"
 msgstr "Le code ne peut pas être laissé vide"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links_charts.js:0
 #, python-format
 msgid "There is no data to show"
 msgstr "Aucun donnée à afficher"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #: code:addons/website_links/static/src/js/website_links_code_editor.js:0
 #, python-format
@@ -258,28 +258,28 @@ msgid "URL"
 msgstr "URL"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #, python-format
 msgid "Unable to get recent links"
 msgstr "Impossible d'obtenir des liens récents"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links_charts.js:0
 #, python-format
 msgid "Undefined"
 msgstr "Indéfini"
 
 #. module: website_links
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_links/models/link_tracker.py:0
 #, python-format
 msgid "Visit Webpage Statistics"
 msgstr "Statistiques de visite de page web"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #, python-format
 msgid "You don't have any recent links."
@@ -291,7 +291,7 @@ msgid "Your tracked links"
 msgstr "Vos liens trackés"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #: model_terms:ir.ui.view,arch_db:website_links.graphs
 #, python-format
@@ -299,7 +299,7 @@ msgid "cancel"
 msgstr "annuler"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #, python-format
 msgid "clicks"
@@ -311,21 +311,21 @@ msgid "copy"
 msgstr "copie"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #, python-format
 msgid "e.g. InMails, Ads, Social, ..."
 msgstr "par ex. InMails, Ads, Social, ..."
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #, python-format
 msgid "e.g. June Sale, Paris Roadshow, ..."
 msgstr "par ex. June Sale, Paris Roadshow, ..."
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/js/website_links.js:0
 #, python-format
 msgid "e.g. LinkedIn, Facebook, Leads, ..."
@@ -337,7 +337,7 @@ msgid "e.g. https://www.loegaux.fr/contactus"
 msgstr "par ex. https://www.loegaux.fr/contactus"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #: model_terms:ir.ui.view,arch_db:website_links.graphs
 #, python-format
@@ -345,7 +345,7 @@ msgid "ok"
 msgstr "ok"
 
 #. module: website_links
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_links/static/src/xml/recent_link.xml:0
 #: model_terms:ir.ui.view,arch_db:website_links.graphs
 #, python-format

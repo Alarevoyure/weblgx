@@ -1,10 +1,10 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tools import cloc
-from odoo.tests import TransactionCase, tagged
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx.tools import cloc
+from weblgx.tests import TransactionCase, tagged
 
 XML_TEST = """<!-- Comment -->
 <?xml version="1.0" encoding="UTF-8"?>
-<odoo>
+<weblgx>
     <node>Line</node>
     <!-- Comment -->
     <node>Line</node>
@@ -32,7 +32,7 @@ XML_TEST = """<!-- Comment -->
     <node>not a comment but found as is</node>
     <!-- comment -->
     <node>After closed comment back to normal</node>
-</odoo>
+</weblgx>
 """
 
 PY_TEST_NO_RETURN = '''line = 1
@@ -145,7 +145,7 @@ class TestClocCustomization(TransactionCase):
             'store': False,
             'compute': "for rec in self: rec['x_invoice_count'] = 10",
         })
-        # Simulate the effect of https://github.com/odoo/odoo/commit/9afce4805fc8bac45fdba817488aa867fddff69b
+        # Simulate the effect of https://github.com/weblgx/weblgx/commit/9afce4805fc8bac45fdba817488aa867fddff69b
         # Updating a module create xml_id of the module even for manual field if it's the original module
         # of the model
         self.create_xml_id('base', name, field)
@@ -172,21 +172,21 @@ for rec in records:
         self.create_xml_id('studio_customization', 'invoice_count', f1)
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 0, 'Studio auto generated count field should not be counted in cloc')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 0, 'Studio auto generated count field should not be counted in cloc')
         f2 = self.create_field('x_studio_custom_field')
         self.create_xml_id('studio_customization', 'studio_custom', f2)
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 1, 'Count other studio computed field')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 1, 'Count other studio computed field')
         self.create_field('x_custom_field')
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 2, 'Count fields without xml_id')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 2, 'Count fields without xml_id')
         f4 = self.create_field('x_custom_field_export')
         self.create_xml_id('__export__', 'studio_custom', f4)
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 3, 'Count fields with xml_id but without module')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 3, 'Count fields with xml_id but without module')
 
     def test_several_xml_id(self):
         sa = self.create_server_action("Test double xml_id")
@@ -194,11 +194,11 @@ for rec in records:
         self.create_xml_id("base", "second", sa)
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 2, 'Count Should count SA with a non standard xml_id')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 2, 'Count Should count SA with a non standard xml_id')
         self.create_xml_id("__import__", "third", sa)
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 2, 'SA with several xml_id should be counted only once')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 2, 'SA with several xml_id should be counted only once')
 
     def test_cloc_exclude_xml_id(self):
         sa = self.create_server_action("Test double xml_id")
@@ -206,14 +206,14 @@ for rec in records:
         self.create_xml_id("__upgrade__", "sa_second", sa)
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 0, 'Should not count SA with cloc_exclude xml_id')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 0, 'Should not count SA with cloc_exclude xml_id')
 
         f1 = self.create_field('x_invoice_count')
         self.create_xml_id("__cloc_exclude__", "field_first", f1)
         self.create_xml_id("__upgrade__", "field_second", f1)
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 0, 'Should not count Field with cloc_exclude xml_id')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 0, 'Should not count Field with cloc_exclude xml_id')
 
     def test_field_no_xml_id(self):
         self.env['ir.model.fields'].create({
@@ -227,7 +227,7 @@ for rec in records:
         })
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 1, 'Should count field with no xml_id at all')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 1, 'Should count field with no xml_id at all')
 
 
 class TestClocParser(TransactionCase):
@@ -264,4 +264,4 @@ class TestClocStdNoCusto(TransactionCase):
         """
         cl = cloc.Cloc()
         cl.count_customization(self.env)
-        self.assertEqual(cl.code.get('odoo/studio', 0), 0, 'Module should not generate customization in database')
+        self.assertEqual(cl.code.get('weblgx/studio', 0), 0, 'Module should not generate customization in database')

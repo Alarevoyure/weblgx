@@ -7,15 +7,15 @@
 # Jolien De Paepe, 2024
 # Wil Weblgx, 2024
 # Manon Rondou, 2025
-# "Manon Rondou (ronm)" <ronm@odoo.com>, 2025, 2026.
+# "Manon Rondou (ronm)" <ronm@weblgx.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Weblgx Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2026-03-14 08:10+0000\n"
-"Last-Translator: \"Manon Rondou (ronm)\" <ronm@odoo.com>\n"
-"Language-Team: French <https://translate.odoo.com/projects/odoo-17/mail/fr/>"
+"Last-Translator: \"Manon Rondou (ronm)\" <ronm@weblgx.com>\n"
+"Language-Team: French <https://translate.weblgx.com/projects/weblgx-17/mail/fr/>"
 "\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr ""
 "X-Generator: Weblate 5.16.2\n"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_gateway_allowed.py:0
 #, python-format
 msgid ""
@@ -64,49 +64,49 @@ msgid "\" no longer followed"
 msgstr "\" n'est plus suivi"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity.py:0
 #, python-format
 msgid "\"%(activity_name)s: %(summary)s\" assigned to you"
 msgstr "L'activité \"%(activity_name)s: %(summary)s\" vous est attribuée"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_recorder.js:0
 #, python-format
 msgid "\"%(hostname)s\" needs to access your microphone"
 msgstr "\"%(hostname)s\" a besoin d'accéder à votre microphone"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "\"%(hostname)s\" requires microphone access"
 msgstr "\"%(hostname)s\" a besoin d'accéder au microphone"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
 msgid "%(activity)s, assigned to %(name)s, due on the %(deadline)s"
 msgstr "%(activity)s, assignée à %(name)s, pour le %(deadline)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/out_of_focus_service.js:0
 #, python-format
 msgid "%(author name)s from %(channel name)s"
 msgstr "%(author name)s de %(channel name)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.js:0
 #, python-format
 msgid "%(candidateType)s (%(protocol)s)"
 msgstr "%(candidateType)s (%(protocol)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_partner.py:0
 #, python-format
 msgid ""
@@ -117,14 +117,14 @@ msgstr ""
 "obligatoire pour créer un nouveau client."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "%(name)s: %(message)s)"
 msgstr "%(name)s : %(message)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -140,7 +140,7 @@ msgstr ""
 "commande."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid ""
@@ -150,7 +150,7 @@ msgstr ""
 "de%(close_em)s%(close_button)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid ""
@@ -164,7 +164,7 @@ msgstr ""
 "%(open_save)sEnregistrer%(close_save)s%(close_em)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid ""
@@ -179,7 +179,7 @@ msgstr ""
 "%(open_save)senregistrer%(close_save)s%(close_em)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_core_web_service.js:0
 #, python-format
 msgid "%(user)s connected. This is their first connection. Wish them luck."
@@ -188,7 +188,7 @@ msgstr ""
 "chance !"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_wizard_invite.py:0
 #, python-format
 msgid "%(user_name)s invited you to follow %(document)s document: %(title)s"
@@ -196,161 +196,161 @@ msgstr ""
 "%(user_name)s vous a invité a suivre le document %(document)s: %(title)s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_wizard_invite.py:0
 #, python-format
 msgid "%(user_name)s invited you to follow a new document."
 msgstr "%(user_name)s vous a invité à suivre un nouveau document."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "%(user_name)s pinned a message to this channel."
 msgstr "%(user_name)s a épinglé un message à ce canal."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_mail_server.py:0
 #, python-format
 msgid "%s (Email Template)"
 msgstr "%s (Modèle d'e-mail)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_template.py:0
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (copie)"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/out_of_focus_service_patch.js:0
 #, python-format
 msgid "%s Message"
 msgstr "%s Message"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/out_of_focus_service_patch.js:0
 #, python-format
 msgid "%s Messages"
 msgstr "%s Messages"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/typing/common/typing.js:0
 #, python-format
 msgid "%s and %s are typing..."
 msgstr "%s et %s écrivent..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_reactions.js:0
 #, python-format
 msgid "%s and %s have reacted with %s"
 msgstr "%s et %s ont réagi par %s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "%s created"
 msgstr "%s créé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.js:0
 #, python-format
 msgid "%s days overdue"
 msgstr "%s jours de retard"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #, python-format
 msgid "%s has a request"
 msgstr "%s a une demande"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #, python-format
 msgid "%s has a suggestion"
 msgstr "%s a une suggestion"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_reactions.js:0
 #, python-format
 msgid "%s has reacted with %s"
 msgstr "%s a réagi par %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/typing/common/typing.js:0
 #, python-format
 msgid "%s is typing..."
 msgstr "%s est en train d'écrire..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.js:0
 #, python-format
 msgid "%s messages found"
 msgstr "%s messages trouvés"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "%s raised their hand"
 msgstr "%s a levé la main"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel_member.py:0
 #, python-format
 msgid "%s started a live conference"
 msgstr "%s a commencé une conférence en direct"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "%s\" requires \"camera\" access"
 msgstr "%s\" a besoin d'accéder à la \"caméra\""
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "%s\" requires \"screen recording\" access"
 msgstr "%s\" a besoin d'accéder à l'\"enregistrement d'écran\""
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/typing/common/typing.js:0
 #, python-format
 msgid "%s, %s and more are typing..."
 msgstr "%s, %s et d'autres sont en train d'écrire..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_reactions.js:0
 #, python-format
 msgid "%s, %s, %s and %s other persons have reacted with %s"
 msgstr "%s, %s, %s et %s autres personnes ont réagi par %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_reactions.js:0
 #, python-format
 msgid "%s, %s, %s and 1 other person have reacted with %s"
 msgstr "%s, %s, %s et 1 autre personne ont réagi par %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_reactions.js:0
 #, python-format
 msgid "%s, %s, %s have reacted with %s"
@@ -362,21 +362,21 @@ msgid "&amp;nbsp;&amp;nbsp;"
 msgstr "&amp;nbsp;&amp;nbsp;"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.js:0
 #, python-format
 msgid "(Translated from: %(language)s)"
 msgstr "(Traduit du : %(language)s)"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.js:0
 #, python-format
 msgid "(Translation Failure: %(error)s)"
 msgstr "(Échec de la traduction : %(error)s)"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.xml:0
 #, python-format
 msgid "(from"
@@ -397,7 +397,7 @@ msgstr ""
 "    <br/><br/>"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.xml:0
 #, python-format
 msgid ". Narrow your search to see more choices."
@@ -418,7 +418,7 @@ msgid "<i class=\"fa fa-globe\" aria-label=\"Document url\"/>"
 msgstr "<i class=\"fa fa-globe\" aria-label=\"URL document\"/>"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "<samp>%(send_keybind)s</samp><i> to send</i>"
@@ -580,14 +580,14 @@ msgid "A channel member must be a partner or a guest."
 msgstr "Le membre d'un canal doit être un partenaire ou un invité."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "A channel of type 'chat' cannot have more than two users."
 msgstr "Un canal du type 'chat' ne peut pas avoir plus de deux utilisateurs."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -604,7 +604,7 @@ msgstr ""
 "Une réaction à un message doit provenir d'un partenaire ou d'un invité."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_actions_server.py:0
 #, python-format
 msgid "A next activity can only be planned on models that use activities."
@@ -627,14 +627,14 @@ msgid "A volume setting must have a partner or a guest."
 msgstr "Un paramètre de volume requiert un partenaire ou un invité."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_invitation.xml:0
 #, python-format
 msgid "Accept"
 msgstr "Accepter"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Access Denied"
@@ -651,14 +651,14 @@ msgid "Access Token"
 msgstr "Jeton d'accès"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_model.js:0
 #, python-format
 msgid "Access restricted to group \"%(groupFullName)s\""
 msgstr "Accès limité au groupe \"%(groupFullName)s\""
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Account"
@@ -689,7 +689,7 @@ msgid "Action Window View"
 msgstr "Vue de la fenêtre d'action"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.xml:0
 #, python-format
 msgid "Actions"
@@ -735,7 +735,7 @@ msgid "Active domain"
 msgstr "Domaine actif"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_menu.xml:0
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #: model:ir.actions.act_window,name:mail.mail_activity_action
@@ -767,7 +767,7 @@ msgstr ""
 "res_id vide."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_menu.xml:0
 #: model:ir.model,name:mail.model_mail_activity
 #: model:ir.model.fields.selection,name:mail.selection__ir_actions_act_window_view__view_mode__activity
@@ -852,14 +852,14 @@ msgid "Activity schedule plan Wizard"
 msgstr "Assistant de planification des activités"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Activity type"
 msgstr "Type d'activité"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity.py:0
 #, python-format
 msgid "Activity: %s"
@@ -876,7 +876,7 @@ msgid "Add Email Blacklist"
 msgstr "Ajouter le mail à la liste noire"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_list.xml:0
 #: model:ir.model.fields.selection,name:mail.selection__ir_actions_server__state__followers
 #: model_terms:ir.ui.view,arch_db:mail.mail_wizard_invite_form
@@ -885,14 +885,14 @@ msgid "Add Followers"
 msgstr "Ajouter des abonnés"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_actions.js:0
 #, python-format
 msgid "Add Users"
 msgstr "Ajouter des utilisateurs"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_reaction_button.xml:0
 #, python-format
 msgid "Add a Reaction"
@@ -913,7 +913,7 @@ msgstr ""
 "https://developers.google.com/tenor/guides/quickstart#setup"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss.xml:0
 #, python-format
 msgid "Add a description"
@@ -925,7 +925,7 @@ msgid "Add a description to your activity..."
 msgstr "Ajouter une description à votre activité..."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Add a new %(document)s or send an email to %(email_link)s"
@@ -942,7 +942,7 @@ msgid "Add an email address to the blacklist"
 msgstr "Ajouter une adresse e-mail à la liste noire"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/suggested_recipient.js:0
 #, python-format
 msgid "Add as recipient and follower (reason: %s)"
@@ -955,7 +955,7 @@ msgid "Add contacts to notify..."
 msgstr "Ajouter des contacts à notifier..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss_app_model.js:0
 #, python-format
 msgid "Add or join a channel"
@@ -972,7 +972,7 @@ msgid "Add your twilio credentials for ICE servers"
 msgstr "Ajouter vos identifiants twilio pour les serveurs ICE"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -983,7 +983,7 @@ msgstr ""
 "d'ajouter des membres."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel_member.py:0
 #, python-format
 msgid ""
@@ -1069,7 +1069,7 @@ msgid "Alias"
 msgstr "Alias"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -1082,7 +1082,7 @@ msgstr ""
 "%(parent_model_name)s."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -1165,7 +1165,7 @@ msgid "Aliases"
 msgstr "Alias"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -1176,7 +1176,7 @@ msgstr ""
 "catchall. Veuillez choisir un autre alias."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #, python-format
@@ -1184,7 +1184,7 @@ msgid "All"
 msgstr "Tous"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #, python-format
 msgid "All Messages"
@@ -1196,7 +1196,7 @@ msgid "All Messages if not specified"
 msgstr "Tous les messages si non précisé"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_resend_message.py:0
 #, python-format
 msgid "All partners must belong to the same message"
@@ -1208,7 +1208,7 @@ msgid "Allow Public Upload"
 msgstr "Autoriser le chargement public"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/fetchmail.py:0
 #, python-format
 msgid ""
@@ -1220,49 +1220,49 @@ msgstr ""
 "%s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_attachment.py:0
 #, python-format
 msgid "An access token must be provided for each attachment."
 msgstr "Un jeton d'accès doit être fourni pour chaque pièce jointe."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_partner.py:0
 #, python-format
 msgid "An email is required for find_or_create to work"
 msgstr "Un e-mail est demandé pour trouver_ou_créer du travail"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/failure_model.js:0
 #, python-format
 msgid "An error occurred when sending an email"
 msgstr "Une erreur est survenue lors de l'envoi d'un e-mail"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "An error occurred while fetching messages."
 msgstr "Une erreur est survenue lors de la récupération des messages."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_service.js:0
 #, python-format
 msgid "An unexpected error occurred during the creation of the chat."
 msgstr "Une erreur inattendue s'est produite lors de la création du chat."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.xml:0
 #, python-format
 msgid "And"
 msgstr "Et"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.xml:0
 #, python-format
 msgid "And 1 other member."
@@ -1276,7 +1276,7 @@ msgid "Applies to"
 msgstr "S'applique à"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_subtype_dialog.xml:0
 #, python-format
 msgid "Apply"
@@ -1297,7 +1297,7 @@ msgid "Archived"
 msgstr "Archivé"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid ""
@@ -1312,7 +1312,7 @@ msgid "Are you sure you want to delete this Mail Template?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce modèle d'email ?"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #: code:addons/mail/static/src/core/common/message.js:0
 #, python-format
@@ -1330,7 +1330,7 @@ msgstr ""
 "perdues."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_blacklist.py:0
 #: code:addons/mail/models/mail_thread_blacklist.py:0
 #, python-format
@@ -1344,14 +1344,14 @@ msgid "Ask at launch"
 msgstr "Demander au lancement"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/assign_user_command_hook.js:0
 #, python-format
 msgid "Assign to ..."
 msgstr "Attribuer à ..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/assign_user_command_hook.js:0
 #, python-format
 msgid "Assign to me"
@@ -1363,7 +1363,7 @@ msgid "Assigned To"
 msgstr "Assigné à"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #: model:ir.model.fields,field_description:mail.field_mail_activity__user_id
 #: model:ir.model.fields,field_description:mail.field_mail_activity_plan_template__responsible_id
@@ -1373,7 +1373,7 @@ msgid "Assigned to"
 msgstr "Assigné à"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity.py:0
 #, python-format
 msgid ""
@@ -1389,7 +1389,7 @@ msgid "Assignment"
 msgstr "Assignation"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "At this point lang should be correctly set"
@@ -1401,7 +1401,7 @@ msgid "Attach a file"
 msgstr "Joindre un fichier"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
@@ -1428,14 +1428,14 @@ msgid "Attachment Count"
 msgstr "Nombre de pièces jointes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
 msgid "Attachment counter loading..."
 msgstr "Chargement du compteur de pièces jointes..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/attachment_panel.xml:0
 #: model:ir.model.fields,field_description:mail.field_mail_activity__attachment_ids
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__attachment_ids
@@ -1448,7 +1448,7 @@ msgid "Attachments"
 msgstr "Pièces jointes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Audio player:"
@@ -1523,7 +1523,7 @@ msgid "Automated activity"
 msgstr "Activité automatisée"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.js:0
 #, python-format
 msgid "Automated message"
@@ -1543,7 +1543,7 @@ msgid "Available for all Companies"
 msgstr "Disponible pour toutes les entreprises"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss.xml:0
 #: code:addons/mail/static/src/core/common/message_in_reply.xml:0
 #: code:addons/mail/static/src/discuss/call/common/call_invitation.xml:0
@@ -1575,21 +1575,21 @@ msgid "Avatar 512"
 msgstr "Avatar 512"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #, python-format
 msgid "Avatar of user"
 msgstr "Avatar de l'utilisateur"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #, python-format
 msgid "Away"
 msgstr "Absent"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Background blur intensity"
@@ -1621,7 +1621,7 @@ msgid "Batch composition"
 msgstr "Composition du lot"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -1655,7 +1655,7 @@ msgid "Blacklisted Email Addresses"
 msgstr "Adresses e-mail sur liste noire"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid ""
@@ -1666,7 +1666,7 @@ msgstr ""
 "%(user_name)s (#%(user_id)s)"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Blur video background"
@@ -1687,7 +1687,7 @@ msgid "Body content is the same as the template"
 msgstr "Le contenu du corps est identique au modèle"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
@@ -1716,7 +1716,7 @@ msgid "Bounce Email"
 msgstr "E-mail de rebond"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias_domain.py:0
 #, python-format
 msgid ""
@@ -1733,7 +1733,7 @@ msgid "Bounce emails should be unique"
 msgstr "Les e-mails de rebond doivent être uniques"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias_domain.py:0
 #, python-format
 msgid ""
@@ -1745,7 +1745,7 @@ msgstr ""
 "document."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias_domain.py:0
 #, python-format
 msgid ""
@@ -1756,7 +1756,7 @@ msgstr ""
 "autre alias ou modifiez-le sur le modèle associé."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_model.js:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__notification_status__bounce
 #, python-format
@@ -1764,7 +1764,7 @@ msgid "Bounced"
 msgstr "Rejeté"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/webclient/web/webclient.js:0
 #, python-format
 msgid ""
@@ -1775,7 +1775,7 @@ msgstr ""
 "notifications push"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Browser default"
@@ -1792,14 +1792,14 @@ msgid "Browser keys"
 msgstr "Clés du navigateur"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread_cc.py:0
 #, python-format
 msgid "CC Email"
 msgstr "E-mail cc"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "CTRL-Enter"
@@ -1811,7 +1811,7 @@ msgid "Call"
 msgstr "Appeler"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.xml:0
 #, python-format
 msgid "Camera is off"
@@ -1840,7 +1840,7 @@ msgid "Can Write"
 msgstr "Peut écrire"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_notification.py:0
 #, python-format
 msgid "Can not update the message or recipient of a notification."
@@ -1848,7 +1848,7 @@ msgstr ""
 "Impossible de mettre à jour le message ou le destinataire d'une notification."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/link_preview_confirm_delete.xml:0
 #: code:addons/mail/static/src/core/common/message_confirm_dialog.xml:0
 #: code:addons/mail/static/src/core/web/activity.xml:0
@@ -1870,7 +1870,7 @@ msgid "Cancel Email"
 msgstr "Annuler l'e-mail"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_model.js:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__notification_status__canceled
 #, python-format
@@ -1914,7 +1914,7 @@ msgstr ""
 "                avant de l'envoyer."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "Cannot change the channel type of: %(channel_names)s"
@@ -1953,7 +1953,7 @@ msgid "Catchall Email"
 msgstr "E-mail Catchall"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias_domain.py:0
 #, python-format
 msgid ""
@@ -1990,7 +1990,7 @@ msgid "Change the background color of the related activities of this type."
 msgstr "Changer la couleur d'arrière-plan de ce type d'activité."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #: model:ir.model.fields,field_description:mail.field_discuss_channel_member__channel_id
 #: model:ir.model.fields,field_description:mail.field_discuss_channel_rtc_session__channel_id
@@ -2014,14 +2014,14 @@ msgid "Channel Type"
 msgstr "Type de canal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "Channel full"
 msgstr "Canal complet"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel_member.py:0
 #, python-format
 msgid "Channel members cannot include public users."
@@ -2029,14 +2029,14 @@ msgstr ""
 "Les utilisateurs publics ne peuvent pas faire partie des membres du canal."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.xml:0
 #, python-format
 msgid "Channel settings"
 msgstr "Paramètres du canal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss_app_model.js:0
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #: model:ir.model.fields,field_description:mail.field_mail_guest__channel_ids
@@ -2055,7 +2055,7 @@ msgid "Channels/Members"
 msgstr "Canaux/Membres"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #: model:ir.model.fields.selection,name:mail.selection__discuss_channel__channel_type__chat
 #, python-format
@@ -2073,7 +2073,7 @@ msgstr ""
 "configuration)."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #, python-format
 msgid "Chats"
@@ -2101,7 +2101,7 @@ msgid "Choose a user..."
 msgstr "Choisir un utilisateur..."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "Choose another value or change it on the other document."
@@ -2114,21 +2114,21 @@ msgstr ""
 "Choisir l'assignation pour les activités avec assignation à la demande."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "Click here to retry"
 msgstr "Cliquez ici pour réessayer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_in_reply.xml:0
 #, python-format
 msgid "Click to see the attachments"
 msgstr "Cliquez pour voir les pièces jointes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.mail_resend_message_view_form
 #: model_terms:ir.ui.view,arch_db:mail.mail_template_preview_view_form
@@ -2137,35 +2137,35 @@ msgid "Close"
 msgstr "Fermer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #, python-format
 msgid "Close Chat Window"
 msgstr "Fermer la fenêtre de chat"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #, python-format
 msgid "Close Search"
 msgstr "Fermer la recherche"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #, python-format
 msgid "Close button"
 msgstr "Bouton de fermeture"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/action_panel.xml:0
 #, python-format
 msgid "Close panel"
 msgstr "Fermer le panneau"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #, python-format
 msgid "Close search"
@@ -2182,7 +2182,7 @@ msgid "Collect replies on a specific email address"
 msgstr "Recueillir des réponses pour une adresse e-mail spécifique"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #, python-format
 msgid "Come here often? Install Weblgx on your device!"
@@ -2250,8 +2250,8 @@ msgid "Company"
 msgstr "Société"
 
 #. module: mail
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/mail/static/src/core/common/composer.js:0
 #: code:addons/mail/static/src/core/web/activity_mail_template.js:0
 #: code:addons/mail/wizard/mail_compose_message.py:0
@@ -2293,7 +2293,7 @@ msgid "Configure your own email servers"
 msgstr "Configurer vos propres serveurs de messagerie"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_confirm_dialog.js:0
 #: model_terms:ir.ui.view,arch_db:mail.mail_blacklist_remove_view_form
 #, python-format
@@ -2301,8 +2301,8 @@ msgid "Confirm"
 msgstr "Confirmer"
 
 #. module: mail
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/mail/models/mail_template.py:0
 #: code:addons/mail/static/src/core/common/message_confirm_dialog.js:0
 #: model_terms:ir.ui.view,arch_db:mail.mail_template_view_form_confirm_delete
@@ -2316,21 +2316,21 @@ msgid "Confirmed"
 msgstr "Confirmé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_menu.xml:0
 #, python-format
 msgid "Congratulations, you're done with your activities."
 msgstr "Félicitations, vous êtes arrivé au bout de vos activités."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "Congratulations, your inbox is empty"
 msgstr "Félicitations, votre boîte de réception est vide"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss.js:0
 #, python-format
 msgid "Congratulations, your inbox is empty!"
@@ -2343,28 +2343,28 @@ msgid "Connection failed (outgoing mail server problem)"
 msgstr "La connexion a échoué (problème de serveur de messagerie sortant)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/fetchmail.py:0
 #, python-format
 msgid "Connection test failed: %s"
 msgstr "Le test de connexion a échoué: %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "Connection to SFU server closed by the server"
 msgstr "Connexion au serveur SFU fermée par le serveur"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Connection type:"
 msgstr "Type de connexion :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Connection:"
@@ -2463,7 +2463,7 @@ msgid "Country"
 msgstr "Pays"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/activity/activity_renderer.xml:0
 #, python-format
 msgid "Create"
@@ -2481,7 +2481,7 @@ msgid "Create Date"
 msgstr "Date de création"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Create Group Chat"
@@ -2498,7 +2498,7 @@ msgid "Create a New Record"
 msgstr "Créer un nouvel enregistrement"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_compose_message.py:0
 #, python-format
 msgid "Create a new Mail Template"
@@ -2510,28 +2510,28 @@ msgid "Create a new canned response"
 msgstr "Créer une nouvelle réponse enregistrée"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Create new %(document)s"
 msgstr "Créer un nouveau %(document)s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Create new %(document)s by sending an email to %(email_link)s"
 msgstr "Créer un nouveau %(document)s en envoyant un e-mail à %(email_link)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/channel_selector.xml:0
 #, python-format
 msgid "Create: #"
 msgstr "Créer : #"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Created"
@@ -2620,7 +2620,7 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/thread_service_patch.js:0
 #, python-format
 msgid "Creating a new record..."
@@ -2701,14 +2701,14 @@ msgid "Customized Notifications"
 msgstr "Notifications personnalisées"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "DTLS:"
 msgstr "DTLS :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Data channel:"
@@ -2748,14 +2748,14 @@ msgid "Deadline:"
 msgstr "Date limite :"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity.py:0
 #, python-format
 msgid "Deadline: %s"
 msgstr "Date limite : %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Deafen"
@@ -2769,7 +2769,7 @@ msgid "Dear"
 msgstr "Cher(e)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "Dear Sender"
@@ -2881,7 +2881,7 @@ msgid "Delay Type"
 msgstr "Type de délai"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Delay after releasing push-to-talk"
@@ -2893,7 +2893,7 @@ msgid "Delay units"
 msgstr "Délai en unité"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/link_preview_confirm_delete.xml:0
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #: code:addons/mail/static/src/views/web/fields/many2many_tags_email/many2many_tags_email.xml:0
@@ -2910,14 +2910,14 @@ msgid "Delete Emails"
 msgstr "Supprimer les e-mails"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/link_preview_confirm_delete.xml:0
 #, python-format
 msgid "Delete all previews"
 msgstr "Supprimer tous les aperçus"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_model.js:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__notification_status__sent
 #, python-format
@@ -2930,14 +2930,14 @@ msgid "Delivery Failed"
 msgstr "Échec de l'envoi"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.xml:0
 #, python-format
 msgid "Delivery failure"
 msgstr "Échec de l'envoi"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_compose_message.py:0
 #, python-format
 msgid "Deprecated usage of 'default_res_id', should use 'default_res_ids'."
@@ -2973,14 +2973,14 @@ msgstr ""
 "(pas de voix/vidéo)."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss_app_model.js:0
 #, python-format
 msgid "Direct messages"
 msgstr "Messages directs"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_markasdone_popover.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
@@ -2990,7 +2990,7 @@ msgid "Discard"
 msgstr "Ignorer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.discuss_channel_rtc_session_view_tree
 #, python-format
@@ -2998,14 +2998,14 @@ msgid "Disconnect"
 msgstr "Déconnecter"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "Disconnected from the RTC call by the server"
 msgstr "Déconnecté de l'appel par le serveur"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/thread_actions.js:0
 #: model:ir.actions.client,name:mail.action_discuss
 #: model:ir.ui.menu,name:mail.mail_menu_technical
@@ -3036,7 +3036,7 @@ msgid "Discussions"
 msgstr "Discussions"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #, python-format
 msgid "Dismiss"
@@ -3095,21 +3095,21 @@ msgstr ""
 "composition avec ce modèle"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/many2one_avatar_user_field/many2one_avatar_user_field.js:0
 #, python-format
 msgid "Display avatar name"
 msgstr "Afficher le nom de l'avatar"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.js:0
 #, python-format
 msgid "Do you really want to delete \"%s\"?"
 msgstr "Voulez-vous réellement supprimer \"%s\" ?"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/link_preview_confirm_delete.xml:0
 #, python-format
 msgid "Do you really want to delete this preview?"
@@ -3153,7 +3153,7 @@ msgid "Domain"
 msgstr "Domaine"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #: code:addons/mail/static/src/core/web/activity_markasdone_popover.xml:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity__state__done
@@ -3168,7 +3168,7 @@ msgid "Done & Launch Next"
 msgstr "Terminé & lancer la suite"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_markasdone_popover.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_schedule_view_form
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
@@ -3182,14 +3182,14 @@ msgid "Done Date"
 msgstr "Date de réalisation"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_markasdone_popover.xml:0
 #, python-format
 msgid "Done and Schedule Next"
 msgstr "Finaliser et planifier la suite"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.js:0
 #: code:addons/mail/static/src/core/common/attachment_list.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.view_document_file_kanban
@@ -3198,28 +3198,28 @@ msgid "Download"
 msgstr "Télécharger"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #, python-format
 msgid "Download Files"
 msgstr "Télécharger les fichiers"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Download logs"
 msgstr "Télécharger les journaux"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Download:"
 msgstr "Télécharger :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/dropzone.xml:0
 #, python-format
 msgid "Drag Files Here"
@@ -3238,21 +3238,21 @@ msgid "Due Date In"
 msgstr "Date d'échéance dans"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Due in"
 msgstr "Dû dans"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.js:0
 #, python-format
 msgid "Due in %s days"
 msgstr "Venant à échéance dans %s jours"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Due on"
@@ -3285,14 +3285,14 @@ msgid "Dynamic User (based on record)"
 msgstr "Utilisateur dynamique (sur base de l'enregistrement)"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Edge blur intensity"
 msgstr "Intensité du floutage des contours"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
@@ -3305,21 +3305,21 @@ msgid "Edit Partners"
 msgstr "Modifier les partenaires"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_subtype_dialog.js:0
 #, python-format
 msgid "Edit Subscription of %(name)s"
 msgstr "Modifier l'abonnement de %(name)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_list.xml:0
 #, python-format
 msgid "Edit subscription"
 msgstr "Modifier abonnement"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/many2many_tags_email/many2many_tags_email.js:0
 #, python-format
 msgid "Edit: %s"
@@ -3493,7 +3493,7 @@ msgid ""
 msgstr "Les adresses qui sont sur liste noire ne recevront plus d'e-mails."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -3520,8 +3520,8 @@ msgstr "Assistant de composition d'e-mails"
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin__alias_domain
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin_optional__alias_domain
 #: model:ir.model.fields,help:mail.field_res_company__alias_domain_name
-msgid "Email domain e.g. 'example.com' in 'odoo@example.com'"
-msgstr "Domaine de messagerie par ex. 'example.com' dans 'odoo@example.com'"
+msgid "Email domain e.g. 'example.com' in 'weblgx@example.com'"
+msgstr "Domaine de messagerie par ex. 'example.com' dans 'weblgx@example.com'"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_form
@@ -3549,14 +3549,14 @@ msgid "Emails"
 msgstr "E-mails"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/picker_content_patch.xml:0
 #, python-format
 msgid "Emoji"
 msgstr "Emoji"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #: code:addons/mail/static/src/views/web/fields/emojis_field_common/emojis_field_common.xml:0
 #, python-format
@@ -3575,35 +3575,35 @@ msgid "Enable Ordered Tracking"
 msgstr "Activer le suivi des commandes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Enable Push-to-talk"
 msgstr "Activer le push-to-talk"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #, python-format
 msgid "Enable desktop notifications to chat"
 msgstr "Activer les notifications de bureau pour le chat"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Enter"
 msgstr "Saisir"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.js:0
 #, python-format
 msgid "Enter Full Screen"
 msgstr "Activer le mode plein écran"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_model.js:0
 #: model:ir.model.fields,field_description:mail.field_mail_activity_schedule__error
 #: model:ir.model.fields.selection,name:mail.selection__account_journal__activity_exception_decoration__danger
@@ -3663,7 +3663,7 @@ msgid "Error Message"
 msgstr "Message d'erreur"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/update.py:0
 #, python-format
 msgid "Error during communication with the publisher warranty server."
@@ -3676,7 +3676,7 @@ msgid "Error message"
 msgstr "Message d'erreur"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_mail.py:0
 #, python-format
 msgid ""
@@ -3688,7 +3688,7 @@ msgstr ""
 "administrateur."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_mail.py:0
 #, python-format
 msgid ""
@@ -3715,14 +3715,14 @@ msgid "Exception"
 msgstr "Exception"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.js:0
 #, python-format
 msgid "Exit Full Screen"
 msgstr "Quitter le mode plein écran"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.js:0
 #, python-format
 msgid "Expand"
@@ -3749,28 +3749,28 @@ msgid "Failed"
 msgstr "Échec"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/webclient/web/webclient.js:0
 #, python-format
 msgid "Failed to enable push notifications"
 msgstr "Échec de l'activation des notifications push"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "Failed to load gifs..."
 msgstr "Impossible de charger des gifs..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "Failed to load the SFU server, falling back to peer-to-peer"
 msgstr "Échec du téléchargement du serveur SFU, retour au peer-to-peer"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid ""
@@ -3783,14 +3783,14 @@ msgstr ""
 "%(template_traceback)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "Failed to render inline_template template: %(template_txt)s"
 msgstr "Échec du rendu du modèle inline_template : %(template_txt)s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "Failed to render template: %(view_ref)s"
@@ -3831,7 +3831,7 @@ msgid "Favorited By"
 msgstr "Préféré par"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
@@ -3855,21 +3855,21 @@ msgid "Field"
 msgstr "Champ"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_model.py:0
 #, python-format
 msgid "Field \"Mail Activity\" cannot be changed to \"False\"."
 msgstr "Le champ \"Activité par email\" ne peut être remis à \"Faux\""
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_model.py:0
 #, python-format
 msgid "Field \"Mail Blacklist\" cannot be changed to \"False\"."
 msgstr "Le champ \"Liste noire email\" ne peut être remis à \"Faux\""
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_model.py:0
 #, python-format
 msgid "Field \"Mail Thread\" cannot be changed to \"False\"."
@@ -3897,7 +3897,7 @@ msgstr ""
 "calculer getattr(related_document.relation_field)."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_tracking_duration_mixin.py:0
 #, python-format
 msgid ""
@@ -3920,21 +3920,21 @@ msgstr ""
 "Fichier d'où vient le modèle. Utilisé pour réinitialiser le modèle cassé."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_upload_service.js:0
 #, python-format
 msgid "File too large"
 msgstr "Fichier trop volumineux"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/attachment_panel.xml:0
 #, python-format
 msgid "File upload is disabled for external users"
 msgstr "Le chargement de fichiers est désactivé pour les utilisateurs externes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/attachment_panel.xml:0
 #, python-format
 msgid "File upload is enabled for external users"
@@ -3942,14 +3942,14 @@ msgstr ""
 "Le téléchargement de fichiers est activé pour les utilisateurs externes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
 msgid "Files"
 msgstr "Fichiers"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #, python-format
 msgid "Fold"
@@ -3961,7 +3961,7 @@ msgid "Folded"
 msgstr "Replié"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
 msgid "Follow"
@@ -4015,7 +4015,7 @@ msgid "Followers to remove"
 msgstr "Abonnés à supprimer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.js:0
 #, python-format
 msgid "Following"
@@ -4031,7 +4031,7 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Icône Font Awesome par ex. fa-tasks"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -4042,35 +4042,35 @@ msgstr ""
 "l'autorisation de groupe ou l'abonnement automatique de groupe."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #, python-format
 msgid "For 1 hour"
 msgstr "Pendant 1 heure"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #, python-format
 msgid "For 15 minutes"
 msgstr "Pendant 15 minutes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #, python-format
 msgid "For 24 hours"
 msgstr "Pendant 24 heures"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #, python-format
 msgid "For 3 hours"
 msgstr "Pour 3 heures"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #, python-format
 msgid "For 8 hours"
@@ -4101,14 +4101,14 @@ msgid "From"
 msgstr "De"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "From peer:"
 msgstr "Du pair :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #, python-format
 msgid "Full composer"
@@ -4120,7 +4120,7 @@ msgid "Full screen video"
 msgstr "Vidéo en mode plein écran"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_menu.xml:0
 #, python-format
 msgid "Future"
@@ -4133,21 +4133,21 @@ msgid "Future Activities"
 msgstr "Activités futures"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "GIF"
 msgstr "GIF"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "GIF Category"
 msgstr "Catégorie de GIF"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "GIF Favorites"
@@ -4167,7 +4167,7 @@ msgid "GIF id from Tenor"
 msgstr "Id GIF de Tenor"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/composer_patch.xml:0
 #: code:addons/mail/static/src/discuss/gif_picker/common/picker_content_patch.xml:0
 #, python-format
@@ -4180,7 +4180,7 @@ msgid "Gateway"
 msgstr "Passerelle"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Go to conversation"
@@ -4224,7 +4224,7 @@ msgid "Group by..."
 msgstr "Regrouper par..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #, python-format
 msgid "Grouped Chat"
@@ -4236,8 +4236,8 @@ msgid "Groups"
 msgstr "Groupes"
 
 #. module: mail
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/mail/controllers/discuss/public_page.py:0
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.js:0
 #: model:ir.model,name:mail.model_mail_guest
@@ -4253,14 +4253,14 @@ msgid "Guest"
 msgstr "Invité"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/mail_guest.py:0
 #, python-format
 msgid "Guest's name cannot be empty."
 msgstr "Le nom de l'invité ne peut pas être vide."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/mail_guest.py:0
 #, python-format
 msgid "Guest's name is too long."
@@ -4354,7 +4354,7 @@ msgid "Hello"
 msgstr "Bonjour"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_wizard_invite.py:0
 #, python-format
 msgid "Hello,"
@@ -4371,35 +4371,35 @@ msgid "Hidden Template"
 msgstr "Modèle masqué"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_actions.js:0
 #, python-format
 msgid "Hide Attachments"
 msgstr "Masquer les pièces jointes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/thread_actions.js:0
 #, python-format
 msgid "Hide Call Settings"
 msgstr "Masquer les paramètres de l'appel"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_actions.js:0
 #, python-format
 msgid "Hide Member List"
 msgstr "Masquer la liste des membres"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/thread_actions.js:0
 #, python-format
 msgid "Hide Pinned Messages"
 msgstr "Masquer les messages épinglés"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call.xml:0
 #, python-format
 msgid "Hide sidebar"
@@ -4425,7 +4425,7 @@ msgid "High"
 msgstr "Haute"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/messaging_service.js:0
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
@@ -4453,7 +4453,7 @@ msgid "ICE Servers"
 msgstr "Serveurs ICE"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "ICE gathering:"
@@ -4472,7 +4472,7 @@ msgid "ICE servers"
 msgstr "Serveurs ICE"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "ICE:"
@@ -4573,7 +4573,7 @@ msgid "Identity"
 msgstr "Identité"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
 #, python-format
@@ -4767,7 +4767,7 @@ msgstr ""
 "dans le fuseau horaire UTC."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "Inactive Alias"
@@ -4779,7 +4779,7 @@ msgid "Inbound Mail Server"
 msgstr "Serveur de messagerie entrant"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/messaging_service.js:0
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__notification_type__inbox
@@ -4788,7 +4788,7 @@ msgid "Inbox"
 msgstr "Boîte de réception"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_invitation.xml:0
 #, python-format
 msgid "Incoming Call..."
@@ -4827,7 +4827,7 @@ msgstr ""
 "utilisateur."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Info"
@@ -4845,14 +4845,14 @@ msgid "Inlined Complete Address"
 msgstr "Adresse complète inline"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Input device"
 msgstr "Dispositif de saisie"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #, python-format
 msgid "Install"
@@ -4880,7 +4880,7 @@ msgid "Invalid"
 msgstr "Invalide"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_compose_message.py:0
 #, python-format
 msgid "Invalid domain %(domain)r (type %(domain_type)s)"
@@ -4893,14 +4893,14 @@ msgid "Invalid email address"
 msgstr "Adresse e-mail non valide"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_blacklist.py:0
 #, python-format
 msgid "Invalid email address %r"
 msgstr "Adresse e-mail invalide %r"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -4911,7 +4911,7 @@ msgstr ""
 "est attendue, par exemple \"{'field': 'value'}\""
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "Invalid field “%(field_name)s” when creating a channel with members."
@@ -4926,21 +4926,21 @@ msgid "Invalid from address"
 msgstr "Adresse d'envoi invalide"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread_blacklist.py:0
 #, python-format
 msgid "Invalid primary email field on model %s"
 msgstr "Champ e-mail principal non valide sur le modèle %s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/tools/parser.py:0
 #, python-format
 msgid "Invalid res_ids %(res_ids_str)s (type %(res_ids_type)s)"
 msgstr "res_ids %(res_ids_str)s invalide (type %(res_ids_type)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/fetchmail.py:0
 #, python-format
 msgid ""
@@ -4951,7 +4951,7 @@ msgstr ""
 " %s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -4962,7 +4962,7 @@ msgstr ""
 "utiliser un enregistrement ou un XMLID"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -4970,7 +4970,7 @@ msgid ""
 msgstr "Modèle ou vue de source Xml ID %(source_ref)s invalide n'existe plus"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Invalid template or view source record %(svalue)s, is %(model)s instead"
@@ -4979,7 +4979,7 @@ msgstr ""
 "à la place"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -4989,7 +4989,7 @@ msgstr ""
 "place"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -4999,7 +4999,7 @@ msgstr ""
 "ou 6 sont autorisés."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -5014,49 +5014,49 @@ msgid "Invitation URL"
 msgstr "Url d'invitation"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_wizard_invite.py:0
 #, python-format
 msgid "Invitation to follow %(document_model)s: %(document_name)s"
 msgstr "Invitation à suivre %(document_model)s: %(document_name)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Invite"
 msgstr "Inviter"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_list.js:0
 #, python-format
 msgid "Invite Follower"
 msgstr "Inviter des abonnés"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.xml:0
 #, python-format
 msgid "Invite a User"
 msgstr "Inviter un utilisateur"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Invite people"
 msgstr "Inviter des gens"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Invite to Channel"
 msgstr "Inviter au canal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Invite to Group Chat"
@@ -5162,7 +5162,7 @@ msgid "Is sharing the screen"
 msgstr "Est en train de partager l'écran"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel_member.py:0
 #, python-format
 msgid ""
@@ -5204,14 +5204,14 @@ msgid "Join"
 msgstr "Rejoindre"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Join Call"
 msgstr "Rejoindre l'appel"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.xml:0
 #, python-format
 msgid "Join Channel"
@@ -5223,14 +5223,14 @@ msgid "Join a group"
 msgstr "Rejoindre un groupe"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_card_list.xml:0
 #, python-format
 msgid "Jump"
 msgstr "Sauter"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "Jump to Present"
@@ -5275,7 +5275,7 @@ msgid "Key"
 msgstr "Clé"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #: model_terms:ir.ui.view,arch_db:mail.message_notification_limit_email
 #, python-format
@@ -5283,7 +5283,7 @@ msgid "Kind Regards"
 msgstr "Cordialement"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
 msgid "LIVE"
@@ -5418,7 +5418,7 @@ msgid "Last time this shortcode was used"
 msgstr "Dernière fois ce code court a été utilisé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_menu.xml:0
 #, python-format
 msgid "Late"
@@ -5431,7 +5431,7 @@ msgid "Late Activities"
 msgstr "Activités en retard"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
 msgid "Launch Plans"
@@ -5449,14 +5449,14 @@ msgid "Leave"
 msgstr "Quitter"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.js:0
 #, python-format
 msgid "Leave Conversation"
 msgstr "Quitter la conversation"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_commands.js:0
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.xml:0
 #, python-format
@@ -5474,28 +5474,28 @@ msgid "Link Previews"
 msgstr "Lien des aperçus"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Link copied!"
 msgstr "Lien copié !"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_commands.js:0
 #, python-format
 msgid "List users in the current channel"
 msgstr "Répertorier les utilisateur dans le canal actuel"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "Load More"
 msgstr "Charger plus"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_list.xml:0
 #: code:addons/mail/static/src/core/web/recipient_list.xml:0
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.xml:0
@@ -5509,7 +5509,7 @@ msgid "Load template"
 msgstr "Charger le modèle"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #: code:addons/mail/static/src/core/web/mention_list.js:0
 #: code:addons/mail/static/src/discuss/core/web/channel_selector.js:0
@@ -5546,7 +5546,7 @@ msgstr ""
 "mails rebondissent  par ex. 'bounce' dans 'bounce@example.com'"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
 #, python-format
@@ -5554,7 +5554,7 @@ msgid "Log"
 msgstr "Publier"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Log RTC events"
@@ -5574,14 +5574,14 @@ msgid "Log an Activity"
 msgstr "Planifier une activité"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/composer_patch.js:0
 #, python-format
 msgid "Log an internal note…"
 msgstr "Enregistrer une note interne..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
@@ -5589,14 +5589,14 @@ msgid "Log note"
 msgstr "Note"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Log step:"
 msgstr "Étape longue :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.js:0
 #, python-format
 msgid "Logged in as %s"
@@ -5613,7 +5613,7 @@ msgid "Low"
 msgstr "Basse"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.js:0
 #, python-format
 msgid "Lower Hand"
@@ -5625,7 +5625,7 @@ msgid "MIME type"
 msgstr "Type MIME"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_mail_template.xml:0
 #: model:ir.model.fields,field_description:mail.field_mail_notification__mail_mail_id
 #, python-format
@@ -5666,7 +5666,7 @@ msgid "Mail Composer Mixin"
 msgstr "Compositeur d'emails Mixin"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #, python-format
 msgid "Mail Failures"
@@ -5681,7 +5681,7 @@ msgid "Mail Gateway Allowed"
 msgstr "Passerelle emails autorisés"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_config_settings.py:0
 #, python-format
 msgid "Mail Layout"
@@ -5728,7 +5728,7 @@ msgid "Mail Template Reset"
 msgstr "Réinitialisation du modèle d'email"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_template_reset.py:0
 #, python-format
 msgid "Mail Templates have been reset"
@@ -5745,7 +5745,7 @@ msgid "Mail Tracking Value"
 msgstr "Valeur de suivi des courriers"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_compose_message.py:0
 #, python-format
 msgid ""
@@ -5763,7 +5763,7 @@ msgstr ""
 "existant."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_actions_server.py:0
 #, python-format
 msgid "Mail template model of %(action_name)s does not match action model."
@@ -5791,21 +5791,21 @@ msgid "Mail: send web push notification"
 msgstr "Email : envoyer une notification push web"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Mailbox unavailable - %s"
 msgstr "Boîte de réception non disponible – %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.js:0
 #, python-format
 msgid "Mailboxes"
 msgstr "Boîtes de réception"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -5827,7 +5827,7 @@ msgid "Main Attachment"
 msgstr "Pièce jointe principale"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/js/tools/debug_manager.js:0
 #, python-format
 msgid "Manage Messages"
@@ -5843,14 +5843,14 @@ msgstr ""
 "réponses aillent dans le même fil de discussion."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/notification_item.xml:0
 #, python-format
 msgid "Mark As Read"
 msgstr "Marquer comme lu"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #: code:addons/mail/static/src/core/web/activity_markasdone_popover.xml:0
 #, python-format
@@ -5858,7 +5858,7 @@ msgid "Mark Done"
 msgstr "Fait"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/thread_actions.js:0
 #, python-format
 msgid "Mark all read"
@@ -5871,35 +5871,35 @@ msgid "Mark as Done"
 msgstr "Marquer comme fait"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #, python-format
 msgid "Mark as Read"
 msgstr "Marquer comme lu"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #, python-format
 msgid "Mark as Todo"
 msgstr "Marquer comme à faire"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #, python-format
 msgid "Mark as Unread"
 msgstr "Marquer comme non lu"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.xml:0
 #, python-format
 msgid "Mark as done"
 msgstr "Marquer comme fait"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.js:0
 #, python-format
 msgid "Media devices unobtainable. SSL might not be set up properly."
@@ -5923,7 +5923,7 @@ msgid "Member Count"
 msgstr "Nombre de membres"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.js:0
 #, python-format
 msgid "Member List"
@@ -5945,14 +5945,14 @@ msgstr ""
 "cependant gérer leur abonnement manuellement si nécessaire."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/command_category.js:0
 #, python-format
 msgid "Mentions"
 msgstr "Mentions"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #: model:ir.model.fields.selection,name:mail.selection__discuss_channel_member__custom_notifications__mentions
 #, python-format
@@ -5965,14 +5965,14 @@ msgid "Merge Partner Wizard"
 msgstr "Assistant de fusion des partenaires"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/base_partner_merge_automatic_wizard.py:0
 #, python-format
 msgid "Merged with the following partners:"
 msgstr "Fusionnés avec les partenaires suivants"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.js:0
 #: model:ir.model,name:mail.model_mail_message
 #: model:ir.model.fields,field_description:mail.field_mail_link_preview__message_id
@@ -5990,14 +5990,14 @@ msgid "Message"
 msgstr "Message"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Message #%(thread name)s…"
 msgstr "Message #%(thread name)s…"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Message %(thread name)s…"
@@ -6066,7 +6066,7 @@ msgstr ""
 "Description du message : soit le sujet ou le commencement du corps du message"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Message posted on \"%s\""
@@ -6084,7 +6084,7 @@ msgstr ""
 "Références du message , tel que les identifiants des messages précédents"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Message should be a valid EmailMessage instance"
@@ -6143,7 +6143,7 @@ msgid "Message-Id"
 msgstr "ID du message"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #: model:ir.actions.act_window,name:mail.act_server_history
 #: model:ir.actions.act_window,name:mail.action_view_mail_message
@@ -6168,7 +6168,7 @@ msgid "Messages Search"
 msgstr "Recherche de messages"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "Messages marked as read will appear in the history."
@@ -6184,7 +6184,7 @@ msgstr ""
 "employés, aussi appelé membre du groupe base_user"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Messages with tracking values cannot be modified"
@@ -6273,21 +6273,21 @@ msgid "Months"
 msgstr "Mois"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.js:0
 #, python-format
 msgid "More"
 msgstr "Plus"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Mute"
 msgstr "Couper le son"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/notification_settings.xml:0
 #, python-format
 msgid "Mute Channel"
@@ -6332,14 +6332,14 @@ msgid "Need Action"
 msgstr "Nécessite une action"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/messaging_menu_patch.xml:0
 #, python-format
 msgid "New Channel"
 msgstr "Nouveau canal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/messaging_menu_patch.xml:0
 #, python-format
 msgid "New Message"
@@ -6371,7 +6371,7 @@ msgid "New Value Text"
 msgstr "Nouvelle valeur de texte"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/chat_window_model.js:0
 #: code:addons/mail/static/src/core/common/out_of_focus_service.js:0
 #, python-format
@@ -6379,14 +6379,14 @@ msgid "New message"
 msgstr "Nouveau message"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "New messages"
 msgstr "Nouveaux messages"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "New messages appear here."
@@ -6434,28 +6434,28 @@ msgid "Next activities available"
 msgstr "Activités suivantes disponibles"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/message_patch.js:0
 #, python-format
 msgid "No"
 msgstr "Non"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_notification.py:0
 #, python-format
 msgid "No Error"
 msgstr "Aucune erreur"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_list.xml:0
 #, python-format
 msgid "No Followers"
 msgstr "Aucun abonné"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
@@ -6474,63 +6474,63 @@ msgid "No activities."
 msgstr "Aucune activité."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/command_palette.js:0
 #, python-format
 msgid "No channel found"
 msgstr "Aucun canal trouvé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss.xml:0
 #, python-format
 msgid "No conversation selected."
 msgstr "Aucune conversation sélectionnée."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #, python-format
 msgid "No conversation yet..."
 msgstr "Pas encore de conversation..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "No history messages"
 msgstr "Aucun message"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_resend_message.py:0
 #, python-format
 msgid "No message_id found in context"
 msgstr "Aucun message_id trouvé dans le contexte"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_card_list.js:0
 #, python-format
 msgid "No messages found"
 msgstr "Aucun message trouvé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.js:0
 #, python-format
 msgid "No recipient"
 msgstr "Aucun destinataire"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_compose_message.py:0
 #, python-format
 msgid "No recipient found."
 msgstr "Aucun destinataire trouvé."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/fetchmail.py:0
 #, python-format
 msgid ""
@@ -6541,7 +6541,7 @@ msgstr ""
 "%s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity_plan_template.py:0
 #, python-format
 msgid ""
@@ -6551,14 +6551,14 @@ msgstr ""
 "%(activity_summary)s."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/channel_selector.js:0
 #, python-format
 msgid "No results found"
 msgstr "Aucun résultat trouvé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "No starred messages"
@@ -6571,35 +6571,35 @@ msgid "No threading for answers"
 msgstr "Pas de suivi dans le fil pour les réponses"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/command_palette.js:0
 #, python-format
 msgid "No user found"
 msgstr "Aucun utilisateur trouvé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.xml:0
 #, python-format
 msgid "No user found that is not already a member of this channel."
 msgstr "Aucun utilisateur trouvé qui n'est pas déjà membre de cette chaîne."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/assign_user_command_hook.js:0
 #, python-format
 msgid "No users found"
 msgstr "Aucun utilisateur trouvé"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/controllers/mail.py:0
 #, python-format
 msgid "Non existing record or wrong token."
 msgstr "Aucun enregistrement existant ou mauvais jeton."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/message_patch.js:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_activity_type__category__default
 #, python-format
@@ -6625,7 +6625,7 @@ msgid "Not Tested"
 msgstr "Non testé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.js:0
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_note
 #: model:ir.model.fields,field_description:mail.field_ir_cron__activity_note
@@ -6639,7 +6639,7 @@ msgid "Note"
 msgstr "Note"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #: model:ir.model.fields.selection,name:mail.selection__discuss_channel_member__custom_notifications__no_notif
 #, python-format
@@ -6660,7 +6660,7 @@ msgid "Notification Email"
 msgstr "Notifications par e-mail"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/notification_item.xml:0
 #, python-format
 msgid "Notification Item Image"
@@ -6672,7 +6672,7 @@ msgid "Notification Parameter"
 msgstr "Paramètre de notification"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_actions.js:0
 #, python-format
 msgid "Notification Settings"
@@ -6684,7 +6684,7 @@ msgid "Notification Type"
 msgstr "Type de notification"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -6695,7 +6695,7 @@ msgstr ""
 "liste de listes ou de tuples (reçu %(aids)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -6706,7 +6706,7 @@ msgstr ""
 "la forme d'une liste d'identifiants (reçu %(aids)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -6737,14 +6737,14 @@ msgid "Notifications"
 msgstr "Notifications"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
 #, python-format
 msgid "Notifications allowed"
 msgstr "Notifications autorisées"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
 #, python-format
 msgid "Notifications blocked"
@@ -6814,14 +6814,14 @@ msgid "Weblgx"
 msgstr "Weblgx"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
 #, python-format
 msgid "Weblgx will not send notifications on this device."
 msgstr "Weblgx n'enverra pas de notifications à ce périphérique."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_permission_service.js:0
 #, python-format
 msgid "Web@LGX will send notifications on this device!"
@@ -6833,7 +6833,7 @@ msgid "Off"
 msgstr "Off"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
@@ -6842,7 +6842,7 @@ msgid "Offline"
 msgstr "Hors ligne"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.xml:0
 #, python-format
 msgid "Offline -"
@@ -6879,7 +6879,7 @@ msgid "Old values"
 msgstr "Anciennes valeurs"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
@@ -6888,21 +6888,21 @@ msgid "Online"
 msgstr "En ligne"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.xml:0
 #, python-format
 msgid "Online -"
 msgstr "En ligne -"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_message.py:0
 #, python-format
 msgid "Only administrators are allowed to export mail message"
 msgstr "Seuls les administrateurs sont autorisés à exporter l'email"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_model.py:0
 #, python-format
 msgid "Only custom models can be modified."
@@ -6914,7 +6914,7 @@ msgid "Only internal user can receive notifications in Web@LGX"
 msgstr "Seul un utilisateur interne peut recevoir des notifications dans Web@LGX"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Only messages type comment can have their content updated"
@@ -6922,7 +6922,7 @@ msgstr ""
 "Seuls les messages de type commentaire peuvent voir leur contenu mis à jour"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -6933,7 +6933,7 @@ msgstr ""
 "sur le modèle 'discuss.channel'"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid ""
@@ -6944,7 +6944,7 @@ msgstr ""
 "modifier des modèles dynamiques."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #: model:ir.model.fields.selection,name:mail.selection__discuss_channel_member__fold_state__open
 #, python-format
@@ -6952,7 +6952,7 @@ msgid "Open"
 msgstr "Ouvert"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/chat_window.js:0
 #, python-format
 msgid "Open Actions Menu"
@@ -6965,14 +6965,14 @@ msgid "Open Document"
 msgstr "Ouvrir le document"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/thread_actions.js:0
 #, python-format
 msgid "Open Form View"
 msgstr "Ouvrir la vue formulaire"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.xml:0
 #, python-format
 msgid "Open Link"
@@ -6984,21 +6984,21 @@ msgid "Open Owner"
 msgstr "Ouvrir le propriétaire"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/message_patch.js:0
 #, python-format
 msgid "Open card"
 msgstr "Carte ouverte"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/thread_actions.js:0
 #, python-format
 msgid "Open in Discuss"
 msgstr "Ouvrir dans Discussion"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_template.py:0
 #, python-format
 msgid "Operation not supported"
@@ -7069,14 +7069,14 @@ msgstr ""
 " Ceci a un impact sur l'ID du message généré."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_in_reply.xml:0
 #, python-format
 msgid "Original message was deleted"
 msgstr "Le message original a été supprimé"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #: model:ir.actions.act_window,name:mail.mail_activity_without_access_action
 #, python-format
@@ -7118,7 +7118,7 @@ msgid "Outgoing mail server"
 msgstr "Serveur de messagerie sortant"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #: model:ir.model.fields.selection,name:mail.selection__account_journal__activity_state__overdue
 #: model:ir.model.fields.selection,name:mail.selection__account_move__activity_state__overdue
@@ -7192,14 +7192,14 @@ msgid "POP/IMAP Servers"
 msgstr "Serveurs POP/IMAP"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Packets received:"
 msgstr "Paquets reçus :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Packets sent:"
@@ -7262,7 +7262,7 @@ msgid "Partner"
 msgstr "Partenaire"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_partner.py:0
 #, python-format
 msgid "Partner Profile"
@@ -7307,7 +7307,7 @@ msgid "Paste your API key"
 msgstr "Copier votre clé API"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_player.xml:0
 #, python-format
 msgid "Pause"
@@ -7335,14 +7335,14 @@ msgid "Phonecall"
 msgstr "Appel téléphonique"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/message_patch.js:0
 #, python-format
 msgid "Pin"
 msgstr "Épingler"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/message_pin_service.js:0
 #, python-format
 msgid "Pin It"
@@ -7355,7 +7355,7 @@ msgid "Pinned"
 msgstr "Épinglé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/pinned_messages_panel.js:0
 #: code:addons/mail/static/src/discuss/message_pin/common/thread_actions.js:0
 #: model:ir.model.fields,field_description:mail.field_discuss_channel__pinned_message_ids
@@ -7397,7 +7397,7 @@ msgid "Plan summary"
 msgstr "Résumé du plan"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #: model:ir.model.fields.selection,name:mail.selection__account_journal__activity_state__planned
 #: model:ir.model.fields.selection,name:mail.selection__account_move__activity_state__planned
@@ -7451,7 +7451,7 @@ msgid "Planned"
 msgstr "Planifié"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
 msgid "Planned Activities"
@@ -7469,14 +7469,14 @@ msgid "Planning"
 msgstr "Planification"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_player.xml:0
 #, python-format
 msgid "Play"
 msgstr "Play"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/suggested_recipient.js:0
 #, python-format
 msgid "Please complete customer's information"
@@ -7488,7 +7488,7 @@ msgid "Please contact us instead using"
 msgstr "Merci de nous contacter à l'adresse"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Please wait while the file is uploading."
@@ -7527,14 +7527,14 @@ msgid "Port"
 msgstr "Port"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Portal Access Granted"
 msgstr "Accès au portail accordé"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Portal Access Revoked"
@@ -7546,7 +7546,7 @@ msgid "Post on a document"
 msgstr "Publier dans un document"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -7557,7 +7557,7 @@ msgstr ""
 "message_notify pour envoyer une notification à un utilisateur."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -7568,7 +7568,7 @@ msgstr ""
 "liste de listes ou de tuples (reçu %(aids)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -7579,7 +7579,7 @@ msgstr ""
 "sous la forme d'une liste d'identifiants (reçu %(aids)s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -7606,14 +7606,14 @@ msgid "Preferred response address"
 msgstr "Adresse de réponse préférée"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/channel_selector.js:0
 #, python-format
 msgid "Press Enter to start"
 msgstr "Appuyer sur Enter pour démarrer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Press a key to register it as the push-to-talk shortcut."
@@ -7621,7 +7621,7 @@ msgstr ""
 "Appuyer sur une touche pour l'enregistrer comme raccourci push-to-talk."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.xml:0
 #: code:addons/mail/static/src/core/web/activity_mail_template.xml:0
 #: model:ir.model.fields,field_description:mail.field_mail_mail__preview
@@ -7659,7 +7659,7 @@ msgstr ""
 "existante."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_model.js:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__notification_status__process
 #, python-format
@@ -7667,14 +7667,14 @@ msgid "Processing"
 msgstr "En cours de traitement"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_icon.xml:0
 #, python-format
 msgid "Public Channel"
 msgstr "Canal public"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.js:0
 #, python-format
 msgid "Public Channels"
@@ -7696,14 +7696,14 @@ msgid "Push-To-Talk shortcut"
 msgstr "Raccourci Push-To-Talk"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Push-to-talk key"
 msgstr "Touche push-to-talk"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.xml:0
 #, python-format
 msgid "Quick search..."
@@ -7721,7 +7721,7 @@ msgid "RTC Session"
 msgstr "Session RTC"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "RTC Session ID:"
@@ -7739,7 +7739,7 @@ msgid "RTC sessions"
 msgstr "Sessions RTC"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.js:0
 #, python-format
 msgid "Raise Hand"
@@ -7775,7 +7775,7 @@ msgid "Read Date"
 msgstr "Date de lecture"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_model.js:0
 #, python-format
 msgid "Ready"
@@ -7804,7 +7804,7 @@ msgid "Received"
 msgstr "Reçu"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/command_category.js:0
 #, python-format
 msgid "Recent"
@@ -7858,7 +7858,7 @@ msgid "Record Thread ID"
 msgstr "ID de l'enregistrement du fil"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_message.py:0
 #, python-format
 msgid "Records:"
@@ -7870,7 +7870,7 @@ msgid "References"
 msgstr "Références"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_invitation.xml:0
 #, python-format
 msgid "Refuse"
@@ -7882,14 +7882,14 @@ msgid "Regards,"
 msgstr "Salutations, "
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Register new key"
 msgstr "Enregistrer une nouvelle touche"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Reject"
@@ -7951,7 +7951,7 @@ msgid "Relation field"
 msgstr "Champ de relation"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.js:0
 #: code:addons/mail/static/src/core/common/attachment_list.xml:0
 #: code:addons/mail/static/src/core/common/link_preview.xml:0
@@ -7983,7 +7983,7 @@ msgstr ""
 "associés"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_list.xml:0
 #, python-format
 msgid "Remove this follower"
@@ -7995,7 +7995,7 @@ msgid "Removed field information"
 msgstr "Informations du champ supprimé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #, python-format
 msgid "Rename"
@@ -8010,7 +8010,7 @@ msgid "Rendering Model"
 msgstr "Modèle de rendu"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_composer_mixin.py:0
 #, python-format
 msgid ""
@@ -8020,7 +8020,7 @@ msgstr ""
 "contrepartie sur le modèle."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_composer_mixin.py:0
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
@@ -8030,7 +8030,7 @@ msgstr ""
 "modèle."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_player.xml:0
 #, python-format
 msgid "Repeat"
@@ -8042,7 +8042,7 @@ msgid "Replies"
 msgstr "Réponses"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_form
 #, python-format
@@ -8079,14 +8079,14 @@ msgid "Reply-to Address"
 msgstr "Adresse de réponse"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #, python-format
 msgid "Replying to"
 msgstr "Répondre à"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_template.py:0
 #, python-format
 msgid "Report"
@@ -8176,7 +8176,7 @@ msgid "Retry"
 msgstr "Réessayer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #, python-format
 msgid "Revert"
@@ -8260,7 +8260,7 @@ msgid "Save as a new template"
 msgstr "Enregistrer comme un nouveau modèle"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #, python-format
 msgid "Save editing"
@@ -8284,8 +8284,8 @@ msgid "Schedule & Mark as Done"
 msgstr "Planifier & Marquer comme fait"
 
 #. module: mail
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/mail/static/src/core/web/activity_service.js:0
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
@@ -8293,8 +8293,8 @@ msgid "Schedule Activity"
 msgstr "Planifier une activité"
 
 #. module: mail
-#. odoo-javascript
-#. odoo-python
+#. weblgx-javascript
+#. weblgx-python
 #: code:addons/mail/static/src/core/web/activity_service.js:0
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
@@ -8302,35 +8302,35 @@ msgid "Schedule Activity On Selected Records"
 msgstr "Planifier l'activité sur les enregistrements sélectionnés"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #, python-format
 msgid "Schedule activities to help you get things done."
 msgstr "Planifier des activités pour vous aider à faire les choses."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/activity/activity_renderer.xml:0
 #, python-format
 msgid "Schedule activity"
 msgstr "Planifier une activité"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity.py:0
 #, python-format
 msgid "Schedule an Activity"
 msgstr "Planifier une activité"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #, python-format
 msgid "Schedule an activity"
 msgstr "Planifier une activité"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #, python-format
 msgid "Schedule an activity on selected records"
@@ -8369,7 +8369,7 @@ msgid "Script"
 msgstr "Script"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #, python-format
 msgid "Search"
@@ -8391,7 +8391,7 @@ msgid "Search Incoming Mail Servers"
 msgstr "Recherche des serveurs de messagerie entrants"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #: code:addons/mail/static/src/core/web/chatter.xml:0
@@ -8405,21 +8405,21 @@ msgid "Search RTC session"
 msgstr "Rechercher une session RTC"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #, python-format
 msgid "Search button"
 msgstr "Bouton de recherche"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "Search for a GIF"
 msgstr "Rechercher un gif"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/mention_list.js:0
 #: code:addons/mail/static/src/discuss/core/web/command_palette.js:0
 #, python-format
@@ -8427,7 +8427,7 @@ msgid "Search for a channel..."
 msgstr "Rechercher un canal..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/mention_list.js:0
 #: code:addons/mail/static/src/discuss/core/web/command_palette.js:0
 #, python-format
@@ -8435,21 +8435,21 @@ msgid "Search for a user..."
 msgstr "Rechercher un utilisateur..."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #, python-format
 msgid "Search in progress"
 msgstr "Recherche en cours"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.js:0
 #, python-format
 msgid "Search messages"
 msgstr "Rechercher des messages"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/mention_list.js:0
 #: code:addons/mail/static/src/core/web/mention_list.xml:0
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
@@ -8458,28 +8458,28 @@ msgid "Search..."
 msgstr "Rechercher…"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/activity/activity_controller.js:0
 #, python-format
 msgid "Search: %s"
 msgstr "Recherche: %s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Security Update: Email Changed"
 msgstr "Mise à jour de sécurité : E-mail modifié"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Security Update: Login Changed"
 msgstr "Mise à jour de sécurité : Login modifié"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Security Update: Password Changed"
@@ -8491,7 +8491,7 @@ msgid "See Error Details"
 msgstr "Voir les détails de l'erreur"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "See all pinned messages."
@@ -8503,7 +8503,7 @@ msgid "Select a language"
 msgstr "Sélectionner une langue"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/assign_user_command_hook.js:0
 #, python-format
 msgid "Select a user..."
@@ -8515,14 +8515,14 @@ msgid "Select the content filter used for filtering GIFs"
 msgstr "Sélectionner le filtre de contenu utilisé pour filtrer les GIF"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.xml:0
 #, python-format
 msgid "Selected users:"
 msgstr "Utilisateurs sélectionnés : "
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.js:0
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
@@ -8547,7 +8547,7 @@ msgid "Send Email As"
 msgstr "Envoyer un e-mail comme"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_template.py:0
 #, python-format
 msgid "Send Mail (%s)"
@@ -8559,7 +8559,7 @@ msgid "Send Notification"
 msgstr "Envoyer une notification"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_mail_template.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_form
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_tree
@@ -8568,7 +8568,7 @@ msgid "Send Now"
 msgstr "Envoyer maintenant"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/composer_patch.js:0
 #, python-format
 msgid "Send a message to followers…"
@@ -8595,7 +8595,7 @@ msgid "Send mailing or notifications directly"
 msgstr "Envoyer directement des emails ou des notifications"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
 #, python-format
@@ -8623,7 +8623,7 @@ msgid "Sending Failures"
 msgstr "Echecs des envois"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/notification_model.js:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_mail__state__sent
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__notification_status__pending
@@ -8676,14 +8676,14 @@ msgid "Server Type Info"
 msgstr "Informations sur le type de serveur"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_upload_service.js:0
 #, python-format
 msgid "Server error"
 msgstr "Erreur de serveur"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/fetchmail.py:0
 #, python-format
 msgid ""
@@ -8725,7 +8725,7 @@ msgid "Sfu Server Url"
 msgstr "URL du serveur SFU"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.js:0
 #, python-format
 msgid "Share Screen"
@@ -8766,49 +8766,49 @@ msgstr ""
 "Code de langue abrégé utilisé comme cible pour la demande de traduction."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_actions.js:0
 #, python-format
 msgid "Show Attachments"
 msgstr "Afficher les pièces jointes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/thread_actions.js:0
 #, python-format
 msgid "Show Call Settings"
 msgstr "Afficher les paramètres de l'appel"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.js:0
 #, python-format
 msgid "Show Followers"
 msgstr "Afficher les abonnés"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_actions.js:0
 #, python-format
 msgid "Show Member List"
 msgstr "Afficher la liste des membres"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_commands.js:0
 #, python-format
 msgid "Show a helper message"
 msgstr "Afficher un message d'aide"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_button.js:0
 #, python-format
 msgid "Show activities"
 msgstr "Afficher les activités"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
 msgid "Show all recipients"
@@ -8823,35 +8823,35 @@ msgstr ""
 "actions est pour aujourd'hui ou avant. "
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/suggested_recipient_list.xml:0
 #, python-format
 msgid "Show less"
 msgstr "Montrer moins"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/suggested_recipient_list.xml:0
 #, python-format
 msgid "Show more"
 msgstr "Montrer plus"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call.xml:0
 #, python-format
 msgid "Show sidebar"
 msgstr "Afficher la barre latérale"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Show video participants only"
 msgstr "Afficher les participants à la vidéo uniquement"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.xml:0
 #, python-format
 msgid "Showing"
@@ -8877,7 +8877,7 @@ msgid "Site name"
 msgstr "Nom du site"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "So uhh... maybe go favorite some GIFs?"
@@ -8910,7 +8910,7 @@ msgstr ""
 "non disponible lors de la gestion des activités des autres modèles."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/messaging_service.js:0
 #: model:ir.model.fields,field_description:mail.field_mail_mail__starred
 #: model:ir.model.fields,field_description:mail.field_mail_message__starred
@@ -8925,21 +8925,21 @@ msgid "Starred Message"
 msgstr "Message mis en favoris"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/thread_actions.js:0
 #, python-format
 msgid "Start a Call"
 msgstr "Démarrer un appel"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.js:0
 #, python-format
 msgid "Start a Conversation"
 msgstr "Démarrer une conversation"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss_app_model.js:0
 #: code:addons/mail/static/src/discuss/core/web/messaging_menu_patch.xml:0
 #, python-format
@@ -8947,7 +8947,7 @@ msgid "Start a conversation"
 msgstr "Démarrer une conversation"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/web/discuss_sidebar_start_meeting.xml:0
 #, python-format
 msgid "Start a meeting"
@@ -8990,7 +8990,7 @@ msgid "Status time"
 msgstr "Durée du statut"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/fields/statusbar_duration/statusbar_duration_field.js:0
 #, python-format
 msgid "Status with time"
@@ -9002,35 +9002,35 @@ msgid "Steps Count"
 msgstr "Nombre d'étapes"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_actions.js:0
 #, python-format
 msgid "Stop Adding Users"
 msgstr "Arrêter l'ajout d'utilisateurs"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_recorder.xml:0
 #, python-format
 msgid "Stop Recording"
 msgstr "Arrêter l'enregistrement"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.js:0
 #, python-format
 msgid "Stop Sharing Screen"
 msgstr "Arrêter le partage d'écran"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Stop camera"
 msgstr "Arrêter la caméra"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #, python-format
 msgid "Stop replying"
@@ -9077,7 +9077,7 @@ msgid "Subject (placeholders may be used here)"
 msgstr "Sujet (des variables peuvent être utilisées ici)"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.xml:0
 #, python-format
 msgid "Subject:"
@@ -9154,7 +9154,7 @@ msgid "System Parameter"
 msgstr "Paramètres système"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.js:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_compose_message__message_type__notification
 #: model:ir.model.fields.selection,name:mail.selection__mail_message__message_type__notification
@@ -9179,7 +9179,7 @@ msgid "Tax ID"
 msgstr "N° TVA"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Technical Settings"
@@ -9226,7 +9226,7 @@ msgid "Template Reset Mixin"
 msgstr "Réinitialisation du modèle Mixin"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_compose_message.py:0
 #, python-format
 msgid "Template creation from composer requires a valid model."
@@ -9239,7 +9239,7 @@ msgid "Template description"
 msgstr "Description de modèle"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid ""
@@ -9250,7 +9250,7 @@ msgstr ""
 "d'identifiants : reçu %(res_ids)r à la place."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid ""
@@ -9319,14 +9319,14 @@ msgid "The"
 msgstr "Le"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_actions_server.py:0
 #, python-format
 msgid "The 'Due Date In' value can't be negative."
 msgstr "La valeur de 'date d'échéance dans' ne peut être négative."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call.js:0
 #, python-format
 msgid "The Fullscreen mode was denied by the browser"
@@ -9345,14 +9345,14 @@ msgstr ""
 "partenaire n'est pas sujet à la taxe."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
 msgid "The activity cannot be launched:"
 msgstr "L'activité ne peut pas être lancée :"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity_plan_template.py:0
 #, python-format
 msgid ""
@@ -9365,7 +9365,7 @@ msgstr ""
 "\"%(activity_type_model)s\"."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_attachment.py:0
 #, python-format
 msgid ""
@@ -9373,14 +9373,14 @@ msgid ""
 msgstr "La pièce jointe %s n'existe pas ou vous n'avez pas les droits d'accès."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_attachment.py:0
 #, python-format
 msgid "The attachment %s does not exist."
 msgstr "La pièce jointe %s n'existe pas."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss.js:0
 #, python-format
 msgid "The avatar has been updated!"
@@ -9397,7 +9397,7 @@ msgid "The current user can edit the template."
 msgstr "L'utilisateur actuel peut modifier le modèle."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_recorder.js:0
 #, python-format
 msgid "The duration of voice messages is limited to 1 minute."
@@ -9414,7 +9414,7 @@ msgid "The endpoint must be unique !"
 msgstr "Le point de terminaison doit être unique !"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/template_reset_mixin.py:0
 #, python-format
 msgid ""
@@ -9443,7 +9443,7 @@ msgid "The message below could not be accepted by the address"
 msgstr "Le message ci-dessous n'a pas été accepté par l'adresse"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -9462,7 +9462,7 @@ msgstr ""
 "contactez-nous sur %(default_email)s."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -9492,20 +9492,20 @@ msgstr ""
 #: model:ir.model.fields,help:mail.field_mail_alias_mixin_optional__alias_name
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
-"<jobs@example.odoo.com>"
+"<jobs@example.weblgx.com>"
 msgstr ""
 "Le nom de l'alias, par exemple 'carrières' pour récupérer les e-mails de "
-"<carrières@example.odoo.com>"
+"<carrières@example.weblgx.com>"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
 msgid "The plan \"%(plan_name)s\" cannot be launched:"
 msgstr "Le plan \"%(plan_name)s\" ne peut pas être lancé :"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
 msgid "The plan \"%(plan_name)s\" has been started"
@@ -9517,14 +9517,14 @@ msgid "The queue manager will send the email after the date"
 msgstr "Le gestionnaire de file d'attente enverra l'e-mail après la date"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_activity_schedule.py:0
 #, python-format
 msgid "The records must belong to the same company."
 msgstr "Les enregistrements doivent appartenir à la même société."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_message.py:0
 #, python-format
 msgid ""
@@ -9539,14 +9539,14 @@ msgstr ""
 "(Type de document : %s, Opération : %s)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/fetchmail.py:0
 #, python-format
 msgid "The server \"%s\" cannot be used because it is archived."
 msgstr "Le serveur \"%s\" ne peut pas être utilisé car il est archivé."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/follower_subtype_dialog.js:0
 #, python-format
 msgid "The subscription preferences were successfully applied."
@@ -9564,7 +9564,7 @@ msgid "The text-only beginning of the body used as email preview."
 msgstr "Le début du texte du corps utilisé comme un aperçu de l'e-mail."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "There are no messages in this conversation."
@@ -9581,7 +9581,7 @@ msgid "This"
 msgstr "Ce(tte)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_actions_server.py:0
 #, python-format
 msgid "This action can only be done on a mail thread models"
@@ -9589,42 +9589,42 @@ msgstr ""
 "Cette action ne peut être effectuée que sur un modèle de fil de discussion"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/ir_actions_server.py:0
 #, python-format
 msgid "This action cannot be done on transient models."
 msgstr "Cette action est impossible sur des modèles transitoires."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/activity/activity_renderer.xml:0
 #, python-format
 msgid "This action will send an email."
 msgstr "Cette action enverra un e-mail"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/attachment_panel.xml:0
 #, python-format
 msgid "This channel doesn't have any attachments."
 msgstr "Ce canal n'a pas de pièces jointes."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/pinned_messages_panel.js:0
 #, python-format
 msgid "This channel doesn't have any pinned messages."
 msgstr "Ce canal n'a pas de messages épinglés."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/attachment_panel.xml:0
 #, python-format
 msgid "This conversation doesn't have any attachments."
 msgstr "Cette conversation n'a pas de pièces jointes."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/pinned_messages_panel.js:0
 #, python-format
 msgid "This conversation doesn't have any pinned messages."
@@ -9659,7 +9659,7 @@ msgstr ""
 "mail primaire peut contenir plus que strictement un e-mail. "
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_config_settings.py:0
 #, python-format
 msgid "This layout seems to no longer exist."
@@ -9679,14 +9679,14 @@ msgstr ""
 "l'espace de stockage dans votre base de données Weblgx."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/activity_exception/activity_exception.xml:0
 #, python-format
 msgid "This record has an exception activity."
 msgstr "Cet enregistrement a une activité d'exception."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid ""
@@ -9696,7 +9696,7 @@ msgstr ""
 "%(param_names)s"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -9711,7 +9711,7 @@ msgid "Thread"
 msgstr "Discussion"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/chat_window.xml:0
 #: code:addons/mail/static/src/core/common/discuss.xml:0
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.xml:0
@@ -9754,14 +9754,14 @@ msgid "To (Partners)"
 msgstr "À (partenaires)"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/chat_window_patch.xml:0
 #, python-format
 msgid "To :"
 msgstr "À :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "To peer:"
@@ -9773,14 +9773,14 @@ msgid "To-Do"
 msgstr "To-Do"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/chatter.xml:0
 #, python-format
 msgid "To:"
 msgstr "À :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_model.js:0
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.js:0
@@ -9843,21 +9843,21 @@ msgid "Today Activities"
 msgstr "Activités du jour"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Today:"
 msgstr "Aujourd'hui :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.js:0
 #, python-format
 msgid "Tomorrow"
 msgstr "Demain"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Tomorrow:"
@@ -9907,7 +9907,7 @@ msgid "Tracking values"
 msgstr "Suivi des valeurs"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #, python-format
 msgid "Translate"
@@ -9919,7 +9919,7 @@ msgid "Translation Body"
 msgstr "Corps de la traduction"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.xml:0
 #, python-format
 msgid "Translation Failure"
@@ -9941,7 +9941,7 @@ msgid "Try Again"
 msgstr "Réessayer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Turn camera on"
@@ -10017,7 +10017,7 @@ msgid "Type of the exception activity on record."
 msgstr "Type d'activité d'exception enregistrée."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.xml:0
 #, python-format
 msgid "Type the name of a person"
@@ -10040,14 +10040,14 @@ msgid "UUID"
 msgstr "UUID"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_mail.py:0
 #, python-format
 msgid "Unable to connect to SMTP Server"
 msgstr "Impossible de se connecter au serveur SMTP"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_wizard_invite.py:0
 #, python-format
 msgid "Unable to post message, please configure the sender's email address."
@@ -10056,7 +10056,7 @@ msgstr ""
 "l'expéditeur."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Unable to send message, please configure the sender's email address."
@@ -10065,14 +10065,14 @@ msgstr ""
 "l'expéditeur."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/assign_user_command_hook.js:0
 #, python-format
 msgid "Unassign"
 msgstr "Désassigner"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/fields/assign_user_command_hook.js:0
 #, python-format
 msgid "Unassign from me"
@@ -10084,21 +10084,21 @@ msgid "Unblacklist"
 msgstr "Supprimer de la liste noire"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/wizard/mail_blacklist_remove.py:0
 #, python-format
 msgid "Unblock Reason: %(reason)s"
 msgstr "Motif du déblocage : %(reason)s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Undeafen"
 msgstr "Désassourdir"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #: code:addons/mail/static/src/core/web/chatter.js:0
 #: model_terms:ir.ui.view,arch_db:mail.mail_notification_layout
@@ -10113,14 +10113,14 @@ msgid "Unit of delay"
 msgstr "Unité de délai"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_tracking_value.py:0
 #, python-format
 msgid "Unknown"
 msgstr "Inconnu"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_notification.py:0
 #: model:ir.model.fields.selection,name:mail.selection__mail_mail__failure_type__unknown
 #: model:ir.model.fields.selection,name:mail.selection__mail_notification__failure_type__unknown
@@ -10129,21 +10129,21 @@ msgid "Unknown error"
 msgstr "Erreur inconnue"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_action_list.xml:0
 #, python-format
 msgid "Unmute"
 msgstr "Réactiver le son"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/notification_settings.xml:0
 #, python-format
 msgid "Unmute Channel"
 msgstr "Réactiver le son du canal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_card_list.xml:0
 #: code:addons/mail/static/src/discuss/message_pin/common/message_patch.js:0
 #, python-format
@@ -10151,14 +10151,14 @@ msgid "Unpin"
 msgstr "Désépingler"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.xml:0
 #, python-format
 msgid "Unpin Conversation"
 msgstr "Désépingler une conversation"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/message_pin_service.js:0
 #, python-format
 msgid "Unpin Message"
@@ -10180,28 +10180,28 @@ msgid "Unrestricted Attachments"
 msgstr "Pièces jointes illimitées"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/thread_actions.js:0
 #, python-format
 msgid "Unstar all"
 msgstr "Tout enlever des favoris"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_template.py:0
 #, python-format
 msgid "Unsupported report type %s found."
 msgstr "Type de rapport non pris en charge %s détecté."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/notification_settings.js:0
 #, python-format
 msgid "Until "
 msgstr "Jusqu'au"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/thread_model_patch.js:0
 #, python-format
 msgid "Until I turn it back on"
@@ -10213,7 +10213,7 @@ msgid "Update Mail Layout"
 msgstr "Mettre à jour la mise en page de l'email"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/discuss.xml:0
 #, python-format
 msgid "Upload Avatar"
@@ -10226,35 +10226,35 @@ msgid "Upload Document"
 msgstr "Charger un document"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.xml:0
 #, python-format
 msgid "Upload File"
 msgstr "Charger un fichier"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.xml:0
 #, python-format
 msgid "Upload file"
 msgstr "Charger un fichier"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Upload:"
 msgstr "Charger :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.xml:0
 #, python-format
 msgid "Uploaded"
 msgstr "Téléchargé"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/attachment_list.xml:0
 #, python-format
 msgid "Uploading"
@@ -10287,7 +10287,7 @@ msgid "Use a Gmail Server"
 msgstr "Utiliser un serveur Gmail"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/fetchmail.py:0
 #, python-format
 msgid "Use a local script to fetch your emails and create new records."
@@ -10311,7 +10311,7 @@ msgid "Use in batch"
 msgstr "Utiliser en lot"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "Use message_notify to send a notification to an user."
@@ -10421,7 +10421,7 @@ msgid "User Type"
 msgstr "Type d'utilisateur"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
 #, python-format
@@ -10429,7 +10429,7 @@ msgid "User is a bot"
 msgstr "Utilisateur est un robot"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
 #, python-format
@@ -10437,7 +10437,7 @@ msgid "User is idle"
 msgstr "L'utilisateur est inactif"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
 #, python-format
@@ -10445,7 +10445,7 @@ msgid "User is offline"
 msgstr "L'utilisateur est en hors ligne"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/im_status.xml:0
 #: code:addons/mail/static/src/discuss/web/avatar_card/avatar_card_popover.xml:0
 #, python-format
@@ -10458,7 +10458,7 @@ msgid "User should not have duplicated favorite GIF"
 msgstr "L'utilisateur ne doit pas avoir dupliqué son GIF favori"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_message.py:0
 #, python-format
 msgid "User:"
@@ -10471,7 +10471,7 @@ msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "Users in this channel: %(members)s %(dots)s and you."
@@ -10493,12 +10493,12 @@ msgstr ""
 msgid ""
 "Using your own email server is required to send/receive emails in Community "
 "and Enterprise versions. Online users already benefit from a ready-to-use "
-"email server (@mycompany.odoo.com)."
+"email server (@mycompany.weblgx.com)."
 msgstr ""
 "Vous devez utiliser votre propre serveur de messagerie pour envoyer ou "
 "recevoir des e-mails dans les versions Community et Enterprise. Les "
 "utilisateurs en ligne bénéficient déjà d'un serveur de messagerie "
-"préalablement compatible (@mycompany.odoo.com)."
+"préalablement compatible (@mycompany.weblgx.com)."
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_alias__alias_status__valid
@@ -10506,7 +10506,7 @@ msgid "Valid"
 msgstr "Valide"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -10520,21 +10520,21 @@ msgstr ""
 "example.com,example.org."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Video Settings"
 msgstr "Paramètres vidéo"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "Video player:"
 msgstr "Lecteur vidéo :"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #: model:ir.model,name:mail.model_ir_ui_view
 #, python-format
@@ -10542,14 +10542,14 @@ msgid "View"
 msgstr "Vue"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "View %s"
 msgstr "Voir %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_actions.js:0
 #, python-format
 msgid "View Reactions"
@@ -10562,7 +10562,7 @@ msgid "View Type"
 msgstr "Type de vue"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.xml:0
 #, python-format
 msgid "View or join channels"
@@ -10575,28 +10575,28 @@ msgid "Voice"
 msgstr "Voix"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_recorder.xml:0
 #, python-format
 msgid "Voice Message"
 msgstr "Message vocal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.js:0
 #, python-format
 msgid "Voice Settings"
 msgstr "Paramètres de voix"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "Voice detection threshold"
 msgstr "Seuil de détection vocale"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/voice_message/common/voice_recorder.js:0
 #, python-format
 msgid "Voice recording stopped"
@@ -10618,7 +10618,7 @@ msgid "Volumes of other partners"
 msgstr "Volumes des autres partenaires"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/picker_content_patch.xml:0
 #, python-format
 msgid ""
@@ -10629,7 +10629,7 @@ msgstr ""
 "Activez la fonctionnalité dans les paramètres !"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_button.js:0
 #: code:addons/mail/static/src/views/web/fields/list_activity/list_activity.js:0
 #, python-format
@@ -10637,7 +10637,7 @@ msgid "Warning"
 msgstr "Avertissement"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -10650,7 +10650,7 @@ msgstr ""
 "le document du propriétaire appartient à la société %(company_name)s."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -10673,7 +10673,7 @@ msgid "Welcome to MyCompany!"
 msgstr "Bienvenue à MyCompany !"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/message_pin_service.js:0
 #, python-format
 msgid ""
@@ -10682,14 +10682,14 @@ msgstr ""
 "Rien n'est éternel, mais êtes-vous sûr de vouloir dépingler ce message ?"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.xml:0
 #, python-format
 msgid "What's your name?"
 msgstr "Quel est votre nom ? "
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity_plan_template.py:0
 #, python-format
 msgid ""
@@ -10727,7 +10727,7 @@ msgstr ""
 "importants."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_markasdone_popover.xml:0
 #, python-format
 msgid "Write Feedback"
@@ -10739,7 +10739,7 @@ msgid "Write your message here..."
 msgstr "Écrivez votre message ici..."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_message.py:0
 #, python-format
 msgid "Wrong operation name (%s)"
@@ -10751,42 +10751,42 @@ msgid "YYYY-MM-DD HH:MM:SS"
 msgstr "AAAA-MM-JJ HH:MM:SS"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/message_pin_service.js:0
 #, python-format
 msgid "Yeah, pin it!"
 msgstr "Oui, épinglez-le !"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/message_patch.js:0
 #, python-format
 msgid "Yes"
 msgstr "Oui"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/message_pin_service.js:0
 #, python-format
 msgid "Yes, remove it please"
 msgstr "Oui, supprimez-le"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_list_popover_item.js:0
 #, python-format
 msgid "Yesterday"
 msgstr "Hier"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "Yesterday:"
 msgstr "Hier :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.js:0
 #, python-format
 msgid ""
@@ -10798,56 +10798,56 @@ msgstr ""
 "vouloir continuer ?"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "You are alone in a private conversation."
 msgstr "Vous êtes seul.e dans une discussion privée."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "You are alone in this channel."
 msgstr "Vous êtes seul dans ce canal."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "You are in a private conversation with %(member_names)s."
 msgstr "Vous êtes en discussion privée avec %(member_names)s."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "You are in channel %(bold_start)s#%(channel_name)s%(bold_end)s."
 msgstr "Vous êtes dans le canal %(bold_start)s#%(channel_name)s%(bold_end)s."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message_service.js:0
 #, python-format
 msgid "You are no longer following \"%(thread_name)s\"."
 msgstr "Vous ne suivez plus \"%(thread_name)s\"."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/controllers/attachment.py:0
 #, python-format
 msgid "You are not allowed to upload an attachment here."
 msgstr "Vous n'êtes pas autorisé à télécharger une pièce jointe ici."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/controllers/attachment.py:0
 #, python-format
 msgid "You are not allowed to upload attachments on this channel."
 msgstr "Vous n'êtes pas autorisé à charger des pièces jointes sur ce canal."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/discuss_sidebar_categories.js:0
 #, python-format
 msgid ""
@@ -10856,7 +10856,7 @@ msgstr ""
 "Vous êtes l'administrateur de ce canal. Êtes-vous sûr de vouloir quitter ?"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "You can mark any message as 'starred', and it shows up in this mailbox."
@@ -10865,21 +10865,21 @@ msgstr ""
 "dans cet onglet."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel_member.py:0
 #, python-format
 msgid "You can not write on %(field_name)s."
 msgstr "Vous ne pouvez pas écrire sur %(field_name)s."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_service.js:0
 #, python-format
 msgid "You can only chat with existing users."
 msgstr "Vous ne pouvez discuter qu'avec les utilisateurs existants."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread_service.js:0
 #, python-format
 msgid "You can only chat with partners that have a dedicated user."
@@ -10892,7 +10892,7 @@ msgid "You can safely ignore this message"
 msgstr "Vous pouvez ignorer ce message en toute sécurité"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity_type.py:0
 #, python-format
 msgid "You cannot delete %(activity_names)s as it is required in various apps."
@@ -10901,7 +10901,7 @@ msgstr ""
 "diverses applications."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid ""
@@ -10912,7 +10912,7 @@ msgstr ""
 "nécessaire pour d'autres modules."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_activity_type.py:0
 #, python-format
 msgid ""
@@ -10923,7 +10923,7 @@ msgstr ""
 "sont requis dans diverses applications."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid ""
@@ -10934,7 +10934,7 @@ msgstr ""
 "d'alias %(alias_name)s."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias_domain.py:0
 #, python-format
 msgid ""
@@ -10950,7 +10950,7 @@ msgid "You do not have access to"
 msgstr "Vous n'avez pas accès à"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread_blacklist.py:0
 #, python-format
 msgid ""
@@ -10961,7 +10961,7 @@ msgstr ""
 "contacter votre administrateur."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "You have been assigned to %s"
@@ -10973,7 +10973,7 @@ msgid "You have been assigned to the"
 msgstr "Vous avez été assigné à "
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/discuss_core_common_service.js:0
 #, python-format
 msgid "You have been invited to #%s"
@@ -10989,14 +10989,14 @@ msgstr ""
 "créés sur ce modèle"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_template.py:0
 #, python-format
 msgid "You may not define a template on an abstract model: %s"
 msgstr "Vous ne pouvez pas définir un modèle sur une méthode abstraite : %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/message_pin/common/message_pin_service.js:0
 #, python-format
 msgid "You sure want this message pinned to %(conversation)s forever and ever?"
@@ -11005,42 +11005,42 @@ msgstr ""
 "pour toujours ?"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/discuss_core_common_service.js:0
 #, python-format
 msgid "You unpinned your conversation with %s"
 msgstr "Vous avez désépinglé votre conversation avec %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/discuss_core_common_service.js:0
 #, python-format
 msgid "You unsubscribed from %s."
 msgstr "Vous vous êtes désabonné de %s."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/thread.xml:0
 #, python-format
 msgid "You're viewing older messages"
 msgstr "Vous consultez des messages plus anciens"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.xml:0
 #, python-format
 msgid "You've been invited to a chat!"
 msgstr "Vous êtes invités à un chat !"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.xml:0
 #, python-format
 msgid "You've been invited to a meeting!"
 msgstr "Vous êtes invités à une réunion !"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu.xml:0
 #, python-format
 msgid "You:"
@@ -11052,7 +11052,7 @@ msgid "Your"
 msgstr "Votre"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid ""
@@ -11062,56 +11062,56 @@ msgstr ""
 "%(new_email)s."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Your account login has been updated"
 msgstr "Le login de votre compte a été mis à jour"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/res_users.py:0
 #, python-format
 msgid "Your account password has been updated"
 msgstr "Le mot de passe de votre compte a été mis à jour"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.xml:0
 #, python-format
 msgid "Your browser does not support videoconference"
 msgstr "Votre navigateur ne supporte pas la visioconférence"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "Your browser does not support voice activation"
 msgstr "Votre navigateur ne prend pas en charge l'activation vocale"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/rtc_service.js:0
 #, python-format
 msgid "Your browser does not support webRTC."
 msgstr "Votre navigateur ne prend pas en charge webRTC."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/public/welcome_page.xml:0
 #, python-format
 msgid "Your name"
 msgstr "Votre nom"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/recipient_list.js:0
 #, python-format
 msgid "[%(name)s] (no email address)"
 msgstr "[%(name)s] (pas d'adresse e-mail)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "addresses linked to registered partners"
@@ -11128,7 +11128,7 @@ msgid "after previous activity deadline"
 msgstr "après la date limite de l'activité précédente"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "alias %(name)s: %(error)s"
@@ -11140,14 +11140,14 @@ msgid "attachment(s) of this email."
 msgstr "pièce(s) jointe(s) de cet e-mail."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "available bitrate:"
 msgstr "débit binaire disponible :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "back"
@@ -11167,7 +11167,7 @@ msgstr ""
 "                Veuillez réessayer plus tard."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_form
 #, python-format
@@ -11175,7 +11175,7 @@ msgid "by"
 msgstr "par"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "camera"
@@ -11192,35 +11192,35 @@ msgstr ""
 "pour contacter directement"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/command_palette.js:0
 #, python-format
 msgid "channels"
 msgstr "canaux"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "clock rate:"
 msgstr "fréquence d'horloge :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #, python-format
 msgid "close"
 msgstr "fermer"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "codec:"
 msgstr "codec :"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "created this channel."
@@ -11232,21 +11232,21 @@ msgid "days"
 msgstr "jours"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "days overdue:"
 msgstr "jours de retard :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "days:"
 msgstr "jours :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
 msgid "deaf"
@@ -11258,14 +11258,14 @@ msgid "devices"
 msgstr "appareils"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "document"
 msgstr "document"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/views/web/activity/activity_renderer.js:0
 #: model_terms:ir.ui.view,arch_db:mail.message_activity_done
 #, python-format
@@ -11273,14 +11273,14 @@ msgid "done"
 msgstr "terminée"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "down DTLS:"
 msgstr "DTLS inactif :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "down ICE:"
@@ -11386,11 +11386,11 @@ msgstr "par ex. user_id"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.email_compose_message_wizard_form
-msgid "e.g: \"info@mycompany.odoo.com\""
-msgstr "par ex. \"info@mycompany.odoo.com\""
+msgid "e.g: \"info@mycompany.weblgx.com\""
+msgstr "par ex. \"info@mycompany.weblgx.com\""
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity.xml:0
 #, python-format
 msgid "for"
@@ -11417,14 +11417,14 @@ msgid "https://developers.google.com/tenor/guides/content-filtering"
 msgstr "https://developers.google.com/tenor/guides/content-filtering"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/models.py:0
 #, python-format
 msgid "incorrectly configured alias"
 msgstr "alias mal configuré"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/models.py:0
 #, python-format
 msgid "incorrectly configured alias (unknown reference record)"
@@ -11432,42 +11432,42 @@ msgstr ""
 "configuration de l'alias non valide (enregistrement de référence inconnu)"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "invited %s to the channel"
 msgstr "%s invité au canal"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "joined the channel"
 msgstr "a rejoint le canal"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "left the channel"
 msgstr "a quitté le canal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "list"
 msgstr "liste"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
 #, python-format
 msgid "list-item"
 msgstr "élément de liste"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
 msgid "live"
@@ -11479,21 +11479,21 @@ msgid "mail_blacklist_removal"
 msgstr "mail_blacklist_removal"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
 msgid "media player Error"
 msgstr "Erreur lecteur multimédia"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "microphone"
 msgstr "microphone"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "model %s does not accept document creation"
@@ -11505,42 +11505,42 @@ msgid "months"
 msgstr "mois"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "ms"
 msgstr "Mme"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
 msgid "muted"
 msgstr "coupé"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "new"
 msgstr "nouveau"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.js:0
 #, python-format
 msgid "no connection"
 msgstr "aucune connexion"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/relative_time.js:0
 #, python-format
 msgid "now"
 msgstr "maintenant"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/message.xml:0
 #: model_terms:ir.ui.view,arch_db:mail.view_mail_form
 #, python-format
@@ -11548,35 +11548,35 @@ msgid "on"
 msgstr "le"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/common/composer.xml:0
 #, python-format
 msgid "on:"
 msgstr "le :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/core/web/activity_mail_template.xml:0
 #, python-format
 msgid "or"
 msgstr "ou"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_member_list.xml:0
 #, python-format
 msgid "other members."
 msgstr "autres membres."
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
 msgid "raising hand"
 msgstr "main levée"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -11587,7 +11587,7 @@ msgstr ""
 "du document"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid ""
@@ -11598,35 +11598,35 @@ msgstr ""
 "revenez à la création de document"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/models.py:0
 #, python-format
 msgid "restricted to followers"
 msgstr "limité aux abonnés"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/models.py:0
 #, python-format
 msgid "restricted to known authors"
 msgstr "limité aux auteurs connus"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.xml:0
 #, python-format
 msgid "results out of"
 msgstr "résultats de"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "screen"
 msgstr "écran"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "some specific addresses"
@@ -11638,7 +11638,7 @@ msgid "stun:"
 msgstr "stun:"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "target model unspecified"
@@ -11650,14 +11650,14 @@ msgid "team."
 msgstr "équipe."
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "template"
 msgstr "modèle"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_settings.xml:0
 #, python-format
 msgid "toggle push-to-talk"
@@ -11669,42 +11669,42 @@ msgid "turn:"
 msgstr "turn:"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "unknown error"
 msgstr "erreur inconnue"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "unknown target model %s"
 msgstr "modèle cible inconnu %s"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "up DTLS:"
 msgstr "DTLS actif :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_context_menu.xml:0
 #, python-format
 msgid "up ICE:"
 msgstr "ICE actif :"
 
 #. module: mail
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/mail/static/src/discuss/core/web/command_palette.js:0
 #, python-format
 msgid "users"
 msgstr "utilisateurs"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_thread.py:0
 #, python-format
 msgid "view"
@@ -11721,7 +11721,7 @@ msgid "weeks"
 msgstr "semaines"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/mail_alias.py:0
 #, python-format
 msgid "your alias"
@@ -11733,7 +11733,7 @@ msgid "{{ object.partner_id.lang }}"
 msgstr "{{ object.partner_id.lang }}"
 
 #. module: mail
-#. odoo-python
+#. weblgx-python
 #: code:addons/mail/models/discuss/discuss_channel_member.py:0
 #, python-format
 msgid "“%(member_name)s” in “%(channel_name)s”"

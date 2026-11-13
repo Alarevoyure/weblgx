@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 
@@ -6,13 +6,13 @@ import { useService, useBus } from "@web/core/utils/hooks";
 import { useHotkey } from '@web/core/hotkeys/hotkey_hook';
 import { Wysiwyg } from "@web_editor/js/wysiwyg/wysiwyg";
 import weUtils from '@web_editor/js/common/utils';
-import { isMediaElement } from '@web_editor/js/editor/odoo-editor/src/utils/utils';
+import { isMediaElement } from '@web_editor/js/editor/weblgx-editor/src/utils/utils';
 import { cloneContentEls } from "@website/js/utils";
 
 import { EditMenuDialog, MenuDialog } from "../dialog/edit_menu";
 import { WebsiteDialog } from '../dialog/dialog';
 import { PageOption } from "./page_options";
-import { Component, onWillStart, useEffect, onWillUnmount } from "@odoo/owl";
+import { Component, onWillStart, useEffect, onWillUnmount } from "@weblgx/owl";
 import { EditHeadBodyDialog } from "../edit_head_body_dialog/edit_head_body_dialog";
 
 /**
@@ -227,8 +227,8 @@ export class WysiwygAdapterComponent extends Wysiwyg {
 
         // Overriding the `filterMutationRecords` function so it can be used to
         // filter website-specific mutations.
-        const webEditorFilterMutationRecords = this.odooEditor.options.filterMutationRecords;
-        Object.assign(this.odooEditor.options, {
+        const webEditorFilterMutationRecords = this.weblgxEditor.options.filterMutationRecords;
+        Object.assign(this.weblgxEditor.options, {
             /**
              * @override
              */
@@ -302,8 +302,8 @@ export class WysiwygAdapterComponent extends Wysiwyg {
             }
         });
 
-        // Disable OdooEditor observer's while setting up classes
-        this.odooEditor.observerUnactive();
+        // Disable WeblgxEditor observer's while setting up classes
+        this.weblgxEditor.observerUnactive();
         this._addEditorMessages();
         if (this.props.beforeEditorActive) {
             await this.props.beforeEditorActive(this.$editable);
@@ -323,10 +323,10 @@ export class WysiwygAdapterComponent extends Wysiwyg {
         }
         this.props.wysiwygReady();
         // Wait for widgets to be destroyed and restarted before setting
-        // the dirty observer (not to be confused with odooEditor
+        // the dirty observer (not to be confused with weblgxEditor
         // observer) as the widgets might trigger DOM mutations.
         this._setObserver();
-        this.odooEditor.observerActive();
+        this.weblgxEditor.observerActive();
     }
     _getBannerCommands() {
         return [];
@@ -446,10 +446,10 @@ export class WysiwygAdapterComponent extends Wysiwyg {
         // destroy, options will have wrong social media values).
         // It would also survive (multi) website switch, not fetching the values
         // from the accessed website.
-        const mod = await odoo.loader.modules.get('@website/snippets/s_social_media/options')[Symbol.for('default')];
+        const mod = await weblgx.loader.modules.get('@website/snippets/s_social_media/options')[Symbol.for('default')];
         mod.clearDbSocialValuesCache();
 
-        const formOptionsMod = await odoo.loader.modules.get('@website/snippets/s_website_form/options')[Symbol.for('default')];
+        const formOptionsMod = await weblgx.loader.modules.get('@website/snippets/s_website_form/options')[Symbol.for('default')];
         formOptionsMod.clearAllFormsInfo();
 
         this.$editable[0].removeEventListener("click", this.__onPageClick, { capture: true });
@@ -518,11 +518,11 @@ export class WysiwygAdapterComponent extends Wysiwyg {
      */
     _setObserver() {
         const processRecords = (records) => {
-            records = this.odooEditor.filterMutationRecords(records);
+            records = this.weblgxEditor.filterMutationRecords(records);
             // Skip the step for this stack because if the editor undo the first
             // step that has a dirty element, the following code would have
             // generated a new stack and break the "redo" of the editor.
-            this.odooEditor.automaticStepSkipStack();
+            this.weblgxEditor.automaticStepSkipStack();
             for (const record of records) {
                 if (record.attributeName === 'contenteditable') {
                     continue;
@@ -556,13 +556,13 @@ export class WysiwygAdapterComponent extends Wysiwyg {
 
         this._observe();
 
-        this.odooEditor.addEventListener('observerUnactive', () => {
+        this.weblgxEditor.addEventListener('observerUnactive', () => {
             if (this.observer) {
                 processRecords(this.observer.takeRecords());
                 this.observer.disconnect();
             }
         });
-        this.odooEditor.addEventListener('observerActive', this._observe.bind(this));
+        this.weblgxEditor.addEventListener('observerActive', this._observe.bind(this));
     }
     /**
      * @private
@@ -600,7 +600,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
             htmlEl.dataset.oeEditPlaceholder = placeholderText;
             if (htmlEl.innerText.trim().length === 0) {
                 // "oe-hint" forces the display of the placeholder.
-                // It is removed by OdooEditor when text is entered.
+                // It is removed by WeblgxEditor when text is entered.
                 htmlEl.classList.add("oe-hint");
             }
         }
@@ -710,7 +710,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
      * @private
      * @param type {string}
      * @param eventData {*}
-     * @returns {void|OdooEvent|*}
+     * @returns {void|WeblgxEvent|*}
      */
     _websiteRootEvent(type, eventData = {}) {
         const websiteRootInstance = this.websiteService.websiteRootInstance;
@@ -781,7 +781,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
         const snippetCommandCallback = (selector) => {
             const $separatorBody = $(selector);
             const $clonedBody = $separatorBody.clone().removeClass('oe_snippet_body');
-            this.odooEditor.execCommand("insert", $clonedBody[0]);
+            this.weblgxEditor.execCommand("insert", $clonedBody[0]);
             this.snippetsMenu.callPostSnippetDrop($clonedBody);
         };
         const commands = [
@@ -792,7 +792,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 description: _t('Insert an alert snippet'),
                 fontawesome: 'fa-info',
                 keywords: ["banner", "info", "success", "warning", "danger"],
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_alert"]');
                 },
@@ -803,7 +803,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 90,
                 description: _t('Insert a rating snippet'),
                 fontawesome: 'fa-star-half-o',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_rating"]');
                 },
@@ -814,7 +814,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 80,
                 description: _t('Insert a card snippet'),
                 fontawesome: 'fa-sticky-note',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_card"]');
                 },
@@ -825,7 +825,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 70,
                 description: _t('Insert a share snippet'),
                 fontawesome: 'fa-share-square-o',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_share"]');
                 },
@@ -836,7 +836,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 60,
                 description: _t('Insert a text Highlight snippet'),
                 fontawesome: 'fa-sticky-note',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_text_highlight"]');
                 },
@@ -847,7 +847,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 50,
                 description: _t('Insert a chart snippet'),
                 fontawesome: 'fa-bar-chart',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_chart"]');
                 },
@@ -858,7 +858,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 40,
                 description: _t('Insert a progress bar snippet'),
                 fontawesome: 'fa-spinner',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_progress_bar"]');
                 },
@@ -869,7 +869,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 30,
                 description: _t('Insert a badge snippet'),
                 fontawesome: 'fa-tags',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_badge"]');
                 },
@@ -880,7 +880,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 20,
                 description: _t('Insert a blockquote snippet'),
                 fontawesome: 'fa-quote-left',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_blockquote"]');
                 },
@@ -891,7 +891,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
                 priority: 10,
                 description: _t('Insert an horizontal separator snippet'),
                 fontawesome: 'fa-minus',
-                isDisabled: () => !this.odooEditor.isSelectionInBlockRoot(),
+                isDisabled: () => !this.weblgxEditor.isSelectionInBlockRoot(),
                 callback: () => {
                     snippetCommandCallback('.oe_snippet_body[data-snippet="s_hr"]');
                 },
@@ -1032,7 +1032,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
      * @override
      */
     async _createSnippetsMenuInstance(options = {}) {
-        const snippetsEditor = await odoo.loader.modules.get('@website/js/editor/snippets.editor')[Symbol.for('default')];
+        const snippetsEditor = await weblgx.loader.modules.get('@website/js/editor/snippets.editor')[Symbol.for('default')];
         const { SnippetsMenu } = snippetsEditor;
         return new SnippetsMenu(this, Object.assign({
             wysiwyg: this,
@@ -1119,9 +1119,9 @@ export class WysiwygAdapterComponent extends Wysiwyg {
         if (!megaMenuEl || !megaMenuEl.classList.contains('show')) {
             return this.snippetsMenu.activateSnippet(false);
         }
-        this.odooEditor.observerUnactive("toggleMegaMenu");
+        this.weblgxEditor.observerUnactive("toggleMegaMenu");
         megaMenuEl.classList.add('o_no_parent_editor');
-        this.odooEditor.observerActive("toggleMegaMenu");
+        this.weblgxEditor.observerActive("toggleMegaMenu");
         return this.snippetsMenu.activateSnippet($(megaMenuEl));
     }
     /**
@@ -1175,7 +1175,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
     /**
      * Creates a new event and dispatch it in the iframe's public widget
      *
-     * @param {OdooEvent} event
+     * @param {WeblgxEvent} event
      * @private
      */
     _onRootEventRequest(event) {
@@ -1242,7 +1242,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
         return event.data.callback(this._context);
     }
     /**
-     * @param {OdooEvent}
+     * @param {WeblgxEvent}
      * @private
      */
     _onOpenEditHeadBodyDialog(ev) {
@@ -1254,7 +1254,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
      * Retrieves the website service context.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onServiceContextGet(ev) {
         ev.data.callback({
@@ -1276,7 +1276,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
      * WebsiteRoot that it should stop the public widgets inside that snippet.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetWillBeCloned(ev) {
         this._websiteRootEvent('widgets_stop_request', {
@@ -1289,7 +1289,7 @@ export class WysiwygAdapterComponent extends Wysiwyg {
      * was cloned from.
      *
      * @private
-     * @param {OdooEvent} ev
+     * @param {WeblgxEvent} ev
      */
     _onSnippetCloned(ev) {
         this._websiteRootEvent('widgets_start_request', {

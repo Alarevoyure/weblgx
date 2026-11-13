@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { htmlToTextContentInline } from "@mail/utils/common/format";
 
@@ -14,7 +14,7 @@ const PREVIEW_MSG_MAX_SIZE = 350; // optimal for native English speakers
  */
 export class OutOfFocusService {
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     constructor(env, services) {
@@ -38,7 +38,7 @@ export class OutOfFocusService {
         }
         const author = message.author;
         let notificationTitle;
-        let icon = "/mail/static/src/img/odoobot_transparent.png";
+        let icon = "/mail/static/src/img/weblgxbot_transparent.png";
         if (!author) {
             notificationTitle = _t("New message");
         } else {
@@ -92,7 +92,7 @@ export class OutOfFocusService {
      */
     sendNotification({ message, title, type, icon }) {
         if (!this.canSendNativeNotification) {
-            this.sendOdooNotification(message, { title, type });
+            this.sendWeblgxNotification(message, { title, type });
             return;
         }
         if (!this.multiTab.isOnMainTab()) {
@@ -105,7 +105,7 @@ export class OutOfFocusService {
             // So we fallback to the notification service in this case
             // https://bugs.chromium.org/p/chromium/issues/detail?id=481856
             if (error.message.includes("ServiceWorkerRegistration")) {
-                this.sendOdooNotification(message, { title, type });
+                this.sendWeblgxNotification(message, { title, type });
             } else {
                 throw error;
             }
@@ -116,7 +116,7 @@ export class OutOfFocusService {
      * @param {string} message
      * @param {Object} options
      */
-    async sendOdooNotification(message, options) {
+    async sendWeblgxNotification(message, options) {
         this.notificationService.add(message, options);
         this._playSound();
     }
@@ -166,7 +166,7 @@ export class OutOfFocusService {
 export const outOfFocusService = {
     dependencies: ["multi_tab", "notification"],
     /**
-     * @param {import("@web/env").OdooEnv} env
+     * @param {import("@web/env").WeblgxEnv} env
      * @param {Partial<import("services").Services>} services
      */
     start(env, services) {

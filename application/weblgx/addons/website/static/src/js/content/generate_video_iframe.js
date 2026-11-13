@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 const SUPPORTED_DOMAINS = [
     "youtu.be",

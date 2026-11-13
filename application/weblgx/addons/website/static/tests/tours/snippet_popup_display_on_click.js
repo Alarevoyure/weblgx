@@ -1,4 +1,4 @@
-/** @odoo-module */
+/** @weblgx-module */
 
 import wTourUtils from "@website/js/tours/tour_utils";
 import { browser } from "@web/core/browser/browser";

@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 import logging
 import math
 import re
 from datetime import datetime
 
-from odoo import api, fields, models, tools, _
-from odoo.addons.http_routing.models.ir_http import slug, unslug
-from odoo.exceptions import UserError, ValidationError, AccessError
-from odoo.osv import expression
-from odoo.tools import sql
+from weblgx import api, fields, models, tools, _
+from weblgx.addons.http_routing.models.ir_http import slug, unslug
+from weblgx.exceptions import UserError, ValidationError, AccessError
+from weblgx.osv import expression
+from weblgx.tools import sql
 
 from .forum_forum import forum_selected_site_domain
 

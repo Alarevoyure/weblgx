@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import argparse
 import os
 import re
@@ -10,7 +10,7 @@ import jinja2
 from . import Command
 
 class Scaffold(Command):
-    """ Generates an Odoo module skeleton. """
+    """ Generates an Web@LGX module skeleton. """
 
     def run(self, cmdargs):
         # TODO: bash completion file

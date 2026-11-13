@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo.tests import TransactionCase
-from odoo.exceptions import UserError
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
+from weblgx.tests import TransactionCase
+from weblgx.exceptions import UserError
 from unittest.mock import patch
 
-import odoo.tests
+import weblgx.tests
 
 
-@odoo.tests.tagged('external', '-standard')
+@weblgx.tests.tagged('external', '-standard')
 class TestGeoLocalize(TransactionCase):
 
     def test_default_openstreetmap(self):
@@ -36,7 +36,7 @@ class TestGeoLocalize(TransactionCase):
         self.assertFalse(test_partner.date_localization)
 
 
-@odoo.tests.tagged('-at_install', 'post_install')
+@weblgx.tests.tagged('-at_install', 'post_install')
 class TestPartnerGeoLocalization(TransactionCase):
 
     def test_geo_localization_notification(self):

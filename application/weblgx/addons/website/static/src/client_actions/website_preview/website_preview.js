@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { _t } from "@web/core/l10n/translation";
 import { browser } from '@web/core/browser/browser';
@@ -26,7 +26,7 @@ import {
     useEffect,
     useState,
     useExternalListener,
-} from "@odoo/owl";
+} from "@weblgx/owl";
 import { isBrowserMicrosoftEdge } from "@web/core/browser/feature_detection";
 
 class BlockPreview extends Component {}
@@ -70,7 +70,7 @@ export class WebsitePreview extends Component {
             this.backendWebsiteId = unslugHtmlDataObject(backendWebsiteRepr).id;
 
             const encodedPath = encodeURIComponent(this.path);
-            if (!session.website_bypass_domain_redirect // Used by the Odoo support (bugs to be expected)
+            if (!session.website_bypass_domain_redirect // Used by the Web@LGX support (bugs to be expected)
                     && this.websiteDomain
                     && !wUtils.isHTTPSorNakedDomainRedirection(this.websiteDomain, window.location.origin)) {
                 // The website domain might be the naked one while the naked one
@@ -135,9 +135,9 @@ export class WebsitePreview extends Component {
             this.websiteService.blockPreview(true, 'load-iframe');
             this.iframe.el.addEventListener('load', () => this.websiteService.unblockPreview('load-iframe'), { once: true });
             // For a frontend page, it is better to use the
-            // OdooFrameContentLoaded event to unblock the iframe, as it is
+            // WeblgxFrameContentLoaded event to unblock the iframe, as it is
             // triggered faster than the load event.
-            this.iframe.el.addEventListener('OdooFrameContentLoaded', () => this.websiteService.unblockPreview('load-iframe'), { once: true });
+            this.iframe.el.addEventListener('WeblgxFrameContentLoaded', () => this.websiteService.unblockPreview('load-iframe'), { once: true });
         });
 
         onWillUnmount(() => {
@@ -214,8 +214,8 @@ export class WebsitePreview extends Component {
         // Toggle the 'o_is_mobile' class on the wrapwrap according to
         // 'isMobile' on iframe load.
         useEffect(() => {
-            this.iframe.el.addEventListener('OdooFrameContentLoaded', toggleIsMobile);
-            return () => this.iframe.el.removeEventListener('OdooFrameContentLoaded', toggleIsMobile);
+            this.iframe.el.addEventListener('WeblgxFrameContentLoaded', toggleIsMobile);
+            return () => this.iframe.el.removeEventListener('WeblgxFrameContentLoaded', toggleIsMobile);
         }, () => []);
     }
 
@@ -279,7 +279,7 @@ export class WebsitePreview extends Component {
     reloadIframe(url) {
         return new Promise((resolve, reject) => {
             this.websiteService.websiteRootInstance = undefined;
-            this.iframe.el.addEventListener('OdooFrameContentLoaded', resolve, { once: true });
+            this.iframe.el.addEventListener('WeblgxFrameContentLoaded', resolve, { once: true });
             if (url) {
                 this.iframe.el.contentWindow.location = url;
             } else {

@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component } from "@odoo/owl";
+import { Component } from "@weblgx/owl";
 import { sortBy } from "../utils/arrays";
 import { ErrorHandler } from "../utils/components";
 

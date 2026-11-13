@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import {PageDependencies} from '@website/components/dialog/page_properties';
 import {standardFieldProps} from '@web/views/fields/standard_field_props';
@@ -7,7 +7,7 @@ import {useService} from '@web/core/utils/hooks';
 import {Switch} from '@website/components/switch/switch';
 import {registry} from '@web/core/registry';
 import { _t } from '@web/core/l10n/translation';
-import { Component, useState } from "@odoo/owl";
+import { Component, useState } from "@weblgx/owl";
 
 /**
  * Displays website page dependencies and URL redirect options when the page URL

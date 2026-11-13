@@ -14,7 +14,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Manon Rondou, 2025\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +28,7 @@ msgid "#{year}"
 msgstr "#{année}"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_blog.py:0
 #, python-format
 msgid "%s (copy)"
@@ -93,7 +93,7 @@ msgstr ""
 "d'un vendeur chez Wal-Mart."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "<b>Publish your blog post</b> to make it visible to your visitors."
@@ -122,7 +122,7 @@ msgstr ""
 "propre installation."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid ""
@@ -397,7 +397,7 @@ msgid "All blogs"
 msgstr "Tous les blogs"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Alone in the ocean"
@@ -410,7 +410,7 @@ msgstr ""
 "Dans cette optique, quelle est la difficulté de mise en place et de panne ?"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/website_blog.js:0
 #, python-format
 msgid "Amazing blog article: %s! Check it live: %s"
@@ -531,7 +531,7 @@ msgid "Avatar"
 msgstr "Avatar"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Awesome hotel rooms"
@@ -600,7 +600,7 @@ msgid "Beyond The Eye"
 msgstr "Au-delà de l'œil"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website.py:0
 #: model:ir.model,name:website_blog.model_blog_blog
 #: model:ir.model.fields,field_description:website_blog.field_blog_post__blog_id
@@ -775,14 +775,14 @@ msgid "Children’s’ Facilities"
 msgstr "Installations pour enfants"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Choose an image from the library."
 msgstr "Choisir une image depuis la librairie."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Click here to add new content to your website."
@@ -799,7 +799,7 @@ msgid "Write the first article with the button below."
 msgstr "Rédigez le premier article avec le bouton ci-dessous."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/controllers/main.py:0
 #, python-format
 msgid "New article"
@@ -959,14 +959,14 @@ msgid "Edit the 'Filter Results' page header."
 msgstr "Modifiez l'en-tête de page \"Filtrer les résultats\"."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Edit your title, the subtitle is optional."
 msgstr "Modifiez votre titre, le sous-titre est optionnel"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Enter your post's title"
@@ -1232,7 +1232,7 @@ msgid "Is Published"
 msgstr "Est publié"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Islands"
@@ -1293,7 +1293,7 @@ msgstr ""
 "centaines et des milliers d'années."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Jungle"
@@ -1310,7 +1310,7 @@ msgid "Know when to look"
 msgstr "Savoir quand regarder"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/options.js:0
 #, python-format
 msgid "Large"
@@ -1456,7 +1456,7 @@ msgstr ""
 "pendant vos vacances à Maui."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/options.js:0
 #, python-format
 msgid "Medium"
@@ -1674,7 +1674,7 @@ msgstr ""
 "pouvons voir sur notre objet spatial le plus proche."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/ir_qweb_fields.py:0
 #, python-format
 msgid ""
@@ -1685,7 +1685,7 @@ msgstr ""
 "enregistrez pour obtenir un résumé automatique (traduit)."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid ""
@@ -1866,28 +1866,28 @@ msgid "Sample"
 msgstr "Échantillon"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Satellites"
 msgstr "Satellites"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Search for an image. (eg: type \"business\")"
 msgstr "Rechercher une image. (ex: tapez \"entreprise\")"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Seaside vs mountain side"
 msgstr "Côté mer vs côté montagne"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Seeing the world from above"
@@ -1899,14 +1899,14 @@ msgid "Select Blog"
 msgstr "Sélectionnez un blog"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Select the blog you want to add the post to."
 msgstr "Sélectionnez le blog auquel vous souhaitez ajouter l'article."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Select this menu item to create a new blog post."
@@ -1935,7 +1935,7 @@ msgid "Separate every keyword with a comma"
 msgstr "Séparez chaque mot-clé par une virgule"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Set a blog post <b>cover</b>."
@@ -2004,7 +2004,7 @@ msgid "Silly-Chico"
 msgstr "Silly-Chico"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Skies"
@@ -2084,14 +2084,14 @@ msgstr ""
 "Quelqu'un de célèbre dans <cite title=\"Source Title\">Source Title</cite>"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Spotting the fauna"
 msgstr "Repérer la faune"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_blog.py:0
 #, python-format
 msgid "Start writing here..."
@@ -2168,7 +2168,7 @@ msgid "Tags List"
 msgstr "Liste des étiquettes"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Taking pictures in the dark"
@@ -2417,14 +2417,14 @@ msgid "This box will not be visible to your visitors"
 msgstr "Cette boîte ne sera pas visible pour vos visiteurs"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/options.js:0
 #, python-format
 msgid "This tag already exists"
 msgstr "Cette étiquette existe déjà."
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/options.js:0
 #, python-format
 msgid "Tiny"
@@ -2554,7 +2554,7 @@ msgid "Untitled Post"
 msgstr "Article sans titre"
 
 #. module: website_blog
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/website_blog/static/src/js/tours/website_blog.js:0
 #, python-format
 msgid "Use this icon to preview your blog post on <b>mobile devices</b>."
@@ -2568,7 +2568,7 @@ msgid "Used in:"
 msgstr "Utilisé dans :"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "Viewpoints"
@@ -2678,7 +2678,7 @@ msgstr ""
 "hobby d'astronomie beaucoup plus agréables."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/website_snippet_filter.py:0
 #, python-format
 msgid "With a View"
@@ -2886,7 +2886,7 @@ msgid "Blog that receives the pushed articles."
 msgstr "Blog qui reçoit les articles poussés."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/res_config_settings.py:0
 #, python-format
 msgid "Select a website first."
@@ -2939,7 +2939,7 @@ msgid "Reject the comment"
 msgstr "Refuser le commentaire"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/mail_message.py:0
 #, python-format
 msgid "Only a blog administrator can validate a comment."
@@ -2986,35 +2986,35 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "The email address is required."
 msgstr "L'adresse email est obligatoire."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "Please enter a valid email address."
 msgstr "Veuillez saisir une adresse email valide."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "The message is required."
 msgstr "Le message est obligatoire."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "The message is too long."
 msgstr "Le message est trop long."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #: code:addons/website_blog/controllers/comments.py:0
 #, python-format
@@ -3022,84 +3022,84 @@ msgid "This article cannot receive a comment."
 msgstr "Cet article ne peut pas recevoir de commentaire."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "Too many confirmation requests. Please try again later."
 msgstr "Trop de demandes de confirmation. Réessayez plus tard."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "This website has no outgoing email address. Set the company email or the alias domain."
 msgstr "Ce site n'a pas d'adresse d'expédition. Renseignez l'email de la société ou le domaine d'alias."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "<p>Hello,</p><p>You left a comment on <strong>%(title)s</strong>.</p><p>Your confirmation code is:</p><p style=\"font-size:28px;font-weight:700;letter-spacing:4px;\">%(code)s</p><p>This code is valid for %(minutes)s minutes.</p><p>If you did not write this comment, you can ignore this email.</p>"
 msgstr "<p>Bonjour,</p><p>Vous avez laissé un commentaire sur <strong>%(title)s</strong>.</p><p>Votre code de confirmation est :</p><p style=\"font-size:28px;font-weight:700;letter-spacing:4px;\">%(code)s</p><p>Ce code est valable %(minutes)s minutes.</p><p>Si vous n'êtes pas à l'origine de ce commentaire, ignorez cet email.</p>"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "Blog — Confirmation code"
 msgstr "Blog — Code de confirmation"
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "The confirmation email could not be sent. Check the address or try again later."
 msgstr "L'email de confirmation n'a pas pu être envoyé. Vérifiez l'adresse ou réessayez plus tard."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "The code has expired. Please send your comment again."
 msgstr "Le code a expiré. Veuillez renvoyer votre commentaire."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "Too many incorrect attempts. The comment was cancelled."
 msgstr "Trop de tentatives incorrectes. Le commentaire a été annulé."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "Incorrect code. %(n)s attempt(s) left."
 msgstr "Code incorrect. Il vous reste %(n)s tentative(s)."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/models/blog_comment_pending.py:0
 #, python-format
 msgid "Thank you. Your comment will appear once a blog administrator has validated it."
 msgstr "Merci. Votre commentaire sera visible une fois validé par un administrateur du blog."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/controllers/comments.py:0
 #, python-format
 msgid "A confirmation code was sent to %(email)s. Enter it below to send your comment."
 msgstr "Un code de confirmation a été envoyé à %(email)s. Saisissez-le ci-dessous pour envoyer votre commentaire."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/controllers/comments.py:0
 #, python-format
 msgid "This request has expired. Please send your comment again."
 msgstr "Cette demande a expiré. Veuillez renvoyer votre commentaire."
 
 #. module: website_blog
-#. odoo-python
+#. weblgx-python
 #: code:addons/website_blog/controllers/comments.py:0
 #, python-format
 msgid "This confirmation does not match this website."

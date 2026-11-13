@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2025-12-29 18:37+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Manon Rondou, 2025\n"
-"Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
+"Language-Team: French (https://app.transifex.com/weblgx/teams/41243/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr ""
 "1000000 == 0 ? 1 : 2;\n"
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid " '*' is not a valid Regex Barcode Pattern. Did you mean '.*'?"
@@ -93,7 +93,7 @@ msgid "Any"
 msgstr "Au moins un"
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/components/barcode_scanner.xml:0
 #, python-format
 msgid "Barcode"
@@ -135,7 +135,7 @@ msgid "Barcode Scanned"
 msgstr "Code barre scanné"
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/barcode_handlers.js:0
 #, python-format
 msgid "Barcode: "
@@ -196,7 +196,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_events_mixin.py:0
 #, python-format
 msgid ""
@@ -256,7 +256,7 @@ msgstr ""
 "                                des zéros."
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/components/barcode_scanner.js:0
 #, python-format
 msgid "Please, Scan again!"
@@ -283,7 +283,7 @@ msgid "Tables"
 msgstr "Tables"
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/components/barcode_scanner.xml:0
 #, python-format
 msgid "Tap to scan"
@@ -295,7 +295,7 @@ msgid "The barcode matching pattern"
 msgstr "Le code-barres correspondant au modèle"
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -315,7 +315,7 @@ msgid "The matched pattern will alias to this barcode"
 msgstr "Le motif correspondant sera un alias pour ce code-barres"
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -326,7 +326,7 @@ msgstr ""
 "règle ne peut contenir qu'une paire d'accolades."
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -337,7 +337,7 @@ msgstr ""
 "accolades ne peuvent contenir que des N suivis par des D."
 
 #. module: barcodes
-#. odoo-python
+#. weblgx-python
 #: code:addons/barcodes/models/barcode_rule.py:0
 #, python-format
 msgid ""
@@ -393,7 +393,7 @@ msgid "Unit Product"
 msgstr "Unité de produit"
 
 #. module: barcodes
-#. odoo-javascript
+#. weblgx-javascript
 #: code:addons/barcodes/static/src/barcode_handlers.js:0
 #, python-format
 msgid "Unknown barcode command"

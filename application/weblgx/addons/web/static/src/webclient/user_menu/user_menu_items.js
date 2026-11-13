@@ -1,6 +1,6 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
-import { Component, markup } from "@odoo/owl";
+import { Component, markup } from "@weblgx/owl";
 import { isMacOS } from "@web/core/browser/feature_detection";
 import { _t } from "@web/core/l10n/translation";
 import { escape } from "@web/core/utils/strings";

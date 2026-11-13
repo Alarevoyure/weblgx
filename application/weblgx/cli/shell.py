@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 import code
 import logging
 import os
@@ -7,8 +7,8 @@ import sys
 import threading
 from pathlib import Path
 
-import odoo
-from odoo.tools import config
+import weblgx
+from weblgx.tools import config
 from . import Command
 
 _logger = logging.getLogger(__name__)
@@ -51,14 +51,14 @@ class Console(code.InteractiveConsole):
 
 
 class Shell(Command):
-    """Start odoo in an interactive shell"""
+    """Start weblgx in an interactive shell"""
     supported_shells = ['ipython', 'ptpython', 'bpython', 'python']
 
     def init(self, args):
         config.parser.prog = f'{Path(sys.argv[0]).name} {self.name}'
         config.parse_config(args)
-        odoo.cli.server.report_configuration()
-        odoo.service.server.start(preload=[], stop=True)
+        weblgx.cli.server.report_configuration()
+        weblgx.service.server.start(preload=[], stop=True)
         signal.signal(signal.SIGINT, raise_keyboard_interrupt)
 
     def console(self, local_vars):
@@ -103,21 +103,21 @@ class Shell(Command):
 
     def shell(self, dbname):
         local_vars = {
-            'openerp': odoo,
-            'odoo': odoo,
+            'openerp': weblgx,
+            'weblgx': weblgx,
         }
         if dbname:
             threading.current_thread().dbname = dbname
-            registry = odoo.registry(dbname)
+            registry = weblgx.registry(dbname)
             with registry.cursor() as cr:
-                uid = odoo.SUPERUSER_ID
-                ctx = odoo.api.Environment(cr, uid, {})['res.users'].context_get()
-                env = odoo.api.Environment(cr, uid, ctx)
+                uid = weblgx.SUPERUSER_ID
+                ctx = weblgx.api.Environment(cr, uid, {})['res.users'].context_get()
+                env = weblgx.api.Environment(cr, uid, ctx)
                 local_vars['env'] = env
                 local_vars['self'] = env.user
                 # context_get() has started the transaction already. Rollback to
                 # avoid logging warning "rolling back the transaction before testing"
-                # from odoo.tests.shell.run_tests if the user hasn't done anything.
+                # from weblgx.tests.shell.run_tests if the user hasn't done anything.
                 cr.rollback()
                 self.console(local_vars)
                 cr.rollback()

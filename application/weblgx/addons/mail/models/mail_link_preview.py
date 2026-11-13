@@ -1,4 +1,4 @@
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 
 from datetime import datetime
@@ -8,8 +8,8 @@ from urllib.parse import urlparse
 import re
 import requests
 
-from odoo import api, models, fields, tools
-from odoo.addons.mail.tools import link_preview
+from weblgx import api, models, fields, tools
+from weblgx.addons.mail.tools import link_preview
 
 
 class LinkPreview(models.Model):

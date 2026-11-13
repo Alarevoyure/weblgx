@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 __all__ = [
     'convert_file', 'convert_sql_import',
@@ -25,13 +25,13 @@ try:
 except ImportError:
     jingtrang = None
 
-import odoo
+import weblgx
 from . import pycompat
 from .config import config
 from .misc import file_open, file_path, SKIPPED_ELEMENT_TYPES
 from .translate import _
-from odoo import SUPERUSER_ID, api
-from odoo.exceptions import ValidationError
+from weblgx import SUPERUSER_ID, api
+from weblgx.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -55,13 +55,13 @@ class RecordDictWrapper(dict):
 
 def _get_idref(self, env, model_str, idref):
     idref2 = dict(idref,
-                  Command=odoo.fields.Command,
+                  Command=weblgx.fields.Command,
                   time=time,
                   DateTime=datetime,
                   datetime=datetime,
                   timedelta=timedelta,
                   relativedelta=relativedelta,
-                  version=odoo.release.major_version,
+                  version=weblgx.release.major_version,
                   ref=self.id_get,
                   pytz=pytz)
     if model_str:
@@ -116,7 +116,7 @@ def _eval_xml(self, node, env):
             try:
                 return safe_eval(a_eval, idref2)
             except Exception:
-                logging.getLogger('odoo.tools.convert.init').error(
+                logging.getLogger('weblgx.tools.convert.init').error(
                     'Could not eval(%s) for %s in %s', a_eval, node.get('name'), env.context)
                 raise
         def _process(s):
@@ -202,7 +202,7 @@ def _eval_xml(self, node, env):
         # merge current context with context in kwargs
         kwargs['context'] = {**env.context, **kwargs.get('context', {})}
         # invoke method
-        return odoo.api.call_kw(model, method_name, args, kwargs)
+        return weblgx.api.call_kw(model, method_name, args, kwargs)
     elif node.tag == "test":
         return node.text
 
@@ -323,10 +323,10 @@ form: module.record_id""" % (xml_id,)
         for group in rec.get('groups', '').split(','):
             if group.startswith('-'):
                 group_id = self.id_get(group[1:])
-                groups.append(odoo.Command.unlink(group_id))
+                groups.append(weblgx.Command.unlink(group_id))
             elif group:
                 group_id = self.id_get(group)
-                groups.append(odoo.Command.link(group_id))
+                groups.append(weblgx.Command.link(group_id))
         if groups:
             values['groups_id'] = groups
 
@@ -416,7 +416,7 @@ form: module.record_id""" % (xml_id,)
                 _fields = env[rec_model]._fields
                 # if the current field is many2many
                 if (f_name in _fields) and _fields[f_name].type == 'many2many':
-                    f_val = [odoo.Command.set([x[f_use] for x in s])]
+                    f_val = [weblgx.Command.set([x[f_use] for x in s])]
                 elif len(s):
                     # otherwise (we are probably in a many2one field),
                     # take the first element of the search
@@ -618,7 +618,7 @@ form: module.record_id""" % (xml_id,)
                     err=err.args[0],
                 )
                 _logger.debug(msg, exc_info=True)
-                raise ParseError(msg) from None  # Restart with "--log-handler odoo.tools.convert:DEBUG" for complete traceback
+                raise ParseError(msg) from None  # Restart with "--log-handler weblgx.tools.convert:DEBUG" for complete traceback
             except Exception as e:
                 raise ParseError('while parsing %s:%s, somewhere inside\n%s' % (
                     rec.getroottree().docinfo.URL,
@@ -664,9 +664,9 @@ form: module.record_id""" % (xml_id,)
         }
 
     def parse(self, de):
-        assert de.tag in self.DATA_ROOTS, "Root xml tag must be <openerp>, <odoo> or <data>."
+        assert de.tag in self.DATA_ROOTS, "Root xml tag must be <openerp>, <weblgx> or <data>."
         self._tag_root(de)
-    DATA_ROOTS = ['odoo', 'data', 'openerp']
+    DATA_ROOTS = ['weblgx', 'data', 'openerp']
 
 def convert_file(env, module, filename, idref, mode='update', noupdate=False, kind=None, pathname=None):
     if pathname is None:

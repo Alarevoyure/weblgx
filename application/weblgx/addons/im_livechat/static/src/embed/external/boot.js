@@ -1,10 +1,10 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { LivechatButton } from "@im_livechat/embed/common/livechat_button";
 import { makeShadow, makeRoot } from "@im_livechat/embed/common/boot_helpers";
 import { serverUrl } from "@im_livechat/embed/common/livechat_data";
 
-import { mount, whenReady } from "@odoo/owl";
+import { mount, whenReady } from "@weblgx/owl";
 
 import { templates } from "@web/core/assets";
 import { _t } from "@web/core/l10n/translation";
@@ -14,7 +14,7 @@ import { registry } from "@web/core/registry";
 import { makeEnv, startServices } from "@web/env";
 import { session } from "@web/session";
 
-odoo.livechatReady = new Deferred();
+weblgx.livechatReady = new Deferred();
 
 (async function boot() {
     session.origin = serverUrl;
@@ -23,7 +23,7 @@ odoo.livechatReady = new Deferred();
     mainComponentsRegistry.add("LivechatRoot", { Component: LivechatButton });
     const env = makeEnv();
     await startServices(env);
-    odoo.isReady = true;
+    weblgx.isReady = true;
     const target = await makeShadow(makeRoot(document.body));
     await mount(MainComponentsContainer, target, {
         env,
@@ -32,5 +32,5 @@ odoo.livechatReady = new Deferred();
         translateFn: _t,
         dev: env.debug,
     });
-    odoo.livechatReady.resolve();
+    weblgx.livechatReady.resolve();
 })();

@@ -1,4 +1,4 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { startServer } from "@bus/../tests/helpers/mock_python_environment";
 
@@ -110,7 +110,7 @@ QUnit.test(
                 name: "url.example",
                 mimetype: "text/plain",
                 type: "url",
-                url: "https://www.odoo.com",
+                url: "https://www.weblgx.com",
             },
             {
                 name: "test.txt",

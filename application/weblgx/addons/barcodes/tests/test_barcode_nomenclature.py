@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo.exceptions import ValidationError
-from odoo.tests import common
+from weblgx.exceptions import ValidationError
+from weblgx.tests import common
 
 
 class TestBarcodeNomenclature(common.TransactionCase):

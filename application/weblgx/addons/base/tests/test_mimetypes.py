@@ -6,8 +6,8 @@ try:
 except ImportError:
     magic = None
 
-from odoo.tests.common import BaseCase
-from odoo.tools.mimetypes import get_extension, guess_mimetype
+from weblgx.tests.common import BaseCase
+from weblgx.tools.mimetypes import get_extension, guess_mimetype
 
 PNG = b'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4//8/AAX+Av7czFnnAAAAAElFTkSuQmCC'
 GIF = b"R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs="
@@ -39,7 +39,7 @@ XML = b"""<?xml version='1.0' encoding='utf-8'?>
 <Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03">
   <CstmrCdtTrfInitn>
     <GrpHdr>
-      <MsgId>123456Odoo S.A.893873733</MsgId>
+      <MsgId>123456Weblgx S.A.893873733</MsgId>
       <CreDtTm>2018-11-21T09:47:32</CreDtTm>
       <NbOfTxs>0</NbOfTxs>
       <CtrlSum>0.0</CtrlSum>
@@ -63,7 +63,7 @@ class test_guess_mimetype(BaseCase):
 
     def test_default_mimetype_empty(self):
         mimetype = guess_mimetype(b'')
-        # odoo implementation returns application/octet-stream by default
+        # weblgx implementation returns application/octet-stream by default
         # if available, python-magic returns application/x-empty
         self.assertIn(mimetype, ('application/octet-stream', 'application/x-empty'))
 
@@ -104,7 +104,7 @@ class test_guess_mimetype(BaseCase):
 
         mimetype = guess_mimetype(NAMESPACED_SVG, default='test')
         self.assertTrue(mimetype.startswith('image/svg'))
-        # Tests that whitespace padded SVG are not detected as SVG in odoo implementation
+        # Tests that whitespace padded SVG are not detected as SVG in weblgx implementation
         if not magic:
             mimetype = guess_mimetype(b"   " + content, default='test')
             self.assertNotIn("svg", mimetype)

@@ -1,7 +1,7 @@
-/* @odoo-module */
+/* @weblgx-module */
 
 import { useSequential } from "@mail/utils/common/hooks";
-import { useState, onWillUnmount, markup } from "@odoo/owl";
+import { useState, onWillUnmount, markup } from "@weblgx/owl";
 import { useService } from "@web/core/utils/hooks";
 import { escapeRegExp } from "@web/core/utils/strings";
 

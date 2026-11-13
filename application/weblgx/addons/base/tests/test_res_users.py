@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
+# Part of Web@LGX. See LICENSE file for full copyright and licensing details.
 
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from odoo import SUPERUSER_ID
-from odoo.addons.base.models.res_users import is_selection_groups, get_selection_groups, name_selection_groups
-from odoo.exceptions import UserError, ValidationError
-from odoo.service import security
-from odoo.tests.common import Form, TransactionCase, new_test_user, tagged, HttpCase, users
-from odoo.tools import mute_logger
-from odoo import Command
+from weblgx import SUPERUSER_ID
+from weblgx.addons.base.models.res_users import is_selection_groups, get_selection_groups, name_selection_groups
+from weblgx.exceptions import UserError, ValidationError
+from weblgx.service import security
+from weblgx.tests.common import Form, TransactionCase, new_test_user, tagged, HttpCase, users
+from weblgx.tools import mute_logger
+from weblgx import Command
 
 
 class TestUsers(TransactionCase):
@@ -124,7 +124,7 @@ class TestUsers(TransactionCase):
             "the company_id of the partner_id shall be updated"
         )
 
-    @mute_logger('odoo.sql_db')
+    @mute_logger('weblgx.sql_db')
     def test_deactivate_portal_users_access(self):
         """Test that only a portal users can deactivate his account."""
         user_internal = self.env['res.users'].create({
@@ -137,7 +137,7 @@ class TestUsers(TransactionCase):
         with self.assertRaises(UserError, msg='Internal users should not be able to deactivate their account'):
             user_internal._deactivate_portal_user()
 
-    @mute_logger('odoo.sql_db', 'odoo.addons.base.models.res_users_deletion')
+    @mute_logger('weblgx.sql_db', 'weblgx.addons.base.models.res_users_deletion')
     def test_deactivate_portal_users_archive_and_remove(self):
         """Test that if the account can not be removed, it's archived instead
         and sensitive information are removed.
@@ -235,7 +235,7 @@ class TestUsers(TransactionCase):
 
         request = SimpleNamespace()
         request.best_lang = 'es_ES'
-        request_patch = patch('odoo.addons.base.models.res_users.request', request)
+        request_patch = patch('weblgx.addons.base.models.res_users.request', request)
         self.addCleanup(request_patch.stop)
         request_patch.start()
 
@@ -630,9 +630,9 @@ class TestUsersIdentitycheck(HttpCase):
         Test to check the revoke all devices by changing the current password as a new password
         """
         # Change the password to 8 characters for security reasons
-        self.env.user.password = "admin@odoo"
+        self.env.user.password = "admin@weblgx"
         # Create a session
-        session = self.authenticate('admin', 'admin@odoo')
+        session = self.authenticate('admin', 'admin@weblgx')
         # Test the session is valid
         self.assertTrue(security.check_session(session, self.env))
         # Valid session -> not redirected from /web to /web/login
@@ -643,7 +643,7 @@ class TestUsersIdentitycheck(HttpCase):
         # The form of the wizard opens with a new record
         form = Form(self.env[action['res_model']].create({}), action['view_id'])
         # The user fills his password
-        form.password = 'admin@odoo'
+        form.password = 'admin@weblgx'
         # The user clicks the button "Log out from all devices", which triggers a save then a call to the button method
         user_identity_check = form.save()
         user_identity_check.revoke_all_devices()

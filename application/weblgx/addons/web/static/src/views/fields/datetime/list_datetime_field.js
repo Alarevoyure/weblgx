@@ -1,4 +1,4 @@
-/** @odoo-module **/
+/** @weblgx-module **/
 
 import { registry } from "@web/core/registry";
 import { DateTimeField, dateField, dateRangeField, dateTimeField } from "./datetime_field";
