@@ -10,7 +10,8 @@
             </field>
         </record>
 
-        <!-- Highest Administration privilege: implies Admin (+ Access Rights). -->
+        <!-- Highest Administration privilege: implies Admin (+ Access Rights)
+             and Technical Features (developer-mode menus/fields). -->
         <record id="group_superadmin" model="res.groups">
             <field name="name">SuperAdmin</field>
             <field name="comment">
@@ -18,7 +19,7 @@
                 utilisateurs, création et suppression de sociétés.
             </field>
             <field name="category_id" ref="base.module_category_administration_administration"/>
-            <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_system')), (4, ref('base.group_no_one'))]"/>
             <field name="users" eval="[(4, ref('base.user_admin')), (4, ref('base.user_root'))]"/>
         </record>
 
