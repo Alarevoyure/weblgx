@@ -184,7 +184,7 @@
                             <nav class="o_wiki_header_mobile_nav" aria-label="Pages du Wiki">
                                 <div class="o_wiki_header_mobile_nav_title">Pages</div>
                                 <div class="o_wiki_toc_tree o_wiki_header_mobile_toc" id="o_wiki_header_mobile_toc">
-                                    <t t-raw="wiki_toc_html"/>
+                                    <t t-out="wiki_toc_html"/>
                                 </div>
                             </nav>
                         </t>
@@ -223,7 +223,7 @@
                             </button>
                         </div>
                         <div class="o_wiki_toc_tree" id="o_wiki_toc_tree">
-                            <t t-raw="wiki_toc_html"/>
+                            <t t-out="wiki_toc_html"/>
                         </div>
                     </aside>
 
@@ -303,7 +303,7 @@
                                     </t>
                                     <t t-else="">
                                         <div id="o_wiki_editor_area" class="o_wiki_editor_area">
-                                            <t t-raw="current_content"/>
+                                            <t t-out="current_content"/>
                                         </div>
                                         <div id="o_wiki_wysiwyg_wrap" class="o_wysiwyg_textarea_wrapper d-none">
                                             <!--

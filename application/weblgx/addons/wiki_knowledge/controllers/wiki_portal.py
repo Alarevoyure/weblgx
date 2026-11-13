@@ -465,14 +465,14 @@ class WikiPortal(http.Controller):
         if not current and pages and not search_q and not wiki_article:
             current = pages[0]
 
-        current_content = ""
+        current_content = Markup("")
         if current:
             if self._wiki_can_see_draft():
-                current_content = current.content or ""
+                current_content = Markup(current.content or "")
             elif current.state == "published":
-                current_content = current.last_published_content or current.content or ""
+                current_content = Markup(current.last_published_content or current.content or "")
             else:
-                current_content = current.last_published_content or current.content or ""
+                current_content = Markup(current.last_published_content or current.content or "")
 
         wiki_search_active = bool(search_q)
         # website.layout (utilisateurs internes) appelle main_object.fields_get() sans tester None.
