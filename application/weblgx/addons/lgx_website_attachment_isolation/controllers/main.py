@@ -3,6 +3,7 @@
 import re
 from urllib.parse import unquote
 
+from weblgx import http
 from weblgx.exceptions import UserError
 from weblgx.http import request
 from weblgx.tools.translate import _
@@ -35,6 +36,13 @@ class WebEditor(WebEditorController):
                 return website
         return request.env["website"].get_current_website(fallback=False)
 
+    @http.route(
+        "/web_editor/attachment/add_data",
+        type="json",
+        auth="user",
+        methods=["POST"],
+        website=True,
+    )
     def add_data(
         self,
         name,
@@ -63,6 +71,13 @@ class WebEditor(WebEditorController):
             **kwargs,
         )
 
+    @http.route(
+        "/web_editor/attachment/add_url",
+        type="json",
+        auth="user",
+        methods=["POST"],
+        website=True,
+    )
     def add_url(self, url, res_id=False, res_model="ir.ui.view", website_id=None, **kwargs):
         resolved = self._resolve_website_id_for_upload(website_id)
         if resolved:
